@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Products - Niuexa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html"><h1>NIUEXA</h1></a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#company" class="nav-link">Chi Siamo</a>
+                </li>
+                <li class="nav-item">
+                    <a href="consulting.html" class="nav-link">Consulting</a>
+                </li>
+                <li class="nav-item">
+                    <a href="training.html" class="nav-link">Training</a>
+                </li>
+                <li class="nav-item">
+                    <a href="products.html" class="nav-link active">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a href="roi-calculator.html" class="nav-link">ROI Calculator</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #2d3561 100%); padding: 120px 0 80px; color: white; text-align: center;">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(0, 102, 204, 0.1); border: 1px solid rgba(0, 102, 204, 0.3); padding: 0.5rem 1rem; border-radius: 50px; color: #0066cc; font-size: 0.9rem; font-weight: 600; margin-bottom: 1.5rem;">
+                    <span class="badge-icon">🤖</span>
+                    <span>Agenti AI Pronti all'Uso</span>
+                </div>
+                <h1 class="hero-title" style="font-size: 3.5rem; margin-bottom: 1.5rem; line-height: 1.1;">Trasforma il Tuo Business con <span class="highlight" style="background: linear-gradient(135deg, #0066cc, #00cc66); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Agenti AI Intelligenti</span></h1>
+                <p class="hero-subtitle" style="font-size: 1.3rem; color: rgba(255, 255, 255, 0.8); margin-bottom: 2.5rem; max-width: 800px; margin-left: auto; margin-right: auto;">Scopri la nostra suite di agenti AI pronti per il deployment, progettati per ottimizzare le operazioni aziendali e migliorare la produttività in diversi dipartimenti.</p>
+                <div class="hero-stats" style="display: flex; justify-content: center; gap: 3rem; margin-bottom: 2.5rem; flex-wrap: wrap;">
+                    <div class="stat-item" style="text-align: center;">
+                        <span class="stat-number" style="display: block; font-size: 2.5rem; font-weight: 700; color: #00cc66; font-family: 'Orbitron', monospace;">24/7</span>
+                        <span class="stat-label" style="font-size: 1rem; color: rgba(255, 255, 255, 0.7); margin-top: 0.5rem;">Operatività</span>
+                    </div>
+                    <div class="stat-item" style="text-align: center;">
+                        <span class="stat-number" style="display: block; font-size: 2.5rem; font-weight: 700; color: #00cc66; font-family: 'Orbitron', monospace;">80%</span>
+                        <span class="stat-label" style="font-size: 1rem; color: rgba(255, 255, 255, 0.7); margin-top: 0.5rem;">Riduzione Costi</span>
+                    </div>
+                    <div class="stat-item" style="text-align: center;">
+                        <span class="stat-number" style="display: block; font-size: 2.5rem; font-weight: 700; color: #00cc66; font-family: 'Orbitron', monospace;">5x</span>
+                        <span class="stat-label" style="font-size: 1rem; color: rgba(255, 255, 255, 0.7); margin-top: 0.5rem;">Velocità Processi</span>
+                    </div>
+                </div>
+                <div class="hero-buttons" style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+                    <a href="#products" class="btn btn-primary">
+                        <span class="btn-icon">🚀</span>
+                        Esplora Prodotti
+                    </a>
+                    <a href="#demo" class="btn btn-secondary">
+                        <span class="btn-icon">🎬</span>
+                        Richiedi Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products-section" style="padding: 80px 0; background: white;">
+        <div class="container">
+            <h2 class="section-title">I Nostri Prodotti AI</h2>
+            <div class="products-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                
+                <!-- Agente Marketing -->
+                <div class="product-card" style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; border: 2px solid transparent; position: relative;">
+                    <div class="product-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                        <div>
+                            <div class="product-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #0066cc, #004499); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 1rem;">📈</div>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: #2c3e50;">Agente Marketing</h3>
+                        </div>
+                        <div class="product-badge" style="background: linear-gradient(135deg, #ff6b6b, #ee5a24); color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Popolare</div>
+                    </div>
+                    <p style="color: #6c757d; margin-bottom: 1.5rem; line-height: 1.6;">Automatizza le tue campagne marketing con creazione intelligente di contenuti e targeting del pubblico.</p>
+                    <ul class="product-features" style="list-style: none; margin: 0 0 2rem 0; padding: 0;">
+                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
+                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
+                            Generazione e ottimizzazione contenuti
+                        </li>
+                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
+                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
+                            Gestione social media
+                        </li>
+                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
+                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
+                            Analisi performance campagne
+                        </li>
+                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
+                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
+                            Automazione A/B testing
+                        </li>
+                    </ul>
+                    <div class="product-pricing" style="text-align: center; margin-bottom: 1.5rem;">
+                        <div style="margin-bottom: 1rem;">
+                            <span style="font-size: 2rem; font-weight: 700; color: #0066cc;">€2,500</span>
+                            <span style="color: #6c757d; font-size: 0.9rem;">/mese</span>
+                        </div>
+                        <div style="font-size: 0.8rem; color: #6c757d;">Setup: €5,000 una tantum</div>
+                    </div>
+                    <a href="#demo" class="btn btn-primary" style="width: 100%; text-align: center; display: block; padding: 1rem;">Richiedi Demo</a>
+                </div>
+
+                <!-- Agente Vendite -->
+                <div class="product-card" style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; border: 2px solid transparent; position: relative;">
+                    <div class="product-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                        <div>
+                            <div class="product-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #00cc66, #009944); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 1rem;">💼</div>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: #2c3e50;">Agente Vendite</h3>
+                        </div>
+                        <div class="product-badge" style="background: linear-gradient(135deg, #00cc66, #009944); color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Nuovo</div>
+                    </div>
+                    <p style="color: #6c757d; margin-bottom: 1.5rem; line-height: 1.6;">Migliora il tuo processo di vendita con qualificazione intelligente dei lead e coinvolgimento clienti.</p>
+                    <ul class="product-features" style="list-style: none; margin: 0 0 2rem 0; padding: 0;">
+                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
+                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
+                            Scoring e prioritizzazione lead
+                        </li>
+                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
+                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
+                            Sequenze di follow-up automatizzate
+                        </li>
+                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
+                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
+                            Previsioni di vendita
+                        </li>
+                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
+                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
+                            Integrazione CRM
+                        </li>
+                    </ul>
+                    <div class="product-pricing" style="text-align: center; margin-bottom: 1.5rem;">
+                        <div style="margin-bottom: 1rem;">
+                            <span style="font-size: 2rem; font-weight: 700; color: #0066cc;">€3,000</span>
+                            <span style="color: #6c757d; font-size: 0.9rem;">/mese</span>
+                        </div>
+                        <div style="font-size: 0.8rem; color: #6c757d;">Setup: €6,000 una tantum</div>
+                    </div>
+                    <a href="#demo" class="btn btn-primary" style="width: 100%; text-align: center; display: block; padding: 1rem;">Richiedi Demo</a>
+                </div>
+
+                <!-- Agente Vocale -->
+                <div class="product-card" style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; border: 2px solid transparent; position: relative;">
+                    <div class="product-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                        <div>
+                            <div class="product-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #0066cc, #00cc66); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 1rem;">🎤</div>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: #2c3e50;">Agente Vocale</h3>
+                        </div>
+                        <div class="product-badge" style="background: linear-gradient(135deg, #9b59b6, #8e44ad); color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Avanzato</div>
+                    </div>
+                    <p style="color: #6c757d; margin-bottom: 1.5rem; line-height: 1.6;">Fornisci supporto clienti 24/7 con elaborazione linguaggio naturale e riconoscimento vocale.</p>
+                    <ul class="product-features" style="list-style: none; margin: 0 0 2rem 0; padding: 0;">
+                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
+                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
+                            Flusso conversazione naturale
+                        </li>
+                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
+                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
+                            Supporto multi-lingua
+                        </li>
+                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
+                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
+                            Analisi del sentiment
+                        </li>
+                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
+                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
+                            Routing chiamate e escalation
+                        </li>
+                    </ul>
+                    <div class="product-pricing" style="text-align: center; margin-bottom: 1.5rem;">
+                        <div style="margin-bottom: 1rem;">
+                            <span style="font-size: 2rem; font-weight: 700; color: #0066cc;">€4,000</span>
+                            <span style="color: #6c757d; font-size: 0.9rem;">/mese</span>
+                        </div>
+                        <div style="font-size: 0.8rem; color: #6c757d;">Setup: €8,000 una tantum</div>
+                    </div>
+                    <a href="#demo" class="btn btn-primary" style="width: 100%; text-align: center; display: block; padding: 1rem;">Richiedi Demo</a>
+                </div>
+
+                <!-- Agenti Personalizzati -->
+                <div class="product-card" style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; border: 2px solid transparent; position: relative;">
+                    <div class="product-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                        <div>
+                            <div class="product-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #2c3e50, #34495e); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 1rem;">⚙️</div>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: #2c3e50;">Agenti Personalizzati</h3>
+                        </div>
+                        <div class="product-badge" style="background: linear-gradient(135deg, #f39c12, #e67e22); color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Su Misura</div>
+                    </div>
+                    <p style="color: #6c757d; margin-bottom: 1.5rem; line-height: 1.6;">Soluzioni AI su misura progettate specificamente per i tuoi requisiti aziendali unici.</p>
+                    <ul class="product-features" style="list-style: none; margin: 0 0 2rem 0; padding: 0;">
+                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
+                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
+                            Automazione workflow personalizzata
+                        </li>
+                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
+                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
+                            Soluzioni specifiche per settore
+                        </li>
+                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
+                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
+                            Integrazione sistemi legacy
+                        </li>
+                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
+                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
+                            Supporto e aggiornamenti continui
+                        </li>
+                    </ul>
+                    <div class="product-pricing" style="text-align: center; margin-bottom: 1.5rem;">
+                        <div style="margin-bottom: 1rem;">
+                            <span style="font-size: 1.5rem; font-weight: 700; color: #0066cc;">Su Preventivo</span>
+                        </div>
+                        <div style="font-size: 0.8rem; color: #6c757d;">Analisi gratuita delle esigenze</div>
+                    </div>
+                    <a href="#demo" class="btn btn-primary" style="width: 100%; text-align: center; display: block; padding: 1rem;">Richiedi Consulenza</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Comparison -->
+    <section class="features-section" style="padding: 80px 0; background: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">Confronto Caratteristiche</h2>
+            <div class="comparison-table" style="margin-top: 3rem; overflow-x: auto;">
+                <table style="width: 100%; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
+                    <thead>
+                        <tr style="background: linear-gradient(135deg, #0066cc, #00cc66); color: white;">
+                            <th style="padding: 1.5rem; text-align: left; font-weight: 600;">Caratteristica</th>
+                            <th style="padding: 1.5rem; text-align: center; font-weight: 600;">Marketing</th>
+                            <th style="padding: 1.5rem; text-align: center; font-weight: 600;">Vendite</th>
+                            <th style="padding: 1.5rem; text-align: center; font-weight: 600;">Vocale</th>
+                            <th style="padding: 1.5rem; text-align: center; font-weight: 600;">Personalizzato</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #e9ecef;">
+                            <td style="padding: 1rem 1.5rem; font-weight: 500;">Automazione Contenuti</td>
+                            <td style="padding: 1rem 1.5rem; text-align: center; color: #00cc66;">✓</td>
+                            <td style="padding: 1rem 1.5rem; text-align: center; color: #6c757d;">-</td>
+                            <td style="padding: 1rem 1.5rem; text-align: center; color: #6c757d;">-</td>
+                            <td style="padding: 1rem 1.5rem; text-align: center; color: #00cc66;">✓</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #e9ecef; background: #f8f9fa;">
+                            <td style="padding: 1rem 1.5rem; font-weight: 500;">Lead Scoring</td>
+                            <td style="padding: 1rem 1.5rem; text-align: center; color: #6c757d;">-</td>
+                            <td style="padding: 1rem 1.5rem; text-align: center; color: #00cc66;">✓</td>
+                            <td style="padding: 1rem 1.5rem; text-align: center; color: #6c757d;">-</td>
+                            <td style="padding: 1rem 1.5rem; text-align: center; color: #00cc66;">✓</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #e9ecef;">
+                            <td style="padding: 1rem 1.5rem; font-weight: 500;">Supporto Vocale</td>
+                            <td style="padding: 1rem 1.5rem; text-align: center; color: #6c757d;">-</td>
+                            <td style="padding: 1rem 1.5rem; text-align: center; color: #6c757d;">-</td>
+                            <td style="padding: 1rem 1.5rem; text-align: center; color: #00cc66;">✓</td>
+                            <td style="padding: 1rem 1.5rem; text-align: center; color: #00cc66;">✓</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #e9ecef; background: #f8f9fa;">
+                            <td style="padding: 1rem 1.5rem; font-weight: 500;">Integrazione CRM</td>
+                            <td style="padding: 1rem 1.5rem; text-align: center; color: #00cc66;">✓</td>
+                            <td style="padding: 1rem 1.5rem; text-align: center; color: #00cc66;">✓</td>
+                            <td style="padding: 1rem 1.5rem; text-align: center; color: #00cc66;">✓</td>
+                            <td style="padding: 1rem 1.5rem; text-align: center; color: #00cc66;">✓</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #e9ecef;">
+                            <td style="padding: 1rem 1.5rem; font-weight: 500;">Analytics Avanzate</td>
+                            <td style="padding: 1rem 1.5rem; text-align: center; color: #00cc66;">✓</td>
+                            <td style="padding: 1rem 1.5rem; text-align: center; color: #00cc66;">✓</td>
+                            <td style="padding: 1rem 1.5rem; text-align: center; color: #00cc66;">✓</td>
+                            <td style="padding: 1rem 1.5rem; text-align: center; color: #00cc66;">✓</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 1rem 1.5rem; font-weight: 500;">Supporto 24/7</td>
+                            <td style="padding: 1rem 1.5rem; text-align: center; color: #00cc66;">✓</td>
+                            <td style="padding: 1rem 1.5rem; text-align: center; color: #00cc66;">✓</td>
+                            <td style="padding: 1rem 1.5rem; text-align: center; color: #00cc66;">✓</td>
+                            <td style="padding: 1rem 1.5rem; text-align: center; color: #00cc66;">✓</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Request Section -->
+    <section id="demo" class="demo-section" style="padding: 80px 0; background: linear-gradient(135deg, #0066cc, #00cc66); color: white;">
+        <div class="container">
+            <div class="demo-content" style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Richiedi una Demo Personalizzata</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2.5rem; opacity: 0.9;">Scopri come i nostri agenti AI possono trasformare il tuo business. Prenota una demo gratuita e personalizzata.</p>
+                
+                <div class="demo-benefits" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 3rem;">
+                    <div class="benefit" style="display: flex; align-items: center; gap: 0.5rem; padding: 1rem; background: rgba(255, 255, 255, 0.1); border-radius: 10px; font-weight: 500;">
+                        <span style="color: #00cc66; font-weight: bold; font-size: 1.2rem;">✓</span>
+                        <span>Demo live 30 minuti</span>
+                    </div>
+                    <div class="benefit" style="display: flex; align-items: center; gap: 0.5rem; padding: 1rem; background: rgba(255, 255, 255, 0.1); border-radius: 10px; font-weight: 500;">
+                        <span style="color: #00cc66; font-weight: bold; font-size: 1.2rem;">✓</span>
+                        <span>Analisi personalizzata</span>
+                    </div>
+                    <div class="benefit" style="display: flex; align-items: center; gap: 0.5rem; padding: 1rem; background: rgba(255, 255, 255, 0.1); border-radius: 10px; font-weight: 500;">
+                        <span style="color: #00cc66; font-weight: bold; font-size: 1.2rem;">✓</span>
+                        <span>ROI garantito</span>
+                    </div>
+                    <div class="benefit" style="display: flex; align-items: center; gap: 0.5rem; padding: 1rem; background: rgba(255, 255, 255, 0.1); border-radius: 10px; font-weight: 500;">
+                        <span style="color: #00cc66; font-weight: bold; font-size: 1.2rem;">✓</span>
+                        <span>Supporto implementazione</span>
+                    </div>
+                </div>
+                
+                <div class="demo-form" style="background: white; padding: 2.5rem; border-radius: 20px; color: #2c3e50;">
+                    <form id="demoForm">
+                        <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                            <div class="form-group">
+                                <input type="text" id="demoName" name="name" placeholder="Nome" required style="width: 100%; padding: 1rem; border: 2px solid #e9ecef; border-radius: 10px; font-size: 1rem;">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="demoEmail" name="email" placeholder="Email" required style="width: 100%; padding: 1rem; border: 2px solid #e9ecef; border-radius: 10px; font-size: 1rem;">
+                            </div>
+                        </div>
+                        <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                            <div class="form-group">
+                                <input type="text" id="demoCompany" name="company" placeholder="Azienda" required style="width: 100%; padding: 1rem; border: 2px solid #e9ecef; border-radius: 10px; font-size: 1rem;">
+                            </div>
+                            <div class="form-group">
+                                <select id="demoProduct" name="product" required style="width: 100%; padding: 1rem; border: 2px solid #e9ecef; border-radius: 10px; font-size: 1rem;">
+                                    <option value="">Seleziona Prodotto</option>
+                                    <option value="marketing">Agente Marketing</option>
+                                    <option value="sales">Agente Vendite</option>
+                                    <option value="voice">Agente Vocale</option>
+                                    <option value="custom">Soluzione Personalizzata</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 1rem;">
+                            <textarea id="demoMessage" name="message" placeholder="Descrivi le tue esigenze e obiettivi..." rows="4" style="width: 100%; padding: 1rem; border: 2px solid #e9ecef; border-radius: 10px; font-size: 1rem;"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1.2rem; font-size: 1.1rem; margin-top: 1rem;">Prenota Demo Gratuita</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>NIUEXA</h3>
+                    <p>Soluzioni AI Avanzate per il Business Moderno</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Servizi</h4>
+                        <ul>
+                            <li><a href="consulting.html">Consulenza AI</a></li>
+                            <li><a href="training.html">Formazione AI</a></li>
+                            <li><a href="products.html">Prodotti AI</a></li>
+                            <li><a href="roi-calculator.html">ROI Calculator</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Azienda</h4>
+                        <ul>
+                            <li><a href="index.html#company">Chi Siamo</a></li>
+                            <li><a href="index.html#contact">Contatti</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Social</h4>
+                        <ul>
+                            <li><a href="https://linkedin.com/company/niuexa" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Niuexa. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

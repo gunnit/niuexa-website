@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Consulting Services - Niuexa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="consulting.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html"><h1>NIUEXA</h1></a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#company" class="nav-link">Chi Siamo</a>
+                </li>
+                <li class="nav-item">
+                    <a href="consulting.html" class="nav-link active">Consulting</a>
+                </li>
+                <li class="nav-item">
+                    <a href="training.html" class="nav-link">Training</a>
+                </li>
+                <li class="nav-item">
+                    <a href="products.html" class="nav-link">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a href="roi-calculator.html" class="nav-link">ROI Calculator</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="consulting-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-icon">🎯</span>
+                    <span>Expert AI Consulting</span>
+                </div>
+                <h1 class="hero-title">Transform Your Business with <span class="highlight">Strategic AI Implementation</span></h1>
+                <p class="hero-subtitle">Our expert consultants help you identify, design, and implement AI solutions that deliver measurable ROI and competitive advantage.</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">300%</span>
+                        <span class="stat-label">Average ROI</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">Weeks to Deploy</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Success Stories</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#consultation" class="btn btn-primary">
+                        <span class="btn-icon">📞</span>
+                        Free Consultation
+                    </a>
+                    <a href="roi-calculator.html" class="btn btn-secondary">
+                        <span class="btn-icon">📊</span>
+                        Calculate ROI
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title">Our Consulting Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <div class="icon-strategy"></div>
+                    </div>
+                    <h3>AI Strategy & Roadmap</h3>
+                    <p>Develop comprehensive AI strategies aligned with your business objectives and create detailed implementation roadmaps.</p>
+                    <ul class="service-features">
+                        <li>Business case development</li>
+                        <li>Technology assessment</li>
+                        <li>Implementation planning</li>
+                        <li>Risk mitigation strategies</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <div class="icon-automation"></div>
+                    </div>
+                    <h3>Process Automation</h3>
+                    <p>Identify and automate repetitive tasks and workflows to increase efficiency and reduce operational costs.</p>
+                    <ul class="service-features">
+                        <li>Process analysis & mapping</li>
+                        <li>Automation opportunity identification</li>
+                        <li>Custom solution design</li>
+                        <li>Integration & deployment</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <div class="icon-integration"></div>
+                    </div>
+                    <h3>AI Integration</h3>
+                    <p>Seamlessly integrate AI solutions into your existing systems and workflows for maximum impact.</p>
+                    <ul class="service-features">
+                        <li>System compatibility analysis</li>
+                        <li>API development & integration</li>
+                        <li>Data pipeline setup</li>
+                        <li>Performance optimization</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <div class="icon-optimization"></div>
+                    </div>
+                    <h3>Performance Optimization</h3>
+                    <p>Continuously monitor and optimize your AI implementations for peak performance and ROI.</p>
+                    <ul class="service-features">
+                        <li>Performance monitoring</li>
+                        <li>Model fine-tuning</li>
+                        <li>Cost optimization</li>
+                        <li>Scalability planning</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Solutions -->
+    <section class="industry-section">
+        <div class="container">
+            <h2 class="section-title">Industry-Specific Solutions</h2>
+            <div class="industry-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="finance">Finance & Banking</button>
+                    <button class="tab-btn" data-tab="healthcare">Healthcare</button>
+                    <button class="tab-btn" data-tab="manufacturing">Manufacturing</button>
+                    <button class="tab-btn" data-tab="retail">Retail & E-commerce</button>
+                    <button class="tab-btn" data-tab="technology">Technology</button>
+                </div>
+                
+                <div class="tab-content active" id="finance">
+                    <div class="industry-content">
+                        <div class="industry-info">
+                            <h3>Finance & Banking AI Solutions</h3>
+                            <p>Transform financial operations with AI-powered automation, risk assessment, and customer service solutions.</p>
+                            <div class="use-cases">
+                                <div class="use-case">
+                                    <h4>Automated Financial Reporting</h4>
+                                    <p>Generate comprehensive financial reports automatically, reducing manual work by 80% and improving accuracy.</p>
+                                </div>
+                                <div class="use-case">
+                                    <h4>Risk Assessment & Fraud Detection</h4>
+                                    <p>Real-time risk analysis and fraud detection using advanced machine learning algorithms.</p>
+                                </div>
+                                <div class="use-case">
+                                    <h4>Customer Service Automation</h4>
+                                    <p>AI-powered chatbots and virtual assistants for 24/7 customer support and query resolution.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="industry-stats">
+                            <div class="stat-card">
+                                <h4>Average Savings</h4>
+                                <span class="stat-value">€2.5M</span>
+                                <span class="stat-period">per year</span>
+                            </div>
+                            <div class="stat-card">
+                                <h4>Time Reduction</h4>
+                                <span class="stat-value">75%</span>
+                                <span class="stat-period">in processing</span>
+                            </div>
+                            <div class="stat-card">
+                                <h4>ROI</h4>
+                                <span class="stat-value">320%</span>
+                                <span class="stat-period">average</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="healthcare">
+                    <div class="industry-content">
+                        <div class="industry-info">
+                            <h3>Healthcare AI Solutions</h3>
+                            <p>Enhance patient care and operational efficiency with AI-driven healthcare solutions.</p>
+                            <div class="use-cases">
+                                <div class="use-case">
+                                    <h4>Patient Data Management</h4>
+                                    <p>Automated patient record processing and intelligent data extraction from medical documents.</p>
+                                </div>
+                                <div class="use-case">
+                                    <h4>Appointment Scheduling</h4>
+                                    <p>AI-powered scheduling optimization to reduce wait times and improve resource utilization.</p>
+                                </div>
+                                <div class="use-case">
+                                    <h4>Clinical Decision Support</h4>
+                                    <p>AI assistants that help healthcare professionals make informed decisions based on patient data.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="industry-stats">
+                            <div class="stat-card">
+                                <h4>Cost Reduction</h4>
+                                <span class="stat-value">40%</span>
+                                <span class="stat-period">operational costs</span>
+                            </div>
+                            <div class="stat-card">
+                                <h4>Efficiency Gain</h4>
+                                <span class="stat-value">60%</span>
+                                <span class="stat-period">faster processing</span>
+                            </div>
+                            <div class="stat-card">
+                                <h4>Patient Satisfaction</h4>
+                                <span class="stat-value">85%</span>
+                                <span class="stat-period">improvement</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="manufacturing">
+                    <div class="industry-content">
+                        <div class="industry-info">
+                            <h3>Manufacturing AI Solutions</h3>
+                            <p>Optimize production processes and supply chain management with intelligent automation.</p>
+                            <div class="use-cases">
+                                <div class="use-case">
+                                    <h4>Quality Control Automation</h4>
+                                    <p>AI-powered visual inspection and quality assurance systems for consistent product quality.</p>
+                                </div>
+                                <div class="use-case">
+                                    <h4>Predictive Maintenance</h4>
+                                    <p>Prevent equipment failures and optimize maintenance schedules using predictive analytics.</p>
+                                </div>
+                                <div class="use-case">
+                                    <h4>Supply Chain Optimization</h4>
+                                    <p>Intelligent demand forecasting and inventory management to reduce costs and improve efficiency.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="industry-stats">
+                            <div class="stat-card">
+                                <h4>Production Increase</h4>
+                                <span class="stat-value">35%</span>
+                                <span class="stat-period">output boost</span>
+                            </div>
+                            <div class="stat-card">
+                                <h4>Defect Reduction</h4>
+                                <span class="stat-value">90%</span>
+                                <span class="stat-period">fewer defects</span>
+                            </div>
+                            <div class="stat-card">
+                                <h4>Downtime Reduction</h4>
+                                <span class="stat-value">50%</span>
+                                <span class="stat-period">less downtime</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="retail">
+                    <div class="industry-content">
+                        <div class="industry-info">
+                            <h3>Retail & E-commerce AI Solutions</h3>
+                            <p>Enhance customer experience and optimize operations with AI-driven retail solutions.</p>
+                            <div class="use-cases">
+                                <div class="use-case">
+                                    <h4>Personalized Recommendations</h4>
+                                    <p>AI-powered product recommendations to increase sales and customer satisfaction.</p>
+                                </div>
+                                <div class="use-case">
+                                    <h4>Inventory Management</h4>
+                                    <p>Intelligent demand forecasting and automated inventory optimization.</p>
+                                </div>
+                                <div class="use-case">
+                                    <h4>Customer Service Automation</h4>
+                                    <p>AI chatbots for instant customer support and order management.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="industry-stats">
+                            <div class="stat-card">
+                                <h4>Sales Increase</h4>
+                                <span class="stat-value">25%</span>
+                                <span class="stat-period">revenue boost</span>
+                            </div>
+                            <div class="stat-card">
+                                <h4>Customer Retention</h4>
+                                <span class="stat-value">40%</span>
+                                <span class="stat-period">improvement</span>
+                            </div>
+                            <div class="stat-card">
+                                <h4>Operational Efficiency</h4>
+                                <span class="stat-value">55%</span>
+                                <span class="stat-period">cost reduction</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="technology">
+                    <div class="industry-content">
+                        <div class="industry-info">
+                            <h3>Technology Sector AI Solutions</h3>
+                            <p>Accelerate innovation and improve development processes with AI-powered tools and automation.</p>
+                            <div class="use-cases">
+                                <div class="use-case">
+                                    <h4>Code Generation & Review</h4>
+                                    <p>AI-assisted code generation, review, and optimization to accelerate development cycles.</p>
+                                </div>
+                                <div class="use-case">
+                                    <h4>Automated Testing</h4>
+                                    <p>Intelligent test case generation and automated quality assurance processes.</p>
+                                </div>
+                                <div class="use-case">
+                                    <h4>DevOps Automation</h4>
+                                    <p>AI-powered deployment, monitoring, and incident response automation.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="industry-stats">
+                            <div class="stat-card">
+                                <h4>Development Speed</h4>
+                                <span class="stat-value">70%</span>
+                                <span class="stat-period">faster delivery</span>
+                            </div>
+                            <div class="stat-card">
+                                <h4>Bug Reduction</h4>
+                                <span class="stat-value">80%</span>
+                                <span class="stat-period">fewer bugs</span>
+                            </div>
+                            <div class="stat-card">
+                                <h4>Team Productivity</h4>
+                                <span class="stat-value">60%</span>
+                                <span class="stat-period">increase</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <h2 class="section-title">Our Proven Methodology</h2>
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Discovery & Assessment</h3>
+                        <p>We analyze your current processes, identify automation opportunities, and assess your technical infrastructure.</p>
+                        <ul>
+                            <li>Business process mapping</li>
+                            <li>Technology audit</li>
+                            <li>ROI analysis</li>
+                            <li>Risk assessment</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Strategy & Planning</h3>
+                        <p>Develop a comprehensive AI strategy and detailed implementation roadmap tailored to your business goals.</p>
+                        <ul>
+                            <li>AI strategy development</li>
+                            <li>Solution architecture</li>
+                            <li>Implementation timeline</li>
+                            <li>Resource planning</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Implementation & Integration</h3>
+                        <p>Deploy AI solutions with minimal disruption to your operations and ensure seamless integration.</p>
+                        <ul>
+                            <li>Solution development</li>
+                            <li>System integration</li>
+                            <li>Testing & validation</li>
+                            <li>User training</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Optimization & Support</h3>
+                        <p>Continuously monitor performance, optimize solutions, and provide ongoing support for maximum ROI.</p>
+                        <ul>
+                            <li>Performance monitoring</li>
+                            <li>Continuous optimization</li>
+                            <li>24/7 support</li>
+                            <li>Regular reviews</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="case-studies-section">
+        <div class="container">
+            <h2 class="section-title">Success Stories</h2>
+            <div class="case-studies-grid">
+                <div class="case-study">
+                    <div class="case-study-header">
+                        <h3>Global Bank Automates Loan Processing</h3>
+                        <span class="industry-tag">Finance</span>
+                    </div>
+                    <div class="case-study-content">
+                        <p>Reduced loan processing time from 5 days to 2 hours while improving accuracy by 95%.</p>
+                        <div class="case-study-metrics">
+                            <div class="metric">
+                                <span class="metric-value">€3.2M</span>
+                                <span class="metric-label">Annual Savings</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">95%</span>
+                                <span class="metric-label">Time Reduction</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">400%</span>
+                                <span class="metric-label">ROI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-study">
+                    <div class="case-study-header">
+                        <h3>Healthcare Provider Streamlines Patient Care</h3>
+                        <span class="industry-tag">Healthcare</span>
+                    </div>
+                    <div class="case-study-content">
+                        <p>Automated patient scheduling and record management, improving patient satisfaction by 80%.</p>
+                        <div class="case-study-metrics">
+                            <div class="metric">
+                                <span class="metric-value">€1.8M</span>
+                                <span class="metric-label">Cost Savings</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">80%</span>
+                                <span class="metric-label">Satisfaction Increase</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">60%</span>
+                                <span class="metric-label">Efficiency Gain</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-study">
+                    <div class="case-study-header">
+                        <h3>Manufacturing Giant Optimizes Production</h3>
+                        <span class="industry-tag">Manufacturing</span>
+                    </div>
+                    <div class="case-study-content">
+                        <p>Implemented predictive maintenance and quality control, reducing downtime by 70%.</p>
+                        <div class="case-study-metrics">
+                            <div class="metric">
+                                <span class="metric-value">€5.1M</span>
+                                <span class="metric-label">Annual Savings</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">70%</span>
+                                <span class="metric-label">Downtime Reduction</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">450%</span>
+                                <span class="metric-label">ROI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation CTA -->
+    <section id="consultation" class="consultation-section">
+        <div class="container">
+            <div class="consultation-content">
+                <h2>Ready to Transform Your Business?</h2>
+                <p>Schedule a free consultation with our AI experts to discuss your specific needs and discover how AI can revolutionize your operations.</p>
+                <div class="consultation-benefits">
+                    <div class="benefit">
+                        <span class="benefit-icon">✓</span>
+                        <span>Free 60-minute consultation</span>
+                    </div>
+                    <div class="benefit">
+                        <span class="benefit-icon">✓</span>
+                        <span>Custom ROI analysis</span>
+                    </div>
+                    <div class="benefit">
+                        <span class="benefit-icon">✓</span>
+                        <span>Detailed implementation roadmap</span>
+                    </div>
+                    <div class="benefit">
+                        <span class="benefit-icon">✓</span>
+                        <span>No obligation proposal</span>
+                    </div>
+                </div>
+                <div class="consultation-form">
+                    <form id="consultationForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" id="consultName" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="consultEmail" name="email" placeholder="Email Address" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" id="consultCompany" name="company" placeholder="Company Name" required>
+                            </div>
+                            <div class="form-group">
+                                <select id="consultIndustry" name="industry" required>
+                                    <option value="">Select Industry</option>
+                                    <option value="finance">Finance & Banking</option>
+                                    <option value="healthcare">Healthcare</option>
+                                    <option value="manufacturing">Manufacturing</option>
+                                    <option value="retail">Retail & E-commerce</option>
+                                    <option value="technology">Technology</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="consultMessage" name="message" placeholder="Tell us about your automation needs and challenges..." rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Schedule Free Consultation</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>NIUEXA</h3>
+                    <p>Advanced AI Solutions for Modern Business</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Servizi</h4>
+                        <ul>
+                            <li><a href="consulting.html">Consulenza AI</a></li>
+                            <li><a href="training.html">Formazione AI</a></li>
+                            <li><a href="products.html">Prodotti AI</a></li>
+                            <li><a href="roi-calculator.html">ROI Calculator</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Azienda</h4>
+                        <ul>
+                            <li><a href="index.html#company">Chi Siamo</a></li>
+                            <li><a href="index.html#contact">Contatti</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Social</h4>
+                        <ul>
+                            <li><a href="https://linkedin.com/company/niuexa" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Niuexa. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="consulting.js"></script>
+</body>
+</html>

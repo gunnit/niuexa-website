@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Training Programs - Niuexa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html"><h1>NIUEXA</h1></a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#company" class="nav-link">Chi Siamo</a>
+                </li>
+                <li class="nav-item">
+                    <a href="consulting.html" class="nav-link">Consulting</a>
+                </li>
+                <li class="nav-item">
+                    <a href="training.html" class="nav-link active">Training</a>
+                </li>
+                <li class="nav-item">
+                    <a href="products.html" class="nav-link">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a href="roi-calculator.html" class="nav-link">ROI Calculator</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #2d3561 100%); padding: 120px 0 80px; color: white; text-align: center;">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(0, 102, 204, 0.1); border: 1px solid rgba(0, 102, 204, 0.3); padding: 0.5rem 1rem; border-radius: 50px; color: #0066cc; font-size: 0.9rem; font-weight: 600; margin-bottom: 1.5rem;">
+                    <span class="badge-icon">🎓</span>
+                    <span>Formazione AI Professionale</span>
+                </div>
+                <h1 class="hero-title" style="font-size: 3.5rem; margin-bottom: 1.5rem; line-height: 1.1;">Potenzia il Tuo Team con <span class="highlight" style="background: linear-gradient(135deg, #0066cc, #00cc66); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Formazione AI Avanzata</span></h1>
+                <p class="hero-subtitle" style="font-size: 1.3rem; color: rgba(255, 255, 255, 0.8); margin-bottom: 2.5rem; max-width: 800px; margin-left: auto; margin-right: auto;">Programmi di formazione completi in intelligenza artificiale generativa, prompt engineering e sviluppo di agenti AI per trasformare le competenze del tuo team.</p>
+                <div class="hero-stats" style="display: flex; justify-content: center; gap: 3rem; margin-bottom: 2.5rem; flex-wrap: wrap;">
+                    <div class="stat-item" style="text-align: center;">
+                        <span class="stat-number" style="display: block; font-size: 2.5rem; font-weight: 700; color: #00cc66; font-family: 'Orbitron', monospace;">500+</span>
+                        <span class="stat-label" style="font-size: 1rem; color: rgba(255, 255, 255, 0.7); margin-top: 0.5rem;">Professionisti Formati</span>
+                    </div>
+                    <div class="stat-item" style="text-align: center;">
+                        <span class="stat-number" style="display: block; font-size: 2.5rem; font-weight: 700; color: #00cc66; font-family: 'Orbitron', monospace;">95%</span>
+                        <span class="stat-label" style="font-size: 1rem; color: rgba(255, 255, 255, 0.7); margin-top: 0.5rem;">Tasso di Soddisfazione</span>
+                    </div>
+                    <div class="stat-item" style="text-align: center;">
+                        <span class="stat-number" style="display: block; font-size: 2.5rem; font-weight: 700; color: #00cc66; font-family: 'Orbitron', monospace;">24</span>
+                        <span class="stat-label" style="font-size: 1rem; color: rgba(255, 255, 255, 0.7); margin-top: 0.5rem;">Ore di Formazione</span>
+                    </div>
+                </div>
+                <div class="hero-buttons" style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+                    <a href="#programs" class="btn btn-primary">
+                        <span class="btn-icon">📚</span>
+                        Esplora Programmi
+                    </a>
+                    <a href="#contact-training" class="btn btn-secondary">
+                        <span class="btn-icon">💬</span>
+                        Richiedi Info
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Programs Section -->
+    <section id="programs" class="training-programs-section" style="padding: 80px 0; background: white;">
+        <div class="container">
+            <h2 class="section-title">I Nostri Programmi di Formazione</h2>
+            <div class="programs-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3rem;">
+                
+                <!-- Fondamenti AI -->
+                <div class="program-card" style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; border: 2px solid transparent;">
+                    <div class="program-header" style="margin-bottom: 1.5rem;">
+                        <div class="program-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #0066cc, #004499); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 1rem;">🎯</div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: #2c3e50;">Fondamenti di AI Generativa</h3>
+                        <div class="program-level" style="background: #e3f2fd; color: #1976d2; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; display: inline-block;">Principiante</div>
+                    </div>
+                    <p style="color: #6c757d; margin-bottom: 1.5rem; line-height: 1.6;">Introduzione completa alle tecnologie di intelligenza artificiale generativa e alle loro applicazioni aziendali.</p>
+                    <div class="program-details" style="margin-bottom: 2rem;">
+                        <div class="detail-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                            <span style="color: #00cc66;">⏱️</span>
+                            <span style="color: #6c757d;">Durata: 8 ore</span>
+                        </div>
+                        <div class="detail-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                            <span style="color: #00cc66;">👥</span>
+                            <span style="color: #6c757d;">Max 12 partecipanti</span>
+                        </div>
+                        <div class="detail-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                            <span style="color: #00cc66;">🏆</span>
+                            <span style="color: #6c757d;">Certificato incluso</span>
+                        </div>
+                    </div>
+                    <ul class="program-topics" style="list-style: none; margin: 0 0 2rem 0; padding: 0;">
+                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
+                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
+                            Basi dell'AI e terminologia
+                        </li>
+                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
+                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
+                            Comprensione dei modelli linguistici
+                        </li>
+                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
+                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
+                            Casi d'uso aziendali e ROI
+                        </li>
+                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
+                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
+                            Workshop pratici
+                        </li>
+                    </ul>
+                    <div class="program-price" style="text-align: center; margin-bottom: 1.5rem;">
+                        <span style="font-size: 2rem; font-weight: 700; color: #0066cc;">€1,200</span>
+                        <span style="color: #6c757d; font-size: 0.9rem;">/persona</span>
+                    </div>
+                </div>
+
+                <!-- Prompt Engineering -->
+                <div class="program-card" style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; border: 2px solid transparent;">
+                    <div class="program-header" style="margin-bottom: 1.5rem;">
+                        <div class="program-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #00cc66, #009944); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 1rem;">⚡</div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: #2c3e50;">Mastery del Prompt Engineering</h3>
+                        <div class="program-level" style="background: #fff3e0; color: #f57c00; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; display: inline-block;">Intermedio</div>
+                    </div>
+                    <p style="color: #6c757d; margin-bottom: 1.5rem; line-height: 1.6;">Tecniche avanzate per creare prompt efficaci e massimizzare la qualità dell'output AI.</p>
+                    <div class="program-details" style="margin-bottom: 2rem;">
+                        <div class="detail-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                            <span style="color: #00cc66;">⏱️</span>
+                            <span style="color: #6c757d;">Durata: 12 ore</span>
+                        </div>
+                        <div class="detail-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                            <span style="color: #00cc66;">👥</span>
+                            <span style="color: #6c757d;">Max 10 partecipanti</span>
+                        </div>
+                        <div class="detail-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                            <span style="color: #00cc66;">🏆</span>
+                            <span style="color: #6c757d;">Certificato avanzato</span>
+                        </div>
+                    </div>
+                    <ul class="program-topics" style="list-style: none; margin: 0 0 2rem 0; padding: 0;">
+                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
+                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
+                            Principi di design dei prompt
+                        </li>
+                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
+                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
+                            Tecniche avanzate di prompting
+                        </li>
+                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
+                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
+                            Ragionamento chain-of-thought
+                        </li>
+                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
+                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
+                            Applicazioni nel mondo reale
+                        </li>
+                    </ul>
+                    <div class="program-price" style="text-align: center; margin-bottom: 1.5rem;">
+                        <span style="font-size: 2rem; font-weight: 700; color: #0066cc;">€1,800</span>
+                        <span style="color: #6c757d; font-size: 0.9rem;">/persona</span>
+                    </div>
+                </div>
+
+                <!-- Sviluppo Agenti AI -->
+                <div class="program-card" style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; border: 2px solid transparent;">
+                    <div class="program-header" style="margin-bottom: 1.5rem;">
+                        <div class="program-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #0066cc, #00cc66); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 1rem;">🤖</div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: #2c3e50;">Sviluppo Agenti AI</h3>
+                        <div class="program-level" style="background: #ffebee; color: #d32f2f; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; display: inline-block;">Avanzato</div>
+                    </div>
+                    <p style="color: #6c757d; margin-bottom: 1.5rem; line-height: 1.6;">Impara a costruire, distribuire e gestire agenti AI per varie funzioni aziendali.</p>
+                    <div class="program-details" style="margin-bottom: 2rem;">
+                        <div class="detail-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                            <span style="color: #00cc66;">⏱️</span>
+                            <span style="color: #6c757d;">Durata: 16 ore</span>
+                        </div>
+                        <div class="detail-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                            <span style="color: #00cc66;">👥</span>
+                            <span style="color: #6c757d;">Max 8 partecipanti</span>
+                        </div>
+                        <div class="detail-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                            <span style="color: #00cc66;">🏆</span>
+                            <span style="color: #6c757d;">Certificato professionale</span>
+                        </div>
+                    </div>
+                    <ul class="program-topics" style="list-style: none; margin: 0 0 2rem 0; padding: 0;">
+                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
+                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
+                            Architettura e design degli agenti
+                        </li>
+                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
+                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
+                            Integrazione con sistemi esistenti
+                        </li>
+                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
+                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
+                            Monitoraggio e ottimizzazione
+                        </li>
+                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
+                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
+                            Strategie di deployment
+                        </li>
+                    </ul>
+                    <div class="program-price" style="text-align: center; margin-bottom: 1.5rem;">
+                        <span style="font-size: 2rem; font-weight: 700; color: #0066cc;">€2,500</span>
+                        <span style="color: #6c757d; font-size: 0.9rem;">/persona</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Formats Section -->
+    <section class="training-formats-section" style="padding: 80px 0; background: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">Modalità di Formazione</h2>
+            <div class="formats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                
+                <div class="format-card" style="background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
+                    <div class="format-icon" style="font-size: 3rem; margin-bottom: 1rem;">🏢</div>
+                    <h3 style="color: #2c3e50; margin-bottom: 1rem;">In Presenza</h3>
+                    <p style="color: #6c757d; margin-bottom: 1.5rem;">Formazione presso la vostra sede o nei nostri centri di formazione.</p>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ Interazione diretta</li>
+                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ Workshop pratici</li>
+                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ Networking</li>
+                    </ul>
+                </div>
+
+                <div class="format-card" style="background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
+                    <div class="format-icon" style="font-size: 3rem; margin-bottom: 1rem;">💻</div>
+                    <h3 style="color: #2c3e50; margin-bottom: 1rem;">Online</h3>
+                    <p style="color: #6c757d; margin-bottom: 1.5rem;">Formazione virtuale con piattaforme interattive avanzate.</p>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ Flessibilità oraria</li>
+                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ Registrazioni disponibili</li>
+                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ Costi ridotti</li>
+                    </ul>
+                </div>
+
+                <div class="format-card" style="background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
+                    <div class="format-icon" style="font-size: 3rem; margin-bottom: 1rem;">🔄</div>
+                    <h3 style="color: #2c3e50; margin-bottom: 1rem;">Ibrida</h3>
+                    <p style="color: #6c757d; margin-bottom: 1.5rem;">Combinazione di formazione in presenza e online.</p>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ Massima flessibilità</li>
+                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ Approccio personalizzato</li>
+                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ Ottimizzazione costi</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Training Section -->
+    <section id="contact-training" class="contact-training-section" style="padding: 80px 0; background: linear-gradient(135deg, #0066cc, #00cc66); color: white;">
+        <div class="container">
+            <div class="contact-content" style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Inizia il Tuo Percorso di Formazione AI</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2.5rem; opacity: 0.9;">Contattaci per discutere le esigenze formative del tuo team e creare un programma personalizzato.</p>
+                
+                <div class="contact-form" style="background: white; padding: 2.5rem; border-radius: 20px; color: #2c3e50;">
+                    <form id="trainingForm">
+                        <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                            <div class="form-group">
+                                <input type="text" id="trainName" name="name" placeholder="Nome" required style="width: 100%; padding: 1rem; border: 2px solid #e9ecef; border-radius: 10px; font-size: 1rem;">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="trainEmail" name="email" placeholder="Email" required style="width: 100%; padding: 1rem; border: 2px solid #e9ecef; border-radius: 10px; font-size: 1rem;">
+                            </div>
+                        </div>
+                        <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                            <div class="form-group">
+                                <input type="text" id="trainCompany" name="company" placeholder="Azienda" required style="width: 100%; padding: 1rem; border: 2px solid #e9ecef; border-radius: 10px; font-size: 1rem;">
+                            </div>
+                            <div class="form-group">
+                                <select id="trainProgram" name="program" required style="width: 100%; padding: 1rem; border: 2px solid #e9ecef; border-radius: 10px; font-size: 1rem;">
+                                    <option value="">Seleziona Programma</option>
+                                    <option value="fondamenti">Fondamenti AI</option>
+                                    <option value="prompt">Prompt Engineering</option>
+                                    <option value="agenti">Sviluppo Agenti</option>
+                                    <option value="personalizzato">Programma Personalizzato</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 1rem;">
+                            <textarea id="trainMessage" name="message" placeholder="Descrivi le esigenze formative del tuo team..." rows="4" style="width: 100%; padding: 1rem; border: 2px solid #e9ecef; border-radius: 10px; font-size: 1rem;"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1.2rem; font-size: 1.1rem; margin-top: 1rem;">Richiedi Informazioni</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>NIUEXA</h3>
+                    <p>Soluzioni AI Avanzate per il Business Moderno</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Servizi</h4>
+                        <ul>
+                            <li><a href="consulting.html">Consulenza AI</a></li>
+                            <li><a href="training.html">Formazione AI</a></li>
+                            <li><a href="products.html">Prodotti AI</a></li>
+                            <li><a href="roi-calculator.html">ROI Calculator</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Azienda</h4>
+                        <ul>
+                            <li><a href="index.html#company">Chi Siamo</a></li>
+                            <li><a href="index.html#contact">Contatti</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Social</h4>
+                        <ul>
+                            <li><a href="https://linkedin.com/company/niuexa" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Niuexa. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolatore ROI Agenti AI - Niuexa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="roi-calculator.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html"><h1>NIUEXA</h1></a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#company" class="nav-link">Chi Siamo</a>
+                </li>
+                <li class="nav-item">
+                    <a href="consulting.html" class="nav-link">Consulting</a>
+                </li>
+                <li class="nav-item">
+                    <a href="training.html" class="nav-link">Training</a>
+                </li>
+                <li class="nav-item">
+                    <a href="products.html" class="nav-link">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a href="roi-calculator.html" class="nav-link active">ROI Calculator</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="calculator-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Calcolatore ROI Agenti AI</h1>
+                <p class="hero-subtitle">Scopri quanto tempo e denaro puoi risparmiare implementando agenti AI nei tuoi processi aziendali</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">40+</span>
+                        <span class="stat-label">Ore Risparmiate/Settimana</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">300%</span>
+                        <span class="stat-label">ROI Medio</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">Mesi di Payback</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="calculator-section">
+        <div class="container">
+            <div class="calculator-container">
+                <div class="calculator-form">
+                    <h2>Calcola i Tuoi Potenziali Risparmi</h2>
+                    <form id="roiCalculator">
+                        <div class="form-section">
+                            <h3>Informazioni sul Processo</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="processName">Nome del Processo</label>
+                                    <input type="text" id="processName" name="processName" placeholder="es. Supporto Clienti, Inserimento Dati, Generazione Report" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="industry">Settore</label>
+                                    <select id="industry" name="industry">
+                                        <option value="">Seleziona Settore</option>
+                                        <option value="finance">Finanza e Banche</option>
+                                        <option value="healthcare">Sanità</option>
+                                        <option value="retail">Retail ed E-commerce</option>
+                                        <option value="manufacturing">Manifatturiero</option>
+                                        <option value="technology">Tecnologia</option>
+                                        <option value="consulting">Consulenza</option>
+                                        <option value="marketing">Marketing e Pubblicità</option>
+                                        <option value="other">Altro</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Tempo e Frequenza</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="timePerProcess">Tempo per Processo (minuti)</label>
+                                    <input type="number" id="timePerProcess" name="timePerProcess" min="1" placeholder="30" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="frequency">Frequenza</label>
+                                    <select id="frequency" name="frequency" required>
+                                        <option value="">Seleziona Frequenza</option>
+                                        <option value="daily">Giornaliera</option>
+                                        <option value="weekly">Settimanale</option>
+                                        <option value="monthly">Mensile</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="occurrences">Volte per Periodo</label>
+                                    <input type="number" id="occurrences" name="occurrences" min="1" placeholder="10" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Informazioni sui Costi</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="hourlyRate">Tariffa Oraria (€)</label>
+                                    <input type="number" id="hourlyRate" name="hourlyRate" min="1" step="0.01" placeholder="50" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="peopleInvolved">Persone Coinvolte</label>
+                                    <input type="number" id="peopleInvolved" name="peopleInvolved" min="1" placeholder="2" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="errorRate">Tasso di Errore (%)</label>
+                                    <input type="number" id="errorRate" name="errorRate" min="0" max="100" step="0.1" placeholder="5">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Implementazione AI</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="automationLevel">Livello di Automazione Previsto (%)</label>
+                                    <input type="range" id="automationLevel" name="automationLevel" min="10" max="95" value="80" class="slider">
+                                    <span class="slider-value">80%</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="implementationCost">Costo di Implementazione (€)</label>
+                                    <input type="number" id="implementationCost" name="implementationCost" min="0" step="100" placeholder="5000">
+                                </div>
+                                <div class="form-group">
+                                    <label for="monthlyCost">Costo Mensile AI (€)</label>
+                                    <input type="number" id="monthlyCost" name="monthlyCost" min="0" step="10" placeholder="200">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Calcola ROI</button>
+                            <button type="button" id="resetForm" class="btn btn-secondary">Reimposta</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="calculator-results" id="calculatorResults" style="display: none;">
+                    <h2>Your ROI Analysis</h2>
+                    
+                    <div class="results-summary">
+                        <div class="result-card highlight">
+                            <h3>Annual Savings</h3>
+                            <div class="result-value" id="annualSavings">€0</div>
+                        </div>
+                        <div class="result-card">
+                            <h3>ROI Percentage</h3>
+                            <div class="result-value" id="roiPercentage">0%</div>
+                        </div>
+                        <div class="result-card">
+                            <h3>Payback Period</h3>
+                            <div class="result-value" id="paybackPeriod">0 months</div>
+                        </div>
+                    </div>
+
+                    <div class="results-breakdown">
+                        <h3>Detailed Breakdown</h3>
+                        <div class="breakdown-grid">
+                            <div class="breakdown-item">
+                                <span class="breakdown-label">Current Annual Cost:</span>
+                                <span class="breakdown-value" id="currentCost">€0</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span class="breakdown-label">Time Saved per Year:</span>
+                                <span class="breakdown-value" id="timeSaved">0 hours</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span class="breakdown-label">Error Reduction Value:</span>
+                                <span class="breakdown-value" id="errorReduction">€0</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span class="breakdown-label">Total Implementation Cost:</span>
+                                <span class="breakdown-value" id="totalImplementation">€0</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span class="breakdown-label">Annual AI Costs:</span>
+                                <span class="breakdown-value" id="annualAICosts">€0</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span class="breakdown-label">Net Annual Benefit:</span>
+                                <span class="breakdown-value" id="netBenefit">€0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="results-chart">
+                        <h3>5-Year Projection</h3>
+                        <canvas id="roiChart" width="400" height="200"></canvas>
+                    </div>
+
+                    <div class="results-actions">
+                        <button class="btn btn-primary" id="downloadReport">Download Report</button>
+                        <button class="btn btn-secondary" id="scheduleConsultation">Schedule Consultation</button>
+                        <button class="btn btn-outline" id="emailResults">Email Results</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Benchmarks -->
+    <section class="benchmarks-section">
+        <div class="container">
+            <h2 class="section-title">Industry Benchmarks</h2>
+            <div class="benchmarks-grid">
+                <div class="benchmark-card">
+                    <h3>Finance & Banking</h3>
+                    <div class="benchmark-stats">
+                        <div class="benchmark-stat">
+                            <span class="stat-label">Avg. Time Saved</span>
+                            <span class="stat-value">45 hrs/week</span>
+                        </div>
+                        <div class="benchmark-stat">
+                            <span class="stat-label">Avg. ROI</span>
+                            <span class="stat-value">320%</span>
+                        </div>
+                        <div class="benchmark-stat">
+                            <span class="stat-label">Payback Period</span>
+                            <span class="stat-value">4.2 months</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="benchmark-card">
+                    <h3>Healthcare</h3>
+                    <div class="benchmark-stats">
+                        <div class="benchmark-stat">
+                            <span class="stat-label">Avg. Time Saved</span>
+                            <span class="stat-value">38 hrs/week</span>
+                        </div>
+                        <div class="benchmark-stat">
+                            <span class="stat-label">Avg. ROI</span>
+                            <span class="stat-value">280%</span>
+                        </div>
+                        <div class="benchmark-stat">
+                            <span class="stat-label">Payback Period</span>
+                            <span class="stat-value">5.1 months</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="benchmark-card">
+                    <h3>Manufacturing</h3>
+                    <div class="benchmark-stats">
+                        <div class="benchmark-stat">
+                            <span class="stat-label">Avg. Time Saved</span>
+                            <span class="stat-value">52 hrs/week</span>
+                        </div>
+                        <div class="benchmark-stat">
+                            <span class="stat-label">Avg. ROI</span>
+                            <span class="stat-value">380%</span>
+                        </div>
+                        <div class="benchmark-stat">
+                            <span class="stat-label">Payback Period</span>
+                            <span class="stat-value">3.8 months</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Business?</h2>
+                <p>Our AI experts can help you implement these savings in your organization. Schedule a free consultation to discuss your specific needs.</p>
+                <div class="cta-buttons">
+                    <a href="index.html#contact" class="btn btn-primary">Schedule Free Consultation</a>
+                    <a href="index.html#product" class="btn btn-secondary">Explore AI Solutions</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>NIUEXA</h3>
+                    <p>Advanced AI Solutions for Modern Business</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Servizi</h4>
+                        <ul>
+                            <li><a href="consulting.html">Consulenza AI</a></li>
+                            <li><a href="training.html">Formazione AI</a></li>
+                            <li><a href="products.html">Prodotti AI</a></li>
+                            <li><a href="roi-calculator.html">ROI Calculator</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Azienda</h4>
+                        <ul>
+                            <li><a href="index.html#company">Chi Siamo</a></li>
+                            <li><a href="index.html#contact">Contatti</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Social</h4>
+                        <ul>
+                            <li><a href="https://linkedin.com/company/niuexa" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Niuexa. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <script src="roi-calculator.js"></script>
+</body>
+</html>
