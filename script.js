@@ -1,92 +1,24 @@
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all functionality
-    initNavigation();
+    // Initialize all functionality (navigation is now handled in includes.js)
     initScrollEffects();
     initAnimations();
     initContactForm();
     initServiceCards();
 });
 
-// Navigation functionality
-function initNavigation() {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    // Toggle mobile menu
-    hamburger.addEventListener('click', function() {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
-
-    // Close mobile menu when clicking on a link
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-        });
-    });
-
-    // Smooth scrolling for navigation links
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            
-            // Only prevent default for internal anchor links (starting with #)
-            if (href.startsWith('#')) {
-                e.preventDefault();
-                const targetSection = document.querySelector(href);
-                
-                if (targetSection) {
-                    const offsetTop = targetSection.offsetTop - 70; // Account for fixed navbar
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            }
-            // For external links (like roi-calculator.html), let the browser handle navigation normally
-        });
-    });
-
-    // Update active navigation link based on scroll position
-    window.addEventListener('scroll', updateActiveNavLink);
-}
-
-// Update active navigation link
-function updateActiveNavLink() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const scrollPos = window.scrollY + 100;
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        const sectionId = section.getAttribute('id');
-
-        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${sectionId}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-    });
-}
-
 // Scroll effects
 function initScrollEffects() {
-    const navbar = document.querySelector('.navbar');
-    
     window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-        } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-            navbar.style.boxShadow = 'none';
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
         }
     });
 
@@ -365,12 +297,7 @@ function debounce(func, wait) {
     };
 }
 
-// Optimized scroll handler
-const optimizedScrollHandler = debounce(function() {
-    updateActiveNavLink();
-}, 10);
-
-window.addEventListener('scroll', optimizedScrollHandler);
+// Optimized scroll handler is now handled in includes.js for navigation
 
 // Loading animation
 window.addEventListener('load', function() {

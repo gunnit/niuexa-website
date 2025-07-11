@@ -83,31 +83,31 @@ function validateFormData(data) {
     const errors = [];
     
     if (!data.processName.trim()) {
-        errors.push('Process name is required');
+        errors.push('Il nome del processo è obbligatorio');
     }
     
     if (data.timePerProcess <= 0) {
-        errors.push('Time per process must be greater than 0');
+        errors.push('Il tempo per processo deve essere maggiore di 0');
     }
     
     if (!data.frequency) {
-        errors.push('Frequency is required');
+        errors.push('La frequenza è obbligatoria');
     }
     
     if (data.occurrences <= 0) {
-        errors.push('Occurrences must be greater than 0');
+        errors.push('Le occorrenze devono essere maggiori di 0');
     }
     
     if (data.hourlyRate <= 0) {
-        errors.push('Hourly rate must be greater than 0');
+        errors.push('La tariffa oraria deve essere maggiore di 0');
     }
     
     if (data.peopleInvolved <= 0) {
-        errors.push('People involved must be greater than 0');
+        errors.push('Le persone coinvolte devono essere maggiori di 0');
     }
     
     if (errors.length > 0) {
-        alert('Please fix the following errors:\n' + errors.join('\n'));
+        alert('Correggi i seguenti errori:\n' + errors.join('\n'));
         return false;
     }
     
@@ -208,7 +208,7 @@ function createROIChart(results) {
         window.roiChartInstance.destroy();
     }
     
-    const years = results.fiveYearProjection.map(p => `Year ${p.year}`);
+    const years = results.fiveYearProjection.map(p => `Anno ${p.year}`);
     const netValues = results.fiveYearProjection.map(p => p.netValue);
     const savings = results.fiveYearProjection.map(p => p.savings);
     const costs = results.fiveYearProjection.map(p => p.costs);
@@ -219,7 +219,7 @@ function createROIChart(results) {
             labels: years,
             datasets: [
                 {
-                    label: 'Net Value',
+                    label: 'Valore Netto',
                     data: netValues,
                     borderColor: '#0066CC',
                     backgroundColor: 'rgba(0, 102, 204, 0.1)',
@@ -228,7 +228,7 @@ function createROIChart(results) {
                     tension: 0.4
                 },
                 {
-                    label: 'Cumulative Savings',
+                    label: 'Risparmi Cumulativi',
                     data: savings,
                     borderColor: '#00CC66',
                     backgroundColor: 'rgba(0, 204, 102, 0.1)',
@@ -238,7 +238,7 @@ function createROIChart(results) {
                     tension: 0.4
                 },
                 {
-                    label: 'Cumulative Costs',
+                    label: 'Costi Cumulativi',
                     data: costs,
                     borderColor: '#FF6B6B',
                     backgroundColor: 'rgba(255, 107, 107, 0.1)',
@@ -255,7 +255,7 @@ function createROIChart(results) {
             plugins: {
                 title: {
                     display: true,
-                    text: '5-Year ROI Projection',
+                    text: 'Proiezione ROI a 5 Anni',
                     font: {
                         size: 16,
                         weight: 'bold'
@@ -338,7 +338,7 @@ function generatePDFReport() {
         <!DOCTYPE html>
         <html>
         <head>
-            <title>ROI Analysis Report - ${processName}</title>
+            <title>Report Analisi ROI - ${processName}</title>
             <style>
                 body { font-family: Arial, sans-serif; margin: 20px; }
                 .header { text-align: center; margin-bottom: 30px; }
@@ -350,9 +350,9 @@ function generatePDFReport() {
         </head>
         <body>
             <div class="header">
-                <h1>AI Agent ROI Analysis Report</h1>
+                <h1>Report Analisi ROI Agenti AI</h1>
                 <h2>${processName}</h2>
-                <p>Generated on ${new Date().toLocaleDateString()}</p>
+                <p>Generato il ${new Date().toLocaleDateString('it-IT')}</p>
             </div>
             ${resultsSection.innerHTML}
         </body>
@@ -364,12 +364,12 @@ function generatePDFReport() {
 }
 
 function showEmailModal() {
-    const email = prompt('Enter your email address to receive the ROI analysis:');
+    const email = prompt('Inserisci il tuo indirizzo email per ricevere l\'analisi ROI:');
     if (email && validateEmail(email)) {
         // In a real application, you would send this to your backend
-        alert('ROI analysis will be sent to ' + email + ' shortly!');
+        alert('L\'analisi ROI sarà inviata a ' + email + ' a breve!');
     } else if (email) {
-        alert('Please enter a valid email address.');
+        alert('Inserisci un indirizzo email valido.');
     }
 }
 
@@ -388,16 +388,16 @@ function formatPercentage(percentage) {
 }
 
 function formatMonths(months) {
-    if (months <= 0) return 'Immediate';
-    if (months < 12) return Math.round(months) + ' months';
+    if (months <= 0) return 'Immediato';
+    if (months < 12) return Math.round(months) + ' mesi';
     const years = Math.floor(months / 12);
     const remainingMonths = Math.round(months % 12);
-    if (remainingMonths === 0) return years + ' year' + (years > 1 ? 's' : '');
-    return years + ' year' + (years > 1 ? 's' : '') + ' ' + remainingMonths + ' months';
+    if (remainingMonths === 0) return years + ' anno' + (years > 1 ? 'i' : '');
+    return years + ' anno' + (years > 1 ? 'i' : '') + ' ' + remainingMonths + ' mesi';
 }
 
 function formatHours(hours) {
-    return Math.round(hours).toLocaleString() + ' hours';
+    return Math.round(hours).toLocaleString() + ' ore';
 }
 
 // Industry benchmarks data

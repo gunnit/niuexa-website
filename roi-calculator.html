@@ -11,42 +11,8 @@
     <link rel="stylesheet" href="roi-calculator.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="index.html"><h1>NIUEXA</h1></a>
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="index.html#company" class="nav-link">Chi Siamo</a>
-                </li>
-                <li class="nav-item">
-                    <a href="consulting.html" class="nav-link">Consulenza</a>
-                </li>
-                <li class="nav-item">
-                    <a href="training.html" class="nav-link">Formazione</a>
-                </li>
-                <li class="nav-item">
-                    <a href="products.html" class="nav-link">Prodotti</a>
-                </li>
-                <li class="nav-item">
-                    <a href="roi-calculator.html" class="nav-link active">Calcolatore ROI</a>
-                </li>
-                <li class="nav-item">
-                    <a href="index.html#contact" class="nav-link">Contatti</a>
-                </li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </nav>
+    <!-- Navigation Placeholder -->
+    <div id="nav-placeholder"></div>
 
     <!-- Hero Section -->
     <section class="calculator-hero">
@@ -171,62 +137,62 @@
                 </div>
 
                 <div class="calculator-results" id="calculatorResults" style="display: none;">
-                    <h2>Your ROI Analysis</h2>
+                    <h2>La Tua Analisi ROI</h2>
                     
                     <div class="results-summary">
                         <div class="result-card highlight">
-                            <h3>Annual Savings</h3>
+                            <h3>Risparmi Annuali</h3>
                             <div class="result-value" id="annualSavings">€0</div>
                         </div>
                         <div class="result-card">
-                            <h3>ROI Percentage</h3>
+                            <h3>Percentuale ROI</h3>
                             <div class="result-value" id="roiPercentage">0%</div>
                         </div>
                         <div class="result-card">
-                            <h3>Payback Period</h3>
-                            <div class="result-value" id="paybackPeriod">0 months</div>
+                            <h3>Periodo di Recupero</h3>
+                            <div class="result-value" id="paybackPeriod">0 mesi</div>
                         </div>
                     </div>
 
                     <div class="results-breakdown">
-                        <h3>Detailed Breakdown</h3>
+                        <h3>Dettaglio Completo</h3>
                         <div class="breakdown-grid">
                             <div class="breakdown-item">
-                                <span class="breakdown-label">Current Annual Cost:</span>
+                                <span class="breakdown-label">Costo Annuale Attuale:</span>
                                 <span class="breakdown-value" id="currentCost">€0</span>
                             </div>
                             <div class="breakdown-item">
-                                <span class="breakdown-label">Time Saved per Year:</span>
-                                <span class="breakdown-value" id="timeSaved">0 hours</span>
+                                <span class="breakdown-label">Tempo Risparmiato all'Anno:</span>
+                                <span class="breakdown-value" id="timeSaved">0 ore</span>
                             </div>
                             <div class="breakdown-item">
-                                <span class="breakdown-label">Error Reduction Value:</span>
+                                <span class="breakdown-label">Valore Riduzione Errori:</span>
                                 <span class="breakdown-value" id="errorReduction">€0</span>
                             </div>
                             <div class="breakdown-item">
-                                <span class="breakdown-label">Total Implementation Cost:</span>
+                                <span class="breakdown-label">Costo Totale Implementazione:</span>
                                 <span class="breakdown-value" id="totalImplementation">€0</span>
                             </div>
                             <div class="breakdown-item">
-                                <span class="breakdown-label">Annual AI Costs:</span>
+                                <span class="breakdown-label">Costi Annuali AI:</span>
                                 <span class="breakdown-value" id="annualAICosts">€0</span>
                             </div>
                             <div class="breakdown-item">
-                                <span class="breakdown-label">Net Annual Benefit:</span>
+                                <span class="breakdown-label">Beneficio Netto Annuale:</span>
                                 <span class="breakdown-value" id="netBenefit">€0</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="results-chart">
-                        <h3>5-Year Projection</h3>
+                        <h3>Proiezione a 5 Anni</h3>
                         <canvas id="roiChart" width="400" height="200"></canvas>
                     </div>
 
                     <div class="results-actions">
-                        <button class="btn btn-primary" id="downloadReport">Download Report</button>
-                        <button class="btn btn-secondary" id="scheduleConsultation">Schedule Consultation</button>
-                        <button class="btn btn-outline" id="emailResults">Email Results</button>
+                        <button class="btn btn-primary" id="downloadReport">Scarica Report</button>
+                        <button class="btn btn-secondary" id="scheduleConsultation">Prenota Consulenza</button>
+                        <button class="btn btn-outline" id="emailResults">Invia Risultati via Email</button>
                     </div>
                 </div>
             </div>
@@ -236,56 +202,56 @@
     <!-- Industry Benchmarks -->
     <section class="benchmarks-section">
         <div class="container">
-            <h2 class="section-title">Industry Benchmarks</h2>
+            <h2 class="section-title">Benchmark di Settore</h2>
             <div class="benchmarks-grid">
                 <div class="benchmark-card">
-                    <h3>Finance & Banking</h3>
+                    <h3>Finanza e Banche</h3>
                     <div class="benchmark-stats">
                         <div class="benchmark-stat">
-                            <span class="stat-label">Avg. Time Saved</span>
-                            <span class="stat-value">45 hrs/week</span>
+                            <span class="stat-label">Tempo Medio Risparmiato</span>
+                            <span class="stat-value">45 ore/settimana</span>
                         </div>
                         <div class="benchmark-stat">
-                            <span class="stat-label">Avg. ROI</span>
+                            <span class="stat-label">ROI Medio</span>
                             <span class="stat-value">320%</span>
                         </div>
                         <div class="benchmark-stat">
-                            <span class="stat-label">Payback Period</span>
-                            <span class="stat-value">4.2 months</span>
+                            <span class="stat-label">Periodo di Recupero</span>
+                            <span class="stat-value">4,2 mesi</span>
                         </div>
                     </div>
                 </div>
                 <div class="benchmark-card">
-                    <h3>Healthcare</h3>
+                    <h3>Sanità</h3>
                     <div class="benchmark-stats">
                         <div class="benchmark-stat">
-                            <span class="stat-label">Avg. Time Saved</span>
-                            <span class="stat-value">38 hrs/week</span>
+                            <span class="stat-label">Tempo Medio Risparmiato</span>
+                            <span class="stat-value">38 ore/settimana</span>
                         </div>
                         <div class="benchmark-stat">
-                            <span class="stat-label">Avg. ROI</span>
+                            <span class="stat-label">ROI Medio</span>
                             <span class="stat-value">280%</span>
                         </div>
                         <div class="benchmark-stat">
-                            <span class="stat-label">Payback Period</span>
-                            <span class="stat-value">5.1 months</span>
+                            <span class="stat-label">Periodo di Recupero</span>
+                            <span class="stat-value">5,1 mesi</span>
                         </div>
                     </div>
                 </div>
                 <div class="benchmark-card">
-                    <h3>Manufacturing</h3>
+                    <h3>Manifatturiero</h3>
                     <div class="benchmark-stats">
                         <div class="benchmark-stat">
-                            <span class="stat-label">Avg. Time Saved</span>
-                            <span class="stat-value">52 hrs/week</span>
+                            <span class="stat-label">Tempo Medio Risparmiato</span>
+                            <span class="stat-value">52 ore/settimana</span>
                         </div>
                         <div class="benchmark-stat">
-                            <span class="stat-label">Avg. ROI</span>
+                            <span class="stat-label">ROI Medio</span>
                             <span class="stat-value">380%</span>
                         </div>
                         <div class="benchmark-stat">
-                            <span class="stat-label">Payback Period</span>
-                            <span class="stat-value">3.8 months</span>
+                            <span class="stat-label">Periodo di Recupero</span>
+                            <span class="stat-value">3,8 mesi</span>
                         </div>
                     </div>
                 </div>
@@ -297,57 +263,22 @@
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2>Ready to Transform Your Business?</h2>
-                <p>Our AI experts can help you implement these savings in your organization. Schedule a free consultation to discuss your specific needs.</p>
+                <h2>Pronto a Trasformare la Tua Azienda?</h2>
+                <p>I nostri esperti AI possono aiutarti a implementare questi risparmi nella tua organizzazione. Prenota una consulenza gratuita per discutere le tue esigenze specifiche.</p>
                 <div class="cta-buttons">
-                    <a href="index.html#contact" class="btn btn-primary">Schedule Free Consultation</a>
-                    <a href="index.html#product" class="btn btn-secondary">Explore AI Solutions</a>
+                    <a href="index.html#contact" class="btn btn-primary">Prenota Consulenza Gratuita</a>
+                    <a href="index.html#product" class="btn btn-secondary">Esplora Soluzioni AI</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>NIUEXA</h3>
-                    <p>Advanced AI Solutions for Modern Business</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>Servizi</h4>
-                        <ul>
-                            <li><a href="consulting.html">Consulenza AI</a></li>
-                            <li><a href="training.html">Formazione AI</a></li>
-                            <li><a href="products.html">Prodotti AI</a></li>
-                            <li><a href="roi-calculator.html">ROI Calculator</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Azienda</h4>
-                        <ul>
-                            <li><a href="index.html#company">Chi Siamo</a></li>
-                            <li><a href="index.html#contact">Contatti</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Social</h4>
-                        <ul>
-                            <li><a href="https://linkedin.com/company/niuexa" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Niuexa. Tutti i diritti riservati.</p>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
     <script src="roi-calculator.js"></script>
+    <script src="includes/includes.js"></script>
 </body>
 </html>
