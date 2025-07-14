@@ -4,14 +4,14 @@ const navigationHTML = `
 <nav class="navbar">
     <div class="nav-container">
         <div class="nav-logo">
-            <a href="index.html"><h1>NIUEXA</h1></a>
+            <h1>NIUEXA</h1>
         </div>
         <ul class="nav-menu">
             <li class="nav-item">
                 <a href="index.html" class="nav-link" data-page="home">Home</a>
             </li>
             <li class="nav-item">
-                <a href="index.html#company" class="nav-link" data-page="company">Chi Siamo</a>
+                <a href="chi-siamo.html" class="nav-link" data-page="chi-siamo">Chi Siamo</a>
             </li>
             <li class="nav-item">
                 <a href="consulting.html" class="nav-link" data-page="consulting">Consulenza</a>
@@ -25,9 +25,7 @@ const navigationHTML = `
             <li class="nav-item">
                 <a href="roi-calculator.html" class="nav-link" data-page="roi-calculator">Calcolatore ROI</a>
             </li>
-            <li class="nav-item">
-                <a href="index.html#contact" class="nav-link" data-page="contact">Contatti</a>
-            </li>
+            
             <li class="nav-item">
                 <a href="login.html" class="nav-link login-link" data-page="login">🔐 Login</a>
             </li>
@@ -64,7 +62,7 @@ const footerHTML = `
                 <div class="footer-column">
                     <h4>Azienda</h4>
                     <ul>
-                        <li><a href="index.html#company">Chi Siamo</a></li>
+                        <li><a href="chi-siamo.html">Chi Siamo</a></li>
                         <li><a href="index.html#contact">Contatti</a></li>
                     </ul>
                 </div>
@@ -193,6 +191,8 @@ function getCurrentPage() {
     
     if (page === 'index.html' || page === '') {
         return 'home';
+    } else if (page === 'chi-siamo.html') {
+        return 'chi-siamo';
     } else if (page === 'consulting.html') {
         return 'consulting';
     } else if (page === 'training.html') {

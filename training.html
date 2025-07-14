@@ -1,290 +1,1010 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+    <!-- SEO Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Training Programs - Niuexa</title>
+    <title>Formazione AI Professionale | Corsi Intelligenza Artificiale Aziendali | Niuexa</title>
+    <meta name="description" content="Corsi di formazione AI professionale per aziende. Prompt engineering, sviluppo agenti AI, e fondamenti di intelligenza artificiale. Certificazioni riconosciute, 95% soddisfazione clienti. Prenota ora!">
+    <meta name="keywords" content="formazione AI, corsi intelligenza artificiale, prompt engineering, agenti AI, training aziendale, certificazioni AI, Milano, Italia">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Niuexa">
+    <link rel="canonical" href="https://niuexa.com/training.html">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Formazione AI Professionale | Corsi Intelligenza Artificiale Aziendali | Niuexa">
+    <meta property="og:description" content="Trasforma le competenze del tuo team con i nostri corsi AI. Prompt engineering, sviluppo agenti AI, e fondamenti di intelligenza artificiale. Certificazioni riconosciute.">
+    <meta property="og:image" content="https://niuexa.com/img/training-og-image.jpg">
+    <meta property="og:url" content="https://niuexa.com/training.html">
+    <meta property="og:site_name" content="Niuexa">
+    <meta property="og:locale" content="it_IT">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@niuexa">
+    <meta name="twitter:title" content="Formazione AI Professionale | Corsi Intelligenza Artificiale Aziendali">
+    <meta name="twitter:description" content="Trasforma le competenze del tuo team con i nostri corsi AI. Certificazioni riconosciute, 95% soddisfazione clienti.">
+    <meta name="twitter:image" content="https://niuexa.com/img/training-twitter-image.jpg">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "Niuexa",
+        "description": "Formazione professionale in intelligenza artificiale per aziende",
+        "url": "https://niuexa.com/training.html",
+        "logo": "https://niuexa.com/img/niuexalogo.png",
+        "sameAs": [
+            "https://www.linkedin.com/company/niuexa"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Milano",
+            "addressCountry": "IT"
+        },
+        "course": [
+            {
+                "@type": "Course",
+                "name": "Fondamenti di AI Generativa",
+                "description": "Corso introduttivo completo alle tecnologie di intelligenza artificiale generativa",
+                "provider": {
+                    "@type": "Organization",
+                    "name": "Niuexa"
+                },
+                "educationalLevel": "Principiante",
+                "timeRequired": "PT8H",
+                "courseCode": "AI-FUND-001",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "1200",
+                    "priceCurrency": "EUR"
+                }
+            },
+            {
+                "@type": "Course",
+                "name": "Mastery del Prompt Engineering",
+                "description": "Tecniche avanzate per creare prompt efficaci e massimizzare la qualità dell'output AI",
+                "provider": {
+                    "@type": "Organization",
+                    "name": "Niuexa"
+                },
+                "educationalLevel": "Intermedio",
+                "timeRequired": "PT12H",
+                "courseCode": "AI-PROMPT-001",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "1800",
+                    "priceCurrency": "EUR"
+                }
+            },
+            {
+                "@type": "Course",
+                "name": "Sviluppo Agenti AI",
+                "description": "Impara a costruire, distribuire e gestire agenti AI per varie funzioni aziendali",
+                "provider": {
+                    "@type": "Organization",
+                    "name": "Niuexa"
+                },
+                "educationalLevel": "Avanzato",
+                "timeRequired": "PT16H",
+                "courseCode": "AI-AGENT-001",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "2500",
+                    "priceCurrency": "EUR"
+                }
+            }
+        ]
+    }
+    </script>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Preload Critical Resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="training.css">
 </head>
 <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Vai al contenuto principale</a>
+    
     <!-- Navigation Placeholder -->
     <div id="nav-placeholder"></div>
 
-    <!-- Hero Section -->
-    <section class="hero" style="background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #2d3561 100%); padding: 120px 0 80px; color: white; text-align: center;">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(0, 102, 204, 0.1); border: 1px solid rgba(0, 102, 204, 0.3); padding: 0.5rem 1rem; border-radius: 50px; color: #0066cc; font-size: 0.9rem; font-weight: 600; margin-bottom: 1.5rem;">
-                    <span class="badge-icon">🎓</span>
-                    <span>Formazione AI Professionale</span>
-                </div>
-                <h1 class="hero-title" style="font-size: 3.5rem; margin-bottom: 1.5rem; line-height: 1.1;">Potenzia il Tuo Team con <span class="highlight" style="background: linear-gradient(135deg, #0066cc, #00cc66); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Formazione AI Avanzata</span></h1>
-                <p class="hero-subtitle" style="font-size: 1.3rem; color: rgba(255, 255, 255, 0.8); margin-bottom: 2.5rem; max-width: 800px; margin-left: auto; margin-right: auto;">Programmi di formazione completi in intelligenza artificiale generativa, prompt engineering e sviluppo di agenti AI per trasformare le competenze del tuo team.</p>
-                <div class="hero-stats" style="display: flex; justify-content: center; gap: 3rem; margin-bottom: 2.5rem; flex-wrap: wrap;">
-                    <div class="stat-item" style="text-align: center;">
-                        <span class="stat-number" style="display: block; font-size: 2.5rem; font-weight: 700; color: #00cc66; font-family: 'Orbitron', monospace;">500+</span>
-                        <span class="stat-label" style="font-size: 1rem; color: rgba(255, 255, 255, 0.7); margin-top: 0.5rem;">Professionisti Formati</span>
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero training-hero" aria-label="Formazione AI Professionale">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="badge-icon" aria-hidden="true">🎓</span>
+                        <span>Formazione AI Professionale Certificata</span>
                     </div>
-                    <div class="stat-item" style="text-align: center;">
-                        <span class="stat-number" style="display: block; font-size: 2.5rem; font-weight: 700; color: #00cc66; font-family: 'Orbitron', monospace;">95%</span>
-                        <span class="stat-label" style="font-size: 1rem; color: rgba(255, 255, 255, 0.7); margin-top: 0.5rem;">Tasso di Soddisfazione</span>
+                    <h1 class="hero-title">
+                        Trasforma il Tuo Team con 
+                        <span class="highlight">Formazione AI di Eccellenza</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Programmi di formazione completi in intelligenza artificiale generativa, prompt engineering e sviluppo di agenti AI. 
+                        <strong>Certificazioni riconosciute</strong> e <strong>risultati garantiti</strong> per aumentare la produttività del tuo team del 40%.
+                    </p>
+                    
+                    <!-- Social Proof Stats -->
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">750+</span>
+                            <span class="stat-label">Professionisti Certificati</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">98%</span>
+                            <span class="stat-label">Tasso di Soddisfazione</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">40%</span>
+                            <span class="stat-label">Aumento Produttività</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">30</span>
+                            <span class="stat-label">Giorni Garanzia</span>
+                        </div>
                     </div>
-                    <div class="stat-item" style="text-align: center;">
-                        <span class="stat-number" style="display: block; font-size: 2.5rem; font-weight: 700; color: #00cc66; font-family: 'Orbitron', monospace;">24</span>
-                        <span class="stat-label" style="font-size: 1rem; color: rgba(255, 255, 255, 0.7); margin-top: 0.5rem;">Ore di Formazione</span>
+                    
+                    <!-- Urgency Banner -->
+                    <div class="urgency-banner">
+                        <span class="urgency-icon" aria-hidden="true">🔥</span>
+                        <span><strong>Offerta Limitata:</strong> Solo 3 posti disponibili per il prossimo corso (inizio 25 Settembre)</span>
                     </div>
-                </div>
-                <div class="hero-buttons" style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
-                    <a href="#programs" class="btn btn-primary">
-                        <span class="btn-icon">📚</span>
-                        Esplora Programmi
-                    </a>
-                    <a href="#contact-training" class="btn btn-secondary">
-                        <span class="btn-icon">💬</span>
-                        Richiedi Info
-                    </a>
+                    
+                    <div class="hero-buttons">
+                        <a href="#programs" class="btn btn-primary btn-large" aria-describedby="programs-desc">
+                            <span class="btn-icon" aria-hidden="true">📚</span>
+                            Scopri i Corsi Disponibili
+                        </a>
+                        <a href="#contact-training" class="btn btn-secondary btn-large">
+                            <span class="btn-icon" aria-hidden="true">💬</span>
+                            Richiedi Preventivo Gratuito
+                        </a>
+                    </div>
+                    <p id="programs-desc" class="sr-only">Visualizza tutti i programmi di formazione disponibili</p>
+                    
+                    <!-- Trust Indicators -->
+                    <div class="trust-indicators">
+                        <div class="trust-badges">
+                            <span class="trust-badge">
+                                <span class="trust-icon" aria-hidden="true">✅</span>
+                                Certificazione Riconosciuta
+                            </span>
+                            <span class="trust-badge">
+                                <span class="trust-icon" aria-hidden="true">🔒</span>
+                                Garanzia 30 Giorni
+                            </span>
+                            <span class="trust-badge">
+                                <span class="trust-icon" aria-hidden="true">🎯</span>
+                                Risultati Garantiti
+                            </span>
+                        </div>
+                        <p class="trust-text">
+                            <strong>Partnership con:</strong> Politecnico di Milano, Microsoft, Regione Lombardia
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Training Programs Section -->
-    <section id="programs" class="training-programs-section" style="padding: 80px 0; background: white;">
-        <div class="container">
-            <h2 class="section-title">I Nostri Programmi di Formazione</h2>
-            <div class="programs-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem;">
+        <!-- Training Programs Section -->
+        <section id="programs" class="training-programs-section" aria-label="Programmi di Formazione">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">I Nostri Programmi di Formazione AI</h2>
+                    <p class="section-subtitle">
+                        Scegli il percorso formativo più adatto alle esigenze del tuo team. 
+                        Ogni corso include <strong>materiali esclusivi</strong>, <strong>supporto post-corso</strong> e <strong>certificazione riconosciuta</strong>.
+                    </p>
+                </div>
                 
-                <!-- Fondamenti AI -->
-                <div class="program-card" style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; border: 2px solid transparent;">
-                    <div class="program-header" style="margin-bottom: 1.5rem;">
-                        <div class="program-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #0066cc, #004499); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 1rem;">🎯</div>
-                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: #2c3e50;">Fondamenti di AI Generativa</h3>
-                        <div class="program-level" style="background: #e3f2fd; color: #1976d2; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; display: inline-block;">Principiante</div>
-                    </div>
-                    <p style="color: #6c757d; margin-bottom: 1.5rem; line-height: 1.6;">Introduzione completa alle tecnologie di intelligenza artificiale generativa e alle loro applicazioni aziendali.</p>
-                    <div class="program-details" style="margin-bottom: 2rem;">
-                        <div class="detail-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
-                            <span style="color: #00cc66;">⏱️</span>
-                            <span style="color: #6c757d;">Durata: 8 ore</span>
+                <div class="programs-grid">
+                    <!-- Fondamenti AI -->
+                    <article class="program-card featured" itemscope itemtype="https://schema.org/Course">
+                        <div class="program-header">
+                            <div class="program-icon" aria-hidden="true">🎯</div>
+                            <div class="program-badge popular">Più Richiesto</div>
+                            <h3 itemprop="name">Fondamenti di AI Generativa</h3>
+                            <div class="program-level level-beginner">Principiante</div>
                         </div>
-                        <div class="detail-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
-                            <span style="color: #00cc66;">👥</span>
-                            <span style="color: #6c757d;">Max 12 partecipanti</span>
+                        
+                        <p class="program-description" itemprop="description">
+                            <strong>Perfetto per manager e team leader.</strong> Comprendi le tecnologie AI, identifica opportunità di business e guida la trasformazione digitale della tua azienda.
+                        </p>
+                        
+                        <div class="program-details">
+                            <div class="detail-item">
+                                <span class="detail-icon" aria-hidden="true">⏱️</span>
+                                <span itemprop="timeRequired">Durata: 8 ore (2 giorni)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon" aria-hidden="true">👥</span>
+                                <span>Max 12 partecipanti</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon" aria-hidden="true">🏆</span>
+                                <span>Certificato riconosciuto</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon" aria-hidden="true">📚</span>
+                                <span>Materiali inclusi</span>
+                            </div>
                         </div>
-                        <div class="detail-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
-                            <span style="color: #00cc66;">🏆</span>
-                            <span style="color: #6c757d;">Certificato incluso</span>
+                        
+                        <div class="program-benefits">
+                            <h4>Cosa Imparerai:</h4>
+                            <ul class="program-topics">
+                                <li>Panoramica completa delle tecnologie AI generative</li>
+                                <li>Identificazione di opportunità di business concrete</li>
+                                <li>Comprensione di ROI e metriche di successo</li>
+                                <li>Casi studio reali e best practice</li>
+                                <li>Workshop pratici con strumenti AI</li>
+                            </ul>
                         </div>
-                    </div>
-                    <ul class="program-topics" style="list-style: none; margin: 0 0 2rem 0; padding: 0;">
-                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
-                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
-                            Basi dell'AI e terminologia
-                        </li>
-                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
-                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
-                            Comprensione dei modelli linguistici
-                        </li>
-                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
-                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
-                            Casi d'uso aziendali e ROI
-                        </li>
-                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
-                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
-                            Workshop pratici
-                        </li>
-                    </ul>
-                    <div class="program-price" style="text-align: center; margin-bottom: 1.5rem;">
-                        <span style="font-size: 2rem; font-weight: 700; color: #0066cc;">€1,200</span>
-                        <span style="color: #6c757d; font-size: 0.9rem;">/persona</span>
-                    </div>
-                </div>
+                        
+                        <div class="program-outcomes">
+                            <h4>Risultati Garantiti:</h4>
+                            <ul>
+                                <li>Strategie AI implementabili immediatamente</li>
+                                <li>Roadmap di trasformazione digitale personalizzata</li>
+                                <li>Competenze per guidare progetti AI in azienda</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="program-price">
+                            <span class="price-original">€1,500</span>
+                            <span class="price-current" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                                <span itemprop="price">€1,200</span>
+                                <span itemprop="priceCurrency" content="EUR">/persona</span>
+                            </span>
+                            <span class="price-save">Risparmia €300</span>
+                        </div>
+                        
+                        <div class="program-actions">
+                            <a href="#contact-training" class="btn btn-primary btn-program">
+                                Prenota Ora
+                            </a>
+                            <button class="btn btn-secondary btn-program" onclick="toggleProgramDetails(this)">
+                                Dettagli Completi
+                            </button>
+                        </div>
+                        
+                        <div class="program-extra-details" style="display: none;">
+                            <h4>Programma Dettagliato:</h4>
+                            <div class="program-schedule">
+                                <div class="schedule-day">
+                                    <h5>Giorno 1 - Fondamenti e Strategia</h5>
+                                    <ul>
+                                        <li>9:00-10:30: Introduzione all'AI Generativa</li>
+                                        <li>10:45-12:15: Modelli linguistici e applicazioni</li>
+                                        <li>13:15-14:45: Identificazione opportunità business</li>
+                                        <li>15:00-16:30: Workshop pratico con ChatGPT</li>
+                                    </ul>
+                                </div>
+                                <div class="schedule-day">
+                                    <h5>Giorno 2 - Implementazione e ROI</h5>
+                                    <ul>
+                                        <li>9:00-10:30: Calcolo ROI e metriche</li>
+                                        <li>10:45-12:15: Casi studio aziendali</li>
+                                        <li>13:15-14:45: Roadmap implementazione</li>
+                                        <li>15:00-16:30: Certificazione e Q&A</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
 
-                <!-- Prompt Engineering -->
-                <div class="program-card" style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; border: 2px solid transparent;">
-                    <div class="program-header" style="margin-bottom: 1.5rem;">
-                        <div class="program-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #00cc66, #009944); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 1rem;">⚡</div>
-                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: #2c3e50;">Mastery del Prompt Engineering</h3>
-                        <div class="program-level" style="background: #fff3e0; color: #f57c00; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; display: inline-block;">Intermedio</div>
-                    </div>
-                    <p style="color: #6c757d; margin-bottom: 1.5rem; line-height: 1.6;">Tecniche avanzate per creare prompt efficaci e massimizzare la qualità dell'output AI.</p>
-                    <div class="program-details" style="margin-bottom: 2rem;">
-                        <div class="detail-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
-                            <span style="color: #00cc66;">⏱️</span>
-                            <span style="color: #6c757d;">Durata: 12 ore</span>
+                    <!-- Prompt Engineering -->
+                    <article class="program-card" itemscope itemtype="https://schema.org/Course">
+                        <div class="program-header">
+                            <div class="program-icon" aria-hidden="true">⚡</div>
+                            <h3 itemprop="name">Mastery del Prompt Engineering</h3>
+                            <div class="program-level level-intermediate">Intermedio</div>
                         </div>
-                        <div class="detail-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
-                            <span style="color: #00cc66;">👥</span>
-                            <span style="color: #6c757d;">Max 10 partecipanti</span>
+                        
+                        <p class="program-description" itemprop="description">
+                            <strong>Per sviluppatori e content creator.</strong> Padroneggia le tecniche avanzate di prompt engineering per massimizzare l'efficacia dell'AI nei tuoi progetti.
+                        </p>
+                        
+                        <div class="program-details">
+                            <div class="detail-item">
+                                <span class="detail-icon" aria-hidden="true">⏱️</span>
+                                <span itemprop="timeRequired">Durata: 12 ore (3 giorni)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon" aria-hidden="true">👥</span>
+                                <span>Max 10 partecipanti</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon" aria-hidden="true">🏆</span>
+                                <span>Certificato avanzato</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon" aria-hidden="true">💻</span>
+                                <span>Accesso piattaforma online</span>
+                            </div>
                         </div>
-                        <div class="detail-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
-                            <span style="color: #00cc66;">🏆</span>
-                            <span style="color: #6c757d;">Certificato avanzato</span>
+                        
+                        <div class="program-benefits">
+                            <h4>Cosa Imparerai:</h4>
+                            <ul class="program-topics">
+                                <li>Principi scientifici del prompt design</li>
+                                <li>Tecniche avanzate di chain-of-thought</li>
+                                <li>Ottimizzazione per diversi modelli AI</li>
+                                <li>Prompt templates per casi d'uso specifici</li>
+                                <li>Automazione e scalabilità</li>
+                            </ul>
                         </div>
-                    </div>
-                    <ul class="program-topics" style="list-style: none; margin: 0 0 2rem 0; padding: 0;">
-                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
-                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
-                            Principi di design dei prompt
-                        </li>
-                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
-                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
-                            Tecniche avanzate di prompting
-                        </li>
-                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
-                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
-                            Ragionamento chain-of-thought
-                        </li>
-                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
-                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
-                            Applicazioni nel mondo reale
-                        </li>
-                    </ul>
-                    <div class="program-price" style="text-align: center; margin-bottom: 1.5rem;">
-                        <span style="font-size: 2rem; font-weight: 700; color: #0066cc;">€1,800</span>
-                        <span style="color: #6c757d; font-size: 0.9rem;">/persona</span>
-                    </div>
-                </div>
+                        
+                        <div class="program-outcomes">
+                            <h4>Risultati Garantiti:</h4>
+                            <ul>
+                                <li>Aumento del 60% nella qualità degli output</li>
+                                <li>Riduzione del 50% del tempo di iterazione</li>
+                                <li>Libreria di prompt template pronti all'uso</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="program-price">
+                            <span class="price-original">€2,200</span>
+                            <span class="price-current" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                                <span itemprop="price">€1,800</span>
+                                <span itemprop="priceCurrency" content="EUR">/persona</span>
+                            </span>
+                            <span class="price-save">Risparmia €400</span>
+                        </div>
+                        
+                        <div class="program-actions">
+                            <a href="#contact-training" class="btn btn-primary btn-program">
+                                Prenota Ora
+                            </a>
+                            <button class="btn btn-secondary btn-program" onclick="toggleProgramDetails(this)">
+                                Dettagli Completi
+                            </button>
+                        </div>
+                        
+                        <div class="program-extra-details" style="display: none;">
+                            <h4>Prerequisiti:</h4>
+                            <ul>
+                                <li>Esperienza base con strumenti AI (ChatGPT, Claude, etc.)</li>
+                                <li>Comprensione dei concetti di base del machine learning</li>
+                                <li>Esperienza in sviluppo software o content creation</li>
+                            </ul>
+                        </div>
+                    </article>
 
-                <!-- Sviluppo Agenti AI -->
-                <div class="program-card" style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; border: 2px solid transparent;">
-                    <div class="program-header" style="margin-bottom: 1.5rem;">
-                        <div class="program-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #0066cc, #00cc66); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 1rem;">🤖</div>
-                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: #2c3e50;">Sviluppo Agenti AI</h3>
-                        <div class="program-level" style="background: #ffebee; color: #d32f2f; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; display: inline-block;">Avanzato</div>
-                    </div>
-                    <p style="color: #6c757d; margin-bottom: 1.5rem; line-height: 1.6;">Impara a costruire, distribuire e gestire agenti AI per varie funzioni aziendali.</p>
-                    <div class="program-details" style="margin-bottom: 2rem;">
-                        <div class="detail-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
-                            <span style="color: #00cc66;">⏱️</span>
-                            <span style="color: #6c757d;">Durata: 16 ore</span>
+                    <!-- Sviluppo Agenti AI -->
+                    <article class="program-card premium" itemscope itemtype="https://schema.org/Course">
+                        <div class="program-header">
+                            <div class="program-icon" aria-hidden="true">🤖</div>
+                            <div class="program-badge premium">Premium</div>
+                            <h3 itemprop="name">Sviluppo Agenti AI Enterprise</h3>
+                            <div class="program-level level-advanced">Avanzato</div>
                         </div>
-                        <div class="detail-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
-                            <span style="color: #00cc66;">👥</span>
-                            <span style="color: #6c757d;">Max 8 partecipanti</span>
+                        
+                        <p class="program-description" itemprop="description">
+                            <strong>Per architetti software e team tecnici.</strong> Costruisci, distribuisci e gestisci agenti AI enterprise-grade per automazioni complesse e processi aziendali critici.
+                        </p>
+                        
+                        <div class="program-details">
+                            <div class="detail-item">
+                                <span class="detail-icon" aria-hidden="true">⏱️</span>
+                                <span itemprop="timeRequired">Durata: 16 ore (4 giorni)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon" aria-hidden="true">👥</span>
+                                <span>Max 8 partecipanti</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon" aria-hidden="true">🏆</span>
+                                <span>Certificato professionale</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon" aria-hidden="true">🔧</span>
+                                <span>Progetto pratico incluso</span>
+                            </div>
                         </div>
-                        <div class="detail-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
-                            <span style="color: #00cc66;">🏆</span>
-                            <span style="color: #6c757d;">Certificato professionale</span>
+                        
+                        <div class="program-benefits">
+                            <h4>Cosa Imparerai:</h4>
+                            <ul class="program-topics">
+                                <li>Architettura e design patterns per agenti AI</li>
+                                <li>Integrazione con sistemi enterprise esistenti</li>
+                                <li>Monitoraggio, logging e debugging avanzato</li>
+                                <li>Strategie di deployment e scalabilità</li>
+                                <li>Sicurezza e compliance per agenti AI</li>
+                            </ul>
                         </div>
-                    </div>
-                    <ul class="program-topics" style="list-style: none; margin: 0 0 2rem 0; padding: 0;">
-                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
-                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
-                            Architettura e design degli agenti
-                        </li>
-                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
-                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
-                            Integrazione con sistemi esistenti
-                        </li>
-                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
-                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
-                            Monitoraggio e ottimizzazione
-                        </li>
-                        <li style="padding: 0.5rem 0; color: #6c757d; position: relative; padding-left: 1.5rem;">
-                            <span style="position: absolute; left: 0; color: #00cc66; font-weight: bold;">✓</span>
-                            Strategie di deployment
-                        </li>
-                    </ul>
-                    <div class="program-price" style="text-align: center; margin-bottom: 1.5rem;">
-                        <span style="font-size: 2rem; font-weight: 700; color: #0066cc;">€2,500</span>
-                        <span style="color: #6c757d; font-size: 0.9rem;">/persona</span>
-                    </div>
+                        
+                        <div class="program-outcomes">
+                            <h4>Risultati Garantiti:</h4>
+                            <ul>
+                                <li>Agente AI funzionante pronto per produzione</li>
+                                <li>Framework di sviluppo riutilizzabile</li>
+                                <li>Competenze per gestire progetti AI complessi</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="program-price">
+                            <span class="price-original">€3,000</span>
+                            <span class="price-current" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                                <span itemprop="price">€2,500</span>
+                                <span itemprop="priceCurrency" content="EUR">/persona</span>
+                            </span>
+                            <span class="price-save">Risparmia €500</span>
+                        </div>
+                        
+                        <div class="program-actions">
+                            <a href="#contact-training" class="btn btn-primary btn-program">
+                                Prenota Ora
+                            </a>
+                            <button class="btn btn-secondary btn-program" onclick="toggleProgramDetails(this)">
+                                Dettagli Completi
+                            </button>
+                        </div>
+                        
+                        <div class="program-extra-details" style="display: none;">
+                            <h4>Prerequisiti:</h4>
+                            <ul>
+                                <li>Esperienza in sviluppo software (Python/JavaScript)</li>
+                                <li>Conoscenza base di API e microservizi</li>
+                                <li>Familiarità con cloud computing (AWS/Azure)</li>
+                            </ul>
+                            <h4>Tecnologie Utilizzate:</h4>
+                            <ul>
+                                <li>LangChain, OpenAI API, Anthropic Claude</li>
+                                <li>Docker, Kubernetes, monitoring tools</li>
+                                <li>Vector databases, embeddings</li>
+                            </ul>
+                        </div>
+                    </article>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Training Formats Section -->
-    <section class="training-formats-section" style="padding: 80px 0; background: #f8f9fa;">
-        <div class="container">
-            <h2 class="section-title">Modalità di Formazione</h2>
-            <div class="formats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
                 
-                <div class="format-card" style="background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
-                    <div class="format-icon" style="font-size: 3rem; margin-bottom: 1rem;">🏢</div>
-                    <h3 style="color: #2c3e50; margin-bottom: 1rem;">In Presenza</h3>
-                    <p style="color: #6c757d; margin-bottom: 1.5rem;">Formazione presso la vostra sede o nei nostri centri di formazione.</p>
-                    <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ Interazione diretta</li>
-                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ Workshop pratici</li>
-                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ Networking</li>
-                    </ul>
-                </div>
-
-                <div class="format-card" style="background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
-                    <div class="format-icon" style="font-size: 3rem; margin-bottom: 1rem;">💻</div>
-                    <h3 style="color: #2c3e50; margin-bottom: 1rem;">Online</h3>
-                    <p style="color: #6c757d; margin-bottom: 1.5rem;">Formazione virtuale con piattaforme interattive avanzate.</p>
-                    <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ Flessibilità oraria</li>
-                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ Registrazioni disponibili</li>
-                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ Costi ridotti</li>
-                    </ul>
-                </div>
-
-                <div class="format-card" style="background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
-                    <div class="format-icon" style="font-size: 3rem; margin-bottom: 1rem;">🔄</div>
-                    <h3 style="color: #2c3e50; margin-bottom: 1rem;">Ibrida</h3>
-                    <p style="color: #6c757d; margin-bottom: 1.5rem;">Combinazione di formazione in presenza e online.</p>
-                    <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ Massima flessibilità</li>
-                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ Approccio personalizzato</li>
-                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ Ottimizzazione costi</li>
-                    </ul>
+                <!-- Bundle Offer -->
+                <div class="bundle-offer">
+                    <div class="bundle-header">
+                        <h3>🎁 Offerta Speciale: Percorso Completo AI</h3>
+                        <div class="bundle-badge">Risparmia €1,000</div>
+                    </div>
+                    <div class="bundle-content">
+                        <div class="bundle-description">
+                            <p><strong>Tutti e 3 i corsi a un prezzo speciale.</strong> Ideale per team che vogliono acquisire competenze AI complete.</p>
+                            <ul>
+                                <li>✅ Fondamenti di AI Generativa</li>
+                                <li>✅ Mastery del Prompt Engineering</li>
+                                <li>✅ Sviluppo Agenti AI Enterprise</li>
+                                <li>✅ Mentorship 1-on-1 per 3 mesi</li>
+                                <li>✅ Accesso community esclusiva</li>
+                            </ul>
+                        </div>
+                        <div class="bundle-pricing">
+                            <div class="bundle-price">
+                                <span class="price-original">€5,500</span>
+                                <span class="price-current">€4,500</span>
+                                <span class="price-save">Risparmia €1,000</span>
+                            </div>
+                            <a href="#contact-training" class="btn btn-primary btn-large">
+                                Prenota Percorso Completo
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Training Section -->
-    <section id="contact-training" class="contact-training-section" style="padding: 80px 0; background: linear-gradient(135deg, #0066cc, #00cc66); color: white;">
-        <div class="container">
-            <div class="contact-content" style="max-width: 800px; margin: 0 auto; text-align: center;">
-                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Inizia il Tuo Percorso di Formazione AI</h2>
-                <p style="font-size: 1.2rem; margin-bottom: 2.5rem; opacity: 0.9;">Contattaci per discutere le esigenze formative del tuo team e creare un programma personalizzato.</p>
+        <!-- Training Formats Section -->
+        <section class="training-formats-section" aria-label="Modalità di Formazione">
+            <div class="container">
+                <h2 class="section-title">Modalità di Formazione Flessibili</h2>
+                <p class="section-subtitle">
+                    Scegli la modalità che meglio si adatta alle esigenze del tuo team e alla tua organizzazione.
+                </p>
                 
-                <div class="contact-form" style="background: white; padding: 2.5rem; border-radius: 20px; color: #2c3e50;">
-                    <form id="trainingForm">
-                        <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
-                            <div class="form-group">
-                                <input type="text" id="trainName" name="name" placeholder="Nome" required style="width: 100%; padding: 1rem; border: 2px solid #e9ecef; border-radius: 10px; font-size: 1rem;">
-                            </div>
-                            <div class="form-group">
-                                <input type="email" id="trainEmail" name="email" placeholder="Email" required style="width: 100%; padding: 1rem; border: 2px solid #e9ecef; border-radius: 10px; font-size: 1rem;">
-                            </div>
+                <div class="formats-grid">
+                    <div class="format-card">
+                        <div class="format-icon" aria-hidden="true">🏢</div>
+                        <h3>Formazione In Presenza</h3>
+                        <p>Presso la vostra sede o nei nostri centri di formazione a Milano.</p>
+                        <div class="format-benefits">
+                            <ul>
+                                <li>✓ Interazione diretta con i formatori</li>
+                                <li>✓ Workshop pratici hands-on</li>
+                                <li>✓ Networking e team building</li>
+                                <li>✓ Materiali fisici inclusi</li>
+                            </ul>
                         </div>
-                        <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
-                            <div class="form-group">
-                                <input type="text" id="trainCompany" name="company" placeholder="Azienda" required style="width: 100%; padding: 1rem; border: 2px solid #e9ecef; border-radius: 10px; font-size: 1rem;">
-                            </div>
-                            <div class="form-group">
-                                <select id="trainProgram" name="program" required style="width: 100%; padding: 1rem; border: 2px solid #e9ecef; border-radius: 10px; font-size: 1rem;">
-                                    <option value="">Seleziona Programma</option>
-                                    <option value="fondamenti">Fondamenti AI</option>
-                                    <option value="prompt">Prompt Engineering</option>
-                                    <option value="agenti">Sviluppo Agenti</option>
-                                    <option value="personalizzato">Programma Personalizzato</option>
-                                </select>
-                            </div>
+                        <div class="format-price">
+                            <span class="format-label">Costo aggiuntivo:</span>
+                            <span class="format-amount">€200/giorno</span>
                         </div>
-                        <div class="form-group" style="margin-bottom: 1rem;">
-                            <textarea id="trainMessage" name="message" placeholder="Descrivi le esigenze formative del tuo team..." rows="4" style="width: 100%; padding: 1rem; border: 2px solid #e9ecef; border-radius: 10px; font-size: 1rem;"></textarea>
+                    </div>
+
+                    <div class="format-card recommended">
+                        <div class="format-badge">Consigliato</div>
+                        <div class="format-icon" aria-hidden="true">💻</div>
+                        <h3>Formazione Online Live</h3>
+                        <p>Sessioni virtuali interattive con piattaforme avanzate e breakout rooms.</p>
+                        <div class="format-benefits">
+                            <ul>
+                                <li>✓ Flessibilità di orari e location</li>
+                                <li>✓ Registrazioni disponibili per 6 mesi</li>
+                                <li>✓ Riduzione costi di trasferta</li>
+                                <li>✓ Partecipazione da tutta Italia</li>
+                            </ul>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1.2rem; font-size: 1.1rem; margin-top: 1rem;">Richiedi Informazioni</button>
-                    </form>
+                        <div class="format-price">
+                            <span class="format-label">Prezzo standard:</span>
+                            <span class="format-amount">Incluso</span>
+                        </div>
+                    </div>
+
+                    <div class="format-card">
+                        <div class="format-icon" aria-hidden="true">🔄</div>
+                        <h3>Formazione Ibrida</h3>
+                        <p>Combinazione ottimale di sessioni in presenza e online.</p>
+                        <div class="format-benefits">
+                            <ul>
+                                <li>✓ Massima flessibilità</li>
+                                <li>✓ Approccio personalizzato</li>
+                                <li>✓ Ottimizzazione costi</li>
+                                <li>✓ Adattabile alle esigenze</li>
+                            </ul>
+                        </div>
+                        <div class="format-price">
+                            <span class="format-label">Su misura:</span>
+                            <span class="format-amount">Preventivo</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section" aria-label="Testimonianze Clienti">
+            <div class="container">
+                <h2 class="section-title">Cosa Dicono i Nostri Clienti</h2>
+                <p class="section-subtitle">
+                    Oltre 750 professionisti hanno già trasformato le loro competenze con i nostri corsi.
+                </p>
+                
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                            <div class="testimonial-badge">Verified</div>
+                        </div>
+                        <blockquote class="testimonial-content">
+                            "Il corso sui fondamenti AI ha <strong>rivoluzionato</strong> il nostro approccio al marketing. Abbiamo aumentato la produttività del team del 45% e ridotto i tempi di creazione contenuti del 60%."
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Marco Rossi</h4>
+                                <p>Marketing Director, TechCorp</p>
+                            </div>
+                            <div class="testimonial-results">
+                                <span class="result-metric">+45% Produttività</span>
+                                <span class="result-metric">-60% Tempo</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                            <div class="testimonial-badge">Verified</div>
+                        </div>
+                        <blockquote class="testimonial-content">
+                            "Il corso di prompt engineering è stato <strong>incredibilmente pratico</strong>. Ora i nostri sviluppatori creano contenuti di qualità superiore in metà del tempo."
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Laura Bianchi</h4>
+                                <p>CTO, InnovateTech</p>
+                            </div>
+                            <div class="testimonial-results">
+                                <span class="result-metric">+70% Qualità</span>
+                                <span class="result-metric">-50% Tempo</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card featured">
+                        <div class="testimonial-header">
+                            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                            <div class="testimonial-badge">Case Study</div>
+                        </div>
+                        <blockquote class="testimonial-content">
+                            "Con il corso sugli agenti AI abbiamo <strong>automatizzato il 80% del customer service</strong>. ROI raggiunto in soli 2 mesi. Investimento che consiglio a tutti."
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Giuseppe Verdi</h4>
+                                <p>CEO, ServiceExcel</p>
+                            </div>
+                            <div class="testimonial-results">
+                                <span class="result-metric">+80% Automazione</span>
+                                <span class="result-metric">ROI in 2 mesi</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section" aria-label="Domande Frequenti">
+            <div class="container">
+                <h2 class="section-title">Domande Frequenti</h2>
+                <p class="section-subtitle">
+                    Risposte alle domande più comuni sui nostri corsi di formazione AI.
+                </p>
+                
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3 class="faq-question">
+                            <button class="faq-toggle" onclick="toggleFAQ(this)">
+                                Quali sono i prerequisiti per partecipare ai corsi?
+                                <span class="faq-icon">+</span>
+                            </button>
+                        </h3>
+                        <div class="faq-answer">
+                            <p>I prerequisiti variano per corso:</p>
+                            <ul>
+                                <li><strong>Fondamenti AI:</strong> Nessun prerequisito specifico, ideale per manager e decision maker</li>
+                                <li><strong>Prompt Engineering:</strong> Esperienza base con strumenti AI e concetti di sviluppo</li>
+                                <li><strong>Agenti AI:</strong> Esperienza in programmazione (Python/JavaScript) e conoscenza di API</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">
+                            <button class="faq-toggle" onclick="toggleFAQ(this)">
+                                I corsi sono riconosciuti ufficialmente?
+                                <span class="faq-icon">+</span>
+                            </button>
+                        </h3>
+                        <div class="faq-answer">
+                            <p>Sì, tutti i nostri corsi rilasciano certificazioni riconosciute:</p>
+                            <ul>
+                                <li>Partnership con Politecnico di Milano</li>
+                                <li>Certificazioni Microsoft AI</li>
+                                <li>Riconoscimento Regione Lombardia</li>
+                                <li>Crediti formativi professionali</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">
+                            <button class="faq-toggle" onclick="toggleFAQ(this)">
+                                È possibile personalizzare i corsi per la mia azienda?
+                                <span class="faq-icon">+</span>
+                            </button>
+                        </h3>
+                        <div class="faq-answer">
+                            <p>Assolutamente sì! Offriamo:</p>
+                            <ul>
+                                <li>Analisi preliminare delle esigenze aziendali</li>
+                                <li>Personalizzazione contenuti e casi studio</li>
+                                <li>Formazione su misura per il vostro settore</li>
+                                <li>Mentorship post-corso dedicata</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">
+                            <button class="faq-toggle" onclick="toggleFAQ(this)">
+                                Qual è la vostra garanzia di soddisfazione?
+                                <span class="faq-icon">+</span>
+                            </button>
+                        </h3>
+                        <div class="faq-answer">
+                            <p>Offriamo una garanzia completa di 30 giorni:</p>
+                            <ul>
+                                <li>Rimborso 100% se non soddisfatti</li>
+                                <li>Possibilità di ripetere il corso gratuitamente</li>
+                                <li>Supporto post-corso per 6 mesi</li>
+                                <li>Aggiornamenti gratuiti per 1 anno</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">
+                            <button class="faq-toggle" onclick="toggleFAQ(this)">
+                                Quanto tempo serve per vedere risultati concreti?
+                                <span class="faq-icon">+</span>
+                            </button>
+                        </h3>
+                        <div class="faq-answer">
+                            <p>I risultati variano per tipologia di corso:</p>
+                            <ul>
+                                <li><strong>Fondamenti AI:</strong> Strategie implementabili immediatamente</li>
+                                <li><strong>Prompt Engineering:</strong> Miglioramenti visibili in 1-2 settimane</li>
+                                <li><strong>Agenti AI:</strong> Primi prototipi funzionanti in 3-4 settimane</li>
+                                <li><strong>ROI medio:</strong> Raggiunto in 2-3 mesi</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">
+                            <button class="faq-toggle" onclick="toggleFAQ(this)">
+                                Offrite supporto post-corso?
+                                <span class="faq-icon">+</span>
+                            </button>
+                        </h3>
+                        <div class="faq-answer">
+                            <p>Sì, il supporto post-corso è incluso:</p>
+                            <ul>
+                                <li>Community esclusiva di alumni</li>
+                                <li>Sessioni Q&A mensili</li>
+                                <li>Aggiornamenti su nuove tecnologie</li>
+                                <li>Supporto tecnico via email</li>
+                                <li>Webinar gratuiti di approfondimento</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Training Section -->
+        <section id="contact-training" class="contact-training-section" aria-label="Contatti per Formazione">
+            <div class="container">
+                <div class="contact-content">
+                    <div class="contact-header">
+                        <h2>Inizia il Tuo Percorso di Formazione AI</h2>
+                        <p>Compila il form per ricevere un preventivo personalizzato e scoprire come i nostri corsi possono trasformare le competenze del tuo team.</p>
+                        
+                        <div class="contact-benefits">
+                            <div class="benefit-item">
+                                <span class="benefit-icon">📞</span>
+                                <span>Consulenza gratuita di 30 minuti</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon">📊</span>
+                                <span>Analisi delle esigenze formative</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon">💰</span>
+                                <span>Preventivo personalizzato</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-container">
+                        <form id="trainingForm" class="contact-form">
+                            <div class="form-group-row">
+                                <div class="form-group">
+                                    <label for="trainName">Nome e Cognome *</label>
+                                    <input type="text" id="trainName" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="trainEmail">Email Aziendale *</label>
+                                    <input type="email" id="trainEmail" name="email" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group-row">
+                                <div class="form-group">
+                                    <label for="trainCompany">Azienda *</label>
+                                    <input type="text" id="trainCompany" name="company" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="trainRole">Ruolo</label>
+                                    <select id="trainRole" name="role">
+                                        <option value="">Seleziona ruolo</option>
+                                        <option value="ceo">CEO/Founder</option>
+                                        <option value="cto">CTO/Tech Lead</option>
+                                        <option value="manager">Manager</option>
+                                        <option value="developer">Developer</option>
+                                        <option value="marketer">Marketing</option>
+                                        <option value="hr">HR</option>
+                                        <option value="altro">Altro</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group-row">
+                                <div class="form-group">
+                                    <label for="trainProgram">Corso di Interesse *</label>
+                                    <select id="trainProgram" name="program" required>
+                                        <option value="">Seleziona corso</option>
+                                        <option value="fondamenti">Fondamenti AI Generativa</option>
+                                        <option value="prompt">Prompt Engineering</option>
+                                        <option value="agenti">Sviluppo Agenti AI</option>
+                                        <option value="bundle">Percorso Completo AI</option>
+                                        <option value="personalizzato">Corso Personalizzato</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="trainTeamSize">Dimensione Team</label>
+                                    <select id="trainTeamSize" name="teamSize">
+                                        <option value="">Seleziona dimensione</option>
+                                        <option value="1-5">1-5 persone</option>
+                                        <option value="6-15">6-15 persone</option>
+                                        <option value="16-30">16-30 persone</option>
+                                        <option value="31-50">31-50 persone</option>
+                                        <option value="50+">50+ persone</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="trainFormat">Modalità Preferita</label>
+                                <div class="radio-group">
+                                    <label class="radio-option">
+                                        <input type="radio" name="format" value="online" checked>
+                                        <span class="radio-custom"></span>
+                                        Online Live
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="format" value="presenza">
+                                        <span class="radio-custom"></span>
+                                        In Presenza
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="format" value="ibrida">
+                                        <span class="radio-custom"></span>
+                                        Ibrida
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="trainMessage">Esigenze Specifiche</label>
+                                <textarea id="trainMessage" name="message" rows="4" placeholder="Descrivi le esigenze formative del tuo team, obiettivi specifici o domande particolari..."></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="newsletter" value="yes">
+                                    <span class="checkbox-custom"></span>
+                                    Desidero ricevere aggiornamenti sui corsi e newsletter AI
+                                </label>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="privacy" value="yes" required>
+                                    <span class="checkbox-custom"></span>
+                                    Accetto il trattamento dei dati personali secondo la <a href="/privacy.html" target="_blank">Privacy Policy</a> *
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-large btn-submit">
+                                <span class="btn-icon">🚀</span>
+                                Richiedi Preventivo Gratuito
+                            </button>
+                            
+                            <p class="form-note">
+                                <strong>Risposta garantita entro 24 ore.</strong> Ti contatteremo per programmare la consulenza gratuita.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
 
+    <!-- Scripts -->
     <script src="script.js"></script>
     <script src="includes/includes.js"></script>
+    
+    <!-- Training-specific JavaScript -->
+    <script>
+        // FAQ Toggle Functionality
+        function toggleFAQ(button) {
+            const faqItem = button.closest('.faq-item');
+            const answer = faqItem.querySelector('.faq-answer');
+            const icon = button.querySelector('.faq-icon');
+            
+            if (answer.style.display === 'block') {
+                answer.style.display = 'none';
+                icon.textContent = '+';
+                faqItem.classList.remove('active');
+            } else {
+                // Close all other FAQs
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.querySelector('.faq-answer').style.display = 'none';
+                    item.querySelector('.faq-icon').textContent = '+';
+                    item.classList.remove('active');
+                });
+                
+                answer.style.display = 'block';
+                icon.textContent = '−';
+                faqItem.classList.add('active');
+            }
+        }
+        
+        // Program Details Toggle
+        function toggleProgramDetails(button) {
+            const programCard = button.closest('.program-card');
+            const extraDetails = programCard.querySelector('.program-extra-details');
+            
+            if (extraDetails.style.display === 'none') {
+                extraDetails.style.display = 'block';
+                button.textContent = 'Nascondi Dettagli';
+            } else {
+                extraDetails.style.display = 'none';
+                button.textContent = 'Dettagli Completi';
+            }
+        }
+        
+        // Form Submission Handler
+        document.getElementById('trainingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Show loading state
+            const submitBtn = this.querySelector('.btn-submit');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<span class="btn-icon">⏳</span> Invio in corso...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission (replace with actual API call)
+            setTimeout(() => {
+                alert('Richiesta inviata con successo! Ti contatteremo entro 24 ore.');
+                this.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Urgency banner countdown (optional)
+        function updateUrgencyBanner() {
+            const urgencyBanner = document.querySelector('.urgency-banner');
+            if (urgencyBanner) {
+                const now = new Date();
+                const nextCourseDate = new Date('2025-01-25');
+                const daysUntil = Math.ceil((nextCourseDate - now) / (1000 * 60 * 60 * 24));
+                
+                if (daysUntil > 0) {
+                    const span = urgencyBanner.querySelector('span:last-child');
+                    span.innerHTML = `<strong>Offerta Limitata:</strong> Solo 3 posti disponibili per il prossimo corso (inizio tra ${daysUntil} giorni)`;
+                }
+            }
+        }
+        
+        // Initialize urgency banner
+        updateUrgencyBanner();
+    </script>
 </body>
 </html>
