@@ -3098,3 +3098,20 @@ html {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--gradient-secondary);
 }
+
+/* Hide ElevenLabs branding - Conservative approach */
+elevenlabs-convai p[class*="text-[10px]"] {
+    display: none !important;
+}
+
+elevenlabs-convai a[href*="elevenlabs.io"] {
+    display: none !important;
+}
+
+elevenlabs-convai [class*="opacity-30"] {
+    display: none !important;
+}
+
+elevenlabs-convai [class*="whitespace-nowrap"] {
+    display: none !important;
+}

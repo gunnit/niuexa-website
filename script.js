@@ -5,7 +5,80 @@ document.addEventListener('DOMContentLoaded', function() {
     initAnimations();
     initContactForm();
     initServiceCards();
+    hideElevenLabsBranding();
 });
+
+// Function to hide ElevenLabs branding
+function hideElevenLabsBranding() {
+    // Wait for widget to load and then hide branding
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.type === 'childList') {
+                // Look for any elements containing the branding text
+                const brandingElements = document.querySelectorAll('elevenlabs-convai *');
+                brandingElements.forEach(function(element) {
+                    if (element.textContent && 
+                        (element.textContent.includes('Powered by ElevenLabs') || 
+                         element.textContent.includes('Conversational AI'))) {
+                        element.style.display = 'none';
+                        // Also hide parent elements that might contain the branding
+                        let parent = element.parentElement;
+                        while (parent && parent.tagName !== 'ELEVENLABS-CONVAI') {
+                            if (parent.textContent.includes('Powered by ElevenLabs')) {
+                                parent.style.display = 'none';
+                                break;
+                            }
+                            parent = parent.parentElement;
+                        }
+                    }
+                });
+                
+                // Also check for shadow DOM
+                const convaiElement = document.querySelector('elevenlabs-convai');
+                if (convaiElement && convaiElement.shadowRoot) {
+                    const shadowBranding = convaiElement.shadowRoot.querySelectorAll('*');
+                    shadowBranding.forEach(function(element) {
+                        if (element.textContent && 
+                            (element.textContent.includes('Powered by ElevenLabs') || 
+                             element.textContent.includes('Conversational AI'))) {
+                            element.style.display = 'none';
+                        }
+                    });
+                }
+            }
+        });
+    });
+    
+    // Start observing
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+    
+    // Also run immediately in case widget is already loaded
+    setTimeout(function() {
+        const brandingElements = document.querySelectorAll('elevenlabs-convai *');
+        brandingElements.forEach(function(element) {
+            if (element.textContent && 
+                (element.textContent.includes('Powered by ElevenLabs') || 
+                 element.textContent.includes('Conversational AI'))) {
+                element.style.display = 'none';
+            }
+        });
+    }, 2000);
+    
+    // Run periodically to catch any dynamically loaded content
+    setInterval(function() {
+        const brandingElements = document.querySelectorAll('elevenlabs-convai *');
+        brandingElements.forEach(function(element) {
+            if (element.textContent && 
+                (element.textContent.includes('Powered by ElevenLabs') || 
+                 element.textContent.includes('Conversational AI'))) {
+                element.style.display = 'none';
+            }
+        });
+    }, 5000);
+}
 
 // Scroll effects
 function initScrollEffects() {
