@@ -4,7 +4,7 @@ const navigationHTML = `
 <nav class="navbar">
     <div class="nav-container">
         <div class="nav-logo">
-            <h1>NIUEXA</h1>
+            <a href="index.html"><h1>NIUEXA</h1></a>
         </div>
         <ul class="nav-menu">
             <li class="nav-item">
@@ -30,10 +30,10 @@ const navigationHTML = `
                 <a href="login.html" class="nav-link login-link" data-page="login">🔐 Login</a>
             </li>
         </ul>
-        <div class="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+        <div class="hamburger" role="button" aria-label="Toggle navigation menu" aria-expanded="false" tabindex="0">
+            <span class="bar" aria-hidden="true"></span>
+            <span class="bar" aria-hidden="true"></span>
+            <span class="bar" aria-hidden="true"></span>
         </div>
     </div>
 </nav>
@@ -83,19 +83,39 @@ const footerHTML = `
 
 // Function to load HTML includes
 function loadIncludes() {
-    // Load navigation
+    // Load navigation with loading state
     const navPlaceholder = document.getElementById('nav-placeholder');
     if (navPlaceholder) {
-        navPlaceholder.innerHTML = navigationHTML;
-        setActiveNavItem();
-        // Initialize navigation functionality after loading
-        initNavigationFunctionality();
+        // Show loading state
+        navPlaceholder.innerHTML = '<div class="loading-placeholder nav-loading" aria-label="Loading navigation">Loading navigation...</div>';
+        
+        // Simulate brief loading and then load content
+        setTimeout(() => {
+            try {
+                navPlaceholder.innerHTML = navigationHTML;
+                setActiveNavItem();
+                // Initialize navigation functionality after loading
+                initNavigationFunctionality();
+            } catch (error) {
+                console.error('Failed to load navigation:', error);
+                navPlaceholder.innerHTML = '<div class="error-placeholder">Navigation failed to load. <button onclick="loadIncludes()">Retry</button></div>';
+            }
+        }, 100);
     }
 
-    // Load footer
+    // Load footer with loading state
     const footerPlaceholder = document.getElementById('footer-placeholder');
     if (footerPlaceholder) {
-        footerPlaceholder.innerHTML = footerHTML;
+        footerPlaceholder.innerHTML = '<div class="loading-placeholder footer-loading" aria-label="Loading footer">Loading footer...</div>';
+        
+        setTimeout(() => {
+            try {
+                footerPlaceholder.innerHTML = footerHTML;
+            } catch (error) {
+                console.error('Failed to load footer:', error);
+                footerPlaceholder.innerHTML = '<div class="error-placeholder">Footer failed to load.</div>';
+            }
+        }, 50);
     }
 }
 
@@ -107,9 +127,42 @@ function initNavigationFunctionality() {
 
     if (hamburger && navMenu) {
         // Toggle mobile menu
-        hamburger.addEventListener('click', function() {
+        function toggleMenu() {
+            const isActive = hamburger.classList.contains('active');
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
+            
+            // Update ARIA attributes
+            hamburger.setAttribute('aria-expanded', !isActive);
+            
+            // Focus management
+            if (!isActive) {
+                // Menu is opening - focus first link
+                const firstLink = navMenu.querySelector('a');
+                if (firstLink) {
+                    setTimeout(() => firstLink.focus(), 100);
+                }
+            }
+        }
+        
+        hamburger.addEventListener('click', toggleMenu);
+        
+        // Keyboard support for hamburger button
+        hamburger.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleMenu();
+            }
+        });
+        
+        // Close menu on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+                hamburger.focus();
+            }
         });
     }
 

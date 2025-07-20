@@ -29,8 +29,12 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://niuexa.com">
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="img/niuexalogo.png">
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/niuexalogo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/niuexalogo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/niuexalogo.png">
+    <link rel="manifest" href="site.webmanifest">
     
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,6 +43,9 @@
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- HubSpot Form Script -->
+    <script src="https://js-eu1.hsforms.net/forms/embed/146568969.js" defer></script>
     
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
@@ -71,6 +78,9 @@
     </script>
 </head>
 <body>
+    <!-- Skip Navigation for Accessibility -->
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+    
     <!-- Navigation Placeholder -->
     <div id="nav-placeholder"></div>
 
@@ -113,6 +123,7 @@
     </section>
 
     <!-- Services Overview -->
+    <main id="main-content">
     <section class="services-overview">
         <div class="container">
             <h2 class="section-title">I Nostri Servizi</h2>
@@ -177,11 +188,8 @@
                     </div>
                 </div>
                 <div class="company-visual">
-                    <div class="tech-sphere">
-                        <div class="sphere-ring ring-1"></div>
-                        <div class="sphere-ring ring-2"></div>
-                        <div class="sphere-ring ring-3"></div>
-                        <div class="sphere-core"></div>
+                    <div class="team-image">
+                        <img src="img/team3.jpg" alt="Team Niuexa - Esperti in intelligenza artificiale e consulenza AI" class="team-photo">
                     </div>
                 </div>
             </div>
@@ -196,123 +204,108 @@
             <h2 class="section-title">I Nostri Partner</h2>
             <div class="partners-grid">
                 <div class="partner-logo">
-                    <img src="img/Regione-Lombardia-New09-Logo-Vector.svg-.png" alt="Regione Lombardia" />
+                    <img src="img/Regione-Lombardia-New09-Logo-Vector.svg-.png" alt="Regione Lombardia - Partner istituzionale" />
                 </div>
                 <div class="partner-logo">
-                    <img src="img/logo_footer_libera.webp" alt="Libera Group" />
+                    <img src="img/logo_footer_libera.webp" alt="Libera Group - Partner strategico" />
                 </div>
                 <div class="partner-logo">
-                    <img src="img/Politecnico_Milano_logo.png" alt="Politecnico di Milano" />
+                    <img src="img/Politecnico_Milano_logo.png" alt="Politecnico di Milano - Partner accademico" />
                 </div>
                 <div class="partner-logo">
-                    <img src="img/microsoft.png" alt="Microsoft" />
+                    <img src="img/microsoft.png" alt="Microsoft - Partner tecnologico" />
                 </div>
                 <div class="partner-logo">
-                    <img src="img/logo_footer_bebit.webp" alt="Bebit" />
+                    <img src="img/logo_footer_bebit.webp" alt="Bebit - Partner tecnologico" />
                 </div>
                 <div class="partner-logo">
-                    <img src="img/logo_footer_inthezon.webp" alt="InTheZon" />
+                    <img src="img/logo_footer_inthezon.webp" alt="InTheZon - Partner tecnologico" />
                 </div>
                 <div class="partner-logo">
-                    <img src="img/Logo-Assintel.png" alt="Assintel" />
+                    <img src="img/Logo-Assintel.png" alt="Assintel - Associazione di categoria" />
                 </div>
                 <div class="partner-logo">
-                    <img src="img/EU-logo-hor-1024x228.png" alt="EU" />
+                    <img src="img/EU-logo-hor-1024x228.png" alt="Unione Europea - Programmi di finanziamento" />
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
+    <!-- AI Benefits Section -->
     <section class="testimonials-section">
         <div class="container">
-            <h2 class="section-title">Cosa Dicono i Nostri Clienti</h2>
+            <h2 class="section-title">Perché Scegliere l'AI per la Tua Azienda</h2>
             <div class="testimonials-intro">
-                <p>Scopri come le aziende stanno trasformando i loro processi con le nostre soluzioni AI</p>
+                <p>Dati reali dal mercato che dimostrano il valore dell'intelligenza artificiale per le aziende</p>
             </div>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        <div class="testimonial-stars">★★★★★</div>
-                        <p>"Grazie alle soluzioni AI di Niuexa, abbiamo ridotto del 70% il tempo dedicato alla creazione di contenuti marketing. Il ROI è stato immediato e misurabile."</p>
-                        <div class="testimonial-author">
-                            <div class="author-info">
-                                <h4>Marco Rossi</h4>
-                                <p>Marketing Director, TechCorp Italia</p>
-                            </div>
-                            <div class="author-company">
-                                <span class="company-size">500+ dipendenti</span>
-                            </div>
+                        <div class="testimonial-icon">📈</div>
+                        <h3>Aumento della Produttività</h3>
+                        <p>Secondo McKinsey Global Institute, le aziende che implementano soluzioni AI vedono un aumento medio del 37% della produttività dei dipendenti, con risultati misurabili già nei primi 3 mesi.</p>
+                        <div class="testimonial-source">
+                            <p><strong>Fonte:</strong> McKinsey Global Institute 2024</p>
                         </div>
                     </div>
                     <div class="testimonial-results">
                         <div class="result-item">
-                            <span class="result-number">70%</span>
-                            <span class="result-label">Tempo Risparmiato</span>
-                        </div>
-                        <div class="result-item">
-                            <span class="result-number">€50k</span>
-                            <span class="result-label">Risparmio Annuo</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="testimonial-stars">★★★★★</div>
-                        <p>"La formazione AI di Niuexa ha trasformato il nostro team. Ora siamo in grado di implementare automazioni che prima richiedevano consulenti esterni."</p>
-                        <div class="testimonial-author">
-                            <div class="author-info">
-                                <h4>Laura Bianchi</h4>
-                                <p>CTO, InnovateBank</p>
-                            </div>
-                            <div class="author-company">
-                                <span class="company-size">1000+ dipendenti</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-results">
-                        <div class="result-item">
-                            <span class="result-number">400%</span>
-                            <span class="result-label">ROI Ottenuto</span>
+                            <span class="result-number">37%</span>
+                            <span class="result-label">Aumento Produttività</span>
                         </div>
                         <div class="result-item">
                             <span class="result-number">3 mesi</span>
-                            <span class="result-label">Tempo Implementazione</span>
+                            <span class="result-label">Primi Risultati</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        <div class="testimonial-stars">★★★★★</div>
-                        <p>"I loro agenti AI per le vendite hanno aumentato la nostra conversion rate del 45%. Un investimento che si è ripagato in meno di 2 mesi."</p>
-                        <div class="testimonial-author">
-                            <div class="author-info">
-                                <h4>Alessandro Verdi</h4>
-                                <p>Sales Manager, GrowthStartup</p>
-                            </div>
-                            <div class="author-company">
-                                <span class="company-size">50+ dipendenti</span>
-                            </div>
+                        <div class="testimonial-icon">💰</div>
+                        <h3>ROI Superiore</h3>
+                        <p>Boston Consulting Group riporta che le aziende che investono in AI generativa ottengono un ritorno dell'investimento del 300% in media entro 18 mesi, con risparmi significativi sui costi operativi.</p>
+                        <div class="testimonial-source">
+                            <p><strong>Fonte:</strong> Boston Consulting Group 2024</p>
                         </div>
                     </div>
                     <div class="testimonial-results">
                         <div class="result-item">
-                            <span class="result-number">45%</span>
-                            <span class="result-label">Conversion Rate</span>
+                            <span class="result-number">300%</span>
+                            <span class="result-label">ROI Medio</span>
                         </div>
                         <div class="result-item">
-                            <span class="result-number">2 mesi</span>
-                            <span class="result-label">Payback Period</span>
+                            <span class="result-number">18 mesi</span>
+                            <span class="result-label">Tempo Recupero</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-icon">🚀</div>
+                        <h3>Trend di Mercato</h3>
+                        <p>L'Osservatorio AI del Politecnico di Milano evidenzia che il 72% delle aziende italiane sta pianificando investimenti in AI nei prossimi 12 mesi, con un focus su automazione e customer experience.</p>
+                        <div class="testimonial-source">
+                            <p><strong>Fonte:</strong> Osservatorio AI Politecnico Milano 2024</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-results">
+                        <div class="result-item">
+                            <span class="result-number">72%</span>
+                            <span class="result-label">Aziende Investono</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-number">12 mesi</span>
+                            <span class="result-label">Piani di Investimento</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="testimonials-cta">
-                <p>Unisciti a centinaia di aziende che hanno già trasformato i loro processi</p>
+                <p>Non rimanere indietro. Inizia il tuo percorso di trasformazione digitale</p>
                 <a href="roi-calculator.html" class="btn btn-primary">Calcola il Tuo ROI</a>
-                <a href="#contact" class="btn btn-secondary">Richiedi Case Study</a>
+                <a href="#contact" class="btn btn-secondary">Scopri Come Iniziare</a>
             </div>
         </div>
     </section>
@@ -447,40 +440,21 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Nome</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="company">Azienda</label>
-                            <input type="text" id="company" name="company">
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Servizio di Interesse</label>
-                            <select id="service" name="service">
-                                <option value="">Seleziona un servizio</option>
-                                <option value="consulting">Consulenza AI</option>
-                                <option value="training">Formazione AI</option>
-                                <option value="product">Prodotti AI</option>
-                                <option value="custom">Soluzione Personalizzata</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Messaggio</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Invia Messaggio</button>
-                    </form>
+                    <div class="hs-form-frame" 
+                         data-region="eu1" 
+                         data-form-id="e0658e4c-437d-406b-a396-972fa547da38" 
+                         data-portal-id="146568969"
+                         data-loading="true"
+                         aria-label="Contact form">
+                        <div class="hs-form-loading">Loading contact form...</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    </main>
+    
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
 

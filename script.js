@@ -126,6 +126,15 @@ function initContactForm() {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
+            // Show loading state
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton ? submitButton.textContent : '';
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.textContent = 'Sending...';
+                submitButton.setAttribute('aria-busy', 'true');
+            }
+            
             // Get form data
             const formData = new FormData(this);
             const formObject = {};
@@ -135,15 +144,58 @@ function initContactForm() {
             
             // Validate form
             if (validateForm(formObject)) {
-                // Show success message
-                showMessage('Thank you for your message! We will get back to you soon.', 'success');
-                
-                // Reset form
-                this.reset();
-                
-                // In a real application, you would send the data to a server
-                console.log('Form submitted:', formObject);
+                // Simulate form submission delay
+                setTimeout(() => {
+                    try {
+                        // Show success message
+                        showMessage('Thank you for your message! We will get back to you soon.', 'success');
+                        
+                        // Reset form
+                        this.reset();
+                        
+                        // In a real application, you would send the data to a server
+                        console.log('Form submitted:', formObject);
+                        
+                        // Reset button
+                        if (submitButton) {
+                            submitButton.disabled = false;
+                            submitButton.textContent = originalText;
+                            submitButton.removeAttribute('aria-busy');
+                        }
+                        
+                    } catch (error) {
+                        console.error('Form submission error:', error);
+                        showMessage('There was an error sending your message. Please try again.', 'error');
+                        
+                        // Reset button
+                        if (submitButton) {
+                            submitButton.disabled = false;
+                            submitButton.textContent = originalText;
+                            submitButton.removeAttribute('aria-busy');
+                        }
+                    }
+                }, 1000);
+            } else {
+                // Reset button on validation error
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.textContent = originalText;
+                    submitButton.removeAttribute('aria-busy');
+                }
             }
+        });
+        
+        // Real-time validation feedback
+        const inputs = contactForm.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                validateField(this);
+            });
+            
+            input.addEventListener('input', function() {
+                // Clear error state on input
+                clearFieldError(this);
+            });
         });
     }
 }
@@ -178,6 +230,85 @@ function isValidEmail(email) {
     return emailRegex.test(email);
 }
 
+// Individual field validation
+function validateField(field) {
+    const value = field.value.trim();
+    const fieldName = field.name || field.id;
+    let isValid = true;
+    let errorMessage = '';
+    
+    // Clear previous errors
+    clearFieldError(field);
+    
+    switch (fieldName) {
+        case 'name':
+            if (!value || value.length < 2) {
+                isValid = false;
+                errorMessage = 'Please enter a valid name (at least 2 characters)';
+            }
+            break;
+        case 'email':
+            if (!value || !isValidEmail(value)) {
+                isValid = false;
+                errorMessage = 'Please enter a valid email address';
+            }
+            break;
+        case 'message':
+            if (!value || value.length < 10) {
+                isValid = false;
+                errorMessage = 'Please enter a message with at least 10 characters';
+            }
+            break;
+        case 'phone':
+            if (value && !isValidPhone(value)) {
+                isValid = false;
+                errorMessage = 'Please enter a valid phone number';
+            }
+            break;
+    }
+    
+    if (!isValid) {
+        showFieldError(field, errorMessage);
+    }
+    
+    return isValid;
+}
+
+// Clear field error
+function clearFieldError(field) {
+    field.classList.remove('error');
+    field.setAttribute('aria-invalid', 'false');
+    const errorElement = field.parentNode.querySelector('.field-error');
+    if (errorElement) {
+        errorElement.remove();
+    }
+}
+
+// Show field error
+function showFieldError(field, message) {
+    field.classList.add('error');
+    field.setAttribute('aria-invalid', 'true');
+    
+    const errorElement = document.createElement('div');
+    errorElement.className = 'field-error';
+    errorElement.textContent = message;
+    errorElement.setAttribute('role', 'alert');
+    errorElement.style.cssText = `
+        color: #721c24;
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+        display: block;
+    `;
+    
+    field.parentNode.appendChild(errorElement);
+}
+
+// Phone validation
+function isValidPhone(phone) {
+    const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+    return phoneRegex.test(phone.replace(/[\s\-\(\)]/g, ''));
+}
+
 // Show message function
 function showMessage(message, type) {
     // Remove existing messages
@@ -190,6 +321,8 @@ function showMessage(message, type) {
     const messageDiv = document.createElement('div');
     messageDiv.className = `form-message ${type}`;
     messageDiv.innerHTML = message;
+    messageDiv.setAttribute('role', type === 'error' ? 'alert' : 'status');
+    messageDiv.setAttribute('aria-live', 'polite');
     
     // Style the message
     messageDiv.style.cssText = `
@@ -204,15 +337,17 @@ function showMessage(message, type) {
     `;
     
     // Insert message
-    const contactForm = document.getElementById('contactForm');
-    contactForm.insertBefore(messageDiv, contactForm.firstChild);
+    const contactForm = document.getElementById('contactForm') || document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.insertBefore(messageDiv, contactForm.firstChild);
+    }
     
-    // Remove message after 5 seconds
+    // Remove message after 8 seconds
     setTimeout(() => {
         if (messageDiv.parentNode) {
             messageDiv.remove();
         }
-    }, 5000);
+    }, 8000);
 }
 
 // Smooth reveal animations

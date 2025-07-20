@@ -1,0 +1,28 @@
+{
+    "name": "Niuexa - Soluzioni AI Avanzate",
+    "short_name": "Niuexa",
+    "description": "Trasforma la tua azienda con l'intelligenza artificiale generativa. Consulenza specializzata, formazione avanzata e prodotti AI pronti all'uso.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#0066CC",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "img/niuexalogo.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "img/niuexalogo.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": ["business", "consulting", "technology"],
+    "lang": "it",
+    "scope": "/",
+    "id": "/"
+}
