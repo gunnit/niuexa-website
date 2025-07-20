@@ -1,0 +1,587 @@
+/* Tutorial Detail Page Styles */
+
+/* Tutorial Header */
+.tutorial-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 120px 0 60px;
+    color: white;
+    position: relative;
+}
+
+.breadcrumb {
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.breadcrumb a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.breadcrumb a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.tutorial-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.tutorial-header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.tutorial-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    max-width: 800px;
+}
+
+.tutorial-stats {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+/* Table of Contents */
+.table-of-contents {
+    background: #f8fafc;
+    padding: 3rem 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.toc-wrapper {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.toc-wrapper h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #2d3748;
+}
+
+.toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toc-list li {
+    margin-bottom: 0.75rem;
+}
+
+.toc-list a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+    display: block;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.toc-list a:hover {
+    color: #5a67d8;
+    border-bottom-color: #e2e8f0;
+    padding-left: 1rem;
+}
+
+/* Tutorial Content */
+.tutorial-content {
+    padding: 4rem 0;
+}
+
+.content-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.content-section {
+    margin-bottom: 4rem;
+    scroll-margin-top: 100px;
+}
+
+.content-section h2 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #2d3748;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 0.5rem;
+}
+
+.content-section h3 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem;
+    color: #4a5568;
+}
+
+.content-section h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 1.5rem 0 1rem;
+    color: #4a5568;
+}
+
+.content-section h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 1rem 0 0.5rem;
+    color: #4a5568;
+}
+
+.content-section p {
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: #4a5568;
+    font-size: 1.05rem;
+}
+
+.content-section ul,
+.content-section ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+}
+
+.content-section li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    color: #4a5568;
+}
+
+/* Special Content Boxes */
+.highlight-box {
+    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    border-left: 4px solid #667eea;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+}
+
+.highlight-box h4 {
+    color: #2d3748;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.concept-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.concept-card {
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.concept-card:hover {
+    border-color: #667eea;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+}
+
+.concept-card h4 {
+    color: #667eea;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.pattern-list {
+    background: #fff5f5;
+    border-left: 4px solid #e53e3e;
+    padding: 1.5rem 1.5rem 1.5rem 2rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+}
+
+.pattern-list li {
+    color: #742a2a;
+}
+
+.example-box {
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.before-after {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.before,
+.after {
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.before {
+    background: #fed7d7;
+    border-left: 4px solid #e53e3e;
+}
+
+.after {
+    background: #c6f6d5;
+    border-left: 4px solid #38a169;
+}
+
+.before h5,
+.after h5 {
+    margin: 0 0 1rem 0;
+    font-weight: 600;
+}
+
+.before p,
+.after p {
+    margin: 0;
+    font-style: italic;
+}
+
+.technique-box {
+    background: #e6fffa;
+    border-left: 4px solid #38b2ac;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+}
+
+.technique-box h4 {
+    color: #234e52;
+    margin-top: 0;
+}
+
+.warning-box {
+    background: #fffaf0;
+    border-left: 4px solid #ed8936;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+}
+
+.warning-box h4 {
+    color: #744210;
+    margin-top: 0;
+}
+
+.tip-box {
+    background: #f0fff4;
+    border-left: 4px solid #48bb78;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+}
+
+.tip-box h4 {
+    color: #22543d;
+    margin-top: 0;
+}
+
+/* Process Steps */
+.process-steps {
+    margin: 2rem 0;
+}
+
+.step {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    align-items: flex-start;
+}
+
+.step-number {
+    background: #667eea;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.step-content h4 {
+    margin: 0 0 0.5rem 0;
+    color: #2d3748;
+}
+
+.step-content p {
+    margin: 0;
+    color: #718096;
+}
+
+/* Tools Grid */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.tool-card {
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.tool-card:hover {
+    border-color: #667eea;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+}
+
+.tool-card h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #2d3748;
+}
+
+.tool-card ul {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.tool-card li {
+    margin-bottom: 0.5rem;
+    color: #718096;
+}
+
+/* Ethics Grid */
+.ethics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.ethics-card {
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.ethics-card:hover {
+    border-color: #38a169;
+    box-shadow: 0 4px 12px rgba(56, 161, 105, 0.1);
+}
+
+.ethics-card h4 {
+    margin: 0 0 1rem 0;
+    color: #2d3748;
+}
+
+.ethics-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #718096;
+}
+
+/* Conclusion */
+.conclusion {
+    background: #f8fafc;
+    padding: 3rem;
+    border-radius: 12px;
+    margin-top: 3rem;
+}
+
+.next-steps {
+    margin-top: 2rem;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+}
+
+.next-steps h3 {
+    margin-top: 0;
+    color: #2d3748;
+}
+
+/* Related Tutorials */
+.related-tutorials {
+    background: #f8fafc;
+    padding: 4rem 0;
+}
+
+.related-tutorials h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+    color: #2d3748;
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.related-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    position: relative;
+}
+
+.related-card h4 {
+    margin: 0 0 1rem 0;
+    color: #2d3748;
+}
+
+.related-card p {
+    margin: 0 0 1rem 0;
+    color: #718096;
+}
+
+.coming-soon {
+    background: #fed7d7;
+    color: #e53e3e;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: inline-block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .tutorial-header {
+        padding: 100px 0 40px;
+    }
+    
+    .tutorial-header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .tutorial-description {
+        font-size: 1.1rem;
+    }
+    
+    .tutorial-stats {
+        gap: 1rem;
+    }
+    
+    .table-of-contents {
+        padding: 2rem 0;
+    }
+    
+    .toc-wrapper {
+        padding: 1.5rem;
+    }
+    
+    .tutorial-content {
+        padding: 3rem 0;
+    }
+    
+    .content-wrapper {
+        padding: 0 1rem;
+    }
+    
+    .content-section {
+        margin-bottom: 3rem;
+    }
+    
+    .content-section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .content-section h3 {
+        font-size: 1.4rem;
+    }
+    
+    .concept-grid,
+    .tools-grid,
+    .ethics-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .before-after {
+        grid-template-columns: 1fr;
+    }
+    
+    .step {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .step-number {
+        align-self: center;
+    }
+    
+    .highlight-box,
+    .technique-box,
+    .warning-box,
+    .tip-box,
+    .example-box,
+    .pattern-list {
+        padding: 1.5rem;
+    }
+    
+    .conclusion {
+        padding: 2rem;
+    }
+    
+    .related-tutorials {
+        padding: 3rem 0;
+    }
+    
+    .related-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .tutorial-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .content-section h2 {
+        font-size: 1.6rem;
+    }
+    
+    .tutorial-stats {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
