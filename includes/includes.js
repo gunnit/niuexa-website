@@ -13,19 +13,22 @@ const navigationHTML = `
             <li class="nav-item">
                 <a href="chi-siamo.html" class="nav-link" data-page="chi-siamo">Chi Siamo</a>
             </li>
-            <li class="nav-item">
-                <a href="consulting.html" class="nav-link" data-page="consulting">Consulenza</a>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-page="soluzioni">Soluzioni <span class="dropdown-arrow">▼</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="consulting.html" class="dropdown-link" data-page="consulting">Consulenza</a></li>
+                    <li><a href="training.html" class="dropdown-link" data-page="training">Formazione</a></li>
+                    <li><a href="products.html" class="dropdown-link" data-page="products">Prodotti</a></li>
+                </ul>
             </li>
-            <li class="nav-item">
-                <a href="training.html" class="nav-link" data-page="training">Formazione</a>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-page="risorse">Risorse <span class="dropdown-arrow">▼</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="impara.html" class="dropdown-link" data-page="impara">Impara</a></li>
+                    <li><a href="roi-calculator.html" class="dropdown-link" data-page="roi-calculator">Calcolatore ROI</a></li>
+                    <li><a href="eventi.html" class="dropdown-link" data-page="eventi">Eventi</a></li>
+                </ul>
             </li>
-            <li class="nav-item">
-                <a href="products.html" class="nav-link" data-page="products">Prodotti</a>
-            </li>
-            <li class="nav-item">
-                <a href="roi-calculator.html" class="nav-link" data-page="roi-calculator">Calcolatore ROI</a>
-            </li>
-            
             <li class="nav-item">
                 <a href="login.html" class="nav-link login-link" data-page="login">🔐 Login</a>
             </li>
@@ -166,13 +169,62 @@ function initNavigationFunctionality() {
         });
     }
 
-    // Close mobile menu when clicking on a link
-    navLinks.forEach(link => {
+    // Handle dropdown functionality
+    const dropdowns = document.querySelectorAll('.nav-item.dropdown');
+    
+    dropdowns.forEach(dropdown => {
+        const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
+        const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+        
+        if (dropdownToggle && dropdownMenu) {
+            // Handle dropdown toggle clicks
+            dropdownToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Close other dropdowns
+                dropdowns.forEach(otherDropdown => {
+                    if (otherDropdown !== dropdown) {
+                        otherDropdown.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current dropdown
+                dropdown.classList.toggle('active');
+            });
+
+            // Handle keyboard navigation for dropdown toggles
+            dropdownToggle.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                }
+            });
+        }
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.nav-item.dropdown')) {
+            dropdowns.forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
+        }
+    });
+
+    // Close mobile menu when clicking on any link (including dropdown links)
+    const allNavLinks = document.querySelectorAll('.nav-link, .dropdown-link');
+    allNavLinks.forEach(link => {
         link.addEventListener('click', function() {
             if (hamburger && navMenu) {
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
             }
+            // Close all dropdowns
+            dropdowns.forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
         });
     });
 
@@ -226,13 +278,23 @@ function updateActiveNavLink() {
 // Function to set active navigation item based on current page
 function setActiveNavItem() {
     const currentPage = getCurrentPage();
-    const navLinks = document.querySelectorAll('.nav-link');
+    const allLinks = document.querySelectorAll('.nav-link, .dropdown-link');
+    const dropdowns = document.querySelectorAll('.nav-item.dropdown');
     
-    navLinks.forEach(link => {
+    allLinks.forEach(link => {
         link.classList.remove('active');
         const linkPage = link.getAttribute('data-page');
         if (linkPage === currentPage) {
             link.classList.add('active');
+            
+            // If it's a dropdown link, also highlight the parent dropdown
+            const dropdown = link.closest('.nav-item.dropdown');
+            if (dropdown) {
+                const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
+                if (dropdownToggle) {
+                    dropdownToggle.classList.add('active');
+                }
+            }
         }
     });
 }
@@ -252,8 +314,12 @@ function getCurrentPage() {
         return 'training';
     } else if (page === 'products.html') {
         return 'products';
+    } else if (page === 'impara.html') {
+        return 'impara';
     } else if (page === 'roi-calculator.html') {
         return 'roi-calculator';
+    } else if (page === 'eventi.html') {
+        return 'eventi';
     } else if (page === 'login.html') {
         return 'login';
     }

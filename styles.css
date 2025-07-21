@@ -217,6 +217,64 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
 }
 
+/* Dropdown Menu Styles */
+.nav-item.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+    user-select: none;
+}
+
+.dropdown-arrow {
+    font-size: 0.7em;
+    margin-left: 0.3rem;
+    transition: transform var(--transition-fast);
+}
+
+.dropdown.active .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--white);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    min-width: 160px;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all var(--transition-fast);
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown.active .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-link {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: var(--dark-gray);
+    text-decoration: none;
+    font-weight: 400;
+    transition: all var(--transition-fast);
+}
+
+.dropdown-link:hover {
+    background: var(--light-gray);
+    color: var(--primary-blue);
+}
+
 /* Login Link Styling */
 .nav-link.login-link {
     background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
@@ -2037,6 +2095,44 @@ button[aria-busy="true"]::after {
         left: 0;
     }
 
+    /* Mobile Dropdown Styles */
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        background: var(--light-gray);
+        margin-top: 0.5rem;
+        border-radius: 8px;
+        opacity: 0;
+        visibility: hidden;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .dropdown.active .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        max-height: 200px;
+        margin-bottom: 1rem;
+    }
+
+    .dropdown-arrow {
+        display: inline-block;
+    }
+
+    .nav-item.dropdown {
+        width: 100%;
+    }
+
+    .dropdown-link {
+        padding: 1rem 1.5rem;
+        border-radius: 0;
+    }
+
+    .dropdown-link:hover {
+        background: var(--white);
+    }
+
     .hamburger {
         display: flex;
     }
@@ -3114,4 +3210,332 @@ elevenlabs-convai [class*="opacity-30"] {
 
 elevenlabs-convai [class*="whitespace-nowrap"] {
     display: none !important;
+}
+
+/* Courses Section */
+.courses-section {
+    padding: var(--section-padding);
+    background: linear-gradient(135deg, var(--light-gray) 0%, rgba(255, 255, 255, 0.8) 100%);
+}
+
+.courses-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.courses-intro {
+    font-size: 1.2rem;
+    color: var(--medium-gray);
+    margin-top: 1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.courses-value-prop {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 3rem 0;
+    padding: 2rem;
+    background: var(--white);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.value-item {
+    text-align: center;
+    padding: 1rem;
+}
+
+.value-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.value-item h4 {
+    font-size: 1.1rem;
+    color: var(--dark-gray);
+    margin-bottom: 0.5rem;
+}
+
+.value-item p {
+    color: var(--medium-gray);
+    font-size: 0.9rem;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.course-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    transition: all var(--transition-fast);
+    position: relative;
+    border: 2px solid transparent;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-blue);
+}
+
+.course-card.featured {
+    border: 2px solid var(--primary-blue);
+    background: linear-gradient(135deg, var(--white) 0%, rgba(0, 102, 204, 0.02) 100%);
+}
+
+.course-badge {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background: var(--gradient-primary);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.course-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.course-card h3 {
+    color: var(--dark-gray);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.course-description {
+    color: var(--medium-gray);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.course-benefits {
+    margin-bottom: 1.5rem;
+}
+
+.benefit {
+    color: var(--dark-gray);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.course-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: var(--light-gray);
+    border-radius: 10px;
+}
+
+.course-meta span {
+    font-size: 0.8rem;
+    color: var(--medium-gray);
+    font-weight: 500;
+}
+
+.course-btn {
+    display: inline-block;
+    width: 100%;
+    padding: 1rem 2rem;
+    background: var(--gradient-secondary);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    text-align: center;
+    transition: all var(--transition-fast);
+}
+
+.course-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.course-btn-primary {
+    background: var(--gradient-primary);
+    font-size: 1.1rem;
+    padding: 1.2rem 2rem;
+}
+
+.courses-trust-signals {
+    margin: 4rem 0;
+    padding: 3rem;
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.trust-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.trust-stat {
+    padding: 1rem;
+}
+
+.trust-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+}
+
+.trust-label {
+    color: var(--medium-gray);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.courses-testimonial {
+    text-align: center;
+    padding: 2rem;
+    background: var(--light-gray);
+    border-radius: 15px;
+}
+
+.courses-testimonial blockquote {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--dark-gray);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.courses-testimonial cite {
+    color: var(--medium-gray);
+    font-size: 0.9rem;
+}
+
+.verification {
+    color: var(--primary-green);
+    font-weight: 600;
+    margin-left: 0.5rem;
+}
+
+.courses-cta {
+    text-align: center;
+    margin-top: 4rem;
+    padding: 3rem;
+    background: var(--gradient-primary);
+    color: var(--white);
+    border-radius: 20px;
+}
+
+.courses-cta h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.courses-cta p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.courses-cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.courses-guarantee {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.guarantee-icon {
+    font-size: 1.2rem;
+}
+
+/* Responsive Design for Courses */
+@media (max-width: 768px) {
+    .courses-value-prop {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .courses-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .course-card {
+        padding: 1.5rem;
+    }
+    
+    .course-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .trust-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+    
+    .trust-number {
+        font-size: 2rem;
+    }
+    
+    .courses-cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .courses-cta-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .courses-guarantee {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .courses-value-prop {
+        grid-template-columns: 1fr;
+    }
+    
+    .courses-cta {
+        padding: 2rem 1rem;
+    }
+    
+    .courses-cta h3 {
+        font-size: 1.5rem;
+    }
 }
