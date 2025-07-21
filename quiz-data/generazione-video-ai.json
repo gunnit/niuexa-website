@@ -1,0 +1,144 @@
+{
+    "tutorial": "AI Video Generation: La Rivoluzione è Qui (Guida 2025)",
+    "tutorialId": "generazione-video-ai",
+    "totalQuestions": 10,
+    "passingScore": 80,
+    "timeLimit": 12,
+    "category": "Video AI",
+    "difficulty": "Tutti i Livelli",
+    "description": "Test di certificazione per validare le competenze nella generazione di video con strumenti di intelligenza artificiale.",
+    "questions": [
+        {
+            "id": 1,
+            "type": "multiple-choice",
+            "question": "Quale tool di video AI è considerato il più rivoluzionario e discusso del 2025?",
+            "options": [
+                "Google Veo 2",
+                "OpenAI Sora",
+                "Runway Gen-3",
+                "Kling AI"
+            ],
+            "correct": 1,
+            "explanation": "OpenAI Sora ha rivoluzionato il settore con capacità di generazione video da testo senza precedenti e qualità cinematografica.",
+            "points": 1
+        },
+        {
+            "id": 2,
+            "type": "true-false",
+            "question": "La generazione di video AI può creare contenuti di qualità cinematografica da semplici prompt testuali.",
+            "correct": true,
+            "explanation": "I tool più avanzati del 2025 possono effettivamente generare video di qualità cinematografica partendo da descrizioni testuali dettagliate.",
+            "points": 1
+        },
+        {
+            "id": 3,
+            "type": "multiple-choice",
+            "question": "Quale vantaggio principale offre Runway Gen-3 rispetto ai competitor?",
+            "options": [
+                "Prezzo più basso",
+                "Controllo creativo e precisione nei movimenti",
+                "Velocità di rendering superiore",
+                "Interfaccia più semplice"
+            ],
+            "correct": 1,
+            "explanation": "Runway Gen-3 eccelle nel controllo creativo preciso e nella gestione realistica dei movimenti nei video generati.",
+            "points": 1
+        },
+        {
+            "id": 4,
+            "type": "multiple-choice",
+            "question": "Per cosa è particolarmente efficace Hailuo MiniMax?",
+            "options": [
+                "Video lunghi e complessi",
+                "Animazioni rapide e contenuti social",
+                "Film documentari",
+                "Video educativi"
+            ],
+            "correct": 1,
+            "explanation": "Hailuo MiniMax è ottimizzato per la creazione rapida di contenuti video per social media e animazioni brevi di alta qualità.",
+            "points": 1
+        },
+        {
+            "id": 5,
+            "type": "true-false",
+            "question": "Google Veo 2 può generare video fino a 4 minuti di durata mantenendo coerenza narrativa.",
+            "correct": true,
+            "explanation": "Google Veo 2 è capace di generare video estesi fino a 4 minuti mantenendo coerenza stilistica e narrativa.",
+            "points": 1
+        },
+        {
+            "id": 6,
+            "type": "multiple-choice",
+            "question": "Quale aspetto è cruciale per un prompt efficace nella generazione video AI?",
+            "options": [
+                "Lunghezza del testo",
+                "Descrizione dettagliata di azioni, movimento e stile visivo",
+                "Uso di termini tecnici",
+                "Riferimenti a film famosi"
+            ],
+            "correct": 1,
+            "explanation": "La descrizione dettagliata di azioni, movimenti e stile visivo è fondamentale per guidare l'AI verso il risultato video desiderato.",
+            "points": 1
+        },
+        {
+            "id": 7,
+            "type": "multiple-choice",
+            "question": "Qual è la migliore strategia per ottimizzare i costi nella produzione video AI?",
+            "options": [
+                "Usare sempre il tool più economico",
+                "Pianificare il workflow e scegliere il tool appropriato per ogni tipo di contenuto",
+                "Generare sempre la massima durata disponibile",
+                "Evitare iterazioni e revisioni"
+            ],
+            "correct": 1,
+            "explanation": "Una pianificazione strategica del workflow e la scelta del tool appropriato per ogni tipo di contenuto ottimizza costi e risultati.",
+            "points": 1
+        },
+        {
+            "id": 8,
+            "type": "true-false",
+            "question": "È possibile utilizzare video AI generati per scopi commerciali senza considerazioni legali aggiuntive.",
+            "correct": false,
+            "explanation": "L'uso commerciale di video AI richiede attenzione a licenze, termini di servizio, trasparenza e potenziali questioni di copyright.",
+            "points": 1
+        },
+        {
+            "id": 9,
+            "type": "multiple-choice",
+            "question": "Come si può migliorare la coerenza in una serie di video AI per un progetto?",
+            "options": [
+                "Usare tool diversi per ogni video",
+                "Mantenere parametri coerenti, stile e riferimenti visivi costanti",
+                "Cambiare completamente approccio per ogni video",
+                "Ignorare la post-produzione"
+            ],
+            "correct": 1,
+            "explanation": "Mantenere parametri, stile e riferimenti visivi coerenti attraverso la serie garantisce continuità e professionalità.",
+            "points": 1
+        },
+        {
+            "id": 10,
+            "type": "multiple-choice",
+            "question": "Quale impatto avrà la video AI sui settori creativi secondo le tendenze 2025?",
+            "options": [
+                "Sostituzione completa dei creativi umani",
+                "Democratizzazione della produzione video e nuove opportunità creative",
+                "Nessun impatto significativo",
+                "Solo riduzione dei costi"
+            ],
+            "correct": 1,
+            "explanation": "La video AI sta democratizzando la produzione video, rendendola accessibile a più persone e creando nuove opportunità creative piuttosto che sostituire completamente i creativi.",
+            "points": 1
+        }
+    ],
+    "passingMessage": "Fantastico! Hai dimostrato una solida comprensione della rivoluzionaria tecnologia di generazione video AI. Sei pronto/a a creare contenuti video innovativi e professionali.",
+    "failingMessage": "Non hai raggiunto il punteggio minimo. Ti consigliamo di rivedere le sezioni sui singoli tool, le tecniche di prompting video e le considerazioni sui workflow professionali.",
+    "certificateTitle": "Specialista in Generazione Video AI",
+    "skills": [
+        "Padronanza dei tool video AI avanzati (Sora, Veo 2, Runway)",
+        "Tecniche di prompting per contenuti video",
+        "Workflow di produzione video AI",
+        "Ottimizzazione qualità-costi",
+        "Comprensione delle implicazioni creative e commerciali"
+    ]
+}

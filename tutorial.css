@@ -584,4 +584,215 @@
         flex-direction: column;
         gap: 0.5rem;
     }
+    
+    .certification-cta {
+        padding: 1.5rem;
+    }
+    
+    .cert-cta-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .cert-cta-text h3 {
+        font-size: 1.2rem;
+    }
+    
+    .cert-cta-btn {
+        padding: 1rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .cert-final-content {
+        padding: 2rem;
+    }
+    
+    .cert-benefits {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .cert-final-btn {
+        padding: 1rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* ========================================
+   Certification CTA Styles
+   ======================================== */
+
+/* Header Certification CTA */
+.certification-cta {
+    margin-top: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cert-cta-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.cert-cta-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+.cert-cta-text {
+    flex: 1;
+}
+
+.cert-cta-text h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.cert-cta-text p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.cert-cta-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.cert-cta-btn:hover {
+    background: white;
+    color: #667eea;
+    border-color: white;
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+/* Final Certification CTA Section */
+.certification-section {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 4rem 0;
+    border-top: 1px solid #e2e8f0;
+}
+
+.cert-final-cta {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+}
+
+.cert-final-content {
+    padding: 3rem;
+    text-align: center;
+}
+
+.cert-final-header {
+    margin-bottom: 2rem;
+}
+
+.cert-final-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: bounce 2s infinite;
+}
+
+.cert-final-header h2 {
+    font-size: 2rem;
+    color: #2d3748;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.cert-final-header p {
+    font-size: 1.1rem;
+    color: #4a5568;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.cert-benefits {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #f7fafc;
+    padding: 0.75rem 1.25rem;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+    font-size: 0.9rem;
+    color: #4a5568;
+    font-weight: 500;
+}
+
+.benefit-icon {
+    font-size: 1rem;
+}
+
+.cert-action {
+    margin-top: 2rem;
+}
+
+.cert-final-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    color: white;
+    text-decoration: none;
+    padding: 1.2rem 2.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
+}
+
+.cert-final-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(72, 187, 120, 0.4);
+    text-decoration: none;
+    color: white;
+}
+
+.cert-info {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #4a5568;
+    opacity: 0.8;
+}
+
+/* Bounce animation for certification icon */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-8px);
+    }
+    60% {
+        transform: translateY(-4px);
+    }
 }

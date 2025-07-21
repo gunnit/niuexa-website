@@ -1,0 +1,166 @@
+{
+    "tutorial": "Generazione di Immagini AI: La Guida Definitiva 2025",
+    "tutorialId": "generazione-immagini-ai",
+    "totalQuestions": 12,
+    "passingScore": 80,
+    "timeLimit": 15,
+    "category": "AI Visuale",
+    "difficulty": "Principiante-Avanzato",
+    "description": "Test di certificazione per validare le competenze nella generazione di immagini con strumenti di intelligenza artificiale.",
+    "questions": [
+        {
+            "id": 1,
+            "type": "multiple-choice",
+            "question": "Quale tool di generazione immagini AI è considerato tra i più avanzati e versatili nel 2025?",
+            "options": [
+                "DALL-E 2",
+                "Recraft V3",
+                "Stable Diffusion 1.0",
+                "DeepArt"
+            ],
+            "correct": 1,
+            "explanation": "Recraft V3 è riconosciuto come uno dei tool più avanzati del 2025, offrendo qualità superiore e controllo creativo eccezionale.",
+            "points": 1
+        },
+        {
+            "id": 2,
+            "type": "true-false",
+            "question": "Il prompting è la tecnica di scrivere istruzioni dettagliate e specifiche per guidare l'AI nella generazione di immagini.",
+            "correct": true,
+            "explanation": "Il prompting è fondamentale per ottenere risultati di qualità e controllare precisamente l'output dell'AI generativa.",
+            "points": 1
+        },
+        {
+            "id": 3,
+            "type": "multiple-choice",
+            "question": "Quale elemento è più importante in un prompt efficace per la generazione di immagini?",
+            "options": [
+                "Lunghezza del testo",
+                "Specificità e dettagli visuali",
+                "Uso di termini tecnici",
+                "Numero di aggettivi"
+            ],
+            "correct": 1,
+            "explanation": "La specificità e i dettagli visuali sono cruciali per guidare l'AI verso il risultato desiderato con precisione.",
+            "points": 1
+        },
+        {
+            "id": 4,
+            "type": "multiple-choice",
+            "question": "Quale vantaggio principale offre Midjourney rispetto ad altri tool?",
+            "options": [
+                "Prezzo più basso",
+                "Qualità artistica e stile cinematografico superiori",
+                "Maggiore velocità di generazione",
+                "Interfaccia più semplice"
+            ],
+            "correct": 1,
+            "explanation": "Midjourney è rinomato per la qualità artistica eccezionale e gli stili cinematografici che produce.",
+            "points": 1
+        },
+        {
+            "id": 5,
+            "type": "true-false",
+            "question": "FLUX 1.1 Pro è considerato il miglior tool gratuito per la generazione di immagini AI nel 2025.",
+            "correct": false,
+            "explanation": "FLUX 1.1 Pro è un tool premium molto potente, ma non gratuito. I tool gratuiti hanno limitazioni rispetto alle versioni pro.",
+            "points": 1
+        },
+        {
+            "id": 6,
+            "type": "multiple-choice",
+            "question": "Per cosa è particolarmente efficace Ideogram 2.0?",
+            "options": [
+                "Generazione di paesaggi",
+                "Creazione di testi e loghi all'interno delle immagini",
+                "Ritratti fotografici",
+                "Illustrazioni fantasy"
+            ],
+            "correct": 1,
+            "explanation": "Ideogram 2.0 eccelle nella generazione accurata di testi e loghi integrati nelle immagini, un'area tradizionalmente difficile per l'AI.",
+            "points": 1
+        },
+        {
+            "id": 7,
+            "type": "multiple-choice",
+            "question": "Quale approccio è più efficace per ottimizzare i costi nella generazione di immagini AI?",
+            "options": [
+                "Usare sempre il tool più costoso",
+                "Scegliere lo strumento giusto per ogni tipo di progetto",
+                "Generare sempre il massimo numero di varianti",
+                "Utilizzare solo tool gratuiti"
+            ],
+            "correct": 1,
+            "explanation": "Scegliere lo strumento appropriato per ogni tipo di progetto ottimizza sia la qualità che i costi, evitando sprechi.",
+            "points": 1
+        },
+        {
+            "id": 8,
+            "type": "true-false",
+            "question": "È possibile controllare lo stile artistico di un'immagine AI specificando riferimenti ad artisti famosi nel prompt.",
+            "correct": true,
+            "explanation": "Specificare stili artistici o riferimenti ad artisti nel prompt è una tecnica efficace per guidare l'estetica dell'output.",
+            "points": 1
+        },
+        {
+            "id": 9,
+            "type": "multiple-choice",
+            "question": "Qual è la migliore strategia per creare un workflow professionale di generazione immagini?",
+            "options": [
+                "Usare un singolo tool per tutto",
+                "Combinare diversi tool per diversi scopi e fasi",
+                "Affidarsi solo al primo risultato generato",
+                "Evitare qualsiasi post-processing"
+            ],
+            "correct": 1,
+            "explanation": "Un workflow professionale combina diversi strumenti specializzati per ottimizzare qualità ed efficienza in ogni fase del processo.",
+            "points": 1
+        },
+        {
+            "id": 10,
+            "type": "multiple-choice",
+            "question": "Come si può migliorare la consistenza tra diverse immagini generate per un progetto?",
+            "options": [
+                "Generare tutto con tool diversi",
+                "Usare seed fissi e parametri coerenti",
+                "Cambiare stile per ogni immagine",
+                "Ignorare i parametri tecnici"
+            ],
+            "correct": 1,
+            "explanation": "L'uso di seed fissi e parametri coerenti aiuta a mantenere consistenza stilistica e qualitativa tra diverse generazioni.",
+            "points": 1
+        },
+        {
+            "id": 11,
+            "type": "true-false",
+            "question": "Nel 2025, la qualità delle immagini AI ha raggiunto livelli indistinguibili dalla fotografia professionale in molti casi d'uso.",
+            "correct": true,
+            "explanation": "I tool più avanzati del 2025 producono immagini di qualità fotografica professionale, rendendo spesso difficile distinguerle da foto reali.",
+            "points": 1
+        },
+        {
+            "id": 12,
+            "type": "multiple-choice",
+            "question": "Quale considerazione etica è più importante quando si utilizzano immagini generate dall'AI per scopi commerciali?",
+            "options": [
+                "Velocità di produzione",
+                "Costo ridotto",
+                "Trasparenza sull'uso dell'AI e rispetto dei diritti d'autore",
+                "Quantità di immagini prodotte"
+            ],
+            "correct": 2,
+            "explanation": "La trasparenza sull'uso dell'AI e il rispetto dei diritti d'autore sono fondamentali per un uso etico e professionale degli strumenti AI.",
+            "points": 1
+        }
+    ],
+    "passingMessage": "Eccellente! Hai dimostrato una comprensione completa dei tool e delle tecniche per la generazione di immagini AI. Sei pronto/a a creare contenuti visuali professionali con l'intelligenza artificiale.",
+    "failingMessage": "Non hai raggiunto il punteggio minimo. Ti consigliamo di approfondire le sezioni sui tool specifici, le tecniche di prompting e i workflow professionali.",
+    "certificateTitle": "Specialista in Generazione Immagini AI",
+    "skills": [
+        "Padronanza dei principali tool AI (Recraft V3, FLUX, Midjourney)",
+        "Tecniche di prompting avanzate per immagini",
+        "Workflow professionali di generazione",
+        "Ottimizzazione costi/qualità",
+        "Best practices etiche nell'AI visuale"
+    ]
+}

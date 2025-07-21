@@ -1,0 +1,202 @@
+{
+    "tutorial": "Come Umanizzare i Testi Generati dall'AI",
+    "tutorialId": "umanizzare-testi-ai",
+    "totalQuestions": 15,
+    "passingScore": 80,
+    "timeLimit": 20,
+    "category": "Scrittura AI",
+    "difficulty": "Intermedio",
+    "description": "Test di certificazione per validare le competenze nell'umanizzazione di testi generati dall'intelligenza artificiale.",
+    "questions": [
+        {
+            "id": 1,
+            "type": "multiple-choice",
+            "question": "Qual è il principale indicatore che un testo è stato generato dall'AI secondo i detector automatici?",
+            "options": [
+                "Presenza di errori grammaticali",
+                "Uniformità eccessiva nel tono e nella struttura",
+                "Uso di parole complesse",
+                "Lunghezza delle frasi troppo breve"
+            ],
+            "correct": 1,
+            "explanation": "I detector AI rilevano principalmente l'uniformità eccessiva e la mancanza di variazione naturale che caratterizza la scrittura umana.",
+            "points": 1
+        },
+        {
+            "id": 2,
+            "type": "true-false",
+            "question": "Per umanizzare efficacemente un testo AI, è sufficiente sostituire alcune parole con sinonimi.",
+            "correct": false,
+            "explanation": "L'umanizzazione richiede interventi più profondi: variazione del ritmo, aggiunta di personalità, modifica della struttura e del tono complessivo.",
+            "points": 1
+        },
+        {
+            "id": 3,
+            "type": "multiple-choice",
+            "question": "Quale tecnica è più efficace per rendere naturale il ritmo di un testo AI?",
+            "options": [
+                "Usare solo frasi di lunghezza identica",
+                "Alternare frasi brevi e lunghe in modo strategico",
+                "Eliminare tutte le congiunzioni",
+                "Aggiungere più aggettivi descrittivi"
+            ],
+            "correct": 1,
+            "explanation": "La variazione strategica della lunghezza delle frasi crea un ritmo naturale che imita la scrittura umana spontanea.",
+            "points": 1
+        },
+        {
+            "id": 4,
+            "type": "multiple-choice",
+            "question": "Come si può aggiungere autenticità e personalità a un testo AI?",
+            "options": [
+                "Inserire aneddoti personali e esperienze specifiche",
+                "Utilizzare solo terminologia tecnica",
+                "Mantenere un tono sempre formale",
+                "Evitare qualsiasi opinione soggettiva"
+            ],
+            "correct": 0,
+            "explanation": "Gli aneddoti personali e le esperienze specifiche sono il modo più efficace per rendere un testo autentico e umano.",
+            "points": 1
+        },
+        {
+            "id": 5,
+            "type": "true-false",
+            "question": "I detector AI come GPTZero e Originality.ai sono infallibili nel riconoscere contenuti generati artificialmente.",
+            "correct": false,
+            "explanation": "I detector AI hanno limitazioni significative e possono essere ingannati con tecniche di umanizzazione appropriate e strategiche.",
+            "points": 1
+        },
+        {
+            "id": 6,
+            "type": "multiple-choice",
+            "question": "Quale elemento linguistico è cruciale per superare i detector AI?",
+            "options": [
+                "Perplexity (imprevedibilità) elevata",
+                "Burstiness (variazione) nel ritmo",
+                "Entrambe le precedenti",
+                "Nessuna delle precedenti"
+            ],
+            "correct": 2,
+            "explanation": "Sia la perplexity (imprevedibilità delle parole) che la burstiness (variazione nel ritmo) sono fondamentali per aggirare i detector AI.",
+            "points": 1
+        },
+        {
+            "id": 7,
+            "type": "multiple-choice",
+            "question": "Qual è la strategia migliore per editare l'introduzione di un testo AI?",
+            "options": [
+                "Mantenerla identica all'originale",
+                "Iniziare con una statistica o dato numerico",
+                "Aprire con una domanda intrigante o aneddoto personale",
+                "Usare sempre la stessa formula introduttiva"
+            ],
+            "correct": 2,
+            "explanation": "Aprire con domande intriganti o aneddoti personali cattura l'attenzione e rende il testo immediatamente più umano e coinvolgente.",
+            "points": 1
+        },
+        {
+            "id": 8,
+            "type": "true-false",
+            "question": "È eticamente corretto umanizzare testi AI senza dichiarare esplicitamente che sono stati generati artificialmente.",
+            "correct": false,
+            "explanation": "La trasparenza è fondamentale. L'umanizzazione dovrebbe migliorare la qualità del contenuto, non ingannare il lettore sulla sua origine.",
+            "points": 1
+        },
+        {
+            "id": 9,
+            "type": "multiple-choice",
+            "question": "Quale tipo di transizione rende più naturale un testo AI?",
+            "options": [
+                "Transizioni meccaniche come 'Inoltre' e 'In aggiunta'",
+                "Transizioni conversazionali e contestuali",
+                "Nessuna transizione tra i paragrafi",
+                "Solo connettori logici formali"
+            ],
+            "correct": 1,
+            "explanation": "Le transizioni conversazionali e contestuali creano un flusso più naturale e umano rispetto ai connettori meccanici tipici dell'AI.",
+            "points": 1
+        },
+        {
+            "id": 10,
+            "type": "multiple-choice",
+            "question": "Come si può migliorare il tono di un testo AI troppo formale?",
+            "options": [
+                "Aggiungere più dati statistici",
+                "Inserire espressioni colloquiali e contrazioni",
+                "Aumentare la lunghezza delle frasi",
+                "Utilizzare più acronimi tecnici"
+            ],
+            "correct": 1,
+            "explanation": "Le espressioni colloquiali e le contrazioni (come 'non è' invece di 'non è possibile') rendono il testo più accessibile e naturale.",
+            "points": 1
+        },
+        {
+            "id": 11,
+            "type": "true-false",
+            "question": "Un testo umanizzato correttamente può aumentare significativamente il tempo di permanenza degli utenti sulla pagina.",
+            "correct": true,
+            "explanation": "I testi umanizzati sono più coinvolgenti e autentici, risultando in maggior tempo di lettura e migliore engagement degli utenti.",
+            "points": 1
+        },
+        {
+            "id": 12,
+            "type": "multiple-choice",
+            "question": "Quale errore comune rende immediatamente riconoscibile un testo AI?",
+            "options": [
+                "Uso di esempi concreti",
+                "Ripetizione eccessiva di parole chiave",
+                "Presenza di opinioni personali",
+                "Variazione nel vocabolario"
+            ],
+            "correct": 1,
+            "explanation": "La ripetizione eccessiva di parole chiave è un segnale tipico dei testi AI che tentano di ottimizzare per la SEO in modo meccanico.",
+            "points": 1
+        },
+        {
+            "id": 13,
+            "type": "multiple-choice",
+            "question": "Qual è l'approccio più strategico per l'editing di un testo AI completo?",
+            "options": [
+                "Modificare solo l'introduzione e la conclusione",
+                "Riscrivere completamente tutto da zero",
+                "Intervenire sistematicamente su struttura, stile, tono e contenuto",
+                "Cambiare solo alcune parole casuali"
+            ],
+            "correct": 2,
+            "explanation": "Un approccio sistematico che considera tutti gli aspetti del testo (struttura, stile, tono, contenuto) è il più efficace per l'umanizzazione.",
+            "points": 1
+        },
+        {
+            "id": 14,
+            "type": "multiple-choice",
+            "question": "Quale vantaggio competitivo offre la padronanza dell'umanizzazione AI nel 2025?",
+            "options": [
+                "Riduzione dei costi di produzione contenuti",
+                "Capacità di produrre contenuti autentici mentre altri pubblicano AI generico",
+                "Velocità di scrittura superiore",
+                "Eliminazione completa dell'intelligenza artificiale"
+            ],
+            "correct": 1,
+            "explanation": "Nel mercato saturo di contenuti AI generici, la capacità di produrre contenuti autentici e umani offre un vantaggio competitivo significativo.",
+            "points": 1
+        },
+        {
+            "id": 15,
+            "type": "true-false",
+            "question": "Google e i motori di ricerca stanno premiando sempre di più i contenuti che dimostrano esperienza umana reale (E-E-A-T).",
+            "correct": true,
+            "explanation": "I fattori E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) sono sempre più importanti per il ranking, rendendo cruciale l'umanizzazione dei contenuti.",
+            "points": 1
+        }
+    ],
+    "passingMessage": "Complimenti! Hai dimostrato una solida comprensione delle tecniche di umanizzazione AI. Sei pronto/a a trasformare contenuti artificiali in testi autentici e coinvolgenti.",
+    "failingMessage": "Non hai raggiunto il punteggio minimo. Ti consigliamo di rivedere il tutorial, prestando particolare attenzione alle sezioni su perplexity, burstiness e tecniche di editing strategico.",
+    "certificateTitle": "Specialista in Umanizzazione Testi AI",
+    "skills": [
+        "Tecniche di umanizzazione avanzate",
+        "Comprensione dei detector AI",
+        "Ottimizzazione di perplexity e burstiness", 
+        "Editing strategico di contenuti AI",
+        "Best practices etiche nell'AI writing"
+    ]
+}
