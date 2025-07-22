@@ -1,28 +1,29 @@
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://niuexa.com/sitemap.xml
-
-# Block access to admin or private areas (if any)
+# Block private areas
+Disallow: /login.html
 Disallow: /admin/
 Disallow: /private/
 Disallow: /.git/
 Disallow: /node_modules/
 
-# Allow specific important pages
+# Allow important pages for SEO
 Allow: /index.html
 Allow: /chi-siamo.html
 Allow: /consulting.html
 Allow: /training.html
 Allow: /products.html
+Allow: /impara.html
+Allow: /eventi.html
 Allow: /roi-calculator.html
+Allow: /certification.html
 
-# Block crawling of dynamic parameters and session IDs
+# Block crawling of dynamic parameters
 Disallow: /*?*
 Disallow: /*&*
 
-# Allow crawling of CSS, JS, and image files for better indexing
+# Allow crawling of assets for better indexing
 Allow: /*.css
 Allow: /*.js
 Allow: /*.png
@@ -33,8 +34,11 @@ Allow: /*.webp
 Allow: /*.svg
 Allow: /*.ico
 
-# Crawl-delay to be respectful to server resources
+# Sitemap location
+Sitemap: https://niuexa.com/sitemap.xml
+
+# Crawl delay to prevent server overload
 Crawl-delay: 1
 
-# Host directive (recommended for multi-domain setups)
+# Host directive
 Host: https://niuexa.com

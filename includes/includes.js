@@ -33,7 +33,7 @@ const navigationHTML = `
                 <a href="login.html" class="nav-link login-link" data-page="login">🔐 Login</a>
             </li>
         </ul>
-        <div class="hamburger" role="button" aria-label="Toggle navigation menu" aria-expanded="false" tabindex="0">
+        <div class="hamburger" role="button" aria-label="Apri menu di navigazione" aria-expanded="false" tabindex="0">
             <span class="bar" aria-hidden="true"></span>
             <span class="bar" aria-hidden="true"></span>
             <span class="bar" aria-hidden="true"></span>

@@ -60,6 +60,30 @@
         <priority>0.7</priority>
     </url>
 
+    <!-- Learning/Impara Page -->
+    <url>
+        <loc>https://niuexa.com/impara.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Events Page -->
+    <url>
+        <loc>https://niuexa.com/eventi.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Certification Page -->
+    <url>
+        <loc>https://niuexa.com/certification.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
     <!-- Login Page -->
     <url>
         <loc>https://niuexa.com/login.html</loc>
