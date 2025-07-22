@@ -112,52 +112,161 @@
     background: white;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     border: 1px solid #e2e8f0;
     position: relative;
 }
 
 .tutorial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    border-color: #667eea;
+}
+
+.tutorial-card:hover .tutorial-visual-header .floating-element {
+    animation: tutorialFloat 2s ease-in-out infinite;
+}
+
+.tutorial-card:hover .tutorial-gradient-bg {
+    transform: scale(1.1) rotate(1deg);
 }
 
 .tutorial-card.coming-soon {
     opacity: 0.7;
 }
 
-.tutorial-image {
-    height: 200px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+/* Enhanced Visual Headers for Tutorial Cards */
+.tutorial-visual-header {
+    height: 220px;
     position: relative;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.tutorial-gradient-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: transform 0.4s ease;
+}
+
+.tutorial-gradient-bg.writing {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #0066CC 100%);
+}
+
+.tutorial-gradient-bg.visual {
+    background: linear-gradient(135deg, #764ba2 0%, #00CC66 50%, #667eea 100%);
+}
+
+.tutorial-gradient-bg.video {
+    background: linear-gradient(135deg, #00CC66 0%, #667eea 50%, #0066CC 100%);
+}
+
+.tutorial-gradient-bg.audio {
+    background: linear-gradient(135deg, #0066CC 0%, #764ba2 50%, #00CC66 100%);
+}
+
+.tutorial-gradient-bg.automation {
+    background: linear-gradient(135deg, #667eea 0%, #0066CC 50%, #00CC66 100%);
 }
 
 .tutorial-category {
     position: absolute;
     top: 1rem;
     left: 1rem;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     color: #667eea;
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.85rem;
-    font-weight: 500;
+    font-weight: 600;
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 .tutorial-level {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     color: #764ba2;
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.85rem;
-    font-weight: 500;
+    font-weight: 600;
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.tutorial-icon-container {
+    position: relative;
+    z-index: 5;
+}
+
+.tutorial-main-icon {
+    font-size: 4rem;
+    background: rgba(255, 255, 255, 0.2);
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    backdrop-filter: blur(15px);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
+}
+
+.tutorial-visual-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.tutorial-visual-elements .floating-element {
+    position: absolute;
+    font-size: 1.8rem;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.tutorial-visual-elements .element-1 {
+    top: 25%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.tutorial-visual-elements .element-2 {
+    top: 70%;
+    right: 15%;
+    animation-delay: 0.7s;
+}
+
+.tutorial-visual-elements .element-3 {
+    bottom: 30%;
+    left: 15%;
+    animation-delay: 1.4s;
+}
+
+@keyframes tutorialFloat {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg) scale(1); 
+        opacity: 0.6;
+    }
+    50% { 
+        transform: translateY(-15px) rotate(10deg) scale(1.1); 
+        opacity: 0.8;
+    }
 }
 
 .tutorial-content {
@@ -176,6 +285,29 @@
     color: #718096;
     line-height: 1.6;
     margin-bottom: 1.5rem;
+}
+
+.tutorial-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tutorial-highlights .highlight-tag {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+    transition: all 0.2s ease;
+}
+
+.tutorial-highlights .highlight-tag:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 .tutorial-meta {
@@ -485,5 +617,84 @@
     }
     60% {
         transform: translateY(-4px);
+    }
+}
+
+/* Enhanced Tutorial Cards Responsive Design */
+@media (max-width: 768px) {
+    .tutorial-visual-header {
+        height: 180px;
+    }
+    
+    .tutorial-main-icon {
+        font-size: 3rem;
+        width: 80px;
+        height: 80px;
+    }
+    
+    .tutorial-visual-elements .floating-element {
+        font-size: 1.5rem;
+    }
+    
+    .tutorial-content {
+        padding: 1.5rem;
+    }
+    
+    .tutorial-highlights {
+        justify-content: center;
+    }
+    
+    .tutorial-card:hover {
+        transform: translateY(-4px) scale(1.01);
+    }
+    
+    .tutorial-category,
+    .tutorial-level {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tutorial-visual-header {
+        height: 150px;
+    }
+    
+    .tutorial-main-icon {
+        font-size: 2.5rem;
+        width: 70px;
+        height: 70px;
+    }
+    
+    .tutorial-visual-elements .floating-element {
+        font-size: 1.3rem;
+    }
+    
+    .tutorial-content {
+        padding: 1rem;
+    }
+    
+    .tutorial-content h3 {
+        font-size: 1.3rem;
+    }
+    
+    .tutorial-highlights .highlight-tag {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.6rem;
+    }
+    
+    .tutorial-category,
+    .tutorial-level {
+        top: 0.5rem;
+        padding: 0.3rem 0.6rem;
+        font-size: 0.7rem;
+    }
+    
+    .tutorial-level {
+        right: 0.5rem;
+    }
+    
+    .tutorial-category {
+        left: 0.5rem;
     }
 }

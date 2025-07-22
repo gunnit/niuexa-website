@@ -66,7 +66,7 @@ const footerHTML = `
                     <h4>Azienda</h4>
                     <ul>
                         <li><a href="chi-siamo.html">Chi Siamo</a></li>
-                        <li><a href="index.html#contact">Contatti</a></li>
+                        <li><a href="index.html#contact">Parla con Noi</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">

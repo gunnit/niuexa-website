@@ -63,53 +63,197 @@
     opacity: 0.9;
 }
 
-/* Table of Contents */
-.table-of-contents {
+/* Chapter Accordion */
+.chapter-navigation {
     background: #f8fafc;
     padding: 3rem 0;
     border-bottom: 1px solid #e2e8f0;
 }
 
-.toc-wrapper {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    max-width: 600px;
+.chapter-wrapper {
+    max-width: 800px;
     margin: 0 auto;
 }
 
-.toc-wrapper h3 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    color: #2d3748;
+.chapter-accordion {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
 }
 
-.toc-list {
-    list-style: none;
-    padding: 0;
+.accordion-item {
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-family: inherit;
+}
+
+.accordion-header:hover {
+    background: #f8fafc;
+}
+
+.accordion-header.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.chapter-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin: 0;
+    flex: 1;
+    line-height: 1.4;
+}
+
+.accordion-header.active .chapter-title {
+    color: white;
+}
+
+.chapter-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
+.chapter-duration {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #718096;
+    background: #f7fafc;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.accordion-header.active .chapter-duration {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.duration-icon {
+    font-size: 0.8rem;
+}
+
+.accordion-arrow {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e2e8f0;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+    color: #4a5568;
+}
+
+.accordion-header.active .accordion-arrow {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background: #fafbfc;
+}
+
+.accordion-content.active {
+    max-height: 200px;
+    padding: 1.5rem 2rem;
+}
+
+.chapter-summary {
+    font-size: 0.95rem;
+    color: #4a5568;
+    line-height: 1.6;
     margin: 0;
 }
 
-.toc-list li {
-    margin-bottom: 0.75rem;
+.chapter-highlights {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
-.toc-list a {
-    color: #667eea;
-    text-decoration: none;
+.highlight-tag {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
     font-weight: 500;
-    display: block;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid transparent;
-    transition: all 0.3s ease;
 }
 
-.toc-list a:hover {
-    color: #5a67d8;
-    border-bottom-color: #e2e8f0;
-    padding-left: 1rem;
+/* Smooth animations */
+@keyframes accordionOpen {
+    from {
+        max-height: 0;
+        opacity: 0;
+    }
+    to {
+        max-height: 200px;
+        opacity: 1;
+    }
+}
+
+.accordion-content.active {
+    animation: accordionOpen 0.3s ease forwards;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .chapter-wrapper {
+        margin: 0 1rem;
+    }
+    
+    .accordion-header {
+        padding: 1.25rem 1.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .chapter-title {
+        font-size: 1rem;
+    }
+    
+    .chapter-meta {
+        align-self: flex-end;
+        gap: 0.75rem;
+    }
+    
+    .accordion-content.active {
+        padding: 1.25rem 1.5rem;
+    }
+    
+    .chapter-highlights {
+        justify-content: center;
+    }
 }
 
 /* Tutorial Content */

@@ -2,7 +2,10 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Table of Contents smooth scrolling and highlighting
+    // Chapter accordion functionality
+    initChapterAccordion();
+    
+    // Table of Contents smooth scrolling and highlighting (fallback)
     initTableOfContents();
     
     // Reading progress indicator
@@ -26,6 +29,64 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize all features
     console.log('Tutorial page initialized');
 });
+
+// Chapter Accordion functionality
+function initChapterAccordion() {
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+            const accordionItem = this.closest('.accordion-item');
+            const accordionContent = accordionItem.querySelector('.accordion-content');
+            const isActive = this.classList.contains('active');
+            
+            // Close all accordion items first
+            accordionHeaders.forEach(otherHeader => {
+                otherHeader.classList.remove('active');
+                const otherItem = otherHeader.closest('.accordion-item');
+                const otherContent = otherItem.querySelector('.accordion-content');
+                otherContent.classList.remove('active');
+            });
+            
+            // If the clicked item wasn't active, open it
+            if (!isActive) {
+                this.classList.add('active');
+                accordionContent.classList.add('active');
+                
+                // Smooth scroll to section if it exists
+                const targetId = this.getAttribute('data-target');
+                if (targetId) {
+                    setTimeout(() => {
+                        const targetSection = document.getElementById(targetId);
+                        if (targetSection) {
+                            const headerOffset = 120;
+                            const elementPosition = targetSection.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                            
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }, 100);
+                }
+            }
+        });
+    });
+    
+    // Close accordion when clicking outside
+    document.addEventListener('click', function(e) {
+        const accordion = document.querySelector('.chapter-accordion');
+        if (accordion && !accordion.contains(e.target)) {
+            // Don't close on outside clicks for better UX
+            // accordionHeaders.forEach(header => {
+            //     header.classList.remove('active');
+            //     const content = header.closest('.accordion-item').querySelector('.accordion-content');
+            //     content.classList.remove('active');
+            // });
+        }
+    });
+}
 
 // Table of Contents functionality
 function initTableOfContents() {
