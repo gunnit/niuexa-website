@@ -188,6 +188,23 @@ h1, h2, h3, h4, h5, h6 {
     height: 70px;
 }
 
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    height: 40px;
+    width: auto;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
 .nav-logo h1 {
     font-size: 1.8rem;
     background: var(--gradient-primary);
@@ -196,6 +213,25 @@ h1, h2, h3, h4, h5, h6 {
     background-clip: text;
     /* Fallback for browsers without background-clip support */
     color: var(--primary-blue);
+    margin: 0;
+    line-height: 1;
+}
+
+.logo-tagline {
+    font-size: 0.9rem;
+    color: var(--primary-blue);
+    font-weight: 500;
+    margin: 0;
+    line-height: 1;
+    opacity: 0.8;
+}
+
+.nav-logo a {
+    text-decoration: none;
+}
+
+.nav-logo a:hover {
+    text-decoration: none;
 }
 
 .nav-menu {
@@ -2486,6 +2522,22 @@ button[aria-busy="true"]::after {
 }
 
 @media (max-width: 768px) {
+    .logo-container {
+        gap: 8px;
+    }
+    
+    .logo-icon {
+        height: 35px;
+    }
+    
+    .nav-logo h1 {
+        font-size: 1.5rem;
+    }
+    
+    .logo-tagline {
+        font-size: 0.8rem;
+    }
+
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -2698,6 +2750,22 @@ button[aria-busy="true"]::after {
 }
 
 @media (max-width: 480px) {
+    .logo-container {
+        gap: 6px;
+    }
+    
+    .logo-icon {
+        height: 30px;
+    }
+    
+    .nav-logo h1 {
+        font-size: 1.3rem;
+    }
+    
+    .logo-tagline {
+        font-size: 0.7rem;
+    }
+
     .container {
         padding: 0 15px;
     }

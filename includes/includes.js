@@ -4,7 +4,15 @@ const navigationHTML = `
 <nav class="navbar">
     <div class="nav-container">
         <div class="nav-logo">
-            <a href="index.html"><h1>NIUEXA</h1></a>
+            <a href="index.html">
+                <div class="logo-container">
+                    <img src="img/pictogram_blue_transparent.png" alt="Niuexa" class="logo-icon">
+                    <div class="logo-text">
+                        <h1>NIUEXA</h1>
+                        <span class="logo-tagline">Dall'AI al ROI.</span>
+                    </div>
+                </div>
+            </a>
         </div>
         <ul class="nav-menu">
             <li class="nav-item">
@@ -29,6 +37,9 @@ const navigationHTML = `
                     <li><a href="roi-calculator.html" class="dropdown-link" data-page="roi-calculator">Calcolatore ROI</a></li>
                     <li><a href="eventi.html" class="dropdown-link" data-page="eventi">Eventi</a></li>
                 </ul>
+            </li>
+            <li class="nav-item">
+                <a href="carriere.html" class="nav-link" data-page="carriere">Carriere</a>
             </li>
             <li class="nav-item">
                 <a href="login.html" class="nav-link login-link" data-page="login">🔐 Login</a>
@@ -64,9 +75,19 @@ const footerHTML = `
                     </ul>
                 </div>
                 <div class="footer-column">
+                    <h4>Risorse</h4>
+                    <ul>
+                        <li><a href="impara.html">Impara</a></li>
+                        <li><a href="research.html">Ricerca</a></li>
+                        <li><a href="roi-calculator.html">Calcolatore ROI</a></li>
+                        <li><a href="eventi.html">Eventi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
                     <h4>Azienda</h4>
                     <ul>
                         <li><a href="chi-siamo.html">Chi Siamo</a></li>
+                        <li><a href="carriere.html">Carriere</a></li>
                         <li><a href="index.html#contact">Parla con Noi</a></li>
                     </ul>
                 </div>
@@ -324,6 +345,8 @@ function getCurrentPage() {
         return 'roi-calculator';
     } else if (page === 'eventi.html') {
         return 'eventi';
+    } else if (page === 'carriere.html') {
+        return 'carriere';
     } else if (page === 'login.html') {
         return 'login';
     }

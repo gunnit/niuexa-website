@@ -202,7 +202,7 @@ Sitemap: https://niuexa.com/sitemap.xml
 ### 🔧 Accessibility Improvements Needed
 ```html
 <!-- Add skip navigation -->
-<a href="#main-content" class="skip-nav">Skip to main content</a>
+<a href="#main-content" class="skip-nav">Vai sul contenuto principale</a>
 
 <!-- Improve form labels -->
 <label for="email-input">
