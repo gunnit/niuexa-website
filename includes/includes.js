@@ -25,6 +25,7 @@ const navigationHTML = `
                 <a href="#" class="nav-link dropdown-toggle" data-page="risorse">Risorse <span class="dropdown-arrow">▼</span></a>
                 <ul class="dropdown-menu">
                     <li><a href="impara.html" class="dropdown-link" data-page="impara">Impara</a></li>
+                    <li><a href="research.html" class="dropdown-link" data-page="research">Ricerca</a></li>
                     <li><a href="roi-calculator.html" class="dropdown-link" data-page="roi-calculator">Calcolatore ROI</a></li>
                     <li><a href="eventi.html" class="dropdown-link" data-page="eventi">Eventi</a></li>
                 </ul>
@@ -87,8 +88,8 @@ const footerHTML = `
 
 // Function to load HTML includes
 function loadIncludes() {
-    // Load navigation with loading state
-    const navPlaceholder = document.getElementById('nav-placeholder');
+    // Load navigation with loading state - support both placeholder IDs
+    const navPlaceholder = document.getElementById('nav-placeholder') || document.getElementById('navigation-placeholder');
     if (navPlaceholder) {
         // Show loading state
         navPlaceholder.innerHTML = '<div class="loading-placeholder nav-loading" aria-label="Loading navigation">Loading navigation...</div>';
@@ -317,6 +318,8 @@ function getCurrentPage() {
         return 'products';
     } else if (page === 'impara.html') {
         return 'impara';
+    } else if (page === 'research.html') {
+        return 'research';
     } else if (page === 'roi-calculator.html') {
         return 'roi-calculator';
     } else if (page === 'eventi.html') {
