@@ -1,0 +1,222 @@
+/* General Section Styling */
+section {
+    padding: 6rem 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    font-size: 2.8rem;
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 0.5rem;
+}
+
+.section-header p {
+    font-size: 1.2rem;
+    color: var(--text-secondary-color);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Hero Section */
+.careers-hero {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9)), url('img/office.webm') no-repeat center center/cover;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+/* Why Us Section */
+.why-us-section {
+    background-color: var(--background-dark-alt);
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-top: 4rem;
+}
+
+.benefit-card {
+    background: var(--background-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.benefit-icon {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+}
+
+.benefit-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+/* Values Section */
+.values-section {
+    background-color: var(--background-dark);
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.value-item {
+    text-align: center;
+    padding: 2rem;
+}
+
+.value-item h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Ideal Candidate Section */
+.ideal-candidate-section {
+    background-color: var(--background-dark-alt);
+}
+
+.candidate-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.candidate-requirements h3 {
+    color: var(--accent-color);
+    margin: 2rem 0 1rem 0;
+    font-size: 1.5rem;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.candidate-requirements ul {
+    list-style: none;
+    padding: 0;
+}
+
+.candidate-requirements li {
+    padding: 0.75rem 0;
+    padding-left: 2rem;
+    position: relative;
+    font-size: 1.1rem;
+}
+
+.candidate-requirements li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.candidate-image {
+    text-align: center;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden; /* Ensures the image respects the border-radius */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    border: 2px solid var(--border-color);
+    aspect-ratio: 16 / 9; /* Enforce a 16:9 aspect ratio */
+}
+
+.team-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This will cover the area, cropping the image as needed */
+    transition: transform 0.3s ease;
+}
+
+.team-image:hover {
+    transform: scale(1.03);
+}
+
+/* CTA Section */
+.careers-cta-section {
+    background: linear-gradient(135deg, var(--accent-color) 0%, #ff6b6b 100%);
+    padding: 6rem 0;
+    color: white;
+    text-align: center;
+}
+
+.cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-content h2 {
+    font-size: 3rem;
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 1.5rem;
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+}
+
+.contact-info {
+    margin-top: 2.5rem;
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .candidate-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .team-image {
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 4rem 0;
+    }
+
+    .section-header h2 {
+        font-size: 2.2rem;
+    }
+
+    .section-header p {
+        font-size: 1.1rem;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .cta-content h2 {
+        font-size: 2.5rem;
+    }
+}

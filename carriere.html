@@ -20,14 +20,14 @@
     <!-- Open Graph -->
     <meta property="og:title" content="Carriere - Unisciti al Team Niuexa">
     <meta property="og:description" content="Cerchi una carriera nell'AI? Unisciti a Niuexa e aiutaci ad automatizzare i processi aziendali con l'intelligenza artificiale.">
-    <meta property="og:image" content="img/niuexa-careers-og.jpg">
+    <meta property="og:image" content="img/team_group_photo.jpg">
     <meta property="og:url" content="https://niuexa.com/carriere.html">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="consulting.css">
+    <link rel="stylesheet" href="carriere.css">
 </head>
 <body>
     <!-- Navigation Placeholder -->
@@ -195,13 +195,7 @@
                 </div>
                 
                 <div class="candidate-image">
-                    <div class="image-placeholder">
-                        <svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                            <circle cx="12" cy="7" r="4"/>
-                        </svg>
-                        <p>Il tuo prossimo<br>compagno di team</p>
-                    </div>
+                    <img src="img/team_group_photo.jpg" alt="Il team Niuexa" class="team-image">
                 </div>
             </div>
         </div>
@@ -236,145 +230,5 @@
     <!-- JavaScript -->
     <script src="includes/includes.js"></script>
     <script src="script.js"></script>
-    
-    <style>
-        .careers-hero {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            min-height: 80vh;
-        }
-        
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-        
-        .benefit-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-        
-        .benefit-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-color);
-        }
-        
-        .benefit-icon {
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-        }
-        
-        .values-section {
-            background: rgba(255, 255, 255, 0.02);
-            padding: 5rem 0;
-        }
-        
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-        
-        .value-item {
-            text-align: center;
-            padding: 2rem;
-        }
-        
-        .value-item h3 {
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-        
-        .ideal-candidate-section {
-            padding: 5rem 0;
-        }
-        
-        .candidate-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin: 3rem 0;
-        }
-        
-        .candidate-requirements h3 {
-            color: var(--accent-color);
-            margin: 2rem 0 1rem 0;
-            font-size: 1.3rem;
-        }
-        
-        .candidate-requirements ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .candidate-requirements li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-        
-        .candidate-requirements li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-            font-weight: bold;
-        }
-        
-        .image-placeholder {
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px dashed rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
-            padding: 3rem;
-            text-align: center;
-            color: rgba(255, 255, 255, 0.6);
-        }
-        
-        .careers-cta-section {
-            background: linear-gradient(135deg, var(--accent-color) 0%, #ff6b6b 100%);
-            padding: 5rem 0;
-            color: white;
-        }
-        
-        .cta-content {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .cta-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .contact-info {
-            margin-top: 2rem;
-            opacity: 0.9;
-        }
-        
-        @media (max-width: 768px) {
-            .benefits-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .candidate-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .cta-content h2 {
-                font-size: 2rem;
-            }
-        }
-    </style>
 </body>
 </html>

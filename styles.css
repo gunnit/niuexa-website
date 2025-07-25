@@ -2343,7 +2343,7 @@ button[aria-busy="true"]::after {
 
 .footer-links {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
 }
 
@@ -2518,6 +2518,11 @@ button[aria-busy="true"]::after {
     .ai-visualization {
         width: 350px;
         height: 350px;
+    }
+    
+    .footer-links {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
     }
 }
 
@@ -2742,10 +2747,28 @@ button[aria-busy="true"]::after {
         height: 350px;
     }
 
-    .footer-content,
-    .footer-links {
+    .footer-content {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+        text-align: center;
+    }
+    
+    .footer-links {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .footer-contact {
+        text-align: center;
+    }
+    
+    .footer-bottom {
+        font-size: 0.8rem;
+        line-height: 1.4;
+    }
+    
+    .footer-disclaimer {
+        font-size: 0.7rem !important;
     }
 }
 
@@ -2840,6 +2863,23 @@ button[aria-busy="true"]::after {
 
     .use-case-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .footer-links {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-brand h3 {
+        font-size: 1.5rem;
+    }
+    
+    .footer-bottom {
+        font-size: 0.7rem;
+    }
+    
+    .footer-disclaimer {
+        font-size: 0.65rem !important;
+        margin-top: 0.5rem !important;
     }
 }
 
@@ -3578,6 +3618,70 @@ html {
     transform: translate(-50%, -50%);
     z-index: 0;
     object-fit: cover;
+}
+
+.ai-video-banner {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 2;
+    animation: fadeInUp 1s ease-out;
+}
+
+.ai-badge {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.ai-text {
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile responsive for AI video banner */
+@media (max-width: 768px) {
+    .ai-video-banner {
+        bottom: 10px;
+        right: 10px;
+        padding: 6px 12px;
+        border-radius: 20px;
+    }
+    
+    .ai-badge {
+        font-size: 0.65rem;
+        padding: 3px 6px;
+        border-radius: 10px;
+    }
+    
+    .ai-text {
+        font-size: 0.75rem;
+    }
 }
 
 .cta-content {
@@ -4418,5 +4522,94 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
     .highlight-tag {
         font-size: 0.7rem;
         padding: 0.2rem 0.6rem;
+    }
+}
+
+/* Legal Pages */
+.legal-page {
+    padding: 6rem 0 3rem;
+    background: var(--white);
+}
+
+.legal-content {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.legal-content h1 {
+    color: var(--dark-gray);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.legal-content h2 {
+    color: var(--primary-blue);
+    margin: 2rem 0 1rem;
+    border-bottom: 2px solid var(--light-gray);
+    padding-bottom: 0.5rem;
+}
+
+.legal-content h3 {
+    color: var(--dark-gray);
+    margin: 1.5rem 0 1rem;
+}
+
+.legal-content ul {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+.legal-content li {
+    margin: 0.5rem 0;
+}
+
+.legal-content a {
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+
+.legal-content a:hover {
+    text-decoration: underline;
+}
+
+.cookie-settings {
+    background: var(--light-gray);
+    padding: 2rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.footer-contact {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.footer-contact p {
+    margin: 0.3rem 0;
+    color: var(--medium-gray);
+}
+
+/* Responsive Legal Pages */
+@media (max-width: 768px) {
+    .legal-page {
+        padding: 4rem 0 2rem;
+    }
+    
+    .legal-content {
+        padding: 0 20px;
+    }
+    
+    .legal-content h1 {
+        font-size: 2rem;
+    }
+    
+    .legal-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .cookie-settings {
+        padding: 1.5rem;
     }
 }
