@@ -108,7 +108,7 @@
             <div class="calculator-container">
                 <div class="calculator-form">
                     <h2>Calcola i Tuoi Potenziali Risparmi</h2>
-                    <form id="roiCalculator">
+                    <form id="roiCalculator" onsubmit="return false;">
                         <div class="form-section">
                             <h3>Informazioni sul Processo</h3>
                             <div class="form-row">
@@ -338,13 +338,56 @@
     </section>
 
     <!-- Disclaimer Section -->
-    <section class="disclaimer-section" style="padding: 2rem 0; background: #f8f9fa; text-align: center;">
+    <section class="disclaimer-section">
         <div class="container">
-            <div style="max-width: 800px; margin: 0 auto; font-size: 0.9rem; color: #6c757d; line-height: 1.6;">
-                <h3 style="font-size: 1.1rem; color: #495057; margin-bottom: 1rem;">Metodologia di Calcolo e Disclaimer</h3>
-                <p style="margin-bottom: 1rem;">* I valori ROI indicati sono stime basate su dati aggregati di progetti simili e possono variare significativamente in base al settore, dimensione aziendale, processi esistenti e livello di implementazione. Il range tipico osservato è del 150-250% in 12-18 mesi.</p>
-                <p style="margin-bottom: 1rem;">Il calcolo del ROI considera: risparmio sui costi operativi, riduzione tempi di processo, aumento produttività e diminuzione errori. Non include costi di implementazione, formazione e manutenzione.</p>
-                <p><strong>Importante:</strong> Questi risultati non costituiscono garanzia. Vi invitiamo a valutare attentamente ogni investimento tecnologico con i vostri consulenti finanziari.</p>
+            <div class="disclaimer-content">
+                <div class="disclaimer-header">
+                    <h3>Metodologia di Calcolo e Disclaimer</h3>
+                    <p class="subtitle">Informazioni trasparenti sui nostri calcoli e limitazioni</p>
+                </div>
+                
+                <div class="disclaimer-body">
+                    <div class="disclaimer-item">
+                        <div class="icon">i</div>
+                        <p>I valori ROI indicati sono <strong>stime basate su dati aggregati</strong> di progetti simili e possono variare significativamente in base al settore, dimensione aziendale, processi esistenti e livello di implementazione. Il range tipico osservato è del <strong>150-250% in 12-18 mesi</strong>.</p>
+                    </div>
+                    
+                    <div class="disclaimer-item">
+                        <div class="icon">📊</div>
+                        <p>Il calcolo del ROI considera i seguenti fattori:</p>
+                        <div class="methodology-grid">
+                            <div class="methodology-item">
+                                <div class="label">Risparmio Operativo</div>
+                                <div class="value">Riduzione costi lavoro</div>
+                            </div>
+                            <div class="methodology-item">
+                                <div class="label">Efficienza Temporale</div>
+                                <div class="value">Riduzione tempi processo</div>
+                            </div>
+                            <div class="methodology-item">
+                                <div class="label">Produttività</div>
+                                <div class="value">Aumento output</div>
+                            </div>
+                            <div class="methodology-item">
+                                <div class="label">Qualità</div>
+                                <div class="value">Diminuzione errori</div>
+                            </div>
+                        </div>
+                        <p><em>Non include: costi di implementazione estesi, formazione specialistica e manutenzione a lungo termine.</em></p>
+                    </div>
+                    
+                    <div class="disclaimer-item">
+                        <div class="icon">⚠</div>
+                        <p><strong>Importante:</strong> Questi risultati non costituiscono garanzia di performance futura. I risultati effettivi possono variare in base a molteplici fattori specifici del vostro contesto aziendale. Vi invitiamo a valutare attentamente ogni investimento tecnologico con i vostri consulenti finanziari e tecnici.</p>
+                    </div>
+                </div>
+                
+                <div class="disclaimer-footer">
+                    <p class="legal-note">
+                        Calcoli basati su metodologie standard del settore e benchmark di mercato aggiornati al 2024.
+                        Per consulenze personalizzate contattate i nostri esperti.
+                    </p>
+                </div>
             </div>
         </div>
     </section>

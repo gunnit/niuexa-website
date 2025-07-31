@@ -1012,6 +1012,14 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* Tablet breakpoint for better testimonials layout */
+@media (max-width: 1024px) {
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
 @media (max-width: 768px) {
     .use-case-grid {
         grid-template-columns: 1fr;
@@ -1019,7 +1027,70 @@ h1, h2, h3, h4, h5, h6 {
     
     .testimonials-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
+    
+    .testimonial-card {
+        padding: 1.5rem;
+    }
+    
+    .testimonial-content h3 {
+        font-size: 1.3rem;
+    }
+    
+    .testimonial-results {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+    
+    .result-item {
+        min-width: 80px;
+    }
+    
+    .result-number {
+        font-size: 1.3rem;
+    }
+    
+    .result-label {
+        font-size: 0.75rem;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .testimonial-card {
+        padding: 1rem;
+    }
+    
+    .testimonial-icon {
+        font-size: 2.5rem;
+    }
+    
+    .testimonial-content h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .testimonial-content p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    .testimonial-results {
+        justify-content: space-around;
+        padding-top: 0.8rem;
+    }
+    
+    .result-number {
+        font-size: 1.2rem;
+    }
+    
+    .testimonials-cta .btn {
+        width: 100%;
+        margin: 0.25rem 0;
+        max-width: 280px;
+    }
+}
     
     .cta-content {
         grid-template-columns: 1fr;
@@ -3389,43 +3460,130 @@ html {
     line-height: 1.6;
 }
 
-/* Libera Section */
+/* Libera Section - Enhanced Production Ready */
 .libera-section {
     padding: var(--section-padding);
-    background: var(--gradient-light);
+    background: linear-gradient(135deg, #f8faff 0%, #e8f2ff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.libera-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(102, 126, 234, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(118, 75, 162, 0.05) 0%, transparent 50%);
+    pointer-events: none;
 }
 
 .libera-header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 1;
 }
 
 .libera-subtitle {
-    font-size: 1.2rem;
-    color: var(--medium-gray);
+    font-size: 1.3rem;
+    color: var(--primary-blue);
     margin-top: 1rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--primary-blue), #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .libera-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    margin-bottom: 3rem;
+    gap: 4rem;
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 1;
+}
+
+.libera-info,
+.libera-positioning {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.libera-info:hover,
+.libera-positioning:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
 }
 
 .libera-info h3,
 .libera-positioning h3 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     color: var(--dark-gray);
     margin-bottom: 1.5rem;
+    font-weight: 700;
+    position: relative;
+}
+
+.libera-info h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(135deg, var(--primary-blue), #764ba2);
+    border-radius: 2px;
 }
 
 .libera-info p {
     color: var(--medium-gray);
     margin-bottom: 1.5rem;
-    line-height: 1.6;
+    line-height: 1.7;
+    font-size: 1rem;
 }
 
+/* Impact Stats */
+.libera-impact {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, var(--primary-blue), #764ba2);
+    border-radius: 15px;
+    color: white;
+}
+
+.impact-stat {
+    flex: 1;
+    text-align: center;
+}
+
+.impact-number {
+    display: block;
+    font-size: 2.2rem;
+    font-weight: 900;
+    font-family: var(--font-primary);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.impact-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+/* Positioning Pillars */
 .positioning-pillars {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -3434,60 +3592,227 @@ html {
 
 .pillar {
     background: var(--white);
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(102, 126, 234, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.pillar::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(102, 126, 234, 0.05), transparent);
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+    opacity: 0;
+}
+
+.pillar:hover::before {
+    opacity: 1;
+    transform: rotate(45deg) translate(50%, 50%);
+}
+
+.pillar:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+    border-color: var(--primary-blue);
+}
+
+.pillar-icon {
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-blue), #764ba2);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
 }
 
 .pillar h4 {
     color: var(--primary-blue);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
 }
 
 .pillar p {
     color: var(--medium-gray);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
 }
 
+/* Collaboration Section */
 .libera-collaboration {
     background: var(--white);
-    padding: 3rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 4rem;
+    border-radius: 25px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(102, 126, 234, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.libera-collaboration::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(135deg, var(--primary-blue), #764ba2);
 }
 
 .libera-collaboration h3 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: var(--dark-gray);
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     text-align: center;
+    font-weight: 700;
+    position: relative;
+}
+
+.libera-collaboration h3::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(135deg, var(--primary-blue), #764ba2);
+    border-radius: 2px;
 }
 
 .collaboration-benefits {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
 .benefit-item {
     display: flex;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 15px;
+    background: rgba(102, 126, 234, 0.02);
+    border: 1px solid rgba(102, 126, 234, 0.1);
+    transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+    transform: translateX(10px);
+    background: rgba(102, 126, 234, 0.05);
+    border-color: var(--primary-blue);
 }
 
 .benefit-icon {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary-blue), #764ba2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
     margin-top: 0.2rem;
 }
 
 .benefit-content h4 {
     color: var(--primary-blue);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 700;
 }
 
 .benefit-content p {
     color: var(--medium-gray);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* CTA Box */
+.libera-cta {
+    margin-top: 3rem;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-box {
+    background: linear-gradient(135deg, var(--primary-blue), #764ba2);
+    padding: 3rem;
+    border-radius: 25px;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+    50% { transform: translate(-50%, -50%) rotate(180deg); }
+}
+
+.cta-box h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-box p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+}
+
+.btn-explosive {
+    background: white !important;
+    color: var(--primary-blue) !important;
+    font-weight: 700;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.btn-explosive:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
 /* Values Section */
@@ -3620,6 +3945,26 @@ html {
     object-fit: cover;
 }
 
+.ceo-banner {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    padding: 8px 16px;
+    z-index: 2;
+    animation: fadeInUp 1s ease-out;
+}
+
+.ceo-text {
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
 .ai-video-banner {
     position: absolute;
     bottom: 20px;
@@ -3664,8 +4009,19 @@ html {
     }
 }
 
-/* Mobile responsive for AI video banner */
+/* Mobile responsive for CEO and AI video banners */
 @media (max-width: 768px) {
+    .ceo-banner {
+        top: 10px;
+        left: 10px;
+        padding: 6px 12px;
+        border-radius: 20px;
+    }
+    
+    .ceo-text {
+        font-size: 0.75rem;
+    }
+    
     .ai-video-banner {
         bottom: 10px;
         right: 10px;
@@ -3745,12 +4101,71 @@ html {
         gap: 2rem;
     }
     
+    .libera-info,
+    .libera-positioning {
+        padding: 2rem;
+    }
+    
+    .libera-impact {
+        flex-direction: row;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .impact-number {
+        font-size: 1.8rem;
+    }
+    
     .positioning-pillars {
         grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .pillar {
+        padding: 1.5rem;
+    }
+    
+    .pillar-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+    
+    .libera-collaboration {
+        padding: 2.5rem;
     }
     
     .collaboration-benefits {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .benefit-item {
+        padding: 1rem;
+        gap: 1rem;
+    }
+    
+    .benefit-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+    
+    .cta-box {
+        padding: 2rem;
+    }
+    
+    .cta-box h4 {
+        font-size: 1.2rem;
+    }
+    
+    .cta-box p {
+        font-size: 1rem;
+    }
+    
+    .btn-explosive {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
     }
 }
 
@@ -3842,6 +4257,88 @@ html {
     
     .ceo-name {
         font-size: 1.8rem;
+    }
+    
+    /* Libera Section Mobile Styles */
+    .libera-section {
+        padding: 3rem 1rem;
+    }
+    
+    .libera-header {
+        margin-bottom: 2rem;
+    }
+    
+    .libera-subtitle {
+        font-size: 1.1rem;
+        /* Fallback for browsers without background-clip support */
+        color: var(--primary-blue);
+    }
+    
+    .libera-info,
+    .libera-positioning {
+        padding: 1.5rem;
+        /* Fallback for browsers without backdrop-filter */
+        background: rgba(255, 255, 255, 0.95);
+    }
+    
+    .libera-impact {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 1.5rem 1rem;
+    }
+    
+    .impact-number {
+        font-size: 1.5rem;
+    }
+    
+    .impact-label {
+        font-size: 0.8rem;
+    }
+    
+    .pillar {
+        padding: 1rem;
+        text-align: center;
+    }
+    
+    .pillar-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+        margin: 0 auto 1rem;
+    }
+    
+    .libera-collaboration {
+        padding: 1.5rem;
+    }
+    
+    .libera-collaboration h3 {
+        font-size: 1.4rem;
+    }
+    
+    .benefit-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+        padding: 1rem;
+    }
+    
+    .benefit-item:hover {
+        transform: translateY(-5px);
+    }
+    
+    .benefit-icon {
+        margin: 0 auto;
+    }
+    
+    .cta-box {
+        padding: 1.5rem;
+    }
+    
+    .btn-explosive {
+        width: 100%;
+        max-width: 280px;
+        padding: 1rem 1.5rem;
     }
     
     .vision-statement {
@@ -4611,5 +5108,105 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
     
     .cookie-settings {
         padding: 1.5rem;
+    }
+}
+
+/* FAQ Section Styles */
+.faq-section {
+    padding: 80px 0;
+    background: var(--light-gray);
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.faq-item {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-item.active {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.faq-question {
+    margin: 0;
+}
+
+.faq-toggle {
+    width: 100%;
+    padding: 1.5rem;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark-gray);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.faq-toggle:hover {
+    background-color: var(--light-gray);
+}
+
+.faq-icon {
+    background: var(--primary-blue);
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    display: none;
+    padding: 0 1.5rem 1.5rem;
+    color: var(--medium-gray);
+    line-height: 1.6;
+    border-top: 1px solid var(--light-gray);
+    animation: fadeIn 0.3s ease;
+}
+
+.faq-answer ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.faq-answer li {
+    margin-bottom: 0.5rem;
+}
+
+/* FAQ Responsive Styles */
+@media (max-width: 768px) {
+    .faq-toggle {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+    
+    .faq-answer {
+        padding: 0 1rem 1rem;
     }
 }

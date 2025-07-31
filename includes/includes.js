@@ -62,7 +62,7 @@ const footerHTML = `
         <div class="footer-content">
             <div class="footer-brand">
                 <h3>NIUEXA</h3>
-                <p>Soluzioni AI Avanzate per il Business Moderno</p>
+                <p>Soluzioni AI Avanzate per il tuo Business.</p>
             </div>
             <div class="footer-links">
                 <div class="footer-column">

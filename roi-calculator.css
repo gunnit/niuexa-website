@@ -624,3 +624,223 @@
 .tooltip:hover::after {
     opacity: 1;
 }
+
+/* Disclaimer Section - Production Ready */
+.disclaimer-section {
+    padding: var(--section-padding);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.disclaimer-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--primary-blue) 50%, transparent 100%);
+}
+
+.disclaimer-content {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.disclaimer-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+    border-radius: 20px 20px 0 0;
+}
+
+.disclaimer-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.disclaimer-header h3 {
+    font-size: 1.8rem;
+    color: var(--dark-gray);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    font-family: var(--font-primary);
+}
+
+.disclaimer-header .subtitle {
+    font-size: 1rem;
+    color: var(--medium-gray);
+    font-style: italic;
+}
+
+.disclaimer-body {
+    text-align: left;
+    line-height: 1.7;
+}
+
+.disclaimer-item {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--light-gray);
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-blue);
+    position: relative;
+    transition: all var(--transition-fast);
+}
+
+.disclaimer-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 102, 204, 0.1);
+}
+
+.disclaimer-item:last-child {
+    margin-bottom: 0;
+    border-left-color: var(--primary-green);
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+}
+
+.disclaimer-item .icon {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 24px;
+    height: 24px;
+    background: var(--primary-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.disclaimer-item:last-child .icon {
+    background: var(--primary-green);
+}
+
+.disclaimer-item p {
+    font-size: 0.95rem;
+    color: var(--dark-gray);
+    margin: 0;
+    padding-right: 3rem;
+}
+
+.disclaimer-item strong {
+    color: var(--primary-blue);
+    font-weight: 600;
+}
+
+.disclaimer-item:last-child strong {
+    color: var(--primary-green);
+}
+
+.methodology-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    background: rgba(0, 102, 204, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 102, 204, 0.1);
+}
+
+.methodology-item {
+    text-align: center;
+    padding: 1rem;
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.methodology-item .label {
+    font-size: 0.8rem;
+    color: var(--medium-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.methodology-item .value {
+    font-weight: 600;
+    color: var(--primary-blue);
+    font-size: 0.9rem;
+}
+
+.disclaimer-footer {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e9ecef;
+    text-align: center;
+}
+
+.disclaimer-footer .legal-note {
+    font-size: 0.85rem;
+    color: var(--medium-gray);
+    font-style: italic;
+    line-height: 1.6;
+}
+
+/* Disclaimer Responsive Design */
+@media (max-width: 768px) {
+    .disclaimer-section {
+        padding: 3rem 0;
+    }
+    
+    .disclaimer-content {
+        margin: 0 1rem;
+        padding: 2rem 1.5rem;
+        border-radius: 15px;
+    }
+    
+    .disclaimer-header h3 {
+        font-size: 1.5rem;
+    }
+    
+    .disclaimer-item {
+        padding: 1.25rem;
+    }
+    
+    .disclaimer-item .icon {
+        display: none;
+    }
+    
+    .disclaimer-item p {
+        padding-right: 0;
+        font-size: 0.9rem;
+    }
+    
+    .methodology-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .disclaimer-content {
+        margin: 0 0.5rem;
+        padding: 1.5rem 1rem;
+    }
+    
+    .disclaimer-header h3 {
+        font-size: 1.3rem;
+    }
+    
+    .disclaimer-item {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+}
