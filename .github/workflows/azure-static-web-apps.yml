@@ -30,7 +30,8 @@ jobs:
           action: "upload"
           app_location: "/" # App source code path
           api_location: "" # Api source code path - optional
-          output_location: "" # Built app content directory - optional
+          output_location: "" # Built app content directory - not needed for this project
+          skip_app_build: "true" # Skip the build step since this is a static site
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
