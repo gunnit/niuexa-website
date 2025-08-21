@@ -1,41 +1,9 @@
 {
-  "trailingSlash": "auto",
-  "routes": [
-    {
-      "route": "/styles.css",
-      "headers": {
-        "Content-Type": "text/css"
-      }
-    },
-    {
-      "route": "/*.css",
-      "headers": {
-        "Content-Type": "text/css"
-      }
-    },
-    {
-      "route": "/*.js",
-      "headers": {
-        "Content-Type": "application/javascript"
-      }
-    }
-  ],
   "navigationFallback": {
-    "rewrite": "/index.html"
-  },
-  "mimeTypes": {
-    ".css": "text/css",
-    ".js": "application/javascript",
-    ".json": "application/json",
-    ".html": "text/html",
-    ".xml": "application/xml",
-    ".txt": "text/plain",
-    ".png": "image/png",
-    ".jpg": "image/jpeg",
-    ".jpeg": "image/jpeg",
-    ".gif": "image/gif",
-    ".webp": "image/webp",
-    ".svg": "image/svg+xml",
-    ".ico": "image/x-icon"
+    "rewrite": "/index.html",
+    "exclude": [
+      "*.{css,js,png,jpg,jpeg,gif,webp,svg,ico,woff,woff2,ttf,eot,json,xml,txt,webm,mp4}",
+      "/img/*"
+    ]
   }
 }
