@@ -162,3 +162,43 @@ az staticwebapp create --name niuexa-website --resource-group niuexa-rg --source
 - **Question types**: Support for multiple-choice, true/false, and other formats
 - **Scoring system**: Configurable passing scores and time limits per quiz
 - **Progressive enhancement**: Quiz functionality built as enhancement over static content
+
+## Design System and Styling
+
+### CSS Architecture Standards
+- **Centralized design system**: All colors, fonts, and spacing defined in `styles.css` using CSS custom properties
+- **Color palette**: Standardized blue/green brand colors with neutral grays (see `STYLESHEET_GUIDE.md`)
+- **Typography**: Orbitron for headings/brand, Inter for body text
+- **Component consistency**: Standardized button styles, hero sections, and card components
+
+### CSS Custom Properties (Required Usage)
+```css
+/* Colors - ALWAYS use these variables */
+--primary-blue: #0066CC;
+--primary-green: #00CC66;
+--dark-gray: #343A40;
+--medium-gray: #6C757D;
+--light-gray: #F8F9FA;
+--white: #FFFFFF;
+
+/* Typography - ALWAYS use these variables */
+--font-primary: 'Orbitron', monospace;    /* For headings */
+--font-secondary: 'Inter', sans-serif;     /* For body text */
+
+/* Gradients - ALWAYS use these variables */
+--gradient-primary: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+--gradient-secondary: linear-gradient(135deg, var(--dark-blue), var(--dark-green));
+```
+
+### Critical Styling Rules
+- **NEVER use hard-coded colors** - always reference CSS custom properties from `:root` in `styles.css`
+- **Hero sections**: Use consistent padding (120px 0 80px) and standardized gradient backgrounds
+- **Button styles**: Use `.btn-primary` and `.btn-secondary` classes instead of custom implementations
+- **Font families**: Always use `var(--font-primary)` and `var(--font-secondary)` instead of hard-coded font names
+- **Page-specific stylesheets**: Should only contain unique elements, extending base styles from `styles.css`
+
+### Maintenance Guidelines
+- Before adding new colors, check if existing CSS custom properties can be used
+- New components should extend existing patterns from `styles.css`
+- Reference `STYLESHEET_GUIDE.md` for complete design system documentation
+- Test changes across all pages to ensure visual consistency

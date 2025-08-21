@@ -236,22 +236,22 @@
 
 .start-cert-btn {
     width: 100%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: var(--gradient-primary);
+    color: var(--white);
     border: none;
     padding: 1rem 2rem;
     border-radius: 12px;
     font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all var(--transition-fast);
     position: relative;
     overflow: hidden;
 }
 
 .start-cert-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 8px 20px rgba(0, 102, 204, 0.4);
 }
 
 .start-cert-btn:active {
@@ -336,18 +336,18 @@
 
 .back-btn {
     background: none;
-    border: 2px solid #667eea;
-    color: #667eea;
+    border: 2px solid var(--primary-blue);
+    color: var(--primary-blue);
     padding: 0.5rem 1rem;
     border-radius: 8px;
     cursor: pointer;
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: all var(--transition-fast);
 }
 
 .back-btn:hover {
-    background: #667eea;
-    color: white;
+    background: var(--primary-blue);
+    color: var(--white);
     transform: translateX(-3px);
 }
 
@@ -580,19 +580,19 @@
 }
 
 .nav-btn.primary {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: var(--gradient-primary);
+    color: var(--white);
 }
 
 .nav-btn.secondary {
-    background: white;
-    color: #4a5568;
-    border: 2px solid #e2e8f0;
+    background: var(--white);
+    color: var(--medium-gray);
+    border: 2px solid var(--light-gray);
 }
 
 .nav-btn.success {
-    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
-    color: white;
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
+    color: var(--white);
 }
 
 .nav-btn:hover:not(:disabled) {

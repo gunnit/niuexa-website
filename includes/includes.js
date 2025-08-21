@@ -22,7 +22,7 @@ const navigationHTML = `
                 <a href="chi-siamo.html" class="nav-link" data-page="chi-siamo">Chi Siamo</a>
             </li>
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-page="soluzioni">Soluzioni <span class="dropdown-arrow">▼</span></a>
+                <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-page="soluzioni">Soluzioni <span class="dropdown-arrow">▼</span></a>
                 <ul class="dropdown-menu">
                     <li><a href="consulting.html" class="dropdown-link" data-page="consulting">Consulenza</a></li>
                     <li><a href="training.html" class="dropdown-link" data-page="training">Formazione</a></li>
@@ -30,7 +30,7 @@ const navigationHTML = `
                 </ul>
             </li>
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-page="risorse">Risorse <span class="dropdown-arrow">▼</span></a>
+                <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-page="risorse">Risorse <span class="dropdown-arrow">▼</span></a>
                 <ul class="dropdown-menu">
                     <li><a href="impara.html" class="dropdown-link" data-page="impara">Impara</a></li>
                     <li><a href="research.html" class="dropdown-link" data-page="research">Ricerca</a></li>
