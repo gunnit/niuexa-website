@@ -2,8 +2,38 @@
   "navigationFallback": {
     "rewrite": "/index.html",
     "exclude": [
-      "*.{css,js,png,jpg,jpeg,gif,webp,svg,ico,woff,woff2,ttf,eot,json,xml,txt,webm,mp4}",
-      "/img/*"
+      "/img/*",
+      "/*.css",
+      "/*.js",
+      "/*.png",
+      "/*.jpg",
+      "/*.jpeg",
+      "/*.gif",
+      "/*.webp",
+      "/*.svg",
+      "/*.ico",
+      "/*.json",
+      "/*.xml",
+      "/*.txt",
+      "/*.webm",
+      "/*.mp4",
+      "/robots.txt",
+      "/sitemap.xml"
     ]
+  },
+  "mimeTypes": {
+    ".css": "text/css",
+    ".js": "text/javascript",
+    ".json": "application/json",
+    ".html": "text/html",
+    ".xml": "application/xml",
+    ".txt": "text/plain",
+    ".png": "image/png",
+    ".jpg": "image/jpeg",
+    ".jpeg": "image/jpeg",
+    ".gif": "image/gif",
+    ".webp": "image/webp",
+    ".svg": "image/svg+xml",
+    ".ico": "image/x-icon"
   }
 }
