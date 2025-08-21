@@ -527,9 +527,6 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
 }
 
-.btn-icon {
-    margin-right: 0.5rem;
-}
 
 .hero-trust {
     animation: fadeInUp 1s ease 1s both;
@@ -2904,9 +2901,6 @@ button[aria-busy="true"]::after {
         font-size: 0.9rem;
     }
 
-    .btn-icon {
-        margin-right: 0.3rem;
-    }
 
     .trust-logos {
         gap: 0.5rem;
