@@ -35,10 +35,10 @@ Allow: /*.svg
 Allow: /*.ico
 
 # Sitemap location
-Sitemap: https://niuexaservizi.it/sitemap.xml
+Sitemap: https://gunnit.github.io/niuexa-website/sitemap.xml
 
 # Crawl delay to prevent server overload
 Crawl-delay: 1
 
 # Host directive
-Host: https://niuexaservizi.it
+Host: https://gunnit.github.io/niuexa-website
