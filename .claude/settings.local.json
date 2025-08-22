@@ -5,7 +5,10 @@
       "Bash(git commit:*)",
       "Bash(git push:*)",
       "mcp__firecrawl__firecrawl_scrape",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(gh api:*)",
+      "mcp__playwright__browser_navigate",
+      "Bash(curl:*)"
     ],
     "defaultMode": "acceptEdits"
   }
