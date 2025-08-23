@@ -8,7 +8,10 @@
       "Bash(find:*)",
       "Bash(gh api:*)",
       "mcp__playwright__browser_navigate",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "WebFetch(domain:docs.github.com)",
+      "Bash(nslookup:*)",
+      "Bash(grep:*)"
     ],
     "defaultMode": "acceptEdits"
   }

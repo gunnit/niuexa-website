@@ -53,7 +53,6 @@ Niuexa democratizza l'intelligenza artificiale per le aziende italiane, rendendo
 - Supporto post-corso
 - Certificazioni riconosciute
 - Modalità: Online Live, In Presenza, Ibrida
-- Garanzia soddisfatti o rimborsati 30 giorni
 - 95% soddisfazione clienti
 
 #### 🤖 PRODOTTI AI

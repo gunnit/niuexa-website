@@ -230,9 +230,9 @@ function initializeArticleSharing() {
                 color: '#0077b5'
             },
             {
-                name: 'Twitter',
+                name: 'X',
                 icon: '🐦',
-                url: 'https://twitter.com/intent/tweet?url=',
+                url: 'https://x.com/intent/tweet?url=',
                 color: '#1da1f2'
             },
             {

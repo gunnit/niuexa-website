@@ -730,7 +730,7 @@ class NiuexaCertification {
         const downloadBtn = document.getElementById('download-certificate');
         const viewBtn = document.getElementById('view-certificate');
         const shareLinkedIn = document.getElementById('share-linkedin');
-        const shareTwitter = document.getElementById('share-twitter');
+        const shareX = document.getElementById('share-twitter');
         const shareWhatsApp = document.getElementById('share-whatsapp');
         const copyLink = document.getElementById('copy-certificate-link');
         
@@ -746,8 +746,8 @@ class NiuexaCertification {
             shareLinkedIn.onclick = () => this.shareCertificate('linkedin');
         }
         
-        if (shareTwitter) {
-            shareTwitter.onclick = () => this.shareCertificate('twitter');
+        if (shareX) {
+            shareX.onclick = () => this.shareCertificate('x');
         }
         
         if (shareWhatsApp) {
@@ -800,8 +800,8 @@ class NiuexaCertification {
             case 'linkedin':
                 shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}&title=${encodeURIComponent(certificateText)}`;
                 break;
-            case 'twitter':
-                shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(certificateText)}&url=${encodeURIComponent(url)}`;
+            case 'x':
+                shareUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(certificateText)}&url=${encodeURIComponent(url)}`;
                 break;
             case 'whatsapp':
                 shareUrl = `https://wa.me/?text=${encodeURIComponent(certificateText + ' ' + url)}`;

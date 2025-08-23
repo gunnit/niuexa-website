@@ -2153,6 +2153,47 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
+/* Standalone Innovation CTA - More Prominent */
+.innovation-cta-standalone {
+    background: var(--gradient-primary);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    margin: 3rem auto;
+    max-width: 600px;
+    box-shadow: 0 15px 40px rgba(0, 102, 204, 0.2);
+    border: 1px solid rgba(0, 102, 204, 0.1);
+}
+
+.innovation-cta-standalone .cta-content h5 {
+    color: var(--white) !important;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.innovation-cta-standalone .cta-content p {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.innovation-cta-standalone .btn {
+    background: var(--white);
+    color: var(--primary-blue);
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.innovation-cta-standalone .btn:hover {
+    background: var(--light-gray);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
 .cta-content h5 {
     color: var(--dark-gray);
     margin-bottom: 1rem;

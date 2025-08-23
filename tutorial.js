@@ -341,7 +341,7 @@ function initSocialSharing() {
     shareContainer.innerHTML = `
         <h4>Condividi questo tutorial</h4>
         <div class="share-buttons">
-            <button class="share-btn twitter" data-platform="twitter">🐦 Twitter</button>
+            <button class="share-btn twitter" data-platform="x">X</button>
             <button class="share-btn linkedin" data-platform="linkedin">💼 LinkedIn</button>
             <button class="share-btn whatsapp" data-platform="whatsapp">💬 WhatsApp</button>
             <button class="share-btn copy-link" data-platform="copy">🔗 Copia Link</button>
@@ -419,8 +419,8 @@ function initSocialSharing() {
             let shareUrl = '';
             
             switch (platform) {
-                case 'twitter':
-                    shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+                case 'x':
+                    shareUrl = `https://x.com/intent/tweet?url=${url}&text=${title}`;
                     break;
                 case 'linkedin':
                     shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;

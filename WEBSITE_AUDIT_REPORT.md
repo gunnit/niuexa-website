@@ -32,7 +32,7 @@ The Niuexa website is well-structured with modern design patterns and comprehens
 - **Valid HTML5 DOCTYPE** and proper document structure
 - **Semantic HTML elements** (nav, section, footer, etc.)
 - **Proper lang attribute** set to "it" for Italian content
-- **Comprehensive meta tags** including Open Graph and Twitter Cards
+- **Comprehensive meta tags** including Open Graph and X (Twitter) Cards
 - **Schema.org structured data** implementation
 - **Accessibility considerations** with alt attributes on images
 
@@ -123,7 +123,7 @@ function loadIncludes() {
 - **Excellent meta tag implementation**:
   - Comprehensive title tags (50-60 characters)
   - Descriptive meta descriptions (150-160 characters)
-  - Open Graph and Twitter Card tags
+  - Open Graph and X (Twitter) Card tags
   - Canonical URLs
 - **Schema.org structured data** for organization info
 - **Proper heading hierarchy** (H1, H2, H3)

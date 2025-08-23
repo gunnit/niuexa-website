@@ -125,7 +125,7 @@ az staticwebapp create --name niuexa-website --resource-group niuexa-rg --source
 
 ### Meta Tags
 - Comprehensive Open Graph tags
-- Twitter Card integration
+- X (Twitter) Card integration
 - Schema.org structured data for organization info
 - Proper canonical URLs
 
@@ -202,3 +202,24 @@ az staticwebapp create --name niuexa-website --resource-group niuexa-rg --source
 - New components should extend existing patterns from `styles.css`
 - Reference `STYLESHEET_GUIDE.md` for complete design system documentation
 - Test changes across all pages to ensure visual consistency
+
+## GitHub Actions Workflows
+The repository includes several automated workflows:
+- `azure-static-web-apps.yml`: Automated deployment to Azure Static Web Apps on push to master/main
+- `github-pages.yml`: Alternative GitHub Pages deployment 
+- `claude-code-review.yml` and `claude.yml`: AI-assisted code review workflows
+
+## Critical Files for Maintenance
+- `staticwebapp.config.json`: Azure Static Web Apps routing and MIME type configuration
+- `STYLESHEET_GUIDE.md`: Comprehensive design system documentation - reference this for all styling decisions
+- `robots.txt`, `sitemap.xml`, `site.webmanifest`: SEO and PWA configuration files
+- `CNAME`: Custom domain configuration for niuexaservizi.it
+
+## Cookie Consent System
+The site implements a cookie consent banner via `cookie-banner.js` for GDPR compliance. This script handles user consent preferences and cookie management across all pages.
+
+## Important Development Instructions
+- Do what has been asked; nothing more, nothing less
+- NEVER create files unless they're absolutely necessary for achieving your goal
+- ALWAYS prefer editing an existing file to creating a new one
+- NEVER proactively create documentation files (*.md) or README files unless explicitly requested

@@ -36,7 +36,7 @@ Senza prove sociali genuine, i potenziali clienti non possono validare l'efficac
 - **ROI del 300%**: Promessa molto alta senza evidenze specifiche
 - **"50+ casi di successo"**: Affermazione non supportata da dettagli
 - **Statistiche dubbie**: Numeri che sembrano troppo belli per essere veri
-- **Garanzie aggressive**: "Soddisfatti o rimborsati" senza termini chiari
+- **Garanzie aggressive**: "ti o rimborsati" senza termini chiari
 
 **Impatto:**
 Il mercato italiano è particolarmente scettico verso promesse eccessive. Questo approccio può generare diffidenza invece di fiducia.
