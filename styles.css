@@ -1017,13 +1017,21 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* Mobile breakpoint - broader coverage for all mobile devices including larger phones */
+@media (max-width: 900px) {
+    .testimonials-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+    }
+}
+
 @media (max-width: 768px) {
     .use-case-grid {
         grid-template-columns: 1fr;
     }
     
     .testimonials-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
         gap: 1.5rem;
     }
     
