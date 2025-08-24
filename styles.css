@@ -2679,7 +2679,7 @@ button[aria-busy="true"]::after {
 
     /* Mobile Dropdown Styles */
     .dropdown-menu {
-        position: static;
+        position: relative;
         box-shadow: none;
         background: var(--light-gray);
         margin-top: 0.5rem;
