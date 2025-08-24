@@ -283,7 +283,7 @@ h1, h2, h3, h4, h5, h6 {
     transition: transform var(--transition-fast);
 }
 
-.dropdown.active .dropdown-arrow {
+.nav-item.dropdown.active .dropdown-arrow {
     transform: rotate(180deg);
 }
 
@@ -304,8 +304,8 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 1000;
 }
 
-.dropdown:hover .dropdown-menu,
-.dropdown.active .dropdown-menu {
+.nav-item.dropdown:hover .dropdown-menu,
+.nav-item.dropdown.active .dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -2691,7 +2691,7 @@ button[aria-busy="true"]::after {
         transition: all 0.3s ease;
     }
 
-    .dropdown.active .dropdown-menu {
+    .nav-item.dropdown.active .dropdown-menu {
         opacity: 1;
         visibility: visible;
         max-height: 200px;
