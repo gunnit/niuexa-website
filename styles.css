@@ -2167,8 +2167,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 3rem 2rem;
     border-radius: 20px;
     text-align: center;
-    margin: 3rem auto;
-    max-width: 600px;
+    margin: 2rem 0 0 0;
     box-shadow: 0 15px 40px rgba(0, 102, 204, 0.2);
     border: 1px solid rgba(0, 102, 204, 0.1);
 }

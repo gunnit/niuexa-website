@@ -11,8 +11,19 @@
       "Bash(curl:*)",
       "WebFetch(domain:docs.github.com)",
       "Bash(nslookup:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "mcp__playwright__browser_close",
+      "mcp__playwright__browser_install",
+      "Bash(pkill:*)",
+      "Bash(playwright install:*)",
+      "Bash(npx playwright install:*)",
+      "Read(//root/**)",
+      "Bash(echo $HOME)"
     ],
-    "defaultMode": "acceptEdits"
+    "defaultMode": "acceptEdits",
+    "additionalDirectories": [
+      "/root/.cache/ms-playwright/mcp-chrome-e24b732",
+      "/root/.cache/ms-playwright"
+    ]
   }
 }
