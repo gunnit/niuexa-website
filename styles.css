@@ -5252,3 +5252,130 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
         padding: 0 1rem 1rem;
     }
 }
+
+/* ========================================
+   Unified Hero Section Styles for All Pages
+   ======================================== */
+.consulting-hero {
+    padding: 120px 0 80px;
+    background: var(--gradient-secondary);
+    color: var(--white);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.consulting-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 40%, rgba(0, 102, 204, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(0, 204, 102, 0.1) 0%, transparent 50%);
+    animation: particleFloat 20s ease-in-out infinite;
+}
+
+.consulting-hero .hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.consulting-hero .hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+    line-height: 1.1;
+    font-family: var(--font-primary);
+    font-weight: 900;
+    animation: fadeInUp 1s ease 0.2s both;
+}
+
+.consulting-hero .hero-title .highlight {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.consulting-hero .hero-subtitle {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeInUp 1s ease 0.4s both;
+}
+
+.consulting-hero .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 2.5rem;
+    animation: fadeInUp 1s ease 0.6s both;
+}
+
+.consulting-hero .stat-item {
+    text-align: center;
+}
+
+.consulting-hero .stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-green);
+    font-family: var(--font-primary);
+}
+
+.consulting-hero .stat-label {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 0.5rem;
+    display: block;
+}
+
+.consulting-hero .hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    animation: fadeInUp 1s ease 0.8s both;
+}
+
+/* Responsive Styles for Unified Hero */
+@media (max-width: 768px) {
+    .consulting-hero {
+        padding: 100px 0 60px;
+    }
+    
+    .consulting-hero .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .consulting-hero .hero-subtitle {
+        font-size: 1.1rem;
+        padding: 0 20px;
+    }
+    
+    .consulting-hero .hero-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .consulting-hero .stat-number {
+        font-size: 2rem;
+    }
+    
+    .consulting-hero .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0 20px;
+    }
+    
+    .consulting-hero .hero-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}

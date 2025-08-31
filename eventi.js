@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 id: 101,
                 title: "AI Aperitivo: Introduzione al Machine Learning",
                 date: new Date('2024-12-18'),
-                image: "img/eventi/event_team.webp",
+                image: "img/sedemilanoevento.jpg",
                 attendees: 23,
                 feedback: "Evento fantastico! Spiegazioni chiare e esempi pratici."
             },
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 id: 102,
                 title: "AI Aperitivo: Computer Vision per Business",
                 date: new Date('2024-11-20'),
-                image: "img/eventi/event_team_speaker.webp",
+                image: "img/sedeeventomilano2.jpg",
                 attendees: 25,
                 feedback: "Demo impressionanti, molto utile per il mio lavoro."
             },
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 id: 103,
                 title: "AI Aperitivo: Etica nell'Intelligenza Artificiale",
                 date: new Date('2024-10-23'),
-                image: "img/eventi/event_team2.webp",
+                image: "img/sedeeventomilano3.jpg",
                 attendees: 21,
                 feedback: "Discussione molto stimolante su un tema importante."
             }

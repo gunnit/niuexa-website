@@ -48,64 +48,7 @@
     <link rel="stylesheet" href="styles.css">
     
     <style>
-        /* Landing page specific styles and fallbacks */
-        :root {
-            --primary-blue: #0066CC;
-            --primary-green: #00CC66;
-            --dark-gray: #343A40;
-            --medium-gray: #6C757D;
-            --light-gray: #F8F9FA;
-            --white: #FFFFFF;
-            --font-primary: 'Orbitron', monospace;
-            --font-secondary: 'Inter', sans-serif;
-            --gradient-primary: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
-        }
-        
-        /* Loading state */
-        body {
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-        
-        /* Ensure critical elements work without main CSS */
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            cursor: pointer;
-        }
-        
-        .btn-primary {
-            background: var(--gradient-primary);
-            color: white;
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: var(--primary-blue);
-            border-color: var(--primary-blue);
-        }
-        
-        .btn-large {
-            padding: 16px 32px;
-            font-size: 1.1rem;
-        }
-        
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-        
-        /* Container fallback */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        /* Landing page specific styles */
         
         /* Partners grid fallback */
         .partners-grid {
@@ -166,21 +109,23 @@
     </style>
 </head>
 <body>
+    <!-- Navigation Placeholder -->
+    <div id="nav-placeholder"></div>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" style="padding: 120px 0 80px;">
         <div class="hero-background">
             <div class="hero-particles"></div>
             <div class="hero-gradient"></div>
         </div>
-        <div class="hero-container" style="padding-top: 4rem;">
+        <div class="container">
             <div class="hero-content">
                 <div class="hero-logo" style="margin-bottom: 2rem;">
                     <h1 class="hero-brand" style="font-family: var(--font-primary); font-size: 3rem; font-weight: 900; color: white; margin-bottom: 1rem; letter-spacing: 2px;">NIUEXA</h1>
                 </div>
-                <h2 class="hero-title" style="font-size: 2.8rem;">Trasforma la Tua Azienda con l'<span class="highlight">Intelligenza Artificiale</span></h2>
+                <h2 class="hero-title" style="font-family: var(--font-primary); font-size: 2.8rem; font-weight: 900;">Trasforma la Tua Azienda con l'<span class="highlight">Intelligenza Artificiale</span></h2>
                 <p class="hero-subtitle">Niuexa è l'azienda leader in Italia che democratizza l'AI per le aziende di ogni dimensione. <strong>Consulenza esperta</strong>, <strong>formazione professionale</strong> e <strong>prodotti AI pronti all'uso</strong> per far crescere il tuo business con un <strong>ROI garantito del 150-250%</strong>.</p>
-                <div class="hero-stats">
+                <div class="hero-stats" style="display: flex; justify-content: center; gap: 2rem; margin: 2rem 0;">
                     <div class="stat-item">
                         <span class="stat-number">50+</span>
                         <span class="stat-label">Aziende Servite</span>
@@ -431,35 +376,12 @@
     <div id="footer-placeholder"></div>
 
     <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="includes/includes.js"></script>
     <script src="cookie-banner.js"></script>
     <script>
-        // Load only footer component
-        function loadComponent(placeholderId, componentPath) {
-            fetch(componentPath)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.text();
-                })
-                .then(html => {
-                    const placeholder = document.getElementById(placeholderId);
-                    if (placeholder) {
-                        placeholder.innerHTML = html;
-                    }
-                })
-                .catch(error => {
-                    console.log('Component loading failed:', error);
-                    // Fallback: load from includes.js if fetch fails
-                    if (typeof loadFooter === 'function') {
-                        loadFooter();
-                    }
-                });
-        }
-
-        // Load footer on page load
+        // Page-specific scripts
         document.addEventListener('DOMContentLoaded', function() {
-            loadComponent('footer-placeholder', 'includes/footer.html');
             
             // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
