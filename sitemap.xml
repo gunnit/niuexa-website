@@ -1,95 +1,183 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-    <!-- Home Page -->
+    <!-- Home Page (Primary) -->
     <url>
         <loc>https://niuexaservizi.it/</loc>
-        <lastmod>2024-12-20</lastmod>
+        <lastmod>2025-01-09</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://niuexaservizi.it/img/niuexalogo.png</image:loc>
+            <image:title>Niuexa - Consulenza AI</image:title>
+            <image:caption>Leader italiano in soluzioni di intelligenza artificiale per aziende</image:caption>
+        </image:image>
     </url>
 
-    <!-- Index.html (explicit) -->
-    <url>
-        <loc>https://niuexaservizi.it/index.html</loc>
-        <lastmod>2024-12-20</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
-    </url>
-
-    <!-- Chi Siamo (About Us) -->
+    <!-- Chi Siamo (About) - High Priority -->
     <url>
         <loc>https://niuexaservizi.it/chi-siamo.html</loc>
-        <lastmod>2024-12-20</lastmod>
+        <lastmod>2025-01-09</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.9</priority>
     </url>
 
-    <!-- Consulting Services -->
+    <!-- Core Service Pages - High Priority -->
     <url>
         <loc>https://niuexaservizi.it/consulting.html</loc>
-        <lastmod>2024-12-20</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
 
-    <!-- Training Services -->
     <url>
         <loc>https://niuexaservizi.it/training.html</loc>
-        <lastmod>2024-12-20</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
 
-    <!-- Products -->
     <url>
         <loc>https://niuexaservizi.it/products.html</loc>
-        <lastmod>2024-12-20</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
 
-    <!-- ROI Calculator -->
-    <url>
-        <loc>https://niuexaservizi.it/roi-calculator.html</loc>
-        <lastmod>2024-12-20</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <!-- Learning/Impara Page -->
+    <!-- Educational & Resource Pages - Medium Priority -->
     <url>
         <loc>https://niuexaservizi.it/impara.html</loc>
-        <lastmod>2024-12-20</lastmod>
+        <lastmod>2025-01-09</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
-    <!-- Events Page -->
+    <url>
+        <loc>https://niuexaservizi.it/research.html</loc>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
     <url>
         <loc>https://niuexaservizi.it/eventi.html</loc>
-        <lastmod>2024-12-20</lastmod>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Career & Interactive Pages -->
+    <url>
+        <loc>https://niuexaservizi.it/carriere.html</loc>
+        <lastmod>2025-01-09</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
 
-    <!-- Certification Page -->
     <url>
-        <loc>https://niuexaservizi.it/certification.html</loc>
-        <lastmod>2024-12-20</lastmod>
+        <loc>https://niuexaservizi.it/roi-calculator.html</loc>
+        <lastmod>2025-01-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
-    <!-- Login Page -->
     <url>
-        <loc>https://niuexaservizi.it/login.html</loc>
-        <lastmod>2024-12-20</lastmod>
+        <loc>https://niuexaservizi.it/certification.html</loc>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Landing Pages - High Conversion Priority -->
+    <url>
+        <loc>https://niuexaservizi.it/landing-niuexa.html</loc>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://niuexaservizi.it/landing-voice-agent.html</loc>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Tutorial Pages - Medium Priority -->
+    <url>
+        <loc>https://niuexaservizi.it/tutorial-automazione-workflow-ai.html</loc>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://niuexaservizi.it/tutorial-generazione-immagini-ai.html</loc>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://niuexaservizi.it/tutorial-generazione-video-ai.html</loc>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://niuexaservizi.it/tutorial-lead-generation-ai.html</loc>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://niuexaservizi.it/tutorial-umanizzare-testi-ai.html</loc>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://niuexaservizi.it/tutorial-voice-audio-ai.html</loc>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- Legal & Policy Pages - Low Priority -->
+    <url>
+        <loc>https://niuexaservizi.it/privacy-policy.html</loc>
+        <lastmod>2025-01-09</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
+    </url>
+
+    <url>
+        <loc>https://niuexaservizi.it/cookie-policy.html</loc>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    <url>
+        <loc>https://niuexaservizi.it/terms-of-service.html</loc>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    <!-- Login Page - Low Priority -->
+    <url>
+        <loc>https://niuexaservizi.it/login.html</loc>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.2</priority>
     </url>
 
 </urlset>

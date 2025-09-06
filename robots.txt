@@ -1,44 +1,125 @@
+# robots.txt for Niuexa - AI Consulting Services
+# Last Updated: 2025-01-09
+
+# Default - Allow all reputable crawlers
 User-agent: *
 Allow: /
+Crawl-delay: 0
 
-# Block private areas
-Disallow: /login.html
+# Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 0
+
+# Yandex
+User-agent: Yandex
+Allow: /
+Crawl-delay: 1
+
+# Facebook
+User-agent: facebookexternalhit
+Allow: /
+
+# Twitter
+User-agent: Twitterbot
+Allow: /
+
+# LinkedIn
+User-agent: LinkedInBot
+Allow: /
+
+# OpenAI GPT Bot
+User-agent: GPTBot
+Allow: /
+
+# Claude/Anthropic
+User-agent: ClaudeBot
+Allow: /
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Specific directives for all bots
+User-agent: *
+# Block sensitive/admin areas
 Disallow: /admin/
 Disallow: /private/
 Disallow: /.git/
 Disallow: /node_modules/
+Disallow: /includes/
+Disallow: /quiz-data/
 
-# Allow important pages for SEO
+# Allow important pages (explicit for clarity)
 Allow: /index.html
 Allow: /chi-siamo.html
 Allow: /consulting.html
 Allow: /training.html
 Allow: /products.html
 Allow: /impara.html
+Allow: /research.html
 Allow: /eventi.html
+Allow: /carriere.html
 Allow: /roi-calculator.html
 Allow: /certification.html
+Allow: /landing-niuexa.html
+Allow: /landing-voice-agent.html
+Allow: /tutorial-*.html
+Allow: /privacy-policy.html
+Allow: /cookie-policy.html
+Allow: /terms-of-service.html
 
-# Block crawling of dynamic parameters
-Disallow: /*?*
-Disallow: /*&*
+# Allow all static assets
+Allow: /img/
+Allow: /styles.css
+Allow: /script.js
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.webp$
+Allow: /*.webm$
+Allow: /*.svg$
+Allow: /*.ico$
+Allow: /*.woff$
+Allow: /*.woff2$
+Allow: /*.ttf$
+Allow: /*.eot$
 
-# Allow crawling of assets for better indexing
-Allow: /*.css
-Allow: /*.js
-Allow: /*.png
-Allow: /*.jpg
-Allow: /*.jpeg
-Allow: /*.gif
-Allow: /*.webp
-Allow: /*.svg
-Allow: /*.ico
+# Block URL parameters to avoid duplicate content
+Disallow: /*?utm_*
+Disallow: /*?gclid=*
+Disallow: /*?fbclid=*
+Disallow: /*&utm_*
+Disallow: /*&gclid=*
+Disallow: /*&fbclid=*
 
-# Sitemap location
+# Sitemap locations
 Sitemap: https://niuexaservizi.it/sitemap.xml
 
-# Crawl delay to prevent server overload
-Crawl-delay: 1
+# Clean URL preference
+Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term&fbclid&gclid
 
-# Host directive
+# Host directive (primary domain)
 Host: https://niuexaservizi.it

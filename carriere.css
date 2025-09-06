@@ -191,8 +191,9 @@ section {
 
 .contact-info {
     margin-top: 2.5rem;
-    opacity: 0.9;
+    opacity: 1;
     font-size: 1.1rem;
+    color: var(--dark-gray);
 }
 
 /* CTA Button Styles */
