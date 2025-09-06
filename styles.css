@@ -3407,7 +3407,7 @@ html {
 }
 
 .vision-statement blockquote::before {
-    content: '"';
+    content: '';
     font-size: 4rem;
     color: var(--primary-blue);
     position: absolute;
