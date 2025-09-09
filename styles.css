@@ -527,6 +527,40 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
 }
 
+/* Fix secondary button visibility in hero sections and dark backgrounds */
+.hero .btn-secondary,
+.hero-section .btn-secondary,
+.consulting-hero .btn-secondary,
+.training-hero .btn-secondary,
+.events-hero-section .btn-secondary,
+.careers-hero .btn-secondary,
+.products-hero .btn-secondary,
+.roi-hero .btn-secondary,
+.research-hero .btn-secondary,
+.impara-hero .btn-secondary,
+[class*="hero"] .btn-secondary {
+    background: transparent;
+    color: var(--white) !important;
+    border: 2px solid var(--white);
+}
+
+.hero .btn-secondary:hover,
+.hero-section .btn-secondary:hover,
+.consulting-hero .btn-secondary:hover,
+.training-hero .btn-secondary:hover,
+.events-hero-section .btn-secondary:hover,
+.careers-hero .btn-secondary:hover,
+.products-hero .btn-secondary:hover,
+.roi-hero .btn-secondary:hover,
+.research-hero .btn-secondary:hover,
+.impara-hero .btn-secondary:hover,
+[class*="hero"] .btn-secondary:hover {
+    background: var(--white);
+    color: var(--primary-blue) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+}
+
 
 .hero-trust {
     animation: fadeInUp 1s ease 1s both;

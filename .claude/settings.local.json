@@ -18,7 +18,12 @@
       "Bash(playwright install:*)",
       "Bash(npx playwright install:*)",
       "Read(//root/**)",
-      "Bash(echo $HOME)"
+      "Bash(echo $HOME)",
+      "Bash(for file in *.html)",
+      "Bash(do if grep -q \"hero\" \"$file\")",
+      "Bash(then echo \"$file\")",
+      "Bash(fi)",
+      "Bash(done)"
     ],
     "defaultMode": "acceptEdits",
     "additionalDirectories": [

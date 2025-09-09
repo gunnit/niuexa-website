@@ -311,6 +311,41 @@
     flex-wrap: wrap;
 }
 
+/* Fix button visibility in CTA section */
+.events-cta .btn-secondary {
+    background: transparent;
+    color: var(--white) !important;
+    border: 2px solid var(--white);
+}
+
+.events-cta .btn-secondary:hover {
+    background: var(--white);
+    color: var(--primary-blue) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+}
+
+.events-cta .btn-outline,
+.btn-outline {
+    background: transparent;
+    color: var(--white) !important;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.events-cta .btn-outline:hover,
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+}
+
 /* Registration Form */
 .events-registration {
     padding: var(--section-padding);
