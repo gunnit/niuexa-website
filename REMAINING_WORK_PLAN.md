@@ -30,7 +30,7 @@
 - ✅ **Point 4 added** - "Sarai contattato da un nostro esperto e riceverai una consulenza personalizzata"
 - ✅ **Remove "Promessa di Call Back" block** - Already removed
 - ✅ **Add Milan and Turin addresses** - Addresses already present
-- ❌ Add contact form pointing to Zoho CRM - Do not consider
+- ❌ Add contact form pointing to Zoho CRM - Do not consider - Serve chiava eapi o il codice del form form - Stefania
 - ✅ **Remove phone number section** - No standalone phone section found (only in addresses)
 
 ---
@@ -56,6 +56,7 @@
 - ❌ Update YouTube button - Do not consider  
 - ❌ Update Newsletter button - Do not consider
 - ❌ Add proper LinkedIn and YouTube icons - Do not consider
+- 
 
 ### Storia (History) Section
 - ✅ **Change ROI from "300%" to "150%"** in "Primi Successi" section - Already at 150%
