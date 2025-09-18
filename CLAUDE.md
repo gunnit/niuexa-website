@@ -213,7 +213,7 @@ The repository includes several automated workflows:
 - `staticwebapp.config.json`: Azure Static Web Apps routing and MIME type configuration
 - `STYLESHEET_GUIDE.md`: Comprehensive design system documentation - reference this for all styling decisions
 - `robots.txt`, `sitemap.xml`, `site.webmanifest`: SEO and PWA configuration files
-- `CNAME`: Custom domain configuration for niuexaservizi.it
+- `CNAME`: Custom domain configuration for niuexa.ai
 
 ## Cookie Consent System
 The site implements a cookie consent banner via `cookie-banner.js` for GDPR compliance. This script handles user consent preferences and cookie management across all pages.

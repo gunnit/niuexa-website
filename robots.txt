@@ -116,10 +116,10 @@ Disallow: /*&gclid=*
 Disallow: /*&fbclid=*
 
 # Sitemap locations
-Sitemap: https://niuexaservizi.it/sitemap.xml
+Sitemap: https://niuexa.ai/sitemap.xml
 
 # Clean URL preference
 Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term&fbclid&gclid
 
 # Host directive (primary domain)
-Host: https://niuexaservizi.it
+Host: https://niuexa.ai

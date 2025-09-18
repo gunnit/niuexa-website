@@ -601,7 +601,7 @@ ROICalculator.generatePDFReport = function() {
             <div class="footer">
                 <p><strong>Report generato da Niuexa - Soluzioni AI per il Business</strong></p>
                 <p>Per implementare questi risultati nella tua azienda, contattaci per una consulenza gratuita.</p>
-                <p>Web: niuexaservizi.it | Email: info@niuexa.com</p>
+                <p>Web: niuexa.ai | Email: info@niuexa.com</p>
             </div>
         </body>
         </html>
