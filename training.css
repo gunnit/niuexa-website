@@ -222,7 +222,6 @@
 }
 
 .program-card.featured {
-    border-color: var(--primary-blue);
     position: relative;
 }
 
@@ -237,8 +236,7 @@
 }
 
 .program-card.premium {
-    border-color: var(--primary-green);
-    background: linear-gradient(135deg, #fff 0%, #f8fff8 100%);
+    position: relative;
 }
 
 .program-header {
