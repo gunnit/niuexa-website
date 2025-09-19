@@ -187,6 +187,7 @@ section {
 .cta-content p {
     font-size: 1.2rem;
     margin-bottom: 2.5rem;
+    color: var(--white);
 }
 
 .contact-info {
