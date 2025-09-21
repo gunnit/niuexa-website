@@ -39,9 +39,6 @@ const navigationHTML = `
                 </ul>
             </li>
             <li class="nav-item">
-                <a href="carriere.html" class="nav-link" data-page="carriere">Carriere</a>
-            </li>
-            <li class="nav-item">
                 <a href="contatti.html" class="nav-link" data-page="contatti">Contatti</a>
             </li>
             <li class="nav-item">
