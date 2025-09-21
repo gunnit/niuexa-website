@@ -42,6 +42,9 @@ const navigationHTML = `
                 <a href="carriere.html" class="nav-link" data-page="carriere">Carriere</a>
             </li>
             <li class="nav-item">
+                <a href="contatti.html" class="nav-link" data-page="contatti">Contatti</a>
+            </li>
+            <li class="nav-item">
                 <a href="login.html" class="nav-link login-link" data-page="login">🔐 Login</a>
             </li>
         </ul>
@@ -88,6 +91,7 @@ const footerHTML = `
                     <ul>
                         <li><a href="chi-siamo.html">Chi Siamo</a></li>
                         <li><a href="carriere.html">Carriere</a></li>
+                        <li><a href="contatti.html">Contatti</a></li>
                         <li><a href="index.html#contact">Parla con Noi</a></li>
                     </ul>
                 </div>
