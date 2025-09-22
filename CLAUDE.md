@@ -223,3 +223,4 @@ The site implements a cookie consent banner via `cookie-banner.js` for GDPR comp
 - NEVER create files unless they're absolutely necessary for achieving your goal
 - ALWAYS prefer editing an existing file to creating a new one
 - NEVER proactively create documentation files (*.md) or README files unless explicitly requested
+- always commit and push changes
