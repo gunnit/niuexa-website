@@ -109,30 +109,97 @@
     </style>
 </head>
 <body>
+    <!-- Skip Navigation for Accessibility -->
+    <a href="#main-content" class="skip-nav">Vai sul contenuto principale</a>
+    
+    <!-- Navigation Placeholder -->
+    <div id="nav-placeholder"></div>
 
-    <!-- Logo Section -->
-    <section class="logo-section" style="display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 40px 20px;">
+    <!-- Hero Section -->
+    <section id="home" class="hero">
         <div class="hero-background">
             <div class="hero-particles"></div>
             <div class="hero-gradient"></div>
         </div>
-        <div class="container" style="text-align: center; position: relative; z-index: 2;">
-            <div class="logo-content">
-                <div class="hero-logo">
-                    <h1 class="hero-brand" style="font-family: var(--font-primary); font-size: 4rem; font-weight: 900; color: white; margin: 0; letter-spacing: 3px;">NIUEXA</h1>
+        <div class="hero-container" style="padding-top: 4rem;">
+            <div class="hero-content">
+                <h1 class="hero-title">Trasforma la Tua Azienda con l'<span class="highlight">Intelligenza Artificiale</span></h1>
+                <p class="hero-subtitle">Sblocca efficienza e innovazione con i nostri agenti AI all'avanguardia, consulenza personalizzata e formazione. Unisciti alle aziende italiane che già <strong>risparmiano centinaia di ore a settimana</strong> e ottengono un <strong>ROI del 100-150%</strong> in 12-18 mesi.</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Ore Risparmiate/Settimana</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100-150%</span>
+                        <span class="stat-label">ROI</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">25+</span>
+                        <span class="stat-label">Casi di Successo</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="contatti.html" class="btn-primary" style="padding: 15px 30px; margin: 10px;">Ottieni Consulenza Gratuita</a>
+                    <a href="roi-calculator.html" class="btn-secondary" style="padding: 15px 30px; margin: 10px;">Calcola il tuo ROI</a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Le Nostre Soluzioni AI</h2>
+            <p class="section-subtitle">Offriamo consulenza, formazione e prodotti AI personalizzati per ogni esigenza aziendale</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🧠</div>
+                    <h3>Consulenza AI Strategica</h3>
+                    <p>Analisi approfondita dei tuoi processi aziendali e implementazione di soluzioni AI su misura</p>
+                    <a href="consulting.html" class="service-link">Scopri di più →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎓</div>
+                    <h3>Formazione AI</h3>
+                    <p>Corsi specializzati per formare il tuo team sull'utilizzo pratico dell'intelligenza artificiale</p>
+                    <a href="training.html" class="service-link">Scopri di più →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🤖</div>
+                    <h3>Agenti AI Pronti all'Uso</h3>
+                    <p>Soluzioni AI già sviluppate per marketing, vendite, customer service e automazione</p>
+                    <a href="products.html" class="service-link">Scopri di più →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section id="contact" class="cta">
+        <div class="container">
+            <h2>Pronto a Trasformare la Tua Azienda?</h2>
+            <p>Contattaci oggi per una consulenza gratuita e scopri come l'AI può rivoluzionare il tuo business</p>
+            <div class="cta-benefits">
+                <div class="benefit">✓ Consulenza gratuita di 30 minuti</div>
+                <div class="benefit">✓ Analisi dei tuoi processi</div>
+                <div class="benefit">✓ ROI garantito del 100-150%</div>
+            </div>
+            <a href="contatti.html" class="btn-primary">Inizia Ora</a>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
 
     <!-- Scripts -->
+    <script src="includes/includes.js"></script>
     <script src="script.js"></script>
     <script src="cookie-banner.js"></script>
     <script>
-        // Simple landing page script
+        // Landing page script
         document.addEventListener('DOMContentLoaded', function() {
-            // Basic initialization for landing page
+            // Landing page initialization
             console.log('Niuexa landing page loaded');
         });
     </script>
