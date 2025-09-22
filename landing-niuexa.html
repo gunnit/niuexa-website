@@ -71,6 +71,13 @@
             opacity: 1;
         }
         
+        /* Service cards hover effects */
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary-blue) !important;
+        }
+
         /* Responsive design */
         @media (max-width: 768px) {
             .hero-stats {
@@ -156,28 +163,33 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="services">
+    <section id="services" class="services" style="padding: 80px 0; background: white;">
         <div class="container">
-            <h2 class="section-title">Le Nostre Soluzioni AI</h2>
-            <p class="section-subtitle">Offriamo consulenza, formazione e prodotti AI personalizzati per ogni esigenza aziendale</p>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🧠</div>
-                    <h3>Consulenza AI Strategica</h3>
-                    <p>Analisi approfondita dei tuoi processi aziendali e implementazione di soluzioni AI su misura</p>
-                    <a href="consulting.html" class="service-link">Scopri di più →</a>
+            <div class="section-header" style="text-align: center; margin-bottom: 4rem;">
+                <h2 class="section-title">Le Nostre Soluzioni AI</h2>
+                <p class="section-subtitle">Offriamo consulenza, formazione e prodotti AI personalizzati per ogni esigenza aziendale</p>
+            </div>
+            
+            <div class="services-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
+                <div class="service-card" style="background: #f8f9fa; padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
+                    <div class="service-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-blue), var(--primary-green)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">🧠</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-gray);">Consulenza AI Strategica</h3>
+                    <p style="color: var(--medium-gray); line-height: 1.6; margin-bottom: 1.5rem;">Analisi approfondita dei tuoi processi aziendali e implementazione di soluzioni AI su misura</p>
+                    <a href="consulting.html" class="service-link" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">Scopri di più →</a>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">🎓</div>
-                    <h3>Formazione AI</h3>
-                    <p>Corsi specializzati per formare il tuo team sull'utilizzo pratico dell'intelligenza artificiale</p>
-                    <a href="training.html" class="service-link">Scopri di più →</a>
+                
+                <div class="service-card" style="background: #f8f9fa; padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
+                    <div class="service-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-green), var(--primary-blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">🎓</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-gray);">Formazione AI</h3>
+                    <p style="color: var(--medium-gray); line-height: 1.6; margin-bottom: 1.5rem;">Corsi specializzati per formare il tuo team sull'utilizzo pratico dell'intelligenza artificiale</p>
+                    <a href="training.html" class="service-link" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">Scopri di più →</a>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">🤖</div>
-                    <h3>Agenti AI Pronti all'Uso</h3>
-                    <p>Soluzioni AI già sviluppate per marketing, vendite, customer service e automazione</p>
-                    <a href="products.html" class="service-link">Scopri di più →</a>
+                
+                <div class="service-card" style="background: #f8f9fa; padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
+                    <div class="service-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #9b59b6, #8e44ad); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">🤖</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-gray);">Agenti AI Pronti all'Uso</h3>
+                    <p style="color: var(--medium-gray); line-height: 1.6; margin-bottom: 1.5rem;">Soluzioni AI già sviluppate per marketing, vendite, customer service e automazione</p>
+                    <a href="products.html" class="service-link" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">Scopri di più →</a>
                 </div>
             </div>
         </div>
