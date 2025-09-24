@@ -2198,7 +2198,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Standalone Innovation CTA - More Prominent */
 .innovation-cta-standalone {
     background: var(--gradient-primary);
-    padding: 3rem 2rem;
+    padding: 2.5rem 1.5rem;
     border-radius: 20px;
     text-align: center;
     margin: 2rem 0 0 0;
@@ -2208,23 +2208,23 @@ h1, h2, h3, h4, h5, h6 {
 
 .innovation-cta-standalone .cta-content h5 {
     color: var(--white) !important;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .innovation-cta-standalone .cta-content p {
     color: rgba(255, 255, 255, 0.9) !important;
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 1.6;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .innovation-cta-standalone .btn {
     background: var(--white);
     color: var(--primary-blue);
     font-weight: 600;
-    padding: 1rem 2rem;
+    padding: 0.8rem 1.5rem;
     border-radius: 50px;
     transition: all 0.3s ease;
 }
