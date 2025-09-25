@@ -1943,13 +1943,14 @@ h1, h2, h3, h4, h5, h6 {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 4rem;
-    align-items: start;
+    align-items: stretch;
 }
 
 .ai-agent-section {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    height: 100%;
 }
 
 .ai-agent-card {
@@ -1958,6 +1959,9 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 20px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(102, 126, 234, 0.1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .ai-agent-header {
@@ -2078,10 +2082,15 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
+.ai-interaction-guide {
+    flex: 1;
+}
+
 .ai-features {
     display: flex;
     gap: 1rem;
-    margin-top: 1.5rem;
+    margin-top: auto;
+    padding-top: 1.5rem;
 }
 
 .feature {
@@ -2150,6 +2159,9 @@ h1, h2, h3, h4, h5, h6 {
     padding: 2rem;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .traditional-contact-info h4 {
@@ -2163,6 +2175,7 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
     gap: 1.5rem;
     margin-bottom: 2rem;
+    flex: 1;
 }
 
 .contact-item {
