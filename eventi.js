@@ -5,45 +5,18 @@ document.addEventListener('DOMContentLoaded', function() {
         upcoming: [
             {
                 id: 1,
-                title: "AI Aperitivo: Automazione Intelligente per le PMI",
-                date: new Date('2025-01-29'),
+                title: "RENDI PIÙ EFFICIENTE LA TUA AZIENDA CON L'AI",
+                date: new Date('2025-10-30'),
                 time: "18:30 - 20:00",
                 location: "Via Rutilia, 10 - 20141 Milano",
-                description: "Scopri come l'automazione AI può trasformare i processi delle piccole e medie imprese. Case study pratici e demo live.",
+                description: "Scopri come l'intelligenza artificiale può trasformare ogni aspetto della tua attività, dalla gestione dei dati alla comunicazione con i clienti. Impara a ottimizzare i processi aziendali e a raggiungere i tuoi obiettivi in modo più rapido e intelligente.",
                 image: "img/eventi/event_placeholder.webp",
                 status: "available", // available, full, past
-                maxAttendees: 25,
-                currentAttendees: 12,
-                topics: ["Automazione Processi", "ROI AI", "Case Study PMI"],
-                speaker: "Marco Rossi - AI Consultant"
-            },
-            {
-                id: 2,
-                title: "AI Aperitivo: GenAI e Creatività - Il Futuro del Design",
-                date: new Date('2025-02-26'),
-                time: "18:30 - 20:00",
-                location: "Via Rutilia, 10 - 20141 Milano",
-                description: "Esploriamo insieme le potenzialità dell'AI generativa nel mondo del design e della creatività. Workshop interattivo con tool AI.",
-                image: "img/eventi/event_placeholder.webp",
-                status: "available",
-                maxAttendees: 25,
-                currentAttendees: 8,
-                topics: ["Generative AI", "Design AI", "Creative Tools"],
-                speaker: "Giulia Bianchi - Creative AI Director"
-            },
-            {
-                id: 3,
-                title: "AI Aperitivo: Implementare ChatBot Intelligenti",
-                date: new Date('2025-03-26'),
-                time: "18:30 - 20:00",
-                location: "Via Rutilia, 10 - 20141 Milano",
-                description: "Dalla teoria alla pratica: costruiamo insieme un chatbot intelligente. Tecniche avanzate e best practice per l'implementazione.",
-                image: "img/eventi/event_placeholder.webp",
-                status: "available",
-                maxAttendees: 25,
-                currentAttendees: 5,
-                topics: ["ChatBot", "NLP", "Customer Service"],
-                speaker: "Alessandro Verdi - AI Engineer"
+                maxAttendees: 40,
+                currentAttendees: 0,
+                topics: ["Efficienza Aziendale", "AI in Azienda", "Ottimizzazione Processi"],
+                speaker: "Roberto Botto e Gregor Maric",
+                registrationUrl: "https://www.eventbrite.com/e/rendi-piu-efficiente-la-tua-azienda-con-lai-tickets-1730433145119?aff=oddtdtcreator"
             }
         ],
         past: [
@@ -149,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     ${event.topics.map(topic => `<span class="topic-tag">${topic}</span>`).join('')}
                 </div>
                 <div class="event-actions">
-                    <a href="#contact-form" class="btn btn-primary" onclick="selectEvent(${event.id})">
+                    <a href="${event.registrationUrl || '#contact-form'}" ${event.registrationUrl ? 'target="_blank" rel="noopener noreferrer"' : `onclick="selectEvent(${event.id})"`} class="btn btn-primary">
                         ${event.status === 'full' ? 'Lista d\'Attesa' : 'Registrati'}
                     </a>
                     <button class="btn btn-outline" onclick="shareEvent(${event.id})">Condividi</button>
