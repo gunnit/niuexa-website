@@ -83,8 +83,22 @@
     </style>
 </head>
 <body>
-    <!-- Navigation Placeholder -->
-    <div id="nav-placeholder"></div>
+    <!-- Custom Navigation for Landing Page -->
+    <nav class="navbar" style="background: white; padding: 1rem 0; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+        <div class="nav-container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: center; align-items: center;">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <div class="logo-container" style="display: flex; align-items: center; gap: 1rem;">
+                        <img src="img/pictogram_blue_transparent.png" alt="Niuexa" class="logo-icon" style="width: 40px; height: 40px;">
+                        <div class="logo-text">
+                            <h1 style="font-family: var(--font-primary); font-size: 1.5rem; color: var(--primary-blue); margin: 0;">NIUEXA</h1>
+                            <span class="logo-tagline" style="font-size: 0.8rem; color: var(--medium-gray);">Dall'AI al ROI.</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero" style="padding: 120px 0 80px;">
@@ -193,8 +207,8 @@
                 <div class="pricing-badge" style="background: var(--primary-green); color: white; padding: 0.5rem 1.5rem; border-radius: 50px; font-size: 0.9rem; font-weight: 600; display: inline-block; margin-bottom: 2rem;">Soluzione Completa</div>
                 
                 <div class="pricing-header" style="text-align: center; margin-bottom: 2.5rem;">
-                    <div class="price" style="font-size: 3rem; font-weight: 700; color: var(--primary-blue); font-family: var(--font-primary);">€4,000<span style="font-size: 1.2rem; color: var(--medium-gray);">/mese</span></div>
-                    <p style="color: var(--medium-gray); margin-top: 0.5rem;">Setup e integrazione: €8,000 • Training: €4,000</p>
+                    <div class="price" style="font-size: 3rem; font-weight: 700; color: var(--primary-blue); font-family: var(--font-primary);"><span style="font-size: 1.2rem; color: var(--medium-gray);">A partire da </span>€1.250<span style="font-size: 1.2rem; color: var(--medium-gray);"> /mese</span></div>
+                    <p style="color: var(--medium-gray); margin-top: 0.5rem;">Setup e integrazione: €6,000 • Training: €2,000</p>
                 </div>
                 
                 <div class="pricing-features" style="margin-bottom: 2.5rem;">
@@ -318,12 +332,17 @@
         </div>
     </section>
 
-    <!-- Footer Placeholder -->
-    <div id="footer-placeholder"></div>
+    <!-- Custom Simple Footer for Landing Page -->
+    <footer class="footer" style="background: var(--dark-gray); color: white; padding: 1.5rem 0;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <div class="footer-bottom" style="text-align: center;">
+                <p style="margin: 0; color: rgba(255, 255, 255, 0.8);">&copy; 2024 Niuexa. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
 
     <!-- Scripts -->
     <script src="script.js"></script>
-    <script src="includes/includes.js"></script>
     <script src="cookie-banner.js"></script>
     <script>
         // Page-specific scripts
