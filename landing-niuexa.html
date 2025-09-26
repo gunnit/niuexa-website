@@ -117,18 +117,8 @@
     </style>
 </head>
 <body>
-    <!-- Logo Header -->
-    <header class="logo-header" style="background: white; padding: 15px 0; border-bottom: 1px solid #e0e0e0; position: relative; z-index: 100;">
-        <div class="container" style="display: flex; justify-content: center; align-items: center;">
-            <div class="logo-container" style="display: flex; align-items: center; gap: 12px;">
-                <img src="img/pictogram_blue_transparent.png" alt="Niuexa" style="height: 40px; width: auto;">
-                <div class="logo-text" style="display: flex; flex-direction: column;">
-                    <h1 style="font-family: var(--font-primary); font-size: 1.5rem; font-weight: 700; color: var(--primary-blue); margin: 0; line-height: 1;">NIUEXA</h1>
-                    <span style="font-family: var(--font-secondary); font-size: 0.8rem; color: var(--medium-gray); margin: 0; line-height: 1;">Dall'AI al ROI.</span>
-                </div>
-            </div>
-        </div>
-    </header>
+    <!-- Navigation Placeholder -->
+    <div id="nav-placeholder"></div>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -200,23 +190,24 @@
         <div class="hero-background">
             <div class="hero-particles"></div>
             <div class="hero-gradient"></div>
+            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 30, 60, 0.35); z-index: 1;"></div>
         </div>
         <div class="container" style="text-align: center; padding: 80px 0; position: relative; z-index: 2;">
             <h2 class="section-title" style="color: white; margin-bottom: 1.5rem; font-size: 2.5rem;">Pronto a Trasformare la Tua Azienda?</h2>
-            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+            <p style="color: white; font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
                 Contattaci oggi per una consulenza gratuita e scopri come l'AI può rivoluzionare il tuo business
             </p>
             
             <div class="cta-benefits" style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 3rem; flex-wrap: wrap;">
-                <div class="cta-benefit" style="display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.9);">
+                <div class="cta-benefit" style="display: flex; align-items: center; gap: 0.5rem; color: white;">
                     <span style="color: var(--primary-green); font-weight: bold;">✓</span>
                     <span>Consulenza gratuita di 30 minuti</span>
                 </div>
-                <div class="cta-benefit" style="display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.9);">
+                <div class="cta-benefit" style="display: flex; align-items: center; gap: 0.5rem; color: white;">
                     <span style="color: var(--primary-green); font-weight: bold;">✓</span>
                     <span>Analisi dei tuoi processi</span>
                 </div>
-                <div class="cta-benefit" style="display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.9);">
+                <div class="cta-benefit" style="display: flex; align-items: center; gap: 0.5rem; color: white;">
                     <span style="color: var(--primary-green); font-weight: bold;">✓</span>
                     <span>ROI garantito del 100-150%</span>
                 </div>
@@ -243,6 +234,7 @@
 
     <!-- Scripts -->
     <script src="script.js"></script>
+    <script src="includes/includes.js"></script>
     <script src="cookie-banner.js"></script>
     <script>
         // Landing page script
