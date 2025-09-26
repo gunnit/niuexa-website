@@ -78,8 +78,17 @@
             border-color: var(--primary-blue) !important;
         }
 
+        /* Custom Header Styles */
+        .custom-header nav a:hover {
+            color: var(--primary-blue) !important;
+        }
+        
         /* Responsive design */
         @media (max-width: 768px) {
+            .custom-header .header-nav {
+                display: none;
+            }
+            
             .hero-stats {
                 flex-direction: column;
                 gap: 1rem !important;
@@ -117,8 +126,21 @@
     </style>
 </head>
 <body>
-    <!-- Navigation Placeholder -->
-    <div id="nav-placeholder"></div>
+    <!-- Custom Header -->
+    <header class="custom-header" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0, 0, 0, 0.1); padding: 1rem 0;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="logo" style="display: flex; align-items: center;">
+                <img src="img/niuexalogo.png" alt="Niuexa" style="height: 40px; width: auto;">
+            </div>
+            <nav class="header-nav" style="display: flex; align-items: center; gap: 2rem;">
+                <a href="index.html" style="text-decoration: none; color: var(--dark-gray); font-weight: 500; transition: color 0.3s;">Home</a>
+                <a href="consulting.html" style="text-decoration: none; color: var(--dark-gray); font-weight: 500; transition: color 0.3s;">Consulenza</a>
+                <a href="training.html" style="text-decoration: none; color: var(--dark-gray); font-weight: 500; transition: color 0.3s;">Formazione</a>
+                <a href="products.html" style="text-decoration: none; color: var(--dark-gray); font-weight: 500; transition: color 0.3s;">Prodotti</a>
+                <a href="contatti.html" class="btn-primary" style="padding: 10px 20px; margin: 0;">Contatti</a>
+            </nav>
+        </div>
+    </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -192,25 +214,23 @@
             <div class="hero-gradient"></div>
         </div>
         <div class="container" style="text-align: center; padding: 80px 0; position: relative; z-index: 2;">
-            <div style="position: relative; background: rgba(0, 0, 0, 0.35); padding: 3rem 2rem; border-radius: 20px; margin: 0 auto; max-width: 800px;">
-                <h2 class="section-title" style="color: white; margin-bottom: 1.5rem; font-size: 2.5rem;">Pronto a Trasformare la Tua Azienda?</h2>
-                <p style="color: white; font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                    Contattaci oggi per una consulenza gratuita e scopri come l'AI può rivoluzionare il tuo business
-                </p>
-                
-                <div class="cta-benefits" style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 3rem; flex-wrap: wrap;">
-                    <div class="cta-benefit" style="display: flex; align-items: center; gap: 0.5rem; color: white;">
-                        <span style="color: var(--primary-green); font-weight: bold;">✓</span>
-                        <span>Consulenza gratuita di 30 minuti</span>
-                    </div>
-                    <div class="cta-benefit" style="display: flex; align-items: center; gap: 0.5rem; color: white;">
-                        <span style="color: var(--primary-green); font-weight: bold;">✓</span>
-                        <span>Analisi dei tuoi processi</span>
-                    </div>
-                    <div class="cta-benefit" style="display: flex; align-items: center; gap: 0.5rem; color: white;">
-                        <span style="color: var(--primary-green); font-weight: bold;">✓</span>
-                        <span>ROI garantito del 100-150%</span>
-                    </div>
+            <h2 class="section-title" style="color: rgba(255,255,255,0.9); margin-bottom: 1.5rem; font-size: 2.5rem;">Pronto a Trasformare la Tua Azienda?</h2>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Contattaci oggi per una consulenza gratuita e scopri come l'AI può rivoluzionare il tuo business
+            </p>
+            
+            <div class="cta-benefits" style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 3rem; flex-wrap: wrap;">
+                <div class="cta-benefit" style="display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.9);">
+                    <span style="color: var(--primary-green); font-weight: bold;">✓</span>
+                    <span>Consulenza gratuita di 30 minuti</span>
+                </div>
+                <div class="cta-benefit" style="display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.9);">
+                    <span style="color: var(--primary-green); font-weight: bold;">✓</span>
+                    <span>Analisi dei tuoi processi</span>
+                </div>
+                <div class="cta-benefit" style="display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.9);">
+                    <span style="color: var(--primary-green); font-weight: bold;">✓</span>
+                    <span>ROI garantito del 100-150%</span>
                 </div>
             </div>
             
@@ -235,7 +255,6 @@
 
     <!-- Scripts -->
     <script src="script.js"></script>
-    <script src="includes/includes.js"></script>
     <script src="cookie-banner.js"></script>
     <script>
         // Landing page script
