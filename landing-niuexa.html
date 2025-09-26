@@ -85,9 +85,6 @@
         
         /* Responsive design */
         @media (max-width: 768px) {
-            .custom-header .header-nav {
-                display: none;
-            }
             
             .hero-stats {
                 flex-direction: column;
@@ -128,17 +125,18 @@
 <body>
     <!-- Custom Header -->
     <header class="custom-header" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0, 0, 0, 0.1); padding: 1rem 0;">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+        <div class="container" style="display: flex; justify-content: center; align-items: center;">
             <div class="logo" style="display: flex; align-items: center;">
-                <img src="img/niuexalogo.png" alt="Niuexa" style="height: 40px; width: auto;">
+                <a href="index.html" style="text-decoration: none; display: flex; align-items: center;">
+                    <div class="logo-container" style="display: flex; align-items: center; gap: 0.8rem;">
+                        <img src="img/pictogram_blue_transparent.png" alt="Niuexa" class="logo-icon" style="height: 40px; width: auto;">
+                        <div class="logo-text">
+                            <h1 style="font-family: var(--font-primary); font-size: 1.2rem; font-weight: 700; color: var(--primary-blue); margin: 0; line-height: 1;">NIUEXA</h1>
+                            <span class="logo-tagline" style="font-size: 0.7rem; color: var(--medium-gray); font-weight: 400;">Dall'AI al ROI.</span>
+                        </div>
+                    </div>
+                </a>
             </div>
-            <nav class="header-nav" style="display: flex; align-items: center; gap: 2rem;">
-                <a href="index.html" style="text-decoration: none; color: var(--dark-gray); font-weight: 500; transition: color 0.3s;">Home</a>
-                <a href="consulting.html" style="text-decoration: none; color: var(--dark-gray); font-weight: 500; transition: color 0.3s;">Consulenza</a>
-                <a href="training.html" style="text-decoration: none; color: var(--dark-gray); font-weight: 500; transition: color 0.3s;">Formazione</a>
-                <a href="products.html" style="text-decoration: none; color: var(--dark-gray); font-weight: 500; transition: color 0.3s;">Prodotti</a>
-                <a href="contatti.html" class="btn-primary" style="padding: 10px 20px; margin: 0;">Contatti</a>
-            </nav>
         </div>
     </header>
 
@@ -214,7 +212,7 @@
             <div class="hero-gradient"></div>
         </div>
         <div class="container" style="text-align: center; padding: 80px 0; position: relative; z-index: 2;">
-            <h2 class="section-title" style="color: rgba(255,255,255,0.9); margin-bottom: 1.5rem; font-size: 2.5rem;">Pronto a Trasformare la Tua Azienda?</h2>
+            <h2 class="section-title" style="color: white; margin-bottom: 1.5rem; font-size: 2.5rem;">Pronto a Trasformare la Tua Azienda?</h2>
             <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
                 Contattaci oggi per una consulenza gratuita e scopri come l'AI può rivoluzionare il tuo business
             </p>
@@ -248,8 +246,7 @@
     <!-- ElevenLabs Footer Bar -->
     <div class="elevenlabs-footer-bar" style="background: #f8f9fa; border-top: 1px solid #e0e0e0; padding: 12px 0; text-align: center; font-size: 0.9rem; color: var(--medium-gray);">
         <div class="container">
-            © 2024 Niuexa. Tutti i diritti riservati. 
-            Powered by ElevenLabs <a href="https://elevenlabs.io/conversational-ai" target="_blank" rel="noopener noreferrer" style="color: var(--primary-blue); text-decoration: none;">Conversational AI</a>
+            © 2024 Niuexa. Tutti i diritti riservati.
         </div>
     </div>
 
