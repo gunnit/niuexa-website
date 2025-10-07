@@ -617,41 +617,6 @@
                             </li>
                         </ul>
                         
-                        <h5 style="font-size: 1rem; color: white; margin: 1.5rem 0 0.5rem; font-weight: 600;">Cosa Facciamo NOI</h5>
-                        <ul style="list-style: none; padding: 0; margin-bottom: 1rem;">
-                            <li style="padding: 0.3rem 0; color: white; position: relative; padding-left: 1.8rem; font-size: 0.9rem;">
-                                <span style="position: absolute; left: 0; font-size: 1rem;">🔍</span>
-                                <strong>Analisi Tecnica</strong> mensile del sito.
-                            </li>
-                            <li style="padding: 0.3rem 0; color: white; position: relative; padding-left: 1.8rem; font-size: 0.9rem;">
-                                <span style="position: absolute; left: 0; font-size: 1rem;">📊</span>
-                                <strong>Spiegazione dettagliata</strong> dei risultati: cosa è sbagliato e perché.
-                            </li>
-                            <li style="padding: 0.3rem 0; color: white; position: relative; padding-left: 1.8rem; font-size: 0.9rem;">
-                                <span style="position: absolute; left: 0; font-size: 1rem;">🎯</span>
-                                <strong>Prioritizzazione strategica</strong> basata su ROI (cosa fixare per primo).
-                            </li>
-                            <li style="padding: 0.3rem 0; color: white; position: relative; padding-left: 1.8rem; font-size: 0.9rem;">
-                                <span style="position: absolute; left: 0; font-size: 1rem;">💬</span>
-                                <strong>Supporto continuo</strong> all'implementazione via email.
-                            </li>
-                        </ul>
-                        
-                        <h5 style="font-size: 1rem; color: white; margin: 1.5rem 0 0.5rem; font-weight: 600;">Cosa Fai TU</h5>
-                        <ul style="list-style: none; padding: 0; margin-bottom: 1rem;">
-                            <li style="padding: 0.3rem 0; color: white; position: relative; padding-left: 1.8rem; font-size: 0.9rem;">
-                                <span style="position: absolute; left: 0; font-size: 1rem;">🛠️</span>
-                                <strong>Implementi fix tecniche</strong> (Schema, robots.txt, struttura).
-                            </li>
-                            <li style="padding: 0.3rem 0; color: white; position: relative; padding-left: 1.8rem; font-size: 0.9rem;">
-                                <span style="position: absolute; left: 0; font-size: 1rem;">✍️</span>
-                                <strong>Crei/Aggiorni contenuti</strong> per l'AI discovery.
-                            </li>
-                            <li style="padding: 0.3rem 0; color: white; position: relative; padding-left: 1.8rem; font-size: 0.9rem;">
-                                <span style="position: absolute; left: 0; font-size: 1rem;">💻</span>
-                                <strong>Apporti modifiche strutturali</strong> (direttamente o tramite agenzia).
-                            </li>
-                        </ul>
                         
                         <h5 style="font-size: 1rem; color: white; margin: 1.5rem 0 0.5rem; font-weight: 600;">Perfetto per chi:</h5>
                         <ul style="list-style: none; padding: 0; margin-bottom: 1rem;">
@@ -689,7 +654,51 @@
                             </li>
                         </ul>
                     </div>
-                    <a href="#contact" class="btn" style="width: 100%; padding: 1rem; background: white; color: #0066cc; font-weight: 600;">Inizia Ora</a>
+                    
+                    <div class="program-actions" style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+                        <a href="#contact" class="btn" style="flex: 1; padding: 1rem; background: white; color: #0066cc; font-weight: 600; text-decoration: none; display: inline-block; text-align: center; border-radius: 8px;">Inizia Ora</a>
+                        <button class="btn btn-secondary" onclick="toggleProgramDetails(this)" style="flex: 1; padding: 1rem; background: rgba(255, 255, 255, 0.2); color: white; border: 2px solid white; font-weight: 600; border-radius: 8px; cursor: pointer;">
+                            Dettagli
+                        </button>
+                    </div>
+                    
+                    <div class="program-extra-details" style="display: none; text-align: left; background: rgba(255, 255, 255, 0.1); padding: 1.5rem; border-radius: 12px; margin-top: 1rem;">
+                        <h5 style="font-size: 1rem; color: white; margin: 0 0 0.5rem; font-weight: 600;">Cosa Facciamo NOI</h5>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 1rem;">
+                            <li style="padding: 0.3rem 0; color: white; position: relative; padding-left: 1.8rem; font-size: 0.9rem;">
+                                <span style="position: absolute; left: 0; font-size: 1rem;">🔍</span>
+                                <strong>Analisi Tecnica</strong> mensile del sito.
+                            </li>
+                            <li style="padding: 0.3rem 0; color: white; position: relative; padding-left: 1.8rem; font-size: 0.9rem;">
+                                <span style="position: absolute; left: 0; font-size: 1rem;">📊</span>
+                                <strong>Spiegazione dettagliata</strong> dei risultati: cosa è sbagliato e perché.
+                            </li>
+                            <li style="padding: 0.3rem 0; color: white; position: relative; padding-left: 1.8rem; font-size: 0.9rem;">
+                                <span style="position: absolute; left: 0; font-size: 1rem;">🎯</span>
+                                <strong>Prioritizzazione strategica</strong> basata su ROI (cosa fixare per primo).
+                            </li>
+                            <li style="padding: 0.3rem 0; color: white; position: relative; padding-left: 1.8rem; font-size: 0.9rem;">
+                                <span style="position: absolute; left: 0; font-size: 1rem;">💬</span>
+                                <strong>Supporto continuo</strong> all'implementazione via email.
+                            </li>
+                        </ul>
+                        
+                        <h5 style="font-size: 1rem; color: white; margin: 1.5rem 0 0.5rem; font-weight: 600;">Cosa Fai TU</h5>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 0;">
+                            <li style="padding: 0.3rem 0; color: white; position: relative; padding-left: 1.8rem; font-size: 0.9rem;">
+                                <span style="position: absolute; left: 0; font-size: 1rem;">🛠️</span>
+                                <strong>Implementi fix tecniche</strong> (Schema, robots.txt, struttura).
+                            </li>
+                            <li style="padding: 0.3rem 0; color: white; position: relative; padding-left: 1.8rem; font-size: 0.9rem;">
+                                <span style="position: absolute; left: 0; font-size: 1rem;">✍️</span>
+                                <strong>Crei/Aggiorni contenuti</strong> per l'AI discovery.
+                            </li>
+                            <li style="padding: 0.3rem 0; color: white; position: relative; padding-left: 1.8rem; font-size: 0.9rem;">
+                                <span style="position: absolute; left: 0; font-size: 1rem;">💻</span>
+                                <strong>Apporti modifiche strutturali</strong> (direttamente o tramite agenzia).
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Business Plan -->
@@ -850,7 +859,16 @@
                         </ul>
                     </div>
                     
-                    <a href="#contact" class="btn btn-secondary" style="width: 100%; padding: 1rem;">Inizia Ora</a>
+                    <div class="program-actions" style="display: flex; gap: 1rem;">
+                        <a href="#contact" class="btn btn-primary" style="flex: 1; padding: 1rem; background: #0066cc; color: white; text-decoration: none; display: inline-block; text-align: center; border-radius: 8px; font-weight: 600;">Inizia Ora</a>
+                        <button class="btn btn-secondary" onclick="toggleProgramDetails(this)" style="flex: 1; padding: 1rem; background: transparent; color: #0066cc; border: 2px solid #0066cc; font-weight: 600; border-radius: 8px; cursor: pointer;">
+                            Dettagli
+                        </button>
+                    </div>
+                    
+                    <div class="program-extra-details" style="display: none; text-align: left; background: #f8f9fa; padding: 1.5rem; border-radius: 12px; margin-top: 1rem; border: 1px solid #e9ecef;">
+                        <p style="margin: 0; color: #6c757d; font-size: 0.9rem;">I dettagli specifici per il piano Business verranno definiti in base alle esigenze del tuo progetto durante la consulenza iniziale.</p>
+                    </div>
                 </div>
 
             </div>
@@ -1104,6 +1122,20 @@
                 answer.style.display = 'block';
                 icon.textContent = '−';
                 faqItem.classList.add('active');
+            }
+        }
+
+        // Program Details Toggle
+        function toggleProgramDetails(button) {
+            const pricingCard = button.closest('.pricing-card');
+            const extraDetails = pricingCard.querySelector('.program-extra-details');
+            
+            if (extraDetails.style.display === 'none') {
+                extraDetails.style.display = 'block';
+                button.textContent = 'Nascondi Dettagli';
+            } else {
+                extraDetails.style.display = 'none';
+                button.textContent = 'Dettagli';
             }
         }
 
