@@ -2734,6 +2734,7 @@ button[aria-busy="true"]::after {
         visibility: hidden;
         max-height: 0;
         overflow: hidden;
+        transform: none !important;
         transition: all 0.3s ease;
     }
 
