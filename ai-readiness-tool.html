@@ -918,62 +918,103 @@
                 <h3 style="font-size: 2rem; color: #0066cc; margin-bottom: 2rem; text-align: center;">Ciclo Operativo Mensile: La Tua Roadmap per l'AEO Successo</h3>
                 
                 <div style="background: white; border-radius: 24px; padding: 3rem; margin-bottom: 3rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
-                    <h4 style="font-size: 1.5rem; color: #00cc66; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <h4 style="font-size: 1.5rem; color: var(--primary-green); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
                         🚀 Mese Tipico: La Nostra Collaborazione in Sintesi
                     </h4>
                     
-                    <div style="display: grid; gap: 1.5rem; margin-bottom: 2rem;">
-                        <div style="padding: 1.5rem; background: linear-gradient(135deg, #0066cc 0%, #00cc66 100%); border-radius: 16px; color: white;">
-                            <strong>Settimana 1: Analisi & Strategia</strong> - Analisi completa, identificazione delle priorità (5-10 per il mese) e presentazione del piano d'azione per l'approvazione.
+                    <div class="monthly-workflow-accordion" style="display: grid; gap: 1rem; margin-bottom: 2rem;">
+                        <!-- Accordion Item 1 -->
+                        <div class="accordion-item" style="border: 2px solid var(--light-gray); border-radius: 12px; overflow: hidden;">
+                            <button class="accordion-header" style="width: 100%; padding: 1.5rem; background: var(--gradient-primary); color: white; border: none; text-align: left; font-size: 1.1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                                <span>Settimana 1: Analisi & Strategia</span>
+                                <span class="accordion-icon" style="transition: transform 0.3s ease;">▼</span>
+                            </button>
+                            <div class="accordion-content" style="display: none; padding: 1.5rem; background: white; border-top: 1px solid var(--light-gray);">
+                                <p style="margin: 0; color: var(--dark-gray);">Analisi completa, identificazione delle priorità (5-10 per il mese) e presentazione del piano d'azione per l'approvazione.</p>
+                            </div>
                         </div>
-                        <div style="padding: 1.5rem; background: linear-gradient(135deg, #00cc66 0%, #0066cc 100%); border-radius: 16px; color: white;">
-                            <strong>Settimana 2: Implementazione & Revisione</strong> - Implementazione dei fix tecnici, creazione/ottimizzazione dei contenuti e invio della preview per l'approvazione finale del cliente.
+                        
+                        <!-- Accordion Item 2 -->
+                        <div class="accordion-item" style="border: 2px solid var(--light-gray); border-radius: 12px; overflow: hidden;">
+                            <button class="accordion-header" style="width: 100%; padding: 1.5rem; background: linear-gradient(135deg, var(--primary-green), var(--primary-blue)); color: white; border: none; text-align: left; font-size: 1.1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                                <span>Settimana 2: Implementazione & Revisione</span>
+                                <span class="accordion-icon" style="transition: transform 0.3s ease;">▼</span>
+                            </button>
+                            <div class="accordion-content" style="display: none; padding: 1.5rem; background: white; border-top: 1px solid var(--light-gray);">
+                                <p style="margin: 0; color: var(--dark-gray);">Implementazione dei fix tecnici, creazione/ottimizzazione dei contenuti e invio della preview per l'approvazione finale del cliente.</p>
+                            </div>
                         </div>
-                        <div style="padding: 1.5rem; background: linear-gradient(135deg, #0066cc 0%, #00cc66 100%); border-radius: 16px; color: white;">
-                            <strong>Settimana 3: Deploy & Monitoraggio</strong> - Messa online delle modifiche, monitoraggio delle performance e aggiustamenti <em>on-the-fly</em>.
+                        
+                        <!-- Accordion Item 3 -->
+                        <div class="accordion-item" style="border: 2px solid var(--light-gray); border-radius: 12px; overflow: hidden;">
+                            <button class="accordion-header" style="width: 100%; padding: 1.5rem; background: var(--gradient-primary); color: white; border: none; text-align: left; font-size: 1.1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                                <span>Settimana 3: Deploy & Monitoraggio</span>
+                                <span class="accordion-icon" style="transition: transform 0.3s ease;">▼</span>
+                            </button>
+                            <div class="accordion-content" style="display: none; padding: 1.5rem; background: white; border-top: 1px solid var(--light-gray);">
+                                <p style="margin: 0; color: var(--dark-gray);">Messa online delle modifiche, monitoraggio delle performance e aggiustamenti <em>on-the-fly</em>.</p>
+                            </div>
                         </div>
-                        <div style="padding: 1.5rem; background: linear-gradient(135deg, #00cc66 0%, #0066cc 100%); border-radius: 16px; color: white;">
-                            <strong>Settimana 4: Revisione & Pianificazione</strong> - <strong>Call Strategica (2h)</strong> per la review dei risultati, report mensile dettagliato e pianificazione delle attività per il mese successivo.
+                        
+                        <!-- Accordion Item 4 -->
+                        <div class="accordion-item" style="border: 2px solid var(--light-gray); border-radius: 12px; overflow: hidden;">
+                            <button class="accordion-header" style="width: 100%; padding: 1.5rem; background: linear-gradient(135deg, var(--primary-green), var(--primary-blue)); color: white; border: none; text-align: left; font-size: 1.1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                                <span>Settimana 4: Revisione & Pianificazione</span>
+                                <span class="accordion-icon" style="transition: transform 0.3s ease;">▼</span>
+                            </button>
+                            <div class="accordion-content" style="display: none; padding: 1.5rem; background: white; border-top: 1px solid var(--light-gray);">
+                                <p style="margin: 0; color: var(--dark-gray);"><strong>Call Strategica (2h)</strong> per la review dei risultati, report mensile dettagliato e pianificazione delle attività per il mese successivo.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <h4 style="font-size: 1.5rem; color: #2c3e50; margin-bottom: 2rem; text-align: center;">I Dettagli del Flusso di Lavoro</h4>
+                <h4 style="font-size: 1.5rem; color: var(--dark-gray); margin-bottom: 2rem; text-align: center;">I Dettagli del Flusso di Lavoro</h4>
                 
-                <div style="display: grid; gap: 2rem;">
+                <!-- Monthly Workflow Boxes (Stacked Vertically) -->
+                <div class="monthly-workflow-boxes" style="display: flex; flex-direction: column; gap: 2rem; margin-bottom: 3rem;">
                     <div style="background: white; border-radius: 16px; padding: 2rem; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
-                        <h5 style="font-size: 1.2rem; color: #0066cc; margin-bottom: 1rem;">Settimana 1: Noi Analizziamo</h5>
+                        <h5 style="font-size: 1.2rem; color: var(--primary-blue); margin-bottom: 1rem;">Settimana 1: Noi Analizziamo</h5>
                         <p style="margin-bottom: 0.5rem;"><strong>Chi:</strong> Niuexa</p>
                         <p style="margin-bottom: 0.5rem;"><strong>Cosa:</strong> Eseguiamo analisi completa del tuo sito (tutte le pagine chiave, non solo homepage)</p>
-                        <p style="color: #00cc66; font-weight: 600;"><strong>Risultato:</strong> Ricevi il report dettagliato con punteggi, problemi e opportunità</p>
+                        <p style="color: var(--primary-green); font-weight: 600;"><strong>Risultato:</strong> Ricevi il report dettagliato con punteggi, problemi e opportunità</p>
                     </div>
 
                     <div style="background: white; border-radius: 16px; padding: 2rem; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
-                        <h5 style="font-size: 1.2rem; color: #0066cc; margin-bottom: 1rem;">Settimana 1-2: Strategia e Piano d'Azione</h5>
+                        <h5 style="font-size: 1.2rem; color: var(--primary-blue); margin-bottom: 1rem;">Settimana 1-2: Strategia e Piano d'Azione</h5>
                         <p style="margin-bottom: 0.5rem;"><strong>Chi:</strong> Niuexa e Cliente (call video 1 ora)</p>
                         <p style="margin-bottom: 0.5rem;"><strong>Cosa:</strong> Analizziamo insieme il report. Spieghiamo cosa è sbagliato, perché bisogna modificarlo e creiamo piano d'azione prioritario</p>
-                        <p style="color: #00cc66; font-weight: 600;"><strong>Risultato:</strong> Piano chiaro: cosa fare, come farlo, in quale ordine</p>
+                        <p style="color: var(--primary-green); font-weight: 600;"><strong>Risultato:</strong> Piano chiaro: cosa fare, come farlo, in quale ordine</p>
                     </div>
 
                     <div style="background: white; border-radius: 16px; padding: 2rem; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
-                        <h5 style="font-size: 1.2rem; color: #0066cc; margin-bottom: 1rem;">Settimana 2-4: Noi Implementiamo</h5>
+                        <h5 style="font-size: 1.2rem; color: var(--primary-blue); margin-bottom: 1rem;">Settimana 2-4: Noi Implementiamo</h5>
                         <p style="margin-bottom: 0.5rem;"><strong>Chi:</strong> Niuexa</p>
                         <p style="margin-bottom: 0.5rem;"><strong>Cosa:</strong> Lavoriamo sul piano d'azione sul GANTT definito. Aggiungiamo le componenti tecniche: schema markup, fix robots.txt, ottimizziamo i contenuti, miglioriamo la struttura HTML</p>
-                        <p style="color: #00cc66; font-weight: 600;"><strong>Supporto:</strong> Video Call</p>
+                        <p style="color: var(--primary-green); font-weight: 600;"><strong>Supporto:</strong> Video Call</p>
                     </div>
 
                     <div style="background: white; border-radius: 16px; padding: 2rem; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
-                        <h5 style="font-size: 1.2rem; color: #0066cc; margin-bottom: 1rem;">Settimana 4+: Tracciamo i Progressi</h5>
+                        <h5 style="font-size: 1.2rem; color: var(--primary-blue); margin-bottom: 1rem;">Settimana 4+: Tracciamo i Progressi</h5>
                         <p style="margin-bottom: 0.5rem;"><strong>Chi:</strong> Niuexa</p>
                         <p style="margin-bottom: 0.5rem;"><strong>Cosa:</strong> Rianalizziamo il sito e mostriamo i miglioramenti.</p>
-                        <p style="color: #00cc66; font-weight: 600;"><strong>Risultato:</strong> Ciclo continuo di miglioramento mese dopo mese</p>
+                        <p style="color: var(--primary-green); font-weight: 600;"><strong>Risultato:</strong> Ciclo continuo di miglioramento mese dopo mese</p>
                     </div>
-
-                    <div style="background: white; border-radius: 16px; padding: 2rem; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
-                        <h5 style="font-size: 1.2rem; color: #0066cc; margin-bottom: 1rem;">Ogni 3 Mesi: Benchmark Competitor</h5>
-                        <p style="margin-bottom: 0.5rem;"><strong>Chi:</strong> Niuexa</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Cosa:</strong> Analizziamo i tuoi top 3 competitor e li confrontiamo con la tua azienda</p>
-                        <p style="color: #00cc66; font-weight: 600;"><strong>Risultato:</strong> Sai dove sei leader e dove devi migliorare</p>
+                </div>
+                
+                <!-- Quarterly Benchmark Box (Full Width) -->
+                <div class="quarterly-benchmark-box" style="width: 100%;">
+                    <div style="background: white; border-radius: 16px; padding: 2rem; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); border: 3px solid var(--primary-green);">
+                        <h5 style="font-size: 1.2rem; color: var(--primary-blue); margin-bottom: 1rem; text-align: center;">📈 Ogni 3 Mesi: Benchmark Competitor</h5>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; align-items: center;">
+                            <div>
+                                <p style="margin-bottom: 0.5rem;"><strong>Chi:</strong> Niuexa</p>
+                                <p style="margin-bottom: 0.5rem;"><strong>Cosa:</strong> Analizziamo i tuoi top 3 competitor e li confrontiamo con la tua azienda</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <p style="color: var(--primary-green); font-weight: 600; font-size: 1.1rem; margin: 0;"><strong>Risultato:</strong> Sai dove sei leader e dove devi migliorare</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1351,10 +1392,39 @@
             }
         }
 
+        // Monthly Workflow Accordion Functionality
+        function initializeMonthlyWorkflowAccordion() {
+            const accordionHeaders = document.querySelectorAll('.monthly-workflow-accordion .accordion-header');
+            
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('.accordion-icon');
+                    const isOpen = content.style.display === 'block';
+                    
+                    if (isOpen) {
+                        content.style.display = 'none';
+                        icon.style.transform = 'rotate(0deg)';
+                        this.setAttribute('aria-expanded', 'false');
+                    } else {
+                        content.style.display = 'block';
+                        icon.style.transform = 'rotate(180deg)';
+                        this.setAttribute('aria-expanded', 'true');
+                    }
+                });
+                
+                // Set initial state
+                header.setAttribute('aria-expanded', 'false');
+            });
+        }
+
         // Load navigation and footer
         document.addEventListener('DOMContentLoaded', function() {
             loadComponent('nav-placeholder', 'includes/navigation.html');
             loadComponent('footer-placeholder', 'includes/footer.html');
+            
+            // Initialize Monthly Workflow Accordion
+            initializeMonthlyWorkflowAccordion();
 
             // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1461,6 +1531,23 @@
 
             .pricing-card.recommended {
                 transform: none !important;
+            }
+            
+            /* Mobile styles for Monthly Workflow Accordion */
+            .monthly-workflow-accordion .accordion-header {
+                padding: 1rem !important;
+                font-size: 1rem !important;
+            }
+            
+            .monthly-workflow-accordion .accordion-content {
+                padding: 1rem !important;
+            }
+            
+            /* Mobile styles for Quarterly Benchmark Box */
+            .quarterly-benchmark-box .grid {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+                text-align: center !important;
             }
         }
     </style>
