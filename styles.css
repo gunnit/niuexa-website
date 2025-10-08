@@ -2742,6 +2742,7 @@ button[aria-busy="true"]::after {
         visibility: visible;
         max-height: 200px;
         margin-bottom: 1rem;
+        transform: none;
     }
 
     .dropdown-arrow {
