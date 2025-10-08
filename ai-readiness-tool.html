@@ -545,6 +545,16 @@
                             <li style="margin-bottom: 0.3rem;">Testare la qualità della nostra analisi</li>
                         </ul>
                         
+                    </div>
+                    
+                    <div class="program-actions" style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+                        <a href="#contact" class="btn btn-secondary" style="flex: 1; padding: 1rem; border-radius: 8px;">Contattaci</a>
+                        <button class="btn btn-secondary" onclick="toggleProgramDetails(this)" style="flex: 1; padding: 1rem; background: transparent; color: #6c757d; border: 2px solid #6c757d; font-weight: 600; border-radius: 8px; cursor: pointer;">
+                            Dettagli
+                        </button>
+                    </div>
+                    
+                    <div class="program-extra-details" style="display: none; text-align: left; background: #f8f9fa; padding: 1.5rem; border-radius: 12px; margin-top: 1rem; border: 1px solid #e9ecef;">
                         <h4 style="font-size: 1.1rem; color: #2c3e50; margin-bottom: 1rem; font-weight: 600;">Limitazioni:</h4>
                         <ul style="list-style: none; padding: 0; color: #6c757d; font-size: 1rem;">
                             <li style="padding: 0.3rem 0; position: relative; padding-left: 1.8rem;">
@@ -565,8 +575,6 @@
                             </li>
                         </ul>
                     </div>
-                    
-                    <a href="#contact" class="btn btn-secondary" style="width: 100%; padding: 1rem; border-radius: 8px;">Contattaci</a>
                 </div>
 
                 <!-- Pro Plan -->
@@ -586,7 +594,7 @@
                         <h4 style="font-size: 1.1rem; color: white; margin-bottom: 1rem; font-weight: 600;">Cosa include:</h4>
                         
                         <div class="accordion-section">
-                            <h6 class="accordion-header" onclick="toggleAccordionSection(this)" style="font-size: 1rem; color: white; margin: 1.5rem 0 0.5rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: space-between;">
+                            <h6 class="accordion-header" onclick="toggleAccordionSection(this)" style="font-size: 1rem; color: white; margin: 1.5rem 0 0.5rem; font-weight: 400; cursor: pointer; display: flex; align-items: center; justify-content: space-between;">
                                 ✅ Analisi e Strategia
                                 <span class="accordion-icon" style="font-size: 0.8rem; transition: transform 0.3s ease;">▼</span>
                             </h6>
@@ -607,7 +615,7 @@
                         </div>
                         
                         <div class="accordion-section">
-                            <h6 class="accordion-header" onclick="toggleAccordionSection(this)" style="font-size: 1rem; color: white; margin: 1.5rem 0 0.5rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: space-between;">
+                            <h6 class="accordion-header" onclick="toggleAccordionSection(this)" style="font-size: 1rem; color: white; margin: 1.5rem 0 0.5rem; font-weight: 400; cursor: pointer; display: flex; align-items: center; justify-content: space-between;">
                                 ✅ Supporto Continuo
                                 <span class="accordion-icon" style="font-size: 0.8rem; transition: transform 0.3s ease;">▼</span>
                             </h6>
@@ -644,21 +652,6 @@
                             </li>
                         </ul>
                         
-                        <h4 style="font-size: 1rem; color: white; margin: 1.5rem 0 0.5rem; font-weight: 600;">NON Adatto per chi:</h4>
-                        <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem;">
-                            <li style="padding: 0.3rem 0; color: white; position: relative; padding-left: 1.8rem; font-size: 1rem;">
-                                <span style="position: absolute; left: 0; font-size: 1rem;">❌</span>
-                                Cerca un servizio <strong>"fatto per te"</strong> completamente gestito (l'implementazione non è inclusa).
-                            </li>
-                            <li style="padding: 0.3rem 0; color: white; position: relative; padding-left: 1.8rem; font-size: 1rem;">
-                                <span style="position: absolute; left: 0; font-size: 1rem;">❌</span>
-                                È <strong>privo di risorse tecniche</strong> interne (necessario uno sviluppatore).
-                            </li>
-                            <li style="padding: 0.3rem 0; color: white; position: relative; padding-left: 1.8rem; font-size: 1rem;">
-                                <span style="position: absolute; left: 0; font-size: 1rem;">❌</span>
-                                Si aspetta la <strong>scrittura di tutto il contenuto</strong> da zero (forniamo indicazioni, non la produzione).
-                            </li>
-                        </ul>
                     </div>
                     
                     <div class="program-actions" style="display: flex; gap: 1rem; margin-bottom: 1rem;">
@@ -690,7 +683,7 @@
                         </ul>
                         
                         <h5 style="font-size: 1rem; color: white; margin: 1.5rem 0 0.5rem; font-weight: 600;">Cosa Fai TU</h5>
-                        <ul style="list-style: none; padding: 0; margin-bottom: 0;">
+                        <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem;">
                             <li style="padding: 0.3rem 0; color: white; position: relative; padding-left: 1.8rem; font-size: 1rem;">
                                 <span style="position: absolute; left: 0; font-size: 1rem;">🛠️</span>
                                 <strong>Implementi fix tecniche</strong> (Schema, robots.txt, struttura).
@@ -702,6 +695,22 @@
                             <li style="padding: 0.3rem 0; color: white; position: relative; padding-left: 1.8rem; font-size: 1rem;">
                                 <span style="position: absolute; left: 0; font-size: 1rem;">💻</span>
                                 <strong>Apporti modifiche strutturali</strong> (direttamente o tramite agenzia).
+                            </li>
+                        </ul>
+                        
+                        <h4 style="font-size: 1rem; color: white; margin: 1.5rem 0 0.5rem; font-weight: 600;">NON Adatto per chi:</h4>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 0;">
+                            <li style="padding: 0.3rem 0; color: white; position: relative; padding-left: 1.8rem; font-size: 1rem;">
+                                <span style="position: absolute; left: 0; font-size: 1rem;">❌</span>
+                                Cerca un servizio <strong>"fatto per te"</strong> completamente gestito (l'implementazione non è inclusa).
+                            </li>
+                            <li style="padding: 0.3rem 0; color: white; position: relative; padding-left: 1.8rem; font-size: 1rem;">
+                                <span style="position: absolute; left: 0; font-size: 1rem;">❌</span>
+                                È <strong>privo di risorse tecniche</strong> interne (necessario uno sviluppatore).
+                            </li>
+                            <li style="padding: 0.3rem 0; color: white; position: relative; padding-left: 1.8rem; font-size: 1rem;">
+                                <span style="position: absolute; left: 0; font-size: 1rem;">❌</span>
+                                Si aspetta la <strong>scrittura di tutto il contenuto</strong> da zero (forniamo indicazioni, non la produzione).
                             </li>
                         </ul>
                     </div>
@@ -724,7 +733,7 @@
                         <h4 style="font-size: 1.1rem; color: #2c3e50; margin-bottom: 1rem; font-weight: 600;">Cosa include:</h4>
                         
                         <div class="accordion-section">
-                            <h6 class="accordion-header" onclick="toggleAccordionSection(this)" style="font-size: 1rem; color: #2c3e50; margin: 1.5rem 0 0.5rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: space-between;">
+                            <h6 class="accordion-header" onclick="toggleAccordionSection(this)" style="font-size: 1rem; color: #2c3e50; margin: 1.5rem 0 0.5rem; font-weight: 400; cursor: pointer; display: flex; align-items: center; justify-content: space-between;">
                                 ✅ Analisi Completa
                                 <span class="accordion-icon" style="font-size: 0.8rem; transition: transform 0.3s ease;">▼</span>
                             </h6>
@@ -745,7 +754,7 @@
                         </div>
                         
                         <div class="accordion-section">
-                            <h6 class="accordion-header" onclick="toggleAccordionSection(this)" style="font-size: 1rem; color: #2c3e50; margin: 1.5rem 0 0.5rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: space-between;">
+                            <h6 class="accordion-header" onclick="toggleAccordionSection(this)" style="font-size: 1rem; color: #2c3e50; margin: 1.5rem 0 0.5rem; font-weight: 400; cursor: pointer; display: flex; align-items: center; justify-content: space-between;">
                                 ✅Implementazione Completa
                                 <span class="accordion-icon" style="font-size: 0.8rem; transition: transform 0.3s ease;">▼</span>
                             </h6>
@@ -773,7 +782,7 @@
                         </div>
                         
                         <div class="accordion-section">
-                            <h6 class="accordion-header" onclick="toggleAccordionSection(this)" style="font-size: 1rem; color: #2c3e50; margin: 1.5rem 0 0.5rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: space-between;">
+                            <h6 class="accordion-header" onclick="toggleAccordionSection(this)" style="font-size: 1rem; color: #2c3e50; margin: 1.5rem 0 0.5rem; font-weight: 400; cursor: pointer; display: flex; align-items: center; justify-content: space-between;">
                                 ✅Tracking e Reporting Avanzato
                                 <span class="accordion-icon" style="font-size: 0.8rem; transition: transform 0.3s ease;">▼</span>
                             </h6>
@@ -816,21 +825,6 @@
                             </li>
                         </ul>
                         
-                        <h4 style="font-size: 1rem; color: #2c3e50; margin: 1.5rem 0 0.5rem; font-weight: 600;">NON adatto per chi:</h4>
-                        <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem;">
-                            <li style="padding: 0.3rem 0; color: #6c757d; position: relative; padding-left: 1.8rem; font-size: 1rem;">
-                                <span style="position: absolute; left: 0; color: #ff6b6b; font-size: 1rem;">❌</span>
-                                <strong>Ha budget inferiori a €2k/mese</strong>: Il Programma Ottimizzazione ($497) è più appropriato.
-                            </li>
-                            <li style="padding: 0.3rem 0; color: #6c757d; position: relative; padding-left: 1.8rem; font-size: 1rem;">
-                                <span style="position: absolute; left: 0; color: #ff6b6b; font-size: 1rem;">❌</span>
-                                <strong>Vuole mantenere il controllo totale</strong> sull'implementazione (questo è un servizio in outsourcing).
-                            </li>
-                            <li style="padding: 0.3rem 0; color: #6c757d; position: relative; padding-left: 1.8rem; font-size: 1rem;">
-                                <span style="position: absolute; left: 0; color: #ff6b6b; font-size: 1rem;">❌</span>
-                                <strong>Ha siti con tecnologie proprietarie chiuse</strong> che non consentono accesso tecnico.
-                            </li>
-                        </ul>
                     </div>
                     
                     <div class="program-actions" style="display: flex; gap: 1rem;">
@@ -866,7 +860,7 @@
                         </ul>
                         
                         <h5 style="font-size: 1rem; color: #2c3e50; margin: 1.5rem 0 0.5rem; font-weight: 600;">Cosa fai TU</h5>
-                        <ul style="list-style: none; padding: 0; margin-bottom: 1rem;">
+                        <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem;">
                             <li style="padding: 0.3rem 0; color: #6c757d; position: relative; padding-left: 1.8rem; font-size: 1rem;">
                                 <span style="position: absolute; left: 0; color: #00cc66; font-size: 1rem;">✅</span>
                                 <strong>Approvi</strong>: Rivedi e approvi tutte le modifiche prima che vadano online.
@@ -882,6 +876,22 @@
                             <li style="padding: 0.3rem 0; color: #6c757d; position: relative; padding-left: 1.8rem; font-size: 1rem;">
                                 <span style="position: absolute; left: 0; color: #00cc66; font-size: 1rem;">✅</span>
                                 <strong>Ottieni Risultati</strong>: Vedi i tuoi punteggi crescere!
+                            </li>
+                        </ul>
+                        
+                        <h4 style="font-size: 1rem; color: #2c3e50; margin: 1.5rem 0 0.5rem; font-weight: 600;">NON adatto per chi:</h4>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 1rem;">
+                            <li style="padding: 0.3rem 0; color: #6c757d; position: relative; padding-left: 1.8rem; font-size: 1rem;">
+                                <span style="position: absolute; left: 0; color: #ff6b6b; font-size: 1rem;">❌</span>
+                                <strong>Ha budget inferiori a €2k/mese:</strong> Il Programma Ottimizzazione (€500) è più appropriato.
+                            </li>
+                            <li style="padding: 0.3rem 0; color: #6c757d; position: relative; padding-left: 1.8rem; font-size: 1rem;">
+                                <span style="position: absolute; left: 0; color: #ff6b6b; font-size: 1rem;">❌</span>
+                                <strong>Vuole mantenere il controllo totale</strong> sull'implementazione (questo è un servizio in outsourcing).
+                            </li>
+                            <li style="padding: 0.3rem 0; color: #6c757d; position: relative; padding-left: 1.8rem; font-size: 1rem;">
+                                <span style="position: absolute; left: 0; color: #ff6b6b; font-size: 1rem;">❌</span>
+                                <strong>Ha siti con tecnologie proprietarie chiuse</strong> che non consentono accesso tecnico.
                             </li>
                         </ul>
                     </div>
