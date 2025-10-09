@@ -332,22 +332,11 @@
     opacity: 0.9;
 }
 
-.btn-primary {
-    background: #667eea;
-    color: white;
-    padding: 1rem 2rem;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 500;
-    display: inline-block;
-    transition: all 0.3s ease;
-}
+/* Removed local .btn-primary override to use consistent base styles from styles.css */
+/* Original conflicting styles removed to maintain button consistency */
 
-.btn-primary:hover {
-    background: #5a67d8;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
-}
+/* Removed local .btn-primary:hover override to use consistent base styles from styles.css */
+/* Original conflicting hover styles removed to maintain button consistency */
 
 /* JavaScript for page interactions */
 .impara-js-loaded .tutorial-card {
@@ -419,7 +408,7 @@
     }
     
     .cert-hub-benefits {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr) !important;
         gap: 1rem;
     }
     
@@ -667,7 +656,7 @@
     
     /* Keep certification boxes in same row even on small screens */
     .cert-hub-benefits {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr) !important;
         gap: 0.8rem;
     }
     
