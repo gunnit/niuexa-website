@@ -419,8 +419,8 @@
     }
     
     .cert-hub-benefits {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
     }
     
     .cert-hub-content {
@@ -663,5 +663,23 @@
     
     .tutorial-category {
         left: 0.5rem;
+    }
+    
+    /* Keep certification boxes in same row even on small screens */
+    .cert-hub-benefits {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.8rem;
+    }
+    
+    .cert-hub-benefit {
+        padding: 1rem;
+    }
+    
+    .cert-hub-benefit h4 {
+        font-size: 1rem;
+    }
+    
+    .cert-hub-benefit p {
+        font-size: 0.85rem;
     }
 }
