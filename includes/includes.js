@@ -8,7 +8,7 @@ const navigationHTML = `
                 <div class="logo-container">
                     <img src="img/pictogram_blue_transparent.png" alt="Niuexa" class="logo-icon">
                     <div class="logo-text">
-                        <h1>NIUEXA</h1>
+                        <div class="logo-title">NIUEXA</div>
                         <span class="logo-tagline">Dall'AI al ROI.</span>
                     </div>
                 </div>
