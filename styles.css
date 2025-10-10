@@ -4195,6 +4195,14 @@ html {
     color: var(--primary-blue);
 }
 
+.cta-section .section-title {
+    color: var(--white) !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: initial !important;
+    background-clip: initial !important;
+}
+
 /* Responsive Design for About Page */
 @media (max-width: 1024px) {
     .ceo-content {
