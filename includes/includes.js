@@ -236,9 +236,9 @@ function initNavigationFunctionality() {
         }
     });
 
-    // Close mobile menu when clicking on any link (including dropdown links)
-    const allNavLinks = document.querySelectorAll('.nav-link, .dropdown-link');
-    allNavLinks.forEach(link => {
+    // Close mobile menu when clicking on navigation links (but NOT dropdown toggles)
+    const navLinksOnly = document.querySelectorAll('.nav-link:not(.dropdown-toggle), .dropdown-link');
+    navLinksOnly.forEach(link => {
         link.addEventListener('click', function() {
             if (hamburger && navMenu) {
                 hamburger.classList.remove('active');
