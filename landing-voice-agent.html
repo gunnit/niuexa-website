@@ -79,6 +79,16 @@
             .hero-subtitle {
                 font-size: 1.1rem !important;
             }
+            
+            /* Contact form responsive */
+            .contact-form {
+                padding: 1.5rem !important;
+                margin: 0 1rem !important;
+            }
+            
+            .contact-form div[style*="grid-template-columns"] {
+                grid-template-columns: 1fr !important;
+            }
         }
     </style>
 </head>
@@ -318,14 +328,62 @@
                 </div>
             </div>
             
-            <div class="hero-buttons">
-                <a href="index.html#contact" class="btn btn-primary btn-large">
+            <!-- Contact Form -->
+            <form action="https://formcarry.com/s/N9GC802VNcW" method="POST" class="contact-form" accept-charset="UTF-8" style="max-width: 500px; margin: 0 auto; background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 20px; backdrop-filter: blur(10px);">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                    <div>
+                        <label for="firstName" style="display: block; color: white; margin-bottom: 0.5rem; font-size: 0.9rem;">Nome *</label>
+                        <input type="text" id="firstName" name="firstName" required placeholder="Mario" style="width: 100%; padding: 0.8rem; border: 2px solid rgba(255,255,255,0.3); border-radius: 10px; background: rgba(255,255,255,0.1); color: white; font-size: 0.9rem;">
+                    </div>
+                    <div>
+                        <label for="lastName" style="display: block; color: white; margin-bottom: 0.5rem; font-size: 0.9rem;">Cognome *</label>
+                        <input type="text" id="lastName" name="lastName" required placeholder="Rossi" style="width: 100%; padding: 0.8rem; border: 2px solid rgba(255,255,255,0.3); border-radius: 10px; background: rgba(255,255,255,0.1); color: white; font-size: 0.9rem;">
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 1rem;">
+                    <label for="email" style="display: block; color: white; margin-bottom: 0.5rem; font-size: 0.9rem;">Email Aziendale *</label>
+                    <input type="email" id="email" name="email" required placeholder="mario.rossi@azienda.com" style="width: 100%; padding: 0.8rem; border: 2px solid rgba(255,255,255,0.3); border-radius: 10px; background: rgba(255,255,255,0.1); color: white; font-size: 0.9rem;">
+                </div>
+
+                <div style="margin-bottom: 1rem;">
+                    <label for="company" style="display: block; color: white; margin-bottom: 0.5rem; font-size: 0.9rem;">Azienda *</label>
+                    <input type="text" id="company" name="company" required placeholder="Nome Azienda S.p.A." style="width: 100%; padding: 0.8rem; border: 2px solid rgba(255,255,255,0.3); border-radius: 10px; background: rgba(255,255,255,0.1); color: white; font-size: 0.9rem;">
+                </div>
+
+                <div style="margin-bottom: 1rem;">
+                    <label for="service" style="display: block; color: white; margin-bottom: 0.5rem; font-size: 0.9rem;">Servizio di Interesse *</label>
+                    <select id="service" name="service" required style="width: 100%; padding: 0.8rem; border: 2px solid rgba(255,255,255,0.3); border-radius: 10px; background: rgba(255,255,255,0.1); color: white; font-size: 0.9rem;">
+                        <option value="">Seleziona un servizio</option>
+                        <option value="agente-vocale">Agente Vocale AI</option>
+                        <option value="consulenza">Consulenza AI Strategica</option>
+                        <option value="formazione">Formazione AI per Team</option>
+                        <option value="sviluppo">Sviluppo Soluzioni AI Personalizzate</option>
+                        <option value="automazione">Automazione Processi</option>
+                        <option value="chatbot">Assistenti AI e Chatbot</option>
+                        <option value="analisi">Analisi Dati con AI</option>
+                        <option value="altro">Altro</option>
+                    </select>
+                </div>
+
+                <div style="margin-bottom: 1rem;">
+                    <label for="message" style="display: block; color: white; margin-bottom: 0.5rem; font-size: 0.9rem;">Come possiamo aiutarti? *</label>
+                    <textarea id="message" name="message" rows="3" required placeholder="Vorrei una demo dell'Agente Vocale AI..." style="width: 100%; padding: 0.8rem; border: 2px solid rgba(255,255,255,0.3); border-radius: 10px; background: rgba(255,255,255,0.1); color: white; font-size: 0.9rem; resize: vertical;"></textarea>
+                </div>
+
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: flex; align-items: center; color: white; font-size: 0.85rem; cursor: pointer;">
+                        <input type="checkbox" name="privacy" required style="margin-right: 0.5rem;">
+                        <span>Ho letto e accetto la <a href="privacy-policy.html" target="_blank" style="color: var(--primary-green); text-decoration: underline;">Privacy Policy</a> *</span>
+                    </label>
+                </div>
+
+                <input type="hidden" name="_gotcha">
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1rem; font-weight: 600;">
                     Richiedi Demo Gratuita
-                </a>
-                <a href="products.html" class="btn btn-secondary btn-large">
-                    Scopri Tutti i Prodotti
-                </a>
-            </div>
+                </button>
+            </form>
             
             <p style="margin-top: 2rem; font-size: 0.9rem; color: rgba(255,255,255,0.8);">
                 <strong>Nessun impegno richiesto</strong> • Setup incluso nel prezzo • Supporto dedicato
