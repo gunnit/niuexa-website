@@ -859,51 +859,55 @@
                 </p>
             </div>
 
-            <div class="process-timeline" style="position: relative; max-width: 1000px; margin: 0 auto;">
-                <div class="timeline-line" style="position: absolute; left: 50%; transform: translateX(-50%); width: 2px; height: 100%; background: linear-gradient(to bottom, #0066cc, #00cc66); opacity: 0.3;"></div>
-
-                <!-- Step 1 -->
-                <div class="process-step" style="display: flex; align-items: center; margin-bottom: 4rem; position: relative;">
-                    <div class="step-content" style="flex: 1; text-align: right; padding-right: 3rem;">
-                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #2c3e50;">Registrazione e Setup</h3>
-                        <p style="color: #6c757d; line-height: 1.6;">Inserisci l'URL del tuo sito web e completa il questionario iniziale sul tuo business e obiettivi.</p>
-                        <span style="display: inline-block; margin-top: 0.5rem; color: #0066cc; font-weight: 600;">5 minuti</span>
+            <!-- Horizontal Steps Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
+                
+                <!-- Step 1: Registrazione e Setup -->
+                <div class="feature-card" style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; border: 2px solid #0066cc;">
+                    <div class="feature-icon" style="width: 70px; height: 70px; background: linear-gradient(135deg, #0066cc, #004499); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 1.5rem; box-shadow: 0 5px 20px rgba(0, 102, 204, 0.3);">
+                        🚀
                     </div>
-                    <div class="step-number" style="width: 60px; height: 60px; background: linear-gradient(135deg, #0066cc, #004499); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 700; position: relative; z-index: 1; box-shadow: 0 10px 30px rgba(0, 102, 204, 0.3);">1</div>
-                    <div class="step-placeholder" style="flex: 1;"></div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: #0066cc;">Registrazione e Setup</h3>
+                    <p style="color: #6c757d; line-height: 1.6; margin-bottom: 1rem;">
+                        Inserisci l'URL del tuo sito web e completa il questionario iniziale sul tuo business e obiettivi.
+                    </p>
+                    <span style="display: inline-block; padding: 0.3rem 0.8rem; background: rgba(0, 102, 204, 0.1); color: #0066cc; font-weight: 600; border-radius: 20px; font-size: 0.9rem;">5 minuti</span>
                 </div>
 
-                <!-- Step 2 -->
-                <div class="process-step" style="display: flex; align-items: center; margin-bottom: 4rem; position: relative;">
-                    <div class="step-placeholder" style="flex: 1;"></div>
-                    <div class="step-number" style="width: 60px; height: 60px; background: linear-gradient(135deg, #00cc66, #009944); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 700; position: relative; z-index: 1; box-shadow: 0 10px 30px rgba(0, 204, 102, 0.3);">2</div>
-                    <div class="step-content" style="flex: 1; text-align: left; padding-left: 3rem;">
-                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #2c3e50;">Scansione Automatica</h3>
-                        <p style="color: #6c757d; line-height: 1.6;">Il nostro AI crawler analizza il tuo sito web, mappando struttura, contenuti e funzionalità esistenti.</p>
-                        <span style="display: inline-block; margin-top: 0.5rem; color: #00cc66; font-weight: 600;">24 ore</span>
+                <!-- Step 2: Scansione Automatica -->
+                <div class="feature-card" style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; border: 2px solid #00cc66;">
+                    <div class="feature-icon" style="width: 70px; height: 70px; background: linear-gradient(135deg, #00cc66, #009944); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 1.5rem; box-shadow: 0 5px 20px rgba(0, 204, 102, 0.3);">
+                        🔍
                     </div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: #00cc66;">Scansione Automatica</h3>
+                    <p style="color: #6c757d; line-height: 1.6; margin-bottom: 1rem;">
+                        Il nostro AI crawler analizza il tuo sito web, mappando struttura, contenuti e funzionalità esistenti.
+                    </p>
+                    <span style="display: inline-block; padding: 0.3rem 0.8rem; background: rgba(0, 204, 102, 0.1); color: #00cc66; font-weight: 600; border-radius: 20px; font-size: 0.9rem;">24 ore</span>
                 </div>
 
-                <!-- Step 3 -->
-                <div class="process-step" style="display: flex; align-items: center; margin-bottom: 4rem; position: relative;">
-                    <div class="step-content" style="flex: 1; text-align: right; padding-right: 3rem;">
-                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #2c3e50;">Analisi e Valutazione</h3>
-                        <p style="color: #6c757d; line-height: 1.6;">I nostri esperti AI verificano i dati e preparano raccomandazioni personalizzate per il tuo business.</p>
-                        <span style="display: inline-block; margin-top: 0.5rem; color: #9b59b6; font-weight: 600;">24 ore</span>
+                <!-- Step 3: Analisi e Valutazione -->
+                <div class="feature-card" style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; border: 2px solid #9b59b6;">
+                    <div class="feature-icon" style="width: 70px; height: 70px; background: linear-gradient(135deg, #9b59b6, #8e44ad); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 1.5rem; box-shadow: 0 5px 20px rgba(155, 89, 182, 0.3);">
+                        ⚡
                     </div>
-                    <div class="step-number" style="width: 60px; height: 60px; background: linear-gradient(135deg, #9b59b6, #8e44ad); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 700; position: relative; z-index: 1; box-shadow: 0 10px 30px rgba(155, 89, 182, 0.3);">3</div>
-                    <div class="step-placeholder" style="flex: 1;"></div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: #9b59b6;">Analisi e Valutazione</h3>
+                    <p style="color: #6c757d; line-height: 1.6; margin-bottom: 1rem;">
+                        I nostri esperti AI verificano i dati e preparano raccomandazioni personalizzate per il tuo business.
+                    </p>
+                    <span style="display: inline-block; padding: 0.3rem 0.8rem; background: rgba(155, 89, 182, 0.1); color: #9b59b6; font-weight: 600; border-radius: 20px; font-size: 0.9rem;">24 ore</span>
                 </div>
 
-                <!-- Step 4 -->
-                <div class="process-step" style="display: flex; align-items: center; position: relative;">
-                    <div class="step-placeholder" style="flex: 1;"></div>
-                    <div class="step-number" style="width: 60px; height: 60px; background: linear-gradient(135deg, #f39c12, #e67e22); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 700; position: relative; z-index: 1; box-shadow: 0 10px 30px rgba(243, 156, 18, 0.3);">4</div>
-                    <div class="step-content" style="flex: 1; text-align: left; padding-left: 3rem;">
-                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #2c3e50;">Report e Consulenza</h3>
-                        <p style="color: #6c757d; line-height: 1.6;">Ricevi il report completo e una call di consulenza gratuita per discutere i prossimi passi.</p>
-                        <span style="display: inline-block; margin-top: 0.5rem; color: #f39c12; font-weight: 600;">Immediato</span>
+                <!-- Step 4: Report e Consulenza -->
+                <div class="feature-card" style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; border: 2px solid #f39c12;">
+                    <div class="feature-icon" style="width: 70px; height: 70px; background: linear-gradient(135deg, #f39c12, #e67e22); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 1.5rem; box-shadow: 0 5px 20px rgba(243, 156, 18, 0.3);">
+                        📊
                     </div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: #f39c12;">Report e Consulenza</h3>
+                    <p style="color: #6c757d; line-height: 1.6; margin-bottom: 1rem;">
+                        Ricevi il report completo e una call di consulenza gratuita per discutere i prossimi passi.
+                    </p>
+                    <span style="display: inline-block; padding: 0.3rem 0.8rem; background: rgba(243, 156, 18, 0.1); color: #f39c12; font-weight: 600; border-radius: 20px; font-size: 0.9rem;">Immediato</span>
                 </div>
             </div>
         </div>
