@@ -98,8 +98,14 @@
             
             .services-grid,
             .reasons-grid,
-            .numbers-grid {
+            .numbers-grid,
+            .testimonials-grid {
                 grid-template-columns: 1fr !important;
+            }
+            
+            .company-content {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
             }
             
             .cta-benefits {
@@ -118,6 +124,17 @@
             
             .partners-grid {
                 gap: 1rem;
+            }
+            
+            .contact-form {
+                padding: 1.5rem !important;
+                margin: 0 1rem !important;
+                max-width: 90% !important;
+            }
+            
+            .form-row-2col {
+                grid-template-columns: 1fr !important;
+                gap: 0.5rem !important;
             }
         }
     </style>
@@ -172,8 +189,163 @@
         </div>
     </section>
 
+    <!-- Chi Siamo Section -->
+    <section id="chi-siamo" class="company-section" style="padding: 80px 0; background: white;">
+        <div class="container">
+            <div class="company-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+                <div class="company-text">
+                    <h2 class="section-title">Chi Siamo</h2>
+                    <p class="company-description" style="color: var(--medium-gray); line-height: 1.6; margin-bottom: 1.5rem;">
+                        Niuexa è una azienda specializzata in soluzioni di intelligenza artificiale all'avanguardia. 
+                        La nostra missione è creare efficienza trasformando il modo in cui le aziende operano attraverso l'implementazione 
+                        strategica di tecnologie AI innovative.
+                    </p>
+                    <p class="company-description" style="color: var(--medium-gray); line-height: 1.6; margin-bottom: 2rem;">
+                        Niuexa è controllata da Libera Brand Building Group, attiva da oltre 20 anni nel mercato della comunicazione digitale.
+                    </p>
+                    <div class="company-stats" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+                        <div class="stat" style="text-align: center;">
+                            <h3 style="font-family: var(--font-primary); color: var(--primary-blue); margin-bottom: 0.5rem;">25+ </h3>
+                            <p style="color: var(--medium-gray); margin: 0;">Progetti Completati</p>
+                        </div>
+                        <div class="stat" style="text-align: center;">
+                            <h3 style="font-family: var(--font-primary); color: var(--primary-blue); margin-bottom: 0.5rem;">99%</h3>
+                            <p style="color: var(--medium-gray); margin: 0;">Clienti Soddisfatti</p>
+                        </div>
+                        <div class="stat" style="text-align: center;">
+                            <h3 style="font-family: var(--font-primary); color: var(--primary-blue); margin-bottom: 0.5rem;">100%</h3>
+                            <p style="color: var(--medium-gray); margin: 0;">Soluzioni Personalizzate</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="company-visual">
+                    <div class="team-image" style="position: relative; border-radius: 20px; overflow: hidden;">
+                        <video playsinline autoplay muted loop class="team-photo" style="width: 100%; height: 300px; object-fit: cover; border-radius: 20px;">
+                            <source src="img/gregor_speach_webm.webm" type="video/webm">
+                            <track kind="captions" src="img/gregor_speach_webm.vtt" srclang="it" label="Italiano" default>
+                        </video>
+                        <div class="ceo-banner" style="position: absolute; bottom: 20px; left: 20px; background: rgba(0, 0, 0, 0.8); color: white; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.9rem;">
+                            <span class="ceo-text">Gregor Maric CEO Niuexa</span>
+                        </div>
+                        <div class="ai-video-banner" style="position: absolute; top: 20px; right: 20px; background: rgba(0, 204, 102, 0.9); color: white; padding: 0.3rem 0.8rem; border-radius: 6px; font-size: 0.8rem;">
+                            <span class="ai-badge">🎥 AI</span>
+                            <span class="ai-text">Image to Video AI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners-section" style="padding: 80px 0; background: var(--light-gray);">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 3rem;">I Nostri Partner</h2>
+            <div class="partners-grid" style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap;">
+                <figure class="partner-logo" style="display: flex; align-items: center; justify-content: center; opacity: 0.7; transition: opacity 0.3s;">
+                    <img src="img/logo_footer_libera.webp" alt="Libera Group - Partner strategico" loading="lazy" style="max-height: 60px; max-width: 120px;" />
+                </figure>
+                <figure class="partner-logo" style="display: flex; align-items: center; justify-content: center; opacity: 0.7; transition: opacity 0.3s;">
+                    <img src="img/microsoft.png" alt="Microsoft - Partner tecnologico" loading="lazy" style="max-height: 60px; max-width: 120px;" />
+                </figure>
+                <figure class="partner-logo" style="display: flex; align-items: center; justify-content: center; opacity: 0.7; transition: opacity 0.3s;">
+                    <img src="img/logo_footer_bebit.webp" alt="Bebit - Partner tecnologico" loading="lazy" style="max-height: 60px; max-width: 120px;" />
+                </figure>
+                <figure class="partner-logo" style="display: flex; align-items: center; justify-content: center; opacity: 0.7; transition: opacity 0.3s;">
+                    <img src="img/OpenAI_Logo.svg.png" alt="OpenAI - Partner AI" loading="lazy" style="max-height: 60px; max-width: 120px;" />
+                </figure>
+                <figure class="partner-logo" style="display: flex; align-items: center; justify-content: center; opacity: 0.7; transition: opacity 0.3s;">
+                    <img src="img/Google_Gemini_logo.svg.png" alt="Google Gemini - Partner AI" loading="lazy" style="max-height: 60px; max-width: 120px;" />
+                </figure>
+                <figure class="partner-logo" style="display: flex; align-items: center; justify-content: center; opacity: 0.7; transition: opacity 0.3s;">
+                    <img src="img/Anthropic_logo.svg.png" alt="Anthropic - Partner AI" loading="lazy" style="max-height: 60px; max-width: 120px;" />
+                </figure>
+                <figure class="partner-logo" style="display: flex; align-items: center; justify-content: center; opacity: 0.7; transition: opacity 0.3s;">
+                    <img src="img/crewai_plus_logo-1.webp" alt="CrewAI - Partner AI" loading="lazy" style="max-height: 60px; max-width: 120px;" />
+                </figure>
+                <figure class="partner-logo" style="display: flex; align-items: center; justify-content: center; opacity: 0.7; transition: opacity 0.3s;">
+                    <img src="img/elevenlabs-logo-black.png" alt="ElevenLabs - Partner AI" loading="lazy" style="max-height: 60px; max-width: 120px;" />
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Benefits Section -->
+    <section class="testimonials-section" style="padding: 80px 0; background: white;">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 2rem;">Perché Scegliere l'AI per la Tua Azienda</h2>
+            <div class="testimonials-intro" style="text-align: center; margin-bottom: 3rem;">
+                <p style="color: var(--medium-gray); font-size: 1.1rem;">Dati reali dal mercato che dimostrano il valore dell'intelligenza artificiale per le aziende</p>
+            </div>
+            <div class="testimonials-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+                <div class="testimonial-card" style="background: #f8f9fa; padding: 2rem; border-radius: 20px; text-align: center;">
+                    <div class="testimonial-content">
+                        <div class="testimonial-icon" style="font-size: 3rem; margin-bottom: 1rem;">📈</div>
+                        <h3 style="margin-bottom: 1rem; color: var(--dark-gray);">Produttività</h3>
+                        <p style="color: var(--medium-gray); line-height: 1.6; margin-bottom: 1.5rem;">Secondo McKinsey Global Institute, le aziende che implementano soluzioni AI vedono un aumento medio del 37% della produttività dei dipendenti, con risultati misurabili già nei primi 3 mesi.</p>
+                        <div class="testimonial-source" style="font-size: 0.9rem;">
+                            <p style="color: var(--medium-gray); margin: 0;"><strong>Fonte:</strong> McKinsey Global Institute 2024</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-results" style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 2rem;">
+                        <div class="result-item" style="text-align: center;">
+                            <span class="result-number" style="font-size: 1.8rem; font-weight: 700; color: var(--primary-green); display: block;">37%</span>
+                            <span class="result-label" style="font-size: 0.8rem; color: var(--medium-gray);">Aumento Produttività</span>
+                        </div>
+                        <div class="result-item" style="text-align: center;">
+                            <span class="result-number" style="font-size: 1.8rem; font-weight: 700; color: var(--primary-green); display: block;">3 mesi</span>
+                            <span class="result-label" style="font-size: 0.8rem; color: var(--medium-gray);">Primi Risultati</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card" style="background: #f8f9fa; padding: 2rem; border-radius: 20px; text-align: center;">
+                    <div class="testimonial-content">
+                        <div class="testimonial-icon" style="font-size: 3rem; margin-bottom: 1rem;">💰</div>
+                        <h3 style="margin-bottom: 1rem; color: var(--dark-gray);">ROI Superiore</h3>
+                        <p style="color: var(--medium-gray); line-height: 1.6; margin-bottom: 1.5rem;">Boston Consulting Group riporta che le aziende che investono in AI generativa ottengono un ritorno dell'investimento del 300% in media entro 18 mesi, con risparmi significativi sui costi operativi.</p>
+                        <div class="testimonial-source" style="font-size: 0.9rem;">
+                            <p style="color: var(--medium-gray); margin: 0;"><strong>Fonte:</strong> Boston Consulting Group 2024</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-results" style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 2rem;">
+                        <div class="result-item" style="text-align: center;">
+                            <span class="result-number" style="font-size: 1.8rem; font-weight: 700; color: var(--primary-green); display: block;">300%</span>
+                            <span class="result-label" style="font-size: 0.8rem; color: var(--medium-gray);">ROI Medio</span>
+                        </div>
+                        <div class="result-item" style="text-align: center;">
+                            <span class="result-number" style="font-size: 1.8rem; font-weight: 700; color: var(--primary-green); display: block;">18 mesi</span>
+                            <span class="result-label" style="font-size: 0.8rem; color: var(--medium-gray);">Tempo Recupero</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card" style="background: #f8f9fa; padding: 2rem; border-radius: 20px; text-align: center;">
+                    <div class="testimonial-content">
+                        <div class="testimonial-icon" style="font-size: 3rem; margin-bottom: 1rem;">🚀</div>
+                        <h3 style="margin-bottom: 1rem; color: var(--dark-gray);">Trend di Mercato</h3>
+                        <p style="color: var(--medium-gray); line-height: 1.6; margin-bottom: 1.5rem;">L'Osservatorio AI del Politecnico di Milano evidenzia che il 72% delle aziende italiane sta pianificando investimenti in AI nei prossimi 12 mesi, con un focus su automazione.</p>
+                        <div class="testimonial-source" style="font-size: 0.9rem;">
+                            <p style="color: var(--medium-gray); margin: 0;"><strong>Fonte:</strong> AI Politecnico Milano 2024</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-results" style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 2rem;">
+                        <div class="result-item" style="text-align: center;">
+                            <span class="result-number" style="font-size: 1.8rem; font-weight: 700; color: var(--primary-green); display: block;">72%</span>
+                            <span class="result-label" style="font-size: 0.8rem; color: var(--medium-gray);">Aziende Investono</span>
+                        </div>
+                        <div class="result-item" style="text-align: center;">
+                            <span class="result-number" style="font-size: 1.8rem; font-weight: 700; color: var(--primary-green); display: block;">12 mesi</span>
+                            <span class="result-label" style="font-size: 0.8rem; color: var(--medium-gray);">Piani di Investimento</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Services Section -->
-    <section id="services" class="services" style="padding: 80px 0; background: white;">
+    <section id="services" class="services" style="padding: 80px 0; background: var(--light-gray);">
         <div class="container">
             <div class="section-header" style="text-align: center; margin-bottom: 4rem;">
                 <h2 class="section-title">Le Nostre Soluzioni AI</h2>
@@ -184,21 +356,18 @@
                     <div class="service-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-blue), var(--primary-green)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">🧠</div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-gray);">Consulenza AI</h3>
                     <p style="color: var(--medium-gray); line-height: 1.6; margin-bottom: 1.5rem;">Analisi approfondita dei tuoi processi aziendali e implementazione di soluzioni AI su misura</p>
-                    <a href="consulting.html" class="service-link" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">Scopri di più →</a>
                 </div>
                 
                 <div class="service-card" style="background: #f8f9fa; padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
                     <div class="service-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-green), var(--primary-blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">🎓</div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-gray);">Formazione AI</h3>
                     <p style="color: var(--medium-gray); line-height: 1.6; margin-bottom: 1.5rem;">Corsi specializzati per formare il tuo team sull'utilizzo pratico dell'intelligenza artificiale</p>
-                    <a href="training.html" class="service-link" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">Scopri di più →</a>
                 </div>
                 
                 <div class="service-card" style="background: #f8f9fa; padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
                     <div class="service-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #9b59b6, #8e44ad); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">🤖</div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-gray);">Agenti AI Pronti all'Uso</h3>
                     <p style="color: var(--medium-gray); line-height: 1.6; margin-bottom: 1.5rem;">Agenti AI già sviluppati per marketing, vendite, messaggi vocali e ottimizzazione GEO/AEO</p>
-                    <a href="products.html" class="service-link" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">Scopri di più →</a>
                 </div>
             </div>
         </div>
@@ -231,11 +400,100 @@
                 </div>
             </div>
             
-            <div class="hero-buttons">
-                <a href="contatti.html" class="btn btn-primary btn-large">
-                    Inizia Ora
-                </a>
-            </div>
+            <!-- Contact Form -->
+            <form action="https://formcarry.com/s/N9GC802VNcW" method="POST" class="contact-form" accept-charset="UTF-8" style="max-width: 600px; margin: 0 auto; background: #FFFFFF; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);">
+                <h3 style="color: #000000; text-align: left; margin-bottom: 2rem; font-size: 1.8rem; font-weight: 600;">Contattaci</h3>
+                <!-- Nome e Cognome in 2 colonne -->
+                <div class="form-row-2col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                    <div>
+                        <label for="firstName" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Nome *</label>
+                        <input type="text" id="firstName" name="firstName" required placeholder="Mario" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                    </div>
+                    <div>
+                        <label for="lastName" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Cognome *</label>
+                        <input type="text" id="lastName" name="lastName" required placeholder="Rossi" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                    </div>
+                </div>
+
+                <!-- Email e Telefono in 2 colonne -->
+                <div class="form-row-2col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                    <div>
+                        <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Email Aziendale *</label>
+                        <input type="email" id="email" name="email" required placeholder="mario.rossi@azienda.com" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                    </div>
+                    <div>
+                        <label for="phone" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Telefono</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+39 02 1234567" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                    </div>
+                </div>
+
+                <!-- Azienda e Ruolo in 2 colonne -->
+                <div class="form-row-2col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                    <div>
+                        <label for="company" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Azienda *</label>
+                        <input type="text" id="company" name="company" required placeholder="Nome Azienda S.p.A." style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                    </div>
+                    <div>
+                        <label for="role" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Ruolo</label>
+                        <input type="text" id="role" name="role" placeholder="CEO, CTO, Manager, etc." style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 1rem;">
+                    <label for="service" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Servizio di Interesse *</label>
+                    <select id="service" name="service" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                        <option value="" style="color: #888888;">Seleziona un servizio</option>
+                        <option value="consulenza">Consulenza AI Strategica</option>
+                        <option value="formazione">Formazione AI per Team</option>
+                        <option value="sviluppo">Sviluppo Soluzioni AI Personalizzate</option>
+                        <option value="automazione">Automazione Processi</option>
+                        <option value="chatbot">Assistenti AI e Chatbot</option>
+                        <option value="analisi">Analisi Dati con AI</option>
+                        <option value="altro">Altro</option>
+                    </select>
+                </div>
+
+                <div style="margin-bottom: 1rem;">
+                    <label for="message" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Come possiamo aiutarti? *</label>
+                    <textarea id="message" name="message" rows="3" required placeholder="Descrivi le tue esigenze..." style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; resize: vertical;"></textarea>
+                </div>
+
+                <div style="margin-bottom: 1rem;">
+                    <label for="budget" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Budget Indicativo</label>
+                    <select id="budget" name="budget" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                        <option value="" style="color: #888888;">Seleziona un range</option>
+                        <option value="< 10k">Meno di €10.000</option>
+                        <option value="10k-25k">€10.000 - €25.000</option>
+                        <option value="25k-50k">€25.000 - €50.000</option>
+                        <option value="50k-100k">€50.000 - €100.000</option>
+                        <option value="> 100k">Oltre €100.000</option>
+                        <option value="da definire">Da definire</option>
+                    </select>
+                </div>
+
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.9rem; color: #666;">
+                        <input type="checkbox" name="privacy" required style="margin-top: 0.2rem;">
+                        <span>Ho letto e accetto la <a href="privacy-policy.html" target="_blank" style="color: var(--primary-blue); text-decoration: underline;">Privacy Policy</a> *</span>
+                    </label>
+                </div>
+
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.9rem; color: #666;">
+                        <input type="checkbox" name="newsletter" style="margin-top: 0.2rem;">
+                        <span>Desidero ricevere aggiornamenti e contenuti esclusivi sull'AI</span>
+                    </label>
+                </div>
+
+                <input type="hidden" name="_gotcha">
+
+                <button type="submit" style="width: 100%; padding: 1rem; font-size: 1rem; font-weight: 600; background: linear-gradient(135deg, var(--primary-blue), var(--primary-green)); color: #FFFFFF; border: none; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 10px;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(0, 102, 204, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                    Invia Richiesta
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                    </svg>
+                </button>
+            </form>
         </div>
     </section>
 
