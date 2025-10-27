@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8JW0S3PJKM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-8JW0S3PJKM');
+    </script>
+
+    <title>AI Certification - Validate Your Skills | Niuexa</title>
+    <meta name="description" content="Get official Niuexa certification in artificial intelligence. Demonstrate your skills and share your success with the professional world.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://niuexa.ai/en/certification.html">
+    <meta property="og:title" content="AI Certification - Validate Your Skills | Niuexa">
+    <meta property="og:description" content="Get official Niuexa certification in artificial intelligence. Demonstrate your skills and share your success with the professional world.">
+    <meta property="og:image" content="https://niuexa.ai/img/niuexa-certification.jpg">
+
+    <!-- X (Twitter) -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://niuexa.ai/en/certification.html">
+    <meta property="twitter:title" content="AI Certification - Validate Your Skills | Niuexa">
+    <meta property="twitter:description" content="Get official Niuexa certification in artificial intelligence. Demonstrate your skills and share your success with the professional world.">
+    <meta property="twitter:image" content="https://niuexa.ai/img/niuexa-certification.jpg">
+
+    <link rel="canonical" href="https://niuexa.ai/en/certification.html">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/img/favicon 256.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon 256.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon 256.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon 256.ico">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/certification.css">
+</head>
+<body>
+    <!-- Navigation will be loaded here -->
+    <div id="navigation-placeholder"></div>
+
+    <!-- Certification App Container -->
+    <div id="certification-app">
+
+        <!-- Welcome Screen -->
+        <section id="welcome-screen" class="certification-screen active">
+            <div class="container">
+                <div class="welcome-content">
+                    <div class="cert-hero">
+                        <h1 class="hero-title">Niuexa AI Certification</h1>
+                        <p class="hero-subtitle">Validate your artificial intelligence skills and earn the official Niuexa certificate</p>
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <span class="stat-number">5</span>
+                                <span class="stat-label">Available Tutorials</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">80%</span>
+                                <span class="stat-label">Passing Threshold</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">10</span>
+                                <span class="stat-label">Quiz Minutes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-selection">
+                        <h2>Choose Your Tutorial for Certification</h2>
+                        <div class="tutorials-grid">
+                            <!-- Tutorial options will be dynamically populated -->
+                        </div>
+                    </div>
+
+                    <div class="certification-benefits">
+                        <h3>Why Get Certified?</h3>
+                        <div class="benefits-grid">
+                            <div class="benefit-card">
+                                <div class="benefit-icon">✅</div>
+                                <h4>Validated Skills</h4>
+                                <p>Demonstrate your mastery of AI tools</p>
+                            </div>
+                            <div class="benefit-card">
+                                <div class="benefit-icon">📈</div>
+                                <h4>Professional Growth</h4>
+                                <p>Enhance your professional profile</p>
+                            </div>
+                            <div class="benefit-card">
+                                <div class="benefit-icon">🌐</div>
+                                <h4>Recognition</h4>
+                                <p>Share your success on social networks</p>
+                            </div>
+                            <div class="benefit-card">
+                                <div class="benefit-icon">🎯</div>
+                                <h4>Hands-On Practice</h4>
+                                <p>Quizzes based on real scenarios</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Screen -->
+        <section id="quiz-screen" class="certification-screen">
+            <div class="container">
+                <!-- Quiz Header -->
+                <div class="quiz-header">
+                    <nav class="quiz-breadcrumb">
+                        <button id="back-to-welcome" class="back-btn">Back to Selection</button>
+                    </nav>
+                    <div class="quiz-info">
+                        <h1 id="quiz-title">Tutorial Certification</h1>
+                        <div class="quiz-meta">
+                            <span id="quiz-duration">10 minutes</span>
+                            <span id="quiz-questions">10 questions</span>
+                            <span class="passing-score">80% to pass</span>
+                        </div>
+                    </div>
+
+                    <!-- Progress Bar -->
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                        <div class="progress-text">
+                            <span id="current-question">1</span> of <span id="total-questions">10</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quiz Content -->
+                <div class="quiz-content">
+                    <div class="question-container" id="question-container">
+                        <!-- Questions will be dynamically loaded here -->
+                    </div>
+
+                    <div class="quiz-navigation">
+                        <button id="prev-question" class="nav-btn secondary" disabled>Previous</button>
+                        <button id="next-question" class="nav-btn primary">Next</button>
+                        <button id="submit-quiz" class="nav-btn success" style="display: none;">Submit Quiz</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Registration Screen -->
+        <section id="registration-screen" class="certification-screen">
+            <div class="container">
+                <div class="registration-content">
+                    <div class="registration-header">
+                        <div class="success-icon">🎉</div>
+                        <h1>Congratulations!</h1>
+                        <p class="success-message">You have successfully passed the certification!</p>
+                        <div class="score-display">
+                            <span class="score-label">Your Score:</span>
+                            <span class="score-value" id="final-score">85%</span>
+                        </div>
+                    </div>
+
+                    <div class="registration-form-container">
+                        <h2>Get Your Certificate</h2>
+                        <p>Enter your details to generate the official certificate</p>
+
+                        <form id="certification-form" class="certification-form">
+                            <div class="form-group">
+                                <label for="full-name">Full Name *</label>
+                                <input type="text" id="full-name" name="fullName" required
+                                       placeholder="Your first and last name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required
+                                       placeholder="your.email@example.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="company">Company (optional)</label>
+                                <input type="text" id="company" name="company"
+                                       placeholder="Your company name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="linkedin">LinkedIn Profile (optional)</label>
+                                <input type="url" id="linkedin" name="linkedin"
+                                       placeholder="https://linkedin.com/in/yourprofile">
+                            </div>
+
+                            <div class="form-consent">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="consent" name="consent" required>
+                                    <span class="checkmark"></span>
+                                    I agree to receive communications about new Niuexa tutorials and certifications
+                                </label>
+                            </div>
+
+                            <button type="submit" class="generate-cert-btn">
+                                🏆 Generate My Certificate
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificate Screen -->
+        <section id="certificate-screen" class="certification-screen">
+            <div class="container">
+                <div class="certificate-content">
+                    <div class="certificate-header">
+                        <h1>Your Certificate is Ready!</h1>
+                        <p>Congratulations on successfully completing the certification</p>
+                    </div>
+
+                    <!-- Certificate Display -->
+                    <div class="certificate-display">
+                        <canvas id="certificate-canvas" width="800" height="600"></canvas>
+                    </div>
+
+                    <!-- Certificate Actions -->
+                    <div class="certificate-actions">
+                        <div class="primary-actions">
+                            <button id="download-certificate" class="action-btn primary">
+                                📥 Download Certificate
+                            </button>
+                            <button id="view-certificate" class="action-btn secondary">
+                                👁️ View Full Screen
+                            </button>
+                        </div>
+
+                        <div class="sharing-section">
+                            <h3>Share Your Success</h3>
+                            <div class="share-buttons">
+                                <button id="share-linkedin" class="share-btn linkedin">
+                                    Share on LinkedIn
+                                </button>
+                                <button id="share-twitter" class="share-btn twitter">
+                                    Share on X
+                                </button>
+                                <button id="share-whatsapp" class="share-btn whatsapp">
+                                    Share on WhatsApp
+                                </button>
+                                <button id="copy-certificate-link" class="share-btn copy">
+                                    Copy Certificate Link
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="next-steps">
+                            <h3>What's Next?</h3>
+                            <div class="next-actions">
+                                <a href="/en/impara.html" class="next-btn">
+                                    📚 Explore More Tutorials
+                                </a>
+                                <a href="/en/consulting.html" class="next-btn">
+                                    🚀 Request Personalized Consulting
+                                </a>
+                                <button id="take-another-quiz" class="next-btn">
+                                    🏆 Get Another Certification
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="/en/includes/navigation-en.js"></script>
+    <script src="/certification.js"></script>
+</body>
+</html>
