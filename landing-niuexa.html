@@ -387,42 +387,42 @@
                 <!-- Nome e Cognome in 2 colonne -->
                 <div class="form-row-2col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
                     <div>
-                        <label for="firstName" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Nome *</label>
-                        <input type="text" id="firstName" name="firstName" required placeholder="Mario" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                        <label for="firstName" class="landing-form-label">Nome *</label>
+                        <input type="text" id="firstName" name="firstName" required placeholder="Mario" class="landing-form-input">
                     </div>
                     <div>
-                        <label for="lastName" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Cognome *</label>
-                        <input type="text" id="lastName" name="lastName" required placeholder="Rossi" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                        <label for="lastName" class="landing-form-label">Cognome *</label>
+                        <input type="text" id="lastName" name="lastName" required placeholder="Rossi" class="landing-form-input">
                     </div>
                 </div>
 
                 <!-- Email e Telefono in 2 colonne -->
                 <div class="form-row-2col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
                     <div>
-                        <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Email Aziendale *</label>
-                        <input type="email" id="email" name="email" required placeholder="mario.rossi@azienda.com" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                        <label for="email" class="landing-form-label">Email Aziendale *</label>
+                        <input type="email" id="email" name="email" required placeholder="mario.rossi@azienda.com" class="landing-form-input">
                     </div>
                     <div>
-                        <label for="phone" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Telefono</label>
-                        <input type="tel" id="phone" name="phone" placeholder="+39 02 1234567" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                        <label for="phone" class="landing-form-label">Telefono</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+39 02 1234567" class="landing-form-input">
                     </div>
                 </div>
 
                 <!-- Azienda e Ruolo in 2 colonne -->
                 <div class="form-row-2col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
                     <div>
-                        <label for="company" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Azienda *</label>
-                        <input type="text" id="company" name="company" required placeholder="Nome Azienda S.p.A." style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                        <label for="company" class="landing-form-label">Azienda *</label>
+                        <input type="text" id="company" name="company" required placeholder="Nome Azienda S.p.A." class="landing-form-input">
                     </div>
                     <div>
-                        <label for="role" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Ruolo</label>
-                        <input type="text" id="role" name="role" placeholder="CEO, CTO, Manager, etc." style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                        <label for="role" class="landing-form-label">Ruolo</label>
+                        <input type="text" id="role" name="role" placeholder="CEO, CTO, Manager, etc." class="landing-form-input">
                     </div>
                 </div>
 
                 <div style="margin-bottom: 1rem;">
-                    <label for="service" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Servizio di Interesse *</label>
-                    <select id="service" name="service" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                    <label for="service" class="landing-form-label">Servizio di Interesse *</label>
+                    <select id="service" name="service" required class="landing-form-input">
                         <option value="" style="color: #888888;">Seleziona un servizio</option>
                         <option value="agente-vocale">Agente Vocale AI</option>
                         <option value="consulenza">Consulenza AI Strategica</option>
@@ -436,13 +436,13 @@
                 </div>
 
                 <div style="margin-bottom: 1rem;">
-                    <label for="message" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Come possiamo aiutarti? *</label>
-                    <textarea id="message" name="message" rows="3" required placeholder="Vorrei una demo dell'Agente Vendite AI..." style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; resize: vertical;"></textarea>
+                    <label for="message" class="landing-form-label">Come possiamo aiutarti? *</label>
+                    <textarea id="message" name="message" rows="3" required placeholder="Vorrei una demo dell'Agente Vendite AI..." class="landing-form-input" style="resize: vertical;"></textarea>
                 </div>
 
                 <div style="margin-bottom: 1rem;">
-                    <label for="budget" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333;">Budget Indicativo</label>
-                    <select id="budget" name="budget" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                    <label for="budget" class="landing-form-label">Budget Indicativo</label>
+                    <select id="budget" name="budget" class="landing-form-input">
                         <option value="" style="color: #888888;">Seleziona un range</option>
                         <option value="< 10k">Meno di €10.000</option>
                         <option value="10k-25k">€10.000 - €25.000</option>
@@ -454,14 +454,14 @@
                 </div>
 
                 <div style="margin-bottom: 1rem;">
-                    <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.9rem; color: #666;">
+                    <label class="landing-form-checkbox-label">
                         <input type="checkbox" name="privacy" required style="margin-right: 0.5rem;">
-                        <span>Ho letto e accetto la <a href="privacy-policy.html" target="_blank" style="color: var(--primary-blue); text-decoration: underline;">Privacy Policy</a> *</span>
+                        <span>Ho letto e accetto la <a href="privacy-policy.html" target="_blank" class="landing-form-privacy-link">Privacy Policy</a> *</span>
                     </label>
                 </div>
 
                 <div style="margin-bottom: 1rem;">
-                    <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.9rem; color: #666;">
+                    <label class="landing-form-checkbox-label">
                         <input type="checkbox" name="newsletter" style="margin-right: 0.5rem;">
                         <span>Desidero ricevere aggiornamenti e contenuti esclusivi sull'AI</span>
                     </label>
