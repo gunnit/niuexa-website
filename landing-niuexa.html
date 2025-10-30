@@ -50,13 +50,13 @@
     <style>
         /* Landing page specific styles */
         
-        /* Partners grid fallback */
+        /* Partners grid - 5 logos per row */
         .partners-grid {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
             gap: 2rem;
-            flex-wrap: wrap;
+            align-items: center;
+            justify-items: center;
         }
         
         .partner-logo {
@@ -246,10 +246,6 @@
                 <figure class="partner-logo">
                     <img src="img/langchain-logo.png" alt="LangChain - Partner AI" loading="lazy" />
                     <figcaption>LangChain</figcaption>
-                </figure>
-                <figure class="partner-logo">
-                    <img src="img/automa-logo.png" alt="Automa - Partner AI" loading="lazy" />
-                    <figcaption>Automa</figcaption>
                 </figure>
             </div>
         </div>
