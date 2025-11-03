@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KG9S42S4');</script>
+    <!-- End Google Tag Manager -->
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8JW0S3PJKM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-8JW0S3PJKM');
+    </script>
+    
+    <!-- SEO Meta Tags -->
+    <title>Grazie per il Tuo Messaggio | Niuexa - Consulenza AI</title>
+    <meta name="description" content="Grazie per averci contattato! Il team Niuexa ha ricevuto il tuo messaggio e ti risponderà a breve. Scopri le nostre soluzioni AI per la tua azienda.">
+    <meta name="keywords" content="grazie, contatto ricevuto, Niuexa, consulenza AI, intelligenza artificiale">
+    <meta name="author" content="Niuexa">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Grazie per il Tuo Messaggio | Niuexa">
+    <meta property="og:description" content="Il team Niuexa ha ricevuto il tuo messaggio e ti risponderà a breve per discutere delle tue esigenze AI.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://niuexa.ai/thank-you-page">
+    <meta property="og:image" content="https://niuexa.ai/img/niuexalogo.png">
+    <meta property="og:site_name" content="Niuexa">
+    <meta property="og:locale" content="it_IT">
+    
+    <!-- X (Twitter) Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Grazie per il Tuo Messaggio | Niuexa">
+    <meta name="twitter:description" content="Il team Niuexa ha ricevuto il tuo messaggio e ti risponderà a breve.">
+    <meta name="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://niuexa.ai/thank-you-page">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="img/favicon 256.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon 256.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon 256.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon 256.ico">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Thank You Page Specific Styles -->
+    <style>
+        .thank-you-section {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--section-padding);
+            background: var(--gradient-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .thank-you-container {
+            text-align: center;
+            max-width: 600px;
+            padding: 3rem;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .thank-you-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            animation: bounce 2s infinite;
+        }
+
+        .thank-you-title {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            font-family: var(--font-primary);
+            font-weight: 700;
+        }
+
+        .thank-you-message {
+            font-size: 1.2rem;
+            color: var(--medium-gray);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .thank-you-cta {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--gradient-primary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition-fast);
+            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+        }
+
+        .thank-you-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 102, 204, 0.4);
+            text-decoration: none;
+            color: var(--white);
+        }
+
+        .thank-you-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .floating-shape {
+            position: absolute;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-shape:nth-child(1) {
+            width: 60px;
+            height: 60px;
+            top: 20%;
+            left: 10%;
+            animation-delay: -1s;
+        }
+
+        .floating-shape:nth-child(2) {
+            width: 40px;
+            height: 40px;
+            top: 60%;
+            right: 15%;
+            animation-delay: -3s;
+        }
+
+        .floating-shape:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            bottom: 30%;
+            left: 15%;
+            animation-delay: -2s;
+        }
+
+        .floating-shape:nth-child(4) {
+            width: 30px;
+            height: 30px;
+            top: 30%;
+            right: 30%;
+            animation-delay: -4s;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .thank-you-container {
+                margin: 0 1rem;
+                padding: 2rem;
+            }
+
+            .thank-you-title {
+                font-size: 2rem;
+            }
+
+            .thank-you-message {
+                font-size: 1.1rem;
+            }
+
+            .thank-you-icon {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9S42S4"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <!-- Skip Navigation for Accessibility -->
+    <a href="#main-content" class="skip-nav">Vai sul contenuto principale</a>
+    
+    <!-- Navigation Placeholder -->
+    <div id="nav-placeholder"></div>
+
+    <!-- Thank You Section -->
+    <main id="main-content">
+        <section class="thank-you-section">
+            <div class="thank-you-background">
+                <div class="floating-shapes">
+                    <div class="floating-shape"></div>
+                    <div class="floating-shape"></div>
+                    <div class="floating-shape"></div>
+                    <div class="floating-shape"></div>
+                </div>
+            </div>
+            
+            <div class="thank-you-container">
+                <span class="thank-you-icon">✅</span>
+                <h1 class="thank-you-title">Grazie per averci contattato!</h1>
+                <p class="thank-you-message">
+                    Abbiamo ricevuto il tuo messaggio e ti risponderemo a breve.
+                </p>
+                <a href="https://niuexa.ai/" class="thank-you-cta">
+                    Torna alla home
+                </a>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <script src="script.js"></script>
+    <script src="includes/includes.js"></script>
+    <script src="cookie-banner.js"></script>
+</body>
+</html>
