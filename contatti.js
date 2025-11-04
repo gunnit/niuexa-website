@@ -37,10 +37,8 @@ function initContactForm() {
             const formData = new FormData(form);
             const response = await fetch(form.action, {
                 method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
+                body: formData
+                // Let browser auto-set Content-Type for FormData
             });
 
             if (response.ok) {

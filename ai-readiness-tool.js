@@ -41,10 +41,8 @@ function initAIReadinessForm() {
 
             const response = await fetch(form.action, {
                 method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
+                body: formData
+                // Let browser auto-set Content-Type for FormData
             });
 
             console.log('AI Readiness Form - Response status:', response.status);
