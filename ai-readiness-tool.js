@@ -35,6 +35,10 @@ function initAIReadinessForm() {
         try {
             // Submit form data to Formcarry
             const formData = new FormData(form);
+
+            console.log('AI Readiness Form - Submitting to:', form.action);
+            console.log('AI Readiness Form - Data:', Object.fromEntries(formData));
+
             const response = await fetch(form.action, {
                 method: 'POST',
                 body: formData,
@@ -43,7 +47,12 @@ function initAIReadinessForm() {
                 }
             });
 
+            console.log('AI Readiness Form - Response status:', response.status);
+            console.log('AI Readiness Form - Response OK:', response.ok);
+
             if (response.ok) {
+                console.log('AI Readiness Form - Submitted successfully to Formcarry');
+
                 // Track conversion event
                 if (typeof gtag !== 'undefined') {
                     gtag('event', 'form_submit', {
@@ -55,6 +64,8 @@ function initAIReadinessForm() {
                 // Redirect to AI Readiness thank you page
                 window.location.href = 'thank-you-ai-readiness.html';
             } else {
+                const errorData = await response.text();
+                console.error('AI Readiness Form - Formcarry response error:', errorData);
                 throw new Error('Errore nell\'invio del modulo');
             }
         } catch (error) {
