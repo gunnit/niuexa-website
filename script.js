@@ -281,24 +281,42 @@ function initContactForm() {
 // Form validation
 function validateForm(data) {
     const errors = [];
-    
-    if (!data.name || data.name.trim().length < 2) {
-        errors.push('Please enter a valid name');
+
+    // Check firstName and lastName (homepage form)
+    if (data.firstName !== undefined) {
+        if (!data.firstName || data.firstName.trim().length < 2) {
+            errors.push('Per favore inserisci un nome valido');
+        }
+        if (!data.lastName || data.lastName.trim().length < 2) {
+            errors.push('Per favore inserisci un cognome valido');
+        }
+        if (!data.company || data.company.trim().length < 2) {
+            errors.push('Per favore inserisci il nome dell\'azienda');
+        }
+        if (!data.service) {
+            errors.push('Per favore seleziona un servizio');
+        }
     }
-    
+    // Check name field (other forms)
+    else if (data.name !== undefined) {
+        if (!data.name || data.name.trim().length < 2) {
+            errors.push('Per favore inserisci un nome valido');
+        }
+    }
+
     if (!data.email || !isValidEmail(data.email)) {
-        errors.push('Please enter a valid email address');
+        errors.push('Per favore inserisci un indirizzo email valido');
     }
-    
+
     if (!data.message || data.message.trim().length < 10) {
-        errors.push('Please enter a message with at least 10 characters');
+        errors.push('Per favore inserisci un messaggio di almeno 10 caratteri');
     }
-    
+
     if (errors.length > 0) {
         showMessage(errors.join('<br>'), 'error');
         return false;
     }
-    
+
     return true;
 }
 
@@ -314,41 +332,55 @@ function validateField(field) {
     const fieldName = field.name || field.id;
     let isValid = true;
     let errorMessage = '';
-    
+
     // Clear previous errors
     clearFieldError(field);
-    
+
     switch (fieldName) {
         case 'name':
+        case 'firstName':
+        case 'lastName':
             if (!value || value.length < 2) {
                 isValid = false;
-                errorMessage = 'Please enter a valid name (at least 2 characters)';
+                errorMessage = 'Per favore inserisci almeno 2 caratteri';
+            }
+            break;
+        case 'company':
+            if (!value || value.length < 2) {
+                isValid = false;
+                errorMessage = 'Per favore inserisci il nome dell\'azienda';
+            }
+            break;
+        case 'service':
+            if (!value) {
+                isValid = false;
+                errorMessage = 'Per favore seleziona un servizio';
             }
             break;
         case 'email':
             if (!value || !isValidEmail(value)) {
                 isValid = false;
-                errorMessage = 'Please enter a valid email address';
+                errorMessage = 'Per favore inserisci un indirizzo email valido';
             }
             break;
         case 'message':
             if (!value || value.length < 10) {
                 isValid = false;
-                errorMessage = 'Please enter a message with at least 10 characters';
+                errorMessage = 'Per favore inserisci almeno 10 caratteri';
             }
             break;
         case 'phone':
             if (value && !isValidPhone(value)) {
                 isValid = false;
-                errorMessage = 'Please enter a valid phone number';
+                errorMessage = 'Per favore inserisci un numero di telefono valido';
             }
             break;
     }
-    
+
     if (!isValid) {
         showFieldError(field, errorMessage);
     }
-    
+
     return isValid;
 }
 
