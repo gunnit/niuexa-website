@@ -194,12 +194,12 @@ function initServiceCards() {
 
 // Contact form functionality
 function initContactForm() {
-    const contactForm = document.getElementById('contactForm');
-    
+    const contactForm = document.querySelector('.contact-form');
+
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
+
             // Show loading state
             const submitButton = this.querySelector('button[type="submit"]');
             const originalText = submitButton ? submitButton.textContent : '';
@@ -208,47 +208,51 @@ function initContactForm() {
                 submitButton.textContent = 'Sending...';
                 submitButton.setAttribute('aria-busy', 'true');
             }
-            
+
             // Get form data
             const formData = new FormData(this);
             const formObject = {};
             formData.forEach((value, key) => {
                 formObject[key] = value;
             });
-            
+
             // Validate form
             if (validateForm(formObject)) {
-                // Simulate form submission delay
-                setTimeout(() => {
-                    try {
-                        // Show success message
-                        showMessage('Thank you for your message! We will get back to you soon.', 'success');
-                        
-                        // Reset form
-                        this.reset();
-                        
-                        // In a real application, you would send the data to a server
-                        console.log('Form submitted:', formObject);
-                        
-                        // Reset button
-                        if (submitButton) {
-                            submitButton.disabled = false;
-                            submitButton.textContent = originalText;
-                            submitButton.removeAttribute('aria-busy');
+                try {
+                    // Submit form data to Formcarry
+                    const response = await fetch(this.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
                         }
-                        
-                    } catch (error) {
-                        console.error('Form submission error:', error);
-                        showMessage('There was an error sending your message. Please try again.', 'error');
-                        
-                        // Reset button
-                        if (submitButton) {
-                            submitButton.disabled = false;
-                            submitButton.textContent = originalText;
-                            submitButton.removeAttribute('aria-busy');
+                    });
+
+                    if (response.ok) {
+                        // Track conversion event
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'form_submit', {
+                                'event_category': 'Contact',
+                                'event_label': 'Homepage Contact Form'
+                            });
                         }
+
+                        // Redirect to thank you page
+                        window.location.href = 'thank-you-page.html';
+                    } else {
+                        throw new Error('Form submission failed');
                     }
-                }, 1000);
+                } catch (error) {
+                    console.error('Form submission error:', error);
+                    showMessage('There was an error sending your message. Please try again.', 'error');
+
+                    // Reset button
+                    if (submitButton) {
+                        submitButton.disabled = false;
+                        submitButton.textContent = originalText;
+                        submitButton.removeAttribute('aria-busy');
+                    }
+                }
             } else {
                 // Reset button on validation error
                 if (submitButton) {
