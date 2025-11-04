@@ -1,14 +1,13 @@
-// Contact Page JavaScript
+// AI Readiness Tool Form Handler
 
 document.addEventListener('DOMContentLoaded', function() {
-    initContactForm();
+    initAIReadinessForm();
     initFormValidation();
-    initSmoothScroll();
 });
 
-// Initialize contact form
-function initContactForm() {
-    const form = document.querySelector('.contact-form');
+// Initialize AI Readiness form
+function initAIReadinessForm() {
+    const form = document.querySelector('.ai-readiness-form');
 
     if (!form) return;
 
@@ -24,10 +23,11 @@ function initContactForm() {
         }
 
         // Show loading state
-        submitButton.classList.add('loading');
+        submitButton.style.opacity = '0.7';
+        submitButton.style.cursor = 'not-allowed';
         submitButton.innerHTML = `
             Invio in corso...
-            <svg class="submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg style="animation: spin 1s linear infinite;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="12" cy="12" r="10"/>
             </svg>
         `;
@@ -47,13 +47,13 @@ function initContactForm() {
                 // Track conversion event
                 if (typeof gtag !== 'undefined') {
                     gtag('event', 'form_submit', {
-                        'event_category': 'Contact',
-                        'event_label': 'Contact Form'
+                        'event_category': 'AI Readiness Tool',
+                        'event_label': 'AI Readiness Form'
                     });
                 }
 
-                // Redirect to thank you page
-                window.location.href = 'thank-you-page.html';
+                // Redirect to AI Readiness thank you page
+                window.location.href = 'thank-you-ai-readiness.html';
             } else {
                 throw new Error('Errore nell\'invio del modulo');
             }
@@ -61,9 +61,10 @@ function initContactForm() {
             // Show error message
             showMessage('error', 'Si è verificato un errore. Per favore riprova o contattaci direttamente.');
             console.error('Form submission error:', error);
-        } finally {
+
             // Reset button state
-            submitButton.classList.remove('loading');
+            submitButton.style.opacity = '1';
+            submitButton.style.cursor = 'pointer';
             submitButton.innerHTML = originalButtonText;
         }
     });
@@ -80,7 +81,15 @@ function validateForm(form) {
     });
 
     requiredFields.forEach(field => {
-        if (!field.value.trim()) {
+        if (field.type === 'checkbox') {
+            if (!field.checked) {
+                field.parentElement.classList.add('error');
+                field.parentElement.style.color = '#dc3545';
+                isValid = false;
+            }
+        } else if (!field.value.trim()) {
+            field.style.borderColor = '#dc3545';
+            field.style.backgroundColor = '#fff5f5';
             field.classList.add('error');
             isValid = false;
         }
@@ -89,27 +98,24 @@ function validateForm(form) {
         if (field.type === 'email' && field.value) {
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailPattern.test(field.value)) {
+                field.style.borderColor = '#dc3545';
+                field.style.backgroundColor = '#fff5f5';
                 field.classList.add('error');
                 isValid = false;
             }
         }
 
-        // Phone validation (optional field)
-        if (field.type === 'tel' && field.value) {
-            const phonePattern = /^[\d\s\+\-\(\)]+$/;
-            if (!phonePattern.test(field.value)) {
+        // URL validation (optional field)
+        if (field.type === 'url' && field.value) {
+            const urlPattern = /^https?:\/\/.+\..+/;
+            if (!urlPattern.test(field.value)) {
+                field.style.borderColor = '#dc3545';
+                field.style.backgroundColor = '#fff5f5';
                 field.classList.add('error');
                 isValid = false;
             }
         }
     });
-
-    // Check privacy checkbox
-    const privacyCheckbox = form.querySelector('input[name="privacy"]');
-    if (!privacyCheckbox.checked) {
-        privacyCheckbox.parentElement.classList.add('error');
-        isValid = false;
-    }
 
     if (!isValid) {
         showMessage('error', 'Per favore compila tutti i campi obbligatori correttamente.');
@@ -120,7 +126,7 @@ function validateForm(form) {
 
 // Initialize real-time form validation
 function initFormValidation() {
-    const form = document.querySelector('.contact-form');
+    const form = document.querySelector('.ai-readiness-form');
     if (!form) return;
 
     const inputs = form.querySelectorAll('input, select, textarea');
@@ -128,9 +134,11 @@ function initFormValidation() {
     inputs.forEach(input => {
         // Remove error on focus
         input.addEventListener('focus', function() {
+            this.style.borderColor = '#e0e0e0';
+            this.style.backgroundColor = 'white';
             this.classList.remove('error');
-            if (this.parentElement.classList.contains('checkbox-label')) {
-                this.parentElement.classList.remove('error');
+            if (this.parentElement.style) {
+                this.parentElement.style.color = '#343A40';
             }
         });
 
@@ -153,7 +161,9 @@ function initFormValidation() {
 // Validate individual field
 function validateField(field) {
     // Required field validation
-    if (field.hasAttribute('required') && !field.value.trim()) {
+    if (field.hasAttribute('required') && !field.value.trim() && field.type !== 'checkbox') {
+        field.style.borderColor = '#dc3545';
+        field.style.backgroundColor = '#fff5f5';
         field.classList.add('error');
         return false;
     }
@@ -162,20 +172,26 @@ function validateField(field) {
     if (field.type === 'email' && field.value) {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailPattern.test(field.value)) {
+            field.style.borderColor = '#dc3545';
+            field.style.backgroundColor = '#fff5f5';
             field.classList.add('error');
             return false;
         }
     }
 
-    // Phone validation
-    if (field.type === 'tel' && field.value) {
-        const phonePattern = /^[\d\s\+\-\(\)]+$/;
-        if (!phonePattern.test(field.value)) {
+    // URL validation
+    if (field.type === 'url' && field.value) {
+        const urlPattern = /^https?:\/\/.+\..+/;
+        if (!urlPattern.test(field.value)) {
+            field.style.borderColor = '#dc3545';
+            field.style.backgroundColor = '#fff5f5';
             field.classList.add('error');
             return false;
         }
     }
 
+    field.style.borderColor = '#e0e0e0';
+    field.style.backgroundColor = 'white';
     field.classList.remove('error');
     return true;
 }
@@ -191,6 +207,18 @@ function showMessage(type, message) {
     // Create message element
     const messageDiv = document.createElement('div');
     messageDiv.className = `form-message ${type}`;
+    messageDiv.style.cssText = `
+        padding: 1rem 1.5rem;
+        margin-bottom: 1.5rem;
+        border-radius: 8px;
+        font-family: 'Inter', sans-serif;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        animation: slideDown 0.3s ease;
+        ${type === 'success' ? 'background: #d4edda; color: #155724; border: 1px solid #c3e6cb;' : 'background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb;'}
+    `;
 
     const icon = type === 'success' ? '✅' : '❌';
     messageDiv.innerHTML = `
@@ -198,14 +226,14 @@ function showMessage(type, message) {
         <span>${message}</span>
     `;
 
-    // Insert message
-    const formColumn = document.querySelector('.form-column');
-    const formHeader = document.querySelector('.form-header');
-    formColumn.insertBefore(messageDiv, formHeader.nextSibling);
+    // Insert message at top of form
+    const form = document.querySelector('.ai-readiness-form');
+    form.insertBefore(messageDiv, form.firstChild);
 
     // Auto-remove message after 10 seconds
     setTimeout(() => {
         messageDiv.style.opacity = '0';
+        messageDiv.style.transition = 'opacity 0.3s ease';
         setTimeout(() => messageDiv.remove(), 300);
     }, 10000);
 
@@ -213,40 +241,16 @@ function showMessage(type, message) {
     messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
-// Initialize smooth scroll for internal links
-function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-}
-
-// Add CSS for error states dynamically
+// Add CSS animation for spinning loader
 const style = document.createElement('style');
 style.textContent = `
-    .form-group input.error,
-    .form-group select.error,
-    .form-group textarea.error {
-        border-color: #dc3545;
-        background-color: #fff5f5;
-    }
-
-    .checkbox-label.error {
-        color: #dc3545;
-    }
-
-    .form-message {
-        animation: slideDown 0.3s ease;
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
     }
 
     @keyframes slideDown {
