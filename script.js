@@ -225,8 +225,11 @@ function initContactForm() {
 
                     const response = await fetch(this.action, {
                         method: 'POST',
-                        body: formData
-                        // Let browser auto-set Content-Type for FormData
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                        // Content-Type auto-set by browser for FormData
                     });
 
                     console.log('Response status:', response.status);
