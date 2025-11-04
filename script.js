@@ -220,6 +220,9 @@ function initContactForm() {
             if (validateForm(formObject)) {
                 try {
                     // Submit form data to Formcarry
+                    console.log('Submitting to:', this.action);
+                    console.log('Form data:', formObject);
+
                     const response = await fetch(this.action, {
                         method: 'POST',
                         body: formData,
@@ -228,7 +231,12 @@ function initContactForm() {
                         }
                     });
 
+                    console.log('Response status:', response.status);
+                    console.log('Response OK:', response.ok);
+
                     if (response.ok) {
+                        console.log('Form submitted successfully to Formcarry');
+
                         // Track conversion event
                         if (typeof gtag !== 'undefined') {
                             gtag('event', 'form_submit', {
@@ -240,6 +248,8 @@ function initContactForm() {
                         // Redirect to thank you page
                         window.location.href = 'thank-you-page.html';
                     } else {
+                        const errorData = await response.text();
+                        console.error('Formcarry response error:', errorData);
                         throw new Error('Form submission failed');
                     }
                 } catch (error) {
