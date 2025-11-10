@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initContactForm();
     initServiceCards();
     hideElevenLabsBranding();
-    initFormcarryRedirection();
 });
 
 // Function to hide ElevenLabs branding
@@ -664,22 +663,3 @@ const lazyAnimationObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('section').forEach(section => {
     lazyAnimationObserver.observe(section);
 });
-
-// Formcarry form redirection functionality
-function initFormcarryRedirection() {
-    // Find all forms that use Formcarry
-    const formcarryForms = document.querySelectorAll('form[action*="formcarry.com"]');
-    
-    formcarryForms.forEach(form => {
-        // Check if redirect field already exists to avoid duplicates
-        const existingRedirect = form.querySelector('input[name="_redirect"]');
-        if (!existingRedirect) {
-            // Add redirect field immediately when page loads, not on submit
-            const redirectField = document.createElement('input');
-            redirectField.type = 'hidden';
-            redirectField.name = '_redirect';
-            redirectField.value = 'https://niuexa.ai/thank-you-page';
-            form.appendChild(redirectField);
-        }
-    });
-}
