@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
             {
                 id: 1,
                 title: "RENDI PIÙ EFFICIENTE LA TUA AZIENDA CON L'AI",
-                date: new Date('2025-12-03'),
+                date: new Date('2026-01-28'),
                 time: "17:30 - 20:00",
                 location: "Via Rutilia, 10 - 20141 Milano",
                 description: "Scopri come l'intelligenza artificiale può trasformare ogni aspetto della tua attività, dalla gestione dei dati alla comunicazione con i clienti. Impara a ottimizzare i processi aziendali e a raggiungere i tuoi obiettivi in modo più rapido e intelligente.",
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
             {
                 id: 2,
                 title: "RENDI PIÙ EFFICIENTE LA TUA AZIENDA CON L'AI",
-                date: new Date('2025-12-04'),
+                date: new Date('2026-01-27'),
                 time: "17:30 - 20:00",
                 location: "Via Vittorio Andreis, 18/16/M - 10152 Torino",
                 description: "Scopri come l'intelligenza artificiale può trasformare ogni aspetto della tua attività, dalla gestione dei dati alla comunicazione con i clienti. Impara a ottimizzare i processi aziendali e a raggiungere i tuoi obiettivi in modo più rapido e intelligente.",
