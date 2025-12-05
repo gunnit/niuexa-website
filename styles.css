@@ -2598,6 +2598,24 @@ button[aria-busy="true"]::after {
     color: var(--medium-gray);
 }
 
+.footer-bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-copyright {
+    margin: 0;
+    text-align: left;
+}
+
+.footer-company {
+    margin: 0;
+    text-align: right;
+}
+
 /* Animations */
 @keyframes fadeInUp {
     from {
@@ -2989,6 +3007,16 @@ button[aria-busy="true"]::after {
     .footer-bottom {
         font-size: 0.8rem;
         line-height: 1.4;
+    }
+    
+    .footer-bottom-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .footer-copyright, .footer-company {
+        text-align: center;
     }
     
     .footer-disclaimer {
