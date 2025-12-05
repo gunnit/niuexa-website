@@ -105,7 +105,10 @@ const footerHTML = `
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Niuexa. Tutti i diritti riservati.</p>
+            <div class="footer-bottom-content">
+                <p class="footer-copyright">&copy; 2024 Niuexa. Tutti i diritti riservati.</p>
+                <p class="footer-company">Niuexa è una BU di Bebit Srl - P.I. 1121570019</p>
+            </div>
         </div>
     </div>
 </footer>
