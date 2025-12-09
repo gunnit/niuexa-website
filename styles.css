@@ -2536,6 +2536,134 @@ button[aria-busy="true"]::after {
     }
 }
 
+/* AEO Banner */
+.aeo-banner {
+    background: var(--gradient-primary);
+    padding: 1rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.aeo-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+}
+
+.aeo-banner-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.aeo-banner-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.aeo-banner-text {
+    flex: 1;
+}
+
+.aeo-banner-title {
+    font-family: var(--font-primary);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.aeo-highlight {
+    background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 900;
+}
+
+.aeo-banner-subtitle {
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.95);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.aeo-banner-cta {
+    flex-shrink: 0;
+}
+
+.aeo-banner-btn {
+    display: inline-block;
+    background: var(--white);
+    color: var(--primary-blue);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: var(--transition-fast);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.aeo-banner-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: var(--light-gray);
+}
+
+/* Responsive Design for AEO Banner */
+@media (max-width: 768px) {
+    .aeo-banner-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .aeo-banner-title {
+        font-size: 1.2rem;
+    }
+    
+    .aeo-banner-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .aeo-banner-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .aeo-banner {
+        padding: 0.75rem 0;
+    }
+    
+    .aeo-banner-title {
+        font-size: 1.1rem;
+    }
+    
+    .aeo-banner-subtitle {
+        font-size: 0.85rem;
+    }
+}
+
 /* Footer */
 .footer {
     background: var(--dark-gray);
