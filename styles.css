@@ -2539,9 +2539,10 @@ button[aria-busy="true"]::after {
 /* AEO Banner */
 .aeo-banner {
     background: var(--gradient-primary);
-    padding: 1rem 0;
+    padding: 2rem 0;
     position: relative;
     overflow: hidden;
+    margin: 2rem 0;
 }
 
 .aeo-banner::before {
@@ -2652,7 +2653,8 @@ button[aria-busy="true"]::after {
 
 @media (max-width: 480px) {
     .aeo-banner {
-        padding: 0.75rem 0;
+        padding: 1.5rem 0;
+        margin: 1.5rem 0;
     }
     
     .aeo-banner-title {
