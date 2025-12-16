@@ -6,7 +6,7 @@ const navigationHTML = `
         <div class="nav-logo">
             <a href="index.html">
                 <div class="logo-container">
-                    <img src="img/pictogram_blue_transparent.png" alt="Niuexa" class="logo-icon">
+                    <img src="img/niuexa_colori.png" alt="Niuexa" class="logo-icon">
                     <div class="logo-text">
                         <div class="logo-title">NIUEXA</div>
                         <span class="logo-tagline">Dall'AI al ROI.</span>
