@@ -227,7 +227,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
     margin: 0;
     line-height: 1;
-    opacity: 0.8;
+    /* opacity: 0.8; --> */
 }
 
 .nav-logo a {
@@ -5653,5 +5653,6 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
         max-width: 300px;
     }
 }
+
 
 
