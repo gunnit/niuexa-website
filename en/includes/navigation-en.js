@@ -9,7 +9,7 @@ const navigationHTML = `
                     <img src="/img/pictogram_blue_transparent.png" alt="Niuexa" class="logo-icon">
                     <div class="logo-text">
                         <div class="logo-title">NIUEXA</div>
-                        <span class="logo-tagline">From AI to ROI.</span>
+                        <span class="logo-tagline">AI Solutions</span>
                     </div>
                 </div>
             </a>
