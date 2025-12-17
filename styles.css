@@ -222,7 +222,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .logo-tagline {
     font-size: 0.9rem;
-    color: var(--primary-blue);
+    color: #2665ae;
     font-weight: 500;
     margin: 0;
     line-height: 1;
@@ -5652,3 +5652,4 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
         max-width: 300px;
     }
 }
+
