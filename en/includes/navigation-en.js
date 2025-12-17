@@ -105,7 +105,10 @@ const footerHTML = `
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Niuexa. All rights reserved.</p>
+            <div class="footer-bottom-content">
+                <p class="footer-copyright">&copy; 2024 Niuexa. All rights reserved.</p>
+                <p class="footer-company">Niuexa is a Business Unit of Bebit Srl - VAT 1121570019</p>
+            </div>
         </div>
     </div>
 </footer>
