@@ -10,6 +10,7 @@
     --primary-blue: #0066CC;
     --dark-blue: #004499;
     --light-blue: #E6F3FF;
+    --logo-blue: #2665AE;
     --primary-green: #00CC66;
     --dark-green: #009944;
     --light-green: #E6FFE6;
@@ -222,7 +223,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .logo-tagline {
     font-size: 0.9rem;
-    color: #2665ae;
+    color: var(--logo-blue); 
     font-weight: 500;
     margin: 0;
     line-height: 1;
@@ -5652,4 +5653,5 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
         max-width: 300px;
     }
 }
+
 
