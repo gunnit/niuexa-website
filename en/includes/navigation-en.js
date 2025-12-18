@@ -106,6 +106,7 @@ const footerHTML = `
         </div>
         <div class="footer-bottom">
             <p>&copy; 2024 Niuexa. All rights reserved.</p>
+            <p class="footer-company">Niuexa is a BU of Bebit - V.N. 1121570019</p>
         </div>
     </div>
 </footer>
