@@ -4,7 +4,9 @@
       "Bash(curl:*)",
       "Bash(openssl s_client:*)",
       "WebSearch",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": [],
