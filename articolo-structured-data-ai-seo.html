@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KG9S42S4');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8JW0S3PJKM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-8JW0S3PJKM');
+    </script>
+
+    <title>Structured Data per AI SEO: Guida Tecnica Avanzata 2025</title>
+    <meta name="description" content="Guida tecnica completa all'implementazione di schema markup per ottimizzare i contenuti per ChatGPT, Perplexity, Claude e Google AI Overviews. Esempi di codice e best practice.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://niuexa.ai/articolo-structured-data-ai-seo.html">
+    <meta property="og:title" content="Structured Data per AI SEO: Guida Tecnica Avanzata al Schema Markup">
+    <meta property="og:description" content="Implementazione avanzata di schema markup per essere citati dalle piattaforme AI. Esempi di codice JSON-LD, best practice e audit checklist.">
+    <meta property="og:image" content="https://niuexa.ai/img/articolo-structured-data.jpg">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://niuexa.ai/articolo-structured-data-ai-seo.html">
+    <meta property="twitter:title" content="Structured Data per AI SEO: Guida Tecnica Avanzata al Schema Markup">
+    <meta property="twitter:description" content="Implementazione avanzata di schema markup per essere citati dalle piattaforme AI. Esempi di codice JSON-LD, best practice e audit checklist.">
+    <meta property="twitter:image" content="https://niuexa.ai/img/articolo-structured-data.jpg">
+
+    <link rel="canonical" href="https://niuexa.ai/articolo-structured-data-ai-seo.html">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="img/favicon 256.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon 256.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon 256.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon 256.ico">
+    <link rel="manifest" href="site.webmanifest">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tutorial.css">
+
+    <!-- Schema.org Article Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Structured Data per AI SEO: Guida Tecnica Avanzata al Schema Markup",
+        "description": "Guida tecnica completa all'implementazione di schema markup per ottimizzare i contenuti per le piattaforme AI.",
+        "author": {
+            "@type": "Organization",
+            "name": "Niuexa",
+            "url": "https://niuexa.ai"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Niuexa",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://niuexa.ai/img/niuexa-logo.png"
+            }
+        },
+        "datePublished": "2025-01-15",
+        "dateModified": "2025-01-15",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://niuexa.ai/articolo-structured-data-ai-seo.html"
+        },
+        "proficiencyLevel": "Expert",
+        "dependencies": "Conoscenza base di HTML e JSON"
+    }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Cos'è lo schema markup e perché è importante per l'AI SEO?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Lo schema markup è un vocabolario standardizzato (schema.org) che permette di strutturare i dati delle pagine web in modo che motori di ricerca e piattaforme AI possano comprenderli facilmente. Per l'AI SEO è cruciale perché aiuta ChatGPT, Perplexity e altre AI a identificare, categorizzare e citare i contenuti. I dati mostrano che lo structured data può aumentare il CTR fino al 58%."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quale formato di schema markup devo usare: JSON-LD, Microdata o RDFa?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "JSON-LD è il formato raccomandato da Google e il più semplice da implementare. Si inserisce nel tag <head> o alla fine del <body> senza modificare l'HTML del contenuto. È più facile da mantenere, debuggare e aggiornare. Microdata e RDFa richiedono modifiche inline all'HTML e sono più soggetti a errori."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quali tipi di schema sono più importanti per essere citati dalle AI?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "I tipi di schema più importanti per la visibilità AI sono: Organization (per identificare il brand), Article/TechArticle (per i contenuti), FAQPage (altamente citabile), HowTo (per guide procedurali), Product (per e-commerce), e Author/Person (per E-E-A-T). Perplexity in particolare valuta attentamente la qualità dello structured data."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9S42S4"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="navigation-placeholder"></div>
+
+    <section class="tutorial-header">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="impara.html">Impara</a> / <span>Structured Data AI SEO</span>
+            </nav>
+            <div class="tutorial-intro">
+                <div class="tutorial-badge">Technical SEO</div>
+                <h1>Structured Data per AI SEO: Guida Tecnica Avanzata al Schema Markup</h1>
+                <p class="tutorial-description">Lo schema markup è il linguaggio che permette alle piattaforme AI di comprendere i tuoi contenuti. In questa guida tecnica avanzata, esploreremo l'implementazione completa di structured data per massimizzare la visibilità su ChatGPT, Perplexity, Claude e Google AI Overviews. Esempi di codice pronti all'uso, best practice e una checklist di audit completa.</p>
+                <div class="tutorial-stats">
+                    <span class="stat">50 minuti di lettura</span>
+                    <span class="stat">Per Developer & Technical SEO</span>
+                    <span class="stat">Esempi di codice inclusi</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <article class="tutorial-content">
+        <div class="container">
+            <div class="content-wrapper">
+
+                <!-- Quick Summary for AI -->
+                <section class="content-section quick-answer">
+                    <h2>Sintesi: Structured Data per AI SEO</h2>
+                    <p>Lo structured data (schema markup) è fondamentale per la visibilità AI perché rende i contenuti machine-readable. I tipi essenziali sono: Organization (identità brand), Article (contenuti), FAQPage (domande-risposte), HowTo (guide), e Author (credibilità). Il formato consigliato è JSON-LD, inserito nel <code>&lt;head&gt;</code>. Perplexity valuta particolarmente la qualità dello schema markup. L'implementazione corretta può aumentare il CTR fino al 58% e migliorare significativamente le probabilità di citazione AI.</p>
+                </section>
+
+                <section id="intro" class="content-section">
+                    <h2>1. Perché lo Structured Data è Cruciale per l'AI SEO</h2>
+                    <p>Le piattaforme AI non "leggono" le pagine web come gli umani. Quando ChatGPT, Claude o Perplexity analizzano una pagina, cercano segnali strutturati che gli permettano di comprendere rapidamente di cosa parla il contenuto, chi l'ha scritto, quando è stato aggiornato e perché è affidabile.</p>
+
+                    <div class="case-study-intro">
+                        <h3>L'Impatto dei Dati Strutturati</h3>
+                        <ul>
+                            <li><strong>+58%</strong> potenziale aumento del CTR con structured data correttamente implementato</li>
+                            <li><strong>Perplexity</strong> mostra "sofisticazione tecnica nell'analisi dei dati strutturati e del markup semantico"</li>
+                            <li><strong>Google AI Overviews</strong> utilizzano lo schema per comprendere le relazioni tra entità</li>
+                            <li><strong>Featured Snippet</strong> favoriscono contenuti con FAQPage e HowTo schema</li>
+                        </ul>
+                    </div>
+
+                    <h3>Cosa Sono i Dati Strutturati?</h3>
+                    <p>I dati strutturati sono un formato standardizzato per fornire informazioni su una pagina e classificarne il contenuto. Utilizzando il vocabolario di Schema.org, comunichi alle macchine:</p>
+                    <ul>
+                        <li><strong>Cosa:</strong> Di che tipo di contenuto si tratta (articolo, prodotto, FAQ, ricetta...)</li>
+                        <li><strong>Chi:</strong> Chi ha creato il contenuto (autore, organizzazione)</li>
+                        <li><strong>Quando:</strong> Date di pubblicazione e aggiornamento</li>
+                        <li><strong>Perché fidarsi:</strong> Credenziali, fonti, affiliazioni</li>
+                    </ul>
+
+                    <h3>Formati di Schema Markup</h3>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Formato</th>
+                                <th>Posizione</th>
+                                <th>Pro</th>
+                                <th>Contro</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>JSON-LD</strong> (Raccomandato)</td>
+                                <td>&lt;head&gt; o fine &lt;body&gt;</td>
+                                <td>Facile da implementare e mantenere, non tocca l'HTML</td>
+                                <td>Richiede JavaScript per rendering dinamico</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Microdata</strong></td>
+                                <td>Inline nell'HTML</td>
+                                <td>Direttamente nel markup</td>
+                                <td>Difficile da mantenere, codice confuso</td>
+                            </tr>
+                            <tr>
+                                <td><strong>RDFa</strong></td>
+                                <td>Inline nell'HTML</td>
+                                <td>Standard W3C</td>
+                                <td>Complesso, poco usato</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="pro-tips">
+                        <h4>Raccomandazione</h4>
+                        <p>Usa sempre <strong>JSON-LD</strong>. È il formato raccomandato da Google, il più facile da implementare e debuggare, e non richiede modifiche al tuo HTML esistente. Tutti gli esempi in questa guida usano JSON-LD.</p>
+                    </div>
+                </section>
+
+                <section id="essential-schemas" class="content-section">
+                    <h2>2. Gli Schema Essenziali per l'AI SEO</h2>
+                    <p>Non tutti gli schema hanno lo stesso impatto sulla visibilità AI. Ecco i tipi fondamentali che ogni sito dovrebbe implementare, in ordine di priorità.</p>
+
+                    <h3>2.1 Organization Schema</h3>
+                    <p>L'Organization schema definisce la tua identità aziendale. È la base su cui costruire la credibilità del brand nelle risposte AI.</p>
+
+                    <div class="pro-tips">
+                        <h4>Implementazione Organization Schema</h4>
+                        <pre><code>&lt;script type="application/ld+json"&gt;
+{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://tuosito.com/#organization",
+    "name": "Nome Azienda",
+    "alternateName": "Nome Alternativo o Acronimo",
+    "url": "https://tuosito.com",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://tuosito.com/img/logo.png",
+        "width": 600,
+        "height": 60
+    },
+    "image": "https://tuosito.com/img/azienda.jpg",
+    "description": "Descrizione concisa dell'azienda in 1-2 frasi.",
+    "foundingDate": "2020-01-15",
+    "founder": {
+        "@type": "Person",
+        "name": "Nome Fondatore"
+    },
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via Example 123",
+        "addressLocality": "Milano",
+        "addressRegion": "MI",
+        "postalCode": "20100",
+        "addressCountry": "IT"
+    },
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+39-02-1234567",
+        "contactType": "customer service",
+        "availableLanguage": ["Italian", "English"]
+    },
+    "sameAs": [
+        "https://www.linkedin.com/company/tuaazienda",
+        "https://twitter.com/tuaazienda",
+        "https://www.facebook.com/tuaazienda",
+        "https://www.youtube.com/c/tuaazienda"
+    ],
+    "numberOfEmployees": {
+        "@type": "QuantitativeValue",
+        "value": 50
+    },
+    "slogan": "Il tuo slogan aziendale"
+}
+&lt;/script&gt;</code></pre>
+                    </div>
+
+                    <h4>Best Practice Organization Schema</h4>
+                    <ul>
+                        <li><strong>@id:</strong> Usa un identificatore unico (es. URL#organization) per permettere riferimenti da altri schema</li>
+                        <li><strong>Logo:</strong> Specifica sempre dimensioni, usa immagine di alta qualità</li>
+                        <li><strong>sameAs:</strong> Includi tutti i profili social ufficiali</li>
+                        <li><strong>Posizione:</strong> Inserisci questo schema su TUTTE le pagine del sito</li>
+                    </ul>
+
+                    <h3>2.2 WebSite Schema</h3>
+                    <p>Il WebSite schema definisce il sito nel suo complesso e abilita la SearchAction per i sitelink di ricerca.</p>
+
+                    <div class="pro-tips">
+                        <h4>Implementazione WebSite Schema</h4>
+                        <pre><code>&lt;script type="application/ld+json"&gt;
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://tuosito.com/#website",
+    "url": "https://tuosito.com",
+    "name": "Nome Sito",
+    "description": "Descrizione del sito",
+    "publisher": {
+        "@id": "https://tuosito.com/#organization"
+    },
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://tuosito.com/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+    },
+    "inLanguage": "it-IT"
+}
+&lt;/script&gt;</code></pre>
+                    </div>
+
+                    <h3>2.3 Article Schema (e varianti)</h3>
+                    <p>L'Article schema è fondamentale per i contenuti editoriali. Usa le varianti appropriate per ogni tipo di contenuto.</p>
+
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Tipo</th>
+                                <th>Quando Usarlo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Article</strong></td>
+                                <td>Articoli generici, blog post</td>
+                            </tr>
+                            <tr>
+                                <td><strong>NewsArticle</strong></td>
+                                <td>Notizie, articoli di attualità</td>
+                            </tr>
+                            <tr>
+                                <td><strong>TechArticle</strong></td>
+                                <td>Guide tecniche, tutorial, documentazione</td>
+                            </tr>
+                            <tr>
+                                <td><strong>BlogPosting</strong></td>
+                                <td>Post del blog (sottotipo di Article)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>HowTo</strong></td>
+                                <td>Guide passo-passo (separato ma correlato)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="pro-tips">
+                        <h4>Implementazione Article Schema Completo</h4>
+                        <pre><code>&lt;script type="application/ld+json"&gt;
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": "https://tuosito.com/articolo-esempio/#article",
+    "headline": "Titolo dell'Articolo (max 110 caratteri)",
+    "description": "Meta description dell'articolo",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://tuosito.com/img/articolo.jpg",
+        "width": 1200,
+        "height": 630
+    },
+    "author": {
+        "@type": "Person",
+        "@id": "https://tuosito.com/chi-siamo/mario-rossi/#person",
+        "name": "Mario Rossi",
+        "jobTitle": "Head of SEO",
+        "url": "https://tuosito.com/chi-siamo/mario-rossi",
+        "image": "https://tuosito.com/img/team/mario-rossi.jpg",
+        "sameAs": [
+            "https://linkedin.com/in/mariorossi",
+            "https://twitter.com/mariorossi"
+        ]
+    },
+    "publisher": {
+        "@id": "https://tuosito.com/#organization"
+    },
+    "datePublished": "2025-01-15T10:00:00+01:00",
+    "dateModified": "2025-01-20T14:30:00+01:00",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://tuosito.com/articolo-esempio/"
+    },
+    "articleSection": "AI SEO",
+    "keywords": ["AI SEO", "GEO", "structured data", "schema markup"],
+    "wordCount": 3500,
+    "inLanguage": "it-IT",
+    "isAccessibleForFree": true,
+    "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".quick-answer", "h1", ".tutorial-description"]
+    }
+}
+&lt;/script&gt;</code></pre>
+                    </div>
+
+                    <h4>Elementi Chiave dell'Article Schema</h4>
+                    <ul>
+                        <li><strong>author:</strong> Sempre un Person con credenziali complete, non solo un nome</li>
+                        <li><strong>datePublished/dateModified:</strong> Usa formato ISO 8601 con timezone</li>
+                        <li><strong>speakable:</strong> Indica quali parti sono adatte per la lettura vocale (utile per AEO)</li>
+                        <li><strong>@id:</strong> Identificatore unico per riferimenti cross-schema</li>
+                    </ul>
+                </section>
+
+                <section id="faq-schema" class="content-section">
+                    <h2>3. FAQPage Schema: Lo Schema Più Citabile</h2>
+                    <p>Il FAQPage schema è probabilmente il più importante per la visibilità AI. Le domande e risposte sono il formato nativo delle piattaforme AI, rendendo questo contenuto altamente citabile.</p>
+
+                    <div class="case-study-intro">
+                        <h3>Perché FAQPage è Cruciale</h3>
+                        <ul>
+                            <li>Le AI rispondono a domande &mdash; FAQ è il formato perfetto</li>
+                            <li>Featured Snippet prediligono contenuti FAQ strutturati</li>
+                            <li>Google mostra FAQ direttamente nei risultati di ricerca</li>
+                            <li>Aumenta lo spazio occupato in SERP</li>
+                        </ul>
+                    </div>
+
+                    <div class="pro-tips">
+                        <h4>Implementazione FAQPage Schema</h4>
+                        <pre><code>&lt;script type="application/ld+json"&gt;
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Cos'è lo schema markup?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Lo schema markup è un vocabolario standardizzato che permette di strutturare i dati delle pagine web in modo che motori di ricerca e piattaforme AI possano comprenderli facilmente. Utilizza il vocabolario di Schema.org per comunicare il tipo di contenuto, l'autore, le date e altre informazioni strutturate."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Quale formato di schema markup dovrei usare?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "JSON-LD è il formato raccomandato. Si inserisce nel tag &lt;head&gt; della pagina senza modificare l'HTML del contenuto. È più facile da implementare, mantenere e debuggare rispetto a Microdata o RDFa. Google stesso consiglia JSON-LD come formato preferito."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Lo schema markup aiuta con ChatGPT?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sì, lo schema markup aiuta le piattaforme AI come ChatGPT, Perplexity e Claude a comprendere meglio i contenuti. Perplexity in particolare mostra sofisticazione nell'analisi dei dati strutturati. Anche se ChatGPT non legge direttamente lo schema, i contenuti ben strutturati tendono ad essere di qualità superiore e quindi più citabili."
+            }
+        }
+    ]
+}
+&lt;/script&gt;</code></pre>
+                    </div>
+
+                    <h4>Best Practice per FAQPage</h4>
+                    <ul>
+                        <li><strong>Domande reali:</strong> Usa le domande che gli utenti effettivamente cercano (usa strumenti come AnswerThePublic, AlsoAsked)</li>
+                        <li><strong>Risposte complete ma concise:</strong> Idealmente 50-300 parole per risposta</li>
+                        <li><strong>Una sola FAQPage per pagina:</strong> Non usare più FAQPage schema sulla stessa pagina</li>
+                        <li><strong>Coerenza con il contenuto visibile:</strong> Le FAQ nello schema devono essere visibili sulla pagina</li>
+                        <li><strong>Evita contenuto promozionale:</strong> Google può rimuovere FAQ che sono troppo commerciali</li>
+                    </ul>
+                </section>
+
+                <section id="howto-schema" class="content-section">
+                    <h2>4. HowTo Schema: Guida le AI Passo dopo Passo</h2>
+                    <p>L'HowTo schema è perfetto per guide procedurali, tutorial e istruzioni. Le AI amano citare procedure strutturate perché sono facili da sintetizzare e verificare.</p>
+
+                    <div class="pro-tips">
+                        <h4>Implementazione HowTo Schema</h4>
+                        <pre><code>&lt;script type="application/ld+json"&gt;
+{
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Come implementare lo schema markup per AI SEO",
+    "description": "Guida passo-passo per aggiungere structured data al tuo sito e migliorare la visibilità su ChatGPT, Perplexity e altre piattaforme AI.",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://tuosito.com/img/howto-schema.jpg",
+        "width": 1200,
+        "height": 630
+    },
+    "totalTime": "PT30M",
+    "estimatedCost": {
+        "@type": "MonetaryAmount",
+        "currency": "EUR",
+        "value": "0"
+    },
+    "tool": [
+        {
+            "@type": "HowToTool",
+            "name": "Editor di testo o IDE"
+        },
+        {
+            "@type": "HowToTool",
+            "name": "Google Rich Results Test"
+        }
+    ],
+    "step": [
+        {
+            "@type": "HowToStep",
+            "name": "Identifica i tipi di schema necessari",
+            "text": "Analizza le pagine del tuo sito e determina quali tipi di schema sono appropriati: Organization per tutte le pagine, Article per i contenuti, FAQPage per le FAQ, HowTo per le guide.",
+            "url": "https://tuosito.com/articolo#step1",
+            "image": "https://tuosito.com/img/step1.jpg"
+        },
+        {
+            "@type": "HowToStep",
+            "name": "Scrivi il codice JSON-LD",
+            "text": "Crea il codice JSON-LD per ogni tipo di schema. Usa gli esempi in questa guida come template. Assicurati di popolare tutti i campi obbligatori e quanti più campi opzionali possibile.",
+            "url": "https://tuosito.com/articolo#step2",
+            "image": "https://tuosito.com/img/step2.jpg"
+        },
+        {
+            "@type": "HowToStep",
+            "name": "Inserisci lo schema nell'HTML",
+            "text": "Aggiungi il tag script con type=\"application/ld+json\" nel &lt;head&gt; della pagina o alla fine del &lt;body&gt;. Puoi avere più blocchi JSON-LD sulla stessa pagina.",
+            "url": "https://tuosito.com/articolo#step3"
+        },
+        {
+            "@type": "HowToStep",
+            "name": "Valida con Google Rich Results Test",
+            "text": "Vai su search.google.com/test/rich-results e inserisci l'URL della pagina. Verifica che non ci siano errori e che tutti gli schema vengano riconosciuti correttamente.",
+            "url": "https://tuosito.com/articolo#step4"
+        },
+        {
+            "@type": "HowToStep",
+            "name": "Monitora in Search Console",
+            "text": "Dopo la pubblicazione, monitora la sezione 'Miglioramenti' in Google Search Console per verificare che gli schema vengano indicizzati senza errori.",
+            "url": "https://tuosito.com/articolo#step5"
+        }
+    ]
+}
+&lt;/script&gt;</code></pre>
+                    </div>
+
+                    <h4>Quando Usare HowTo vs Article</h4>
+                    <ul>
+                        <li><strong>HowTo:</strong> Istruzioni procedurali con step sequenziali (ricette, tutorial, guide di installazione)</li>
+                        <li><strong>Article:</strong> Contenuti informativi non procedurali (analisi, opinioni, notizie)</li>
+                        <li><strong>Entrambi:</strong> Puoi usare entrambi sulla stessa pagina se appropriato</li>
+                    </ul>
+                </section>
+
+                <section id="product-service" class="content-section">
+                    <h2>5. Product e Service Schema per Aziende</h2>
+                    <p>Se offri prodotti o servizi, questi schema sono essenziali per apparire nelle ricerche commerciali e nelle risposte AI relative a soluzioni nel tuo settore.</p>
+
+                    <h3>5.1 Product Schema</h3>
+                    <div class="pro-tips">
+                        <h4>Implementazione Product Schema</h4>
+                        <pre><code>&lt;script type="application/ld+json"&gt;
+{
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Nome Prodotto",
+    "description": "Descrizione dettagliata del prodotto",
+    "image": [
+        "https://tuosito.com/img/prodotto-1.jpg",
+        "https://tuosito.com/img/prodotto-2.jpg"
+    ],
+    "sku": "SKU-12345",
+    "brand": {
+        "@type": "Brand",
+        "name": "Nome Brand"
+    },
+    "offers": {
+        "@type": "Offer",
+        "url": "https://tuosito.com/prodotto",
+        "priceCurrency": "EUR",
+        "price": "99.99",
+        "availability": "https://schema.org/InStock",
+        "priceValidUntil": "2025-12-31"
+    },
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "156"
+    },
+    "review": [
+        {
+            "@type": "Review",
+            "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5"
+            },
+            "author": {
+                "@type": "Person",
+                "name": "Cliente Esempio"
+            },
+            "reviewBody": "Ottimo prodotto, consigliato!"
+        }
+    ]
+}
+&lt;/script&gt;</code></pre>
+                    </div>
+
+                    <h3>5.2 Service Schema</h3>
+                    <div class="pro-tips">
+                        <h4>Implementazione Service Schema</h4>
+                        <pre><code>&lt;script type="application/ld+json"&gt;
+{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Consulenza AI SEO",
+    "description": "Servizio di consulenza per ottimizzare la visibilità del tuo brand su ChatGPT, Perplexity e altre piattaforme AI.",
+    "provider": {
+        "@id": "https://tuosito.com/#organization"
+    },
+    "serviceType": "Consulenza SEO",
+    "areaServed": {
+        "@type": "Country",
+        "name": "Italia"
+    },
+    "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Pacchetti Consulenza",
+        "itemListElement": [
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Audit AI SEO"
+                },
+                "price": "500",
+                "priceCurrency": "EUR"
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Implementazione Completa"
+                },
+                "price": "2000",
+                "priceCurrency": "EUR"
+            }
+        ]
+    }
+}
+&lt;/script&gt;</code></pre>
+                    </div>
+                </section>
+
+                <section id="author-schema" class="content-section">
+                    <h2>6. Author Schema per E-E-A-T</h2>
+                    <p>L'Author schema è fondamentale per dimostrare E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness). Claude in particolare valuta attentamente le credenziali degli autori.</p>
+
+                    <div class="pro-tips">
+                        <h4>Implementazione Author Schema Completo</h4>
+                        <pre><code>&lt;script type="application/ld+json"&gt;
+{
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://tuosito.com/chi-siamo/mario-rossi/#person",
+    "name": "Mario Rossi",
+    "givenName": "Mario",
+    "familyName": "Rossi",
+    "jobTitle": "Head of AI & SEO",
+    "description": "Esperto di AI SEO con 10+ anni di esperienza in ottimizzazione per motori di ricerca e piattaforme AI.",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://tuosito.com/img/team/mario-rossi.jpg",
+        "width": 400,
+        "height": 400
+    },
+    "url": "https://tuosito.com/chi-siamo/mario-rossi",
+    "email": "mario@tuosito.com",
+    "worksFor": {
+        "@id": "https://tuosito.com/#organization"
+    },
+    "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Politecnico di Milano"
+    },
+    "knowsAbout": [
+        "SEO",
+        "AI SEO",
+        "Generative Engine Optimization",
+        "Schema Markup",
+        "Technical SEO"
+    ],
+    "sameAs": [
+        "https://linkedin.com/in/mariorossi",
+        "https://twitter.com/mariorossi",
+        "https://github.com/mariorossi"
+    ],
+    "hasCredential": [
+        {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "certification",
+            "name": "Google Analytics Certification"
+        },
+        {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "certification",
+            "name": "HubSpot SEO Certification"
+        }
+    ]
+}
+&lt;/script&gt;</code></pre>
+                    </div>
+
+                    <h4>Collegare Author agli Articoli</h4>
+                    <p>Nell'Article schema, riferisci l'autore usando @id:</p>
+                    <pre><code>"author": {
+    "@id": "https://tuosito.com/chi-siamo/mario-rossi/#person"
+}</code></pre>
+                    <p>Questo crea un collegamento semantico tra l'articolo e il profilo completo dell'autore.</p>
+                </section>
+
+                <section id="technical" class="content-section">
+                    <h2>7. Implementazione Tecnica: HTML Semantico e Accessibilità</h2>
+                    <p>Lo schema markup funziona meglio quando è accompagnato da HTML semantico pulito. Le AI interpretano entrambi i livelli di struttura.</p>
+
+                    <h3>HTML5 Semantico per AI</h3>
+                    <div class="pro-tips">
+                        <h4>Struttura HTML Consigliata</h4>
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="it"&gt;
+&lt;head&gt;
+    &lt;!-- Meta tags --&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Titolo Pagina&lt;/title&gt;
+    &lt;meta name="description" content="..."&gt;
+
+    &lt;!-- Schema.org JSON-LD --&gt;
+    &lt;script type="application/ld+json"&gt;{...}&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header role="banner"&gt;
+        &lt;nav role="navigation" aria-label="Main"&gt;...&lt;/nav&gt;
+    &lt;/header&gt;
+
+    &lt;main role="main"&gt;
+        &lt;article&gt;
+            &lt;header&gt;
+                &lt;h1&gt;Titolo Articolo&lt;/h1&gt;
+                &lt;p class="summary"&gt;Sintesi...&lt;/p&gt;
+                &lt;time datetime="2025-01-15"&gt;15 Gennaio 2025&lt;/time&gt;
+                &lt;address rel="author"&gt;
+                    Di &lt;a href="/chi-siamo/autore"&gt;Nome Autore&lt;/a&gt;
+                &lt;/address&gt;
+            &lt;/header&gt;
+
+            &lt;section id="intro"&gt;
+                &lt;h2&gt;Heading come domanda?&lt;/h2&gt;
+                &lt;p&gt;Risposta concisa...&lt;/p&gt;
+            &lt;/section&gt;
+
+            &lt;section id="faq"&gt;
+                &lt;h2&gt;Domande Frequenti&lt;/h2&gt;
+                &lt;dl&gt;
+                    &lt;dt&gt;Domanda 1?&lt;/dt&gt;
+                    &lt;dd&gt;Risposta 1.&lt;/dd&gt;
+                &lt;/dl&gt;
+            &lt;/section&gt;
+
+            &lt;footer&gt;
+                &lt;p&gt;Ultimo aggiornamento: &lt;time datetime="2025-01-20"&gt;20/01/2025&lt;/time&gt;&lt;/p&gt;
+            &lt;/footer&gt;
+        &lt;/article&gt;
+    &lt;/main&gt;
+
+    &lt;aside role="complementary"&gt;...&lt;/aside&gt;
+
+    &lt;footer role="contentinfo"&gt;...&lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+
+                    <h3>Elementi HTML5 Chiave</h3>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Elemento</th>
+                                <th>Uso</th>
+                                <th>Perché Importante per AI</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>&lt;article&gt;</code></td>
+                                <td>Contenuto autonomo</td>
+                                <td>Identifica il contenuto principale estraibile</td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;section&gt;</code></td>
+                                <td>Sezioni tematiche</td>
+                                <td>Divide il contenuto in blocchi citabili</td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;header&gt;</code></td>
+                                <td>Intestazione sezione/pagina</td>
+                                <td>Identifica titolo, autore, data</td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;time&gt;</code></td>
+                                <td>Date e orari</td>
+                                <td>Permette parsing affidabile delle date</td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;address&gt;</code></td>
+                                <td>Info di contatto/autore</td>
+                                <td>Identifica l'autore della sezione</td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;dl&gt;/&lt;dt&gt;/&lt;dd&gt;</code></td>
+                                <td>Liste di definizioni</td>
+                                <td>Perfetto per FAQ e glossari</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="validation" class="content-section">
+                    <h2>8. Validazione e Testing dello Schema</h2>
+                    <p>Implementare lo schema è solo metà del lavoro. Devi validarlo per assicurarti che non ci siano errori che impediscono il riconoscimento.</p>
+
+                    <h3>Strumenti di Validazione</h3>
+                    <div class="tool-comparison">
+                        <div class="tool-card">
+                            <h4>Google Rich Results Test</h4>
+                            <p><strong>URL:</strong> search.google.com/test/rich-results</p>
+                            <p><strong>Cosa fa:</strong> Verifica quali rich results sono disponibili per la pagina</p>
+                            <p><strong>Quando usarlo:</strong> Prima di pubblicare e dopo ogni modifica</p>
+                        </div>
+                        <div class="tool-card">
+                            <h4>Schema Markup Validator</h4>
+                            <p><strong>URL:</strong> validator.schema.org</p>
+                            <p><strong>Cosa fa:</strong> Validazione tecnica del markup contro lo standard Schema.org</p>
+                            <p><strong>Quando usarlo:</strong> Per debugging approfondito</p>
+                        </div>
+                        <div class="tool-card">
+                            <h4>Google Search Console</h4>
+                            <p><strong>URL:</strong> search.google.com/search-console</p>
+                            <p><strong>Cosa fa:</strong> Monitora errori su larga scala nel tempo</p>
+                            <p><strong>Quando usarlo:</strong> Monitoraggio continuo post-pubblicazione</p>
+                        </div>
+                    </div>
+
+                    <h3>Errori Comuni da Evitare</h3>
+                    <ul>
+                        <li><strong>JSON non valido:</strong> Virgole mancanti, parentesi non bilanciate. Usa un JSON validator</li>
+                        <li><strong>URL non assoluti:</strong> Usa sempre URL completi (https://tuosito.com/...), non relativi</li>
+                        <li><strong>Date formato errato:</strong> Usa ISO 8601 (2025-01-15T10:00:00+01:00)</li>
+                        <li><strong>Immagini mancanti:</strong> Le immagini sono spesso obbligatorie, non opzionali</li>
+                        <li><strong>@type errato:</strong> Usa esattamente i nomi Schema.org (case-sensitive)</li>
+                        <li><strong>Contenuto non corrispondente:</strong> Lo schema deve riflettere il contenuto visibile sulla pagina</li>
+                    </ul>
+
+                    <div class="pro-tips">
+                        <h4>Checklist Pre-Pubblicazione</h4>
+                        <ol>
+                            <li>JSON valido (nessun errore di sintassi)</li>
+                            <li>Tutti gli URL sono assoluti e funzionanti</li>
+                            <li>Date in formato ISO 8601</li>
+                            <li>Immagini esistenti e dimensioni corrette</li>
+                            <li>Passaggio Google Rich Results Test senza errori</li>
+                            <li>Contenuto schema = contenuto visibile sulla pagina</li>
+                        </ol>
+                    </div>
+                </section>
+
+                <section id="audit-checklist" class="content-section">
+                    <h2>9. Checklist di Audit Completa per AI SEO Tecnico</h2>
+                    <p>Usa questa checklist per verificare che il tuo sito sia tecnicamente ottimizzato per la visibilità AI.</p>
+
+                    <h3>Robots.txt e Accessibilità Crawler</h3>
+                    <ul class="checklist">
+                        <li><input type="checkbox"> GPTBot non è bloccato</li>
+                        <li><input type="checkbox"> ClaudeBot / anthropic-ai non è bloccato</li>
+                        <li><input type="checkbox"> PerplexityBot non è bloccato</li>
+                        <li><input type="checkbox"> Google-Extended non è bloccato (per AI Overviews)</li>
+                        <li><input type="checkbox"> Sitemap.xml presente e referenziata in robots.txt</li>
+                    </ul>
+
+                    <h3>Schema Markup Essenziali</h3>
+                    <ul class="checklist">
+                        <li><input type="checkbox"> Organization schema su tutte le pagine</li>
+                        <li><input type="checkbox"> WebSite schema sulla homepage</li>
+                        <li><input type="checkbox"> Article/BlogPosting schema su ogni contenuto</li>
+                        <li><input type="checkbox"> Author schema con credenziali complete</li>
+                        <li><input type="checkbox"> FAQPage schema dove appropriato</li>
+                        <li><input type="checkbox"> HowTo schema per guide procedurali</li>
+                        <li><input type="checkbox"> Breadcrumb schema per navigazione</li>
+                    </ul>
+
+                    <h3>HTML Semantico</h3>
+                    <ul class="checklist">
+                        <li><input type="checkbox"> Uso corretto di &lt;article&gt;, &lt;section&gt;, &lt;header&gt;</li>
+                        <li><input type="checkbox"> Gerarchia heading corretta (H1 > H2 > H3)</li>
+                        <li><input type="checkbox"> Tag &lt;time&gt; con attributo datetime</li>
+                        <li><input type="checkbox"> Autore linkato con &lt;address&gt; o rel="author"</li>
+                        <li><input type="checkbox"> Alt text su tutte le immagini</li>
+                        <li><input type="checkbox"> Landmark roles per accessibilità</li>
+                    </ul>
+
+                    <h3>Performance Tecnica</h3>
+                    <ul class="checklist">
+                        <li><input type="checkbox"> Core Web Vitals in verde (LCP, INP, CLS)</li>
+                        <li><input type="checkbox"> HTTPS attivo su tutto il sito</li>
+                        <li><input type="checkbox"> Mobile-friendly (test Google)</li>
+                        <li><input type="checkbox"> Nessun contenuto bloccato da JavaScript per i crawler</li>
+                        <li><input type="checkbox"> Canonical URL corretti</li>
+                        <li><input type="checkbox"> Hreflang per siti multilingue</li>
+                    </ul>
+
+                    <h3>Contenuto Strutturato</h3>
+                    <ul class="checklist">
+                        <li><input type="checkbox"> Sintesi in apertura (40-80 parole) su ogni articolo</li>
+                        <li><input type="checkbox"> Heading formulati come domande</li>
+                        <li><input type="checkbox"> Sezione FAQ su contenuti principali</li>
+                        <li><input type="checkbox"> Date di pubblicazione/modifica visibili</li>
+                        <li><input type="checkbox"> Autore con bio e credenziali visibili</li>
+                        <li><input type="checkbox"> Fonti citate inline</li>
+                    </ul>
+                </section>
+
+                <section id="faq" class="content-section">
+                    <h2>10. Domande Frequenti sullo Structured Data per AI SEO</h2>
+
+                    <div class="faq-item">
+                        <h3>Cos'è lo schema markup e perché è importante per l'AI SEO?</h3>
+                        <p>Lo schema markup è un vocabolario standardizzato (schema.org) che permette di strutturare i dati delle pagine web in modo che motori di ricerca e piattaforme AI possano comprenderli facilmente. Per l'AI SEO è cruciale perché aiuta ChatGPT, Perplexity e altre AI a identificare, categorizzare e citare i contenuti. I dati mostrano che lo structured data può aumentare il CTR fino al 58%.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Quale formato di schema markup devo usare: JSON-LD, Microdata o RDFa?</h3>
+                        <p>JSON-LD è il formato raccomandato da Google e il più semplice da implementare. Si inserisce nel tag &lt;head&gt; o alla fine del &lt;body&gt; senza modificare l'HTML del contenuto. È più facile da mantenere, debuggare e aggiornare rispetto a Microdata e RDFa che richiedono modifiche inline all'HTML.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Quali tipi di schema sono più importanti per essere citati dalle AI?</h3>
+                        <p>I tipi di schema più importanti per la visibilità AI sono: Organization (per identificare il brand), Article/TechArticle (per i contenuti), FAQPage (altamente citabile grazie al formato domanda-risposta), HowTo (per guide procedurali), e Author/Person (per dimostrare E-E-A-T). Perplexity in particolare valuta attentamente la qualità dello structured data.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Posso avere più blocchi JSON-LD sulla stessa pagina?</h3>
+                        <p>Sì, puoi avere più blocchi &lt;script type="application/ld+json"&gt; sulla stessa pagina. Anzi, è consigliato separare i diversi tipi di schema (Organization, Article, FAQPage) in blocchi distinti per maggiore chiarezza e facilità di manutenzione. Usa gli @id per creare riferimenti tra i blocchi.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Come verifico se il mio schema markup è corretto?</h3>
+                        <p>Usa il Google Rich Results Test (search.google.com/test/rich-results) per verificare che non ci siano errori e che i rich results siano disponibili. Per una validazione tecnica più approfondita, usa Schema.org Validator (validator.schema.org). Dopo la pubblicazione, monitora la sezione "Miglioramenti" in Google Search Console per errori su larga scala.</p>
+                    </div>
+                </section>
+
+                <section class="conclusion">
+                    <h2>Conclusione: Lo Schema Markup è il Fondamento della Visibilità AI</h2>
+                    <p>Lo structured data non è più opzionale per chi vuole visibilità sulle piattaforme AI. È il linguaggio che permette a ChatGPT, Perplexity, Claude e Google AI Overviews di comprendere chi sei, cosa offri e perché sei affidabile.</p>
+
+                    <h3>Il Tuo Piano d'Azione Tecnico</h3>
+                    <ol>
+                        <li><strong>Audit immediato:</strong> Verifica robots.txt e implementazione schema attuale</li>
+                        <li><strong>Priorità 1:</strong> Implementa Organization e WebSite schema su tutto il sito</li>
+                        <li><strong>Priorità 2:</strong> Aggiungi Article schema con Author completo a tutti i contenuti</li>
+                        <li><strong>Priorità 3:</strong> Implementa FAQPage schema dove appropriato</li>
+                        <li><strong>Priorità 4:</strong> Aggiungi HowTo schema alle guide procedurali</li>
+                        <li><strong>Ongoing:</strong> Valida ogni nuovo contenuto con Rich Results Test</li>
+                    </ol>
+
+                    <p>Ogni schema implementato correttamente è un segnale in più che le piattaforme AI usano per decidere se citarti. In un mondo dove la competizione per le citazioni AI cresce ogni giorno, la qualità tecnica del tuo markup può fare la differenza tra essere citati o essere ignorati.</p>
+                </section>
+
+            </div>
+        </div>
+    </article>
+
+    <section class="related-tutorials">
+        <div class="container">
+            <h2>Articoli Correlati</h2>
+            <div class="related-grid">
+                <div class="related-card">
+                    <h4>SEO vs AEO vs GEO: Guida Completa</h4>
+                    <p>Comprendi le differenze tra le tre discipline di ottimizzazione per l'era AI.</p>
+                    <a href="articolo-seo-aeo-geo-guida-completa.html" class="related-link">Leggi Articolo</a>
+                </div>
+                <div class="related-card">
+                    <h4>Come Apparire su ChatGPT, Perplexity e Claude</h4>
+                    <p>Strategie pratiche per aumentare la tua visibilità sulle piattaforme AI.</p>
+                    <a href="articolo-visibilita-chatgpt-perplexity-claude.html" class="related-link">Leggi Articolo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="includes/includes.js"></script>
+    <script src="tutorial.js"></script>
+</body>
+</html>
