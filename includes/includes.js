@@ -42,7 +42,7 @@ const navigationHTML = `
                 <a href="contatti.html" class="nav-link" data-page="contatti">Contatti</a>
             </li>
             <li class="nav-item">
-                <a href="login.html" class="nav-link login-link" data-page="login">🔐 Login</a>
+                <a href="https://aeo.niuexa.ai" class="nav-link login-link" target="_blank" rel="noopener noreferrer">🔐 Login</a>
             </li>
             <li class="nav-item language-switcher">
                 <a href="/en/index.html" class="nav-link" title="Switch to English">🇬🇧 EN</a>
