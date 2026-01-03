@@ -63,6 +63,16 @@ class NiuexaCertification {
                 difficulty: 'Business-Focused',
                 category: 'Business AI',
                 icon: '🚀'
+            },
+            {
+                id: 'ai-seo',
+                title: 'AI SEO: SEO, AEO e GEO',
+                description: 'Ottimizzazione per ChatGPT, Perplexity e Google AI',
+                duration: '20 min',
+                questions: 15,
+                difficulty: 'Intermedio',
+                category: 'AI SEO',
+                icon: '🔍'
             }
         ];
         

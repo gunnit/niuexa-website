@@ -1,0 +1,209 @@
+{
+    "tutorial": "AI SEO: Ottimizzazione per ChatGPT, Perplexity e Google AI",
+    "tutorialId": "ai-seo",
+    "totalQuestions": 15,
+    "passingScore": 80,
+    "timeLimit": 20,
+    "category": "AI SEO",
+    "difficulty": "Intermedio",
+    "description": "Test di certificazione per validare le competenze in AI SEO, AEO e GEO. Dimostra la tua padronanza delle strategie per apparire su ChatGPT, Perplexity, Claude e Google AI Overviews.",
+    "questions": [
+        {
+            "id": 1,
+            "type": "multiple-choice",
+            "question": "Qual è la principale differenza tra SEO tradizionale e GEO (Generative Engine Optimization)?",
+            "options": [
+                "Il GEO si concentra solo sui social media",
+                "Il SEO ottimizza per il ranking, il GEO ottimizza per la citabilità nelle risposte AI",
+                "Il GEO funziona solo su Google",
+                "Non c'è differenza, sono la stessa cosa"
+            ],
+            "correct": 1,
+            "explanation": "Il SEO tradizionale ottimizza per apparire nei risultati di ricerca (ranking), mentre il GEO ottimizza affinché le AI generative come ChatGPT citino i tuoi contenuti nelle loro risposte.",
+            "points": 1
+        },
+        {
+            "id": 2,
+            "type": "multiple-choice",
+            "question": "Cosa significa AEO (Answer Engine Optimization)?",
+            "options": [
+                "Ottimizzazione per gli annunci pubblicitari",
+                "Ottimizzazione per i featured snippets e le risposte vocali",
+                "Ottimizzazione per i video YouTube",
+                "Ottimizzazione per le email marketing"
+            ],
+            "correct": 1,
+            "explanation": "AEO (Answer Engine Optimization) è l'ottimizzazione per i sistemi che forniscono risposte dirette come featured snippets, assistenti vocali (Alexa, Siri, Google Assistant) e knowledge panels.",
+            "points": 1
+        },
+        {
+            "id": 3,
+            "type": "true-false",
+            "question": "Le piattaforme AI come Perplexity fanno ricerche web in tempo reale e possono citare contenuti pubblicati oggi.",
+            "correct": true,
+            "explanation": "Perplexity è una delle piattaforme AI più 'SEO-friendly' perché fa ricerche web in tempo reale e cita sempre le fonti, rendendo possibile la citazione di contenuti appena pubblicati.",
+            "points": 1
+        },
+        {
+            "id": 4,
+            "type": "multiple-choice",
+            "question": "Quale schema markup è più efficace per far citare le tue FAQ dalle piattaforme AI?",
+            "options": [
+                "Schema Article",
+                "Schema Product",
+                "Schema FAQPage",
+                "Schema Organization"
+            ],
+            "correct": 2,
+            "explanation": "Lo schema FAQPage è specificamente progettato per strutturare domande e risposte in modo che le AI possano facilmente estrarle e citarle nelle loro risposte.",
+            "points": 1
+        },
+        {
+            "id": 5,
+            "type": "multiple-choice",
+            "question": "Secondo il metodo CLARA, cosa significa la 'C' per creare contenuti citabili?",
+            "options": [
+                "Colorato - usa molte immagini",
+                "Chiaro - definizioni precise e concise",
+                "Complesso - contenuti molto dettagliati",
+                "Corto - contenuti brevi"
+            ],
+            "correct": 1,
+            "explanation": "Nel metodo CLARA, la 'C' sta per 'Chiaro': definizioni precise e concise, iniziando i paragrafi con la risposta e poi espandendo il concetto.",
+            "points": 1
+        },
+        {
+            "id": 6,
+            "type": "true-false",
+            "question": "Per apparire su ChatGPT è sufficiente ottimizzare per Google, poiché ChatGPT utilizza solo risultati di ricerca Google.",
+            "correct": false,
+            "explanation": "ChatGPT utilizza dati di training (non solo ricerche Google) e, con GPT-4+, può fare ricerche web tramite Bing. È necessaria una strategia specifica che includa autorevolezza su fonti di training e ottimizzazione per Bing.",
+            "points": 1
+        },
+        {
+            "id": 7,
+            "type": "multiple-choice",
+            "question": "Quale fonte è considerata primaria dalle AI per verificare l'autorevolezza di un brand?",
+            "options": [
+                "Profili Instagram",
+                "Wikipedia e Wikidata",
+                "Commenti YouTube",
+                "Post su TikTok"
+            ],
+            "correct": 1,
+            "explanation": "Wikipedia e Wikidata sono fonti primarie per le AI quando verificano l'esistenza e l'autorevolezza di brand e organizzazioni. Avere una pagina Wikipedia aumenta significativamente la citabilità.",
+            "points": 1
+        },
+        {
+            "id": 8,
+            "type": "multiple-choice",
+            "question": "Qual è il formato preferito per implementare structured data per l'AI SEO?",
+            "options": [
+                "Microdata HTML",
+                "RDFa",
+                "JSON-LD",
+                "Plain text"
+            ],
+            "correct": 2,
+            "explanation": "JSON-LD è il formato preferito da Google e dalle piattaforme AI per i structured data. È più facile da implementare e mantenere rispetto a Microdata e RDFa.",
+            "points": 1
+        },
+        {
+            "id": 9,
+            "type": "multiple-choice",
+            "question": "Come si può monitorare il traffico proveniente dalle piattaforme AI in Google Analytics 4?",
+            "options": [
+                "Non è possibile tracciarlo",
+                "Creando un segmento per traffico da domini AI (openai.com, perplexity.ai)",
+                "Guardando solo il traffico diretto",
+                "Usando solo Google Search Console"
+            ],
+            "correct": 1,
+            "explanation": "In GA4 è possibile creare segmenti personalizzati per tracciare il traffico referral proveniente da domini AI come chat.openai.com, perplexity.ai e claude.ai.",
+            "points": 1
+        },
+        {
+            "id": 10,
+            "type": "true-false",
+            "question": "I featured snippets di Google sono spesso la base per le risposte di Google AI Overviews.",
+            "correct": true,
+            "explanation": "Google AI Overviews spesso utilizza contenuti che già appaiono come featured snippets. Ottimizzare per la 'posizione zero' aumenta le probabilità di apparire nelle AI Overviews.",
+            "points": 1
+        },
+        {
+            "id": 11,
+            "type": "multiple-choice",
+            "question": "Quale strategia è più efficace per aumentare la citabilità dei contenuti nelle risposte AI?",
+            "options": [
+                "Scrivere contenuti molto lunghi senza struttura",
+                "Usare definizioni chiare nelle prime 100 parole e liste numerate",
+                "Evitare di citare fonti e dati",
+                "Scrivere solo in inglese"
+            ],
+            "correct": 1,
+            "explanation": "Le AI preferiscono contenuti con definizioni chiare all'inizio del paragrafo e liste numerate facilmente estraibili. Questo rende i contenuti più 'citabili' nelle risposte AI.",
+            "points": 1
+        },
+        {
+            "id": 12,
+            "type": "multiple-choice",
+            "question": "Cosa significa E-E-A-T nel contesto dell'AI SEO?",
+            "options": [
+                "Engagement, Entertainment, Analytics, Traffic",
+                "Experience, Expertise, Authoritativeness, Trustworthiness",
+                "Email, Events, Ads, Testing",
+                "Efficiency, Effectiveness, Accuracy, Timing"
+            ],
+            "correct": 1,
+            "explanation": "E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) sono i criteri di qualità di Google, sempre più importanti anche per le AI Overviews e per la citabilità generale dei contenuti.",
+            "points": 1
+        },
+        {
+            "id": 13,
+            "type": "true-false",
+            "question": "Pubblicare ricerche originali con dati proprietari è una delle strategie più efficaci per aumentare le citazioni AI.",
+            "correct": true,
+            "explanation": "I dati originali e le ricerche proprietarie sono altamente citabili dalle AI perché rappresentano informazioni uniche che non possono essere trovate altrove, aumentando l'autorevolezza della fonte.",
+            "points": 1
+        },
+        {
+            "id": 14,
+            "type": "multiple-choice",
+            "question": "Quale piattaforma AI è considerata più 'conservativa' nelle citazioni e richiede maggiore autorevolezza?",
+            "options": [
+                "Perplexity",
+                "Google Bard",
+                "Claude di Anthropic",
+                "Bing Chat"
+            ],
+            "correct": 2,
+            "explanation": "Claude di Anthropic è più conservativo nelle citazioni rispetto ad altre piattaforme. Per apparire su Claude è fondamentale avere contenuti ben documentati, educativi e un'alta autorevolezza del brand.",
+            "points": 1
+        },
+        {
+            "id": 15,
+            "type": "multiple-choice",
+            "question": "In quanto tempo si possono vedere i primi risultati delle ottimizzazioni tecniche (structured data) per l'AI SEO?",
+            "options": [
+                "Immediatamente, lo stesso giorno",
+                "2-4 settimane",
+                "6-12 mesi",
+                "2-3 anni"
+            ],
+            "correct": 1,
+            "explanation": "Le ottimizzazioni tecniche come l'implementazione di structured data possono mostrare effetti in 2-4 settimane. La costruzione di autorevolezza richiede invece tempi più lunghi (3-6 mesi o più).",
+            "points": 1
+        }
+    ],
+    "passingMessage": "Complimenti! Hai dimostrato una solida comprensione delle strategie AI SEO, AEO e GEO. Sei pronto/a a ottimizzare i contenuti per le piattaforme AI e aumentare la visibilità del tuo brand.",
+    "failingMessage": "Non hai raggiunto il punteggio minimo. Ti consigliamo di rivedere il tutorial, prestando particolare attenzione alle differenze tra SEO, AEO e GEO, all'implementazione dei structured data e alle strategie per aumentare l'autorevolezza.",
+    "certificateTitle": "Specialista AI SEO",
+    "skills": [
+        "Strategie SEO, AEO e GEO",
+        "Implementazione structured data",
+        "Ottimizzazione per ChatGPT e Perplexity",
+        "Creazione contenuti citabili",
+        "Misurazione ROI AI SEO",
+        "Costruzione autorevolezza per AI"
+    ]
+}
