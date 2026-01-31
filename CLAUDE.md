@@ -218,6 +218,78 @@ The repository includes several automated workflows:
 ## Cookie Consent System
 The site implements a cookie consent banner via `cookie-banner.js` for GDPR compliance. This script handles user consent preferences and cookie management across all pages.
 
+## External API References (Updated January 2026)
+
+### OpenAI API
+
+#### Realtime API (GA - Generally Available)
+- **Model**: `gpt-realtime` - Production-ready voice model (replaces deprecated `gpt-4o-realtime-preview`)
+- **Session Duration**: Up to 60 minutes (increased from 30 minutes)
+- **Token Window**: 32,768 tokens, max response 4,096 tokens
+- **Interfaces**: WebRTC, WebSocket, and SIP
+- **Features**: Speech-to-speech, text, image, and audio inputs/outputs
+- **Deprecation**: Realtime API Beta deprecated on February 27, 2026
+
+#### Assistants API (Deprecated)
+- **Sunset Date**: August 26, 2026
+- **Migration**: Use Responses API with Conversations API instead
+- **Guide**: OpenAI provides migration guide for side-by-side comparison
+
+#### Latest Models (GPT-5 Family)
+- `gpt-5` - Full capability model
+- `gpt-5-mini` - Balanced performance/cost
+- `gpt-5-nano` - Fast, lightweight model
+- Supports minimal reasoning effort for optimized fast responses
+
+#### New Features
+- **Connectors**: MCP wrappers for Google apps, Dropbox, etc. via Responses API
+- **Saved Prompts**: Reusable prompts across Realtime API sessions
+
+### Firecrawl API
+
+#### Overview
+Web Data API for AI - Converts websites into LLM-ready markdown or structured data.
+
+#### Core Endpoints
+- **`/scrape`**: Extract single page content (markdown, JSON, screenshots, HTML)
+- **`/crawl`**: Process all pages on a website
+- **`/map`**: Get all URLs from a website (extremely fast)
+- **`/search`**: Search the web and get full content from results
+- **`/extract`**: Get structured data with AI from single/multiple pages
+
+#### Installation & Usage
+```python
+# Python SDK
+pip install firecrawl-py
+
+from firecrawl import Firecrawl
+app = Firecrawl(api_key="fc-YOUR_API_KEY")
+result = app.scrape('example.com')
+```
+
+```javascript
+// Node.js SDK
+npm install firecrawl-js
+
+import Firecrawl from 'firecrawl-js';
+const app = new Firecrawl({ apiKey: 'fc-YOUR_API_KEY' });
+const result = await app.scrape('example.com');
+```
+
+#### Key Features
+- Handles JavaScript-heavy and protected pages
+- Smart wait for dynamic content
+- Media parsing (PDFs, DOCX, HTML)
+- Respects robots.txt
+- Interactive actions: click, scroll, type, wait
+
+#### SDKs Available
+- Python (`firecrawl-py`)
+- Node.js (`firecrawl-js`)
+- Go
+- Rust
+- REST API with cURL
+
 ## Important Development Instructions
 - Do what has been asked; nothing more, nothing less
 - NEVER create files unless they're absolutely necessary for achieving your goal
