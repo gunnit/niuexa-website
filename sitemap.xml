@@ -207,6 +207,35 @@
         <priority>0.8</priority>
     </url>
 
+    <!-- AI Consulting Content Cluster -->
+    <url>
+        <loc>https://niuexa.ai/ai-consulting/strategia-ai-aziendale.html</loc>
+        <lastmod>2026-02-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://niuexa.ai/ai-consulting/casi-studio-ai.html</loc>
+        <lastmod>2026-02-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://niuexa.ai/ai-consulting/roi-intelligenza-artificiale.html</loc>
+        <lastmod>2026-02-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://niuexa.ai/ai-consulting/implementazione-ai-step-by-step.html</loc>
+        <lastmod>2026-02-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
     <url>
         <loc>https://niuexa.ai/articolo-agentic-ai-2026.html</loc>
         <lastmod>2026-01-31</lastmod>
