@@ -2688,7 +2688,7 @@ button[aria-busy="true"]::after {
 }
 
 .footer-brand p {
-    color: var(--medium-gray);
+    color: #ADB5BD;
 }
 
 .footer-links {
@@ -2711,7 +2711,7 @@ button[aria-busy="true"]::after {
 }
 
 .footer-column a {
-    color: var(--medium-gray);
+    color: #ADB5BD;
     text-decoration: none;
     transition: color var(--transition-fast);
 }
@@ -2724,7 +2724,7 @@ button[aria-busy="true"]::after {
     text-align: center;
     padding-top: 2rem;
     border-top: 1px solid #495057;
-    color: var(--medium-gray);
+    color: #ADB5BD;
 }
 
 .footer-bottom-content {
@@ -5401,7 +5401,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 
 .footer-contact p {
     margin: 0.3rem 0;
-    color: var(--medium-gray);
+    color: #ADB5BD;
 }
 
 /* Responsive Legal Pages */
