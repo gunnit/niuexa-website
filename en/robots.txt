@@ -1,0 +1,12 @@
+# robots.txt for Niuexa EN - AI Consulting Services
+# Last Updated: 2026-02-25
+
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /includes/
+Disallow: /quiz-data/
+
+Sitemap: https://niuexa.ai/en/sitemap.xml

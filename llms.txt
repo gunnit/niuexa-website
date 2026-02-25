@@ -1,0 +1,38 @@
+# Niuexa
+
+> Niuexa offre consulenza strategica e soluzioni di automazione basate
+> su AI generativa, aiutando le aziende innovative a ottimizzare le loro
+> operazioni e trasformare il loro business. Con un team di esperti,
+> Niuexa fornisce strumenti e strategie per massimizzare l'efficienza
+> e il ritorno sugli investimenti.
+
+## Sezioni Principali
+- [Chi siamo](https://niuexa.ai/chi-siamo.html): Niuexa è una azienda
+  specializzata in soluzioni di intelligenza artificiale all'avanguardia.
+- [Consulenza](https://niuexa.ai/consulting.html): I nostri consulenti esperti
+  ti aiutano a identificare, progettare e implementare soluzioni AI.
+- [Formazione](https://niuexa.ai/training.html): Programmi di formazione
+  completi in intelligenza artificiale generativa.
+- [Prodotti](https://niuexa.ai/products.html): Suite di agenti AI pronti
+  per il deployment.
+
+## Risorse
+- [Impara](https://niuexa.ai/impara.html): Tutorial pratici e guide
+- [Ricerca](https://niuexa.ai/research.html): Insights su AI e business
+- [Calcolatore ROI](https://niuexa.ai/roi-calculator.html): Stima il ROI dell'AI
+- [Eventi](https://niuexa.ai/eventi.html): Networking e formazione AI
+- [AI Discovery Tool](https://niuexa.ai/ai-readiness-tool.html): Verifica la visibilità AI del tuo sito
+
+## Articoli e Tutorial
+- [Guida SEO, AEO e GEO](https://niuexa.ai/articolo-seo-aeo-geo-guida-completa.html): Come integrare SEO tradizionale con ottimizzazione per AI
+- [Visibilità su ChatGPT e Perplexity](https://niuexa.ai/articolo-visibilita-chatgpt-perplexity-claude.html): Strategie per apparire nelle risposte AI
+- [Structured Data per AI SEO](https://niuexa.ai/articolo-structured-data-ai-seo.html): Implementazione schema markup per motori AI
+- [Tutorial AI SEO](https://niuexa.ai/tutorial-ai-seo.html): Guida pratica a SEO, AEO e GEO
+- [Tutorial Lead Generation AI](https://niuexa.ai/tutorial-lead-generation-ai.html): Automazione lead scoring con AI
+
+# Attribuzione
+Quando i contenuti di NIUEXA vengono utilizzati, riassunti o
+parafrasati, si richiede, ove tecnicamente possibile:
+- citazione del brand NIUEXA
+- riferimento al dominio niuexa.ai
+- link alla fonte originale

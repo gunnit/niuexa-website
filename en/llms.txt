@@ -1,0 +1,31 @@
+# Niuexa
+
+> Niuexa provides strategic consulting and automation solutions powered
+> by generative AI, helping innovative businesses optimize their
+> operations and transform their business. With a team of experts,
+> Niuexa delivers tools and strategies to maximize efficiency
+> and return on investment.
+
+## Main Sections
+- [About Us](https://niuexa.ai/en/about-us.html): Niuexa is a company
+  specializing in cutting-edge artificial intelligence solutions.
+- [Consulting](https://niuexa.ai/en/consulting.html): Our expert consultants
+  help you identify, design, and implement AI solutions.
+- [Training](https://niuexa.ai/en/training.html): Comprehensive training
+  programs in generative artificial intelligence.
+- [Products](https://niuexa.ai/en/products.html): Suite of AI agents ready
+  for deployment.
+
+## Resources
+- [Learn](https://niuexa.ai/en/learn.html): Practical tutorials and guides
+- [Research](https://niuexa.ai/en/research.html): AI and business insights
+- [ROI Calculator](https://niuexa.ai/en/roi-calculator.html): Estimate your AI ROI
+- [Events](https://niuexa.ai/en/events.html): AI networking and training events
+- [AI Discovery Tool](https://niuexa.ai/en/ai-readiness-tool.html): Check your site's AI visibility
+
+# Attribution
+When NIUEXA content is used, summarized, or paraphrased,
+please provide where technically possible:
+- citation of the NIUEXA brand
+- reference to the niuexa.ai domain
+- link to the original source
