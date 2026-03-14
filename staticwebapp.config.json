@@ -35,5 +35,37 @@
     ".webp": "image/webp",
     ".svg": "image/svg+xml",
     ".ico": "image/x-icon"
-  }
+  },
+  "globalHeaders": {
+    "Cache-Control": "public, max-age=3600, s-maxage=86400",
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "SAMEORIGIN",
+    "X-XSS-Protection": "1; mode=block"
+  },
+  "routes": [
+    {
+      "route": "/img/*",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "route": "/*.css",
+      "headers": {
+        "Cache-Control": "public, max-age=604800"
+      }
+    },
+    {
+      "route": "/*.js",
+      "headers": {
+        "Cache-Control": "public, max-age=604800"
+      }
+    },
+    {
+      "route": "/*.html",
+      "headers": {
+        "Cache-Control": "public, max-age=3600"
+      }
+    }
+  ]
 }

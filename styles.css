@@ -53,7 +53,7 @@ body {
 }
 
 /* Skip Navigation for Accessibility */
-.skip-nav {
+.skip-link {
     position: absolute;
     top: -40px;
     left: 6px;
@@ -70,7 +70,7 @@ body {
     transition: top 0.3s ease;
 }
 
-.skip-nav:focus {
+.skip-link:focus {
     top: 6px;
     outline: 2px solid var(--primary-green);
     outline-offset: 2px;
