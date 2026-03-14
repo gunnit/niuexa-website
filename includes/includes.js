@@ -1,7 +1,9 @@
 // Navigation HTML content
 const navigationHTML = `
+<!-- Skip Navigation -->
+<a href="#main-content" class="skip-link">Vai al contenuto principale</a>
 <!-- Navigation -->
-<nav class="navbar">
+<nav class="navbar" aria-label="Navigazione principale">
     <div class="nav-container">
         <div class="nav-logo">
             <a href="index.html">

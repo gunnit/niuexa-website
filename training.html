@@ -145,10 +145,14 @@
                     "priceCurrency": "EUR"
                 }
             }
-        ]
+        ],
+        "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": [".hero-title", ".hero-subtitle", ".section-title"]
+        }
     }
     </script>
-    
+
     <!-- BreadcrumbList Schema -->
     <script type="application/ld+json">
     {
@@ -159,12 +163,18 @@
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://niuexa.ai/"
+                "item": "https://niuexa.ai"
             },
             {
                 "@type": "ListItem",
                 "position": 2,
-                "name": "Formazione AI Milano",
+                "name": "Soluzioni",
+                "item": "https://niuexa.ai/#soluzioni"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Formazione AI",
                 "item": "https://niuexa.ai/training.html"
             }
         ]
@@ -309,8 +319,12 @@
 
     <!-- Main Content -->
     <main id="main-content">
+        <div class="ai-summary" role="doc-abstract">
+            <p>Niuexa offre programmi di formazione AI per aziende a Milano, Italia. I corsi includono: AI Executive Mastery (16 ore, livello principiante, 600 EUR), Prompt Engineering Avanzato (24 ore, livello intermedio, 900 EUR), e AI Agent Developer Certification (livello avanzato). I programmi sono progettati per executive, manager e professionisti tecnici che vogliono sviluppare competenze in intelligenza artificiale, automazione e sviluppo agenti AI. Certificazioni riconosciute e formazione pratica con risultati misurabili.</p>
+        </div>
+
         <!-- Hero Section -->
-        <section class="hero training-hero" aria-label="Formazione AI Professionale">
+        <header class="hero training-hero" aria-label="Formazione AI Professionale">
             <div class="container">
                 <div class="hero-content">
                     
@@ -370,7 +384,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </header>
 
         <!-- Training Programs Section -->
         <section id="programs" class="training-programs-section" aria-label="Programmi di Formazione">
@@ -818,6 +832,8 @@
                 </div>
             </div>
         </section>
+
+        <p class="content-last-updated">Ultimo aggiornamento: Marzo 2026</p>
     </main>
 
     <!-- Footer Placeholder -->
