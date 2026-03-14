@@ -37,11 +37,11 @@
     <meta property="og:image" content="https://niuexa.ai/img/niuexalogo.png">
     
     <!-- X (Twitter) -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://niuexa.ai/consulting.html">
-    <meta property="twitter:title" content="Servizi di Consulenza AI - Trasforma la Tua Azienda | Niuexa">
-    <meta property="twitter:description" content="Consulenti AI esperti per la trasformazione digitale. Automazione processi, integrazione AI, ottimizzazione performance. ROI tipico 100-150%.">
-    <meta property="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://niuexa.ai/consulting.html">
+    <meta name="twitter:title" content="Servizi di Consulenza AI - Trasforma la Tua Azienda | Niuexa">
+    <meta name="twitter:description" content="Consulenti AI esperti per la trasformazione digitale. Automazione processi, integrazione AI, ottimizzazione performance. ROI tipico 100-150%.">
+    <meta name="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="img/favicon 256.ico">
@@ -65,7 +65,37 @@
             "contactType": "customer service",
             "availableLanguage": "Italian"
         },
-        "sameAs": []
+        "sameAs": ["https://www.linkedin.com/company/niuexa", "https://www.wikidata.org/wiki/Q131643949"],
+        "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": [".hero-title", ".hero-subtitle", ".section-title"]
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://niuexa.ai"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Soluzioni",
+                "item": "https://niuexa.ai/#soluzioni"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Consulenza AI",
+                "item": "https://niuexa.ai/consulting.html"
+            }
+        ]
     }
     </script>
     
@@ -84,8 +114,13 @@
     <!-- Navigation Placeholder -->
     <div id="nav-placeholder"></div>
 
+    <main id="main-content">
+    <div class="ai-summary" role="doc-abstract">
+        <p>Niuexa offre servizi di consulenza AI per la trasformazione digitale aziendale in Italia. I servizi includono: strategia AI e roadmap, automazione processi, integrazione AI e ottimizzazione performance. Operano in 5 settori: finanza/banche, sanità, manifatturiero, retail/e-commerce e tecnologia. La metodologia prevede 4 fasi: analisi e valutazione, strategia e pianificazione, implementazione e integrazione, ottimizzazione e supporto. ROI tipico dichiarato: 100-150%, tempo di deployment: 8 settimane, oltre 25 casi di successo completati.</p>
+    </div>
+
     <!-- Hero Section -->
-    <section class="consulting-hero">
+    <header class="consulting-hero">
         <div class="container">
             <div class="hero-content">
                 
@@ -115,7 +150,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </header>
 
     <!-- Services Overview -->
     <section class="services-section">
@@ -451,6 +486,9 @@
     </section>
 
 
+
+    <p class="content-last-updated">Ultimo aggiornamento: Marzo 2026</p>
+    </main>
 
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>

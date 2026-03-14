@@ -183,10 +183,15 @@
                     }
                 }
             }
-        ]
+        ],
+        "sameAs": ["https://www.linkedin.com/company/niuexa", "https://www.wikidata.org/wiki/Q131643949"],
+        "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": [".hero-title", ".hero-subtitle", ".section-title"]
+        }
     }
     </script>
-    
+
     <!-- BreadcrumbList Schema -->
     <script type="application/ld+json">
     {
@@ -197,12 +202,18 @@
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://niuexa.ai/"
+                "item": "https://niuexa.ai"
             },
             {
                 "@type": "ListItem",
                 "position": 2,
-                "name": "Agenti AI Milano",
+                "name": "Soluzioni",
+                "item": "https://niuexa.ai/#soluzioni"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Prodotti AI",
                 "item": "https://niuexa.ai/products.html"
             }
         ]
@@ -318,8 +329,13 @@
     <!-- Navigation Placeholder -->
     <div id="nav-placeholder"></div>
 
+    <main id="main-content">
+    <div class="ai-summary" role="doc-abstract">
+        <p>Niuexa offre una suite di agenti AI pronti al deployment per aziende a Milano, Italia. I prodotti includono: Agente Marketing AI (2.500 EUR/mese) per campagne multicanale, Agente Vendite AI (3.000 EUR/mese) con lead scoring e follow-up automatici, Agente Supporto Clienti AI per assistenza 24/7, e Agente Workflow AI per automazione processi interni. Include anche AEO Analyzer, un nuovo prodotto per ottimizzazione AI Engine. Tutti i prodotti sono progettati per integrarsi con sistemi aziendali esistenti e offrono ROI misurabile.</p>
+    </div>
+
     <!-- Hero Section -->
-    <section class="hero" style="background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #2d3561 100%); padding: 120px 0 80px; color: white; text-align: center;">
+    <header class="hero" style="background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #2d3561 100%); padding: 120px 0 80px; color: white; text-align: center;">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(0, 102, 204, 0.1); border: 1px solid rgba(0, 102, 204, 0.3); padding: 0.5rem 1rem; border-radius: 50px; color: #0066cc; font-size: 0.9rem; font-weight: 600; margin-bottom: 1.5rem;">
@@ -352,7 +368,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </header>
 
     <!-- Products Section -->
     <section id="products" class="products-section" style="padding: 80px 0; background: white;">
@@ -908,7 +924,8 @@
         </div>
     </section>
 
- 
+    <p class="content-last-updated">Ultimo aggiornamento: Marzo 2026</p>
+    </main>
 
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
