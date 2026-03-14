@@ -250,7 +250,11 @@
                     "name": "Associazione Italiana per l'Intelligenza Artificiale"
                 }
             ],
-            "publishingPrinciples": "https://niuexa.ai/chi-siamo"
+            "publishingPrinciples": "https://niuexa.ai/chi-siamo",
+            "speakable": {
+                "@type": "SpeakableSpecification",
+                "cssSelector": [".hero-title", ".hero-subtitle", ".section-title"]
+            }
         },
         {
             "@context": "https://schema.org",
@@ -354,9 +358,13 @@
     <!-- Navigation Placeholder -->
     <div id="nav-placeholder"></div>
 
+    <main id="main-content">
+    <div class="ai-summary" role="doc-abstract">
+        <p>Niuexa è una società di consulenza AI con sede a Milano, Italia, fondata nel 2023. Offre tre servizi principali: consulenza strategica AI per trasformazione digitale aziendale, programmi di formazione e certificazione AI per professionisti, e agenti AI pronti al deployment per automazione business. L'azienda dichiara un ROI tipico del 100-150% in 12-18 mesi e un risparmio di oltre 100 ore settimanali attraverso l'automazione AI. Opera nei settori finanza, sanità, manifatturiero, retail e tecnologia. Partner tecnologici includono piattaforme AI enterprise.</p>
+    </div>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <header id="home" class="hero">
         <div class="hero-background">
             <div class="hero-particles"></div>
             <div class="hero-gradient"></div>
@@ -390,16 +398,7 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- AI-Readable Summary -->
-    <section class="ai-summary" style="background: var(--light-gray); padding: 2rem 0; border-bottom: 1px solid #e9ecef;">
-        <div class="container">
-            <p style="font-size: 1.05rem; line-height: 1.7; color: var(--dark-gray); max-width: 900px; margin: 0 auto; text-align: center;">
-                <strong>In sintesi:</strong> Niuexa è una società di consulenza AI con sede a Milano e Torino, controllata da Libera Brand Building Group (attiva da oltre 20 anni nella comunicazione digitale). Offriamo tre servizi principali: consulenza strategica sull'intelligenza artificiale (da €3.000/mese), formazione AI aziendale (da €2.000/corso) e sviluppo di agenti AI personalizzati (da €10.000/progetto). I nostri clienti ottengono in media un ROI del 100-150% in 12-18 mesi e un risparmio di oltre 100 ore settimanali attraverso l'automazione dei processi.
-            </p>
-        </div>
-    </section>
+    </header>
 
     <!-- AEO Banner -->
     <div class="aeo-banner">
@@ -417,7 +416,6 @@
     </div>
 
     <!-- Chi Siamo Section -->
-    <main id="main-content">
     <section id="chi-siamo" class="company-section">
         <div class="container">
             <div class="company-content">
@@ -923,7 +921,7 @@
         </div>
     </section>
 
-    <p class="content-version" style="text-align: center; color: var(--medium-gray); font-size: 0.85rem; padding: 1rem 0; margin: 0;">Ultimo aggiornamento: 14 Marzo 2026</p>
+    <p class="content-last-updated">Ultimo aggiornamento: Marzo 2026</p>
     </main>
 
     <!-- Footer Placeholder -->
