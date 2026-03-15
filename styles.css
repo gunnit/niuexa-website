@@ -5704,5 +5704,190 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
     }
 }
 
+/* ========================================
+   Homepage FAQ Section (Static List Style)
+   ======================================== */
+.faq-section .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.faq-section .faq-item {
+    background: var(--white);
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.faq-section .faq-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    color: var(--dark-gray);
+}
+
+.faq-section .faq-item p {
+    color: var(--medium-gray);
+    line-height: 1.7;
+}
+
+.faq-section .faq-item .direct-answer {
+    color: var(--dark-gray);
+    font-weight: 500;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+/* ========================================
+   Homepage Contact Form Styles
+   ======================================== */
+.talk-with-us-section .section-subtitle {
+    text-align: center;
+    color: var(--medium-gray);
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.talk-with-us-section .contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.talk-with-us-section .contact-form h3 {
+    color: #000;
+    text-align: left;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.talk-with-us-section .form-row-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.talk-with-us-section .form-group {
+    margin-bottom: 1rem;
+}
+
+.talk-with-us-section .contact-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.talk-with-us-section .contact-form input[type="text"],
+.talk-with-us-section .contact-form input[type="email"],
+.talk-with-us-section .contact-form input[type="tel"],
+.talk-with-us-section .contact-form select,
+.talk-with-us-section .contact-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.talk-with-us-section .contact-form textarea {
+    resize: vertical;
+}
+
+.talk-with-us-section .checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.talk-with-us-section .checkbox-label input[type="checkbox"] {
+    margin-top: 0.2rem;
+}
+
+.talk-with-us-section .contact-form .btn-submit {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background: var(--gradient-primary);
+    color: var(--white);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.talk-with-us-section .contact-form .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 102, 204, 0.4);
+}
+
+.talk-with-us-section .traditional-contact-info {
+    margin-top: 3rem;
+    height: auto;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+}
+
+.talk-with-us-section .contact-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    flex-direction: row;
+}
+
+.talk-with-us-section .contact-item {
+    text-align: center;
+    flex-direction: column;
+}
+
+.talk-with-us-section .contact-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 1rem;
+    width: auto;
+}
+
+/* Author Attribution */
+.author-attribution {
+    font-family: var(--font-secondary);
+    font-size: 0.85rem;
+    color: var(--medium-gray);
+    text-align: center;
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+}
+
+.author-attribution a {
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+
+.author-attribution a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .talk-with-us-section .form-row-2col {
+        grid-template-columns: 1fr;
+    }
+}
 
 
