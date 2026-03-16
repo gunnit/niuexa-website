@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KG9S42S4');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8JW0S3PJKM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8JW0S3PJKM');
+    </script>
+
+    <!-- SEO Meta Tags -->
+    <title>Tool e Practice per Creare Agenti AI: la Guida Niuexa per Progettare, Testare e Mettere in Produzione Agenti Affidabili</title>
+    <meta name="description" content="Guida completa su tool e best practice per creare agenti AI affidabili. Stack tecnologico, workflow Niuexa in 10 passi, testing, guardrail e blueprint pronti per la produzione.">
+    <meta name="keywords" content="agenti AI, tool agenti AI, creare agenti AI, AI agent framework, LangChain, LlamaIndex, RAG, guardrail AI, testing agenti AI, AI in produzione, workflow agenti AI, blueprint AI agent">
+    <meta name="author" content="Niuexa">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Italian">
+    <meta name="geo.region" content="IT-25">
+    <meta name="geo.placename" content="Milano, Italy">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://niuexa.ai/articolo-tool-agenti-ai.html">
+    <meta property="og:title" content="Tool e Practice per Creare Agenti AI: la Guida Niuexa per Progettare, Testare e Mettere in Produzione Agenti Affidabili">
+    <meta property="og:description" content="Stack tecnologico, workflow Niuexa in 10 passi, testing, guardrail e blueprint pronti per la produzione di agenti AI affidabili.">
+    <meta property="og:image" content="https://niuexa.ai/img/og-tool-agenti-ai.jpg">
+    <meta property="og:locale" content="it_IT">
+    <meta property="article:published_time" content="2026-03-16">
+    <meta property="article:modified_time" content="2026-03-16">
+    <meta property="article:author" content="Niuexa">
+    <meta property="article:section" content="AI Engineering">
+    <meta property="article:tag" content="Agenti AI">
+    <meta property="article:tag" content="AI Agent Tools">
+    <meta property="article:tag" content="AI in Produzione">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://niuexa.ai/articolo-tool-agenti-ai.html">
+    <meta property="twitter:title" content="Tool e Practice per Creare Agenti AI: Guida Niuexa 2026">
+    <meta property="twitter:description" content="Stack tecnologico, workflow in 10 passi, testing, guardrail e blueprint per agenti AI affidabili in produzione.">
+    <meta property="twitter:image" content="https://niuexa.ai/img/og-tool-agenti-ai.jpg">
+
+    <link rel="canonical" href="https://niuexa.ai/articolo-tool-agenti-ai.html">
+
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="it" href="https://niuexa.ai/articolo-tool-agenti-ai.html">
+    <link rel="alternate" hreflang="it-it" href="https://niuexa.ai/articolo-tool-agenti-ai.html">
+    <link rel="alternate" hreflang="x-default" href="https://niuexa.ai/articolo-tool-agenti-ai.html">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="img/favicon 256.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon 256.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon 256.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon 256.ico">
+    <link rel="manifest" href="site.webmanifest">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tutorial.css">
+
+    <!-- Schema.org Article Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Tool e practice per creare agenti AI: la guida Niuexa per progettare, testare e mettere in produzione agenti affidabili",
+        "description": "Guida completa su tool e best practice per creare agenti AI affidabili. Stack tecnologico, workflow Niuexa in 10 passi, testing, guardrail e blueprint pronti per la produzione.",
+        "author": {
+            "@type": "Organization",
+            "name": "Niuexa",
+            "url": "https://niuexa.ai"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Niuexa",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://niuexa.ai/img/niuexalogo.png"
+            }
+        },
+        "datePublished": "2026-03-16",
+        "dateModified": "2026-03-16",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://niuexa.ai/articolo-tool-agenti-ai.html"
+        },
+        "keywords": ["agenti AI", "tool agenti AI", "AI agent framework", "LangChain", "LlamaIndex", "RAG", "guardrail AI", "testing agenti AI", "AI in produzione"],
+        "articleSection": "AI Engineering",
+        "wordCount": "6500",
+        "inLanguage": "it-IT",
+        "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": [".quick-answer", ".tutorial-description", "h1"]
+        }
+    }
+    </script>
+
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Quali tool servono per creare un agente AI in produzione?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Per un agente AI in produzione servono almeno cinque categorie di tool: un LLM con supporto nativo al tool calling (OpenAI GPT-5, Anthropic Claude), un framework di orchestrazione (LangChain, LlamaIndex o SDK custom), un pipeline RAG con vector database (Pinecone, Weaviate, Qdrant), una piattaforma di osservabilit&agrave; (LangSmith, Arize, Helicone) e un sistema di guardrail per policy enforcement e validazione degli output."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Qual &egrave; la differenza tra LangChain e LlamaIndex per agenti AI?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "LangChain eccelle nell'orchestrazione di catene multi-step e agenti con tool calling complesso, offrendo massima flessibilit&agrave; ma con una curva di apprendimento pi&ugrave; ripida. LlamaIndex &egrave; ottimizzato per pipeline RAG e retrieval-intensive agent, con un'API pi&ugrave; semplice per casi d'uso incentrati sulla knowledge base. Per agenti che devono interrogare dati aziendali, LlamaIndex &egrave; spesso pi&ugrave; rapido da prototipare; per workflow complessi con molti tool, LangChain offre maggiore controllo."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Come si testa un agente AI prima di andare in produzione?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Il testing di un agente AI richiede un approccio a pi&ugrave; livelli: 1) Unit test sui singoli tool con input/output deterministici, 2) Golden set di 50-200 casi reali con risposte attese, 3) Metriche automatiche (Task Success Rate > 90%, Groundedness > 95%), 4) LLM-as-judge per valutare qualit&agrave; delle risposte, 5) Red teaming con prompt adversariali, 6) Test di regressione automatici in CI/CD ad ogni modifica. Il golden set va aggiornato mensilmente con i casi di errore raccolti in produzione."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Cosa sono i guardrail per agenti AI e perch&eacute; servono?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "I guardrail sono meccanismi di protezione che impediscono a un agente AI di compiere azioni dannose, non autorizzate o fuori policy. Includono: policy engine che filtra input e output, allowlist di azioni consentite, sandbox per esecuzione sicura di codice, validazione dello schema di ogni tool call, limiti di budget e rate limiting, kill switch per disattivazione immediata, e audit trail completo di ogni decisione. Senza guardrail, un agente in produzione pu&ograve; generare costi incontrollati, esporre dati sensibili o eseguire azioni irreversibili."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quanto costa mettere in produzione un agente AI?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Il costo di un agente AI in produzione dipende dalla complessit&agrave;: un agente semplice (FAQ + RAG) costa 15-40k euro di sviluppo e 500-2.000 euro/mese di esercizio; un agente operativo (tool calling + integrazione sistemi) richiede 40-120k euro e 2.000-8.000 euro/mese; un agente enterprise multi-dominio pu&ograve; superare i 150k euro di sviluppo e i 10.000 euro/mese. I costi principali in esercizio sono: token LLM (40-60%), infrastruttura vector DB e compute (20-30%), osservabilit&agrave; e monitoring (10-15%), manutenzione e aggiornamento dataset (10-20%)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quando NON conviene usare un agente AI?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Un agente AI non conviene quando: 1) Il task &egrave; deterministico e non richiede ragionamento (usa un workflow tradizionale), 2) La latenza richiesta &egrave; sotto i 200ms (un LLM call richiede 1-5 secondi), 3) Il volume &egrave; cos&igrave; alto che il costo per token supera il valore generato, 4) Non esistono dati strutturati per valutare la correttezza dell'output, 5) Il dominio ha requisiti di compliance che vietano decisioni algoritmiche opache (es. credito al consumo in alcuni contesti normativi), 6) Il team non ha competenze per mantenere evals e guardrail nel tempo."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://niuexa.ai/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Impara",
+                "item": "https://niuexa.ai/impara.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Tool Agenti AI",
+                "item": "https://niuexa.ai/articolo-tool-agenti-ai.html"
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9S42S4"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="navigation-placeholder"></div>
+
+    <section class="tutorial-header">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="impara.html">Impara</a> / <span>Tool Agenti AI</span>
+            </nav>
+            <div class="tutorial-intro">
+                <div class="tutorial-badge">AI Engineering</div>
+                <h1>Tool e practice per creare agenti AI: la guida Niuexa per progettare, testare e mettere in produzione agenti affidabili</h1>
+                <p class="tutorial-description">Guida completa su tool e best practice per creare agenti AI affidabili. Stack tecnologico, workflow Niuexa in 10 passi, testing, guardrail e blueprint pronti per la produzione.</p>
+                <div class="tutorial-stats">
+                    <span class="stat">30 minuti di lettura</span>
+                    <span class="stat">Per CTO, AI Engineer &amp; Tech Lead</span>
+                    <span class="stat">Guida Pratica 2026</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <article class="tutorial-content">
+        <div class="container">
+            <div class="content-wrapper">
+
+                <!-- Quick Answer for AI Engines -->
+                <section class="content-section quick-answer">
+                    <h2>Risposta rapida: cosa serve per creare agenti AI affidabili?</h2>
+                    <p>Per creare agenti AI affidabili servono tool e practice integrate: un LLM con tool calling (OpenAI/Anthropic), orchestrazione (LangChain o LlamaIndex), RAG con vector DB, e osservabilit&agrave; end-to-end. Un agente in produzione deve avere: evals, guardrail, osservabilit&agrave;, kill switch. Il workflow Niuexa in 10 passi parte dalla definizione dei failure modes e arriva al rollout controllato con governance dei costi.</p>
+                </section>
+
+                <!-- Section 1: Introduzione -->
+                <section class="content-section">
+                    <h2>Introduzione &mdash; Perch&eacute; "tool" senza "practice" produce agenti fragili</h2>
+                    <p>Ogni settimana viene pubblicato un nuovo framework per costruire agenti AI. La demo funziona in 10 minuti, il tweet raccoglie migliaia di like, e il giorno dopo qualcuno prova a metterlo in produzione. Risultato: allucinazioni, costi fuori controllo, escalation manuali che annullano il valore dell'automazione.</p>
+
+                    <blockquote>
+                        <p>"Un agente AI che funziona in demo e fallisce in produzione non &egrave; un problema di modello. &Egrave; un problema di engineering: mancano i test, i guardrail, le metriche e il processo che trasformano un prototipo in un sistema affidabile."</p>
+                    </blockquote>
+
+                    <h3>Demo vs produzione: cosa si rompe e perch&eacute;</h3>
+                    <p>In una demo, l'agente riceve input puliti, opera in un contesto controllato e non ha vincoli di costo o latenza. In produzione, affronta: input ambigui o maliziosi, dati incompleti, tool che falliscono, utenti che escono dal flusso previsto, picchi di traffico, e budget per token che si esaurisce. <strong>Il gap tra demo e produzione non si colma con un modello migliore, ma con engineering practices rigorose.</strong></p>
+
+                    <h3>Definizione operativa di "agente"</h3>
+                    <p>In questa guida, per "agente AI" intendiamo un sistema che:</p>
+                    <ul>
+                        <li><strong>Pianifica:</strong> scompone un obiettivo in sotto-task e sceglie la sequenza di azioni</li>
+                        <li><strong>Usa tool:</strong> invoca API, database, servizi esterni attraverso tool calling strutturato</li>
+                        <li><strong>Gestisce stato:</strong> mantiene memoria della conversazione e del contesto tra i passi</li>
+                        <li><strong>Gestisce errori:</strong> rileva fallimenti dei tool, ripianifica o escala a un operatore umano</li>
+                        <li><strong>Rispetta policy:</strong> opera entro limiti definiti di budget, azioni consentite e dati accessibili</li>
+                    </ul>
+
+                    <div class="case-study-intro">
+                        <h3>Cosa fare vs cosa evitare</h3>
+                        <ul>
+                            <li><strong>Fare:</strong> definire i failure modes prima di scrivere codice</li>
+                            <li><strong>Fare:</strong> costruire evals automatiche dal giorno uno</li>
+                            <li><strong>Fare:</strong> partire con un scope ridotto e scalare dopo la validazione</li>
+                            <li><strong>Evitare:</strong> dare all'agente accesso illimitato a tool e dati</li>
+                            <li><strong>Evitare:</strong> affidarsi solo al prompt engineering per controllare il comportamento</li>
+                            <li><strong>Evitare:</strong> andare in produzione senza metriche automatiche e kill switch</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Section 2: La mappa dei tool -->
+                <section class="content-section">
+                    <h2>La mappa dei tool &mdash; Cosa serve nello stack</h2>
+                    <p>Lo stack tecnologico di un agente AI in produzione si compone di quattro livelli: il modello di linguaggio, il framework di orchestrazione, il pipeline RAG e i tool di produzione. Scegliere il componente sbagliato in uno qualsiasi di questi livelli compromette l'intero sistema.</p>
+
+                    <h3>LLM + API: criteri di selezione</h3>
+                    <p>La scelta del modello non &egrave; solo una questione di benchmark. I criteri che contano in produzione sono:</p>
+                    <ul>
+                        <li><strong>Supporto nativo al tool calling:</strong> il modello deve gestire function calling con schema JSON validabile, non solo testo libero</li>
+                        <li><strong>Costo per token:</strong> con volumi elevati, la differenza tra 1$ e 15$ per milione di token input determina la sostenibilit&agrave; economica</li>
+                        <li><strong>Latenza P95:</strong> non la latenza media, ma il 95&deg; percentile. Un agente che risponde in 2s nel 90% dei casi e in 15s nel restante 10% genera frustrazione</li>
+                        <li><strong>Context window:</strong> per agenti con conversazioni lunghe o documenti da analizzare, la finestra di contesto limita o abilita interi casi d'uso</li>
+                        <li><strong>Affidabilit&agrave; del tool calling:</strong> percentuale di chiamate a tool con schema valido e parametri corretti (testare empiricamente, non fidarsi dei benchmark)</li>
+                    </ul>
+
+                    <h3>Framework di orchestrazione a confronto</h3>
+                    <p>Il framework di orchestrazione &egrave; il "sistema nervoso" dell'agente: gestisce il flusso di esecuzione, le chiamate ai tool, la memoria e il recovery dagli errori.</p>
+
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Criterio</th>
+                                <th>LangChain / LangGraph</th>
+                                <th>LlamaIndex</th>
+                                <th>SDK Custom</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Caso d'uso ideale</strong></td>
+                                <td>Agenti multi-step con tool calling complesso e workflow ramificati</td>
+                                <td>Pipeline RAG-intensive, agenti che interrogano knowledge base aziendali</td>
+                                <td>Agenti con requisiti di latenza estremi o vincoli di compliance specifici</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Punti di forza</strong></td>
+                                <td>Ecosistema vasto, LangGraph per grafi stateful, LangSmith per osservabilit&agrave;</td>
+                                <td>API semplice per RAG, ottima gestione degli indici, integrazione nativa con vector DB</td>
+                                <td>Controllo totale, zero dipendenze, ottimizzazione specifica per il caso d'uso</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Quando evitare</strong></td>
+                                <td>Se il caso d'uso &egrave; puro retrieval senza logica agenziale; curva di apprendimento ripida</td>
+                                <td>Se servono workflow complessi con branching condizionale e multi-agente</td>
+                                <td>Se il team &egrave; piccolo e il time-to-market &egrave; critico; alto costo di manutenzione</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="pro-tips">
+                        <h4>Regola pratica Niuexa</h4>
+                        <p>Inizia con un SDK custom minimale (OpenAI SDK + 200 righe di orchestrazione). Migra a LangChain/LlamaIndex solo quando la complessit&agrave; del workflow lo giustifica. Il framework aggiunge valore quando hai pi&ugrave; di 5 tool, branching condizionale e necessit&agrave; di persistenza dello stato tra sessioni.</p>
+                    </div>
+
+                    <h3>Memoria, contesto e pipeline RAG</h3>
+                    <p>Un agente senza memoria &egrave; stateless e riparte da zero a ogni interazione. Un agente con troppa memoria consuma token inutilmente e introduce rumore. Il design della memoria richiede tre decisioni:</p>
+                    <ul>
+                        <li><strong>Short-term memory:</strong> la conversazione corrente, gestita nel context window del modello. Limitata dalla dimensione della finestra</li>
+                        <li><strong>Long-term memory:</strong> conoscenza persistente tra sessioni, tipicamente un vector DB (Pinecone, Weaviate, Qdrant, pgvector) con embedding del contenuto aziendale</li>
+                        <li><strong>Working memory:</strong> lo stato intermedio dell'esecuzione corrente &mdash; quali tool sono stati chiamati, quali risultati ottenuti, quali sotto-task completati</li>
+                    </ul>
+                    <p>Il pipeline RAG (Retrieval-Augmented Generation) collega il modello alla conoscenza aziendale. I componenti critici sono: chunking strategy (dimensione e overlap dei frammenti), embedding model (trade-off qualit&agrave;/costo), retrieval strategy (similarity search, hybrid search, re-ranking), e prompt di contesto che integra i risultati del retrieval nell'istruzione al modello.</p>
+
+                    <h3>Tool di produzione: osservabilit&agrave;, logging, rate limiting</h3>
+                    <p>Un agente in produzione senza osservabilit&agrave; &egrave; una scatola nera. I tool di produzione essenziali sono:</p>
+                    <ul>
+                        <li><strong>Tracing:</strong> LangSmith, Arize Phoenix, Helicone &mdash; tracciamento di ogni step dell'agente con latenza, token consumati e output</li>
+                        <li><strong>Logging strutturato:</strong> ogni decisione dell'agente, ogni tool call e ogni errore devono essere loggati in formato JSON queryable</li>
+                        <li><strong>Rate limiting:</strong> limiti per utente, per sessione e per finestra temporale per prevenire abusi e costi fuori controllo</li>
+                        <li><strong>Cost tracking:</strong> monitoraggio in tempo reale della spesa per token, per agente e per cliente</li>
+                        <li><strong>Alerting:</strong> notifiche automatiche quando le metriche escono dai range accettabili (tasso di errore, latenza, costo)</li>
+                    </ul>
+                </section>
+
+                <!-- Section 3: Practice fondamentali -->
+                <section class="content-section">
+                    <h2>Practice fondamentali &mdash; Progettare prima di codificare</h2>
+                    <p>I tool migliori non compensano un design scadente. Le practice che seguono sono il fondamento su cui costruire un agente che funziona in produzione, non solo in demo.</p>
+
+                    <h3>Task decomposition: da obiettivo a sotto-task</h3>
+                    <p>Il primo passo &egrave; scomporre l'obiettivo dell'agente in una mappa di sotto-task, ciascuno con tool associati e criteri di uscita espliciti. Questa mappa diventa il contratto tra il team di sviluppo e gli stakeholder.</p>
+                    <div class="pro-tips">
+                        <h4>Template di decomposizione</h4>
+                        <ul>
+                            <li><strong>Obiettivo:</strong> es. "Risolvere ticket di supporto L1 senza escalation umana"</li>
+                            <li><strong>Sotto-task 1:</strong> Classificare il ticket (tool: classifier API) &rarr; output: categoria + confidence</li>
+                            <li><strong>Sotto-task 2:</strong> Recuperare documentazione pertinente (tool: RAG retrieval) &rarr; output: top-k documenti</li>
+                            <li><strong>Sotto-task 3:</strong> Generare risposta (tool: LLM generation) &rarr; output: risposta + fonti</li>
+                            <li><strong>Sotto-task 4:</strong> Validare risposta (tool: quality checker) &rarr; output: pass/fail + motivo</li>
+                            <li><strong>Exit criteria:</strong> confidence &gt; 0.85 AND quality_check = pass, altrimenti escalation</li>
+                        </ul>
+                    </div>
+
+                    <h3>Contractual prompting: istruzioni + schema + regole testabili</h3>
+                    <p>Il prompt non &egrave; un suggerimento: &egrave; un contratto. Ogni istruzione deve essere verificabile con un test automatico. Il contractual prompting combina tre elementi:</p>
+                    <ul>
+                        <li><strong>Istruzioni in linguaggio naturale:</strong> cosa deve fare l'agente, in che tono, con quali vincoli</li>
+                        <li><strong>JSON Schema per ogni tool:</strong> definizione formale di parametri richiesti, tipi, vincoli di validazione</li>
+                        <li><strong>Regole testabili:</strong> ogni regola del prompt deve poter essere tradotta in un assertion automatica (es. "Non menzionare mai il nome di un competitor" &rarr; test: nessun output contiene [lista competitor])</li>
+                    </ul>
+
+                    <blockquote>
+                        <p>"Se una regola nel prompt non pu&ograve; diventare un test automatico, non &egrave; una regola: &egrave; una speranza. In produzione, le speranze non scalano."</p>
+                    </blockquote>
+
+                    <h3>Tool design: piccoli, deterministici, con I/O validato</h3>
+                    <p>Ogni tool esposto all'agente deve seguire tre principi:</p>
+                    <ul>
+                        <li><strong>Single Responsibility:</strong> un tool fa una sola cosa. "search_knowledge_base" &egrave; un buon tool; "search_and_summarize_and_send_email" non lo &egrave;</li>
+                        <li><strong>Determinismo:</strong> a parit&agrave; di input, il tool restituisce lo stesso output (escluso il componente LLM). Questo rende il testing possibile</li>
+                        <li><strong>I/O validato:</strong> input e output definiti con JSON Schema. L'agente non pu&ograve; chiamare un tool con parametri malformati, e il tool non pu&ograve; restituire strutture inattese</li>
+                    </ul>
+
+                    <h3>Human-in-the-loop: quando e come</h3>
+                    <p>Non tutte le decisioni devono essere automatiche. Il pattern human-in-the-loop prevede tre livelli di intervento umano:</p>
+                    <ul>
+                        <li><strong>Approvazione pre-azione:</strong> per azioni irreversibili (es. invio email a cliente, modifica database), l'agente propone l'azione e attende approvazione</li>
+                        <li><strong>Review post-azione:</strong> l'agente esegue e un umano rivede un campione (5-20%) per qualit&agrave;</li>
+                        <li><strong>Escalation su incertezza:</strong> quando la confidence scende sotto la soglia, l'agente trasferisce il caso a un operatore con il contesto completo</li>
+                    </ul>
+                </section>
+
+                <!-- Section 4: Workflow Niuexa in 10 passi -->
+                <section class="content-section">
+                    <h2>Workflow Niuexa &mdash; Da idea a produzione in 10 passi</h2>
+                    <p>Questo &egrave; il processo che seguiamo in Niuexa per portare un agente AI dal concept alla produzione. Ogni passo ha un deliverable concreto e un gate di approvazione prima di procedere al successivo.</p>
+
+                    <ol>
+                        <li>
+                            <strong>Obiettivo + KPI + failure modes</strong>
+                            <p>Definire l'obiettivo dell'agente in termini misurabili (es. "Risolvere il 70% dei ticket L1 entro 5 minuti"). Mappare i failure modes: cosa succede se l'agente allucinazione? Se il tool fallisce? Se il costo per conversazione supera il budget? Ogni failure mode deve avere una contromisura progettata prima di scrivere una riga di codice.</p>
+                        </li>
+                        <li>
+                            <strong>Dataset di casi reali (50-200)</strong>
+                            <p>Raccogliere 50-200 esempi reali dal dominio: input utente, output atteso, edge case, casi di errore. Questo dataset diventa il golden set per le evals. Senza dati reali, si costruisce sull'intuizione invece che sull'evidenza.</p>
+                        </li>
+                        <li>
+                            <strong>RAG evaluation</strong>
+                            <p>Se l'agente usa RAG, valutare il pipeline di retrieval indipendentemente dal modello: precision@k, recall@k, MRR (Mean Reciprocal Rank). Un retrieval scadente produce risposte scadenti indipendentemente dalla qualit&agrave; del modello.</p>
+                        </li>
+                        <li>
+                            <strong>Tool registry + policy</strong>
+                            <p>Registrare ogni tool con: nome, descrizione, JSON Schema per input/output, policy di accesso (chi pu&ograve; usarlo, in quali condizioni), rate limit, costo stimato per chiamata. Il registry &egrave; il contratto tra l'agente e i sistemi aziendali.</p>
+                        </li>
+                        <li>
+                            <strong>Evals automatiche</strong>
+                            <p>Implementare una suite di test automatici che valuta l'agente sul golden set ad ogni modifica del prompt, del modello o dei tool. Le metriche minime sono: Task Success Rate, Groundedness, Cost per Resolution, Escalation Rate.</p>
+                        </li>
+                        <li>
+                            <strong>Red teaming</strong>
+                            <p>Sottoporre l'agente a test adversariali: prompt injection, jailbreak, input fuori dominio, richieste di dati sensibili, tentativi di manipolazione. Il red teaming rivela vulnerabilit&agrave; che i test funzionali non catturano.</p>
+                        </li>
+                        <li>
+                            <strong>Rollout controllato (canary 5-10%)</strong>
+                            <p>Avviare l'agente su un sottoinsieme del traffico reale (5-10%), con human review al 100% nella prima settimana. Confrontare le metriche con il baseline (operatore umano o sistema precedente). Scalare solo se le metriche superano le soglie definite al passo 1.</p>
+                        </li>
+                        <li>
+                            <strong>Monitoring + tracing</strong>
+                            <p>Attivare il monitoraggio in tempo reale: latenza per step, costo per conversazione, tasso di errore, distribuzione delle escalation. Ogni conversazione deve essere tracciabile end-to-end per debugging e audit.</p>
+                        </li>
+                        <li>
+                            <strong>Retraining / iterazione</strong>
+                            <p>Analizzare settimanalmente i casi di errore e aggiornare: il golden set (aggiungendo i nuovi edge case), il prompt (raffinando le istruzioni), i tool (correggendo bug o migliorando le validazioni), il retrieval (aggiungendo o aggiornando documenti nel vector DB).</p>
+                        </li>
+                        <li>
+                            <strong>Cost governance</strong>
+                            <p>Implementare dashboard di costo per agente, per cliente e per caso d'uso. Definire budget ceiling con alert automatici. Ottimizzare: caching delle risposte frequenti, routing verso modelli pi&ugrave; economici per task semplici, compressione del contesto per ridurre i token consumati.</p>
+                        </li>
+                    </ol>
+
+                    <div class="pro-tips">
+                        <h4>Tempo medio per completare i 10 passi</h4>
+                        <p>Per un agente di complessit&agrave; media (5-10 tool, RAG su knowledge base aziendale, integrazione con 2-3 sistemi), il workflow completo richiede <strong>6-10 settimane</strong> con un team di 2-3 persone. Il passo pi&ugrave; sottovalutato in termini di tempo &egrave; il #2 (dataset di casi reali): raccogliere dati di qualit&agrave; richiede collaborazione con il business e spesso rappresenta il 30-40% dell'effort totale.</p>
+                    </div>
+                </section>
+
+                <!-- Section 5: Testing ed evals -->
+                <section class="content-section">
+                    <h2>Testing ed evals</h2>
+                    <p>Un agente AI senza evals automatiche &egrave; un sistema non testato. In produzione, "non testato" significa "inaffidabile". Il testing degli agenti richiede metriche specifiche, dataset curati e automazione in CI/CD.</p>
+
+                    <h3>Metriche fondamentali</h3>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Metrica</th>
+                                <th>Definizione</th>
+                                <th>Target</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Task Success Rate (TSR)</strong></td>
+                                <td>Percentuale di task completati con successo senza escalation umana</td>
+                                <td>&gt; 85-90%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Groundedness</strong></td>
+                                <td>Percentuale di affermazioni nell'output supportate da fonti recuperate via RAG</td>
+                                <td>&gt; 95%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cost per Resolution</strong></td>
+                                <td>Costo medio in token + compute per risolvere un caso (inclusi retry e tool call)</td>
+                                <td>&lt; 30-50% del costo umano equivalente</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Escalation Rate</strong></td>
+                                <td>Percentuale di casi trasferiti a un operatore umano</td>
+                                <td>&lt; 15-25%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Latenza end-to-end (P95)</strong></td>
+                                <td>Tempo dal ricevimento della richiesta alla risposta finale, al 95&deg; percentile</td>
+                                <td>&lt; 10-15 secondi</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tool Call Accuracy</strong></td>
+                                <td>Percentuale di chiamate a tool con parametri corretti e risultato utilizzabile</td>
+                                <td>&gt; 95%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Costruzione del golden set (50-200 esempi)</h3>
+                    <p>Il golden set &egrave; il cuore del sistema di evals. Per costruirlo efficacemente:</p>
+                    <ul>
+                        <li><strong>Fonti:</strong> ticket reali, chat log, email dei clienti, casi risolti dagli operatori</li>
+                        <li><strong>Distribuzione:</strong> 60% casi tipici, 20% edge case, 20% casi di errore o adversariali</li>
+                        <li><strong>Formato:</strong> per ogni esempio: input utente, contesto disponibile, output atteso, tool call attese, criteri di valutazione</li>
+                        <li><strong>Aggiornamento:</strong> aggiungere 10-20 nuovi esempi al mese dai casi di errore in produzione</li>
+                        <li><strong>Validazione:</strong> ogni esempio deve essere validato da un esperto di dominio (non solo dal team tech)</li>
+                    </ul>
+
+                    <h3>LLM-as-judge: quando e come ridurre il bias</h3>
+                    <p>Usare un LLM per valutare l'output di un altro LLM &egrave; potente ma rischioso. Per ridurre il bias:</p>
+                    <ul>
+                        <li><strong>Criteri espliciti:</strong> fornire al giudice una rubrica con criteri binari o su scala 1-5, non valutazioni soggettive</li>
+                        <li><strong>Riferimento al ground truth:</strong> quando disponibile, il giudice confronta l'output con la risposta attesa, non con la propria "opinione"</li>
+                        <li><strong>Modello diverso:</strong> usare un modello diverso da quello dell'agente come giudice per evitare auto-valutazione favorevole</li>
+                        <li><strong>Calibrazione:</strong> validare il giudice su un campione con valutazioni umane e misurare l'accordo (Cohen's kappa &gt; 0.7)</li>
+                    </ul>
+
+                    <h3>Test di regressione in CI/CD</h3>
+                    <p>Ogni modifica al prompt, al modello o ai tool deve triggerare automaticamente la suite di evals sul golden set. Se una metrica regredisce oltre la soglia, il deploy viene bloccato. Questo richiede:</p>
+                    <ul>
+                        <li>Pipeline CI/CD con step dedicato alle evals (es. GitHub Actions, GitLab CI)</li>
+                        <li>Soglie definite per ogni metrica (es. TSR non pu&ograve; scendere sotto 85%)</li>
+                        <li>Report automatico con diff tra la versione corrente e la precedente</li>
+                        <li>Budget di test: stimare il costo in token delle evals e includerlo nel budget operativo</li>
+                    </ul>
+                </section>
+
+                <!-- Section 6: Guardrail, sicurezza e compliance -->
+                <section class="content-section">
+                    <h2>Guardrail, sicurezza e compliance</h2>
+                    <p>Un agente AI in produzione opera con dati reali, interagisce con sistemi aziendali e prende decisioni che hanno impatto su clienti e processi. I guardrail non sono un'opzione: sono un requisito.</p>
+
+                    <h3>Policy engine, allowlist, sandbox</h3>
+                    <ul>
+                        <li><strong>Policy engine:</strong> un layer che intercetta ogni input e output dell'agente e verifica il rispetto delle regole (es. "Non rivelare informazioni di altri clienti", "Non eseguire azioni di cancellazione su database di produzione")</li>
+                        <li><strong>Allowlist di tool e azioni:</strong> l'agente pu&ograve; usare solo i tool esplicitamente registrati. Ogni nuovo tool richiede una review di sicurezza prima dell'attivazione</li>
+                        <li><strong>Sandbox per esecuzione codice:</strong> se l'agente genera o esegue codice, questo deve avvenire in un ambiente isolato con risorse limitate, senza accesso alla rete o al filesystem di produzione</li>
+                        <li><strong>Simulazione pre-deploy:</strong> prima di attivare un nuovo tool o una nuova policy, simulare il comportamento dell'agente su un campione di traffico storico per verificare l'assenza di regressioni</li>
+                    </ul>
+
+                    <h3>Privacy: PII, retention, logging, access control</h3>
+                    <p>La gestione dei dati personali &egrave; critica, specialmente in Europa con il GDPR:</p>
+                    <ul>
+                        <li><strong>PII detection:</strong> filtrare automaticamente i dati personali (nomi, email, numeri di telefono, codici fiscali) dai log e dal contesto inviato al modello</li>
+                        <li><strong>Data retention:</strong> definire policy di retention per le conversazioni (es. 90 giorni per debugging, poi anonimizzazione)</li>
+                        <li><strong>Logging selettivo:</strong> loggare le metriche e le decisioni, non il contenuto integrale delle conversazioni con dati sensibili</li>
+                        <li><strong>Access control:</strong> role-based access ai log, ai dati dell'agente e alle configurazioni. Principio del minimo privilegio</li>
+                    </ul>
+
+                    <h3>Contromisure al prompt injection</h3>
+                    <p>Il prompt injection &egrave; il tentativo di far eseguire all'agente istruzioni non autorizzate iniettate nell'input utente. Le contromisure principali sono:</p>
+                    <ul>
+                        <li><strong>Separazione dei contesti:</strong> system prompt e user input devono essere chiaramente delimitati e il modello deve essere istruito a non eseguire istruzioni nell'user input</li>
+                        <li><strong>Input sanitization:</strong> rilevare pattern di injection noti (es. "Ignora le istruzioni precedenti") e bloccarli prima che raggiungano il modello</li>
+                        <li><strong>Output validation:</strong> verificare che l'output dell'agente sia coerente con le istruzioni del system prompt e non con potenziali istruzioni iniettate</li>
+                        <li><strong>Least privilege:</strong> anche se un injection ha successo, l'agente non ha accesso a tool o dati oltre il necessario</li>
+                    </ul>
+
+                    <h3>Incident response: playbook, audit trail, kill switch</h3>
+                    <div class="pro-tips">
+                        <h4>Playbook di incident response per agenti AI</h4>
+                        <ul>
+                            <li><strong>Rilevamento:</strong> alert automatici su metriche anomale (spike errori, costo, latenza)</li>
+                            <li><strong>Contenimento:</strong> kill switch che disattiva l'agente in &lt; 30 secondi e trasferisce il traffico al fallback (operatori umani o messaggio di indisponibilit&agrave;)</li>
+                            <li><strong>Analisi:</strong> audit trail completo di ogni conversazione e decisione per root cause analysis</li>
+                            <li><strong>Risoluzione:</strong> fix + test sul golden set + red teaming specifico sul failure mode</li>
+                            <li><strong>Post-mortem:</strong> documento con root cause, impatto, timeline e azioni preventive per evitare la ricorrenza</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Section 7: Blueprint — 3 architetture pronte -->
+                <section class="content-section">
+                    <h2>Blueprint &mdash; 3 architetture pronte</h2>
+                    <p>Ogni agente AI ha un contesto specifico, ma i pattern architetturali sono ricorrenti. Presentiamo tre blueprint pronti per la produzione, validati su progetti reali Niuexa.</p>
+
+                    <h3>Blueprint A: Customer Support (RAG + escalation + quality)</h3>
+                    <div class="pro-tips">
+                        <h4>Architettura Customer Support Agent</h4>
+                        <ul>
+                            <li><strong>Input:</strong> ticket o messaggio chat del cliente</li>
+                            <li><strong>Step 1 &mdash; Classificazione:</strong> classificare intent e urgenza (LLM + classifier)</li>
+                            <li><strong>Step 2 &mdash; Retrieval:</strong> recuperare documentazione pertinente dalla knowledge base (RAG con hybrid search)</li>
+                            <li><strong>Step 3 &mdash; Generazione:</strong> comporre la risposta citando le fonti (LLM con grounding)</li>
+                            <li><strong>Step 4 &mdash; Quality check:</strong> validare tono, completezza, correttezza (LLM-as-judge)</li>
+                            <li><strong>Step 5 &mdash; Decisione:</strong> se quality &gt; soglia, inviare la risposta; altrimenti, escalation con contesto</li>
+                            <li><strong>Metriche target:</strong> TSR &gt; 75%, Groundedness &gt; 95%, CSAT &ge; 4.2/5, Escalation &lt; 25%</li>
+                        </ul>
+                    </div>
+
+                    <h3>Blueprint B: Operations/IT (ticketing + tool-calling controllato)</h3>
+                    <div class="pro-tips">
+                        <h4>Architettura Operations Agent</h4>
+                        <ul>
+                            <li><strong>Input:</strong> richiesta IT o alert di sistema</li>
+                            <li><strong>Step 1 &mdash; Triage:</strong> classificare priorit&agrave; e tipo di intervento (P1-P4)</li>
+                            <li><strong>Step 2 &mdash; Diagnosi:</strong> interrogare log, metriche e CMDB (tool calling con allowlist)</li>
+                            <li><strong>Step 3 &mdash; Azione:</strong> eseguire remediation automatica per P3-P4 (restart servizio, scaling, pulizia cache) con approvazione automatica; per P1-P2, proporre l'azione e attendere approvazione umana</li>
+                            <li><strong>Step 4 &mdash; Verifica:</strong> confermare che l'intervento ha risolto il problema (health check post-azione)</li>
+                            <li><strong>Step 5 &mdash; Documentazione:</strong> creare/aggiornare il ticket con timeline, azioni eseguite e risultato</li>
+                            <li><strong>Metriche target:</strong> MTTR &lt; 15 min per P3-P4, automazione &gt; 60% dei ticket L1, zero azioni non autorizzate</li>
+                        </ul>
+                    </div>
+
+                    <h3>Blueprint C: Sales Enablement (CRM + quoting + compliance)</h3>
+                    <div class="pro-tips">
+                        <h4>Architettura Sales Enablement Agent</h4>
+                        <ul>
+                            <li><strong>Input:</strong> richiesta del commerciale (preparare offerta, qualificare lead, sintetizzare account)</li>
+                            <li><strong>Step 1 &mdash; Context gathering:</strong> recuperare dati dal CRM (storico ordini, interazioni, fatturato)</li>
+                            <li><strong>Step 2 &mdash; Analisi:</strong> sintetizzare lo stato dell'account e identificare opportunit&agrave; (upsell, cross-sell, rinnovi)</li>
+                            <li><strong>Step 3 &mdash; Quoting:</strong> generare proposta economica basata su listino, scontistiche autorizzate e volumi (con guardrail su sconti massimi)</li>
+                            <li><strong>Step 4 &mdash; Compliance check:</strong> verificare che l'offerta rispetti policy aziendali, margini minimi e termini contrattuali standard</li>
+                            <li><strong>Step 5 &mdash; Output:</strong> documento di offerta draft + talking points per il commerciale</li>
+                            <li><strong>Metriche target:</strong> tempo medio preparazione offerta &lt; 10 min (da 2-4 ore), compliance 100%, adoption rate &gt; 70% del team sales</li>
+                        </ul>
+                    </div>
+
+                    <h3>Quando NON usare un agente</h3>
+                    <p>Non tutti i problemi richiedono un agente AI. Evitare l'approccio agenziale quando:</p>
+                    <ul>
+                        <li><strong>Il task &egrave; deterministico:</strong> se l'input mappa direttamente a un output senza ragionamento (es. lookup in tabella), un workflow tradizionale &egrave; pi&ugrave; veloce, affidabile ed economico</li>
+                        <li><strong>La latenza &egrave; critica (&lt; 200ms):</strong> ogni LLM call aggiunge 1-5 secondi. Per risposte sub-secondo, servono sistemi rule-based o ML tradizionale</li>
+                        <li><strong>Il volume &egrave; altissimo e il valore per interazione &egrave; basso:</strong> se il costo per token supera il margine generato dall'automazione, l'agente non &egrave; sostenibile</li>
+                        <li><strong>Non esistono dati per valutare la correttezza:</strong> senza un golden set e metriche oggettive, non si pu&ograve; sapere se l'agente funziona o no</li>
+                        <li><strong>Il dominio vieta decisioni algoritmiche opache:</strong> in alcuni contesti normativi (credito al consumo, assunzioni), le decisioni devono essere spiegabili e auditabili in modo che un agente LLM non pu&ograve; garantire</li>
+                    </ul>
+                </section>
+
+                <!-- Section 8: FAQ -->
+                <section class="content-section faq-section">
+                    <h2>Domande frequenti su tool e practice per agenti AI</h2>
+
+                    <div class="faq-item">
+                        <h3>Quali tool servono per creare un agente AI in produzione?</h3>
+                        <p>Per un agente AI in produzione servono almeno cinque categorie di tool: un LLM con supporto nativo al tool calling (OpenAI GPT-5, Anthropic Claude), un framework di orchestrazione (LangChain, LlamaIndex o SDK custom), un pipeline RAG con vector database (Pinecone, Weaviate, Qdrant), una piattaforma di osservabilit&agrave; (LangSmith, Arize, Helicone) e un sistema di guardrail per policy enforcement e validazione degli output.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Qual &egrave; la differenza tra LangChain e LlamaIndex per agenti AI?</h3>
+                        <p>LangChain eccelle nell'orchestrazione di catene multi-step e agenti con tool calling complesso, offrendo massima flessibilit&agrave; ma con una curva di apprendimento pi&ugrave; ripida. LlamaIndex &egrave; ottimizzato per pipeline RAG e retrieval-intensive agent, con un'API pi&ugrave; semplice per casi d'uso incentrati sulla knowledge base. Per agenti che devono interrogare dati aziendali, LlamaIndex &egrave; spesso pi&ugrave; rapido da prototipare; per workflow complessi con molti tool, LangChain offre maggiore controllo.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Come si testa un agente AI prima di andare in produzione?</h3>
+                        <p>Il testing di un agente AI richiede un approccio a pi&ugrave; livelli: 1) Unit test sui singoli tool con input/output deterministici, 2) Golden set di 50-200 casi reali con risposte attese, 3) Metriche automatiche (Task Success Rate &gt; 90%, Groundedness &gt; 95%), 4) LLM-as-judge per valutare qualit&agrave; delle risposte, 5) Red teaming con prompt adversariali, 6) Test di regressione automatici in CI/CD ad ogni modifica. Il golden set va aggiornato mensilmente con i casi di errore raccolti in produzione.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Cosa sono i guardrail per agenti AI e perch&eacute; servono?</h3>
+                        <p>I guardrail sono meccanismi di protezione che impediscono a un agente AI di compiere azioni dannose, non autorizzate o fuori policy. Includono: policy engine che filtra input e output, allowlist di azioni consentite, sandbox per esecuzione sicura di codice, validazione dello schema di ogni tool call, limiti di budget e rate limiting, kill switch per disattivazione immediata, e audit trail completo di ogni decisione. Senza guardrail, un agente in produzione pu&ograve; generare costi incontrollati, esporre dati sensibili o eseguire azioni irreversibili.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Quanto costa mettere in produzione un agente AI?</h3>
+                        <p>Il costo di un agente AI in produzione dipende dalla complessit&agrave;: un agente semplice (FAQ + RAG) costa 15-40k &euro; di sviluppo e 500-2.000 &euro;/mese di esercizio; un agente operativo (tool calling + integrazione sistemi) richiede 40-120k &euro; e 2.000-8.000 &euro;/mese; un agente enterprise multi-dominio pu&ograve; superare i 150k &euro; di sviluppo e i 10.000 &euro;/mese. I costi principali in esercizio sono: token LLM (40-60%), infrastruttura vector DB e compute (20-30%), osservabilit&agrave; e monitoring (10-15%), manutenzione e aggiornamento dataset (10-20%).</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Quando NON conviene usare un agente AI?</h3>
+                        <p>Un agente AI non conviene quando: 1) Il task &egrave; deterministico e non richiede ragionamento (usa un workflow tradizionale), 2) La latenza richiesta &egrave; sotto i 200ms (un LLM call richiede 1-5 secondi), 3) Il volume &egrave; cos&igrave; alto che il costo per token supera il valore generato, 4) Non esistono dati strutturati per valutare la correttezza dell'output, 5) Il dominio ha requisiti di compliance che vietano decisioni algoritmiche opache, 6) Il team non ha competenze per mantenere evals e guardrail nel tempo.</p>
+                    </div>
+                </section>
+
+                <!-- Section 9: Conclusione -->
+                <section class="content-section">
+                    <h2>Conclusione &mdash; Checklist finale per agenti AI in produzione</h2>
+                    <p>Costruire un agente AI che funziona in produzione non &egrave; questione di scegliere il framework giusto o il modello pi&ugrave; potente. &Egrave; questione di integrare tool e practice in un processo ingegneristico ripetibile. Questa checklist riassume i requisiti minimi per il go-live.</p>
+
+                    <div class="pro-tips">
+                        <h4>Checklist di produzione Niuexa</h4>
+                        <ul>
+                            <li>&#9744; Obiettivo definito con KPI misurabili e failure modes mappati</li>
+                            <li>&#9744; Golden set di almeno 50 esempi reali validati da esperti di dominio</li>
+                            <li>&#9744; Pipeline RAG con retrieval evaluation (precision@k, recall@k)</li>
+                            <li>&#9744; Tool registry completo con JSON Schema, policy e rate limit per ogni tool</li>
+                            <li>&#9744; Suite di evals automatiche con soglie (TSR &gt; 85%, Groundedness &gt; 95%)</li>
+                            <li>&#9744; Red teaming completato (prompt injection, jailbreak, input fuori dominio)</li>
+                            <li>&#9744; Guardrail attivi: policy engine, allowlist, PII filtering, kill switch</li>
+                            <li>&#9744; Osservabilit&agrave; end-to-end: tracing, cost tracking, alerting</li>
+                            <li>&#9744; Human-in-the-loop configurato per azioni ad alto rischio</li>
+                            <li>&#9744; Incident response playbook scritto e testato</li>
+                            <li>&#9744; Rollout plan con canary al 5-10% e criteri di go/no-go</li>
+                            <li>&#9744; Cost governance: budget ceiling, dashboard costi, ottimizzazione token</li>
+                        </ul>
+                    </div>
+
+                    <blockquote>
+                        <p>"Gli agenti AI migliori non sono quelli con il modello pi&ugrave; potente. Sono quelli con il processo di engineering pi&ugrave; maturo: evals solide, guardrail rigorosi, osservabilit&agrave; completa e un team che itera ogni settimana sui failure modes."</p>
+                    </blockquote>
+
+                    <div class="info-box">
+                        <h4>Vuoi valutare la readiness del tuo team per gli agenti AI?</h4>
+                        <p>L'<strong>Agent Readiness Assessment</strong> Niuexa analizza il tuo caso d'uso, valuta la maturit&agrave; del team e dell'infrastruttura, e produce un piano d'azione con timeline, budget e architettura consigliata. In 5 giorni lavorativi hai un documento decisionale pronto per il CTO.</p>
+                        <a href="contatti.html" class="btn btn-primary">Richiedi l'Agent Readiness Assessment</a>
+                    </div>
+                </section>
+
+                <!-- Related Articles -->
+                <section class="content-section">
+                    <h2>Articoli Correlati</h2>
+                    <div class="related-articles">
+                        <a href="articolo-costo-automazione.html" class="related-card">
+                            <span class="related-category">Automazione</span>
+                            <h4>Quanto Costa un Progetto di Automazione? Guida Niuexa a Budget e ROI</h4>
+                        </a>
+                        <a href="articolo-faq-consulenza-ai-italia.html" class="related-card">
+                            <span class="related-category">Consulenza AI</span>
+                            <h4>FAQ Consulenza AI Italia: 15 Domande Essenziali</h4>
+                        </a>
+                        <a href="articolo-ai-manifatturiero-industria40.html" class="related-card">
+                            <span class="related-category">Industria 4.0</span>
+                            <h4>AI e Industria 4.0: La Trasformazione del Manifatturiero Italiano</h4>
+                        </a>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </article>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Vuoi Costruire Agenti AI Affidabili per la Tua Azienda?</h2>
+            <p>Il team Niuexa progetta, testa e mette in produzione agenti AI con il workflow in 10 passi. Dall'Agent Readiness Assessment al rollout controllato, ti accompagniamo in ogni fase.</p>
+            <a href="contatti.html" class="btn btn-primary">Richiedi una Consulenza Gratuita</a>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="includes/includes.js"></script>
+    <script src="tutorial.js"></script>
+</body>
+</html>
