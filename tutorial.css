@@ -63,6 +63,68 @@
     opacity: 0.9;
 }
 
+.article-meta {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+.article-meta address.author-info {
+    font-style: normal;
+    margin-bottom: 0.3rem;
+}
+
+.article-meta a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.article-meta a:hover {
+    opacity: 1;
+}
+
+.article-meta time {
+    font-size: 0.85rem;
+}
+
+.page-meta.author-bio {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1.5rem 2rem;
+    background: var(--light-gray);
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-blue);
+    font-family: var(--font-secondary);
+}
+
+.page-meta.author-bio h3 {
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.page-meta.author-bio p {
+    font-size: 0.95rem;
+    color: var(--dark-gray);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.page-meta.author-bio a {
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+
+.page-meta.author-bio a:hover {
+    text-decoration: underline;
+}
+
 /* Chapter Accordion */
 .chapter-navigation {
     background: var(--light-gray);
