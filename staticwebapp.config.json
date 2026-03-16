@@ -37,7 +37,7 @@
     ".ico": "image/x-icon"
   },
   "globalHeaders": {
-    "Cache-Control": "public, max-age=3600, s-maxage=86400",
+    "Cache-Control": "public, max-age=3600, s-maxage=3600",
     "X-Content-Type-Options": "nosniff",
     "X-Frame-Options": "SAMEORIGIN",
     "X-XSS-Protection": "1; mode=block"
@@ -64,7 +64,7 @@
     {
       "route": "/*.html",
       "headers": {
-        "Cache-Control": "public, max-age=3600"
+        "Cache-Control": "public, max-age=3600, s-maxage=600, must-revalidate"
       }
     }
   ]
