@@ -8,7 +8,7 @@ const navigationHTML = `
         <div class="nav-logo">
             <a href="index.html">
                 <div class="logo-container">
-                    <img src="img/pictogram_blue_transparent.png" alt="Niuexa" class="logo-icon">
+                    <img src="img/pictogram_blue_transparent.png" alt="Niuexa - AI Solutions" class="logo-icon" width="40" height="40" loading="eager">
                     <div class="logo-text">
                         <div class="logo-title">NIUEXA</div>
                         <span class="logo-tagline">AI Solutions</span>
@@ -108,7 +108,7 @@ const footerHTML = `
         </div>
         <div class="footer-bottom">
             <div class="footer-bottom-content">
-                <p class="footer-copyright">&copy; 2024 Niuexa. Tutti i diritti riservati.</p>
+                <p class="footer-copyright">&copy; 2024-2026 Niuexa. Tutti i diritti riservati.</p>
                 <p class="footer-company">Niuexa è una BU di Bebit Srl - P.I. 1121570019</p>
             </div>
         </div>

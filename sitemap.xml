@@ -521,4 +521,33 @@
         <priority>0.8</priority>
     </url>
 
+    <!-- Articles - AEO Content Gap Series (March 2026) -->
+    <url>
+        <loc>https://niuexa.ai/articolo-roadmap-trasformazione.html</loc>
+        <lastmod>2026-03-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://niuexa.ai/articolo-tool-agenti-ai.html</loc>
+        <lastmod>2026-03-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://niuexa.ai/articolo-costo-automazione.html</loc>
+        <lastmod>2026-03-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://niuexa.ai/articolo-poc-produzione.html</loc>
+        <lastmod>2026-03-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
 </urlset>
