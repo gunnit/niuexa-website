@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KG9S42S4');</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8JW0S3PJKM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8JW0S3PJKM');
+    </script>
+
+    <title>AI Agent Framework Comparison (March 2026) | The AI Agents Field Guide | AI Operator Series</title>
+    <meta name="description" content="Updated comparison of the top AI agent frameworks for production use: LangChain, CrewAI, AutoGen, Semantic Kernel, OpenAI Agents SDK, Claude Agent SDK, Haystack, and DSPy. Side-by-side comparison with recommendations.">
+    <meta name="keywords" content="AI agent framework comparison, LangChain vs CrewAI, AutoGen vs LangGraph, Semantic Kernel, OpenAI Agents SDK, Claude Agent SDK, Haystack, DSPy, agent framework 2026, best AI agent framework">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Gregor Maric">
+    <link rel="canonical" href="https://niuexa.ai/books/ai-agents-field-guide/frameworks.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="AI Agent Framework Comparison (March 2026) | The AI Agents Field Guide">
+    <meta property="og:description" content="Updated comparison of the top AI agent frameworks: LangChain, CrewAI, AutoGen, Semantic Kernel, OpenAI Agents SDK, Claude Agent SDK, Haystack, and DSPy.">
+    <meta property="og:image" content="https://niuexa.ai/img/niuexalogo.png">
+    <meta property="og:url" content="https://niuexa.ai/books/ai-agents-field-guide/frameworks.html">
+    <meta property="og:site_name" content="Niuexa">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Agent Framework Comparison (March 2026) | The AI Agents Field Guide">
+    <meta name="twitter:description" content="Updated comparison of the top AI agent frameworks for production use. Side-by-side with recommendations by use case.">
+    <meta name="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
+
+    <link rel="alternate" hreflang="en" href="https://niuexa.ai/books/ai-agents-field-guide/frameworks.html">
+    <link rel="alternate" hreflang="x-default" href="https://niuexa.ai/books/ai-agents-field-guide/frameworks.html">
+
+    <link rel="icon" type="image/x-icon" href="../../img/favicon 256.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon 256.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/niuexalogo.png">
+    <link rel="manifest" href="../../site.webmanifest">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://niuexa.ai/"},
+            {"@type": "ListItem", "position": 2, "name": "AI Operator Series", "item": "https://niuexa.ai/ai-operator-series.html"},
+            {"@type": "ListItem", "position": 3, "name": "The AI Agents Field Guide", "item": "https://niuexa.ai/books/ai-agents-field-guide/resources.html"},
+            {"@type": "ListItem", "position": 4, "name": "Framework Comparison"}
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../books.css">
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9S42S4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div id="nav-placeholder"></div>
+
+    <main id="main-content">
+
+        <!-- Hero Section -->
+        <section class="book-hero">
+            <div class="container">
+                <nav class="book-breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../../ai-operator-series.html">AI Operator Series</a></li>
+                        <li><a href="resources.html">The AI Agents Field Guide</a></li>
+                        <li><span class="current">Framework Comparison</span></li>
+                    </ol>
+                </nav>
+                <span class="hero-badge">UPDATED MARCH 2026</span>
+                <h1 class="hero-title">AI Agent Framework <span class="highlight">Comparison</span></h1>
+                <p class="hero-subtitle">Updated comparison of the top agent frameworks for production use. Eight frameworks compared side by side across language support, learning curve, production readiness, and community size — with opinionated recommendations based on your use case.</p>
+                <div class="hero-buttons">
+                    <a href="#comparison" class="btn btn-primary">View Comparison</a>
+                    <a href="resources.html" class="btn btn-secondary">All Book Resources</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Table Section -->
+        <section class="resources-section" id="comparison">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Framework Comparison Table</h2>
+                    <p>Eight frameworks evaluated across six dimensions. "Production Ready" means the framework has been used in production by multiple companies with stable APIs and reasonable documentation. "Experimental" means it's promising but APIs change frequently.</p>
+                </div>
+                <div class="comparison-table-wrapper">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Framework</th>
+                                <th>Language</th>
+                                <th>Best For</th>
+                                <th>Learning Curve</th>
+                                <th>Production Ready</th>
+                                <th>Community</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>LangChain / LangGraph</strong></td>
+                                <td>Python, JS</td>
+                                <td>Complex chains &amp; stateful workflows</td>
+                                <td>Medium</td>
+                                <td><span class="rating">Yes</span></td>
+                                <td>Large</td>
+                            </tr>
+                            <tr>
+                                <td><strong>CrewAI</strong></td>
+                                <td>Python</td>
+                                <td>Multi-agent teams &amp; role-based collaboration</td>
+                                <td>Low</td>
+                                <td><span class="rating">Yes</span></td>
+                                <td>Growing</td>
+                            </tr>
+                            <tr>
+                                <td><strong>AutoGen (AG2)</strong></td>
+                                <td>Python</td>
+                                <td>Research &amp; autonomous multi-agent systems</td>
+                                <td>High</td>
+                                <td>Experimental</td>
+                                <td>Microsoft-backed</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Semantic Kernel</strong></td>
+                                <td>C# / .NET</td>
+                                <td>Enterprise &amp; .NET shops</td>
+                                <td>Medium</td>
+                                <td><span class="rating">Yes</span></td>
+                                <td>Microsoft-backed</td>
+                            </tr>
+                            <tr>
+                                <td><strong>OpenAI Agents SDK</strong></td>
+                                <td>Python</td>
+                                <td>OpenAI ecosystem &amp; rapid prototyping</td>
+                                <td>Low</td>
+                                <td><span class="rating">Yes</span></td>
+                                <td>Large</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Claude Agent SDK</strong></td>
+                                <td>Python</td>
+                                <td>Anthropic ecosystem &amp; safety-first agents</td>
+                                <td>Low</td>
+                                <td><span class="rating">Yes</span></td>
+                                <td>Growing</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Haystack</strong></td>
+                                <td>Python</td>
+                                <td>RAG pipelines &amp; search-augmented agents</td>
+                                <td>Medium</td>
+                                <td><span class="rating">Yes</span></td>
+                                <td>Medium</td>
+                            </tr>
+                            <tr>
+                                <td><strong>DSPy</strong></td>
+                                <td>Python</td>
+                                <td>Prompt optimization &amp; systematic improvement</td>
+                                <td>High</td>
+                                <td>Experimental</td>
+                                <td>Academic</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommendations Section -->
+        <section class="preview-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Recommendations</h2>
+                    <p>There's no single "best" framework — the right choice depends on your team's language preference, use case complexity, and production requirements. Here's our opinionated guidance based on three common scenarios.</p>
+                </div>
+                <div class="preview-grid">
+                    <div class="preview-card">
+                        <div class="preview-icon">&#128640;</div>
+                        <h3>For Startups</h3>
+                        <p><strong>CrewAI</strong> or <strong>OpenAI Agents SDK</strong>. Both have the lowest learning curves, the fastest time-to-first-agent, and enough production maturity to ship real products. CrewAI is better if you need multi-agent collaboration. OpenAI Agents SDK is simpler for single-agent use cases and pairs naturally with GPT models. Either one lets a small team go from idea to deployed agent in days, not weeks.</p>
+                    </div>
+                    <div class="preview-card">
+                        <div class="preview-icon">&#127970;</div>
+                        <h3>For Enterprise</h3>
+                        <p><strong>LangGraph</strong> or <strong>Semantic Kernel</strong>. LangGraph is the best choice for Python-first teams who need complex, stateful workflows with built-in persistence and human-in-the-loop patterns. Semantic Kernel is the clear winner for .NET/C# shops — it integrates naturally with Azure services and has Microsoft's enterprise support behind it. Both handle the compliance, auditing, and scale requirements that enterprise demands.</p>
+                    </div>
+                    <div class="preview-card">
+                        <div class="preview-icon">&#128300;</div>
+                        <h3>For Research</h3>
+                        <p><strong>AutoGen (AG2)</strong> or <strong>DSPy</strong>. AutoGen excels at autonomous multi-agent systems where agents negotiate, debate, and collaborate without human intervention — perfect for exploring what's possible. DSPy is the choice when you want to systematically optimize your prompts and agent behavior using training data rather than manual prompt engineering. Both are experimental but pushing the boundaries of what agents can do.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Framework Notes -->
+        <section class="checklist-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Framework Deep Dives</h2>
+                    <p>Key details and trade-offs for each framework that don't fit in a comparison table. Use these notes alongside the table above to make your final decision.</p>
+                </div>
+                <div class="checklist-categories">
+                    <div class="checklist-category">
+                        <h3>LangChain / LangGraph</h3>
+                        <ul class="checklist-items">
+                            <li>LangGraph (the stateful orchestration layer) has largely superseded LangChain's original chain abstraction for agent workflows — use LangGraph for new projects</li>
+                            <li>Excellent built-in persistence with checkpointing — agents can resume conversations across sessions without custom state management</li>
+                            <li>Human-in-the-loop patterns are first-class citizens with built-in approval workflows and intervention points</li>
+                            <li>The ecosystem is massive: LangSmith for observability, LangServe for deployment, and hundreds of community integrations</li>
+                            <li>Trade-off: The abstraction layers can add complexity. Simple agents may be over-engineered in LangGraph compared to a direct SDK approach</li>
+                        </ul>
+                    </div>
+                    <div class="checklist-category">
+                        <h3>CrewAI</h3>
+                        <ul class="checklist-items">
+                            <li>The role-based mental model (agents have roles, goals, and backstories) makes multi-agent systems intuitive to design and explain to non-technical stakeholders</li>
+                            <li>Built-in task delegation and collaboration patterns mean agents can hand off work to each other without custom orchestration code</li>
+                            <li>Supports sequential, parallel, and hierarchical crew configurations out of the box</li>
+                            <li>Rapidly growing community with active template library and plug-and-play crew configurations</li>
+                            <li>Trade-off: Less granular control over individual agent behavior compared to LangGraph. The abstraction trades flexibility for simplicity</li>
+                        </ul>
+                    </div>
+                    <div class="checklist-category">
+                        <h3>OpenAI Agents SDK &amp; Claude Agent SDK</h3>
+                        <ul class="checklist-items">
+                            <li>Both vendor SDKs offer the tightest integration with their respective model families — built-in tool calling, structured outputs, and model-specific optimizations</li>
+                            <li>Lowest learning curve of any framework option — if you can call an API, you can build an agent in an hour</li>
+                            <li>OpenAI's SDK benefits from the largest developer community and most third-party examples. Claude's SDK benefits from Anthropic's safety-first design</li>
+                            <li>Both are production-ready with enterprise support options and SLA guarantees</li>
+                            <li>Trade-off: Vendor lock-in. Your agent code is tightly coupled to one model provider. Switching models later requires significant refactoring</li>
+                        </ul>
+                    </div>
+                    <div class="checklist-category">
+                        <h3>Haystack &amp; DSPy</h3>
+                        <ul class="checklist-items">
+                            <li>Haystack is the best choice when your agent's primary capability is retrieval — search, document Q&A, knowledge base queries. The RAG pipeline primitives are unmatched</li>
+                            <li>DSPy takes a fundamentally different approach: instead of writing prompts, you define input/output signatures and let the framework optimize the prompts using training examples</li>
+                            <li>Haystack has a visual pipeline editor that makes complex retrieval flows accessible to less technical team members</li>
+                            <li>DSPy produces measurably better results when you have evaluation data — the compiler-based approach outperforms manual prompt engineering in benchmarks</li>
+                            <li>Trade-off: Haystack is specialized for retrieval — general-purpose agent tasks require more custom code. DSPy has a steep learning curve and requires evaluation datasets to unlock its potential</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="book-cta">
+            <div class="container">
+                <h2>Ready to Deploy Your Agent?</h2>
+                <p>You've picked your framework. Now make sure your agent is production-ready with the checklist, and prepare for incidents with the runbook.</p>
+                <div class="hero-buttons" style="justify-content: center;">
+                    <a href="checklist.html" class="btn btn-primary">Production Checklist</a>
+                    <a href="resources.html" class="btn btn-secondary">All Book Resources</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="../../script.js"></script>
+    <script src="../../includes/includes.js"></script>
+    <script src="../../cookie-banner.js"></script>
+    <script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cml56ej340008118xz5j3u0os"></script>
+</body>
+</html>

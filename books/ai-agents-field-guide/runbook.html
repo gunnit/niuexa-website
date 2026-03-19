@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KG9S42S4');</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8JW0S3PJKM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8JW0S3PJKM');
+    </script>
+
+    <title>AI Agent Incident Response Runbook | The AI Agents Field Guide | AI Operator Series</title>
+    <meta name="description" content="When your AI agent fails in production, you need a plan — not panic. Free incident response runbook template with severity classification, response steps, communication templates, and recovery procedures.">
+    <meta name="keywords" content="AI agent incident response, agent runbook, AI agent failure, production incident template, AI agent recovery, agent kill switch, incident severity classification, post-mortem template">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Gregor Maric">
+    <link rel="canonical" href="https://niuexa.ai/books/ai-agents-field-guide/runbook.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="AI Agent Incident Response Runbook | The AI Agents Field Guide">
+    <meta property="og:description" content="When your AI agent fails in production, you need a plan — not panic. Free incident response runbook template with severity classification and recovery procedures.">
+    <meta property="og:image" content="https://niuexa.ai/img/niuexalogo.png">
+    <meta property="og:url" content="https://niuexa.ai/books/ai-agents-field-guide/runbook.html">
+    <meta property="og:site_name" content="Niuexa">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Agent Incident Response Runbook | The AI Agents Field Guide">
+    <meta name="twitter:description" content="When your AI agent fails in production, you need a plan — not panic. Free incident response runbook template.">
+    <meta name="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
+
+    <link rel="alternate" hreflang="en" href="https://niuexa.ai/books/ai-agents-field-guide/runbook.html">
+    <link rel="alternate" hreflang="x-default" href="https://niuexa.ai/books/ai-agents-field-guide/runbook.html">
+
+    <link rel="icon" type="image/x-icon" href="../../img/favicon 256.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon 256.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/niuexalogo.png">
+    <link rel="manifest" href="../../site.webmanifest">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://niuexa.ai/"},
+            {"@type": "ListItem", "position": 2, "name": "AI Operator Series", "item": "https://niuexa.ai/ai-operator-series.html"},
+            {"@type": "ListItem", "position": 3, "name": "The AI Agents Field Guide", "item": "https://niuexa.ai/books/ai-agents-field-guide/resources.html"},
+            {"@type": "ListItem", "position": 4, "name": "Incident Response Runbook"}
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../books.css">
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9S42S4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div id="nav-placeholder"></div>
+
+    <main id="main-content">
+
+        <!-- Hero Section -->
+        <section class="book-hero">
+            <div class="container">
+                <nav class="book-breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../../ai-operator-series.html">AI Operator Series</a></li>
+                        <li><a href="resources.html">The AI Agents Field Guide</a></li>
+                        <li><span class="current">Runbook</span></li>
+                    </ol>
+                </nav>
+                <span class="hero-badge">FREE TEMPLATE</span>
+                <h1 class="hero-title">AI Agent Incident Response <span class="highlight">Runbook</span></h1>
+                <p class="hero-subtitle">When your agent fails in production, you need a plan — not panic. This runbook template gives your team a step-by-step playbook for classifying incidents, activating kill switches, communicating with stakeholders, and recovering gracefully.</p>
+                <div class="hero-buttons">
+                    <a href="#runbook" class="btn btn-primary">View the Runbook</a>
+                    <a href="resources.html" class="btn btn-secondary">All Book Resources</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 1: Severity Classification -->
+        <section class="checklist-section" id="runbook">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Section 1: Severity Classification</h2>
+                    <p>The first step in any incident is classification. Getting the severity right determines who gets paged, how fast you respond, and what resources are allocated. Misclassify and you either over-react (wasting time) or under-react (causing damage).</p>
+                </div>
+                <div class="checklist-categories">
+                    <div class="checklist-category" style="border-left: 4px solid #E53935;">
+                        <h3 style="border-bottom-color: #E53935;">P0 — Critical</h3>
+                        <ul class="checklist-items">
+                            <li><strong>Definition:</strong> Agent is causing active harm, data loss, unauthorized actions, or safety violations. Users are being harmed or company reputation is at immediate risk</li>
+                            <li><strong>Response time:</strong> Immediate — drop everything, all hands on deck</li>
+                            <li><strong>First action:</strong> Activate kill switch immediately. Stop the agent from processing any new requests before doing anything else</li>
+                            <li><strong>Examples:</strong> Agent leaking PII in responses, executing unauthorized transactions, providing dangerous medical/legal advice, prompt injection causing data exfiltration</li>
+                            <li><strong>Escalation:</strong> Engineering lead, VP of Engineering, Legal, and Communications are all notified within 15 minutes</li>
+                        </ul>
+                    </div>
+                    <div class="checklist-category" style="border-left: 4px solid #FB8C00;">
+                        <h3 style="border-bottom-color: #FB8C00;">P1 — High</h3>
+                        <ul class="checklist-items">
+                            <li><strong>Definition:</strong> Agent is producing incorrect, misleading, or low-quality outputs at a rate that impacts user trust or business outcomes. No active harm, but significant degradation</li>
+                            <li><strong>Response time:</strong> Within 1 hour of detection</li>
+                            <li><strong>First action:</strong> Switch to fallback behavior — static responses, human handoff, or reduced functionality mode while the root cause is investigated</li>
+                            <li><strong>Examples:</strong> Agent hallucinating facts in 30%+ of responses, wrong tool being called consistently, context window overflowing causing incoherent outputs, API rate limits causing cascading failures</li>
+                            <li><strong>Escalation:</strong> Engineering lead and product manager notified. Customer support briefed with talking points</li>
+                        </ul>
+                    </div>
+                    <div class="checklist-category" style="border-left: 4px solid #FDD835;">
+                        <h3 style="border-bottom-color: #FDD835;">P2 — Medium</h3>
+                        <ul class="checklist-items">
+                            <li><strong>Definition:</strong> Degraded performance that users notice but can work around. Agent is functional but slower, less accurate, or missing some capabilities</li>
+                            <li><strong>Response time:</strong> Within 4 hours of detection</li>
+                            <li><strong>First action:</strong> Log the issue, create a ticket, and begin investigation. Monitor for escalation to P1</li>
+                            <li><strong>Examples:</strong> Response latency doubled, one tool integration intermittently failing, agent occasionally losing conversation context, cost per conversation 50% above baseline</li>
+                            <li><strong>Escalation:</strong> Assigned engineer investigates. Team lead updated at next standup</li>
+                        </ul>
+                    </div>
+                    <div class="checklist-category" style="border-left: 4px solid var(--primary-blue);">
+                        <h3>P3 — Low</h3>
+                        <ul class="checklist-items">
+                            <li><strong>Definition:</strong> Cosmetic issues, minor inconsistencies, or non-critical bugs that don't meaningfully impact user experience or business outcomes</li>
+                            <li><strong>Response time:</strong> Next business day</li>
+                            <li><strong>First action:</strong> Create a ticket and add to the backlog. Fix in the next regular release cycle</li>
+                            <li><strong>Examples:</strong> Formatting inconsistencies in agent responses, minor grammar issues in generated text, non-critical log warnings, unused tool parameters</li>
+                            <li><strong>Escalation:</strong> No escalation needed. Standard ticket workflow</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Immediate Response Steps -->
+        <section class="preview-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Section 2: Immediate Response Steps</h2>
+                    <p>When an incident is detected and classified, follow these five steps in order. Do not skip steps — each one builds on the previous. The goal is to stop the bleeding first, then understand what happened.</p>
+                </div>
+                <div class="preview-grid">
+                    <div class="preview-card">
+                        <div class="preview-icon">1</div>
+                        <h3>Acknowledge &amp; Classify</h3>
+                        <p>Confirm the incident is real (not a false alarm), assign a severity level using the classification above, and designate an incident commander who owns the response from this point forward. Document the time of detection and initial symptoms.</p>
+                    </div>
+                    <div class="preview-card">
+                        <div class="preview-icon">2</div>
+                        <h3>Activate Circuit Breaker</h3>
+                        <p>For P0 and P1 incidents, immediately activate the circuit breaker or kill switch. This stops the agent from processing new requests while preserving in-flight conversations for analysis. Every production agent must have a one-command kill switch tested monthly.</p>
+                    </div>
+                    <div class="preview-card">
+                        <div class="preview-icon">3</div>
+                        <h3>Switch to Fallback</h3>
+                        <p>Activate fallback behavior: static responses for common queries, human handoff for complex requests, or a simplified version of the agent with reduced capabilities. Users should never see a blank page — they should see a degraded but functional experience.</p>
+                    </div>
+                    <div class="preview-card">
+                        <div class="preview-icon">4</div>
+                        <h3>Notify Stakeholders</h3>
+                        <p>Using the communication templates below, notify the appropriate stakeholders based on severity. For P0: everyone immediately. For P1: engineering and product within 1 hour. For P2: team lead at next standup. Include what happened, current impact, and estimated resolution time.</p>
+                    </div>
+                    <div class="preview-card">
+                        <div class="preview-icon">5</div>
+                        <h3>Begin Root Cause Analysis</h3>
+                        <p>With the agent stabilized and stakeholders informed, begin investigating the root cause. Pull logs, review traces, check recent deployments, and examine the specific inputs that triggered the failure. Document findings in real-time in the incident channel.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Communication Templates -->
+        <section class="checklist-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Section 3: Communication Templates</h2>
+                    <p>Clear communication during an incident prevents confusion, reduces panic, and keeps everyone aligned. Use these templates as starting points — customize for your organization's tone and structure.</p>
+                </div>
+                <div class="checklist-categories">
+                    <div class="checklist-category">
+                        <h3>Internal Notification Template</h3>
+                        <ul class="checklist-items">
+                            <li><strong>Subject:</strong> [P0/P1/P2/P3] Agent Incident — [Agent Name] — [Brief Description]</li>
+                            <li><strong>Status:</strong> Active / Investigating / Mitigated / Resolved</li>
+                            <li><strong>Impact:</strong> [Number of users affected, business impact, data exposure risk]</li>
+                            <li><strong>Current action:</strong> [What is being done right now — kill switch activated, fallback deployed, etc.]</li>
+                            <li><strong>Estimated resolution:</strong> [Best estimate — be honest if unknown, say "investigating"]</li>
+                            <li><strong>Incident commander:</strong> [Name and contact information]</li>
+                            <li><strong>Next update in:</strong> [30 minutes for P0, 1 hour for P1, 4 hours for P2]</li>
+                        </ul>
+                    </div>
+                    <div class="checklist-category">
+                        <h3>Customer Communication Template</h3>
+                        <ul class="checklist-items">
+                            <li><strong>Subject:</strong> Service Update — [Agent/Feature Name]</li>
+                            <li><strong>Opening:</strong> We're aware of an issue affecting [specific feature] and are actively working to resolve it</li>
+                            <li><strong>Impact:</strong> You may experience [specific symptoms — slower responses, reduced accuracy, temporary unavailability]</li>
+                            <li><strong>Workaround:</strong> In the meantime, you can [alternative action — contact support directly, use manual process, etc.]</li>
+                            <li><strong>Timeline:</strong> We expect to have this resolved within [honest estimate]. We'll update you when the service is fully restored</li>
+                            <li><strong>Closing:</strong> We apologize for the inconvenience and appreciate your patience</li>
+                        </ul>
+                    </div>
+                    <div class="checklist-category">
+                        <h3>Post-Mortem Template Structure</h3>
+                        <ul class="checklist-items">
+                            <li><strong>Incident summary:</strong> One-paragraph description of what happened, when, and who was affected</li>
+                            <li><strong>Timeline:</strong> Chronological list of events from detection to resolution with timestamps</li>
+                            <li><strong>Root cause:</strong> Technical explanation of why the incident occurred — not "human error" but the systemic issue</li>
+                            <li><strong>Impact assessment:</strong> Users affected, duration, financial impact, reputation impact, data exposure (if any)</li>
+                            <li><strong>What went well:</strong> Parts of the response that worked — detection speed, communication, fallback effectiveness</li>
+                            <li><strong>What could be improved:</strong> Gaps in monitoring, response time, communication, or documentation</li>
+                            <li><strong>Action items:</strong> Specific, assigned, time-bound improvements to prevent recurrence</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Recovery Procedures -->
+        <section class="preview-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Section 4: Recovery Procedures</h2>
+                    <p>Once the root cause is identified and fixed, recovery must be gradual and validated. Rushing back to full operation is how you turn one incident into two.</p>
+                </div>
+                <div class="preview-grid">
+                    <div class="preview-card">
+                        <div class="preview-icon">&#128260;</div>
+                        <h3>Rollback to Last Known Good</h3>
+                        <p>Deploy the last known good version of the agent — including system prompt, model version, tool configurations, and infrastructure settings. This should be a single command that's tested monthly. If your rollback process takes more than 5 minutes, it's not production-ready.</p>
+                    </div>
+                    <div class="preview-card">
+                        <div class="preview-icon">&#128200;</div>
+                        <h3>Gradual Traffic Restoration</h3>
+                        <p>Don't flip the switch back to 100% traffic immediately. Start with 10% of traffic routed to the fixed agent, monitor for 30 minutes, then increase to 25%, 50%, and finally 100%. Each stage must pass your validation checks before proceeding to the next.</p>
+                    </div>
+                    <div class="preview-card">
+                        <div class="preview-icon">&#9989;</div>
+                        <h3>Validation Before Full Restoration</h3>
+                        <p>Before declaring the incident resolved: run your automated test suite, verify error rates are below baseline, confirm latency is normal, check that all tool integrations are responding, and review a sample of live outputs for quality. Only then can you close the incident.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section class="lead-magnet-section" id="download">
+            <div class="container">
+                <div class="lead-magnet-container">
+                    <div class="lead-magnet-content">
+                        <h2>Download the Runbook Template</h2>
+                        <p>Get a customizable version of this runbook in Markdown, Notion, and PDF formats. Pre-filled with the templates above and ready to adapt for your team's specific agent architecture and communication channels.</p>
+                        <ul class="lead-magnet-features">
+                            <li>Markdown format for GitHub/GitLab wikis</li>
+                            <li>Notion template with database integration</li>
+                            <li>Print-ready PDF for physical incident binders</li>
+                            <li>Slack message templates for each severity level</li>
+                        </ul>
+                    </div>
+                    <div class="lead-magnet-form">
+                        <h3>Get the Runbook Template</h3>
+                        <form id="runbook-form" action="#" method="POST">
+                            <div class="form-group">
+                                <label for="name">First Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your first name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="you@company.com" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Download Runbook Template</button>
+                        </form>
+                        <p class="form-note">No spam. Unsubscribe anytime. By downloading you agree to our privacy policy.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="book-cta">
+            <div class="container">
+                <h2>Choose the Right Framework Before You Build</h2>
+                <p>The runbook prepares you for failures. The Framework Comparison helps you pick the right foundation so you have fewer failures to begin with.</p>
+                <div class="hero-buttons" style="justify-content: center;">
+                    <a href="frameworks.html" class="btn btn-primary">Compare Frameworks</a>
+                    <a href="resources.html" class="btn btn-secondary">All Book Resources</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="../../script.js"></script>
+    <script src="../../includes/includes.js"></script>
+    <script src="../../cookie-banner.js"></script>
+    <script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cml56ej340008118xz5j3u0os"></script>
+</body>
+</html>

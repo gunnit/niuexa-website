@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KG9S42S4');</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8JW0S3PJKM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8JW0S3PJKM');
+    </script>
+
+    <title>Agent Production Readiness Checklist | The AI Agents Field Guide | AI Operator Series</title>
+    <meta name="description" content="The definitive checklist before deploying any AI agent to production. Covers architecture, security, testing, and monitoring — 20+ items across 4 categories. Free downloadable PDF.">
+    <meta name="keywords" content="AI agent checklist, production readiness checklist, AI agent deployment, agent security checklist, AI agent testing, agent monitoring, prompt injection defense, AI agent audit">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Gregor Maric">
+    <link rel="canonical" href="https://niuexa.ai/books/ai-agents-field-guide/checklist.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Agent Production Readiness Checklist | The AI Agents Field Guide">
+    <meta property="og:description" content="The definitive checklist before deploying any AI agent to production. 20+ items across architecture, security, testing, and monitoring.">
+    <meta property="og:image" content="https://niuexa.ai/img/niuexalogo.png">
+    <meta property="og:url" content="https://niuexa.ai/books/ai-agents-field-guide/checklist.html">
+    <meta property="og:site_name" content="Niuexa">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Agent Production Readiness Checklist | The AI Agents Field Guide">
+    <meta name="twitter:description" content="The definitive checklist before deploying any AI agent to production. 20+ items across architecture, security, testing, and monitoring.">
+    <meta name="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
+
+    <link rel="alternate" hreflang="en" href="https://niuexa.ai/books/ai-agents-field-guide/checklist.html">
+    <link rel="alternate" hreflang="x-default" href="https://niuexa.ai/books/ai-agents-field-guide/checklist.html">
+
+    <link rel="icon" type="image/x-icon" href="../../img/favicon 256.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon 256.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/niuexalogo.png">
+    <link rel="manifest" href="../../site.webmanifest">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://niuexa.ai/"},
+            {"@type": "ListItem", "position": 2, "name": "AI Operator Series", "item": "https://niuexa.ai/ai-operator-series.html"},
+            {"@type": "ListItem", "position": 3, "name": "The AI Agents Field Guide", "item": "https://niuexa.ai/books/ai-agents-field-guide/resources.html"},
+            {"@type": "ListItem", "position": 4, "name": "Production Readiness Checklist"}
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../books.css">
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9S42S4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div id="nav-placeholder"></div>
+
+    <main id="main-content">
+
+        <!-- Hero Section -->
+        <section class="book-hero">
+            <div class="container">
+                <nav class="book-breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../../ai-operator-series.html">AI Operator Series</a></li>
+                        <li><a href="resources.html">The AI Agents Field Guide</a></li>
+                        <li><span class="current">Checklist</span></li>
+                    </ol>
+                </nav>
+                <span class="hero-badge">FREE CHECKLIST</span>
+                <h1 class="hero-title">Agent Production Readiness <span class="highlight">Checklist</span></h1>
+                <p class="hero-subtitle">The definitive checklist before deploying any AI agent to production. Twenty items across four critical categories — architecture, security, testing, and monitoring. Print it, pin it to your wall, and don't ship until every box is checked.</p>
+                <div class="hero-buttons">
+                    <a href="#checklist" class="btn btn-primary">View the Checklist</a>
+                    <a href="resources.html" class="btn btn-secondary">All Book Resources</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Checklist Section -->
+        <section class="checklist-section" id="checklist">
+            <div class="container">
+                <div class="section-header">
+                    <h2>The Complete Checklist</h2>
+                    <p>Every item on this checklist comes from real production failures. Each one represents a lesson learned the hard way by teams who shipped agents too early. Don't repeat their mistakes.</p>
+                </div>
+                <div class="checklist-categories">
+
+                    <!-- Category 1: Architecture & Design -->
+                    <div class="checklist-category">
+                        <h3>Architecture &amp; Design</h3>
+                        <ul class="checklist-items">
+                            <li>Agent role and scope clearly defined — the agent knows exactly what it should and should not do, with explicit boundaries documented in the system prompt and enforced through tool restrictions</li>
+                            <li>Input/output schemas documented — every input the agent accepts and every output it produces has a defined schema with types, required fields, and validation rules that are enforced at runtime</li>
+                            <li>Error handling and fallback behavior specified — when the agent fails (and it will), there is a defined degradation path: retry logic, human handoff triggers, and graceful failure messages</li>
+                            <li>Rate limiting configured — API calls to LLM providers, tool invocations, and user-facing requests all have rate limits set to prevent runaway costs and protect downstream services</li>
+                            <li>Timeout policies set — every external call has a maximum wait time, and the agent knows what to do when a timeout occurs: retry, fallback, or inform the user rather than hanging indefinitely</li>
+                        </ul>
+                    </div>
+
+                    <!-- Category 2: Security & Compliance -->
+                    <div class="checklist-category">
+                        <h3>Security &amp; Compliance</h3>
+                        <ul class="checklist-items">
+                            <li>Prompt injection defenses implemented — input sanitization, system prompt isolation, and output filtering are all in place to prevent adversarial inputs from hijacking agent behavior or leaking system instructions</li>
+                            <li>PII handling procedures documented — the agent knows which data is personally identifiable, how to redact it from logs, when to encrypt it in transit, and how long to retain it before automatic deletion</li>
+                            <li>Audit logging enabled — every agent action, tool call, decision, and output is logged with timestamps, user IDs, and session context for post-incident analysis and compliance reporting</li>
+                            <li>Access controls and authentication in place — the agent authenticates users before performing sensitive actions, uses least-privilege API keys, and enforces role-based access to different capabilities</li>
+                            <li>Data retention policies defined — clear rules for how long conversation logs, user data, and agent outputs are stored, with automated deletion schedules that comply with GDPR, CCPA, and industry regulations</li>
+                        </ul>
+                    </div>
+
+                    <!-- Category 3: Testing & Validation -->
+                    <div class="checklist-category">
+                        <h3>Testing &amp; Validation</h3>
+                        <ul class="checklist-items">
+                            <li>Unit tests for all tool integrations — every tool the agent can call has isolated tests verifying correct inputs are sent, outputs are parsed properly, and errors are handled when the tool is unavailable or returns unexpected data</li>
+                            <li>End-to-end conversation flow tests — full conversation scenarios are automated, covering happy paths, edge cases, and multi-turn interactions to ensure the agent maintains context and produces correct outputs across real dialogue sequences</li>
+                            <li>Adversarial prompt testing completed — the agent has been tested against known prompt injection techniques, jailbreak attempts, and boundary-pushing inputs to verify defenses hold under deliberate attack</li>
+                            <li>Performance benchmarks established — response latency, token usage, cost per conversation, and throughput limits are measured and documented so you know your baseline before launch and can detect regressions</li>
+                            <li>A/B testing framework ready — the infrastructure to compare different system prompts, model versions, or tool configurations in production is set up, so you can iterate on agent quality with data rather than guesswork</li>
+                        </ul>
+                    </div>
+
+                    <!-- Category 4: Monitoring & Operations -->
+                    <div class="checklist-category">
+                        <h3>Monitoring &amp; Operations</h3>
+                        <ul class="checklist-items">
+                            <li>Observability stack deployed (logs, metrics, traces) — structured logs capture every agent decision, metrics track latency and error rates in real-time, and distributed traces follow requests across the agent's tool chain for debugging</li>
+                            <li>Alert thresholds configured — alerts fire when error rates exceed 5%, latency spikes above P95, cost per hour crosses budget limits, or the agent produces outputs flagged by content safety filters</li>
+                            <li>Runbook created for common failures — a documented playbook covers the 10 most likely failure modes with step-by-step resolution instructions that any on-call engineer can follow without prior context</li>
+                            <li>Cost tracking per agent enabled — real-time dashboards show token usage, API costs, and infrastructure spend broken down by agent, by customer, and by time period so you catch cost anomalies before they become budget crises</li>
+                            <li>Rollback procedure documented — a tested, one-command rollback process can revert the agent to the previous known-good version within 5 minutes, including system prompt, model version, and tool configuration rollback</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Download PDF Section -->
+        <section class="lead-magnet-section" id="download">
+            <div class="container">
+                <div class="lead-magnet-container">
+                    <div class="lead-magnet-content">
+                        <h2>Download the Printable PDF</h2>
+                        <p>Get a beautifully formatted, print-ready PDF version of this checklist. Pin it next to your monitor, hand it to your team before every agent launch, or add it to your deployment pipeline documentation.</p>
+                        <ul class="lead-magnet-features">
+                            <li>Print-ready A4 format with checkboxes for each item</li>
+                            <li>Condensed single-page version for quick reference</li>
+                            <li>Expanded version with detailed implementation guidance per item</li>
+                            <li>Team review template with sign-off fields for each category</li>
+                        </ul>
+                    </div>
+                    <div class="lead-magnet-form">
+                        <h3>Get the PDF Checklist</h3>
+                        <form id="checklist-form" action="#" method="POST">
+                            <div class="form-group">
+                                <label for="name">First Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your first name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="you@company.com" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Download PDF Checklist</button>
+                        </form>
+                        <p class="form-note">No spam. Unsubscribe anytime. By downloading you agree to our privacy policy.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="book-cta">
+            <div class="container">
+                <h2>What Happens When an Agent Fails?</h2>
+                <p>The checklist gets you ready for launch. The Incident Response Runbook gets you ready for when things go wrong — because they will.</p>
+                <div class="hero-buttons" style="justify-content: center;">
+                    <a href="runbook.html" class="btn btn-primary">Get the Runbook</a>
+                    <a href="resources.html" class="btn btn-secondary">All Book Resources</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="../../script.js"></script>
+    <script src="../../includes/includes.js"></script>
+    <script src="../../cookie-banner.js"></script>
+    <script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cml56ej340008118xz5j3u0os"></script>
+</body>
+</html>
