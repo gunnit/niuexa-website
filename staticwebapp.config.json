@@ -66,6 +66,12 @@
       "headers": {
         "Cache-Control": "public, max-age=3600, s-maxage=600, must-revalidate"
       }
+    },
+    {
+      "route": "/books/**/*.html",
+      "headers": {
+        "Cache-Control": "public, max-age=3600, s-maxage=600, must-revalidate"
+      }
     }
   ]
 }

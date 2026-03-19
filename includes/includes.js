@@ -6,9 +6,9 @@ const navigationHTML = `
 <nav class="navbar" aria-label="Navigazione principale">
     <div class="nav-container">
         <div class="nav-logo">
-            <a href="index.html">
+            <a href="/">
                 <div class="logo-container">
-                    <img src="img/pictogram_blue_transparent.png" alt="Niuexa - AI Solutions" class="logo-icon" width="40" height="40" loading="eager">
+                    <img src="/img/pictogram_blue_transparent.png" alt="Niuexa - AI Solutions" class="logo-icon" width="40" height="40" loading="eager">
                     <div class="logo-text">
                         <div class="logo-title">NIUEXA</div>
                         <span class="logo-tagline">AI Solutions</span>
@@ -18,30 +18,40 @@ const navigationHTML = `
         </div>
         <ul class="nav-menu">
             <li class="nav-item">
-                <a href="index.html" class="nav-link" data-page="home">Home</a>
+                <a href="/" class="nav-link" data-page="home">Home</a>
             </li>
             <li class="nav-item">
-                <a href="chi-siamo.html" class="nav-link" data-page="chi-siamo">Chi Siamo</a>
+                <a href="/chi-siamo.html" class="nav-link" data-page="chi-siamo">Chi Siamo</a>
             </li>
             <li class="nav-item dropdown">
                 <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-page="soluzioni">Soluzioni <span class="dropdown-arrow">▼</span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="consulting.html" class="dropdown-link" data-page="consulting">Consulenza</a></li>
-                    <li><a href="training.html" class="dropdown-link" data-page="training">Formazione</a></li>
-                    <li><a href="products.html" class="dropdown-link" data-page="products">Prodotti</a></li>
+                    <li><a href="/consulting.html" class="dropdown-link" data-page="consulting">Consulenza</a></li>
+                    <li><a href="/training.html" class="dropdown-link" data-page="training">Formazione</a></li>
+                    <li><a href="/products.html" class="dropdown-link" data-page="products">Prodotti</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
                 <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-page="risorse">Risorse <span class="dropdown-arrow">▼</span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="impara.html" class="dropdown-link" data-page="impara">Impara</a></li>
-                    <li><a href="research.html" class="dropdown-link" data-page="research">Ricerca</a></li>
-                    <li><a href="roi-calculator.html" class="dropdown-link" data-page="roi-calculator">Calcolatore ROI</a></li>
-                    <li><a href="eventi.html" class="dropdown-link" data-page="eventi">Eventi</a></li>
+                    <li><a href="/impara.html" class="dropdown-link" data-page="impara">Impara</a></li>
+                    <li><a href="/research.html" class="dropdown-link" data-page="research">Ricerca</a></li>
+                    <li><a href="/roi-calculator.html" class="dropdown-link" data-page="roi-calculator">Calcolatore ROI</a></li>
+                    <li><a href="/eventi.html" class="dropdown-link" data-page="eventi">Eventi</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-page="books">Books <span class="dropdown-arrow">▼</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/ai-operator-series.html" class="dropdown-link" data-page="ai-operator-series">AI Operator Series</a></li>
+                    <li><a href="/books/mcp-blueprint/resources.html" class="dropdown-link" data-page="mcp-blueprint">The MCP Blueprint</a></li>
+                    <li><a href="/books/one-person-empire/resources.html" class="dropdown-link" data-page="one-person-empire">One-Person Empire</a></li>
+                    <li><a href="/books/no-code-ai-bible/resources.html" class="dropdown-link" data-page="no-code-ai-bible">No-Code AI Bible</a></li>
+                    <li><a href="/books/ai-agents-field-guide/resources.html" class="dropdown-link" data-page="ai-agents-field-guide">AI Agents Field Guide</a></li>
                 </ul>
             </li>
             <li class="nav-item">
-                <a href="contatti.html" class="nav-link" data-page="contatti">Contatti</a>
+                <a href="/contatti.html" class="nav-link" data-page="contatti">Contatti</a>
             </li>
             <li class="nav-item">
                 <a href="https://aeo.niuexa.ai" class="nav-link login-link" target="_blank" rel="noopener noreferrer">🔐 Login</a>
@@ -73,28 +83,37 @@ const footerHTML = `
                 <div class="footer-column">
                     <h4>Servizi</h4>
                     <ul>
-                        <li><a href="consulting.html">Consulenza AI</a></li>
-                        <li><a href="training.html">Formazione AI</a></li>
-                        <li><a href="products.html">Prodotti AI</a></li>
-                        <li><a href="roi-calculator.html">ROI Calculator</a></li>
+                        <li><a href="/consulting.html">Consulenza AI</a></li>
+                        <li><a href="/training.html">Formazione AI</a></li>
+                        <li><a href="/products.html">Prodotti AI</a></li>
+                        <li><a href="/roi-calculator.html">ROI Calculator</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h4>Risorse</h4>
                     <ul>
-                        <li><a href="impara.html">Impara</a></li>
-                        <li><a href="research.html">Ricerca</a></li>
-                        <li><a href="roi-calculator.html">Calcolatore ROI</a></li>
-                        <li><a href="eventi.html">Eventi</a></li>
+                        <li><a href="/impara.html">Impara</a></li>
+                        <li><a href="/research.html">Ricerca</a></li>
+                        <li><a href="/roi-calculator.html">Calcolatore ROI</a></li>
+                        <li><a href="/eventi.html">Eventi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Books</h4>
+                    <ul>
+                        <li><a href="/ai-operator-series.html">AI Operator Series</a></li>
+                        <li><a href="/community.html">Community</a></li>
+                        <li><a href="/newsletter.html">Newsletter</a></li>
+                        <li><a href="/resources.html">Resources</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h4>Azienda</h4>
                     <ul>
-                        <li><a href="chi-siamo.html">Chi Siamo</a></li>
-                        <li><a href="carriere.html">Carriere</a></li>
-                        <li><a href="contatti.html">Contatti</a></li>
-                        <li><a href="index.html#contact">Parla con Noi</a></li>
+                        <li><a href="/chi-siamo.html">Chi Siamo</a></li>
+                        <li><a href="/carriere.html">Carriere</a></li>
+                        <li><a href="/contatti.html">Contatti</a></li>
+                        <li><a href="/#contact">Parla con Noi</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -335,7 +354,18 @@ function setActiveNavItem() {
 function getCurrentPage() {
     const path = window.location.pathname;
     const page = path.split('/').pop();
-    
+
+    // Book subdirectory pages
+    if (path.includes('/books/mcp-blueprint/')) {
+        return 'mcp-blueprint';
+    } else if (path.includes('/books/one-person-empire/')) {
+        return 'one-person-empire';
+    } else if (path.includes('/books/no-code-ai-bible/')) {
+        return 'no-code-ai-bible';
+    } else if (path.includes('/books/ai-agents-field-guide/')) {
+        return 'ai-agents-field-guide';
+    }
+
     if (page === 'index.html' || page === '') {
         return 'home';
     } else if (page === 'chi-siamo.html') {
@@ -358,8 +388,20 @@ function getCurrentPage() {
         return 'carriere';
     } else if (page === 'login.html') {
         return 'login';
+    } else if (page === 'ai-operator-series.html') {
+        return 'ai-operator-series';
+    } else if (page === 'community.html') {
+        return 'books';
+    } else if (page === 'newsletter.html') {
+        return 'books';
+    } else if (page === 'resources.html') {
+        return 'books';
+    } else if (page === 'ai-operator-course.html') {
+        return 'books';
+    } else if (page === 'nocode-toolkit.html') {
+        return 'no-code-ai-bible';
     }
-    
+
     return 'home';
 }
 
