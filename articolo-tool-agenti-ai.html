@@ -26,7 +26,7 @@
     <meta name="description" content="Guida completa su tool e best practice per creare agenti AI affidabili. Stack tecnologico, workflow Niuexa in 10 passi, testing, guardrail e blueprint pronti per la produzione.">
     <meta name="keywords" content="agenti AI, tool agenti AI, creare agenti AI, AI agent framework, LangChain, LlamaIndex, RAG, guardrail AI, testing agenti AI, AI in produzione, workflow agenti AI, blueprint AI agent">
     <meta name="author" content="Niuexa">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="language" content="Italian">
     <meta name="geo.region" content="IT-25">
     <meta name="geo.placename" content="Milano, Italy">
@@ -118,50 +118,50 @@
         "mainEntity": [
             {
                 "@type": "Question",
-                "name": "Quali tool servono per creare un agente AI in produzione?",
+                "name": "Quali sono i migliori tool per creare agenti AI nel 2026?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Per un agente AI in produzione servono almeno cinque categorie di tool: un LLM con supporto nativo al tool calling (OpenAI GPT-5, Anthropic Claude), un framework di orchestrazione (LangChain, LlamaIndex o SDK custom), un pipeline RAG con vector database (Pinecone, Weaviate, Qdrant), una piattaforma di osservabilit&agrave; (LangSmith, Arize, Helicone) e un sistema di guardrail per policy enforcement e validazione degli output."
+                    "text": "I tool pi\u00f9 usati in produzione combinano un framework di orchestrazione (LangChain o LlamaIndex), tool calling con schema JSON, un vector database (Pinecone/Weaviate/pgvector), e un sistema di osservabilit\u00e0. Le best practice pi\u00f9 efficaci sono retrieve-then-reason, prompt e output contract con validazione, e policy/guardrail prima di ogni azione esterna."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Qual &egrave; la differenza tra LangChain e LlamaIndex per agenti AI?",
+                "name": "LangChain o LlamaIndex: cosa scegliere per creare agenti?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "LangChain eccelle nell'orchestrazione di catene multi-step e agenti con tool calling complesso, offrendo massima flessibilit&agrave; ma con una curva di apprendimento pi&ugrave; ripida. LlamaIndex &egrave; ottimizzato per pipeline RAG e retrieval-intensive agent, con un'API pi&ugrave; semplice per casi d'uso incentrati sulla knowledge base. Per agenti che devono interrogare dati aziendali, LlamaIndex &egrave; spesso pi&ugrave; rapido da prototipare; per workflow complessi con molti tool, LangChain offre maggiore controllo."
+                    "text": "Scegli LangChain quando la priorit\u00e0 \u00e8 orchestrazione di agenti e tool calling con molte integrazioni. Scegli LlamaIndex quando il cuore del progetto \u00e8 la data layer (ingestion, indicizzazione, retrieval). Molte architetture moderne usano entrambi."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Come si testa un agente AI prima di andare in produzione?",
+                "name": "Come faccio a testare un agente AI prima di metterlo in produzione?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Il testing di un agente AI richiede un approccio a pi&ugrave; livelli: 1) Unit test sui singoli tool con input/output deterministici, 2) Golden set di 50-200 casi reali con risposte attese, 3) Metriche automatiche (Task Success Rate > 90%, Groundedness > 95%), 4) LLM-as-judge per valutare qualit&agrave; delle risposte, 5) Red teaming con prompt adversariali, 6) Test di regressione automatici in CI/CD ad ogni modifica. Il golden set va aggiornato mensilmente con i casi di errore raccolti in produzione."
+                    "text": "Serve una suite di eval automatizzate con almeno 50-200 test case. Metriche pratiche: task success rate, groundedness, tool success rate, e cost/latency. Aggiungere benchmark adversarial: prompt injection, data exfiltration, tool misuse."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Cosa sono i guardrail per agenti AI e perch&eacute; servono?",
+                "name": "Quali guardrail servono per evitare allucinazioni in un AI agent?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "I guardrail sono meccanismi di protezione che impediscono a un agente AI di compiere azioni dannose, non autorizzate o fuori policy. Includono: policy engine che filtra input e output, allowlist di azioni consentite, sandbox per esecuzione sicura di codice, validazione dello schema di ogni tool call, limiti di budget e rate limiting, kill switch per disattivazione immediata, e audit trail completo di ogni decisione. Senza guardrail, un agente in produzione pu&ograve; generare costi incontrollati, esporre dati sensibili o eseguire azioni irreversibili."
+                    "text": "Grounding obbligatorio con RAG e citazioni, policy di tool calling con allowlist e validazione argomenti, e risk-based confirmation per operazioni ad alto impatto. Pattern plan-validate-act: il modello propone, un validatore controlla, poi esegue."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Quanto costa mettere in produzione un agente AI?",
+                "name": "Qual \u00e8 la differenza tra chatbot, workflow e agente?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Il costo di un agente AI in produzione dipende dalla complessit&agrave;: un agente semplice (FAQ + RAG) costa 15-40k euro di sviluppo e 500-2.000 euro/mese di esercizio; un agente operativo (tool calling + integrazione sistemi) richiede 40-120k euro e 2.000-8.000 euro/mese; un agente enterprise multi-dominio pu&ograve; superare i 150k euro di sviluppo e i 10.000 euro/mese. I costi principali in esercizio sono: token LLM (40-60%), infrastruttura vector DB e compute (20-30%), osservabilit&agrave; e monitoring (10-15%), manutenzione e aggiornamento dataset (10-20%)."
+                    "text": "Chatbot conversa ma non esegue azioni. Workflow \u00e8 una sequenza deterministica di step. Un agente decide quali azioni fare e in che ordine, usando tool e memoria. Un agente \u00e8 un workflow non deterministico con responsabilit\u00e0."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Quando NON conviene usare un agente AI?",
+                "name": "Quanto costa e come controlli i costi di un agente AI?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Un agente AI non conviene quando: 1) Il task &egrave; deterministico e non richiede ragionamento (usa un workflow tradizionale), 2) La latenza richiesta &egrave; sotto i 200ms (un LLM call richiede 1-5 secondi), 3) Il volume &egrave; cos&igrave; alto che il costo per token supera il valore generato, 4) Non esistono dati strutturati per valutare la correttezza dell'output, 5) Il dominio ha requisiti di compliance che vietano decisioni algoritmiche opache (es. credito al consumo in alcuni contesti normativi), 6) Il team non ha competenze per mantenere evals e guardrail nel tempo."
+                    "text": "Cost driver: token input/output, retrieval, tool esterni, retry. Implementa caching, limiti di contesto, top-k dinamico, budget per sessione e alert su anomalie di costo."
                 }
             }
         ]
