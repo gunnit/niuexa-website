@@ -121,18 +121,19 @@
             <div class="calculator-container">
                 <div class="calculator-form">
                     <h2>Calcola i Tuoi Potenziali Risparmi</h2>
-                    <form id="roiCalculator" onsubmit="return false;">
+                    <p class="form-hint">I risultati si aggiornano in tempo reale mentre compili i campi. Perfetto per le chiamate con i clienti.</p>
+                    <form id="roiCalculator">
                         <div class="form-section">
-                            <h3>Informazioni sul Processo</h3>
+                            <h3>Il Processo Attuale</h3>
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="processName">Nome del Processo</label>
-                                    <input type="text" id="processName" name="processName" placeholder="es. Supporto Clienti, Inserimento Dati, Generazione Report" required>
+                                    <label for="processName">Quale processo vuoi automatizzare?</label>
+                                    <input type="text" id="processName" name="processName" placeholder="es. Supporto Clienti, Inserimento Dati">
                                 </div>
                                 <div class="form-group">
                                     <label for="industry">Settore</label>
                                     <select id="industry" name="industry">
-                                        <option value="">Seleziona Settore</option>
+                                        <option value="">Seleziona per compilare i costi AI</option>
                                         <option value="finance">Finanza e Banche</option>
                                         <option value="healthcare">Sanità</option>
                                         <option value="retail">Retail ed E-commerce</option>
@@ -146,68 +147,72 @@
                             </div>
                         </div>
 
-                        <div class="form-section">
-                            <h3>Tempo e Frequenza</h3>
+                        <div class="form-section form-section-highlight">
+                            <h3>Quanto tempo ci vuole oggi?</h3>
+                            <p class="section-hint">Questi 4 campi bastano per vedere i risultati</p>
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="timePerProcess">Tempo per Processo (minuti)</label>
-                                    <input type="number" id="timePerProcess" name="timePerProcess" min="1" placeholder="30" required>
+                                    <label for="timePerProcess">Minuti per ogni volta</label>
+                                    <input type="number" id="timePerProcess" name="timePerProcess" min="1" placeholder="30">
                                 </div>
                                 <div class="form-group">
-                                    <label for="frequency">Frequenza</label>
-                                    <select id="frequency" name="frequency" required>
-                                        <option value="">Seleziona Frequenza</option>
-                                        <option value="daily">Giornaliera</option>
-                                        <option value="weekly">Settimanale</option>
-                                        <option value="monthly">Mensile</option>
+                                    <label for="frequency">Quanto spesso?</label>
+                                    <select id="frequency" name="frequency">
+                                        <option value="">Seleziona</option>
+                                        <option value="daily">Ogni Giorno</option>
+                                        <option value="weekly">Ogni Settimana</option>
+                                        <option value="monthly">Ogni Mese</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="occurrences">Volte per Periodo</label>
-                                    <input type="number" id="occurrences" name="occurrences" min="1" placeholder="10" required>
+                                    <label for="occurrences">Quante volte?</label>
+                                    <input type="number" id="occurrences" name="occurrences" min="1" placeholder="10">
+                                </div>
+                                <div class="form-group">
+                                    <label for="hourlyRate">Costo orario (€)</label>
+                                    <input type="number" id="hourlyRate" name="hourlyRate" min="1" step="0.01" placeholder="35">
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-section">
-                            <h3>Informazioni sui Costi</h3>
+                            <h3>Dettagli aggiuntivi</h3>
+                            <p class="section-hint">Opzionale — per un calcolo più preciso</p>
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="hourlyRate">Tariffa Oraria (€)</label>
-                                    <input type="number" id="hourlyRate" name="hourlyRate" min="1" step="0.01" placeholder="50" required>
+                                    <label for="peopleInvolved">Persone coinvolte</label>
+                                    <input type="number" id="peopleInvolved" name="peopleInvolved" min="1" placeholder="1">
                                 </div>
                                 <div class="form-group">
-                                    <label for="peopleInvolved">Persone Coinvolte</label>
-                                    <input type="number" id="peopleInvolved" name="peopleInvolved" min="1" placeholder="2" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="errorRate">Tasso di Errore (%)</label>
+                                    <label for="errorRate">Tasso di errore (%)</label>
                                     <input type="number" id="errorRate" name="errorRate" min="0" max="100" step="0.1" placeholder="5">
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-section">
-                            <h3>Implementazione AI</h3>
+                            <h3>Soluzione AI</h3>
                             <div class="form-row">
-                                <div class="form-group">
-                                    <label for="automationLevel">Livello di Automazione Previsto (%)</label>
+                                <div class="form-group form-group-wide">
+                                    <label for="automationLevel">Quanto si può automatizzare? <strong id="automationDisplay">80%</strong></label>
                                     <input type="range" id="automationLevel" name="automationLevel" min="10" max="95" value="80" class="slider">
                                     <span class="slider-value">80%</span>
                                 </div>
+                            </div>
+                            <div class="form-row">
                                 <div class="form-group">
-                                    <label for="implementationCost">Costo di Implementazione (€)</label>
+                                    <label for="implementationCost">Setup una tantum (€)</label>
                                     <input type="number" id="implementationCost" name="implementationCost" min="0" step="100" placeholder="5000">
                                 </div>
                                 <div class="form-group">
-                                    <label for="monthlyCost">Costo Mensile AI (€)</label>
+                                    <label for="monthlyCost">Costo mensile AI (€)</label>
                                     <input type="number" id="monthlyCost" name="monthlyCost" min="0" step="10" placeholder="200">
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-actions">
-                            <button type="submit" class="btn btn-primary">Calcola ROI</button>
+                            <button type="submit" class="btn btn-primary">Vai ai Risultati</button>
                             <button type="button" id="resetForm" class="btn btn-secondary">Reimposta</button>
                         </div>
                     </form>
@@ -215,7 +220,34 @@
 
                 <div class="calculator-results" id="calculatorResults" style="display: none;">
                     <h2>La Tua Analisi ROI</h2>
-                    
+
+                    <!-- Before / After Comparison — the key visual for calls -->
+                    <div class="before-after-comparison">
+                        <div class="comparison-card comparison-before">
+                            <h3>PRIMA</h3>
+                            <div class="comparison-metric">
+                                <span class="comparison-value" id="beforeHours">0 ore</span>
+                                <span class="comparison-label">all'anno</span>
+                            </div>
+                            <div class="comparison-metric">
+                                <span class="comparison-value" id="beforeCost">€0</span>
+                                <span class="comparison-label">costo annuale</span>
+                            </div>
+                        </div>
+                        <div class="comparison-arrow">→</div>
+                        <div class="comparison-card comparison-after">
+                            <h3>DOPO (con AI)</h3>
+                            <div class="comparison-metric">
+                                <span class="comparison-value" id="afterHours">0 ore</span>
+                                <span class="comparison-label">all'anno</span>
+                            </div>
+                            <div class="comparison-metric">
+                                <span class="comparison-value" id="afterCost">€0</span>
+                                <span class="comparison-label">costo annuale</span>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="results-summary">
                         <div class="result-card highlight">
                             <h3>Risparmi Annuali</h3>

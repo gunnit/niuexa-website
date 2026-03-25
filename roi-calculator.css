@@ -1,5 +1,117 @@
 /* ROI Calculator Specific Styles */
 
+/* Form Hints — live call helper text */
+.form-hint {
+    text-align: center;
+    color: var(--primary-green);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    padding: 0.6rem 1rem;
+    background: rgba(0, 204, 102, 0.08);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 204, 102, 0.2);
+}
+
+.section-hint {
+    font-size: 0.85rem;
+    color: var(--medium-gray);
+    margin-top: -0.8rem;
+    margin-bottom: 1.2rem;
+}
+
+.form-section-highlight {
+    background: rgba(0, 102, 204, 0.03);
+    border: 2px solid rgba(0, 102, 204, 0.15);
+    border-radius: 12px;
+    padding: 1.5rem !important;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+}
+
+.form-group-wide {
+    grid-column: 1 / -1;
+}
+
+/* Before / After Comparison */
+.before-after-comparison {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--light-gray);
+    border-radius: 15px;
+}
+
+.comparison-card {
+    flex: 1;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.comparison-before {
+    background: #fff3f3;
+    border: 2px solid #ff6b6b;
+}
+
+.comparison-after {
+    background: #f0fff4;
+    border: 2px solid var(--primary-green);
+}
+
+.comparison-card h3 {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    font-family: var(--font-primary);
+}
+
+.comparison-before h3 {
+    color: #ff6b6b;
+}
+
+.comparison-after h3 {
+    color: var(--primary-green);
+}
+
+.comparison-metric {
+    margin-bottom: 0.5rem;
+}
+
+.comparison-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: var(--font-primary);
+    color: var(--dark-gray);
+}
+
+.comparison-label {
+    font-size: 0.8rem;
+    color: var(--medium-gray);
+}
+
+.comparison-arrow {
+    font-size: 2rem;
+    color: var(--primary-blue);
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+    .before-after-comparison {
+        flex-direction: column;
+    }
+    .comparison-arrow {
+        transform: rotate(90deg);
+    }
+    .comparison-card {
+        width: 100%;
+    }
+}
+
 /* Calculator Hero Section */
 .calculator-hero {
     padding: 120px 0 80px;
