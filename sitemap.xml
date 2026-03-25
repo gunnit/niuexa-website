@@ -8,7 +8,7 @@
     <!-- Home Page (Primary) -->
     <url>
         <loc>https://niuexa.ai/</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-03-25</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <image:image>
@@ -546,6 +546,41 @@
     <url>
         <loc>https://niuexa.ai/articolo-poc-produzione.html</loc>
         <lastmod>2026-03-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://niuexa.ai/articolo-management-genai-framework.html</loc>
+        <lastmod>2026-03-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://niuexa.ai/articolo-rischi-ai-azienda.html</loc>
+        <lastmod>2026-03-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://niuexa.ai/articolo-software-migration-plan.html</loc>
+        <lastmod>2026-03-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://niuexa.ai/articolo-poc-produzione-framework.html</loc>
+        <lastmod>2026-03-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://niuexa.ai/articolo-costi-automazione-guida.html</loc>
+        <lastmod>2026-03-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
