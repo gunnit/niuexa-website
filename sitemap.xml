@@ -585,6 +585,35 @@
         <priority>0.8</priority>
     </url>
 
+    <!-- Articles - Commercial Intent (March 2026) -->
+    <url>
+        <loc>https://niuexa.ai/articolo-consulenza-ai-italia.html</loc>
+        <lastmod>2026-03-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://niuexa.ai/articolo-automazione-processi-manuali.html</loc>
+        <lastmod>2026-03-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://niuexa.ai/articolo-formazione-ai-manager.html</loc>
+        <lastmod>2026-03-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://niuexa.ai/articolo-ai-pmi-italia.html</loc>
+        <lastmod>2026-03-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
     <!-- AI Operator Series — Shared Pages -->
     <url>
         <loc>https://niuexa.ai/ai-operator-series.html</loc>
