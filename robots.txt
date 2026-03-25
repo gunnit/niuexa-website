@@ -1,6 +1,7 @@
 # robots.txt for Niuexa - AI Consulting Services
-# Last Updated: 2026-02-25
+# Last Updated: 2026-03-25
 
+# Default: allow all crawlers
 User-agent: *
 Disallow: /admin/
 Disallow: /private/
@@ -8,5 +9,39 @@ Disallow: /.git/
 Disallow: /node_modules/
 Disallow: /includes/
 Disallow: /quiz-data/
+
+# AI Search Engine Crawlers - Explicitly Welcomed
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: YouBot
+Allow: /
 
 Sitemap: https://niuexa.ai/sitemap.xml
