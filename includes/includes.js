@@ -40,16 +40,6 @@ const navigationHTML = `
                     <li><a href="/eventi.html" class="dropdown-link" data-page="eventi">Eventi</a></li>
                 </ul>
             </li>
-            <li class="nav-item dropdown">
-                <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-page="books">Books <span class="dropdown-arrow">▼</span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="/ai-operator-series.html" class="dropdown-link" data-page="ai-operator-series">AI Operator Series</a></li>
-                    <li><a href="/books/mcp-blueprint/resources.html" class="dropdown-link" data-page="mcp-blueprint">The MCP Blueprint</a></li>
-                    <li><a href="/books/one-person-empire/resources.html" class="dropdown-link" data-page="one-person-empire">One-Person Empire</a></li>
-                    <li><a href="/books/no-code-ai-bible/resources.html" class="dropdown-link" data-page="no-code-ai-bible">No-Code AI Bible</a></li>
-                    <li><a href="/books/ai-agents-field-guide/resources.html" class="dropdown-link" data-page="ai-agents-field-guide">AI Agents Field Guide</a></li>
-                </ul>
-            </li>
             <li class="nav-item">
                 <a href="/contatti.html" class="nav-link" data-page="contatti">Contatti</a>
             </li>
@@ -96,15 +86,6 @@ const footerHTML = `
                         <li><a href="/research.html">Ricerca</a></li>
                         <li><a href="/roi-calculator.html">Calcolatore ROI</a></li>
                         <li><a href="/eventi.html">Eventi</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Books</h4>
-                    <ul>
-                        <li><a href="/ai-operator-series.html">AI Operator Series</a></li>
-                        <li><a href="/community.html">Community</a></li>
-                        <li><a href="/newsletter.html">Newsletter</a></li>
-                        <li><a href="/resources.html">Resources</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -355,16 +336,6 @@ function getCurrentPage() {
     const path = window.location.pathname;
     const page = path.split('/').pop();
 
-    // Book subdirectory pages
-    if (path.includes('/books/mcp-blueprint/')) {
-        return 'mcp-blueprint';
-    } else if (path.includes('/books/one-person-empire/')) {
-        return 'one-person-empire';
-    } else if (path.includes('/books/no-code-ai-bible/')) {
-        return 'no-code-ai-bible';
-    } else if (path.includes('/books/ai-agents-field-guide/')) {
-        return 'ai-agents-field-guide';
-    }
 
     if (page === 'index.html' || page === '') {
         return 'home';
@@ -388,18 +359,6 @@ function getCurrentPage() {
         return 'carriere';
     } else if (page === 'login.html') {
         return 'login';
-    } else if (page === 'ai-operator-series.html') {
-        return 'ai-operator-series';
-    } else if (page === 'community.html') {
-        return 'books';
-    } else if (page === 'newsletter.html') {
-        return 'books';
-    } else if (page === 'resources.html') {
-        return 'books';
-    } else if (page === 'ai-operator-course.html') {
-        return 'books';
-    } else if (page === 'nocode-toolkit.html') {
-        return 'no-code-ai-bible';
     }
 
     return 'home';
