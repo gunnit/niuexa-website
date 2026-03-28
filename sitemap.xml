@@ -780,4 +780,36 @@
         <priority>0.7</priority>
     </url>
 
+    <!-- English Articles - AI Consulting & AEO (New) -->
+    <url>
+        <loc>https://niuexa.ai/en/article-ai-consulting-milan.html</loc>
+        <lastmod>2026-03-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://niuexa.ai/en/article-prepare-ai-workshop.html</loc>
+        <lastmod>2026-03-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://niuexa.ai/en/article-first-ai-projects-smb.html</loc>
+        <lastmod>2026-03-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://niuexa.ai/en/article-ai-email-pdf-crm-automation.html</loc>
+        <lastmod>2026-03-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://niuexa.ai/en/article-why-ai-doesnt-mention-your-company.html</loc>
+        <lastmod>2026-03-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
 </urlset>
