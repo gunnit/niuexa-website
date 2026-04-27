@@ -24,6 +24,8 @@
 - Sales Agent: AI-powered sales funnel automation with 90% accuracy
 - Marketing Agent: Automated content generation and campaign optimization
 - Voice Agent: AI-powered phone agent for customer service (Twilio + OpenAI Realtime)
+- [ChatAziendale](https://niuexa.ai/chat-aziendale.html): No-code AI chatbot trained on your business documents and website. Cites sources, no hallucinations, GDPR-compliant. Free / €29 Pro / €149 Business. Live product at chataziendale.it
+- [Keel](https://niuexa.ai/keel.html): MCP layer connecting Amazon Seller Central, Vendor Central, SP-API, Ads API and Brand Analytics to AI agents like Claude and ChatGPT. Multi-account, multi-marketplace natural-language queries. Live product at keelai.it
 
 ### AI Training Programs
 - [AI Training](https://niuexa.ai/training.html): Professional AI training courses for businesses and executives
