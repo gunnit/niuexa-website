@@ -1,8 +1,45 @@
 // GDPR Cookie Banner Implementation
+const COOKIE_BANNER_STRINGS = {
+    it: {
+        privacyHref: 'privacy-policy.html',
+        title: '🍪 Utilizziamo i Cookie',
+        intro: 'Questo sito utilizza cookie tecnici e di analytics per migliorare la tua esperienza di navigazione. I dati sono trattati in conformità al',
+        privacyLink: 'GDPR',
+        acceptAll: 'Accetta Tutti',
+        rejectAll: 'Solo Necessari',
+        customize: 'Personalizza',
+        manageTitle: 'Gestisci le tue preferenze sui cookie',
+        necessaryLabel: 'Cookie Necessari (Obbligatori)',
+        necessaryDesc: 'Questi cookie sono essenziali per il funzionamento del sito web e non possono essere disabilitati.',
+        analyticsLabel: 'Cookie Analitici',
+        analyticsDesc: 'Ci aiutano a capire come i visitatori interagiscono con il sito raccogliendo informazioni anonime.',
+        save: 'Salva Preferenze',
+        back: 'Indietro'
+    },
+    en: {
+        privacyHref: '/en/privacy-policy.html',
+        title: '🍪 We Use Cookies',
+        intro: 'This site uses technical and analytics cookies to improve your browsing experience. Data is processed in compliance with',
+        privacyLink: 'GDPR',
+        acceptAll: 'Accept All',
+        rejectAll: 'Only Necessary',
+        customize: 'Customize',
+        manageTitle: 'Manage your cookie preferences',
+        necessaryLabel: 'Necessary Cookies (Required)',
+        necessaryDesc: 'These cookies are essential for the website to function and cannot be disabled.',
+        analyticsLabel: 'Analytics Cookies',
+        analyticsDesc: 'These help us understand how visitors interact with the site by collecting anonymous information.',
+        save: 'Save Preferences',
+        back: 'Back'
+    }
+};
+
 class CookieBanner {
     constructor() {
         this.cookieName = 'niuexa_cookie_consent';
         this.consentData = this.getConsentData();
+        this.lang = (document.documentElement.lang || 'it').toLowerCase().startsWith('en') ? 'en' : 'it';
+        this.t = COOKIE_BANNER_STRINGS[this.lang];
         this.init();
     }
 
@@ -24,47 +61,47 @@ class CookieBanner {
     createBannerHTML() {
         const banner = document.createElement('div');
         banner.id = 'cookie-banner';
+        const t = this.t;
         banner.innerHTML = `
             <div class="cookie-banner-content">
                 <div class="cookie-banner-text">
-                    <h4>🍪 Utilizziamo i Cookie</h4>
-                    <p>Questo sito utilizza cookie tecnici e di analytics per migliorare la tua esperienza di navigazione. 
-                    I dati sono trattati in conformità al <a href="privacy-policy.html" target="_blank">GDPR</a>.</p>
+                    <h4>${t.title}</h4>
+                    <p>${t.intro} <a href="${t.privacyHref}" target="_blank">${t.privacyLink}</a>.</p>
                 </div>
                 <div class="cookie-banner-buttons">
                     <button id="cookie-accept-all" class="cookie-btn cookie-btn-primary">
-                        Accetta Tutti
+                        ${t.acceptAll}
                     </button>
                     <button id="cookie-reject-all" class="cookie-btn cookie-btn-secondary">
-                        Solo Necessari
+                        ${t.rejectAll}
                     </button>
                     <button id="cookie-customize" class="cookie-btn cookie-btn-text">
-                        Personalizza
+                        ${t.customize}
                     </button>
                 </div>
             </div>
             <div id="cookie-settings-panel" class="cookie-settings-panel" style="display: none;">
-                <h4>Gestisci le tue preferenze sui cookie</h4>
+                <h4>${t.manageTitle}</h4>
                 <div class="cookie-category">
                     <div class="cookie-category-header">
                         <input type="checkbox" id="necessary-cookies" checked disabled>
-                        <label for="necessary-cookies"><strong>Cookie Necessari (Obbligatori)</strong></label>
+                        <label for="necessary-cookies"><strong>${t.necessaryLabel}</strong></label>
                     </div>
-                    <p>Questi cookie sono essenziali per il funzionamento del sito web e non possono essere disabilitati.</p>
+                    <p>${t.necessaryDesc}</p>
                 </div>
                 <div class="cookie-category">
                     <div class="cookie-category-header">
                         <input type="checkbox" id="analytics-cookies">
-                        <label for="analytics-cookies"><strong>Cookie Analitici</strong></label>
+                        <label for="analytics-cookies"><strong>${t.analyticsLabel}</strong></label>
                     </div>
-                    <p>Ci aiutano a capire come i visitatori interagiscono con il sito raccogliendo informazioni anonime.</p>
+                    <p>${t.analyticsDesc}</p>
                 </div>
                 <div class="cookie-settings-buttons">
                     <button id="cookie-save-preferences" class="cookie-btn cookie-btn-primary">
-                        Salva Preferenze
+                        ${t.save}
                     </button>
                     <button id="cookie-back" class="cookie-btn cookie-btn-secondary">
-                        Indietro
+                        ${t.back}
                     </button>
                 </div>
             </div>
