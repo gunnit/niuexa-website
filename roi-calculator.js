@@ -470,7 +470,7 @@ const ROICalculator = {
     <div class="footer">
         <p><strong>Report generato da Niuexa - Soluzioni AI per il Business</strong></p>
         <p>Per implementare questi risultati, contattaci per una consulenza gratuita.</p>
-        <p>Web: niuexa.ai | Email: info@niuexa.com</p>
+        <p>Web: niuexa.ai | Email: info@niuexa.ai</p>
     </div>
 </body>
 </html>`;

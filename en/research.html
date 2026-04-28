@@ -410,5 +410,25 @@
     <script src="/en/includes/navigation-en.js?v=20260428"></script>
     <script src="/script.js?v=20260428"></script>
     <script src="/research.js"></script>
+    <script>
+        // Newsletter signup — same demo handler as /newsletter.html
+        const __newsletterForm = document.getElementById('newsletterForm');
+        __newsletterForm && __newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('.btn-primary');
+            const originalText = btn.textContent;
+            btn.textContent = 'Subscribing…';
+            btn.disabled = true;
+            setTimeout(function() {
+                btn.textContent = 'Subscribed! Check your inbox.';
+                btn.style.background = 'var(--primary-green)';
+                setTimeout(function() {
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                    btn.style.background = '';
+                }, 3000);
+            }, 1500);
+        });
+    </script>
 </body>
 </html>
