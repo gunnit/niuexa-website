@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 time: "17:30 - 20:00",
                 location: "Via Rutilia, 10 - 20141 Milano",
                 description: "Scopri come l'intelligenza artificiale può trasformare ogni aspetto della tua attività, dalla gestione dei dati alla comunicazione con i clienti. Impara a ottimizzare i processi aziendali e a raggiungere i tuoi obiettivi in modo più rapido e intelligente.",
-                image: "img/eventi/event_team2.webp",
+                image: "/img/eventi/event_team2.webp",
                 status: "available", // available, full, past
                 maxAttendees: 40,
                 currentAttendees: 0,
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 time: "17:30 - 20:00",
                 location: "Via Vittorio Andreis, 18/16/M - 10152 Torino",
                 description: "Scopri come l'intelligenza artificiale può trasformare ogni aspetto della tua attività, dalla gestione dei dati alla comunicazione con i clienti. Impara a ottimizzare i processi aziendali e a raggiungere i tuoi obiettivi in modo più rapido e intelligente.",
-                image: "img/eventi/event_team.webp",
+                image: "/img/eventi/event_team.webp",
                 status: "available", // available, full, past
                 maxAttendees: 40,
                 currentAttendees: 0,
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 id: 101,
                 title: "AI Aperitivo: Introduzione al Machine Learning",
                 date: new Date('2024-12-18'),
-                image: "img/sedemilanoevento.jpg",
+                image: "/img/sedemilanoevento.jpg",
                 attendees: 23,
                 feedback: "Evento fantastico! Spiegazioni chiare e esempi pratici."
             },
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 id: 102,
                 title: "AI Aperitivo: Computer Vision per Business",
                 date: new Date('2024-11-20'),
-                image: "img/sedeeventomilano2.jpg",
+                image: "/img/sedeeventomilano2.jpg",
                 attendees: 25,
                 feedback: "Demo impressionanti, molto utile per il mio lavoro."
             },
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 id: 103,
                 title: "AI Aperitivo: Etica nell'Intelligenza Artificiale",
                 date: new Date('2024-10-23'),
-                image: "img/sedeeventomilano3.jpg",
+                image: "/img/sedeeventomilano3.jpg",
                 attendees: 21,
                 feedback: "Discussione molto stimolante su un tema importante."
             }

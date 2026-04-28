@@ -83,7 +83,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon 256.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon 256.ico">
-    <link rel="manifest" href="site.webmanifest">
+    <link rel="manifest" href="/site.webmanifest">
     <meta name="msapplication-TileColor" content="#0066cc">
     <meta name="theme-color" content="#0066cc">
 
@@ -93,7 +93,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/styles.css?v=20260428">
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -1190,7 +1190,7 @@
     <div id="footer-placeholder"></div>
 
     <!-- Scripts -->
-    <script src="/en/includes/navigation-en.js"></script>
+    <script src="/en/includes/navigation-en.js?v=20260428"></script>
     <script>
         // FAQ Toggle Functionality
         function toggleFAQ(button) {
@@ -1286,9 +1286,6 @@
 
         // Load navigation and footer
         document.addEventListener('DOMContentLoaded', function() {
-            loadComponent('navigation-placeholder', 'includes/navigation.html');
-            loadComponent('footer-placeholder', 'includes/footer.html');
-            
             // Initialize Monthly Workflow Accordion
             initializeMonthlyWorkflowAccordion();
 

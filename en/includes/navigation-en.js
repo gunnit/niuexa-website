@@ -363,5 +363,42 @@ function getCurrentPage() {
     return 'home';
 }
 
+// Reveal-on-scroll animations (mirrors /includes/includes.js for EN pages).
+// See styles.css `.js-animations` rules — without this class, cards stay
+// at full opacity by default (safe), and with it they fade in.
+function initRevealAnimations() {
+    document.documentElement.classList.add('js-animations');
+
+    const selector = '.service-card, .program-card, .product-card, .use-case, .stat';
+    const targets = document.querySelectorAll(selector);
+    if (!targets.length) return;
+
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+
+        targets.forEach(function(el) { observer.observe(el); });
+    } else {
+        targets.forEach(function(el) { el.classList.add('animate-in'); });
+    }
+
+    setTimeout(function() {
+        document.querySelectorAll(selector).forEach(function(el) {
+            if (!el.classList.contains('animate-in')) {
+                el.classList.add('animate-in');
+            }
+        });
+    }, 2500);
+}
+
 // Load includes when DOM is ready
-document.addEventListener('DOMContentLoaded', loadIncludes);
+document.addEventListener('DOMContentLoaded', function() {
+    loadIncludes();
+    initRevealAnimations();
+});
