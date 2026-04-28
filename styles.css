@@ -5904,15 +5904,28 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
     margin-top: 0.25rem;
 }
 
-/* Reveal animations (scroll-triggered) */
+/* Reveal animations (scroll-triggered)
+   Cards are visible by default. The fade-in is applied as a progressive
+   enhancement only when JS is running (`html.js-animations`) AND the user
+   has not requested reduced motion. This guarantees content stays visible
+   even if scripts fail to load or the IntersectionObserver never fires. */
 .service-card,
 .program-card,
 .product-card,
 .use-case,
 .stat {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html.js-animations .service-card:not(.animate-in),
+    html.js-animations .program-card:not(.animate-in),
+    html.js-animations .product-card:not(.animate-in),
+    html.js-animations .use-case:not(.animate-in),
+    html.js-animations .stat:not(.animate-in) {
+        opacity: 0;
+        transform: translateY(30px);
+    }
 }
 
 .service-card.animate-in,

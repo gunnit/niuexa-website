@@ -233,8 +233,8 @@ function initSmoothScroll() {
 }
 
 // Add CSS for error states dynamically
-const style = document.createElement('style');
-style.textContent = `
+const contattiFormStyle = document.createElement('style');
+contattiFormStyle.textContent = `
     .form-group input.error,
     .form-group select.error,
     .form-group textarea.error {
@@ -261,4 +261,4 @@ style.textContent = `
         }
     }
 `;
-document.head.appendChild(style);
+document.head.appendChild(contattiFormStyle);

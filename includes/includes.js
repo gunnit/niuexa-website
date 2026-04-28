@@ -364,5 +364,45 @@ function getCurrentPage() {
     return 'home';
 }
 
+// Reveal-on-scroll animations.
+// Sets `js-animations` on <html> so the CSS opt-in fade rules apply, then
+// observes cards and reveals them as they enter the viewport. A safety
+// timer forces any still-hidden card visible after 2.5s so a flaky observer
+// or hidden parent (e.g. tab content) can never strand content invisible.
+function initRevealAnimations() {
+    document.documentElement.classList.add('js-animations');
+
+    const selector = '.service-card, .program-card, .product-card, .use-case, .stat';
+    const targets = document.querySelectorAll(selector);
+    if (!targets.length) return;
+
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+
+        targets.forEach(function(el) { observer.observe(el); });
+    } else {
+        targets.forEach(function(el) { el.classList.add('animate-in'); });
+    }
+
+    // Fail-safe: never leave cards stuck invisible.
+    setTimeout(function() {
+        document.querySelectorAll(selector).forEach(function(el) {
+            if (!el.classList.contains('animate-in')) {
+                el.classList.add('animate-in');
+            }
+        });
+    }, 2500);
+}
+
 // Load includes when DOM is ready
-document.addEventListener('DOMContentLoaded', loadIncludes);
+document.addEventListener('DOMContentLoaded', function() {
+    loadIncludes();
+    initRevealAnimations();
+});
