@@ -328,6 +328,59 @@
     margin: 0 auto;
 }
 
+/* Code blocks: contain inline code, scroll long pre blocks */
+.content-section code,
+.tutorial-content code {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    background: rgba(0, 102, 204, 0.08);
+    color: var(--primary-blue);
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.content-section pre,
+.tutorial-content pre {
+    max-width: 100%;
+    overflow-x: auto;
+    background: #1e293b;
+    color: #e2e8f0;
+    padding: 1.25rem;
+    border-radius: 12px;
+    margin: 1.5rem 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.content-section pre code,
+.tutorial-content pre code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+    word-break: normal;
+    overflow-wrap: normal;
+    white-space: pre;
+    display: block;
+}
+
+/* Tables: wrap in scroll container on small screens */
+.content-section table,
+.tutorial-content table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 769px) {
+    .content-section table,
+    .tutorial-content table {
+        display: table;
+        width: 100%;
+    }
+}
+
 .content-section {
     margin-bottom: 4rem;
     scroll-margin-top: 100px;

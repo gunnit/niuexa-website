@@ -120,6 +120,24 @@
             color: #888888 !important;
             opacity: 1;
         }
+
+        /* Mobile: stack the horizontal timeline vertically */
+        @media (max-width: 768px) {
+            .timeline-horizontal {
+                flex-direction: column !important;
+                gap: 1.5rem !important;
+            }
+            .timeline-line-horizontal {
+                display: none !important;
+            }
+            .timeline-item-horizontal {
+                flex: none !important;
+                width: 100% !important;
+            }
+            .workflow-timeline {
+                padding: 1.5rem !important;
+            }
+        }
     </style>
 </head>
 <body>

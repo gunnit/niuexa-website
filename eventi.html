@@ -47,13 +47,14 @@
     <link rel="icon" type="image/x-icon" href="img/favicon 256.ico">
     <link rel="canonical" href="https://niuexa.ai/eventi.html">
     
-    <!-- Structured Data -->
+    <!-- Structured Data: EventSeries + individual Events -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "EventSeries",
         "name": "AI Aperitivo Milano",
-        "description": "Eventi mensili di networking e formazione sull'intelligenza artificiale a Milano",
+        "description": "Eventi mensili di networking e formazione sull'intelligenza artificiale a Milano e Torino",
+        "url": "https://niuexa.ai/eventi.html",
         "organizer": {
             "@type": "Organization",
             "name": "Niuexa",
@@ -61,7 +62,7 @@
         },
         "location": {
             "@type": "Place",
-            "name": "Via Rutilia, 10",
+            "name": "Niuexa Milano",
             "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Via Rutilia, 10",
@@ -69,14 +70,125 @@
                 "addressLocality": "Milano",
                 "addressRegion": "Lombardia",
                 "addressCountry": "IT"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "45.4421",
+                "longitude": "9.1986"
             }
         },
-        "startTime": "18:30",
-        "endTime": "20:00",
         "eventSchedule": {
             "@type": "Schedule",
-            "repeatFrequency": "P1M"
+            "repeatFrequency": "P1M",
+            "startTime": "18:30",
+            "endTime": "20:00"
         }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "Rendi più efficiente la tua azienda con l'AI - Milano",
+        "description": "Scopri come l'intelligenza artificiale può trasformare ogni aspetto della tua attività. Networking, demo pratiche e Q&A con esperti AI Niuexa.",
+        "startDate": "2026-01-28T17:30:00+01:00",
+        "endDate": "2026-01-28T20:00:00+01:00",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "image": "https://niuexa.ai/img/eventi/event_team2.webp",
+        "location": {
+            "@type": "Place",
+            "name": "Niuexa Milano",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Via Rutilia, 10",
+                "postalCode": "20141",
+                "addressLocality": "Milano",
+                "addressRegion": "Lombardia",
+                "addressCountry": "IT"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "45.4421",
+                "longitude": "9.1986"
+            }
+        },
+        "organizer": {
+            "@type": "Organization",
+            "name": "Niuexa",
+            "url": "https://niuexa.ai"
+        },
+        "performer": [
+            {"@type": "Person", "name": "Roberto Botto"},
+            {"@type": "Person", "name": "Gregor Maric"}
+        ],
+        "offers": {
+            "@type": "Offer",
+            "url": "https://www.eventbrite.com/e/rendi-piu-efficiente-la-tua-azienda-con-lai-tickets-1730433145119",
+            "price": "0",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "validFrom": "2025-12-01T00:00:00+01:00"
+        },
+        "maximumAttendeeCapacity": 40
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "Rendi più efficiente la tua azienda con l'AI - Torino",
+        "description": "Scopri come l'intelligenza artificiale può trasformare ogni aspetto della tua attività. Networking, demo pratiche e Q&A con esperti AI Niuexa.",
+        "startDate": "2026-01-27T17:30:00+01:00",
+        "endDate": "2026-01-27T20:00:00+01:00",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "image": "https://niuexa.ai/img/eventi/event_team.webp",
+        "location": {
+            "@type": "Place",
+            "name": "Niuexa Torino",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Via Vittorio Andreis 18/16/M",
+                "postalCode": "10152",
+                "addressLocality": "Torino",
+                "addressRegion": "Piemonte",
+                "addressCountry": "IT"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "45.0703",
+                "longitude": "7.6869"
+            }
+        },
+        "organizer": {
+            "@type": "Organization",
+            "name": "Niuexa",
+            "url": "https://niuexa.ai"
+        },
+        "performer": [
+            {"@type": "Person", "name": "Roberto Botto"},
+            {"@type": "Person", "name": "Gregor Maric"}
+        ],
+        "offers": {
+            "@type": "Offer",
+            "url": "https://www.eventbrite.com/e/biglietti-rendi-piu-efficiente-la-tua-azienda-con-lai-1850864659019",
+            "price": "0",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "validFrom": "2025-12-01T00:00:00+01:00"
+        },
+        "maximumAttendeeCapacity": 40
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://niuexa.ai/"},
+            {"@type": "ListItem", "position": 2, "name": "Eventi", "item": "https://niuexa.ai/eventi.html"}
+        ]
     }
     </script>
     

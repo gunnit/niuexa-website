@@ -23,7 +23,7 @@
 
     <!-- SEO Meta Tags -->
     <title>Dal PoC alla produzione: come trasformare il Proof of Concept in un progetto scalabile (framework Niuexa)</title>
-    <meta name="description" content="Come passare da PoC a produzione senza rifare tutto. Framework Niuexa in 4 settimane: KPI, architettura, sicurezza e scaling. Checklist e criteri go/no-go per progetti AI, dati e automazione.">
+    <meta name="description" content="Come passare da PoC a produzione senza rifare tutto: framework Niuexa in 4 settimane con KPI, architettura, sicurezza, scaling e criteri go/no-go AI.">
     <meta name="keywords" content="PoC produzione, proof of concept scalabile, PoC AI produzione, framework PoC scaling, go no-go PoC, trasformare PoC progetto, PoC enterprise, industrializzazione PoC, KPI PoC, governance progetto AI">
     <meta name="author" content="Niuexa">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -35,7 +35,7 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://niuexa.ai/articolo-poc-produzione.html">
     <meta property="og:title" content="Dal PoC alla produzione: come trasformare il Proof of Concept in un progetto scalabile (framework Niuexa)">
-    <meta property="og:description" content="Framework Niuexa in 4 settimane per passare da PoC a produzione: KPI, architettura enterprise, sicurezza, governance e scaling. Checklist e criteri go/no-go.">
+    <meta property="og:description" content="Come passare da PoC a produzione senza rifare tutto: framework Niuexa in 4 settimane con KPI, architettura, sicurezza, scaling e criteri go/no-go AI.">
     <meta property="og:image" content="https://niuexa.ai/img/niuexalogo.png">
     <meta property="og:locale" content="it_IT">
     <meta property="article:published_time" content="2026-03-16">
@@ -50,7 +50,7 @@
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://niuexa.ai/articolo-poc-produzione.html">
     <meta property="twitter:title" content="Dal PoC alla produzione: framework Niuexa in 4 settimane">
-    <meta property="twitter:description" content="Come passare da PoC a produzione senza rifare tutto. KPI, architettura, sicurezza e scaling.">
+    <meta property="twitter:description" content="Come passare da PoC a produzione senza rifare tutto: framework Niuexa in 4 settimane con KPI, architettura, sicurezza, scaling e criteri go/no-go AI.">
     <meta property="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
 
     <link rel="canonical" href="https://niuexa.ai/articolo-poc-produzione.html">
@@ -71,7 +71,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css?v=20260428">
-    <link rel="stylesheet" href="tutorial.css">
+    <link rel="stylesheet" href="tutorial.css?v=20260429">
 
     <!-- Schema.org Article Markup -->
     <script type="application/ld+json">
@@ -79,7 +79,7 @@
         "@context": "https://schema.org",
         "@type": "Article",
         "headline": "Dal PoC alla produzione: come trasformare il Proof of Concept in un progetto scalabile (framework Niuexa)",
-        "description": "Come passare da PoC a produzione senza rifare tutto. Framework Niuexa in 4 settimane: KPI, architettura, sicurezza e scaling. Checklist e criteri go/no-go per progetti AI, dati e automazione.",
+        "description": "Come passare da PoC a produzione senza rifare tutto: framework Niuexa in 4 settimane con KPI, architettura, sicurezza, scaling e criteri go/no-go AI.",
         "author": {
             "@type": "Organization",
             "name": "Niuexa",
@@ -107,64 +107,6 @@
             "@type": "SpeakableSpecification",
             "cssSelector": [".quick-answer", ".tutorial-description", "h1"]
         }
-    }
-    </script>
-
-    <!-- FAQPage Schema (Extended) -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "Come si passa da un PoC alla produzione senza rifare tutto?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Tratta il PoC come un asset da industrializzare: congela l'obiettivo di business, mappa cosa è riusabile e cosa va rifatto. I passi chiave sono gap assessment, hardening tecnico, data readiness e operating model con almeno 3 ambienti separati."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Quali KPI servono per valutare un PoC e decidere se scalarlo?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "KPI su 4 assi: valore (tempo risparmiato, costi evitati), qualità (accuratezza, errori), adozione (utenti attivi, frequenza uso ≥60%), e rischio/operatività (SLA 99.5%). Associa sempre baseline e soglia go/no-go."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "PoC vs MVP: cosa cambia e quando passare a MVP?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "PoC dimostra fattibilità su perimetro ristretto. MVP dimostra valore ripetibile con utenti reali, metriche e operatività minima. Passare a MVP quando KPI superano soglie, utenti e processo end-to-end sono identificati, e rischi principali sono noti e mitigabili."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Come costruire un business case partendo da un PoC già avviato?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Parti dai dati del PoC: volume annuo, tempo medio, costo orario, tasso errori e uplift misurato. Includi costi completi: licenze, cloud, integrazioni, MLOps, sicurezza, change management. Usa 3 scenari con payback entro 6-12 mesi."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Quanto deve durare un PoC per essere serio?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "2-6 settimane con timebox e criteri di uscita definiti prima di partire. Se supera 8-10 settimane senza decisione, è spesso ricerca mascherata, non validazione."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Quando conviene fermare un PoC anche se sembra funzionare?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Stop se: KPI buoni ma unit economics peggiorano in produzione, dipendenza da dati non disponibili legalmente, lock-in tecnico o assenza di owner operativo. Un PoC che funziona ma non scala è un costo futuro."
-                }
-            }
-        ]
     }
     </script>
 

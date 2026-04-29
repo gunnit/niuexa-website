@@ -72,38 +72,98 @@
         "@id": "https://niuexa.ai/contatti.html#contactpage",
         "url": "https://niuexa.ai/contatti.html",
         "name": "Contatti - Niuexa",
-        "description": "Pagina di contatto per Niuexa, consulenza AI per aziende",
+        "description": "Contatta Niuexa, consulenza AI a Milano e Torino. Risposta entro 24 ore lavorative, prima consulenza gratuita.",
         "isPartOf": {"@id": "https://niuexa.ai/#website"},
         "about": {"@id": "https://niuexa.ai/#organization"},
-        "mainEntity": {
-            "@type": "Organization",
-            "@id": "https://niuexa.ai/#organization",
-            "name": "Niuexa",
-            "url": "https://niuexa.ai",
-            "logo": "https://niuexa.ai/img/niuexa_colori.png",
-            "contactPoint": [
-                {
-                    "@type": "ContactPoint",
-                    "contactType": "customer service",
-                    "availableLanguage": ["Italian", "English"],
-                    "areaServed": "IT"
-                }
-            ],
-            "address": [
-                {
-                    "@type": "PostalAddress",
-                    "addressLocality": "Milano",
-                    "addressRegion": "MI",
-                    "addressCountry": "IT"
-                },
-                {
-                    "@type": "PostalAddress",
-                    "addressLocality": "Torino",
-                    "addressRegion": "TO",
-                    "addressCountry": "IT"
-                }
-            ]
-        }
+        "mainEntity": {"@id": "https://niuexa.ai/#localbusiness"}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://niuexa.ai/#localbusiness",
+        "name": "Niuexa",
+        "alternateName": "Niuexa AI Solutions",
+        "legalName": "Niuexa S.r.l.",
+        "url": "https://niuexa.ai",
+        "logo": "https://niuexa.ai/img/niuexalogo.png",
+        "image": [
+            "https://niuexa.ai/img/ufficibebitmilano.jpg",
+            "https://niuexa.ai/img/ufficiotorino.jpg"
+        ],
+        "description": "Consulenza AI, formazione e Agenti intelligenti per aziende italiane. Sedi a Milano e Torino, operatività in tutta Italia.",
+        "priceRange": "€€",
+        "telephone": "+39-02-1234567",
+        "email": "info@niuexa.ai",
+        "address": [
+            {
+                "@type": "PostalAddress",
+                "streetAddress": "via Rutilia, 10",
+                "addressLocality": "Milano",
+                "addressRegion": "Lombardia",
+                "postalCode": "20141",
+                "addressCountry": "IT"
+            },
+            {
+                "@type": "PostalAddress",
+                "streetAddress": "via Andreis 18/16/M",
+                "addressLocality": "Torino",
+                "addressRegion": "Piemonte",
+                "postalCode": "10152",
+                "addressCountry": "IT"
+            }
+        ],
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "45.4642",
+            "longitude": "9.1900"
+        },
+        "areaServed": [
+            {"@type": "Country", "name": "Italia"},
+            {"@type": "City", "name": "Milano"},
+            {"@type": "City", "name": "Torino"}
+        ],
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "09:00",
+                "closes": "18:00"
+            }
+        ],
+        "contactPoint": [
+            {
+                "@type": "ContactPoint",
+                "contactType": "sales",
+                "telephone": "+39-02-1234567",
+                "email": "info@niuexa.ai",
+                "availableLanguage": ["Italian", "English"],
+                "areaServed": "IT"
+            },
+            {
+                "@type": "ContactPoint",
+                "contactType": "customer support",
+                "email": "support@niuexa.ai",
+                "availableLanguage": ["Italian", "English"]
+            }
+        ],
+        "sameAs": [
+            "https://www.linkedin.com/company/niuexa",
+            "https://twitter.com/niuexa",
+            "https://www.facebook.com/niuexa",
+            "https://www.wikidata.org/wiki/Q131643949"
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://niuexa.ai/"},
+            {"@type": "ListItem", "position": 2, "name": "Contatti", "item": "https://niuexa.ai/contatti.html"}
+        ]
     }
     </script>
 </head>
