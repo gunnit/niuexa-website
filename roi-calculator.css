@@ -171,10 +171,16 @@
 
 .calculator-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 720px);
     gap: 3rem;
     max-width: 1400px;
     margin: 0 auto;
+    justify-content: center;
+}
+
+.calculator-container.has-results {
+    grid-template-columns: 1fr 1fr;
+    justify-content: stretch;
 }
 
 .calculator-form {

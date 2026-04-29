@@ -137,6 +137,8 @@ const ROICalculator = {
 
         if (!hasMinimumData) {
             this.resultsSection.style.display = 'none';
+            const container = this.resultsSection.closest('.calculator-container');
+            if (container) container.classList.remove('has-results');
             return;
         }
 
@@ -287,6 +289,8 @@ const ROICalculator = {
 
     showResultsSection() {
         if (!this.resultsSection) return;
+        const container = this.resultsSection.closest('.calculator-container');
+        if (container) container.classList.add('has-results');
         if (this.resultsSection.style.display === 'block') return; // already visible
         this.resultsSection.style.display = 'block';
         this.resultsSection.classList.add('slideInRight');
@@ -524,6 +528,8 @@ const ROICalculator = {
     resetForm() {
         this.form.reset();
         this.resultsSection.style.display = 'none';
+        const container = this.resultsSection.closest('.calculator-container');
+        if (container) container.classList.remove('has-results');
         if (this.sliderValue) this.sliderValue.textContent = this.CONFIG.DEFAULT_AUTOMATION_LEVEL + '%';
         if (this.automationSlider) this.automationSlider.value = this.CONFIG.DEFAULT_AUTOMATION_LEVEL;
         this.clearSavedData();

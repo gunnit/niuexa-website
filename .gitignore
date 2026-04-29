@@ -139,3 +139,9 @@ local.settings.json
 
 # Azure Static Web Apps CLI
 .azure/
+
+# Playwright test artifacts
+.playwright-mcp/
+audit-*.png
+audit-*.jpeg
+verify-*.png
