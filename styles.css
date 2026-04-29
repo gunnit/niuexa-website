@@ -3231,7 +3231,23 @@ button[aria-busy="true"]::after {
     .services-grid,
     .training-programs,
     .products-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    /* products.html: metric strips can't shrink below content min — force wrap */
+    .product-metrics {
+        flex-wrap: wrap !important;
+    }
+    .product-metrics .metric {
+        flex: 1 1 calc(33% - 0.7rem) !important;
+        min-width: 0 !important;
+    }
+    .product-metrics .metric div {
+        word-break: break-word;
+        overflow-wrap: anywhere;
+    }
+    .product-card {
+        min-width: 0;
     }
 
     .use-case-grid {

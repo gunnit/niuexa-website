@@ -145,3 +145,7 @@ local.settings.json
 audit-*.png
 audit-*.jpeg
 verify-*.png
+
+# More screenshot patterns
+mobile-*.png
+desktop-*.png
