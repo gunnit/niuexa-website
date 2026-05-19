@@ -149,3 +149,7 @@ verify-*.png
 # More screenshot patterns
 mobile-*.png
 desktop-*.png
+
+# Visual audit screenshots (local QA only)
+.audit/
+.playwright-mcp/
