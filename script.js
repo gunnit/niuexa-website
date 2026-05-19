@@ -4,8 +4,79 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollEffects();
     initAnimations();
     initContactForm();
+    initSimpleSignupForms();
     hideElevenLabsBranding();
 });
+
+// Handles lead-magnet and newsletter forms that just need name+email capture.
+// Any form tagged with class "simple-signup-form" gets POSTed to web3forms and
+// shows an inline success message in place of the form.
+function initSimpleSignupForms() {
+    const forms = document.querySelectorAll('form.simple-signup-form');
+    forms.forEach(function(form) {
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const submitBtn = form.querySelector('button[type="submit"], .btn-primary, .login-btn');
+            const originalText = submitBtn ? submitBtn.textContent : '';
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+            }
+
+            const formData = new FormData(form);
+            const emailField = form.querySelector('input[type="email"]');
+            const email = emailField ? emailField.value.trim() : '';
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                }
+                if (emailField) {
+                    emailField.classList.add('error');
+                    emailField.setAttribute('aria-invalid', 'true');
+                    emailField.focus();
+                }
+                return;
+            }
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'form_submit', {
+                            'event_category': 'Lead Capture',
+                            'event_label': form.dataset.formLabel || form.id || 'simple-signup'
+                        });
+                    }
+                    const successHtml = form.dataset.successHtml ||
+                        '<h3 style="margin-bottom: 12px;">Thank you!</h3>' +
+                        '<p>We\'ve received your request and will be in touch shortly.</p>';
+                    const successDiv = document.createElement('div');
+                    successDiv.className = 'form-success';
+                    successDiv.setAttribute('role', 'status');
+                    successDiv.style.cssText = 'background: var(--light-gray, #F8F9FA); border-left: 4px solid var(--primary-green, #00CC66); padding: 1.5rem; border-radius: 8px; font-family: var(--font-secondary, sans-serif);';
+                    successDiv.innerHTML = successHtml;
+                    form.parentNode.replaceChild(successDiv, form);
+                } else {
+                    throw new Error('Submission failed with status ' + response.status);
+                }
+            } catch (err) {
+                console.error('Signup form error:', err);
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                }
+                showMessage('Something went wrong. Please try again or email us at info@niuexa.ai.', 'error');
+            }
+        });
+    });
+}
 
 // Function to hide ElevenLabs branding
 function hideElevenLabsBranding() {

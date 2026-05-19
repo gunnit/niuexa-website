@@ -394,8 +394,11 @@
                     <h2>Stay Updated on AI Trends</h2>
                     <p>Receive in-depth research and exclusive analysis directly in your inbox</p>
                 </div>
-                <form class="newsletter-form" id="newsletterForm">
-                    <input type="email" placeholder="Your business email" required>
+                <form class="newsletter-form simple-signup-form" id="newsletterForm" action="https://api.web3forms.com/submit" method="POST" accept-charset="UTF-8" data-form-label="Research newsletter" data-success-html="<h3 style='margin-bottom: 12px;'>Subscribed.</h3><p>You'll receive the next research drop directly in your inbox.</p>">
+                    <input type="hidden" name="access_key" value="bfacbe48-94e9-4411-94a0-6017dc9791b6">
+                    <input type="hidden" name="subject" value="Research newsletter signup — niuexa.ai">
+                    <input type="hidden" name="from_name" value="Niuexa Research">
+                    <input type="email" name="email" placeholder="Your business email" required>
                     <button type="submit" class="btn btn-primary">Subscribe</button>
                 </form>
                 <p class="newsletter-privacy">We respect your privacy. Unsubscribe anytime.</p>
@@ -410,25 +413,5 @@
     <script src="/en/includes/navigation-en.js?v=20260428"></script>
     <script src="/script.js?v=20260428"></script>
     <script src="/research.js"></script>
-    <script>
-        // Newsletter signup — same demo handler as /newsletter.html
-        const __newsletterForm = document.getElementById('newsletterForm');
-        __newsletterForm && __newsletterForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const btn = this.querySelector('.btn-primary');
-            const originalText = btn.textContent;
-            btn.textContent = 'Subscribing…';
-            btn.disabled = true;
-            setTimeout(function() {
-                btn.textContent = 'Subscribed! Check your inbox.';
-                btn.style.background = 'var(--primary-green)';
-                setTimeout(function() {
-                    btn.textContent = originalText;
-                    btn.disabled = false;
-                    btn.style.background = '';
-                }, 3000);
-            }, 1500);
-        });
-    </script>
 </body>
 </html>

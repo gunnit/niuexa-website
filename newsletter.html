@@ -164,11 +164,14 @@
                         <h2>Subscribe Now</h2>
                         <p>Join operators who start every Tuesday with a competitive advantage.</p>
                     </div>
-                    <form class="signup-form" action="#" method="POST" id="newsletterForm">
+                    <form class="signup-form simple-signup-form" action="https://api.web3forms.com/submit" method="POST" id="newsletterForm" accept-charset="UTF-8" data-form-label="Newsletter signup" data-success-html="<h3 style='margin-bottom: 12px;'>You're in.</h3><p>Check your inbox — the next issue lands Tuesday morning.</p>">
+                        <input type="hidden" name="access_key" value="bfacbe48-94e9-4411-94a0-6017dc9791b6">
+                        <input type="hidden" name="subject" value="Newsletter signup — niuexa.ai">
+                        <input type="hidden" name="from_name" value="Niuexa Newsletter">
                         <input type="text" name="name" placeholder="Your first name" required aria-label="First name">
                         <input type="email" name="email" placeholder="your@email.com" required aria-label="Email address">
                         <button type="submit" class="btn btn-primary">Subscribe — It's Free</button>
-                        <p style="font-family: var(--font-secondary); font-size: 0.85rem; color: var(--medium-gray); margin-top: 8px;">No spam. Unsubscribe in one click. Coming soon.</p>
+                        <p style="font-family: var(--font-secondary); font-size: 0.85rem; color: var(--medium-gray); margin-top: 8px;">No spam. Unsubscribe in one click.</p>
                     </form>
                 </div>
             </div>
@@ -288,25 +291,5 @@
     <script src="includes/includes.js?v=20260428"></script>
     <script src="cookie-banner.js?v=20260428"></script>
 
-    <!-- Newsletter Form Handler -->
-    <script>
-        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const btn = this.querySelector('.btn-primary');
-            const originalText = btn.textContent;
-            btn.textContent = 'Subscribing...';
-            btn.disabled = true;
-
-            setTimeout(function() {
-                btn.textContent = 'Subscribed! Check your inbox.';
-                btn.style.background = 'var(--primary-green)';
-                setTimeout(function() {
-                    btn.textContent = originalText;
-                    btn.disabled = false;
-                    btn.style.background = '';
-                }, 3000);
-            }, 1500);
-        });
-    </script>
 </body>
 </html>
