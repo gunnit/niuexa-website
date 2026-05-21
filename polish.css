@@ -1361,6 +1361,7 @@ html { scroll-behavior: smooth; }
     background: var(--paper);
     padding: 7rem 0;
     border-bottom: 1px solid var(--hairline);
+    contain-intrinsic-size: 1px 1000px;
 }
 .methodology-section .container {
     max-width: 1280px;
@@ -1476,6 +1477,7 @@ html { scroll-behavior: smooth; }
     background: var(--cream-deep);
     padding: 7rem 0;
     border-bottom: 1px solid var(--hairline);
+    contain-intrinsic-size: 1px 600px;
 }
 .governance-section .container {
     max-width: 1280px;

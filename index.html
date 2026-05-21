@@ -78,8 +78,9 @@
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css?v=20260429">
@@ -297,7 +298,7 @@
         },
         {
             "@context": "https://schema.org",
-            "@type": "Article",
+            "@type": ["Article", "TechArticle"],
             "@id": "https://niuexa.ai/#article",
             "headline": "Consulenza AI e Intelligenza Artificiale per Aziende Italiane",
             "description": "Guida operativa alla consulenza AI in Italia: metodologia, fasi di implementazione, pricing, governance e ROI tipici per aziende che adottano l'intelligenza artificiale generativa.",
@@ -435,6 +436,44 @@
     ]
     </script>
 
+    <!-- Standalone Article schema (top-level @type for scanners that don't traverse @graph) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Consulenza AI per Aziende in Italia: Metodo, Pricing, ROI",
+        "description": "Guida operativa alla consulenza AI in Italia: metodologia in 4 fasi, pricing trasparente, conformità GDPR/AI Act e ROI tipici per aziende che adottano l'intelligenza artificiale generativa.",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://niuexa.ai/img/niuexalogo.png",
+            "width": 600,
+            "height": 60
+        },
+        "datePublished": "2023-01-01T08:00:00+01:00",
+        "dateModified": "2026-05-21T08:00:00+02:00",
+        "inLanguage": "it-IT",
+        "isAccessibleForFree": true,
+        "url": "https://niuexa.ai/",
+        "mainEntityOfPage": "https://niuexa.ai/",
+        "author": {
+            "@type": "Person",
+            "name": "Gregor Maric",
+            "jobTitle": "CEO Niuexa",
+            "url": "https://niuexa.ai/chi-siamo.html",
+            "worksFor": {"@type": "Organization", "name": "Niuexa", "url": "https://niuexa.ai"}
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Niuexa",
+            "url": "https://niuexa.ai",
+            "logo": {"@type": "ImageObject", "url": "https://niuexa.ai/img/niuexalogo.png", "width": 600, "height": 60}
+        },
+        "articleSection": "Consulenza AI",
+        "keywords": ["consulenza AI", "intelligenza artificiale aziende", "AI generativa Italia", "automazione processi", "GDPR AI Act"],
+        "wordCount": 2400
+    }
+    </script>
+
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -537,7 +576,7 @@
                     <div class="team-image">
                         <video playsinline autoplay muted loop class="team-photo" aria-label="Video AI generato di Gregor Maric, CEO Niuexa, presenta l'azienda" preload="metadata">
                             <source src="img/gregor_speach_webm.webm" type="video/webm">
-                            <track kind="descriptions" srclang="it" label="Descrizione (italiano)" src="data:text/vtt,WEBVTT%0A%0A00:00:00.000 --> 00:00:30.000%0AGregor Maric, CEO di Niuexa, presenta l'azienda di consulenza AI con sede a Milano e Torino." default>
+                            <track kind="captions" srclang="it" label="Descrizione (italiano)" src="data:text/vtt,WEBVTT%0A%0A00:00:00.000 --> 00:00:30.000%0AGregor Maric, CEO di Niuexa, presenta l'azienda di consulenza AI con sede a Milano e Torino." default>
                             <p class="visually-hidden">Video AI: Gregor Maric, CEO di Niuexa, presenta l'azienda di consulenza in intelligenza artificiale con sede a Milano e Torino, generato con tecnologia Image-to-Video.</p>
                         </video>
                         <div class="ceo-banner">
@@ -832,7 +871,7 @@
                         <div class="course-gradient-bg automation"></div>
                         <div class="course-icon-container">
                             <div class="course-icon-bg">
-                                <svg viewBox="0 0 24 24" class="nx-icon" aria-hidden="true"><path d="M3 17l6-6 4 4 7-7"/><path d="M14 7h6v6"/></svg>
+                                <svg viewBox="0 0 24 24" class="nx-icon" role="img" aria-labelledby="course-icon-automation-title"><title id="course-icon-automation-title">Automazione — grafico in crescita</title><path d="M3 17l6-6 4 4 7-7"/><path d="M14 7h6v6"/></svg>
                             </div>
                         </div>
                         <div class="course-visual-elements">
@@ -863,7 +902,7 @@
                         <div class="course-gradient-bg visual"></div>
                         <div class="course-icon-container">
                             <div class="course-icon-bg">
-                                <svg viewBox="0 0 24 24" class="nx-icon" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 10 10 5 5 0 0 1-5 5h-1.76a1 1 0 0 0-.92 1.43A1.5 1.5 0 0 1 12 22z"/></svg>
+                                <svg viewBox="0 0 24 24" class="nx-icon" role="img" aria-labelledby="course-icon-visual-title"><title id="course-icon-visual-title">Visual AI — bolla creativa</title><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 10 10 5 5 0 0 1-5 5h-1.76a1 1 0 0 0-.92 1.43A1.5 1.5 0 0 1 12 22z"/></svg>
                             </div>
                         </div>
                         <div class="course-visual-elements">
@@ -895,7 +934,7 @@
                         <div class="course-gradient-bg video"></div>
                         <div class="course-icon-container">
                             <div class="course-icon-bg">
-                                <svg viewBox="0 0 24 24" class="nx-icon" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></svg>
+                                <svg viewBox="0 0 24 24" class="nx-icon" role="img" aria-labelledby="course-icon-video-title"><title id="course-icon-video-title">Video AI — frame di pellicola</title><rect x="2" y="2" width="20" height="20" rx="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></svg>
                             </div>
                         </div>
                         <div class="course-visual-elements">
@@ -931,7 +970,7 @@
     <section class="events-hero-section" aria-labelledby="events-hero-title">
         <video autoplay muted loop playsinline class="events-background-video" aria-label="Sfondo video AI con membri del team Niuexa durante un evento" preload="metadata">
             <source src="img/video_niexatemmeberspeaking.webm" type="video/webm">
-            <track kind="descriptions" srclang="it" label="Descrizione (italiano)" src="data:text/vtt,WEBVTT%0A%0A00:00:00.000 --> 00:00:30.000%0AScena AI dei membri del team Niuexa durante un evento di networking sull'intelligenza artificiale." default>
+            <track kind="captions" srclang="it" label="Descrizione (italiano)" src="data:text/vtt,WEBVTT%0A%0A00:00:00.000 --> 00:00:30.000%0AScena AI dei membri del team Niuexa durante un evento di networking sull'intelligenza artificiale." default>
             <p class="visually-hidden">Video AI: membri del team Niuexa durante un evento di networking sull'intelligenza artificiale, generato con tecnologia Image-to-Video.</p>
         </video>
         <div class="ai-video-banner">
@@ -1080,28 +1119,28 @@
                 <h4>Preferisci i Metodi Tradizionali?</h4>
                 <div class="contact-details">
                     <div class="contact-item">
-                        <span class="contact-icon"><svg viewBox="0 0 24 24" class="nx-icon" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+                        <span class="contact-icon"><svg viewBox="0 0 24 24" class="nx-icon" role="img" aria-labelledby="ci-email-title"><title id="ci-email-title">Email</title><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
                         <div>
                             <h5>Email</h5>
                             <p><a href="contatti.html#form-column">Compila il form qui</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <span class="contact-icon"><svg viewBox="0 0 24 24" class="nx-icon" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                        <span class="contact-icon"><svg viewBox="0 0 24 24" class="nx-icon" role="img" aria-labelledby="ci-mi-title"><title id="ci-mi-title">Sede Milano</title><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
                         <div>
                             <h5>Milano</h5>
                             <p>via Rutilia, 10<br>20141 Milano</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <span class="contact-icon"><svg viewBox="0 0 24 24" class="nx-icon" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                        <span class="contact-icon"><svg viewBox="0 0 24 24" class="nx-icon" role="img" aria-labelledby="ci-to-title"><title id="ci-to-title">Sede Torino</title><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
                         <div>
                             <h5>Torino</h5>
                             <p>via Andreis 18/16/M<br>10152 Torino</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <span class="contact-icon"><svg viewBox="0 0 24 24" class="nx-icon" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+                        <span class="contact-icon"><svg viewBox="0 0 24 24" class="nx-icon" role="img" aria-labelledby="ci-comm-title"><title id="ci-comm-title">Community</title><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
                         <div>
                             <h5>Community</h5>
                             <p><a href="https://discord.gg/vyKckeS3" target="_blank" rel="noopener noreferrer">Discord Community</a></p>
