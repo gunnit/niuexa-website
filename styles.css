@@ -29,27 +29,29 @@
 
 :root {
     /* Color Palette */
-    --primary-blue: #0066CC;
-    --dark-blue: #004499;
-    --light-blue: #E6F3FF;
-    --logo-blue: #2665AE;
-    --primary-green: #00CC66;
-    --dark-green: #009944;
-    --light-green: #E6FFE6;
+    --primary-blue: #237DA6;
+    --dark-blue: #1F64AE;
+    --light-blue: #E3F0F5;
+    --logo-blue: #1F64AE;
+    --primary-green: #43AE68;
+    --dark-green: #2C8A4C;
+    --light-green: #E6F5EC;
     --white: #FFFFFF;
-    --light-gray: #F8F9FA;
-    --medium-gray: #6C757D;
-    --dark-gray: #343A40;
-    --black: #000000;
+    --light-gray: #F1F5F8;
+    --medium-gray: #5E7484;
+    --dark-gray: #14324A;
+    --black: #0A1A26;
+    --brand-teal: #0E9C9A;
+    --cyan: #06B6D4;
     
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+    --gradient-primary: linear-gradient(115deg, #237DA6 0%, #0E9C9A 50%, #43AE68 100%);
     --gradient-secondary: linear-gradient(135deg, var(--dark-blue), var(--dark-green));
     --gradient-light: linear-gradient(135deg, var(--light-blue), var(--light-green));
     
     /* Typography */
-    --font-primary: 'Orbitron', monospace;
-    --font-secondary: 'Inter', sans-serif;
+    --font-primary: 'Space Grotesk', system-ui, sans-serif;
+    --font-secondary: 'Hanken Grotesk', system-ui, sans-serif;
     
     /* Spacing */
     --section-padding: 80px 0;

@@ -7,25 +7,27 @@
 
 /* --- Design tokens ------------------------------------------------- */
 :root {
-    --font-display: 'Instrument Serif', 'Times New Roman', serif;
-    --font-sans:    'Geist', 'Inter', system-ui, sans-serif;
-    --font-mono:    'Geist Mono', 'JetBrains Mono', ui-monospace, monospace;
+    --font-display: 'Space Grotesk', system-ui, sans-serif;
+    --font-sans:    'Hanken Grotesk', system-ui, sans-serif;
+    --font-mono:    'JetBrains Mono', ui-monospace, monospace;
 
-    --ink:          #0B0E14;
-    --ink-soft:     #2B2F36;
-    --ink-muted:    #5C6470;
-    --cream:        #FAF7F0;
-    --cream-deep:   #F2EDE0;
-    --paper:        #FFFCF6;
-    --hairline:     rgba(11, 14, 20, 0.10);
-    --hairline-strong: rgba(11, 14, 20, 0.18);
+    --ink:          #0A1A26;
+    --ink-soft:     #14324A;
+    --ink-muted:    #5E7484;
+    --cream:        #FBFCFD;
+    --cream-deep:   #EDF3F6;
+    --paper:        #FFFFFF;
+    --hairline:     rgba(10, 26, 38, 0.10);
+    --hairline-strong: rgba(10, 26, 38, 0.18);
 
-    --signal:       #FF5C2E;          /* warm coral — used sparingly */
-    --signal-soft:  #FFE8DE;
+    --signal:       #0A8F8C;          /* brand teal — primary solid accent */
+    --signal-soft:  #D9F0EF;
 
-    /* Brand kept, demoted to accents */
-    --brand-blue:   #0066CC;
-    --brand-green:  #00CC66;
+    /* Brand spectrum */
+    --brand-blue:   #237DA6;
+    --brand-green:  #43AE68;
+    --brand-cyan:   #06B6D4;
+    --brand-gradient: linear-gradient(115deg, #237DA6 0%, #0E9C9A 50%, #43AE68 100%);
 }
 
 /* --- Body / base reset --------------------------------------------- */
@@ -41,8 +43,8 @@ html, body {
 
 body {
     background-image:
-        radial-gradient(circle at 20% 8%, rgba(255, 92, 46, 0.05), transparent 45%),
-        radial-gradient(circle at 80% 4%, rgba(0, 102, 204, 0.04), transparent 40%);
+        radial-gradient(circle at 20% 8%, rgba(14, 156, 154, 0.06), transparent 45%),
+        radial-gradient(circle at 80% 4%, rgba(35, 125, 166, 0.05), transparent 40%);
 }
 
 /* Paper grain — subtle SVG noise overlay for tactile depth */
@@ -59,20 +61,20 @@ body::before {
 
 /* --- Typography ----------------------------------------------------- */
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-sans);
+    font-family: var(--font-display);
     font-weight: 600;
     color: var(--ink);
     letter-spacing: -0.025em;
     line-height: 1.08;
 }
 
-h1 { font-weight: 500; letter-spacing: -0.035em; }
+h1 { font-weight: 700; letter-spacing: -0.035em; }
 
 /* Section title — solid ink, no rainbow gradient. Optional kicker via ::before */
 .section-title {
-    font-family: var(--font-sans);
+    font-family: var(--font-display);
     font-size: clamp(2rem, 3.4vw, 2.85rem);
-    font-weight: 500;
+    font-weight: 700;
     letter-spacing: -0.03em;
     color: var(--ink);
     background: none;
@@ -100,21 +102,21 @@ h1 { font-weight: 500; letter-spacing: -0.035em; }
     opacity: 0.95;
 }
 
-/* Editorial italic accent — replaces gradient-clip highlight */
+/* Brand-gradient accent — the blue→green spectrum as the hero highlight */
 .italic-accent,
 .hero-title .highlight,
 .events-hero-title .highlight {
     font-family: var(--font-display);
-    font-style: italic;
-    font-weight: 400;
-    letter-spacing: -0.01em;
-    background: none;
-    -webkit-text-fill-color: currentColor;
-    -webkit-background-clip: initial;
-    background-clip: initial;
-    color: inherit;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    background: var(--brand-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
     position: relative;
-    padding: 0 0.05em;
+    padding: 0 0.02em;
 }
 
 .hero-title .highlight::after {
@@ -312,7 +314,7 @@ h1 { font-weight: 500; letter-spacing: -0.035em; }
     background: var(--signal);
     color: var(--paper);
     transform: translateY(-2px);
-    box-shadow: 0 18px 40px -10px rgba(255, 92, 46, 0.5);
+    box-shadow: 0 18px 40px -10px rgba(10, 143, 140, 0.5);
 }
 
 /* Override the !important rules on .hero .btn-secondary from styles.css */
@@ -926,9 +928,9 @@ h1 { font-weight: 500; letter-spacing: -0.035em; }
 }
 .course-card.featured .course-visual-header { border-bottom-color: rgba(255, 255, 255, 0.08); }
 
-.course-gradient-bg.automation { background: linear-gradient(135deg, #FF5C2E 0%, #FFB18A 100%); }
-.course-gradient-bg.visual     { background: linear-gradient(135deg, #0B0E14 0%, #2B2F36 100%); }
-.course-gradient-bg.video      { background: linear-gradient(135deg, #0066CC 0%, #003D7A 100%); }
+.course-gradient-bg.automation { background: linear-gradient(135deg, #237DA6 0%, #43AE68 100%); }
+.course-gradient-bg.visual     { background: linear-gradient(135deg, #0A1A26 0%, #14324A 100%); }
+.course-gradient-bg.video      { background: linear-gradient(135deg, #1F64AE 0%, #06B6D4 100%); }
 
 .course-icon-bg {
     background: rgba(255, 255, 255, 0.12);
@@ -1000,7 +1002,7 @@ h1 { font-weight: 500; letter-spacing: -0.035em; }
 .course-btn:hover {
     background: var(--signal);
     transform: translateY(-2px);
-    box-shadow: 0 16px 40px -10px rgba(255, 92, 46, 0.45);
+    box-shadow: 0 16px 40px -10px rgba(14, 156, 154, 0.45);
 }
 .course-btn-primary {
     background: var(--signal);
@@ -1013,7 +1015,7 @@ h1 { font-weight: 500; letter-spacing: -0.035em; }
     border-bottom: 1px solid var(--hairline);
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, #0B0E14 0%, #1A1F2C 60%, #3A2218 100%);
+    background: linear-gradient(135deg, #0A1A26 0%, #14324A 60%, #0E5B5A 100%);
 }
 .events-background-video { z-index: 0 !important; }
 .events-video-overlay { z-index: 1 !important; }
@@ -1033,8 +1035,8 @@ h1 { font-weight: 500; letter-spacing: -0.035em; }
     -webkit-text-fill-color: var(--paper);
     color: var(--paper);
     font-family: var(--font-display);
-    font-style: italic;
-    font-weight: 400;
+    font-style: normal;
+    font-weight: 700;
 }
 .events-hero-subtitle {
     font-family: var(--font-sans);
@@ -1217,7 +1219,7 @@ h1 { font-weight: 500; letter-spacing: -0.035em; }
     font-weight: 500;
     border-radius: 999px;
     padding: 0.9rem 1.75rem;
-    box-shadow: 0 12px 30px -10px rgba(255, 92, 46, 0.5);
+    box-shadow: 0 12px 30px -10px rgba(10, 143, 140, 0.5);
 }
 .talk-with-us-section .contact-form .btn-submit:hover {
     background: var(--cream);
