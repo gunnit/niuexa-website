@@ -35,10 +35,11 @@
     --logo-blue: #1F64AE;
     --primary-green: #43AE68;
     --dark-green: #2C8A4C;
+    --green-text: #2C7A45;            /* AA-safe green for text on light surfaces (5.28:1) */
     --light-green: #E6F5EC;
     --white: #FFFFFF;
     --light-gray: #F1F5F8;
-    --medium-gray: #5E7484;
+    --medium-gray: #54697A;           /* muted text — clears AA (4.5:1) on white + tinted sections */
     --dark-gray: #14324A;
     --black: #0A1A26;
     --brand-teal: #0E9C9A;
@@ -260,10 +261,12 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     bottom: -5px;
     left: 0;
-    width: 0;
+    width: 100%;
     height: 2px;
     background: var(--gradient-primary);
-    transition: width var(--transition-fast);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-fast);
 }
 
 .nav-link:hover {
@@ -271,7 +274,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-link:hover::after {
-    width: 100%;
+    transform: scaleX(1);
 }
 
 /* Dropdown Menu Styles */
@@ -510,7 +513,7 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
     font-size: 2rem;
     font-weight: 700;
-    color: var(--primary-green);
+    color: var(--green-text);
     font-family: var(--font-primary);
 }
 
@@ -605,7 +608,7 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid rgba(0, 204, 102, 0.3);
     padding: 0.5rem 1rem;
     border-radius: 25px;
-    color: var(--primary-green);
+    color: var(--green-text);
     font-size: 0.85rem;
     font-weight: 600;
 }
@@ -1198,7 +1201,7 @@ h1, h2, h3, h4, h5, h6 {
     content: '→';
     position: absolute;
     left: 0;
-    color: var(--primary-green);
+    color: var(--green-text);
     font-weight: bold;
 }
 
@@ -1282,7 +1285,7 @@ h1, h2, h3, h4, h5, h6 {
     content: '✓';
     position: absolute;
     left: 0;
-    color: var(--primary-green);
+    color: var(--green-text);
     font-weight: bold;
 }
 
@@ -1439,7 +1442,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .testimonial-stars {
-    color: var(--primary-green);
+    color: var(--green-text);
     font-size: 1.2rem;
     margin-bottom: 1rem;
 }
@@ -1822,7 +1825,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .metric-value {
-    color: var(--primary-green);
+    color: var(--green-text);
     font-size: 1.4rem;
     font-weight: 700;
     line-height: 1;
@@ -5055,7 +5058,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 }
 
 .verification {
-    color: var(--primary-green);
+    color: var(--green-text);
     font-weight: 600;
     margin-left: 0.5rem;
 }
@@ -5616,7 +5619,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
     display: block;
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--primary-green);
+    color: var(--green-text);
     font-family: var(--font-primary);
 }
 

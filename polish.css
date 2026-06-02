@@ -20,7 +20,7 @@
     --hairline:     rgba(10, 26, 38, 0.10);
     --hairline-strong: rgba(10, 26, 38, 0.18);
 
-    --signal:       #0A8F8C;          /* brand teal — primary solid accent */
+    --signal:       #0E7A78;          /* brand teal — primary solid accent (AA-safe as text & for white labels, 5.16:1) */
     --signal-soft:  #D9F0EF;
 
     /* Brand spectrum */
