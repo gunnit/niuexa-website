@@ -151,12 +151,12 @@ h1, h2, h3, h4, h5, h6 {
 .btn-primary {
     background: var(--gradient-primary);
     color: var(--white);
-    box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+    box-shadow: 0 4px 15px rgba(35, 125, 166, 0.3);
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 102, 204, 0.4);
+    box-shadow: 0 8px 25px rgba(35, 125, 166, 0.4);
 }
 
 .btn-secondary {
@@ -180,7 +180,7 @@ h1, h2, h3, h4, h5, h6 {
     backdrop-filter: blur(10px);
     z-index: 1000;
     transition: all var(--transition-fast);
-    border-bottom: 1px solid rgba(0, 102, 204, 0.1);
+    border-bottom: 1px solid rgba(35, 125, 166, 0.1);
 }
 
 .nav-container {
@@ -347,7 +347,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-link.login-link:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 102, 204, 0.3);
+    box-shadow: 0 5px 15px rgba(35, 125, 166, 0.3);
 }
 
 .nav-link.login-link::after {
@@ -366,7 +366,7 @@ h1, h2, h3, h4, h5, h6 {
 .hamburger:focus {
     outline: 2px solid var(--primary-blue);
     outline-offset: 2px;
-    background-color: rgba(0, 102, 204, 0.1);
+    background-color: rgba(35, 125, 166, 0.1);
 }
 
 .bar {
@@ -401,11 +401,11 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 20% 50%, rgba(0, 102, 204, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(0, 204, 102, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(0, 102, 204, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 60% 10%, rgba(0, 204, 102, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 10% 90%, rgba(0, 102, 204, 0.12) 0%, transparent 45%);
+    background: radial-gradient(circle at 20% 50%, rgba(35, 125, 166, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(67, 174, 104, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(35, 125, 166, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 60% 10%, rgba(67, 174, 104, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 10% 90%, rgba(35, 125, 166, 0.12) 0%, transparent 45%);
     animation: particleFloat 20s ease-in-out infinite;
 }
 
@@ -413,8 +413,8 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, transparent 30%, rgba(0, 102, 204, 0.08) 50%, transparent 70%),
-                linear-gradient(-45deg, transparent 40%, rgba(0, 204, 102, 0.06) 60%, transparent 80%);
+    background: linear-gradient(45deg, transparent 30%, rgba(35, 125, 166, 0.08) 50%, transparent 70%),
+                linear-gradient(-45deg, transparent 40%, rgba(67, 174, 104, 0.06) 60%, transparent 80%);
     animation: gradientShift 15s ease-in-out infinite;
 }
 
@@ -425,7 +425,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(0,102,204,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(35, 125, 166,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
     opacity: 0.3;
     animation: gridMove 30s linear infinite;
 }
@@ -446,8 +446,8 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(0, 102, 204, 0.1);
-    border: 1px solid rgba(0, 102, 204, 0.3);
+    background: rgba(35, 125, 166, 0.1);
+    border: 1px solid rgba(35, 125, 166, 0.3);
     padding: 0.5rem 1rem;
     border-radius: 50px;
     color: var(--primary-blue);
@@ -604,8 +604,8 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(0, 204, 102, 0.1);
-    border: 1px solid rgba(0, 204, 102, 0.3);
+    background: rgba(67, 174, 104, 0.1);
+    border: 1px solid rgba(67, 174, 104, 0.3);
     padding: 0.5rem 1rem;
     border-radius: 25px;
     color: var(--green-text);
@@ -642,7 +642,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 20px;
     background: var(--gradient-primary);
     border-radius: 50%;
-    box-shadow: 0 0 20px rgba(0, 102, 204, 0.5);
+    box-shadow: 0 0 20px rgba(35, 125, 166, 0.5);
     animation: nodePulse 2s ease-in-out infinite;
 }
 
@@ -972,13 +972,13 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 auto;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 102, 204, 0.1);
+    box-shadow: 0 20px 40px rgba(35, 125, 166, 0.1);
     transition: all var(--transition-medium);
 }
 
 .team-image:hover {
     transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(0, 102, 204, 0.2);
+    box-shadow: 0 30px 60px rgba(35, 125, 166, 0.2);
 }
 
 .team-image::before {
@@ -2223,8 +2223,8 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 20px;
     text-align: center;
     margin: 2rem 0 0 0;
-    box-shadow: 0 15px 40px rgba(0, 102, 204, 0.2);
-    border: 1px solid rgba(0, 102, 204, 0.1);
+    box-shadow: 0 15px 40px rgba(35, 125, 166, 0.2);
+    border: 1px solid rgba(35, 125, 166, 0.1);
 }
 
 .innovation-cta-standalone .cta-content h5 {
@@ -2453,13 +2453,13 @@ button[aria-busy="true"]::after {
     font-weight: 600 !important;
     cursor: pointer !important;
     transition: all var(--transition-fast) !important;
-    box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3) !important;
+    box-shadow: 0 4px 15px rgba(35, 125, 166, 0.3) !important;
     font-size: 1rem !important;
 }
 
 .hs-form-frame .hs-form .hs-submit .hs-button:hover {
     transform: translateY(-2px) !important;
-    box-shadow: 0 8px 25px rgba(0, 102, 204, 0.4) !important;
+    box-shadow: 0 8px 25px rgba(35, 125, 166, 0.4) !important;
 }
 
 .hs-form-frame .hs-form .hs-error-msgs {
@@ -2809,11 +2809,11 @@ button[aria-busy="true"]::after {
 @keyframes nodePulse {
     0%, 100% {
         transform: scale(1);
-        box-shadow: 0 0 20px rgba(0, 102, 204, 0.5);
+        box-shadow: 0 0 20px rgba(35, 125, 166, 0.5);
     }
     50% {
         transform: scale(1.2);
-        box-shadow: 0 0 30px rgba(0, 102, 204, 0.8);
+        box-shadow: 0 0 30px rgba(35, 125, 166, 0.8);
     }
 }
 
@@ -3325,7 +3325,7 @@ button[aria-busy="true"]::after {
 .nav-loading {
     height: 70px;
     background: rgba(255, 255, 255, 0.95);
-    border-bottom: 1px solid rgba(0, 102, 204, 0.1);
+    border-bottom: 1px solid rgba(35, 125, 166, 0.1);
 }
 
 .footer-loading {
@@ -3383,8 +3383,8 @@ html {
 }
 
 .about-hero .hero-badge {
-    background: rgba(0, 102, 204, 0.1);
-    border: 1px solid rgba(0, 102, 204, 0.3);
+    background: rgba(35, 125, 166, 0.1);
+    border: 1px solid rgba(35, 125, 166, 0.3);
     padding: 0.5rem 1rem;
     border-radius: 50px;
     color: var(--primary-blue);
@@ -4807,7 +4807,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 
 .course-card.featured {
     border: 2px solid var(--primary-blue);
-    background: linear-gradient(135deg, var(--white) 0%, rgba(0, 102, 204, 0.02) 100%);
+    background: linear-gradient(135deg, var(--white) 0%, rgba(35, 125, 166, 0.02) 100%);
 }
 
 .course-badge {
@@ -4821,7 +4821,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
     font-size: 0.8rem;
     font-weight: 600;
     z-index: 10;
-    box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+    box-shadow: 0 4px 15px rgba(35, 125, 166, 0.3);
 }
 
 /* Enhanced Visual Headers for Course Cards */
@@ -4934,7 +4934,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
     border-radius: 15px;
     font-size: 0.8rem;
     font-weight: 500;
-    box-shadow: 0 2px 8px rgba(0, 102, 204, 0.2);
+    box-shadow: 0 2px 8px rgba(35, 125, 166, 0.2);
 }
 
 .course-content-wrapper h3 {
@@ -5221,7 +5221,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 }
 
 .events-hero-title .highlight {
-    background: linear-gradient(135deg, #00CC66, #0066CC);
+    background: linear-gradient(135deg, #43AE68, #237DA6);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -5250,7 +5250,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 .events-hero-section .btn:hover {
     background: linear-gradient(135deg, var(--dark-green), var(--dark-blue));
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(0, 102, 204, 0.4);
+    box-shadow: 0 10px 30px rgba(35, 125, 166, 0.4);
 }
 
 /* Responsive Design for Events Hero */
@@ -5565,8 +5565,8 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 30% 40%, rgba(0, 102, 204, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 70% 60%, rgba(0, 204, 102, 0.1) 0%, transparent 50%);
+    background: radial-gradient(circle at 30% 40%, rgba(35, 125, 166, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(67, 174, 104, 0.1) 0%, transparent 50%);
     animation: particleFloat 20s ease-in-out infinite;
 }
 
@@ -5834,7 +5834,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 
 .talk-with-us-section .contact-form .btn-submit:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 102, 204, 0.4);
+    box-shadow: 0 8px 25px rgba(35, 125, 166, 0.4);
 }
 
 .talk-with-us-section .traditional-contact-info {

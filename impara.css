@@ -23,7 +23,7 @@
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-    border: 1px solid rgba(0, 102, 204, 0.1);
+    border: 1px solid rgba(35, 125, 166, 0.1);
 }
 
 .category-card:hover {
@@ -123,23 +123,23 @@
 }
 
 .tutorial-gradient-bg.writing {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #0066CC 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #237DA6 100%);
 }
 
 .tutorial-gradient-bg.visual {
-    background: linear-gradient(135deg, #764ba2 0%, #00CC66 50%, #667eea 100%);
+    background: linear-gradient(135deg, #764ba2 0%, #43AE68 50%, #667eea 100%);
 }
 
 .tutorial-gradient-bg.video {
-    background: linear-gradient(135deg, #00CC66 0%, #667eea 50%, #0066CC 100%);
+    background: linear-gradient(135deg, #43AE68 0%, #667eea 50%, #237DA6 100%);
 }
 
 .tutorial-gradient-bg.audio {
-    background: linear-gradient(135deg, #0066CC 0%, #764ba2 50%, #00CC66 100%);
+    background: linear-gradient(135deg, #237DA6 0%, #764ba2 50%, #43AE68 100%);
 }
 
 .tutorial-gradient-bg.automation {
-    background: linear-gradient(135deg, #667eea 0%, #0066CC 50%, #00CC66 100%);
+    background: linear-gradient(135deg, #667eea 0%, #237DA6 50%, #43AE68 100%);
 }
 
 .tutorial-category {

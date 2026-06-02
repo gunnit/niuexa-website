@@ -251,7 +251,7 @@
 
 .start-cert-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 102, 204, 0.4);
+    box-shadow: 0 8px 20px rgba(35, 125, 166, 0.4);
 }
 
 .start-cert-btn:active {

@@ -333,7 +333,7 @@
 .tutorial-content code {
     word-break: break-word;
     overflow-wrap: anywhere;
-    background: rgba(0, 102, 204, 0.08);
+    background: rgba(35, 125, 166, 0.08);
     color: var(--primary-blue);
     padding: 0.15em 0.4em;
     border-radius: 4px;
@@ -1051,7 +1051,7 @@
 
 .stat-card:hover {
     border-color: var(--primary-blue);
-    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.1);
+    box-shadow: 0 4px 12px rgba(35, 125, 166, 0.1);
 }
 
 .stat-number {
@@ -1086,7 +1086,7 @@
 .faq-section .faq-item:hover,
 .faq-container .faq-item:hover {
     border-color: var(--primary-blue);
-    box-shadow: 0 2px 8px rgba(0, 102, 204, 0.08);
+    box-shadow: 0 2px 8px rgba(35, 125, 166, 0.08);
 }
 
 .faq-section .faq-item h3,
@@ -1128,7 +1128,7 @@
 
 .content-section .related-card:hover {
     border-color: var(--primary-blue);
-    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.1);
+    box-shadow: 0 4px 12px rgba(35, 125, 166, 0.1);
     transform: translateY(-2px);
 }
 
