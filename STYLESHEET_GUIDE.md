@@ -10,33 +10,39 @@ All pages should use these standardized CSS custom properties:
 
 ```css
 :root {
-    /* Primary Colors */
-    --primary-blue: #0066CC;
-    --dark-blue: #004499;
-    --light-blue: #E6F3FF;
-    --primary-green: #00CC66;
-    --dark-green: #009944;
-    --light-green: #E6FFE6;
-    
-    /* Neutral Colors */
+    /* Primary Colors — brand spectrum (blue → teal → green) */
+    --primary-blue: #237DA6;
+    --dark-blue: #1F64AE;
+    --light-blue: #E3F0F5;
+    --primary-green: #43AE68;          /* fills / borders / gradients only */
+    --dark-green: #2C8A4C;
+    --green-text: #2C7A45;             /* AA-safe green for TEXT on light surfaces (5.28:1) */
+    --light-green: #E6F5EC;
+    --brand-teal: #0E9C9A;
+    --cyan: #06B6D4;
+
+    /* Neutral Colors — cool navy ink */
     --white: #FFFFFF;
-    --light-gray: #F8F9FA;
-    --medium-gray: #6C757D;
-    --dark-gray: #343A40;
-    --black: #000000;
-    
+    --light-gray: #F1F5F8;
+    --medium-gray: #54697A;            /* muted text — clears WCAG AA on white + tinted sections */
+    --dark-gray: #14324A;
+    --black: #0A1A26;
+
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+    --gradient-primary: linear-gradient(115deg, #237DA6 0%, #0E9C9A 50%, #43AE68 100%);
     --gradient-secondary: linear-gradient(135deg, var(--dark-blue), var(--dark-green));
     --gradient-light: linear-gradient(135deg, var(--light-blue), var(--light-green));
 }
 ```
 
+> **Accessibility:** `--primary-green` and the teal signal fail WCAG AA as *text* on light backgrounds. Use `--green-text` for green text and `--signal: #0E7A78` (in `polish.css`) for teal text/links. `--medium-gray` is tuned to clear 4.5:1 on white and on tinted (`--light-gray` / cream) section backgrounds.
+
 ### Typography Standards
 ```css
 :root {
-    --font-primary: 'Orbitron', monospace;    /* Headings & Brand */
-    --font-secondary: 'Inter', sans-serif;     /* Body Text */
+    --font-primary: 'Space Grotesk', system-ui, sans-serif;    /* Headings & Brand */
+    --font-secondary: 'Hanken Grotesk', system-ui, sans-serif; /* Body Text */
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;    /* Code / labels */
 }
 
 /* Typography Hierarchy */
@@ -187,7 +193,7 @@ color: var(--medium-gray);
 
 ### 2. Typography Inconsistencies
 **Problems Found:**
-- Mixed usage of `font-family: 'Orbitron'` vs `font-family: var(--font-primary)`
+- Mixed usage of hard-coded `font-family` names vs `font-family: var(--font-primary)`
 - Inconsistent heading sizes across pages
 - Some pages missing proper font fallbacks
 
@@ -244,8 +250,8 @@ Use standardized button classes from `styles.css` and avoid custom implementatio
 - [ ] Ensure all colors reference the centralized color palette
 
 ### Phase 2: Typography Cleanup
-- [ ] Replace all `font-family: 'Orbitron'` with `var(--font-primary)`
-- [ ] Replace all `font-family: 'Inter'` with `var(--font-secondary)`
+- [ ] Replace any hard-coded heading font (e.g. `'Space Grotesk'`) with `var(--font-primary)`
+- [ ] Replace any hard-coded body font (e.g. `'Hanken Grotesk'`) with `var(--font-secondary)`
 - [ ] Standardize heading sizes across all pages
 - [ ] Add proper font fallbacks where missing
 

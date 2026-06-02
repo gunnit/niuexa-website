@@ -167,28 +167,36 @@ az staticwebapp create --name niuexa-website --resource-group niuexa-rg --source
 
 ### CSS Architecture Standards
 - **Centralized design system**: All colors, fonts, and spacing defined in `styles.css` using CSS custom properties
-- **Color palette**: Standardized blue/green brand colors with neutral grays (see `STYLESHEET_GUIDE.md`)
-- **Typography**: Orbitron for headings/brand, Inter for body text
+- **Color palette**: Brand spectrum (blue → teal → green) with cool navy ink/neutrals (see `STYLESHEET_GUIDE.md`)
+- **Typography**: Space Grotesk for headings/brand, Hanken Grotesk for body text, JetBrains Mono for code/labels
 - **Component consistency**: Standardized button styles, hero sections, and card components
 
 ### CSS Custom Properties (Required Usage)
 ```css
 /* Colors - ALWAYS use these variables */
---primary-blue: #0066CC;
---primary-green: #00CC66;
---dark-gray: #343A40;
---medium-gray: #6C757D;
---light-gray: #F8F9FA;
+--primary-blue: #237DA6;
+--dark-blue: #1F64AE;
+--primary-green: #43AE68;          /* fills/borders/gradients */
+--dark-green: #2C8A4C;
+--green-text: #2C7A45;             /* AA-safe green for TEXT on light surfaces (5.28:1) */
+--brand-teal: #0E9C9A;
+--cyan: #06B6D4;
+--dark-gray: #14324A;              /* navy ink */
+--black: #0A1A26;
+--medium-gray: #54697A;            /* muted text — clears WCAG AA on white + tinted sections */
+--light-gray: #F1F5F8;
 --white: #FFFFFF;
 
 /* Typography - ALWAYS use these variables */
---font-primary: 'Orbitron', monospace;    /* For headings */
---font-secondary: 'Inter', sans-serif;     /* For body text */
+--font-primary: 'Space Grotesk', system-ui, sans-serif;    /* For headings */
+--font-secondary: 'Hanken Grotesk', system-ui, sans-serif; /* For body text */
 
 /* Gradients - ALWAYS use these variables */
---gradient-primary: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+--gradient-primary: linear-gradient(115deg, #237DA6 0%, #0E9C9A 50%, #43AE68 100%);
 --gradient-secondary: linear-gradient(135deg, var(--dark-blue), var(--dark-green));
 ```
+
+> **Accessibility note:** `--primary-green` (#43AE68) and the teal signal fail WCAG AA as *text* on light backgrounds. For green text use `--green-text`; the teal accent for text/links is `--signal: #0E7A78` (defined in `polish.css`). Reserve `--primary-green` for fills, borders, and gradients. The font import on every page is the Google Fonts link for `Space Grotesk + Hanken Grotesk + JetBrains Mono`.
 
 ### Critical Styling Rules
 - **NEVER use hard-coded colors** - always reference CSS custom properties from `:root` in `styles.css`
