@@ -26,10 +26,13 @@
         if (img && img.getAttribute('src')) {
             base = img.getAttribute('src').replace(/[^/]+$/, '');
         }
+        // prefer alpha WebM (transparent) where VP9 is supported; MP4 fallback
+        // (e.g. Safari) shows the original dark-background clip.
+        var ext = video.canPlayType('video/webm; codecs="vp9"') ? '.webm' : '.mp4';
         var CLIPS = {
-            wave:  base + 'wave.mp4',
-            happy: base + 'super-happy.mp4',
-            super: base + 'super-duper-happy.mp4'
+            wave:  base + 'wave' + ext,
+            happy: base + 'super-happy' + ext,
+            super: base + 'super-duper-happy' + ext
         };
 
         var playing = false;       // a reaction video is on screen
