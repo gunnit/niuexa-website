@@ -1607,3 +1607,399 @@ html { scroll-behavior: smooth; }
     .partner-logo { width: 160px; padding: 0 1.5rem; }
     .talk-with-us-section .contact-form { padding: 1.75rem; }
 }
+
+/* =====================================================================
+   IMMERSIVE HERO (index.html) — "Intelligence in motion"
+   A self-contained dark visual world that resolves into the cream page
+   below. Animated spectrum aurora + dependency-free canvas flow-field
+   (hero.js). Everything scoped to .hero-immersive so other heroes are
+   untouched. Appended last → wins the cascade over earlier .hero rules.
+   ===================================================================== */
+.hero-immersive {
+    --hx-bg-deep: #04101A;
+    --hx-bg:      #081A26;
+    --hx-accent:  #45E3CC;          /* luminous aqua — the highlight on dark */
+    --hx-blue:    #237DA6;
+    --hx-teal:    #0E9C9A;
+    --hx-cyan:    #06B6D4;
+    --hx-green:   #43AE68;
+
+    position: relative;
+    isolation: isolate;
+    min-height: min(100svh, 920px);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 8.5rem 0 7rem;
+    background: var(--hx-bg-deep);
+    background-image:
+        radial-gradient(120% 90% at 78% -10%, rgba(14, 156, 154, 0.22), transparent 55%),
+        radial-gradient(120% 90% at 0% 110%, rgba(35, 125, 166, 0.20), transparent 55%),
+        linear-gradient(180deg, var(--hx-bg) 0%, var(--hx-bg-deep) 100%);
+    border-bottom: 0;
+    color: #fff;
+}
+
+/* Seamless resolve into the dark AEO banner (#0A1A26) directly below */
+.hero-immersive::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 120px;
+    pointer-events: none;
+    z-index: 4;
+    background: linear-gradient(180deg, transparent 0%, var(--ink) 100%);
+}
+
+/* --- Background stage layers --------------------------------------- */
+.hero-immersive .hero-stage {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.hero-immersive .hero-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+.hero-immersive .hero-canvas.is-ready { opacity: 1; }
+
+/* Spectrum aurora — the always-on premium base (also the reduced-motion fallback) */
+.hero-immersive .hero-aurora {
+    position: absolute;
+    inset: -20%;
+    z-index: 1;
+    background:
+        radial-gradient(38% 50% at 22% 32%, rgba(6, 182, 212, 0.40), transparent 70%),
+        radial-gradient(42% 52% at 72% 26%, rgba(14, 156, 154, 0.42), transparent 70%),
+        radial-gradient(40% 48% at 60% 78%, rgba(67, 174, 104, 0.34), transparent 72%),
+        radial-gradient(36% 44% at 12% 82%, rgba(35, 125, 166, 0.30), transparent 72%);
+    filter: blur(34px) saturate(120%);
+    animation: hx-aurora 28s ease-in-out infinite alternate;
+    will-change: transform;
+}
+
+/* Receding hairline grid, faded toward the top */
+.hero-immersive .hero-grid {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(120% 90% at 50% 120%, #000 30%, transparent 78%);
+            mask-image: radial-gradient(120% 90% at 50% 120%, #000 30%, transparent 78%);
+}
+
+/* Vignette + left scrim that guarantees text contrast */
+.hero-immersive .hero-vignette {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    background:
+        linear-gradient(90deg, rgba(4, 16, 26, 0.86) 0%, rgba(4, 16, 26, 0.45) 34%, transparent 64%),
+        radial-gradient(120% 120% at 50% 40%, transparent 52%, rgba(4, 16, 26, 0.6) 100%);
+}
+
+/* --- Content ------------------------------------------------------- */
+.hero-immersive .hero-container {
+    position: relative;
+    z-index: 5;
+    max-width: 1180px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+    display: block;
+}
+
+.hero-immersive .hero-content {
+    text-align: left;
+    max-width: 50rem;
+    grid-column: auto;
+    grid-row: auto;
+}
+
+/* Kill the inherited mono pseudo-eyebrow + stat-card chrome from base polish */
+.hero-immersive .hero-content::before { content: none; }
+.hero-immersive .hero-stats::before { content: none; }
+
+/* Eyebrow badge with a live indicator */
+.hero-immersive .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: rgba(255, 255, 255, 0.86);
+    padding: 0.5rem 0.95rem 0.5rem 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+    margin-bottom: 1.9rem;
+    animation: hx-rise 1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.hero-immersive .hero-eyebrow-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--hx-accent);
+    box-shadow: 0 0 0 0 rgba(69, 227, 204, 0.6);
+    animation: hx-pulse 2.6s ease-out infinite;
+}
+
+.hero-immersive .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.7rem, 5.6vw, 5rem);
+    font-weight: 600;
+    line-height: 1.04;
+    letter-spacing: -0.038em;
+    color: #fff;
+    max-width: 17ch;
+    margin: 0 0 1.6rem;
+    text-wrap: balance;
+    animation: hx-rise 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.08s both;
+}
+
+/* Solid bright highlight (no gradient text). Spectrum underline as a
+   background bar so it wraps cleanly across lines on small screens. */
+.hero-immersive .hero-title .highlight {
+    -webkit-text-fill-color: var(--hx-accent);
+    color: var(--hx-accent);
+    font-weight: 700;
+    padding-bottom: 0.06em;
+    background-image: linear-gradient(90deg, var(--hx-blue), var(--hx-cyan), var(--hx-green));
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 0.09em;
+    animation: hx-underline 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.9s forwards;
+}
+.hero-immersive .hero-title .highlight::after { content: none; }
+
+.hero-immersive .hero-subtitle {
+    font-family: var(--font-sans);
+    font-size: clamp(1.05rem, 1.4vw, 1.22rem);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.82);
+    max-width: 50ch;
+    margin: 0 0 2.4rem;
+    animation: hx-rise 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.18s both;
+}
+.hero-immersive .hero-subtitle strong {
+    color: #fff;
+    font-weight: 600;
+    background: none;
+    padding: 0;
+    box-shadow: inset 0 -0.5em 0 rgba(69, 227, 204, 0.16);
+}
+
+/* CTAs */
+.hero-immersive .hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 0 0 2.8rem;
+    grid-column: auto;
+    grid-row: auto;
+    animation: hx-rise 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.28s both;
+}
+.hero-immersive .btn-primary {
+    background: linear-gradient(115deg, var(--hx-blue) 0%, var(--hx-teal) 52%, var(--hx-green) 100%);
+    color: #fff;
+    border: 0;
+    box-shadow: 0 10px 34px -12px rgba(14, 156, 154, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+.hero-immersive .btn-primary:hover {
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 18px 46px -12px rgba(14, 156, 154, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.hero-immersive .btn-secondary,
+.hero-immersive.hero .btn-secondary {
+    background: rgba(255, 255, 255, 0.04);
+    color: #fff !important;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    -webkit-backdrop-filter: blur(6px);
+            backdrop-filter: blur(6px);
+}
+.hero-immersive .btn-secondary:hover,
+.hero-immersive.hero .btn-secondary:hover {
+    background: #fff;
+    color: var(--hx-bg-deep) !important;
+    border-color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px -14px rgba(0, 0, 0, 0.6);
+}
+
+/* Proof strip — quiet inline metrics, not the boxed stat card */
+.hero-immersive .hero-stats {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
+    grid-column: auto;
+    grid-row: auto;
+    animation: hx-rise 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.4s both;
+}
+.hero-immersive .hero-stats .stat-item {
+    padding: 0 1.6rem;
+    border: 0;
+    border-left: 1px solid rgba(255, 255, 255, 0.14);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: left;
+}
+.hero-immersive .hero-stats .stat-item:first-child {
+    padding-left: 0;
+    border-left: 0;
+}
+.hero-immersive .hero-stats .stat-number {
+    font-family: var(--font-mono);
+    font-size: clamp(1.5rem, 2.4vw, 1.95rem);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: #fff;
+}
+.hero-immersive .hero-stats .stat-label {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.62);
+    margin: 0;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+/* --- Scroll cue ---------------------------------------------------- */
+.hero-immersive .hero-scrollcue {
+    position: absolute;
+    left: 50%;
+    bottom: 1.6rem;
+    transform: translateX(-50%);
+    z-index: 5;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.55);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition: color 0.25s ease;
+    animation: hx-rise 1s ease 1.1s both;
+}
+.hero-immersive .hero-scrollcue:hover { color: rgba(255, 255, 255, 0.9); }
+.hero-immersive .hero-scrollcue-track {
+    width: 24px;
+    height: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    padding-top: 7px;
+}
+.hero-immersive .hero-scrollcue-dot {
+    width: 4px;
+    height: 8px;
+    border-radius: 2px;
+    background: var(--hx-accent);
+    animation: hx-cue 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* --- Keyframes ----------------------------------------------------- */
+@keyframes hx-rise {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes hx-aurora {
+    0%   { transform: translate3d(0, 0, 0) scale(1); }
+    50%  { transform: translate3d(2.5%, -2%, 0) scale(1.08); }
+    100% { transform: translate3d(-2%, 1.5%, 0) scale(1.04); }
+}
+@keyframes hx-pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(69, 227, 204, 0.55); }
+    70%  { box-shadow: 0 0 0 9px rgba(69, 227, 204, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(69, 227, 204, 0); }
+}
+@keyframes hx-underline {
+    from { background-size: 0% 0.09em; }
+    to   { background-size: 100% 0.09em; }
+}
+@keyframes hx-cue {
+    0%   { opacity: 0; transform: translateY(-6px); }
+    35%  { opacity: 1; }
+    70%  { opacity: 1; transform: translateY(12px); }
+    100% { opacity: 0; transform: translateY(12px); }
+}
+
+/* --- Responsive ---------------------------------------------------- */
+@media (max-width: 1024px) {
+    .hero-immersive { padding: 7.5rem 0 6rem; min-height: auto; }
+    .hero-immersive .hero-container { padding: 0 2rem; }
+}
+@media (max-width: 720px) {
+    .hero-immersive {
+        padding: 6.5rem 0 4.5rem;
+        align-items: flex-start;
+    }
+    .hero-immersive .hero-container { padding: 0 1.4rem; }
+    .hero-immersive .hero-content { max-width: 100%; }
+    .hero-immersive .hero-title { max-width: 100%; }
+    .hero-immersive .hero-buttons { gap: 0.75rem; }
+    .hero-immersive .hero-buttons .btn { flex: 1 1 100%; text-align: center; }
+    .hero-immersive .hero-vignette {
+        background:
+            linear-gradient(180deg, rgba(4, 16, 26, 0.5) 0%, transparent 30%),
+            radial-gradient(120% 120% at 50% 40%, transparent 50%, rgba(4, 16, 26, 0.7) 100%);
+    }
+    /* Metrics wrap into two readable rows */
+    .hero-immersive .hero-stats { gap: 0.9rem 0; }
+    .hero-immersive .hero-stats .stat-item {
+        flex: 1 1 40%;
+        padding: 0 1.1rem;
+    }
+    .hero-immersive .hero-stats .stat-item:first-child { padding-left: 1.1rem; border-left: 1px solid rgba(255,255,255,0.14); }
+    .hero-immersive .hero-scrollcue { display: none; }
+}
+@media (max-width: 420px) {
+    .hero-immersive .hero-stats .stat-item { flex: 1 1 100%; padding-left: 0 !important; border-left: 0 !important; }
+}
+
+/* --- Reduced motion: kill canvas + animations, keep static aurora -- */
+@media (prefers-reduced-motion: reduce) {
+    .hero-immersive .hero-canvas { display: none; }
+    .hero-immersive .hero-aurora { animation: none; }
+    .hero-immersive .hero-eyebrow,
+    .hero-immersive .hero-title,
+    .hero-immersive .hero-subtitle,
+    .hero-immersive .hero-buttons,
+    .hero-immersive .hero-stats { animation: none !important; opacity: 1 !important; transform: none !important; }
+    .hero-immersive .hero-title .highlight { animation: none; background-size: 100% 0.09em; }
+    .hero-immersive .hero-eyebrow-dot { animation: none; }
+    .hero-immersive .hero-scrollcue-dot { animation: none; }
+}

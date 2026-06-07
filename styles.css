@@ -1918,7 +1918,7 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #237DA6 0%, #0E9C9A 100%);
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 50px;
@@ -1986,7 +1986,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #237DA6 0%, #0E9C9A 100%);
     border-radius: 50%;
     font-size: 2rem;
 }
@@ -1997,7 +1997,7 @@ h1, h2, h3, h4, h5, h6 {
     left: -5px;
     right: -5px;
     bottom: -5px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #237DA6 0%, #0E9C9A 100%);
     border-radius: 50%;
     opacity: 0.3;
     animation: pulse 2s ease-in-out infinite;
@@ -2009,7 +2009,7 @@ h1, h2, h3, h4, h5, h6 {
     left: -10px;
     right: -10px;
     bottom: -10px;
-    border: 2px solid #667eea;
+    border: 2px solid #237DA6;
     border-radius: 50%;
     opacity: 0.6;
     animation: pulse 3s ease-in-out infinite;
@@ -3815,7 +3815,7 @@ html {
     color: var(--primary-blue);
     margin-top: 1rem;
     font-weight: 600;
-    background: linear-gradient(135deg, var(--primary-blue), #764ba2);
+    background: linear-gradient(135deg, var(--primary-blue), #0E9C9A);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -3864,7 +3864,7 @@ html {
     left: 0;
     width: 60px;
     height: 3px;
-    background: linear-gradient(135deg, var(--primary-blue), #764ba2);
+    background: linear-gradient(135deg, var(--primary-blue), #0E9C9A);
     border-radius: 2px;
 }
 
@@ -3881,7 +3881,7 @@ html {
     gap: 2rem;
     margin-top: 2rem;
     padding: 1.5rem;
-    background: linear-gradient(135deg, var(--primary-blue), #764ba2);
+    background: linear-gradient(135deg, var(--primary-blue), #0E9C9A);
     border-radius: 15px;
     color: white;
 }
@@ -3952,7 +3952,7 @@ html {
     font-size: 2rem;
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, var(--primary-blue), #764ba2);
+    background: linear-gradient(135deg, var(--primary-blue), #0E9C9A);
     border-radius: 15px;
     display: flex;
     align-items: center;
@@ -3997,7 +3997,7 @@ html {
     left: 0;
     right: 0;
     height: 5px;
-    background: linear-gradient(135deg, var(--primary-blue), #764ba2);
+    background: linear-gradient(135deg, var(--primary-blue), #0E9C9A);
 }
 
 .libera-collaboration h3 {
@@ -4017,7 +4017,7 @@ html {
     transform: translateX(-50%);
     width: 80px;
     height: 3px;
-    background: linear-gradient(135deg, var(--primary-blue), #764ba2);
+    background: linear-gradient(135deg, var(--primary-blue), #0E9C9A);
     border-radius: 2px;
 }
 
@@ -4048,7 +4048,7 @@ html {
     font-size: 2rem;
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, var(--primary-blue), #764ba2);
+    background: linear-gradient(135deg, var(--primary-blue), #0E9C9A);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -4078,7 +4078,7 @@ html {
 }
 
 .cta-box {
-    background: linear-gradient(135deg, var(--primary-blue), #764ba2);
+    background: linear-gradient(135deg, var(--primary-blue), #0E9C9A);
     padding: 3rem;
     border-radius: 25px;
     text-align: center;
@@ -4305,7 +4305,7 @@ html {
 }
 
 .ai-badge {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #237DA6 0%, #0E9C9A 100%);
     color: white;
     padding: 4px 8px;
     border-radius: 12px;
@@ -4844,15 +4844,15 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 }
 
 .course-gradient-bg.automation {
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 50%, #764ba2 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 50%, #0E9C9A 100%);
 }
 
 .course-gradient-bg.visual {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, var(--primary-green) 100%);
+    background: linear-gradient(135deg, #237DA6 0%, #0E9C9A 50%, var(--primary-green) 100%);
 }
 
 .course-gradient-bg.video {
-    background: linear-gradient(135deg, var(--primary-green) 0%, #667eea 50%, var(--primary-blue) 100%);
+    background: linear-gradient(135deg, var(--primary-green) 0%, #237DA6 50%, var(--primary-blue) 100%);
 }
 
 .course-icon-container {

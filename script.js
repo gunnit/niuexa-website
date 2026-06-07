@@ -141,7 +141,10 @@ function debounce(func, wait) {
 // Scroll effects — single consolidated handler with debounce
 function initScrollEffects() {
     const navbar = document.querySelector('.navbar');
-    const heroContent = document.querySelector('.hero-content');
+    // The immersive homepage hero manages its own scroll motion in hero.js.
+    // Only apply the legacy content parallax on pages without it.
+    const legacyHeroContent = document.querySelector('.hero:not(.hero-immersive) .hero-content');
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const onScroll = debounce(function() {
         const scrollY = window.scrollY;
@@ -155,9 +158,9 @@ function initScrollEffects() {
             }
         }
 
-        // Parallax effect for hero content
-        if (heroContent) {
-            heroContent.style.transform = 'translateY(' + (scrollY * -0.5) + 'px)';
+        // Gentle parallax for legacy hero content only
+        if (legacyHeroContent && !prefersReduced) {
+            legacyHeroContent.style.transform = 'translateY(' + (scrollY * -0.18) + 'px)';
         }
     }, 10);
 
