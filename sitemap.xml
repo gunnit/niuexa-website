@@ -87,14 +87,14 @@
     <!-- Career & Interactive Pages -->
     <url>
         <loc>https://niuexa.ai/carriere.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/roi-calculator.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -317,31 +317,23 @@
     <!-- Legal & Policy Pages - Low Priority -->
     <url>
         <loc>https://niuexa.ai/privacy-policy.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-15</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/cookie-policy.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-15</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/terms-of-service.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-15</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
-    </url>
-
-    <!-- Login Page - Low Priority -->
-    <url>
-        <loc>https://niuexa.ai/login.html</loc>
-        <lastmod>2025-01-25</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.2</priority>
     </url>
 
     <!-- Articles - AI Research Series (New) -->
