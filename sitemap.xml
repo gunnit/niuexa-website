@@ -336,14 +336,6 @@
         <priority>0.3</priority>
     </url>
 
-    <!-- Login Page - Low Priority -->
-    <url>
-        <loc>https://niuexa.ai/login.html</loc>
-        <lastmod>2025-01-25</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
     <!-- Articles - AI Research Series (New) -->
     <url>
         <loc>https://niuexa.ai/articolo-ai-agent-orchestration.html</loc>

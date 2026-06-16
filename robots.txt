@@ -45,3 +45,4 @@ User-agent: YouBot
 Allow: /
 
 Sitemap: https://niuexa.ai/sitemap.xml
+Sitemap: https://niuexa.ai/en/sitemap.xml
