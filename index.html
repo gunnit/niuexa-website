@@ -78,6 +78,7 @@
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://js-eu1.hsforms.net">
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
@@ -297,31 +298,16 @@
         },
         {
             "@context": "https://schema.org",
-            "@type": ["Article", "TechArticle"],
-            "@id": "https://niuexa.ai/#article",
-            "headline": "Consulenza AI e Intelligenza Artificiale per Aziende Italiane",
-            "description": "Guida operativa alla consulenza AI in Italia: metodologia, fasi di implementazione, pricing, governance e ROI tipici per aziende che adottano l'intelligenza artificiale generativa.",
-            "image": "https://niuexa.ai/img/niuexalogo.png",
-            "datePublished": "2023-01-01",
-            "dateModified": "2026-05-21",
-            "inLanguage": "it-IT",
-            "isAccessibleForFree": true,
-            "author": {
-                "@type": "Person",
-                "name": "Gregor Maric",
-                "jobTitle": "CEO Niuexa",
-                "url": "https://niuexa.ai/chi-siamo.html",
-                "sameAs": ["https://www.linkedin.com/in/gregormaric/"]
-            },
-            "publisher": {"@id": "https://niuexa.ai/#organization"},
-            "mainEntityOfPage": {"@id": "https://niuexa.ai/#webpage"},
-            "articleSection": ["Consulenza AI", "Intelligenza Artificiale", "Automazione Aziendale"],
-            "about": [
-                {"@type": "Thing", "name": "Consulenza AI per aziende"},
-                {"@type": "Thing", "name": "Implementazione intelligenza artificiale generativa"},
-                {"@type": "Thing", "name": "Automazione processi aziendali"}
-            ],
-            "keywords": "consulenza AI, intelligenza artificiale aziende, AI generativa Italia, automazione processi, ROI AI"
+            "@type": "Service",
+            "@id": "https://niuexa.ai/#service",
+            "name": "Consulenza AI per Aziende Italiane",
+            "description": "Niuexa offre consulenza AI strategica, formazione certificata e sviluppo agenti AI personalizzati per aziende italiane. Assessment gratuito, roadmap con KPI e monitoraggio continuo.",
+            "url": "https://niuexa.ai",
+            "provider": {"@id": "https://niuexa.ai/#organization"},
+            "serviceType": "AI Consulting",
+            "areaServed": {"@type": "Country", "name": "Italy"},
+            "availableLanguage": ["Italian", "English"],
+            "hasOfferCatalog": {"@id": "https://niuexa.ai/#organization"}
         },
         {
             "@context": "https://schema.org",
@@ -435,43 +421,6 @@
     ]
     </script>
 
-    <!-- Standalone Article schema (top-level @type for scanners that don't traverse @graph) -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "Consulenza AI per Aziende in Italia: Metodo, Pricing, ROI",
-        "description": "Guida operativa alla consulenza AI in Italia: metodologia in 4 fasi, pricing trasparente, conformità GDPR/AI Act e ROI tipici per aziende che adottano l'intelligenza artificiale generativa.",
-        "image": {
-            "@type": "ImageObject",
-            "url": "https://niuexa.ai/img/niuexalogo.png",
-            "width": 600,
-            "height": 60
-        },
-        "datePublished": "2023-01-01T08:00:00+01:00",
-        "dateModified": "2026-05-21T08:00:00+02:00",
-        "inLanguage": "it-IT",
-        "isAccessibleForFree": true,
-        "url": "https://niuexa.ai/",
-        "mainEntityOfPage": "https://niuexa.ai/",
-        "author": {
-            "@type": "Person",
-            "name": "Gregor Maric",
-            "jobTitle": "CEO Niuexa",
-            "url": "https://niuexa.ai/chi-siamo.html",
-            "worksFor": {"@type": "Organization", "name": "Niuexa", "url": "https://niuexa.ai"}
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Niuexa",
-            "url": "https://niuexa.ai",
-            "logo": {"@type": "ImageObject", "url": "https://niuexa.ai/img/niuexalogo.png", "width": 600, "height": 60}
-        },
-        "articleSection": "Consulenza AI",
-        "keywords": ["consulenza AI", "intelligenza artificiale aziende", "AI generativa Italia", "automazione processi", "GDPR AI Act"],
-        "wordCount": 2400
-    }
-    </script>
 
 </head>
 <body>
