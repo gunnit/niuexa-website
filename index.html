@@ -383,46 +383,45 @@
                     }
                 }
             ]
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": ["LocalBusiness", "ProfessionalService"],
+            "@id": "https://niuexa.ai/#localbusiness",
+            "name": "Niuexa",
+            "description": "Consulenza AI strategica, formazione certificata e agenti AI personalizzati per aziende italiane.",
+            "url": "https://niuexa.ai",
+            "email": "info@niuexa.ai",
+            "image": "https://niuexa.ai/img/niuexalogo.png",
+            "priceRange": "€€€",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "via Rutilia, 10",
+                "addressLocality": "Milano",
+                "addressRegion": "Lombardia",
+                "addressCountry": "IT",
+                "postalCode": "20141"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "45.4642",
+                "longitude": "9.1900"
+            },
+            "openingHoursSpecification": [
+                {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                    "opens": "09:00",
+                    "closes": "18:00"
+                }
+            ],
+            "sameAs": [
+                "https://www.linkedin.com/company/niuexa",
+                "https://x.com/niuexa"
+            ],
+            "parentOrganization": {"@id": "https://niuexa.ai/#organization"}
         }
     ]
-    </script>
-
-    <!-- Standalone Article schema (top-level @type for scanners that don't traverse @graph) -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "Consulenza AI per Aziende in Italia: Metodo, Pricing, ROI",
-        "description": "Guida operativa alla consulenza AI in Italia: metodologia in 4 fasi, pricing trasparente, conformità GDPR/AI Act e ROI tipici per aziende che adottano l'intelligenza artificiale generativa.",
-        "image": {
-            "@type": "ImageObject",
-            "url": "https://niuexa.ai/img/niuexalogo.png",
-            "width": 600,
-            "height": 60
-        },
-        "datePublished": "2023-01-01T08:00:00+01:00",
-        "dateModified": "2026-05-21T08:00:00+02:00",
-        "inLanguage": "it-IT",
-        "isAccessibleForFree": true,
-        "url": "https://niuexa.ai/",
-        "mainEntityOfPage": "https://niuexa.ai/",
-        "author": {
-            "@type": "Person",
-            "name": "Gregor Maric",
-            "jobTitle": "CEO Niuexa",
-            "url": "https://niuexa.ai/chi-siamo.html",
-            "worksFor": {"@type": "Organization", "name": "Niuexa", "url": "https://niuexa.ai"}
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Niuexa",
-            "url": "https://niuexa.ai",
-            "logo": {"@type": "ImageObject", "url": "https://niuexa.ai/img/niuexalogo.png", "width": 600, "height": 60}
-        },
-        "articleSection": "Consulenza AI",
-        "keywords": ["consulenza AI", "intelligenza artificiale aziende", "AI generativa Italia", "automazione processi", "GDPR AI Act"],
-        "wordCount": 2400
-    }
     </script>
 
 </head>
