@@ -954,10 +954,13 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
-.stat h3 {
+.stat h3,
+.stat .stat-number {
     font-size: 2.5rem;
+    font-weight: 700;
     color: var(--primary-blue);
     margin-bottom: 0.5rem;
+    font-family: var(--font-primary);
 }
 
 .stat p {

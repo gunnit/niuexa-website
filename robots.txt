@@ -7,7 +7,6 @@ Disallow: /admin/
 Disallow: /private/
 Disallow: /.git/
 Disallow: /node_modules/
-Disallow: /includes/
 Disallow: /quiz-data/
 
 # AI Search Engine Crawlers - Explicitly Welcomed
