@@ -37,6 +37,7 @@ const navigationHTML = `
                     <li><a href="/impara.html" class="dropdown-link" data-page="impara">Impara</a></li>
                     <li><a href="/research.html" class="dropdown-link" data-page="research">Ricerca</a></li>
                     <li><a href="/roi-calculator.html" class="dropdown-link" data-page="roi-calculator">Calcolatore ROI</a></li>
+                    <li><a href="/checklist-ai-readiness.html" class="dropdown-link" data-page="checklist-ai-readiness">Checklist AI Readiness</a></li>
                     <li><a href="/eventi.html" class="dropdown-link" data-page="eventi">Eventi</a></li>
                 </ul>
             </li>
@@ -85,6 +86,7 @@ const footerHTML = `
                         <li><a href="/impara.html">Impara</a></li>
                         <li><a href="/research.html">Ricerca</a></li>
                         <li><a href="/roi-calculator.html">Calcolatore ROI</a></li>
+                        <li><a href="/checklist-ai-readiness.html">Checklist AI Readiness</a></li>
                         <li><a href="/eventi.html">Eventi</a></li>
                     </ul>
                 </div>
@@ -353,6 +355,8 @@ function getCurrentPage() {
         return 'research';
     } else if (page === 'roi-calculator.html') {
         return 'roi-calculator';
+    } else if (page === 'checklist-ai-readiness.html') {
+        return 'checklist-ai-readiness';
     } else if (page === 'eventi.html') {
         return 'eventi';
     } else if (page === 'carriere.html') {
