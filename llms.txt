@@ -34,6 +34,7 @@
 
 ### AEO Analyzer Platform
 - [AEO Analyzer](https://niuexa.ai/ai-readiness-tool.html): Check if AI platforms can find and cite your website
+- [AI Readiness Checklist](https://niuexa.ai/checklist-ai-readiness.html): Practical Italian checklist to evaluate process, data, governance, adoption, AI visibility, and ROI readiness before an AI project
 - [AEO Analyzer Platform](https://aeo.niuexa.ai): Full platform for AI visibility monitoring, mention tracking, and optimization
 - Tracks brand mentions across ChatGPT, Perplexity, Google AI Overviews, Claude, Gemini
 - Currently monitoring 40+ brands across multiple industries
