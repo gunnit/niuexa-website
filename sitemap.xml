@@ -149,6 +149,14 @@
         <priority>0.8</priority>
     </url>
 
+    <!-- Fresh AEO / Article Pages -->
+    <url>
+        <loc>https://niuexa.ai/articolo-ai-readiness-pmi-checklist.html</loc>
+        <lastmod>2026-07-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
     <!-- Tutorial Pages - Medium Priority -->
     <url>
         <loc>https://niuexa.ai/tutorial-ai-seo.html</loc>
