@@ -8,7 +8,7 @@
     <!-- Home Page (Primary) -->
     <url>
         <loc>https://niuexa.ai/</loc>
-        <lastmod>2026-05-21</lastmod>
+        <lastmod>2026-06-23</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <image:image>
@@ -21,7 +21,7 @@
     <!-- Chi Siamo (About) - High Priority -->
     <url>
         <loc>https://niuexa.ai/chi-siamo.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-07-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -29,35 +29,35 @@
     <!-- Core Service Pages - High Priority -->
     <url>
         <loc>https://niuexa.ai/consulting.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/training.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/products.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/ai-readiness-tool.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-07-03</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/contatti.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -65,21 +65,21 @@
     <!-- Educational & Resource Pages - Medium Priority -->
     <url>
         <loc>https://niuexa.ai/impara.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/research.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-07-04</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/eventi.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-23</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -87,21 +87,21 @@
     <!-- Career & Interactive Pages -->
     <url>
         <loc>https://niuexa.ai/carriere.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/roi-calculator.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/certification.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -109,42 +109,42 @@
     <!-- Landing Pages - High Conversion Priority -->
     <url>
         <loc>https://niuexa.ai/landing-niuexa.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/landing-voice-agent.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/landing-sales-agent.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/landing-marketing-agent.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/landing-aeo-geo-enterprise.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/landing-training.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -167,49 +167,49 @@
     <!-- Tutorial Pages - Medium Priority -->
     <url>
         <loc>https://niuexa.ai/tutorial-ai-seo.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/tutorial-automazione-workflow-ai.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/tutorial-generazione-immagini-ai.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/tutorial-generazione-video-ai.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/tutorial-lead-generation-ai.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/tutorial-umanizzare-testi-ai.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/tutorial-voice-audio-ai.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -217,7 +217,7 @@
     <!-- Articles - AI SEO Series -->
     <url>
         <loc>https://niuexa.ai/articolo-faq-consulenza-ai-italia.html</loc>
-        <lastmod>2026-02-01</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -225,98 +225,98 @@
     <!-- AI Consulting Content Cluster -->
     <url>
         <loc>https://niuexa.ai/ai-consulting/strategia-ai-aziendale.html</loc>
-        <lastmod>2026-02-01</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/ai-consulting/casi-studio-ai.html</loc>
-        <lastmod>2026-02-01</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/ai-consulting/roi-intelligenza-artificiale.html</loc>
-        <lastmod>2026-02-01</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/ai-consulting/implementazione-ai-step-by-step.html</loc>
-        <lastmod>2026-02-01</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-agentic-ai-2026.html</loc>
-        <lastmod>2026-01-31</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-seo-aeo-geo-guida-completa.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-visibilita-chatgpt-perplexity-claude.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-structured-data-ai-seo.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-content-strategy-ai-search.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-ai-seo-ecommerce.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-misurare-roi-ai-seo.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-migliori-strumenti-ai-seo.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-monitoraggio-visibilita-ai.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-strumenti-geo-content-optimization.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -324,7 +324,7 @@
     <!-- Articles - Digital Transformation -->
     <url>
         <loc>https://niuexa.ai/articolo-scegliere-partner-trasformazione-digitale.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -332,21 +332,21 @@
     <!-- Legal & Policy Pages - Low Priority -->
     <url>
         <loc>https://niuexa.ai/privacy-policy.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/cookie-policy.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/terms-of-service.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
@@ -354,7 +354,7 @@
     <!-- Login Page - Low Priority -->
     <url>
         <loc>https://niuexa.ai/login.html</loc>
-        <lastmod>2025-01-25</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -362,168 +362,168 @@
     <!-- Articles - AI Research Series (New) -->
     <url>
         <loc>https://niuexa.ai/articolo-ai-agent-orchestration.html</loc>
-        <lastmod>2025-01-31</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-ai-code-generation.html</loc>
-        <lastmod>2025-01-31</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-rag-enterprise.html</loc>
-        <lastmod>2025-01-31</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-ai-sanita-italia.html</loc>
-        <lastmod>2025-01-31</lastmod>
+        <lastmod>2026-06-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-ai-manifatturiero-industria40.html</loc>
-        <lastmod>2025-01-31</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-ai-retail-italia.html</loc>
-        <lastmod>2025-01-31</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-ai-settore-pubblico-italia.html</loc>
-        <lastmod>2025-01-31</lastmod>
+        <lastmod>2026-06-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-ai-made-in-italy.html</loc>
-        <lastmod>2025-01-31</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-ai-turismo-italia.html</loc>
-        <lastmod>2025-01-31</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-ai-agritech-italia.html</loc>
-        <lastmod>2025-01-31</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-ai-energia-transizione.html</loc>
-        <lastmod>2025-01-31</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-ai-fintech-italia.html</loc>
-        <lastmod>2025-01-31</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-ai-beni-culturali.html</loc>
-        <lastmod>2025-01-31</lastmod>
+        <lastmod>2026-06-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-ai-startup-italia.html</loc>
-        <lastmod>2025-01-31</lastmod>
+        <lastmod>2026-06-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-ai-fashion-tech.html</loc>
-        <lastmod>2025-01-31</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-ai-cybersecurity-italia.html</loc>
-        <lastmod>2025-01-31</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-ai-real-estate-italia.html</loc>
-        <lastmod>2025-01-31</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-ai-lavoro-italia.html</loc>
-        <lastmod>2025-01-31</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-ai-istruzione-italia.html</loc>
-        <lastmod>2025-01-31</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-ai-smart-cities-italia.html</loc>
-        <lastmod>2025-01-31</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-ai-etica-italia.html</loc>
-        <lastmod>2025-01-31</lastmod>
+        <lastmod>2026-06-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-ai-lingua-italiana.html</loc>
-        <lastmod>2025-01-31</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-ai-automotive-italia.html</loc>
-        <lastmod>2025-01-31</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-ai-futuro-italia-2030.html</loc>
-        <lastmod>2025-01-31</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -531,7 +531,7 @@
     <!-- Articles - Niuexa Method -->
     <url>
         <loc>https://niuexa.ai/articolo-metodo-niuexa-analisi-aziendale.html</loc>
-        <lastmod>2025-01-31</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -539,63 +539,49 @@
     <!-- Articles - AEO Content Gap Series (March 2026) -->
     <url>
         <loc>https://niuexa.ai/articolo-roadmap-trasformazione.html</loc>
-        <lastmod>2026-03-16</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-tool-agenti-ai.html</loc>
-        <lastmod>2026-03-16</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-costo-automazione.html</loc>
-        <lastmod>2026-03-16</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-poc-produzione.html</loc>
-        <lastmod>2026-03-16</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-management-genai-framework.html</loc>
-        <lastmod>2026-03-24</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-rischi-ai-azienda.html</loc>
-        <lastmod>2026-03-24</lastmod>
+        <lastmod>2026-07-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-software-migration-plan.html</loc>
-        <lastmod>2026-03-24</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
-        <loc>https://niuexa.ai/articolo-poc-produzione-framework.html</loc>
-        <lastmod>2026-03-24</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
-        <loc>https://niuexa.ai/articolo-costi-automazione-guida.html</loc>
-        <lastmod>2026-03-24</lastmod>
+        <lastmod>2026-07-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -603,7 +589,7 @@
     <!-- Articles - Commercial Intent (March 2026) -->
     <url>
         <loc>https://niuexa.ai/articolo-consulenza-ai-italia.html</loc>
-        <lastmod>2026-03-25</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -611,28 +597,28 @@
     <!-- Partnership announcements -->
     <url>
         <loc>https://niuexa.ai/articolo-aused-partnership.html</loc>
-        <lastmod>2026-05-08</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-automazione-processi-manuali.html</loc>
-        <lastmod>2026-03-25</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-formazione-ai-manager.html</loc>
-        <lastmod>2026-03-25</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/articolo-ai-pmi-italia.html</loc>
-        <lastmod>2026-03-25</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -640,42 +626,42 @@
     <!-- AI Operator Series — Shared Pages -->
     <url>
         <loc>https://niuexa.ai/ai-operator-series.html</loc>
-        <lastmod>2026-03-19</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/community.html</loc>
-        <lastmod>2026-03-19</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/newsletter.html</loc>
-        <lastmod>2026-03-19</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/resources.html</loc>
-        <lastmod>2026-03-19</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/ai-operator-course.html</loc>
-        <lastmod>2026-03-19</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/nocode-toolkit.html</loc>
-        <lastmod>2026-03-19</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -683,28 +669,28 @@
     <!-- AI Operator Series — The MCP Blueprint -->
     <url>
         <loc>https://niuexa.ai/books/mcp-blueprint/resources.html</loc>
-        <lastmod>2026-03-19</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/books/mcp-blueprint/starter-kit.html</loc>
-        <lastmod>2026-03-19</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/books/mcp-blueprint/breaches.html</loc>
-        <lastmod>2026-03-19</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/books/mcp-blueprint/roadmap-template.html</loc>
-        <lastmod>2026-03-19</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -712,35 +698,35 @@
     <!-- AI Operator Series — The One-Person Empire -->
     <url>
         <loc>https://niuexa.ai/books/one-person-empire/resources.html</loc>
-        <lastmod>2026-03-19</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/books/one-person-empire/stack.html</loc>
-        <lastmod>2026-03-19</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/books/one-person-empire/sales-demo.html</loc>
-        <lastmod>2026-03-19</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/books/one-person-empire/prompts.html</loc>
-        <lastmod>2026-03-19</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/books/one-person-empire/roi-calculator.html</loc>
-        <lastmod>2026-03-19</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -748,35 +734,35 @@
     <!-- AI Operator Series — The No-Code AI Bible -->
     <url>
         <loc>https://niuexa.ai/books/no-code-ai-bible/resources.html</loc>
-        <lastmod>2026-03-19</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/books/no-code-ai-bible/chapter-1.html</loc>
-        <lastmod>2026-03-19</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/books/no-code-ai-bible/demo.html</loc>
-        <lastmod>2026-03-19</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/books/no-code-ai-bible/templates.html</loc>
-        <lastmod>2026-03-19</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/books/no-code-ai-bible/community.html</loc>
-        <lastmod>2026-03-19</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -784,21 +770,21 @@
     <!-- AI Operator Series — The AI Agents Field Guide -->
     <url>
         <loc>https://niuexa.ai/books/ai-agents-field-guide/checklist.html</loc>
-        <lastmod>2026-03-19</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/books/ai-agents-field-guide/runbook.html</loc>
-        <lastmod>2026-03-19</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://niuexa.ai/books/ai-agents-field-guide/frameworks.html</loc>
-        <lastmod>2026-03-19</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -806,43 +792,43 @@
     <!-- English Articles - AI Consulting & AEO (New) -->
     <url>
         <loc>https://niuexa.ai/en/article-ai-consulting-milan.html</loc>
-        <lastmod>2026-03-28</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://niuexa.ai/en/article-prepare-ai-workshop.html</loc>
-        <lastmod>2026-03-28</lastmod>
+        <lastmod>2026-06-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://niuexa.ai/en/article-first-ai-projects-smb.html</loc>
-        <lastmod>2026-03-28</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://niuexa.ai/en/article-ai-email-pdf-crm-automation.html</loc>
-        <lastmod>2026-03-28</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://niuexa.ai/en/article-why-ai-doesnt-mention-your-company.html</loc>
-        <lastmod>2026-03-28</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://niuexa.ai/chat-aziendale.html</loc>
-        <lastmod>2026-04-27</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://niuexa.ai/keel.html</loc>
-        <lastmod>2026-04-27</lastmod>
+        <lastmod>2026-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
