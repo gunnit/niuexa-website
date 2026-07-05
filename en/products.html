@@ -287,6 +287,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="/styles.css?v=20260429">
+    <link rel="stylesheet" href="/products.css?v=20260705">
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -298,339 +299,251 @@
     <div id="nav-placeholder"></div>
 
     <!-- Hero Section -->
-    <section class="hero" style="background: var(--gradient-hero-dark); padding: 120px 0 80px; color: white; text-align: center;">
+    <section class="products-hero">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(35, 125, 166, 0.1); border: 1px solid rgba(35, 125, 166, 0.3); padding: 0.5rem 1rem; border-radius: 50px; color: #237DA6; font-size: 0.9rem; font-weight: 600; margin-bottom: 1.5rem;">
-                    <span class="badge-icon">🤖</span>
+                <div class="hero-badge">
+                    <span class="badge-icon" aria-hidden="true">🤖</span>
                     <span>Ready-to-Deploy AI Agents</span>
                 </div>
-                <h1 class="hero-title" style="font-size: 3.5rem; margin-bottom: 1.5rem; line-height: 1.1;">Transform Your Business with <span class="highlight" style="background: linear-gradient(135deg, #237DA6, #43AE68); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Intelligent AI Agents</span></h1>
-                <p class="hero-subtitle" style="font-size: 1.3rem; color: rgba(255, 255, 255, 0.8); margin-bottom: 2.5rem; max-width: 800px; margin-left: auto; margin-right: auto;">Discover our suite of deployment-ready AI agents, designed to optimize business operations and improve productivity across different departments.</p>
-                <div class="hero-stats" style="display: flex; justify-content: center; gap: 3rem; margin-bottom: 2.5rem; flex-wrap: wrap;">
-                    <div class="stat-item" style="text-align: center;">
-                        <span class="stat-number" style="display: block; font-size: 2.5rem; font-weight: 700; color: var(--primary-green); font-family: 'JetBrains Mono', monospace;">24/7</span>
-                        <span class="stat-label" style="font-size: 1rem; color: rgba(255, 255, 255, 0.7); margin-top: 0.5rem;">Availability</span>
+                <h1 class="hero-title">Transform Your Business with <span class="highlight">Intelligent AI Agents</span></h1>
+                <p class="hero-subtitle">Discover our suite of deployment-ready AI agents, designed to optimize business operations and improve productivity across different departments.</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Availability</span>
                     </div>
-                    <div class="stat-item" style="text-align: center;">
-                        <span class="stat-number" style="display: block; font-size: 2.5rem; font-weight: 700; color: var(--primary-green); font-family: 'JetBrains Mono', monospace;">80%</span>
-                        <span class="stat-label" style="font-size: 1rem; color: rgba(255, 255, 255, 0.7); margin-top: 0.5rem;">Cost Reduction</span>
+                    <div class="stat-item">
+                        <span class="stat-number">80%</span>
+                        <span class="stat-label">Cost Reduction</span>
                     </div>
-                    <div class="stat-item" style="text-align: center;">
-                        <span class="stat-number" style="display: block; font-size: 2.5rem; font-weight: 700; color: var(--primary-green); font-family: 'JetBrains Mono', monospace;">5x</span>
-                        <span class="stat-label" style="font-size: 1rem; color: rgba(255, 255, 255, 0.7); margin-top: 0.5rem;">Process Speed</span>
+                    <div class="stat-item">
+                        <span class="stat-number">5x</span>
+                        <span class="stat-label">Process Speed</span>
                     </div>
                 </div>
-                <div class="hero-buttons" style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
-                    <a href="#products" class="btn btn-primary">
-                        Explore Products
-                    </a>
-                    <a href="#demo" class="btn btn-secondary">
-                        Request Demo
-                    </a>
+                <div class="hero-buttons">
+                    <a href="#products" class="btn btn-primary">Explore Products</a>
+                    <a href="#demo" class="btn btn-secondary">Request Demo</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Products Section -->
-    <section id="products" class="products-section" style="padding: 80px 0; background: white;">
+    <section id="products" class="products-section">
         <div class="container">
-            <div class="section-header" style="text-align: center; margin-bottom: 4rem;">
-                <h2 class="section-title" style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--dark-gray);">Our AI Products</h2>
-                <p class="section-subtitle" style="font-size: 1.2rem; color: var(--medium-gray); max-width: 800px; margin: 0 auto;">Complete and scalable AI solutions for every business need. From marketing automation to sales management, to voice customer support.</p>
+            <div class="section-header">
+                <h2 class="section-title">Our AI Products</h2>
+                <p class="section-subtitle">Complete and scalable AI solutions for every business need. From marketing automation to sales management, to voice customer support.</p>
             </div>
 
-            <div class="products-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 2.5rem; margin-top: 3rem;">
+            <nav class="product-index" aria-label="Jump to product">
+                <a href="#marketing-agent">Marketing Agent</a>
+                <a href="#sales-agent">Sales Agent</a>
+                <a href="#voice-agent">Voice Agent</a>
+                <a href="#custom-agents">Custom Agents</a>
+            </nav>
+
+            <div class="product-list">
 
                 <!-- Marketing AI Agent -->
-                <div class="product-card" style="background: white; padding: 3rem; border-radius: 24px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12); transition: all 0.4s ease; border: 2px solid transparent; position: relative; overflow: hidden;">
-                    <div class="product-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem;">
-                        <div>
-                            <div class="product-icon" style="width: 90px; height: 90px; background: linear-gradient(135deg, #237DA6, #1F64AE); border-radius: 24px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin-bottom: 1.5rem; box-shadow: 0 10px 30px rgba(35, 125, 166, 0.3);">📈</div>
-                            <h3 style="font-size: 1.8rem; margin-bottom: 0.8rem; color: var(--dark-gray); font-weight: 700;">Marketing AI Agent</h3>
-                            <p style="color: #237DA6; font-size: 1rem; font-weight: 600; margin-bottom: 0;">Intelligent Marketing Automation</p>
+                <article class="product-panel product-panel--blue" id="marketing-agent">
+                    <div class="panel-main">
+                    <header class="panel-head">
+                        <div class="panel-icon" aria-hidden="true">📈</div>
+                        <div class="panel-title">
+                            <h3>Marketing AI Agent</h3>
+                            <p class="panel-tagline">Intelligent Marketing Automation</p>
                         </div>
-                        <div class="product-badge" style="background: var(--gradient-primary); color: white; padding: 0.4rem 1rem; border-radius: 25px; font-size: 0.85rem; font-weight: 600; box-shadow: 0 4px 15px rgba(35, 125, 166, 0.3);">Most Popular</div>
-                    </div>
+                        <span class="panel-badge">Most Popular</span>
+                    </header>
 
-                    <p style="color: var(--medium-gray); margin-bottom: 2rem; line-height: 1.7; font-size: 1.1rem;">Transform your marketing strategy with advanced AI that generates content, manages multichannel campaigns, and automatically optimizes performance to maximize ROI.</p>
+                    <p class="panel-desc">Transform your marketing strategy with advanced AI that generates content, manages multichannel campaigns, and automatically optimizes performance to maximize ROI.</p>
 
-                    <div class="product-metrics" style="display: flex; gap: 1rem; margin-bottom: 2rem;">
-                        <div class="metric" style="text-align: center; padding: 1rem; background: var(--light-gray); border-radius: 12px; flex: 1;">
-                            <div style="font-size: 1.5rem; font-weight: 700; color: #237DA6;">100%</div>
-                            <div style="font-size: 0.85rem; color: var(--medium-gray);">ROI</div>
-                        </div>
-                        <div class="metric" style="text-align: center; padding: 1rem; background: var(--light-gray); border-radius: 12px; flex: 1;">
-                            <div style="font-size: 1.5rem; font-weight: 700; color: #237DA6;">80%</div>
-                            <div style="font-size: 0.85rem; color: var(--medium-gray);">Time Saved</div>
-                        </div>
-                        <div class="metric" style="text-align: center; padding: 1rem; background: var(--light-gray); border-radius: 12px; flex: 1;">
-                            <div style="font-size: 1.5rem; font-weight: 700; color: #237DA6;">24/7</div>
-                            <div style="font-size: 0.85rem; color: var(--medium-gray);">Availability</div>
-                        </div>
-                    </div>
-
-                    <div class="product-features-expanded" style="margin-bottom: 2rem;">
-                        <h4 style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--dark-gray); font-weight: 600;">Key Features:</h4>
-                        <ul class="product-features" style="list-style: none; margin: 0; padding: 0;">
-                            <li style="padding: 0.6rem 0; color: var(--medium-gray); position: relative; padding-left: 1.8rem; line-height: 1.5;">
-                                <span style="position: absolute; left: 0; color: var(--green-text); font-weight: bold; font-size: 1.1rem;">✓</span>
-                                <strong>AI content generation:</strong> Blog posts, social media, emails, video scripts
+                    <div class="panel-features">
+                        <h4>Key features</h4>
+                        <ul class="features-list">
+                            <li><strong>AI content generation:</strong> Blog posts, social media, emails, video scripts
                             </li>
-                            <li style="padding: 0.6rem 0; color: var(--medium-gray); position: relative; padding-left: 1.8rem; line-height: 1.5;">
-                                <span style="position: absolute; left: 0; color: var(--green-text); font-weight: bold; font-size: 1.1rem;">✓</span>
-                                <strong>Multichannel automation:</strong> Facebook, Instagram, LinkedIn, Google Ads
+                            <li><strong>Multichannel automation:</strong> Facebook, Instagram, LinkedIn, Google Ads
                             </li>
-                            <li style="padding: 0.6rem 0; color: var(--medium-gray); position: relative; padding-left: 1.8rem; line-height: 1.5;">
-                                <span style="position: absolute; left: 0; color: var(--green-text); font-weight: bold; font-size: 1.1rem;">✓</span>
-                                <strong>Intelligent optimization:</strong> Automatic A/B testing
+                            <li><strong>Intelligent optimization:</strong> Automatic A/B testing
                             </li>
-                            <li style="padding: 0.6rem 0; color: var(--medium-gray); position: relative; padding-left: 1.8rem; line-height: 1.5;">
-                                <span style="position: absolute; left: 0; color: var(--green-text); font-weight: bold; font-size: 1.1rem;">✓</span>
-                                <strong>Predictive analytics:</strong> Trend and user behavior forecasting
+                            <li><strong>Predictive analytics:</strong> Trend and user behavior forecasting
                             </li>
-                            <li style="padding: 0.6rem 0; color: var(--medium-gray); position: relative; padding-left: 1.8rem; line-height: 1.5;">
-                                <span style="position: absolute; left: 0; color: var(--green-text); font-weight: bold; font-size: 1.1rem;">✓</span>
-                                <strong>Advanced personalization:</strong> Dynamic audience segmentation
+                            <li><strong>Advanced personalization:</strong> Dynamic audience segmentation
                             </li>
                         </ul>
                     </div>
 
-                    <div class="product-pricing-detailed" style="background: var(--light-gray); padding: 1.5rem; border-radius: 16px; margin-bottom: 2rem;">
-                        <div class="pricing-main" style="text-align: center; margin-bottom: 1rem;">
-                            <span style="color: var(--medium-gray); font-size: 1rem;">Starting from </span>
-                            <span style="font-size: 2.2rem; font-weight: 700; color: #237DA6;">€1,000</span>
-                            <span style="color: var(--medium-gray); font-size: 1rem;"> /month</span>
-                        </div>
-                        <div class="pricing-details" style="font-size: 0.9rem; color: var(--medium-gray); text-align: center;">
-                            <div>Setup and configuration: €5,000</div>
-                            <div>Personalized training: €2,000</div>
-                            <div>Monthly Fee: €1,000 /month (includes<br>updates and support)</div>
-                            <div style="margin-top: 0.5rem; font-weight: 600; color: #237DA6;">Expected ROI within 12 months*</div>
-                        </div>
                     </div>
 
-                    <div class="product-actions" style="display: flex; gap: 1rem;">
-                        <a href="#demo" class="btn btn-primary" style="flex: 1; text-align: center; padding: 1.2rem; font-weight: 600;">Request Demo</a>
-                        <a href="/en/roi-calculator.html" class="btn btn-secondary" style="flex: 1; text-align: center; padding: 1.2rem; font-weight: 600;">Calculate ROI</a>
-                    </div>
-                </div>
+                    <aside class="panel-rail">
+                        <div class="panel-metrics">
+                            <div class="metric-row"><span class="metric-value">100%</span><span class="metric-label">ROI</span></div>
+                            <div class="metric-row"><span class="metric-value">80%</span><span class="metric-label">Time Saved</span></div>
+                            <div class="metric-row"><span class="metric-value">24/7</span><span class="metric-label">Availability</span></div>
+                        </div>
+                        <div class="panel-pricing">
+                            <span class="price-lead">Starting from</span>
+                            <span class="price-value">€1,000</span> <span class="price-per">/month</span>
+                            <div class="price-notes">Setup and configuration: €5,000. Personalized training: €2,000. Monthly fee includes updates and support. <strong>Expected ROI within 12 months*</strong></div>
+                        </div>
+                        <div class="panel-actions">
+                            <a href="#demo" class="btn btn-primary">Request Demo</a>
+                            <a href="/en/roi-calculator.html" class="btn btn-secondary">Calculate ROI</a>
+                        </div>
+                    </aside>
+                </article>
 
                 <!-- Sales AI Agent -->
-                <div class="product-card" style="background: white; padding: 3rem; border-radius: 24px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12); transition: all 0.4s ease; border: 2px solid transparent; position: relative; overflow: hidden;">
-                    <div class="product-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem;">
-                        <div>
-                            <div class="product-icon" style="width: 90px; height: 90px; background: linear-gradient(135deg, #43AE68, #2C8A4C); border-radius: 24px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin-bottom: 1.5rem; box-shadow: 0 10px 30px rgba(67, 174, 104, 0.3);">💼</div>
-                            <h3 style="font-size: 1.8rem; margin-bottom: 0.8rem; color: var(--dark-gray); font-weight: 700;">Sales AI Agent</h3>
-                            <p style="color: var(--green-text); font-size: 1rem; font-weight: 600; margin-bottom: 0;">Sales Process Automation</p>
+                <article class="product-panel product-panel--green" id="sales-agent">
+                    <div class="panel-main">
+                    <header class="panel-head">
+                        <div class="panel-icon" aria-hidden="true">💼</div>
+                        <div class="panel-title">
+                            <h3>Sales AI Agent</h3>
+                            <p class="panel-tagline">Sales Process Automation</p>
                         </div>
-                        <div class="product-badge" style="background: linear-gradient(135deg, #43AE68, #2C8A4C); color: white; padding: 0.4rem 1rem; border-radius: 25px; font-size: 0.85rem; font-weight: 600; box-shadow: 0 4px 15px rgba(67, 174, 104, 0.3);">New</div>
-                    </div>
+                        <span class="panel-badge">New</span>
+                    </header>
 
-                    <p style="color: var(--medium-gray); margin-bottom: 2rem; line-height: 1.7; font-size: 1.1rem;">Accelerate your sales funnel with AI that qualifies leads, manages automated follow-ups, and predicts closing opportunities with over 90% accuracy.</p>
+                    <p class="panel-desc">Accelerate your sales funnel with AI that qualifies leads, manages automated follow-ups, and predicts closing opportunities with over 90% accuracy.</p>
 
-                    <div class="product-metrics" style="display: flex; gap: 1rem; margin-bottom: 2rem;">
-                        <div class="metric" style="text-align: center; padding: 1rem; background: var(--light-gray); border-radius: 12px; flex: 1;">
-                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--green-text);">↓</div>
-                            <div style="font-size: 0.85rem; color: var(--medium-gray);">Cost Reduction</div>
-                        </div>
-                        <div class="metric" style="text-align: center; padding: 1rem; background: var(--light-gray); border-radius: 12px; flex: 1;">
-                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--green-text);">60%</div>
-                            <div style="font-size: 0.85rem; color: var(--medium-gray);">Shorter Cycle</div>
-                        </div>
-                        <div class="metric" style="text-align: center; padding: 1rem; background: var(--light-gray); border-radius: 12px; flex: 1;">
-                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--green-text);">90%</div>
-                            <div style="font-size: 0.85rem; color: var(--medium-gray);">Lead Accuracy</div>
-                        </div>
-                    </div>
-
-                    <div class="product-features-expanded" style="margin-bottom: 2rem;">
-                        <h4 style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--dark-gray); font-weight: 600;">Key Features:</h4>
-                        <ul class="product-features" style="list-style: none; margin: 0; padding: 0;">
-                            <li style="padding: 0.6rem 0; color: var(--medium-gray); position: relative; padding-left: 1.8rem; line-height: 1.5;">
-                                <span style="position: absolute; left: 0; color: var(--green-text); font-weight: bold; font-size: 1.1rem;">✓</span>
-                                <strong>Intelligent lead scoring:</strong> Automatic prospect quality assessment
+                    <div class="panel-features">
+                        <h4>Key features</h4>
+                        <ul class="features-list">
+                            <li><strong>Intelligent lead scoring:</strong> Automatic prospect quality assessment
                             </li>
-                            <li style="padding: 0.6rem 0; color: var(--medium-gray); position: relative; padding-left: 1.8rem; line-height: 1.5;">
-                                <span style="position: absolute; left: 0; color: var(--green-text); font-weight: bold; font-size: 1.1rem;">✓</span>
-                                <strong>Automated follow-ups:</strong> Personalized email and call sequences
+                            <li><strong>Automated follow-ups:</strong> Personalized email and call sequences
                             </li>
-                            <li style="padding: 0.6rem 0; color: var(--medium-gray); position: relative; padding-left: 1.8rem; line-height: 1.5;">
-                                <span style="position: absolute; left: 0; color: var(--green-text); font-weight: bold; font-size: 1.1rem;">✓</span>
-                                <strong>Complete CRM integration:</strong> Salesforce, HubSpot, Pipedrive
+                            <li><strong>Complete CRM integration:</strong> Salesforce, HubSpot, Pipedrive
                             </li>
-                            <li style="padding: 0.6rem 0; color: var(--medium-gray); position: relative; padding-left: 1.8rem; line-height: 1.5;">
-                                <span style="position: absolute; left: 0; color: var(--green-text); font-weight: bold; font-size: 1.1rem;">✓</span>
-                                <strong>AI sales coaching:</strong> Real-time suggestions for closing
+                            <li><strong>AI sales coaching:</strong> Real-time suggestions for closing
                             </li>
                         </ul>
                     </div>
 
-                    <div class="product-pricing-detailed" style="background: var(--light-gray); padding: 1.5rem; border-radius: 16px; margin-bottom: 2rem;">
-                        <div class="pricing-main" style="text-align: center; margin-bottom: 1rem;">
-                            <span style="color: var(--medium-gray); font-size: 1rem;">Starting from </span>
-                            <span style="font-size: 2.2rem; font-weight: 700; color: var(--green-text);">€1,250</span>
-                            <span style="color: var(--medium-gray); font-size: 1rem;"> /month</span>
-                        </div>
-                        <div class="pricing-details" style="font-size: 0.9rem; color: var(--medium-gray); text-align: center;">
-                            <div>Setup and CRM integration: €6,000</div>
-                            <div>Sales team training: €2,000</div>
-                            <div>Monthly Fee: €1,250 /month (includes<br>updates and support)</div>
-                            <div style="margin-top: 0.5rem; font-weight: 600; color: var(--green-text);">Cost reduction</div>
-                        </div>
                     </div>
 
-                    <div class="product-actions" style="display: flex; gap: 1rem;">
-                        <a href="#demo" class="btn btn-primary" style="flex: 1; text-align: center; padding: 1.2rem; font-weight: 600;">Request Demo</a>
-                        <a href="/en/roi-calculator.html" class="btn btn-secondary" style="flex: 1; text-align: center; padding: 1.2rem; font-weight: 600;">Calculate ROI</a>
-                    </div>
-                </div>
+                    <aside class="panel-rail">
+                        <div class="panel-metrics">
+                            <div class="metric-row"><span class="metric-value">↓</span><span class="metric-label">Cost Reduction</span></div>
+                            <div class="metric-row"><span class="metric-value">60%</span><span class="metric-label">Shorter Cycle</span></div>
+                            <div class="metric-row"><span class="metric-value">90%</span><span class="metric-label">Lead Accuracy</span></div>
+                        </div>
+                        <div class="panel-pricing">
+                            <span class="price-lead">Starting from</span>
+                            <span class="price-value">€1,250</span> <span class="price-per">/month</span>
+                            <div class="price-notes">Setup and CRM integration: €6,000. Sales team training: €2,000. Monthly fee includes updates and support.</div>
+                        </div>
+                        <div class="panel-actions">
+                            <a href="#demo" class="btn btn-primary">Request Demo</a>
+                            <a href="/en/roi-calculator.html" class="btn btn-secondary">Calculate ROI</a>
+                        </div>
+                    </aside>
+                </article>
 
                 <!-- Voice AI Agent -->
-                <div class="product-card" style="background: white; padding: 3rem; border-radius: 24px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12); transition: all 0.4s ease; border: 2px solid transparent; position: relative; overflow: hidden;">
-                    <div class="product-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem;">
-                        <div>
-                            <div class="product-icon" style="width: 90px; height: 90px; background: var(--gradient-secondary); border-radius: 24px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin-bottom: 1.5rem; box-shadow: 0 10px 30px rgba(31, 100, 174, 0.3);">🎤</div>
-                            <h3 style="font-size: 1.8rem; margin-bottom: 0.8rem; color: var(--dark-gray); font-weight: 700;">Voice AI Agent</h3>
-                            <p style="color: var(--dark-blue); font-size: 1rem; font-weight: 600; margin-bottom: 0;">Intelligent Voice Assistant</p>
+                <article class="product-panel product-panel--navy" id="voice-agent">
+                    <div class="panel-main">
+                    <header class="panel-head">
+                        <div class="panel-icon" aria-hidden="true">🎤</div>
+                        <div class="panel-title">
+                            <h3>Voice AI Agent</h3>
+                            <p class="panel-tagline">Intelligent Voice Assistant</p>
                         </div>
-                        <div class="product-badge" style="background: var(--gradient-secondary); color: white; padding: 0.4rem 1rem; border-radius: 25px; font-size: 0.85rem; font-weight: 600; box-shadow: 0 4px 15px rgba(31, 100, 174, 0.3);">Advanced</div>
-                    </div>
+                        <span class="panel-badge">Advanced</span>
+                    </header>
 
-                    <p style="color: var(--medium-gray); margin-bottom: 2rem; line-height: 1.7; font-size: 1.1rem;">Revolutionize customer support with voice AI that understands natural language, handles complex calls, and provides 24/7 assistance in multiple languages.</p>
+                    <p class="panel-desc">Revolutionize customer support with voice AI that understands natural language, handles complex calls, and provides 24/7 assistance in multiple languages.</p>
 
-                    <div class="product-metrics" style="display: flex; gap: 1rem; margin-bottom: 2rem;">
-                        <div class="metric" style="text-align: center; padding: 1rem; background: var(--light-gray); border-radius: 12px; flex: 1;">
-                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--dark-blue);">95%</div>
-                            <div style="font-size: 0.85rem; color: var(--medium-gray);">Understanding</div>
-                        </div>
-                        <div class="metric" style="text-align: center; padding: 1rem; background: var(--light-gray); border-radius: 12px; flex: 1;">
-                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--dark-blue);">70%</div>
-                            <div style="font-size: 0.85rem; color: var(--medium-gray);">Cost Reduction</div>
-                        </div>
-                        <div class="metric" style="text-align: center; padding: 1rem; background: var(--light-gray); border-radius: 12px; flex: 1;">
-                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--dark-blue);">15</div>
-                            <div style="font-size: 0.85rem; color: var(--medium-gray);">Languages Supported</div>
-                        </div>
-                    </div>
-
-                    <div class="product-features-expanded" style="margin-bottom: 2rem;">
-                        <h4 style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--dark-gray); font-weight: 600;">Key Features:</h4>
-                        <ul class="product-features" style="list-style: none; margin: 0; padding: 0;">
-                            <li style="padding: 0.6rem 0; color: var(--medium-gray); position: relative; padding-left: 1.8rem; line-height: 1.5;">
-                                <span style="position: absolute; left: 0; color: var(--green-text); font-weight: bold; font-size: 1.1rem;">✓</span>
-                                <strong>Natural conversation:</strong> Advanced context and intent understanding
+                    <div class="panel-features">
+                        <h4>Key features</h4>
+                        <ul class="features-list">
+                            <li><strong>Natural conversation:</strong> Advanced context and intent understanding
                             </li>
-                            <li style="padding: 0.6rem 0; color: var(--medium-gray); position: relative; padding-left: 1.8rem; line-height: 1.5;">
-                                <span style="position: absolute; left: 0; color: var(--green-text); font-weight: bold; font-size: 1.1rem;">✓</span>
-                                <strong>Multilingual support:</strong> 15 languages with regional accents
+                            <li><strong>Multilingual support:</strong> 15 languages with regional accents
                             </li>
-                            <li style="padding: 0.6rem 0; color: var(--medium-gray); position: relative; padding-left: 1.8rem; line-height: 1.5;">
-                                <span style="position: absolute; left: 0; color: var(--green-text); font-weight: bold; font-size: 1.1rem;">✓</span>
-                                <strong>Real-time sentiment analysis:</strong> Emotion detection and escalation
+                            <li><strong>Real-time sentiment analysis:</strong> Emotion detection and escalation
                             </li>
-                            <li style="padding: 0.6rem 0; color: var(--medium-gray); position: relative; padding-left: 1.8rem; line-height: 1.5;">
-                                <span style="position: absolute; left: 0; color: var(--green-text); font-weight: bold; font-size: 1.1rem;">✓</span>
-                                <strong>Intelligent routing:</strong> Automatic transfer to operators
+                            <li><strong>Intelligent routing:</strong> Automatic transfer to operators
                             </li>
-                            <li style="padding: 0.6rem 0; color: var(--medium-gray); position: relative; padding-left: 1.8rem; line-height: 1.5;">
-                                <span style="position: absolute; left: 0; color: var(--green-text); font-weight: bold; font-size: 1.1rem;">✓</span>
-                                <strong>PBX integration:</strong> Compatible with all phone systems
+                            <li><strong>PBX integration:</strong> Compatible with all phone systems
                             </li>
                         </ul>
                     </div>
 
-                    <div class="product-pricing-detailed" style="background: var(--light-gray); padding: 1.5rem; border-radius: 16px; margin-bottom: 2rem;">
-                        <div class="pricing-main" style="text-align: center; margin-bottom: 1rem;">
-                            <span style="color: var(--medium-gray); font-size: 1rem;">Starting from </span>
-                            <span style="font-size: 2.2rem; font-weight: 700; color: var(--dark-blue);">€1,250</span>
-                            <span style="color: var(--medium-gray); font-size: 1rem;"> /month</span>
-                        </div>
-                        <div class="pricing-details" style="font-size: 0.9rem; color: var(--medium-gray); text-align: center;">
-                            <div>Setup and phone integration: €6,000</div>
-                            <div>Custom voice training: €2,000</div>
-                            <div>Monthly Fee: €1,250 /month (includes<br>updates and support)</div>
-                            <div style="margin-top: 0.5rem; font-weight: 600; color: var(--dark-blue);">Customer satisfaction >90%</div>
-                        </div>
                     </div>
 
-                    <div class="product-actions" style="display: flex; gap: 1rem;">
-                        <a href="#demo" class="btn btn-primary" style="flex: 1; text-align: center; padding: 1.2rem; font-weight: 600;">Request Demo</a>
-                        <a href="/en/roi-calculator.html" class="btn btn-secondary" style="flex: 1; text-align: center; padding: 1.2rem; font-weight: 600;">Calculate ROI</a>
-                    </div>
-                </div>
+                    <aside class="panel-rail">
+                        <div class="panel-metrics">
+                            <div class="metric-row"><span class="metric-value">95%</span><span class="metric-label">Understanding</span></div>
+                            <div class="metric-row"><span class="metric-value">70%</span><span class="metric-label">Cost Reduction</span></div>
+                            <div class="metric-row"><span class="metric-value">15</span><span class="metric-label">Languages Supported</span></div>
+                        </div>
+                        <div class="panel-pricing">
+                            <span class="price-lead">Starting from</span>
+                            <span class="price-value">€1,250</span> <span class="price-per">/month</span>
+                            <div class="price-notes">Setup and phone integration: €6,000. Custom voice training: €2,000. Monthly fee includes updates and support. <strong>Customer satisfaction &gt;90%</strong></div>
+                        </div>
+                        <div class="panel-actions">
+                            <a href="#demo" class="btn btn-primary">Request Demo</a>
+                            <a href="/en/roi-calculator.html" class="btn btn-secondary">Calculate ROI</a>
+                        </div>
+                    </aside>
+                </article>
 
                 <!-- Custom AI Agents -->
-                <div class="product-card" style="background: white; padding: 3rem; border-radius: 24px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12); transition: all 0.4s ease; border: 2px solid transparent; position: relative; overflow: hidden;">
-                    <div class="product-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem;">
-                        <div>
-                            <div class="product-icon" style="width: 90px; height: 90px; background: var(--gradient-primary); border-radius: 24px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin-bottom: 1.5rem; box-shadow: 0 10px 30px rgba(35, 125, 166, 0.3);">⚙️</div>
-                            <h3 style="font-size: 1.8rem; margin-bottom: 0.8rem; color: var(--dark-gray); font-weight: 700;">Custom AI Agents</h3>
-                            <p style="color: var(--primary-blue); font-size: 1rem; font-weight: 600; margin-bottom: 0;">Tailored AI Solutions</p>
+                <article class="product-panel product-panel--spectrum" id="custom-agents">
+                    <div class="panel-main">
+                    <header class="panel-head">
+                        <div class="panel-icon" aria-hidden="true">⚙️</div>
+                        <div class="panel-title">
+                            <h3>Custom AI Agents</h3>
+                            <p class="panel-tagline">Tailored AI Solutions</p>
                         </div>
-                        <div class="product-badge" style="background: var(--gradient-primary); color: white; padding: 0.4rem 1rem; border-radius: 25px; font-size: 0.85rem; font-weight: 600; box-shadow: 0 4px 15px rgba(35, 125, 166, 0.3);">Custom</div>
-                    </div>
+                        <span class="panel-badge">Custom</span>
+                    </header>
 
-                    <p style="color: var(--medium-gray); margin-bottom: 2rem; line-height: 1.7; font-size: 1.1rem;">Fully customized AI solutions for your specific needs. From design to implementation, we create tailor-made AI agents for your business.</p>
+                    <p class="panel-desc">Fully customized AI solutions for your specific needs. From design to implementation, we create tailor-made AI agents for your business.</p>
 
-                    <div class="product-metrics" style="display: flex; gap: 1rem; margin-bottom: 2rem;">
-                        <div class="metric" style="text-align: center; padding: 1rem; background: var(--light-gray); border-radius: 12px; flex: 1;">
-                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary-blue);">100%</div>
-                            <div style="font-size: 0.85rem; color: var(--medium-gray);">Customization</div>
-                        </div>
-                        <div class="metric" style="text-align: center; padding: 1rem; background: var(--light-gray); border-radius: 12px; flex: 1;">
-                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary-blue);">500+</div>
-                            <div style="font-size: 0.85rem; color: var(--medium-gray);">Integrations</div>
-                        </div>
-                        <div class="metric" style="text-align: center; padding: 1rem; background: var(--light-gray); border-radius: 12px; flex: 1;">
-                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary-blue);">24/7</div>
-                            <div style="font-size: 0.85rem; color: var(--medium-gray);">Support</div>
-                        </div>
-                    </div>
-
-                    <div class="product-features-expanded" style="margin-bottom: 2rem;">
-                        <h4 style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--dark-gray); font-weight: 600;">Specialized Industries:</h4>
-                        <ul class="product-features" style="list-style: none; margin: 0; padding: 0;">
-                            <li style="padding: 0.6rem 0; color: var(--medium-gray); position: relative; padding-left: 1.8rem; line-height: 1.5;">
-                                <span style="position: absolute; left: 0; color: var(--green-text); font-weight: bold; font-size: 1.1rem;">✓</span>
-                                <strong>Healthcare & Pharmaceutical:</strong> GDPR compliance and sector regulations
+                    <div class="panel-features">
+                        <h4>Specialized industries</h4>
+                        <ul class="features-list">
+                            <li><strong>Healthcare & Pharmaceutical:</strong> GDPR compliance and sector regulations
                             </li>
-                            <li style="padding: 0.6rem 0; color: var(--medium-gray); position: relative; padding-left: 1.8rem; line-height: 1.5;">
-                                <span style="position: absolute; left: 0; color: var(--green-text); font-weight: bold; font-size: 1.1rem;">✓</span>
-                                <strong>Finance & Insurance:</strong> Risk analysis and banking compliance
+                            <li><strong>Finance & Insurance:</strong> Risk analysis and banking compliance
                             </li>
-                            <li style="padding: 0.6rem 0; color: var(--medium-gray); position: relative; padding-left: 1.8rem; line-height: 1.5;">
-                                <span style="position: absolute; left: 0; color: var(--green-text); font-weight: bold; font-size: 1.1rem;">✓</span>
-                                <strong>Retail & E-commerce:</strong> Shopping experience personalization
+                            <li><strong>Retail & E-commerce:</strong> Shopping experience personalization
                             </li>
-                            <li style="padding: 0.6rem 0; color: var(--medium-gray); position: relative; padding-left: 1.8rem; line-height: 1.5;">
-                                <span style="position: absolute; left: 0; color: var(--green-text); font-weight: bold; font-size: 1.1rem;">✓</span>
-                                <strong>Manufacturing:</strong> Production and supply chain optimization
+                            <li><strong>Manufacturing:</strong> Production and supply chain optimization
                             </li>
-                            <li style="padding: 0.6rem 0; color: var(--medium-gray); position: relative; padding-left: 1.8rem; line-height: 1.5;">
-                                <span style="position: absolute; left: 0; color: var(--green-text); font-weight: bold; font-size: 1.1rem;">✓</span>
-                                <strong>Public Administration:</strong> Digital services for citizens
+                            <li><strong>Public Administration:</strong> Digital services for citizens
                             </li>
                         </ul>
                     </div>
 
-                    <div class="product-pricing-detailed" style="background: var(--light-gray); padding: 1.5rem; border-radius: 16px; margin-bottom: 2rem;">
-                        <div class="pricing-main" style="text-align: center; margin-bottom: 1rem;">
-                            <span style="font-size: 1.8rem; font-weight: 700; color: var(--primary-blue);">On request</span>
-                        </div>
-                        <div class="pricing-details" style="font-size: 0.9rem; color: var(--medium-gray); text-align: center;">
-                            <div>Needs analysis: Free</div>
-                            <div>Functional prototype: On request</div>
-                            <div style="margin-top: 0.5rem; font-weight: 600; color: var(--primary-blue);">Agile development with milestones</div>
-                        </div>
                     </div>
 
-                    <div class="product-actions" style="display: flex; gap: 1rem;">
-                        <a href="#demo" class="btn btn-primary" style="flex: 1; text-align: center; padding: 1.2rem; font-weight: 600;">Request Consultation</a>
-                        <a href="/en/consulting.html" class="btn btn-secondary" style="flex: 1; text-align: center; padding: 1.2rem; font-weight: 600;">Learn More</a>
-                    </div>
-                </div>
+                    <aside class="panel-rail">
+                        <div class="panel-metrics">
+                            <div class="metric-row"><span class="metric-value">100%</span><span class="metric-label">Customization</span></div>
+                            <div class="metric-row"><span class="metric-value">500+</span><span class="metric-label">Integrations</span></div>
+                            <div class="metric-row"><span class="metric-value">24/7</span><span class="metric-label">Support</span></div>
+                        </div>
+                        <div class="panel-pricing">
+                            <span class="price-lead">Tailored pricing</span>
+                            <span class="price-value price-value--compact">On request</span>
+                            <div class="price-notes">Needs analysis: free. Functional prototype: on request. <strong>Agile development with milestones</strong></div>
+                        </div>
+                        <div class="panel-actions">
+                            <a href="#demo" class="btn btn-primary">Request Consultation</a>
+                            <a href="/en/consulting.html" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </aside>
+                </article>
             </div>
         </div>
     </section>
@@ -967,19 +880,6 @@
                 });
             });
 
-            // Add hover effects to product cards
-            const productCards = document.querySelectorAll('.product-card');
-            productCards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-10px)';
-                    this.style.boxShadow = '0 30px 80px rgba(0, 0, 0, 0.15)';
-                });
-
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                    this.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.12)';
-                });
-            });
         });
     </script>
     <script src="/cookie-banner.js?v=20260428"></script>

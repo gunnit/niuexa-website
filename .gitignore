@@ -168,3 +168,6 @@ voice-agent-instructions.md
 # Local editor/agent config
 .claude/launch.json
 .claude/settings.local.json
+
+# Local design-agent context (not for publishing)
+PRODUCT.md

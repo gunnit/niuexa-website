@@ -1,0 +1,393 @@
+/* ==========================================================================
+   Products page (products.html + en/products.html)
+   Extends styles.css — tokens only, no hard-coded colors.
+   ========================================================================== */
+
+/* ===== Hero ===== */
+.products-hero {
+    background: var(--gradient-hero-dark);
+    color: var(--white);
+    text-align: center;
+    padding: 140px 0 80px;
+}
+
+.products-hero .hero-badge {
+    color: var(--light-blue);
+    margin-bottom: 1.5rem;
+}
+
+.products-hero .hero-subtitle {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2.5rem;
+}
+
+.products-hero .hero-stats {
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+}
+
+.products-hero .stat-number {
+    font-size: 2.5rem;
+    color: var(--primary-green);
+}
+
+.products-hero .stat-label {
+    font-size: 1rem;
+}
+
+.products-hero .hero-buttons {
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 0;
+}
+
+/* ===== Products section ===== */
+.products-section {
+    padding: var(--section-padding);
+    background: var(--light-gray);
+}
+
+.products-section .section-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.products-section .section-title {
+    margin-bottom: 1.25rem;
+}
+
+.products-section .section-subtitle {
+    font-size: 1.15rem;
+    color: var(--medium-gray);
+    max-width: 70ch;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* Anchor chips for jumping to a product */
+.product-index {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-bottom: 3rem;
+}
+
+.product-index a {
+    padding: 0.5rem 1.1rem;
+    border-radius: 50px;
+    border: 1px solid rgba(20, 50, 74, 0.18);
+    background: var(--white);
+    color: var(--dark-gray);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all var(--transition-fast);
+}
+
+.product-index a:hover,
+.product-index a:focus-visible {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+/* ===== Product panels ===== */
+.product-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.product-panel {
+    /* accent defaults (blue); variants override */
+    --panel-accent: var(--primary-blue);
+    --panel-icon-bg: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+
+    background: var(--white);
+    border: 1px solid rgba(20, 50, 74, 0.08);
+    border-radius: 20px;
+    padding: 2.5rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 2.5rem;
+    box-shadow: 0 6px 24px rgba(10, 26, 38, 0.06);
+    scroll-margin-top: 90px;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.product-panel:hover {
+    border-color: rgba(35, 125, 166, 0.35);
+    box-shadow: 0 12px 32px rgba(10, 26, 38, 0.09);
+}
+
+.product-panel--green {
+    --panel-accent: var(--green-text);
+    --panel-icon-bg: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+}
+
+.product-panel--navy {
+    --panel-accent: var(--dark-blue);
+    --panel-icon-bg: var(--gradient-secondary);
+}
+
+.product-panel--spectrum {
+    --panel-accent: var(--primary-blue);
+    --panel-icon-bg: var(--gradient-primary);
+}
+
+/* --- Head: icon + title + badge --- */
+.panel-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.panel-icon {
+    width: 64px;
+    height: 64px;
+    flex: 0 0 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.9rem;
+    background: var(--panel-icon-bg);
+}
+
+.panel-title h3 {
+    font-size: 1.6rem;
+    margin: 0 0 0.35rem;
+    color: var(--dark-gray);
+}
+
+.panel-tagline {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--panel-accent);
+}
+
+.panel-badge {
+    margin-left: auto;
+    align-self: flex-start;
+    white-space: nowrap;
+    padding: 0.35rem 0.9rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--white);
+    background: var(--panel-icon-bg);
+}
+
+/* --- Body copy --- */
+.panel-desc {
+    color: var(--medium-gray);
+    line-height: 1.7;
+    max-width: 72ch;
+    margin: 0 0 1.5rem;
+}
+
+.panel-features h4 {
+    font-size: 1rem;
+    margin: 0 0 0.75rem;
+    color: var(--dark-gray);
+}
+
+.features-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 0.35rem 2rem;
+}
+
+.features-list li {
+    position: relative;
+    padding: 0.35rem 0 0.35rem 1.6rem;
+    color: var(--medium-gray);
+    line-height: 1.5;
+}
+
+.features-list li::before {
+    content: '\2713';
+    position: absolute;
+    left: 0;
+    top: 0.35rem;
+    color: var(--green-text);
+    font-weight: 700;
+}
+
+.features-list strong {
+    color: var(--dark-gray);
+    font-weight: 600;
+}
+
+/* --- Rail: metrics, pricing, actions --- */
+.panel-rail {
+    background: var(--light-gray);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-self: start;
+}
+
+.panel-metrics {
+    display: flex;
+    flex-direction: column;
+}
+
+.metric-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid rgba(20, 50, 74, 0.1);
+}
+
+.metric-row:first-child {
+    padding-top: 0;
+}
+
+.metric-value {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 1.35rem;
+    color: var(--panel-accent);
+    white-space: nowrap;
+}
+
+.metric-label {
+    color: var(--medium-gray);
+    font-size: 0.9rem;
+    text-align: right;
+}
+
+.price-lead {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--medium-gray);
+    margin-bottom: 0.2rem;
+}
+
+.price-value {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 1.15;
+    color: var(--panel-accent);
+}
+
+.price-value--compact {
+    font-size: 1.4rem;
+}
+
+.price-per {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--medium-gray);
+}
+
+.price-notes {
+    margin-top: 0.5rem;
+    font-size: 0.82rem;
+    color: var(--medium-gray);
+    line-height: 1.5;
+}
+
+.price-notes strong {
+    color: var(--dark-gray);
+}
+
+.panel-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.panel-actions .btn {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    /* the global .btn transitions `all`, which animates flex/width on viewport resize */
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 992px) {
+    .product-panel {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+        padding: 1.75rem;
+    }
+
+    .panel-rail {
+        align-self: stretch;
+    }
+
+    .panel-actions {
+        flex-direction: row;
+    }
+
+    .panel-actions .btn {
+        flex: 1;
+        width: auto;
+    }
+}
+
+@media (max-width: 560px) {
+    .products-hero {
+        padding: 110px 0 60px;
+    }
+
+    .products-hero .hero-stats {
+        gap: 1.5rem;
+    }
+
+    .products-hero .stat-number {
+        font-size: 1.8rem;
+    }
+
+    .product-panel {
+        padding: 1.5rem 1.25rem;
+        border-radius: 16px;
+    }
+
+    .panel-head {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .panel-title {
+        flex: 1 1 calc(100% - 64px - 1rem);
+    }
+
+    .panel-title h3 {
+        font-size: 1.3rem;
+    }
+
+    .panel-badge {
+        margin-left: 0;
+    }
+
+    .features-list {
+        grid-template-columns: 1fr;
+    }
+
+    .panel-actions {
+        flex-direction: column;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .product-panel,
+    .product-index a {
+        transition: none;
+    }
+}
