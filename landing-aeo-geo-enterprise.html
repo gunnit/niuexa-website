@@ -18,6 +18,13 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
       gtag('config', 'G-8JW0S3PJKM');
     </script>
     
@@ -42,7 +49,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AEO Enterprise | Ottimizzazione AI per Motori di Ricerca">
     <meta name="twitter:description" content="Servizio AEO Enterprise completo di Niuexa. Outsourcing totale dell'ottimizzazione AI per motori di ricerca con monitoraggio costante.">
-    <meta property="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
+    <meta name="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="img/favicon 256.ico">
@@ -105,19 +112,19 @@
         .contact-form input::placeholder,
         .contact-form textarea::placeholder,
         .contact-form select option[value=""] {
-            color: #888888 !important;
+            color: var(--medium-gray) !important;
             opacity: 1;
         }
         
         .contact-form input::-webkit-input-placeholder,
         .contact-form textarea::-webkit-input-placeholder {
-            color: #888888 !important;
+            color: var(--medium-gray) !important;
             opacity: 1;
         }
         
         .contact-form input::-moz-placeholder,
         .contact-form textarea::-moz-placeholder {
-            color: #888888 !important;
+            color: var(--medium-gray) !important;
             opacity: 1;
         }
 
@@ -151,17 +158,13 @@
         <div class="nav-container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: center; align-items: center;">
             <div class="nav-logo">
                 <a href="index.html">
-                    <div class="nav-logo">
-            <a href="/en/index.html">
-                <div class="logo-container">
-                    <img src="/img/pictogram_blue_transparent.png" alt="Niuexa" class="logo-icon">
-                    <div class="logo-text">
-                        <div class="logo-title">NIUEXA</div>
-                        <span class="logo-tagline">AI Solutions</span>
+                    <div class="logo-container">
+                        <img src="/img/pictogram_blue_transparent.png" alt="Niuexa" class="logo-icon">
+                        <div class="logo-text">
+                            <div class="logo-title">NIUEXA</div>
+                            <span class="logo-tagline">AI Solutions</span>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
                 </a>
             </div>
         </div>
@@ -175,7 +178,7 @@
         </div>
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(35, 125, 166, 0.1); border: 1px solid rgba(35, 125, 166, 0.3); padding: 0.5rem 1rem; border-radius: 50px; color: #237DA6; font-size: 0.9rem; font-weight: 600; margin-bottom: 1.5rem;">
+                <div class="hero-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(35, 125, 166, 0.1); border: 1px solid rgba(35, 125, 166, 0.3); padding: 0.5rem 1rem; border-radius: 50px; color: var(--primary-blue); font-size: 0.9rem; font-weight: 600; margin-bottom: 1.5rem;">
                     <span class="badge-icon">🚀</span>
                     <span>AEO Enterprise</span>
                 </div>
@@ -219,7 +222,7 @@
     </section>
 
     <!-- Partners Section -->
-    <section class="partners-section" style="padding: 80px 0; background: #f8f9fa;">
+    <section class="partners-section" style="padding: 80px 0; background: var(--light-gray);">
         <div class="container">
             <h2 class="section-title" style="text-align: center; margin-bottom: 4rem;">I Nostri Partner</h2>
             <div class="partners-grid">
@@ -271,10 +274,10 @@
     <section id="video-demo-section" class="video-demo-section" style="padding: 80px 0; background: white;">
         <div class="container">
             <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
-                <h2 class="section-title" style="font-size: 2.5rem; margin-bottom: 1.5rem; color: #2c3e50;">
-                    Guarda il Tool in <span style="background: linear-gradient(135deg, #237DA6, #43AE68); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Azione</span>
+                <h2 class="section-title" style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--dark-gray);">
+                    Guarda il Tool in <span style="background: linear-gradient(135deg, var(--primary-blue), var(--primary-green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Azione</span>
                 </h2>
-                <p class="section-subtitle" style="font-size: 1.2rem; color: #6c757d; max-width: 800px; margin: 0 auto;">
+                <p class="section-subtitle" style="font-size: 1.2rem; color: var(--medium-gray); max-width: 800px; margin: 0 auto;">
                     Scopri come analizziamo la tua visibilità AI e identifichiamo le opportunità di ottimizzazione in questo video dimostrativo
                 </p>
             </div>
@@ -289,7 +292,7 @@
     </section>
 
     <!-- Benefits Section -->
-    <section id="benefici" class="benefits-section" style="padding: 80px 0; background: #f8f9fa;">
+    <section id="benefici" class="benefits-section" style="padding: 80px 0; background: var(--light-gray);">
         <div class="container">
             <div class="section-header" style="text-align: center; margin-bottom: 4rem;">
                 <h2 class="section-title">Perché Scegliere il servizio AEO Niuexa?</h2>
@@ -297,20 +300,20 @@
             </div>
             
             <div class="benefits-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
-                <div class="benefit-card" style="background: #f8f9fa; padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
+                <div class="benefit-card" style="background: var(--light-gray); padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
                     <div class="benefit-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-blue), var(--primary-green)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">🔍</div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-gray);">Analisi e Strategia</h3>
                     <p style="color: var(--medium-gray); line-height: 1.6;">Monitoraggio AEO costante del tuo sito con analisi tecnica mensile. Strategia di intervento e definizione dei KPI.</p>
                 </div>
                 
-                <div class="benefit-card" style="background: #f8f9fa; padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
+                <div class="benefit-card" style="background: var(--light-gray); padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
                     <div class="benefit-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-green), var(--primary-blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">🛠️</div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-gray);">Implementazione Completa</h3>
                     <p style="color: var(--medium-gray); line-height: 1.6;">Eseguiamo tutte le modifiche tecniche, creiamo i contenuti ottimizzati per le ricerche AI, modifichiamo il tuo codice e aggiorniamo le configurazioni.</p>
                 </div>
                 
-                <div class="benefit-card" style="background: #f8f9fa; padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
-                    <div class="benefit-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #9b59b6, #8e44ad); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">📊</div>
+                <div class="benefit-card" style="background: var(--light-gray); padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
+                    <div class="benefit-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--brand-teal), var(--signal, #0E7A78)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">📊</div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-gray);">Tracking & Reporting</h3>
                     <p style="color: var(--medium-gray); line-height: 1.6;">Report dettagliati e analisi continue. Supporto costante durante l'implementazione.</p>
                 </div>
@@ -346,7 +349,7 @@
     </section>
 
     <!-- Timeline Section -->
-    <section class="timeline-section" style="padding: 80px 0; background: #f8f9fa;">
+    <section class="timeline-section" style="padding: 80px 0; background: var(--light-gray);">
         <div class="container">
             <div class="section-header" style="text-align: center; margin-bottom: 4rem;">
                 <h2 class="section-title">🗓️ Come Funziona la modalità Enterprise</h2>
@@ -470,7 +473,7 @@
                 <div style="margin-bottom: 1rem;">
                     <label for="service" class="landing-form-label">Servizio di Interesse *</label>
                     <select id="service" name="service" required class="landing-form-input">
-                        <option value="" style="color: #888888;">Seleziona un servizio</option>
+                        <option value="" style="color: var(--medium-gray);">Seleziona un servizio</option>
                         <option value="aeo-enterprise">AEO Enterprise</option>
                         <option value="consulenza">Consulenza AI Strategica</option>
                         <option value="formazione">Formazione AI per Team</option>
@@ -489,7 +492,7 @@
                 <div style="margin-bottom: 1rem;">
                     <label for="budget" class="landing-form-label">Budget Indicativo</label>
                     <select id="budget" name="budget" class="landing-form-input">
-                        <option value="" style="color: #888888;">Seleziona un range</option>
+                        <option value="" style="color: var(--medium-gray);">Seleziona un range</option>
                         <option value="< 10k">Meno di €10.000</option>
                         <option value="10k-25k">€10.000 - €25.000</option>
                         <option value="25k-50k">€25.000 - €50.000</option>
@@ -526,10 +529,9 @@
     </section>
 
     <!-- Footer Placeholder -->
-    <div id="footer-placeholder"></div>
 
     <!-- Footer Bar -->
-    <div class="footer-bar" style="background: #f8f9fa; border-top: 1px solid #e0e0e0; padding: 12px 0; text-align: center; font-size: 0.9rem; color: var(--medium-gray);">
+    <div class="footer-bar" style="background: var(--light-gray); border-top: 1px solid #e0e0e0; padding: 12px 0; text-align: center; font-size: 0.9rem; color: var(--medium-gray);">
         <div class="container">
             © 2026 Niuexa. Tutti i diritti riservati.
         </div>

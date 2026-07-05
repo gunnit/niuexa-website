@@ -19,6 +19,13 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
       gtag('config', 'G-8JW0S3PJKM');
     </script>
 
@@ -35,13 +42,16 @@
     <meta property="og:image" content="https://niuexa.ai/img/niuexalogo.png">
 
     <!-- X (Twitter) -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://niuexa.ai/en/certification.html">
-    <meta property="twitter:title" content="AI Certification - Validate Your Skills | Niuexa">
-    <meta property="twitter:description" content="Get official Niuexa certification in artificial intelligence. Demonstrate your skills and share your success with the professional world.">
-    <meta property="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://niuexa.ai/en/certification.html">
+    <meta name="twitter:title" content="AI Certification - Validate Your Skills | Niuexa">
+    <meta name="twitter:description" content="Get official Niuexa certification in artificial intelligence. Demonstrate your skills and share your success with the professional world.">
+    <meta name="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
 
-    <link rel="canonical" href="https://niuexa.ai/en/certification.html">
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="it" href="https://niuexa.ai/certification.html">
+    <link rel="alternate" hreflang="en" href="https://niuexa.ai/en/certification.html">
+    <link rel="alternate" hreflang="x-default" href="https://niuexa.ai/certification.html">
 
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="/img/favicon 256.ico">
@@ -300,5 +310,6 @@
     <!-- Scripts -->
     <script src="/en/includes/navigation-en.js?v=20260428"></script>
     <script src="/certification.js"></script>
+    <script src="/cookie-banner.js?v=20260428"></script>
 </body>
 </html>

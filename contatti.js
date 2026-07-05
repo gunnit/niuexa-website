@@ -1,4 +1,7 @@
 // Contact Page JavaScript
+// Wrapped in an IIFE so initContactForm/validateForm/showMessage
+// don't collide with the globals defined in script.js.
+(function() {
 
 document.addEventListener('DOMContentLoaded', function() {
     initContactForm();
@@ -11,6 +14,10 @@ function initContactForm() {
     const form = document.querySelector('.contact-form');
 
     if (!form) return;
+
+    // Guard against double binding (script.js also targets .contact-form)
+    if (form.dataset.bound) return;
+    form.dataset.bound = '1';
 
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
@@ -54,7 +61,7 @@ function initContactForm() {
                 }
 
                 // Redirect to thank you page
-                window.location.href = 'thank-you-page.html';
+                window.location.href = '/thank-you-page.html';
             } else {
                 throw new Error('Errore nell\'invio del modulo');
             }
@@ -262,3 +269,5 @@ contattiFormStyle.textContent = `
     }
 `;
 document.head.appendChild(contattiFormStyle);
+
+})();

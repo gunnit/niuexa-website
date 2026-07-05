@@ -19,6 +19,13 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
       gtag('config', 'G-8JW0S3PJKM');
     </script>
 
@@ -96,7 +103,6 @@
         ],
         "description": "Consulenza AI, formazione e Agenti intelligenti per aziende italiane. Sedi a Milano e Torino, operatività in tutta Italia.",
         "priceRange": "€€",
-        "telephone": "+39-02-1234567",
         "email": "info@niuexa.ai",
         "address": [
             {
@@ -138,7 +144,6 @@
             {
                 "@type": "ContactPoint",
                 "contactType": "sales",
-                "telephone": "+39-02-1234567",
                 "email": "info@niuexa.ai",
                 "availableLanguage": ["Italian", "English"],
                 "areaServed": "IT"
@@ -197,7 +202,7 @@
         <div class="container">
             <div class="contact-grid">
                 <!-- Form Column -->
-                <div class="form-column">
+                <div class="form-column" id="form-column">
                     <div class="form-header">
                         <h2>Richiedi una Consulenza</h2>
                         <p>Compila il modulo e ti contatteremo entro 24 ore lavorative</p>

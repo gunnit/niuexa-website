@@ -18,6 +18,13 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
       gtag('config', 'G-8JW0S3PJKM');
     </script>
 
@@ -47,11 +54,11 @@
     <meta property="article:tag" content="Digital Transformation">
 
     <!-- Twitter Card Meta Tags -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://niuexa.ai/articolo-roadmap-trasformazione.html">
-    <meta property="twitter:title" content="Roadmap di trasformazione digitale: il framework Niuexa in 90 giorni">
-    <meta property="twitter:description" content="Framework pratico per costruire una roadmap di trasformazione digitale in 90 giorni. Discovery, Design, Mobilization.">
-    <meta property="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://niuexa.ai/articolo-roadmap-trasformazione.html">
+    <meta name="twitter:title" content="Roadmap di trasformazione digitale: il framework Niuexa in 90 giorni">
+    <meta name="twitter:description" content="Framework pratico per costruire una roadmap di trasformazione digitale in 90 giorni. Discovery, Design, Mobilization.">
+    <meta name="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
 
     <link rel="canonical" href="https://niuexa.ai/articolo-roadmap-trasformazione.html">
 
@@ -62,8 +69,6 @@
 
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="img/favicon 256.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon 256.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon 256.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicon 256.ico">
     <link rel="manifest" href="site.webmanifest">
 
@@ -118,10 +123,10 @@
         "mainEntity": [
             {
                 "@type": "Question",
-                "name": "Cos'&egrave; una roadmap di trasformazione digitale?",
+                "name": "Cos'è una roadmap di trasformazione digitale?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Una roadmap di trasformazione digitale &egrave; una sequenza di decisioni verificabili che collega obiettivi di business, capacit&agrave; da costruire e metriche di valore. Non &egrave; una lista di progetti n&eacute; un diagramma di Gantt: &egrave; un piano adattivo che parte dagli outcome desiderati, gestisce i trade-off tra iniziative e orchestra le dipendenze tra team, tecnologie e processi."
+                    "text": "Una roadmap di trasformazione digitale è una sequenza di decisioni verificabili che collega obiettivi di business, capacità da costruire e metriche di valore. Non è una lista di progetti né un diagramma di Gantt: è un piano adattivo che parte dagli outcome desiderati, gestisce i trade-off tra iniziative e orchestra le dipendenze tra team, tecnologie e processi."
                 }
             },
             {
@@ -134,10 +139,10 @@
             },
             {
                 "@type": "Question",
-                "name": "Quali sono i framework di prioritizzazione pi&ugrave; usati per le iniziative di trasformazione?",
+                "name": "Quali sono i framework di prioritizzazione più usati per le iniziative di trasformazione?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "I tre framework pi&ugrave; utilizzati sono: RICE (Reach, Impact, Confidence, Effort), ideale per iniziative digitali con dati quantitativi; WSJF (Weighted Shortest Job First), preferito in contesti agili dove il costo del ritardo &egrave; rilevante; e la matrice Impact/Effort, pi&ugrave; semplice e adatta a workshop collaborativi con stakeholder non tecnici. Niuexa consiglia di partire con Impact/Effort e passare a RICE o WSJF quando i dati lo permettono."
+                    "text": "I tre framework più utilizzati sono: RICE (Reach, Impact, Confidence, Effort), ideale per iniziative digitali con dati quantitativi; WSJF (Weighted Shortest Job First), preferito in contesti agili dove il costo del ritardo è rilevante; e la matrice Impact/Effort, più semplice e adatta a workshop collaborativi con stakeholder non tecnici. Niuexa consiglia di partire con Impact/Effort e passare a RICE o WSJF quando i dati lo permettono."
                 }
             },
             {
@@ -145,15 +150,15 @@
                 "name": "Come si misura il successo di una trasformazione digitale?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Il successo si misura su 5 livelli: Outcome (impatto sul business: revenue, margine, NPS), Output (deliverable completati: feature rilasciate, processi automatizzati), Adoption (tasso di adozione da parte degli utenti), Data Quality (qualit&agrave; e completezza dei dati raccolti) e Time-to-Value (tempo tra il rilascio e la generazione di valore misurabile). Ogni iniziativa deve avere almeno un KPI leading (predittivo) e uno lagging (consuntivo)."
+                    "text": "Il successo si misura su 5 livelli: Outcome (impatto sul business: revenue, margine, NPS), Output (deliverable completati: feature rilasciate, processi automatizzati), Adoption (tasso di adozione da parte degli utenti), Data Quality (qualità e completezza dei dati raccolti) e Time-to-Value (tempo tra il rilascio e la generazione di valore misurabile). Ogni iniziativa deve avere almeno un KPI leading (predittivo) e uno lagging (consuntivo)."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Qual &egrave; la differenza tra una roadmap a 90 giorni e una a 12 mesi?",
+                "name": "Qual è la differenza tra una roadmap a 90 giorni e una a 12 mesi?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "La roadmap a 90 giorni (Discovery-Design-Mobilization) serve a creare le fondamenta: allineamento strategico, governance, primi quick win e metriche baseline. La roadmap a 12 mesi estende il piano in tre macro-fasi: Foundations (mesi 1-4, infrastruttura e capacit&agrave; base), Optimization (mesi 5-8, automazione e integrazione), Growth (mesi 9-12, scalabilit&agrave; e innovazione). La roadmap a 90 giorni &egrave; il prerequisito per quella annuale."
+                    "text": "La roadmap a 90 giorni (Discovery-Design-Mobilization) serve a creare le fondamenta: allineamento strategico, governance, primi quick win e metriche baseline. La roadmap a 12 mesi estende il piano in tre macro-fasi: Foundations (mesi 1-4, infrastruttura e capacità base), Optimization (mesi 5-8, automazione e integrazione), Growth (mesi 9-12, scalabilità e innovazione). La roadmap a 90 giorni è il prerequisito per quella annuale."
                 }
             },
             {
@@ -161,7 +166,7 @@
                 "name": "Come evitare che la roadmap diventi obsoleta dopo poche settimane?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "La roadmap va trattata come un documento vivo con revisione trimestrale strutturata (QBR). Le regole Niuexa prevedono: se un KPI leading devia oltre il 20% dal target per 2 sprint consecutivi, si attiva una revisione dell'iniziativa; se pi&ugrave; del 30% delle iniziative cambia priorit&agrave; in un trimestre, si rivalida l'allineamento strategico. Il rischio opposto &egrave; il 'pivot continuo': non cambiare direzione prima di avere almeno 6 settimane di dati."
+                    "text": "La roadmap va trattata come un documento vivo con revisione trimestrale strutturata (QBR). Le regole Niuexa prevedono: se un KPI leading devia oltre il 20% dal target per 2 sprint consecutivi, si attiva una revisione dell'iniziativa; se più del 30% delle iniziative cambia priorità in un trimestre, si rivalida l'allineamento strategico. Il rischio opposto è il 'pivot continuo': non cambiare direzione prima di avere almeno 6 settimane di dati."
                 }
             }
         ]

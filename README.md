@@ -17,116 +17,19 @@ A professional website for Niuexa, showcasing AI consulting, training, and produ
 - Vanilla JavaScript
 - Google Fonts (Orbitron & Inter)
 
-## Deployment to Azure Static Web Apps
+## Deployment (GitHub Pages)
 
-### Prerequisites
+The site deploys automatically to GitHub Pages via `.github/workflows/github-pages.yml` on every push to `master`/`main`. The custom domain `niuexa.ai` is configured through the `CNAME` file; a branded `404.html` at the repo root is served automatically for missing pages.
 
-1. **Azure Account**: Sign up at [portal.azure.com](https://portal.azure.com)
-2. **GitHub Account**: Your code should be in a GitHub repository
-3. **Azure CLI** (optional): For command-line deployment
+No build step is required — the repository root is published as-is.
 
-### Method 1: Deploy via Azure Portal (Recommended)
+## Custom Domain
 
-1. **Create Azure Static Web App**:
-   - Go to [Azure Portal](https://portal.azure.com)
-   - Click "Create a resource"
-   - Search for "Static Web App"
-   - Click "Create"
-
-2. **Configure the Static Web App**:
-   - **Subscription**: Select your Azure subscription
-   - **Resource Group**: Create new or select existing
-   - **Name**: Choose a unique name (e.g., `niuexa-website`)
-   - **Plan Type**: Select "Free" for development
-   - **Region**: Choose closest to your users
-   - **Source**: Select "GitHub"
-
-3. **Connect to GitHub**:
-   - Sign in to GitHub when prompted
-   - Select your repository
-   - Select branch (usually `main` or `master`)
-   - **Build Presets**: Select "Custom"
-   - **App location**: `/` (root directory)
-   - **Api location**: Leave empty
-   - **Output location**: Leave empty
-
-4. **Review and Create**:
-   - Review your settings
-   - Click "Review + create"
-   - Click "Create"
-
-5. **Automatic Deployment**:
-   - Azure will automatically create a GitHub Actions workflow
-   - Your site will be deployed automatically
-   - You'll get a URL like: `https://your-app-name.azurestaticapps.net`
-
-### Method 2: Deploy via Azure CLI
-
-```bash
-# Login to Azure
-az login
-
-# Create resource group
-az group create --name niuexa-rg --location "East US"
-
-# Create static web app
-az staticwebapp create \
-  --name niuexa-website \
-  --resource-group niuexa-rg \
-  --source https://github.com/YOUR_USERNAME/YOUR_REPO \
-  --location "East US" \
-  --branch main \
-  --app-location "/" \
-  --login-with-github
-```
-
-### Method 3: Deploy via GitHub Actions (Manual Setup)
-
-If you prefer to set up GitHub Actions manually:
-
-1. **Create Azure Static Web App** (without GitHub integration)
-2. **Get Deployment Token**:
-   - Go to your Static Web App in Azure Portal
-   - Click "Manage deployment token"
-   - Copy the token
-
-3. **Add GitHub Secret**:
-   - Go to your GitHub repository
-   - Settings → Secrets and variables → Actions
-   - Add new secret: `AZURE_STATIC_WEB_APPS_API_TOKEN`
-   - Paste the deployment token
-
-4. **Push to GitHub**:
-   - The workflow file is already included in this repository
-   - Push your code to trigger deployment
-
-## Custom Domain Setup
-
-1. **Purchase Domain**: Buy a domain from any registrar
-2. **Add Custom Domain**:
-   - Go to your Static Web App in Azure Portal
-   - Click "Custom domains"
-   - Click "Add"
-   - Enter your domain name
-   - Follow DNS configuration instructions
-
-3. **Configure DNS**:
-   - Add CNAME record pointing to your Azure Static Web App URL
-   - Wait for DNS propagation (can take up to 48 hours)
-
-## Environment Variables
-
-If you need to add environment variables:
-
-1. Go to Azure Portal → Your Static Web App
-2. Click "Configuration"
-3. Add application settings as needed
+The domain `niuexa.ai` is configured via the `CNAME` file in the repository root and the GitHub Pages settings of the repo. DNS is managed at the registrar (A/ALIAS records to GitHub Pages, CNAME for www).
 
 ## Monitoring and Analytics
 
-- **Azure Monitor**: Built-in monitoring for your Static Web App
-- **Application Insights**: Add for detailed analytics
-- **Google Analytics**: Add tracking code to `index.html` if needed
+- **Google Analytics 4** (`G-8JW0S3PJKM`): loaded on every page with Google Consent Mode — analytics are denied until the visitor accepts via the cookie banner (`cookie-banner.js`).
 
 ## Local Development
 
@@ -152,10 +55,10 @@ npx http-server
 ├── index.html              # Main HTML file
 ├── styles.css              # Main stylesheet
 ├── script.js               # JavaScript functionality
-├── staticwebapp.config.json # Azure Static Web Apps configuration
+├── 404.html                # Branded 404 page (GitHub Pages)
 ├── .github/
 │   └── workflows/
-│       └── azure-static-web-apps.yml # GitHub Actions workflow
+│       └── github-pages.yml    # GitHub Pages deploy workflow
 └── README.md               # This file
 ```
 
@@ -163,7 +66,7 @@ npx http-server
 
 For issues with:
 - **Website functionality**: Check browser console for errors
-- **Azure deployment**: Check GitHub Actions logs
+- **Deployment**: Check the GitHub Actions logs (github-pages.yml)
 - **DNS/Domain issues**: Contact your domain registrar
 
 ## License

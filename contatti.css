@@ -416,15 +416,15 @@
 }
 
 .form-message.success {
-    background: #d4edda;
+    background: #d4edda; /* light tint — no token fits */
     border: 1px solid #c3e6cb;
-    color: #155724;
+    color: var(--success);
 }
 
 .form-message.error {
-    background: #f8d7da;
+    background: #f8d7da; /* light tint — no token fits */
     border: 1px solid #f5c6cb;
-    color: #721c24;
+    color: var(--error);
 }
 
 /* Loading State */

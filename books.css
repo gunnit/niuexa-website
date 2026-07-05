@@ -500,17 +500,17 @@
 
 .resource-card .resource-type.video {
     background: #FFF3E0;
-    color: #E65100;
+    color: var(--warning);
 }
 
 .resource-card .resource-type.github {
     background: #F3E5F5;
-    color: #7B1FA2;
+    color: var(--signal);
 }
 
 .resource-card .resource-type.community {
     background: #E8EAF6;
-    color: #283593;
+    color: var(--dark-blue);
 }
 
 .resource-card h3 {
@@ -984,7 +984,7 @@
 }
 
 .comparison-table .rating {
-    color: var(--primary-green);
+    color: var(--green-text);
     font-weight: 600;
 }
 
@@ -1010,11 +1010,11 @@
 }
 
 .breach-item.severity-critical {
-    border-left-color: #E53935;
+    border-left-color: var(--error);
 }
 
 .breach-item.severity-high {
-    border-left-color: #FB8C00;
+    border-left-color: var(--warning);
 }
 
 .breach-item.severity-medium {
@@ -1055,17 +1055,17 @@
 
 .breach-severity.critical {
     background: #FFEBEE;
-    color: #C62828;
+    color: var(--error);
 }
 
 .breach-severity.high {
     background: #FFF3E0;
-    color: #E65100;
+    color: var(--warning);
 }
 
 .breach-severity.medium {
     background: #FFFDE7;
-    color: #F9A825;
+    color: var(--warning);
 }
 
 .breach-details {

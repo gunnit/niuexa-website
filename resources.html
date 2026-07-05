@@ -18,6 +18,13 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
       gtag('config', 'G-8JW0S3PJKM');
     </script>
 
@@ -230,12 +237,7 @@
                     <div class="channel-card">
                         <h3>YouTube Channel</h3>
                         <p>Video walkthroughs, tool demos, and deep-dive tutorials that complement the books. New content weekly covering implementation guides and live coding sessions.</p>
-                        <a href="#youtube-placeholder" class="btn btn-secondary">Watch Videos</a>
-                    </div>
-                    <div class="channel-card">
-                        <h3>GitHub Organization</h3>
-                        <p>All code samples, starter kits, and automation templates from the series are available in our GitHub organization. Fork, clone, and customize for your projects.</p>
-                        <a href="#github-placeholder" class="btn btn-secondary">View Repositories</a>
+                        <a href="https://www.youtube.com/@RPAChampion" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Watch Videos</a>
                     </div>
                 </div>
             </div>
@@ -256,16 +258,10 @@
                         <a href="#book-resources" class="btn btn-secondary">Browse Templates</a>
                     </div>
                     <div class="resource-card">
-                        <span class="resource-type github">Code &amp; Repositories</span>
-                        <h3>Code Samples &amp; Starter Kits</h3>
-                        <p>Production-ready code from The MCP Blueprint and AI Agents Field Guide. MCP server implementations, agent architectures, testing frameworks, and deployment configurations — all open source.</p>
-                        <a href="#github-placeholder" class="btn btn-secondary">View on GitHub</a>
-                    </div>
-                    <div class="resource-card">
                         <span class="resource-type video">Video</span>
                         <h3>Video Walkthroughs</h3>
                         <p>Step-by-step video tutorials for the most complex topics in each book. Watch implementations being built from scratch, tool setups, and architecture discussions with the authors.</p>
-                        <a href="#youtube-placeholder" class="btn btn-secondary">Watch Videos</a>
+                        <a href="https://www.youtube.com/@RPAChampion" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Watch Videos</a>
                     </div>
                     <div class="resource-card">
                         <span class="resource-type download">Checklists</span>
@@ -294,7 +290,7 @@
             <div class="container">
                 <h2>Always Up to Date</h2>
                 <p>AI tools and best practices evolve rapidly. Every resource in this library is reviewed and updated quarterly. When a tool changes its API, a better approach emerges, or new capabilities become available, we update the companion materials and notify you via the newsletter. Your resources never go stale.</p>
-                <p style="margin-top: 15px;">Last resource update: <strong>March 2026</strong> &middot; Next scheduled review: <strong>June 2026</strong></p>
+                <p style="margin-top: 15px;">Last resource update: <strong>March 2026</strong> &middot; Reviewed periodically as tools and best practices evolve</p>
             </div>
         </section>
 
@@ -315,7 +311,7 @@
 
     <!-- Scripts -->
     <script src="script.js?v=20260428"></script>
-    <script src="includes/includes.js?v=20260428"></script>
+    <script src="/en/includes/navigation-en.js"></script>
     <script src="cookie-banner.js?v=20260428"></script>
 </body>
 </html>

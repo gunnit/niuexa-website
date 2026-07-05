@@ -113,13 +113,16 @@ function submitConsultationForm(data) {
         
         // Reset form
         document.getElementById('consultationForm').reset();
-        
+
+        // Clear auto-saved data
+        clearConsultationAutoSave();
+
         // In a real application, you would send this data to your backend
         console.log('Consultation request submitted:', data);
-        
+
         // Optional: Track conversion event
         trackConsultationRequest(data);
-        
+
     }, 2000);
 }
 
@@ -390,19 +393,6 @@ function clearConsultationAutoSave() {
 document.addEventListener('DOMContentLoaded', function() {
     initConsultationAutoSave();
 });
-
-// Add to successful form submission
-function submitConsultationForm(data) {
-    // ... existing code ...
-    
-    setTimeout(() => {
-        // ... existing code ...
-        
-        // Clear auto-saved data
-        clearConsultationAutoSave();
-        
-    }, 2000);
-}
 
 // Keyboard navigation for tabs
 function initKeyboardNavigation() {

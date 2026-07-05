@@ -1,5 +1,32 @@
 // Tutorial Detail Page JavaScript
 
+// User-facing strings keyed on document language (same pattern as cookie-banner.js)
+const TUTORIAL_STRINGS = {
+    it: {
+        copy: '📋 Copia',
+        copied: '✅ Copiato!',
+        copyError: '❌ Errore',
+        print: '🖨️ Stampa Tutorial',
+        shareTitle: 'Condividi questo tutorial',
+        copyLink: '🔗 Copia Link',
+        linkCopied: '✅ Link copiato!',
+        addBookmark: '🔖 Aggiungi ai Preferiti',
+        bookmarked: '✅ Nei Preferiti'
+    },
+    en: {
+        copy: '📋 Copy',
+        copied: '✅ Copied!',
+        copyError: '❌ Error',
+        print: '🖨️ Print Tutorial',
+        shareTitle: 'Share this tutorial',
+        copyLink: '🔗 Copy Link',
+        linkCopied: '✅ Link copied!',
+        addBookmark: '🔖 Add to Bookmarks',
+        bookmarked: '✅ Bookmarked'
+    }
+};
+const tutorialT = TUTORIAL_STRINGS[(document.documentElement.lang || 'it').toLowerCase().startsWith('en') ? 'en' : 'it'];
+
 document.addEventListener('DOMContentLoaded', function() {
     
     // Chapter accordion functionality
@@ -206,7 +233,7 @@ function initCodeCopying() {
         
         const copyButton = document.createElement('button');
         copyButton.className = 'copy-code-btn';
-        copyButton.innerHTML = '📋 Copia';
+        copyButton.innerHTML = tutorialT.copy;
         copyButton.style.cssText = `
             position: absolute;
             top: 0.5rem;
@@ -239,15 +266,15 @@ function initCodeCopying() {
             
             try {
                 await navigator.clipboard.writeText(text);
-                this.innerHTML = '✅ Copiato!';
+                this.innerHTML = tutorialT.copied;
                 setTimeout(() => {
-                    this.innerHTML = '📋 Copia';
+                    this.innerHTML = tutorialT.copy;
                 }, 2000);
             } catch (err) {
                 console.error('Failed to copy text: ', err);
-                this.innerHTML = '❌ Errore';
+                this.innerHTML = tutorialT.copyError;
                 setTimeout(() => {
-                    this.innerHTML = '📋 Copia';
+                    this.innerHTML = tutorialT.copy;
                 }, 2000);
             }
         });
@@ -295,7 +322,7 @@ function initScrollAnimations() {
 function initPrintFeature() {
     const printButton = document.createElement('button');
     printButton.className = 'print-tutorial-btn';
-    printButton.innerHTML = '🖨️ Stampa Tutorial';
+    printButton.innerHTML = tutorialT.print;
     printButton.style.cssText = `
         position: fixed;
         bottom: 2rem;
@@ -339,12 +366,12 @@ function initSocialSharing() {
     const shareContainer = document.createElement('div');
     shareContainer.className = 'social-share';
     shareContainer.innerHTML = `
-        <h4>Condividi questo tutorial</h4>
+        <h4>${tutorialT.shareTitle}</h4>
         <div class="share-buttons">
             <button class="share-btn twitter" data-platform="x">X</button>
             <button class="share-btn linkedin" data-platform="linkedin">💼 LinkedIn</button>
             <button class="share-btn whatsapp" data-platform="whatsapp">💬 WhatsApp</button>
-            <button class="share-btn copy-link" data-platform="copy">🔗 Copia Link</button>
+            <button class="share-btn copy-link" data-platform="copy">${tutorialT.copyLink}</button>
         </div>
     `;
     
@@ -430,9 +457,9 @@ function initSocialSharing() {
                     break;
                 case 'copy':
                     navigator.clipboard.writeText(window.location.href).then(() => {
-                        this.innerHTML = '✅ Link copiato!';
+                        this.innerHTML = tutorialT.linkCopied;
                         setTimeout(() => {
-                            this.innerHTML = '🔗 Copia Link';
+                            this.innerHTML = tutorialT.copyLink;
                         }, 2000);
                     });
                     return;
@@ -449,15 +476,15 @@ function initSocialSharing() {
 function initBookmarks() {
     const bookmarkButton = document.createElement('button');
     bookmarkButton.className = 'bookmark-btn';
-    bookmarkButton.innerHTML = '🔖 Aggiungi ai Preferiti';
-    
+    bookmarkButton.innerHTML = tutorialT.addBookmark;
+
     // Check if already bookmarked
     const tutorialId = window.location.pathname;
     const bookmarks = JSON.parse(localStorage.getItem('niuexa_bookmarks') || '[]');
     const isBookmarked = bookmarks.includes(tutorialId);
-    
+
     if (isBookmarked) {
-        bookmarkButton.innerHTML = '✅ Nei Preferiti';
+        bookmarkButton.innerHTML = tutorialT.bookmarked;
         bookmarkButton.classList.add('bookmarked');
     }
     
@@ -481,12 +508,12 @@ function initBookmarks() {
             // Remove bookmark
             const index = bookmarks.indexOf(tutorialId);
             bookmarks.splice(index, 1);
-            this.innerHTML = '🔖 Aggiungi ai Preferiti';
+            this.innerHTML = tutorialT.addBookmark;
             this.classList.remove('bookmarked');
         } else {
             // Add bookmark
             bookmarks.push(tutorialId);
-            this.innerHTML = '✅ Nei Preferiti';
+            this.innerHTML = tutorialT.bookmarked;
             this.classList.add('bookmarked');
         }
         

@@ -19,6 +19,13 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
       gtag('config', 'G-8JW0S3PJKM');
     </script>
 
@@ -37,11 +44,11 @@
     <meta property="og:image" content="https://niuexa.ai/img/niuexalogo.png">
 
     <!-- X (Twitter) -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://niuexa.ai/en/consulting.html">
-    <meta property="twitter:title" content="AI Consulting Services - Transform Your Business | Niuexa">
-    <meta property="twitter:description" content="Expert AI consultants for digital transformation. Process automation, AI integration, performance optimization. Typical ROI 100-150%.">
-    <meta property="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://niuexa.ai/en/consulting.html">
+    <meta name="twitter:title" content="AI Consulting Services - Transform Your Business | Niuexa">
+    <meta name="twitter:description" content="Expert AI consultants for digital transformation. Process automation, AI integration, performance optimization. Typical ROI 100-150%.">
+    <meta name="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/img/favicon 256.ico">
@@ -111,7 +118,7 @@
                     </div>
                 </div>
                 <div class="hero-buttons">
-                    <a href="#consultation" class="btn btn-primary">
+                    <a href="contact.html" class="btn btn-primary">
                         Free Consultation
                     </a>
                     <a href="/en/roi-calculator.html" class="btn btn-secondary">
@@ -463,5 +470,6 @@
     <script src="/script.js?v=20260428"></script>
     <script src="/consulting.js"></script>
     <script src="/en/includes/navigation-en.js?v=20260428"></script>
+    <script src="/cookie-banner.js?v=20260428"></script>
 </body>
 </html>

@@ -44,11 +44,16 @@
     --black: #0A1A26;
     --brand-teal: #0E9C9A;
     --cyan: #06B6D4;
-    
+    --signal: #0E7A78;                /* AA-safe teal for text/links on light surfaces */
+    --error: #DC3545;
+    --warning: #B45309;
+    --success: #2C7A45;
+
     /* Gradients */
     --gradient-primary: linear-gradient(115deg, #237DA6 0%, #0E9C9A 50%, #43AE68 100%);
     --gradient-secondary: linear-gradient(135deg, var(--dark-blue), var(--dark-green));
     --gradient-light: linear-gradient(135deg, var(--light-blue), var(--light-green));
+    --gradient-hero-dark: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #2d3561 100%);
     
     /* Typography */
     --font-primary: 'Space Grotesk', system-ui, sans-serif;
@@ -384,7 +389,7 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #2d3561 100%);
+    background: var(--gradient-hero-dark);
     padding-top: 70px; /* Account for fixed navbar */
 }
 

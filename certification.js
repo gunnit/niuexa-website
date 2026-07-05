@@ -45,26 +45,6 @@ class NiuexaCertification {
                 icon: '🎬'
             },
             {
-                id: 'voice-audio-ai',
-                title: 'AI Voice & Audio',
-                description: 'Voice cloning e generazione audio con AI',
-                duration: '12 min',
-                questions: 12,
-                difficulty: 'Principiante-Avanzato',
-                category: 'Audio AI',
-                icon: '🎵'
-            },
-            {
-                id: 'automazione-workflow-ai',
-                title: 'Automazione Workflow AI',
-                description: 'Sistemi automatizzati per business con AI',
-                duration: '18 min',
-                questions: 18,
-                difficulty: 'Business-Focused',
-                category: 'Business AI',
-                icon: '🚀'
-            },
-            {
                 id: 'ai-seo',
                 title: 'AI SEO: SEO, AEO e GEO',
                 description: 'Ottimizzazione per ChatGPT, Perplexity e Google AI',
@@ -185,7 +165,7 @@ class NiuexaCertification {
     async loadQuizData(tutorialId) {
         // Try to load from JSON file, fallback to generated data
         try {
-            const response = await fetch(`quiz-data/${tutorialId}.json`);
+            const response = await fetch(`/quiz-data/${tutorialId}.json`);
             if (response.ok) {
                 return await response.json();
             }
@@ -609,7 +589,7 @@ class NiuexaCertification {
     
     reviewMaterial() {
         document.querySelector('.failure-modal')?.remove();
-        const tutorialUrl = `tutorial-${this.currentTutorial.id}.html`;
+        const tutorialUrl = `/tutorial-${this.currentTutorial.id}.html`;
         window.open(tutorialUrl, '_blank');
     }
     
@@ -824,7 +804,7 @@ class NiuexaCertification {
     }
     
     copyCertificateLink() {
-        const url = `${window.location.origin}/certificate-verify.html?id=${this.userData.certificateId}`;
+        const url = `${window.location.origin}/certification.html?id=${this.userData.certificateId}`;
         
         navigator.clipboard.writeText(url).then(() => {
             const btn = document.getElementById('copy-certificate-link');

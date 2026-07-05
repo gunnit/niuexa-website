@@ -20,6 +20,13 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
       gtag('config', 'G-8JW0S3PJKM');
     </script>
     
@@ -93,7 +100,6 @@
         },
         "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "+39-02-1234-5678",
             "contactType": "customer service",
             "availableLanguage": "Italian"
         },
@@ -330,13 +336,6 @@
                     "priceCurrency": "EUR"
                 }
             ]
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "127",
-            "bestRating": "5",
-            "worstRating": "1"
         }
     }
     </script>
@@ -410,7 +409,7 @@
                     
                     <!-- Informazioni Corso -->
                     <div class="course-info" style="background: rgba(35, 125, 166, 0.1); border: 2px solid rgba(35, 125, 166, 0.3); padding: 1rem 1.5rem; border-radius: 10px; margin: 1.5rem 0; text-align: center;">
-                        <span style="font-size: 1.1rem;">📚 <strong>Prossimi Corsi:</strong> Settembre 2025 - Iscriviti per ricevere informazioni</span>
+                        <span style="font-size: 1.1rem;">📚 <strong>Prossimi Corsi:</strong> Nuove date in arrivo — contattaci per il calendario</span>
                     </div>
                     
                     <div class="hero-buttons">
@@ -701,8 +700,38 @@
                             </ul>
                         </div>
                     </article>
+
+                    <!-- AI Operator Course (English) -->
+                    <article class="program-card" itemscope itemtype="https://schema.org/Course">
+                        <div class="program-header">
+                            <div class="program-icon" aria-hidden="true">🌐</div>
+                            <h3 itemprop="name">AI Operator Course (English)</h3>
+                            <div class="program-level level-intermediate">Self-paced</div>
+                        </div>
+
+                        <p class="program-description" itemprop="description">
+                            <strong>In lingua inglese, fruibile online.</strong> Il percorso completo AI Operator: libri della serie, video walkthrough, template pratici e accesso alla community per padroneggiare l'automazione AI dalla strategia al deployment.
+                        </p>
+
+                        <div class="program-details">
+                            <div class="detail-item">
+                                <span class="detail-icon" aria-hidden="true">🇬🇧</span>
+                                <span>Contenuti in inglese</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon" aria-hidden="true">📚</span>
+                                <span>Libri + video + template inclusi</span>
+                            </div>
+                        </div>
+
+                        <div class="program-actions">
+                            <a href="ai-operator-course.html" class="btn btn-primary btn-program">
+                                Scopri il Corso
+                            </a>
+                        </div>
+                    </article>
                 </div>
-                
+
             </div>
         </section>
 
@@ -856,7 +885,7 @@
         </section>
 
         <!-- Contact Training Section -->
-        <section id="contact-training" class="training-cta-section" style="padding: 4rem 0; background: linear-gradient(135deg, #237DA6, #43AE68); color: white; text-align: center;">
+        <section id="contact-training" class="training-cta-section" style="padding: 4rem 0; background: var(--gradient-secondary); color: white; text-align: center;">
             <div class="container">
                 <div class="cta-content">
                     <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Inizia il Tuo Percorso di Formazione AI</h2>
@@ -878,7 +907,7 @@
                         </div>
                     </div>
                     
-                    <a href="index.html#contact" class="btn btn-large" style="background: white; color: #237DA6; padding: 1.2rem 3rem; font-size: 1.1rem; font-weight: 600; text-decoration: none; border-radius: 50px; display: inline-block; transition: all 0.3s;">
+                    <a href="index.html#contact" class="btn btn-large" style="background: var(--white); color: var(--primary-blue); padding: 1.2rem 3rem; font-size: 1.1rem; font-weight: 600; text-decoration: none; border-radius: 50px; display: inline-block; transition: all 0.3s;">
                         Contattaci per Informazioni
                     </a>
                     
@@ -983,5 +1012,6 @@
         
         // Course information (static, no fake countdown)
     </script>
+    <script src="/cookie-banner.js?v=20260428"></script>
 </body>
 </html>

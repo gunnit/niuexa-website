@@ -15,11 +15,18 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
       gtag('config', 'G-8JW0S3PJKM');
     </script>
 
     <title>AI Agent Incident Response Runbook | The AI Agents Field Guide | AI Operator Series</title>
-    <meta name="description" content="When your AI agent fails in production, you need a plan — not panic. Free incident response runbook template with severity classification, response steps, communication templates, and recovery procedures.">
+    <meta name="description" content="When your AI agent fails in production, you need a plan — not panic. Free incident response runbook template with severity levels and recovery steps.">
     <meta name="keywords" content="AI agent incident response, agent runbook, AI agent failure, production incident template, AI agent recovery, agent kill switch, incident severity classification, post-mortem template">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="author" content="Gregor Maric">
@@ -102,8 +109,8 @@
                     <p>The first step in any incident is classification. Getting the severity right determines who gets paged, how fast you respond, and what resources are allocated. Misclassify and you either over-react (wasting time) or under-react (causing damage).</p>
                 </div>
                 <div class="checklist-categories">
-                    <div class="checklist-category" style="border-left: 4px solid #E53935;">
-                        <h3 style="border-bottom-color: #E53935;">P0 — Critical</h3>
+                    <div class="checklist-category" style="border-left: 4px solid var(--error);">
+                        <h3 style="border-bottom-color: var(--error);">P0 — Critical</h3>
                         <ul class="checklist-items">
                             <li><strong>Definition:</strong> Agent is causing active harm, data loss, unauthorized actions, or safety violations. Users are being harmed or company reputation is at immediate risk</li>
                             <li><strong>Response time:</strong> Immediate — drop everything, all hands on deck</li>
@@ -112,8 +119,8 @@
                             <li><strong>Escalation:</strong> Engineering lead, VP of Engineering, Legal, and Communications are all notified within 15 minutes</li>
                         </ul>
                     </div>
-                    <div class="checklist-category" style="border-left: 4px solid #FB8C00;">
-                        <h3 style="border-bottom-color: #FB8C00;">P1 — High</h3>
+                    <div class="checklist-category" style="border-left: 4px solid var(--warning);">
+                        <h3 style="border-bottom-color: var(--warning);">P1 — High</h3>
                         <ul class="checklist-items">
                             <li><strong>Definition:</strong> Agent is producing incorrect, misleading, or low-quality outputs at a rate that impacts user trust or business outcomes. No active harm, but significant degradation</li>
                             <li><strong>Response time:</strong> Within 1 hour of detection</li>
@@ -309,7 +316,7 @@
 
     <div id="footer-placeholder"></div>
     <script src="../../script.js"></script>
-    <script src="../../includes/includes.js"></script>
+    <script src="/en/includes/navigation-en.js"></script>
     <script src="../../cookie-banner.js"></script>
     <script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cml56ej340008118xz5j3u0os"></script>
 </body>

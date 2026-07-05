@@ -153,11 +153,18 @@ desktop-*.png
 # Visual audit screenshots (local QA only)
 .audit/
 .audit-shots/
-.playwright-mcp/
 
 # Local device/mobile review captures (root-level, QA only — not site assets)
 /m-*.jpeg
 /iphone-*.jpeg
 
-# Local editor run config (settings.local.json is shared and stays tracked)
+# Internal docs / AI-agent notes (local only — must not be published to the live site)
+WEBSITE_AUDIT_REPORT.md
+website_analysis.md
+website-analysis-and-recommendations.md
+GEMINI.md
+voice-agent-instructions.md
+
+# Local editor/agent config
 .claude/launch.json
+.claude/settings.local.json

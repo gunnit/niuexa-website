@@ -170,7 +170,7 @@
     background: rgba(255, 255, 255, 0.95);
     border-radius: 16px;
     padding: 2rem;
-    color: #2d3748;
+    color: var(--dark-gray);
     transition: all 0.4s ease;
     cursor: pointer;
     border: 2px solid transparent;
@@ -209,11 +209,11 @@
     font-size: 1.4rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: #2d3748;
+    color: var(--dark-gray);
 }
 
 .tutorial-cert-content p {
-    color: #4a5568;
+    color: var(--medium-gray);
     margin-bottom: 1.5rem;
     line-height: 1.6;
 }
@@ -227,10 +227,10 @@
 }
 
 .tutorial-cert-meta span {
-    background: #f7fafc;
+    background: var(--light-gray);
     padding: 0.5rem 1rem;
     border-radius: 20px;
-    color: #4a5568;
+    color: var(--medium-gray);
     border: 1px solid #e2e8f0;
 }
 
@@ -316,7 +316,7 @@
    ======================================== */
 
 #quiz-screen {
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    background: linear-gradient(135deg, var(--light-gray) 0%, #e2e8f0 100%);
     min-height: 100vh;
     padding: 2rem 0;
 }
@@ -353,7 +353,7 @@
 
 .quiz-info h1 {
     font-size: 2rem;
-    color: #2d3748;
+    color: var(--dark-gray);
     margin-bottom: 1rem;
     font-weight: 700;
 }
@@ -366,10 +366,10 @@
 }
 
 .quiz-meta span {
-    background: #f7fafc;
+    background: var(--light-gray);
     padding: 0.5rem 1rem;
     border-radius: 20px;
-    color: #4a5568;
+    color: var(--medium-gray);
     border: 1px solid #e2e8f0;
     font-size: 0.9rem;
 }
@@ -396,7 +396,7 @@
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #237DA6 0%, #0E9C9A 100%);
+    background: linear-gradient(90deg, var(--primary-blue) 0%, var(--brand-teal) 100%);
     border-radius: 4px;
     transition: width 0.5s ease;
     position: relative;
@@ -421,7 +421,7 @@
 .progress-text {
     text-align: center;
     font-size: 0.9rem;
-    color: #4a5568;
+    color: var(--medium-gray);
     font-weight: 500;
 }
 
@@ -461,11 +461,11 @@
     align-items: center;
     margin-bottom: 2rem;
     padding-bottom: 1rem;
-    border-bottom: 2px solid #f7fafc;
+    border-bottom: 2px solid var(--light-gray);
 }
 
 .question-number {
-    background: linear-gradient(135deg, #237DA6 0%, #0E9C9A 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--brand-teal) 100%);
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 20px;
@@ -474,8 +474,8 @@
 }
 
 .question-type {
-    background: #f7fafc;
-    color: #4a5568;
+    background: var(--light-gray);
+    color: var(--medium-gray);
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.8rem;
@@ -484,7 +484,7 @@
 
 .question-text {
     font-size: 1.4rem;
-    color: #2d3748;
+    color: var(--dark-gray);
     line-height: 1.6;
     margin-bottom: 2rem;
     font-weight: 600;
@@ -498,7 +498,7 @@
 }
 
 .answer-option {
-    background: #f8fafc;
+    background: var(--light-gray);
     border: 2px solid #e2e8f0;
     border-radius: 12px;
     padding: 1.5rem;
@@ -511,14 +511,14 @@
 }
 
 .answer-option:hover {
-    background: #edf2f7;
+    background: var(--light-gray);
     border-color: #cbd5e0;
     transform: translateX(5px);
 }
 
 .answer-option.selected {
     background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-    border-color: #237DA6;
+    border-color: var(--primary-blue);
     transform: translateX(8px);
 }
 
@@ -536,8 +536,8 @@
 }
 
 .answer-option.selected .option-indicator {
-    background: #237DA6;
-    border-color: #237DA6;
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
     position: relative;
 }
 
@@ -554,7 +554,7 @@
 
 .option-text {
     font-size: 1.1rem;
-    color: #2d3748;
+    color: var(--dark-gray);
     line-height: 1.5;
     flex: 1;
 }
@@ -612,7 +612,7 @@
    ======================================== */
 
 #registration-screen {
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    background: linear-gradient(135deg, var(--light-gray) 0%, #e2e8f0 100%);
     min-height: 100vh;
     padding: 4rem 0;
 }
@@ -642,19 +642,19 @@
 
 .registration-header h2 {
     font-size: 2.5rem;
-    color: #2d3748;
+    color: var(--dark-gray);
     margin-bottom: 1rem;
     font-weight: 700;
 }
 
 .success-message {
     font-size: 1.2rem;
-    color: #4a5568;
+    color: var(--medium-gray);
     margin-bottom: 2rem;
 }
 
 .score-display {
-    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
     color: white;
     padding: 1.5rem;
     border-radius: 16px;
@@ -671,11 +671,11 @@
 }
 
 .score-value.excellent {
-    color: #48bb78;
+    color: var(--green-text);
 }
 
 .score-value.good {
-    color: #237DA6;
+    color: var(--primary-blue);
 }
 
 /* Registration Form */
@@ -689,13 +689,13 @@
 
 .registration-form-container h2 {
     font-size: 1.8rem;
-    color: #2d3748;
+    color: var(--dark-gray);
     margin-bottom: 1rem;
     font-weight: 600;
 }
 
 .registration-form-container > p {
-    color: #4a5568;
+    color: var(--medium-gray);
     margin-bottom: 2rem;
     line-height: 1.6;
 }
@@ -713,7 +713,7 @@
 
 .form-group label {
     font-weight: 600;
-    color: #2d3748;
+    color: var(--dark-gray);
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
 }
@@ -724,12 +724,12 @@
     border-radius: 12px;
     font-size: 1rem;
     transition: all 0.3s ease;
-    background: #f8fafc;
+    background: var(--light-gray);
 }
 
 .form-group input:focus {
     outline: none;
-    border-color: #237DA6;
+    border-color: var(--primary-blue);
     background: white;
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
@@ -749,7 +749,7 @@
     gap: 1rem;
     cursor: pointer;
     line-height: 1.6;
-    color: #4a5568;
+    color: var(--medium-gray);
 }
 
 .checkbox-label input[type="checkbox"] {
@@ -770,8 +770,8 @@
 }
 
 .checkbox-label input[type="checkbox"]:checked + .checkmark {
-    background: #237DA6;
-    border-color: #237DA6;
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
     color: white;
 }
 
@@ -782,7 +782,7 @@
 }
 
 .generate-cert-btn {
-    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
     color: white;
     border: none;
     padding: 1.2rem 2rem;
@@ -804,7 +804,7 @@
    ======================================== */
 
 #certificate-screen {
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    background: linear-gradient(135deg, var(--light-gray) 0%, #e2e8f0 100%);
     min-height: 100vh;
     padding: 4rem 0;
 }
@@ -822,14 +822,14 @@
 
 .certificate-header h2 {
     font-size: 2.5rem;
-    color: #2d3748;
+    color: var(--dark-gray);
     margin-bottom: 1rem;
     font-weight: 700;
 }
 
 .certificate-header p {
     font-size: 1.2rem;
-    color: #4a5568;
+    color: var(--medium-gray);
 }
 
 /* Certificate Display */
@@ -876,13 +876,13 @@
 }
 
 .action-btn.primary {
-    background: linear-gradient(135deg, #237DA6 0%, #0E9C9A 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--brand-teal) 100%);
     color: white;
 }
 
 .action-btn.secondary {
     background: white;
-    color: #4a5568;
+    color: var(--medium-gray);
     border: 2px solid #e2e8f0;
 }
 
@@ -903,7 +903,7 @@
 
 .sharing-section h3 {
     font-size: 1.5rem;
-    color: #2d3748;
+    color: var(--dark-gray);
     margin-bottom: 1.5rem;
     font-weight: 600;
 }
@@ -941,8 +941,8 @@
 }
 
 .share-btn.copy {
-    background: #f7fafc;
-    color: #4a5568;
+    background: var(--light-gray);
+    color: var(--medium-gray);
     border: 2px solid #e2e8f0;
 }
 
@@ -963,7 +963,7 @@
 
 .next-steps h3 {
     font-size: 1.5rem;
-    color: #2d3748;
+    color: var(--dark-gray);
     margin-bottom: 1.5rem;
     font-weight: 600;
 }
@@ -977,8 +977,8 @@
 
 .next-btn {
     padding: 1rem 1.5rem;
-    background: #f7fafc;
-    color: #4a5568;
+    background: var(--light-gray);
+    color: var(--medium-gray);
     text-decoration: none;
     border: 2px solid #e2e8f0;
     border-radius: 12px;
@@ -988,11 +988,11 @@
 }
 
 .next-btn:hover {
-    background: #edf2f7;
+    background: var(--light-gray);
     border-color: #cbd5e0;
     transform: translateY(-2px);
     text-decoration: none;
-    color: #2d3748;
+    color: var(--dark-gray);
 }
 
 /* ========================================

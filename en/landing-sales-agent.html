@@ -18,6 +18,13 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
       gtag('config', 'G-8JW0S3PJKM');
     </script>
 
@@ -42,7 +49,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Sales AI Agent | Accelerate Sales Funnel 90% Accuracy">
     <meta name="twitter:description" content="Accelerate your sales funnel with Niuexa's Sales AI Agent. Intelligent lead scoring, automated follow-ups, 90% accuracy.">
-    <meta property="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
+    <meta name="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/img/favicon 256.ico">
@@ -105,19 +112,19 @@
         .contact-form input::placeholder,
         .contact-form textarea::placeholder,
         .contact-form select option[value=""] {
-            color: #888888 !important;
+            color: var(--medium-gray) !important;
             opacity: 1;
         }
 
         .contact-form input::-webkit-input-placeholder,
         .contact-form textarea::-webkit-input-placeholder {
-            color: #888888 !important;
+            color: var(--medium-gray) !important;
             opacity: 1;
         }
 
         .contact-form input::-moz-placeholder,
         .contact-form textarea::-moz-placeholder {
-            color: #888888 !important;
+            color: var(--medium-gray) !important;
             opacity: 1;
         }
     </style>
@@ -153,7 +160,7 @@
         </div>
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(67, 174, 104, 0.1); border: 1px solid rgba(67, 174, 104, 0.3); padding: 0.5rem 1rem; border-radius: 50px; color: #43AE68; font-size: 0.9rem; font-weight: 600; margin-bottom: 1.5rem;">
+                <div class="hero-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(67, 174, 104, 0.1); border: 1px solid rgba(67, 174, 104, 0.3); padding: 0.5rem 1rem; border-radius: 50px; color: var(--green-text); font-size: 0.9rem; font-weight: 600; margin-bottom: 1.5rem;">
                     <span class="badge-icon">💼</span>
                     <span>Advanced Sales AI Agent</span>
                 </div>
@@ -197,20 +204,20 @@
             </div>
 
             <div class="benefits-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
-                <div class="benefit-card" style="background: #f8f9fa; padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
+                <div class="benefit-card" style="background: var(--light-gray); padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
                     <div class="benefit-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-green), #2C8A4C); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">🎯</div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-gray);">Intelligent Lead Scoring</h3>
                     <p style="color: var(--medium-gray); line-height: 1.6;">Automatic evaluation of prospect quality with AI algorithms that analyze behaviors, interactions, and profiles to prioritize the most promising leads.</p>
                 </div>
 
-                <div class="benefit-card" style="background: #f8f9fa; padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
+                <div class="benefit-card" style="background: var(--light-gray); padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
                     <div class="benefit-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-blue), var(--primary-green)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">📧</div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-gray);">Automated Follow-ups</h3>
                     <p style="color: var(--medium-gray); line-height: 1.6;">Personalized email and call sequences based on prospect behavior. Never miss opportunities due to lack of timely follow-ups.</p>
                 </div>
 
-                <div class="benefit-card" style="background: #f8f9fa; padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
-                    <div class="benefit-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #f39c12, #e67e22); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">⚡</div>
+                <div class="benefit-card" style="background: var(--light-gray); padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
+                    <div class="benefit-icon" style="width: 80px; height: 80px; background: var(--gradient-secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">⚡</div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-gray);">Immediate Acceleration</h3>
                     <p style="color: var(--medium-gray); line-height: 1.6;">60% reduction in sales cycle through intelligent automation and AI sales coaching that suggests the best closing strategies.</p>
                 </div>
@@ -241,7 +248,7 @@
     </section>
 
     <!-- Pricing Section -->
-    <section class="pricing-section" style="padding: 80px 0; background: #f8f9fa;">
+    <section class="pricing-section" style="padding: 80px 0; background: var(--light-gray);">
         <div class="container">
             <div class="section-header" style="text-align: center; margin-bottom: 4rem;">
                 <h2 class="section-title">Solutions for Every Business</h2>
@@ -299,9 +306,9 @@
             <div class="success-story" style="max-width: 800px; margin: 0 auto; text-align: center;">
                 <h2 class="section-title" style="margin-bottom: 2rem;">Real Success Story</h2>
 
-                <div class="story-card" style="background: #f8f9fa; padding: 3rem; border-radius: 20px; margin-bottom: 2rem;">
+                <div class="story-card" style="background: var(--light-gray); padding: 3rem; border-radius: 20px; margin-bottom: 2rem;">
                     <div class="company-info" style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
-                        <div class="company-logo" style="width: 60px; height: 60px; background: #43AE68; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.2rem;">SW</div>
+                        <div class="company-logo" style="width: 60px; height: 60px; background: var(--primary-green); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.2rem;">SW</div>
                         <div>
                             <h3 style="margin: 0; color: var(--dark-gray); font-size: 1.3rem;">B2B Software Company</h3>
                             <p style="margin: 0; color: var(--medium-gray);">200+ employees • Software Sector</p>
@@ -314,19 +321,19 @@
 
                     <div class="results-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem;">
                         <div class="result-item" style="text-align: center;">
-                            <div class="result-number" style="font-size: 2.5rem; font-weight: 700; color: #43AE68; font-family: var(--font-primary);">+50%</div>
+                            <div class="result-number" style="font-size: 2.5rem; font-weight: 700; color: var(--green-text); font-family: var(--font-primary);">+50%</div>
                             <div class="result-label" style="color: var(--medium-gray); font-size: 0.9rem;">Sales Closings</div>
                         </div>
                         <div class="result-item" style="text-align: center;">
-                            <div class="result-number" style="font-size: 2.5rem; font-weight: 700; color: #43AE68; font-family: var(--font-primary);">-40%</div>
+                            <div class="result-number" style="font-size: 2.5rem; font-weight: 700; color: var(--green-text); font-family: var(--font-primary);">-40%</div>
                             <div class="result-label" style="color: var(--medium-gray); font-size: 0.9rem;">Sales Cycle</div>
                         </div>
                         <div class="result-item" style="text-align: center;">
-                            <div class="result-number" style="font-size: 2.5rem; font-weight: 700; color: #43AE68; font-family: var(--font-primary);">90%</div>
+                            <div class="result-number" style="font-size: 2.5rem; font-weight: 700; color: var(--green-text); font-family: var(--font-primary);">90%</div>
                             <div class="result-label" style="color: var(--medium-gray); font-size: 0.9rem;">Lead Quality</div>
                         </div>
                         <div class="result-item" style="text-align: center;">
-                            <div class="result-number" style="font-size: 2.5rem; font-weight: 700; color: #43AE68; font-family: var(--font-primary);">4</div>
+                            <div class="result-number" style="font-size: 2.5rem; font-weight: 700; color: var(--green-text); font-family: var(--font-primary);">4</div>
                             <div class="result-label" style="color: var(--medium-gray); font-size: 0.9rem;">Months to ROI</div>
                         </div>
                     </div>
@@ -406,7 +413,7 @@
                 <div style="margin-bottom: 1rem;">
                     <label for="service" class="landing-form-label">Service of Interest *</label>
                     <select id="service" name="service" required class="landing-form-input">
-                        <option value="" style="color: #888888;">Select a service</option>
+                        <option value="" style="color: var(--medium-gray);">Select a service</option>
                         <option value="voice-agent">AI Voice Agent</option>
                         <option value="consulting">Strategic AI Consulting</option>
                         <option value="training">AI Training for Teams</option>
@@ -426,7 +433,7 @@
                 <div style="margin-bottom: 1rem;">
                     <label for="budget" class="landing-form-label">Indicative Budget</label>
                     <select id="budget" name="budget" class="landing-form-input">
-                        <option value="" style="color: #888888;">Select a range</option>
+                        <option value="" style="color: var(--medium-gray);">Select a range</option>
                         <option value="< 10k">Less than €10,000</option>
                         <option value="10k-25k">€10,000 - €25,000</option>
                         <option value="25k-50k">€25,000 - €50,000</option>
@@ -466,10 +473,9 @@
     </section>
 
     <!-- Footer Placeholder -->
-    <div id="footer-placeholder"></div>
 
     <!-- Footer Bar -->
-    <div class="elevenlabs-footer-bar" style="background: #f8f9fa; border-top: 1px solid #e0e0e0; padding: 12px 0; text-align: center; font-size: 0.9rem; color: var(--medium-gray);">
+    <div class="elevenlabs-footer-bar" style="background: var(--light-gray); border-top: 1px solid #e0e0e0; padding: 12px 0; text-align: center; font-size: 0.9rem; color: var(--medium-gray);">
         <div class="container">
             © 2026 Niuexa. All rights reserved.
         </div>

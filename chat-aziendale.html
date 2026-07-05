@@ -18,6 +18,13 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
       gtag('config', 'G-8JW0S3PJKM');
     </script>
 
@@ -66,7 +73,7 @@
         },
         "category": "AI Customer Support Software",
         "url": "https://chataziendale.it/",
-        "image": "https://niuexa.ai/img/chat-aziendale-og.jpg",
+        "image": "https://niuexa.ai/img/niuexalogo.png",
         "offers": {
             "@type": "AggregateOffer",
             "priceCurrency": "EUR",
@@ -75,11 +82,6 @@
             "offerCount": "3",
             "availability": "https://schema.org/InStock",
             "url": "https://chataziendale.it/"
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "reviewCount": "62"
         }
     }
     </script>
@@ -179,21 +181,21 @@
     <div id="nav-placeholder"></div>
 
     <!-- Hero Section -->
-    <section class="hero" style="background: linear-gradient(135deg, #1a1f3a 0%, #2d3561 50%, #0a0e27 100%); padding: 120px 0 80px; color: white; text-align: center; position: relative; overflow: hidden;">
+    <section class="hero" style="background: var(--gradient-hero-dark); padding: 120px 0 80px; color: white; text-align: center; position: relative; overflow: hidden;">
         <div class="container" style="position: relative; z-index: 1;">
             <div class="hero-content">
                 <div class="hero-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, rgba(67, 174, 104, 0.15), rgba(35, 125, 166, 0.15)); border: 1px solid rgba(67, 174, 104, 0.3); padding: 0.5rem 1rem; border-radius: 50px; color: #43AE68; font-size: 1rem; font-weight: 600; margin-bottom: 1.5rem;">
                     <span>💬</span>
                     <span>Prodotto Niuexa — Disponibile Ora</span>
                 </div>
-                <h1 class="hero-title" style="font-size: 3.5rem; margin-bottom: 1.5rem; line-height: 1.1; font-family: 'JetBrains Mono', monospace;">
-                    Il Chatbot AI che <span class="highlight" style="background: linear-gradient(135deg, #43AE68, #237DA6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Conosce la Tua Azienda</span>
+                <h1 class="hero-title" style="font-size: 3.5rem; margin-bottom: 1.5rem; line-height: 1.1; font-family: var(--font-primary);">
+                    Il Chatbot AI che <span class="highlight" style="background: linear-gradient(135deg, var(--primary-green), var(--primary-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Conosce la Tua Azienda</span>
                 </h1>
                 <p class="hero-subtitle" style="font-size: 1.3rem; color: rgba(255, 255, 255, 0.9); margin-bottom: 2.5rem; max-width: 900px; margin-left: auto; margin-right: auto;">
                     ChatAziendale si addestra sui tuoi documenti e sito web. Risponde ai clienti citando le fonti, senza allucinazioni. Integrazione in una riga di codice. Prova gratis, senza carta di credito.
                 </p>
                 <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="https://chataziendale.it/" target="_blank" rel="noopener" class="btn btn-primary" style="padding: 1.2rem 2.5rem; font-size: 1.1rem; font-weight: 600; background: linear-gradient(135deg, #43AE68, #2C8A4C); border: none;">
+                    <a href="https://chataziendale.it/" target="_blank" rel="noopener" class="btn btn-primary" style="padding: 1.2rem 2.5rem; font-size: 1.1rem; font-weight: 600; background: linear-gradient(135deg, var(--primary-green), var(--dark-green)); border: none;">
                         Inizia Gratis →
                     </a>
                     <a href="#how-it-works" class="btn btn-secondary" style="padding: 1.2rem 2.5rem; font-size: 1.1rem; font-weight: 600; background: rgba(255, 255, 255, 0.1); color: white; border: 1px solid rgba(255, 255, 255, 0.3);">
@@ -206,11 +208,11 @@
 
     <main>
     <!-- Quick Answer / Risposta Rapida (AEO) -->
-    <section style="padding: 60px 0; background: #f8f9fa;">
+    <section style="padding: 60px 0; background: var(--light-gray);">
         <div class="container" style="max-width: 900px;">
-            <div style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); border-left: 5px solid #43AE68;">
-                <h2 style="font-size: 1.5rem; color: #2c3e50; margin-bottom: 1rem; font-weight: 700;">⚡ Risposta Rapida</h2>
-                <p style="color: #6c757d; font-size: 1.1rem; line-height: 1.7; margin: 0;">
+            <div style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); border-left: 5px solid var(--primary-green);">
+                <h2 style="font-size: 1.5rem; color: var(--dark-gray); margin-bottom: 1rem; font-weight: 700;">⚡ Risposta Rapida</h2>
+                <p style="color: var(--medium-gray); font-size: 1.1rem; line-height: 1.7; margin: 0;">
                     <strong>ChatAziendale</strong> è il chatbot AI di Niuexa che si addestra sui documenti aziendali (PDF, DOCX) e sul tuo sito web. Risponde ai clienti 24/7 in oltre 50 lingue, citando sempre le fonti per evitare allucinazioni. Integrazione in una riga di codice. Tre piani: Free (gratuito, 50 messaggi/mese), Pro (€29/mese, 2.000 messaggi), Business (€149/mese, illimitati + WhatsApp). GDPR-compliant, hosting europeo.
                 </p>
             </div>
@@ -221,63 +223,63 @@
     <section style="padding: 60px 0; background: white;">
         <div class="container">
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; max-width: 1100px; margin: 0 auto;">
-                <div style="text-align: center; padding: 2rem; background: #f8f9fa; border-radius: 16px;">
-                    <div style="font-size: 2.5rem; font-weight: 700; color: #43AE68; font-family: 'JetBrains Mono', monospace;">5 min</div>
-                    <div style="color: #6c757d; margin-top: 0.5rem;">Setup completo</div>
+                <div style="text-align: center; padding: 2rem; background: var(--light-gray); border-radius: 16px;">
+                    <div style="font-size: 2.5rem; font-weight: 700; color: var(--green-text); font-family: 'JetBrains Mono', monospace;">5 min</div>
+                    <div style="color: var(--medium-gray); margin-top: 0.5rem;">Setup completo</div>
                 </div>
-                <div style="text-align: center; padding: 2rem; background: #f8f9fa; border-radius: 16px;">
-                    <div style="font-size: 2.5rem; font-weight: 700; color: #43AE68; font-family: 'JetBrains Mono', monospace;">50+</div>
-                    <div style="color: #6c757d; margin-top: 0.5rem;">Lingue supportate</div>
+                <div style="text-align: center; padding: 2rem; background: var(--light-gray); border-radius: 16px;">
+                    <div style="font-size: 2.5rem; font-weight: 700; color: var(--green-text); font-family: 'JetBrains Mono', monospace;">50+</div>
+                    <div style="color: var(--medium-gray); margin-top: 0.5rem;">Lingue supportate</div>
                 </div>
-                <div style="text-align: center; padding: 2rem; background: #f8f9fa; border-radius: 16px;">
-                    <div style="font-size: 2.5rem; font-weight: 700; color: #43AE68; font-family: 'JetBrains Mono', monospace;">24/7</div>
-                    <div style="color: #6c757d; margin-top: 0.5rem;">Disponibilità</div>
+                <div style="text-align: center; padding: 2rem; background: var(--light-gray); border-radius: 16px;">
+                    <div style="font-size: 2.5rem; font-weight: 700; color: var(--green-text); font-family: 'JetBrains Mono', monospace;">24/7</div>
+                    <div style="color: var(--medium-gray); margin-top: 0.5rem;">Disponibilità</div>
                 </div>
-                <div style="text-align: center; padding: 2rem; background: #f8f9fa; border-radius: 16px;">
-                    <div style="font-size: 2.5rem; font-weight: 700; color: #43AE68; font-family: 'JetBrains Mono', monospace;">0</div>
-                    <div style="color: #6c757d; margin-top: 0.5rem;">Allucinazioni</div>
+                <div style="text-align: center; padding: 2rem; background: var(--light-gray); border-radius: 16px;">
+                    <div style="font-size: 2.5rem; font-weight: 700; color: var(--green-text); font-family: 'JetBrains Mono', monospace;">0</div>
+                    <div style="color: var(--medium-gray); margin-top: 0.5rem;">Allucinazioni</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section style="padding: 80px 0; background: #f8f9fa;">
+    <section style="padding: 80px 0; background: var(--light-gray);">
         <div class="container">
             <div style="text-align: center; margin-bottom: 4rem;">
-                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: #2c3e50;">Funzionalità Principali</h2>
-                <p style="font-size: 1.2rem; color: #6c757d; max-width: 800px; margin: 0 auto;">Tutto quello che serve per automatizzare il customer support con un chatbot AI affidabile</p>
+                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--dark-gray);">Funzionalità Principali</h2>
+                <p style="font-size: 1.2rem; color: var(--medium-gray); max-width: 800px; margin: 0 auto;">Tutto quello che serve per automatizzare il customer support con un chatbot AI affidabile</p>
             </div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
                 <article style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);">
-                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #43AE68, #2C8A4C); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 1.5rem;">📄</div>
-                    <h3 style="color: #2c3e50; margin-bottom: 1rem; font-size: 1.3rem;">Addestramento sui Tuoi Dati</h3>
-                    <p style="color: #6c757d; line-height: 1.7;">Carica PDF, DOCX, TXT o fai crawling automatico del tuo sito web. ChatAziendale impara dalla tua documentazione reale, non da fonti generiche.</p>
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-green), var(--dark-green)); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 1.5rem;">📄</div>
+                    <h3 style="color: var(--dark-gray); margin-bottom: 1rem; font-size: 1.3rem;">Addestramento sui Tuoi Dati</h3>
+                    <p style="color: var(--medium-gray); line-height: 1.7;">Carica PDF, DOCX, TXT o fai crawling automatico del tuo sito web. ChatAziendale impara dalla tua documentazione reale, non da fonti generiche.</p>
                 </article>
                 <article style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);">
-                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #237DA6, #1F64AE); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 1.5rem;">🔗</div>
-                    <h3 style="color: #2c3e50; margin-bottom: 1rem; font-size: 1.3rem;">Citazioni delle Fonti</h3>
-                    <p style="color: #6c757d; line-height: 1.7;">Ogni risposta è collegata al documento o alla pagina di origine. Niente allucinazioni: il cliente sa esattamente da dove proviene l'informazione.</p>
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue)); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 1.5rem;">🔗</div>
+                    <h3 style="color: var(--dark-gray); margin-bottom: 1rem; font-size: 1.3rem;">Citazioni delle Fonti</h3>
+                    <p style="color: var(--medium-gray); line-height: 1.7;">Ogni risposta è collegata al documento o alla pagina di origine. Niente allucinazioni: il cliente sa esattamente da dove proviene l'informazione.</p>
                 </article>
                 <article style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);">
                     <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #9b59b6, #8e44ad); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 1.5rem;">🎨</div>
-                    <h3 style="color: #2c3e50; margin-bottom: 1rem; font-size: 1.3rem;">Branding Personalizzato</h3>
-                    <p style="color: #6c757d; line-height: 1.7;">Colori, logo, nome, tone of voice: il chatbot riflette al 100% l'identità del tuo brand. Si integra visivamente nel tuo sito senza stonare.</p>
+                    <h3 style="color: var(--dark-gray); margin-bottom: 1rem; font-size: 1.3rem;">Branding Personalizzato</h3>
+                    <p style="color: var(--medium-gray); line-height: 1.7;">Colori, logo, nome, tone of voice: il chatbot riflette al 100% l'identità del tuo brand. Si integra visivamente nel tuo sito senza stonare.</p>
                 </article>
                 <article style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);">
                     <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #ff6b6b, #ee5a24); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 1.5rem;">⚡</div>
-                    <h3 style="color: #2c3e50; margin-bottom: 1rem; font-size: 1.3rem;">Integrazione in 1 Riga</h3>
-                    <p style="color: #6c757d; line-height: 1.7;">Un singolo snippet di codice da incollare nel tuo sito (WordPress, Shopify, custom). Nessuno sviluppatore richiesto, nessun plugin pesante.</p>
+                    <h3 style="color: var(--dark-gray); margin-bottom: 1rem; font-size: 1.3rem;">Integrazione in 1 Riga</h3>
+                    <p style="color: var(--medium-gray); line-height: 1.7;">Un singolo snippet di codice da incollare nel tuo sito (WordPress, Shopify, custom). Nessuno sviluppatore richiesto, nessun plugin pesante.</p>
                 </article>
                 <article style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);">
                     <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #f39c12, #e67e22); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 1.5rem;">🌍</div>
-                    <h3 style="color: #2c3e50; margin-bottom: 1rem; font-size: 1.3rem;">Multilingua Automatico</h3>
-                    <p style="color: #6c757d; line-height: 1.7;">Risponde in oltre 50 lingue riconoscendo automaticamente quella dell'utente. I tuoi documenti possono essere in italiano, le risposte adattate alla lingua del cliente.</p>
+                    <h3 style="color: var(--dark-gray); margin-bottom: 1rem; font-size: 1.3rem;">Multilingua Automatico</h3>
+                    <p style="color: var(--medium-gray); line-height: 1.7;">Risponde in oltre 50 lingue riconoscendo automaticamente quella dell'utente. I tuoi documenti possono essere in italiano, le risposte adattate alla lingua del cliente.</p>
                 </article>
                 <article style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);">
-                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #2c3e50, #34495e); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 1.5rem;">🔒</div>
-                    <h3 style="color: #2c3e50; margin-bottom: 1rem; font-size: 1.3rem;">GDPR & Sicurezza</h3>
-                    <p style="color: #6c757d; line-height: 1.7;">Dati cifrati end-to-end, hosting su data center europei, nessun utilizzo dei tuoi contenuti per addestrare modelli terzi. Conforme al GDPR by design.</p>
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--dark-gray), #34495e); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 1.5rem;">🔒</div>
+                    <h3 style="color: var(--dark-gray); margin-bottom: 1rem; font-size: 1.3rem;">GDPR & Sicurezza</h3>
+                    <p style="color: var(--medium-gray); line-height: 1.7;">Dati cifrati end-to-end, hosting su data center europei, nessun utilizzo dei tuoi contenuti per addestrare modelli terzi. Conforme al GDPR by design.</p>
                 </article>
             </div>
         </div>
@@ -287,57 +289,57 @@
     <section id="how-it-works" style="padding: 80px 0; background: white;">
         <div class="container">
             <div style="text-align: center; margin-bottom: 4rem;">
-                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: #2c3e50;">Come Funziona</h2>
-                <p style="font-size: 1.2rem; color: #6c757d; max-width: 800px; margin: 0 auto;">Dal caricamento documenti al chatbot live in meno di 10 minuti</p>
+                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--dark-gray);">Come Funziona</h2>
+                <p style="font-size: 1.2rem; color: var(--medium-gray); max-width: 800px; margin: 0 auto;">Dal caricamento documenti al chatbot live in meno di 10 minuti</p>
             </div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; max-width: 1100px; margin: 0 auto;">
                 <div style="text-align: center; padding: 2rem;">
-                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #43AE68, #2C8A4C); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; color: white; font-family: 'JetBrains Mono', monospace; margin: 0 auto 1.5rem;">1</div>
-                    <h3 style="color: #2c3e50; margin-bottom: 1rem; font-size: 1.2rem;">Carica i Contenuti</h3>
-                    <p style="color: #6c757d; line-height: 1.6;">PDF, DOCX, TXT o URL del tuo sito. Il sistema fa il crawling automatico e indicizza tutto.</p>
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-green), var(--dark-green)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; color: white; font-family: 'JetBrains Mono', monospace; margin: 0 auto 1.5rem;">1</div>
+                    <h3 style="color: var(--dark-gray); margin-bottom: 1rem; font-size: 1.2rem;">Carica i Contenuti</h3>
+                    <p style="color: var(--medium-gray); line-height: 1.6;">PDF, DOCX, TXT o URL del tuo sito. Il sistema fa il crawling automatico e indicizza tutto.</p>
                 </div>
                 <div style="text-align: center; padding: 2rem;">
-                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #237DA6, #1F64AE); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; color: white; font-family: 'JetBrains Mono', monospace; margin: 0 auto 1.5rem;">2</div>
-                    <h3 style="color: #2c3e50; margin-bottom: 1rem; font-size: 1.2rem;">Personalizza il Brand</h3>
-                    <p style="color: #6c757d; line-height: 1.6;">Colori, logo, messaggio di benvenuto, tone of voice. Tutto modificabile dalla dashboard.</p>
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; color: white; font-family: 'JetBrains Mono', monospace; margin: 0 auto 1.5rem;">2</div>
+                    <h3 style="color: var(--dark-gray); margin-bottom: 1rem; font-size: 1.2rem;">Personalizza il Brand</h3>
+                    <p style="color: var(--medium-gray); line-height: 1.6;">Colori, logo, messaggio di benvenuto, tone of voice. Tutto modificabile dalla dashboard.</p>
                 </div>
                 <div style="text-align: center; padding: 2rem;">
                     <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #9b59b6, #8e44ad); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; color: white; font-family: 'JetBrains Mono', monospace; margin: 0 auto 1.5rem;">3</div>
-                    <h3 style="color: #2c3e50; margin-bottom: 1rem; font-size: 1.2rem;">Integra nel Sito</h3>
-                    <p style="color: #6c757d; line-height: 1.6;">Copia una riga di codice nel tuo HTML, WordPress o Shopify. Live immediatamente.</p>
+                    <h3 style="color: var(--dark-gray); margin-bottom: 1rem; font-size: 1.2rem;">Integra nel Sito</h3>
+                    <p style="color: var(--medium-gray); line-height: 1.6;">Copia una riga di codice nel tuo HTML, WordPress o Shopify. Live immediatamente.</p>
                 </div>
                 <div style="text-align: center; padding: 2rem;">
                     <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #ff6b6b, #ee5a24); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; color: white; font-family: 'JetBrains Mono', monospace; margin: 0 auto 1.5rem;">4</div>
-                    <h3 style="color: #2c3e50; margin-bottom: 1rem; font-size: 1.2rem;">Monitora & Migliora</h3>
-                    <p style="color: #6c757d; line-height: 1.6;">Dashboard con conversazioni, domande frequenti, gap di copertura. Aggiorni i documenti, il bot impara.</p>
+                    <h3 style="color: var(--dark-gray); margin-bottom: 1rem; font-size: 1.2rem;">Monitora & Migliora</h3>
+                    <p style="color: var(--medium-gray); line-height: 1.6;">Dashboard con conversazioni, domande frequenti, gap di copertura. Aggiorni i documenti, il bot impara.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Use Cases -->
-    <section style="padding: 80px 0; background: #f8f9fa;">
+    <section style="padding: 80px 0; background: var(--light-gray);">
         <div class="container">
             <div style="text-align: center; margin-bottom: 4rem;">
-                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: #2c3e50;">Casi d'Uso</h2>
-                <p style="font-size: 1.2rem; color: #6c757d; max-width: 800px; margin: 0 auto;">Aziende italiane che usano ChatAziendale per ridurre il carico sul customer support</p>
+                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--dark-gray);">Casi d'Uso</h2>
+                <p style="font-size: 1.2rem; color: var(--medium-gray); max-width: 800px; margin: 0 auto;">Aziende italiane che usano ChatAziendale per ridurre il carico sul customer support</p>
             </div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                <article style="background: white; padding: 2rem; border-radius: 16px; border-left: 4px solid #43AE68;">
-                    <h3 style="color: #2c3e50; margin-bottom: 1rem; font-size: 1.2rem;">🛒 E-commerce</h3>
-                    <p style="color: #6c757d; line-height: 1.7;">Risponde a domande su prodotti, spedizioni, resi e tempistiche citando direttamente le policy aziendali. Riduce i ticket del 60%.</p>
+                <article style="background: white; padding: 2rem; border-radius: 16px; border-left: 4px solid var(--primary-green);">
+                    <h3 style="color: var(--dark-gray); margin-bottom: 1rem; font-size: 1.2rem;">🛒 E-commerce</h3>
+                    <p style="color: var(--medium-gray); line-height: 1.7;">Risponde a domande su prodotti, spedizioni, resi e tempistiche citando direttamente le policy aziendali. Riduce i ticket del 60%.</p>
                 </article>
-                <article style="background: white; padding: 2rem; border-radius: 16px; border-left: 4px solid #237DA6;">
-                    <h3 style="color: #2c3e50; margin-bottom: 1rem; font-size: 1.2rem;">🏢 PMI B2B</h3>
-                    <p style="color: #6c757d; line-height: 1.7;">Risponde a richieste tecniche su prodotti complessi usando datasheet, manuali e schede tecniche. Qualifica i lead prima del commerciale.</p>
+                <article style="background: white; padding: 2rem; border-radius: 16px; border-left: 4px solid var(--primary-blue);">
+                    <h3 style="color: var(--dark-gray); margin-bottom: 1rem; font-size: 1.2rem;">🏢 PMI B2B</h3>
+                    <p style="color: var(--medium-gray); line-height: 1.7;">Risponde a richieste tecniche su prodotti complessi usando datasheet, manuali e schede tecniche. Qualifica i lead prima del commerciale.</p>
                 </article>
                 <article style="background: white; padding: 2rem; border-radius: 16px; border-left: 4px solid #9b59b6;">
-                    <h3 style="color: #2c3e50; margin-bottom: 1rem; font-size: 1.2rem;">🏥 Servizi Professionali</h3>
-                    <p style="color: #6c757d; line-height: 1.7;">Studi legali, commercialisti, agenzie: rispondono a domande frequenti basandosi su FAQ e knowledge base interne, liberando tempo dello staff.</p>
+                    <h3 style="color: var(--dark-gray); margin-bottom: 1rem; font-size: 1.2rem;">🏥 Servizi Professionali</h3>
+                    <p style="color: var(--medium-gray); line-height: 1.7;">Studi legali, commercialisti, agenzie: rispondono a domande frequenti basandosi su FAQ e knowledge base interne, liberando tempo dello staff.</p>
                 </article>
                 <article style="background: white; padding: 2rem; border-radius: 16px; border-left: 4px solid #ff6b6b;">
-                    <h3 style="color: #2c3e50; margin-bottom: 1rem; font-size: 1.2rem;">🎓 Formazione & SaaS</h3>
-                    <p style="color: #6c757d; line-height: 1.7;">Risponde a studenti o utenti sulla documentazione del prodotto/corso. Riduce drasticamente il carico sul team support nelle prime ore d'uso.</p>
+                    <h3 style="color: var(--dark-gray); margin-bottom: 1rem; font-size: 1.2rem;">🎓 Formazione & SaaS</h3>
+                    <p style="color: var(--medium-gray); line-height: 1.7;">Risponde a studenti o utenti sulla documentazione del prodotto/corso. Riduce drasticamente il carico sul team support nelle prime ore d'uso.</p>
                 </article>
             </div>
         </div>
@@ -347,47 +349,47 @@
     <section style="padding: 80px 0; background: white;">
         <div class="container">
             <div style="text-align: center; margin-bottom: 4rem;">
-                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: #2c3e50;">Prezzi Trasparenti</h2>
-                <p style="font-size: 1.2rem; color: #6c757d; max-width: 800px; margin: 0 auto;">Inizia gratis, scala quando ti serve. Nessuna carta di credito richiesta per il piano Free.</p>
+                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--dark-gray);">Prezzi Trasparenti</h2>
+                <p style="font-size: 1.2rem; color: var(--medium-gray); max-width: 800px; margin: 0 auto;">Inizia gratis, scala quando ti serve. Nessuna carta di credito richiesta per il piano Free.</p>
             </div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1100px; margin: 0 auto;">
                 <div style="background: white; padding: 2.5rem; border-radius: 20px; border: 2px solid #e9ecef;">
-                    <h3 style="color: #2c3e50; margin-bottom: 0.5rem; font-size: 1.5rem;">Free</h3>
-                    <div style="font-size: 3rem; font-weight: 700; color: #2c3e50; font-family: 'JetBrains Mono', monospace; margin-bottom: 0.5rem;">€0<span style="font-size: 1rem; color: #6c757d; font-weight: 400;">/mese</span></div>
-                    <p style="color: #6c757d; margin-bottom: 1.5rem;">Per testare e provare il prodotto</p>
+                    <h3 style="color: var(--dark-gray); margin-bottom: 0.5rem; font-size: 1.5rem;">Free</h3>
+                    <div style="font-size: 3rem; font-weight: 700; color: var(--dark-gray); font-family: 'JetBrains Mono', monospace; margin-bottom: 0.5rem;">€0<span style="font-size: 1rem; color: var(--medium-gray); font-weight: 400;">/mese</span></div>
+                    <p style="color: var(--medium-gray); margin-bottom: 1.5rem;">Per testare e provare il prodotto</p>
                     <ul style="list-style: none; padding: 0; margin: 0 0 2rem;">
-                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ 1 chatbot</li>
-                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ 50 messaggi/mese</li>
-                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ Personalizzazione brand</li>
-                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ Citazioni fonti</li>
-                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ Supporto community</li>
+                        <li style="padding: 0.5rem 0; color: var(--medium-gray);">✓ 1 chatbot</li>
+                        <li style="padding: 0.5rem 0; color: var(--medium-gray);">✓ 50 messaggi/mese</li>
+                        <li style="padding: 0.5rem 0; color: var(--medium-gray);">✓ Personalizzazione brand</li>
+                        <li style="padding: 0.5rem 0; color: var(--medium-gray);">✓ Citazioni fonti</li>
+                        <li style="padding: 0.5rem 0; color: var(--medium-gray);">✓ Supporto community</li>
                     </ul>
                     <a href="https://chataziendale.it/" target="_blank" rel="noopener" class="btn btn-secondary" style="display: block; text-align: center; padding: 1rem; width: 100%;">Inizia Gratis</a>
                 </div>
-                <div style="background: linear-gradient(135deg, #f8fdf9, #ffffff); padding: 2.5rem; border-radius: 20px; border: 3px solid #43AE68; position: relative; box-shadow: 0 20px 60px rgba(67, 174, 104, 0.15);">
-                    <div style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #43AE68, #2C8A4C); color: white; padding: 0.4rem 1.2rem; border-radius: 25px; font-size: 0.85rem; font-weight: 600;">Più Popolare</div>
-                    <h3 style="color: #2c3e50; margin-bottom: 0.5rem; font-size: 1.5rem;">Pro</h3>
-                    <div style="font-size: 3rem; font-weight: 700; color: #43AE68; font-family: 'JetBrains Mono', monospace; margin-bottom: 0.5rem;">€29<span style="font-size: 1rem; color: #6c757d; font-weight: 400;">/mese</span></div>
-                    <p style="color: #6c757d; margin-bottom: 1.5rem;">Per piccole aziende e startup</p>
+                <div style="background: linear-gradient(135deg, #f8fdf9, #ffffff); padding: 2.5rem; border-radius: 20px; border: 3px solid var(--primary-green); position: relative; box-shadow: 0 20px 60px rgba(67, 174, 104, 0.15);">
+                    <div style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--primary-green), var(--dark-green)); color: white; padding: 0.4rem 1.2rem; border-radius: 25px; font-size: 0.85rem; font-weight: 600;">Più Popolare</div>
+                    <h3 style="color: var(--dark-gray); margin-bottom: 0.5rem; font-size: 1.5rem;">Pro</h3>
+                    <div style="font-size: 3rem; font-weight: 700; color: var(--green-text); font-family: 'JetBrains Mono', monospace; margin-bottom: 0.5rem;">€29<span style="font-size: 1rem; color: var(--medium-gray); font-weight: 400;">/mese</span></div>
+                    <p style="color: var(--medium-gray); margin-bottom: 1.5rem;">Per piccole aziende e startup</p>
                     <ul style="list-style: none; padding: 0; margin: 0 0 2rem;">
-                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ 5 chatbot</li>
-                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ 2.000 messaggi/mese</li>
-                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ Tutto del piano Free</li>
-                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ Analytics dashboard</li>
-                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ Supporto email prioritario</li>
+                        <li style="padding: 0.5rem 0; color: var(--medium-gray);">✓ 5 chatbot</li>
+                        <li style="padding: 0.5rem 0; color: var(--medium-gray);">✓ 2.000 messaggi/mese</li>
+                        <li style="padding: 0.5rem 0; color: var(--medium-gray);">✓ Tutto del piano Free</li>
+                        <li style="padding: 0.5rem 0; color: var(--medium-gray);">✓ Analytics dashboard</li>
+                        <li style="padding: 0.5rem 0; color: var(--medium-gray);">✓ Supporto email prioritario</li>
                     </ul>
-                    <a href="https://chataziendale.it/" target="_blank" rel="noopener" class="btn btn-primary" style="display: block; text-align: center; padding: 1rem; width: 100%; background: linear-gradient(135deg, #43AE68, #2C8A4C); border: none;">Scegli Pro</a>
+                    <a href="https://chataziendale.it/" target="_blank" rel="noopener" class="btn btn-primary" style="display: block; text-align: center; padding: 1rem; width: 100%; background: linear-gradient(135deg, var(--primary-green), var(--dark-green)); border: none;">Scegli Pro</a>
                 </div>
                 <div style="background: white; padding: 2.5rem; border-radius: 20px; border: 2px solid #e9ecef;">
-                    <h3 style="color: #2c3e50; margin-bottom: 0.5rem; font-size: 1.5rem;">Business</h3>
-                    <div style="font-size: 3rem; font-weight: 700; color: #2c3e50; font-family: 'JetBrains Mono', monospace; margin-bottom: 0.5rem;">€149<span style="font-size: 1rem; color: #6c757d; font-weight: 400;">/mese</span></div>
-                    <p style="color: #6c757d; margin-bottom: 1.5rem;">Per aziende con volumi alti</p>
+                    <h3 style="color: var(--dark-gray); margin-bottom: 0.5rem; font-size: 1.5rem;">Business</h3>
+                    <div style="font-size: 3rem; font-weight: 700; color: var(--dark-gray); font-family: 'JetBrains Mono', monospace; margin-bottom: 0.5rem;">€149<span style="font-size: 1rem; color: var(--medium-gray); font-weight: 400;">/mese</span></div>
+                    <p style="color: var(--medium-gray); margin-bottom: 1.5rem;">Per aziende con volumi alti</p>
                     <ul style="list-style: none; padding: 0; margin: 0 0 2rem;">
-                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ Chatbot illimitati</li>
-                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ 10.000 messaggi/mese</li>
-                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ Tutto del piano Pro</li>
-                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ Integrazione WhatsApp</li>
-                        <li style="padding: 0.5rem 0; color: #6c757d;">✓ Account manager dedicato</li>
+                        <li style="padding: 0.5rem 0; color: var(--medium-gray);">✓ Chatbot illimitati</li>
+                        <li style="padding: 0.5rem 0; color: var(--medium-gray);">✓ 10.000 messaggi/mese</li>
+                        <li style="padding: 0.5rem 0; color: var(--medium-gray);">✓ Tutto del piano Pro</li>
+                        <li style="padding: 0.5rem 0; color: var(--medium-gray);">✓ Integrazione WhatsApp</li>
+                        <li style="padding: 0.5rem 0; color: var(--medium-gray);">✓ Account manager dedicato</li>
                     </ul>
                     <a href="https://chataziendale.it/" target="_blank" rel="noopener" class="btn btn-secondary" style="display: block; text-align: center; padding: 1rem; width: 100%;">Scegli Business</a>
                 </div>
@@ -396,9 +398,9 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="faq-section" aria-label="Domande Frequenti" style="padding: 80px 0; background: #f8f9fa;">
+    <section class="faq-section" aria-label="Domande Frequenti" style="padding: 80px 0; background: var(--light-gray);">
         <div class="container">
-            <h2 class="section-title" style="text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: #2c3e50;">Domande Frequenti</h2>
+            <h2 class="section-title" style="text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: var(--dark-gray);">Domande Frequenti</h2>
             <div class="faq-grid" style="max-width: 900px; margin: 0 auto;">
                 <div class="faq-item">
                     <h3 class="faq-question">
@@ -453,12 +455,12 @@
     </section>
 
     <!-- CTA Final -->
-    <section style="padding: 80px 0; background: linear-gradient(135deg, #43AE68 0%, #237DA6 100%); color: white; text-align: center;">
+    <section style="padding: 80px 0; background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-blue) 100%); color: white; text-align: center;">
         <div class="container">
             <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: white !important; -webkit-text-fill-color: white !important;">Prova ChatAziendale Gratis</h2>
             <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 2.5rem; opacity: 0.95;">Crea il tuo primo chatbot in 5 minuti. Nessuna carta di credito richiesta. Cancellazione in qualsiasi momento.</p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="https://chataziendale.it/" target="_blank" rel="noopener" style="background: white; color: #43AE68; padding: 1.2rem 3rem; font-size: 1.1rem; font-weight: 600; text-decoration: none; border-radius: 50px; display: inline-block;">
+                <a href="https://chataziendale.it/" target="_blank" rel="noopener" style="background: white; color: var(--green-text); padding: 1.2rem 3rem; font-size: 1.1rem; font-weight: 600; text-decoration: none; border-radius: 50px; display: inline-block;">
                     Inizia Gratis su chataziendale.it →
                 </a>
                 <a href="index.html#contact" style="background: rgba(255, 255, 255, 0.15); color: white; padding: 1.2rem 3rem; font-size: 1.1rem; font-weight: 600; text-decoration: none; border-radius: 50px; display: inline-block; border: 1px solid rgba(255, 255, 255, 0.3);">
@@ -468,7 +470,7 @@
         </div>
     </section>
 
-    <p class="content-last-updated" style="text-align: center; padding: 1rem; color: #6c757d; font-size: 0.9rem;">Ultimo aggiornamento: <time datetime="2026-04-27">27 Aprile 2026</time></p>
+    <p class="content-last-updated" style="text-align: center; padding: 1rem; color: var(--medium-gray); font-size: 0.9rem;">Ultimo aggiornamento: <time datetime="2026-04-27">27 Aprile 2026</time></p>
     </main>
 
     <!-- Footer Placeholder -->

@@ -21,6 +21,13 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
       gtag('config', 'G-8JW0S3PJKM');
     </script>
 
@@ -43,7 +50,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #2d3561 100%);
+            background: var(--gradient-hero-dark);
             position: relative;
             overflow: hidden;
         }
@@ -79,8 +86,8 @@
         .login-logo {
             font-family: 'JetBrains Mono', monospace;
             font-size: 2.5rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, #237DA6, #43AE68);
+            font-weight: 700;
+            background: var(--gradient-secondary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -88,7 +95,7 @@
         }
 
         .login-subtitle {
-            color: #6c757d;
+            color: var(--medium-gray);
             font-size: 1.1rem;
             margin-bottom: 0.5rem;
         }
@@ -113,7 +120,7 @@
         .form-label {
             display: block;
             margin-bottom: 0.5rem;
-            color: #2c3e50;
+            color: var(--dark-gray);
             font-weight: 600;
         }
 
@@ -136,7 +143,7 @@
         .login-btn {
             width: 100%;
             padding: 1.2rem;
-            background: linear-gradient(135deg, #237DA6, #43AE68);
+            background: var(--gradient-secondary);
             color: white;
             border: none;
             border-radius: 10px;
@@ -156,19 +163,26 @@
             transform: translateY(0);
         }
 
-        .error-message {
-            background: #ffebee;
-            color: #d32f2f;
+        .login-notice {
+            background: rgba(35, 125, 166, 0.08);
+            color: var(--dark-gray);
             padding: 1rem;
             border-radius: 10px;
             margin-bottom: 1.5rem;
-            border-left: 4px solid #d32f2f;
-            display: none;
+            border-left: 4px solid var(--primary-blue);
+            line-height: 1.5;
         }
 
-        .error-message.show {
+        .login-notice a {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        a.login-btn {
             display: block;
-            animation: fadeInUp 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            box-sizing: border-box;
         }
 
         .forgot-password {
@@ -244,7 +258,6 @@
             }
         }
     </style>
-    <link rel="canonical" href="https://niuexa.ai/en/login.html">
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -270,63 +283,16 @@
                 </div>
             </div>
 
-            <div class="error-message" id="errorMessage">
-                <strong>Login Error!</strong><br>
-                Incorrect username or password. Please try again.
+            <div class="login-notice" role="status">
+                <p>The client area is being activated. Access the AEO platform at <a href="https://aeo.niuexa.ai">aeo.niuexa.ai</a> or write to us at <a href="mailto:ai@niuexa.ai">ai@niuexa.ai</a>.</p>
             </div>
 
-            <form id="loginForm">
-                <div class="form-group">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" id="username" name="username" class="form-input" placeholder="Enter your username" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" id="password" name="password" class="form-input" placeholder="Enter your password" required>
-                </div>
-
-                <button type="submit" class="login-btn">
-                    Log In
-                </button>
-            </form>
-
-            <div class="forgot-password">
-                <a href="#" onclick="showForgotMessage()">Forgot password?</a>
-            </div>
+            <a href="https://aeo.niuexa.ai" class="login-btn">
+                Go to the AEO Platform
+            </a>
         </div>
     </div>
 
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Always show error message regardless of input
-            const errorMessage = document.getElementById('errorMessage');
-            errorMessage.classList.add('show');
-
-            // Clear the form
-            document.getElementById('username').value = '';
-            document.getElementById('password').value = '';
-
-            // Focus back to username field
-            setTimeout(() => {
-                document.getElementById('username').focus();
-            }, 100);
-        });
-
-        function showForgotMessage() {
-            alert('To recover your password, contact technical support at support@niuexa.ai');
-        }
-
-        // Hide error message when user starts typing
-        document.getElementById('username').addEventListener('input', function() {
-            document.getElementById('errorMessage').classList.remove('show');
-        });
-
-        document.getElementById('password').addEventListener('input', function() {
-            document.getElementById('errorMessage').classList.remove('show');
-        });
-    </script>
+    <script src="/cookie-banner.js?v=20260428"></script>
 </body>
 </html>

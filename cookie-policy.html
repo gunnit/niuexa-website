@@ -19,10 +19,34 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
       gtag('config', 'G-8JW0S3PJKM');
     </script>
 
     <title>Cookie Policy - Niuexa</title>
+    <meta name="description" content="Scopri quali cookie utilizza il sito Niuexa, con quali finalità e come gestire o revocare il tuo consenso in qualsiasi momento, in conformità al GDPR.">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Cookie Policy - Niuexa">
+    <meta property="og:description" content="Quali cookie utilizza il sito Niuexa e come gestire o revocare il consenso in conformità al GDPR.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://niuexa.ai/cookie-policy.html">
+    <meta property="og:image" content="https://niuexa.ai/img/niuexalogo.png">
+    <meta property="og:site_name" content="Niuexa">
+    <meta property="og:locale" content="it_IT">
+
+    <!-- X (Twitter) Card Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Cookie Policy - Niuexa">
+    <meta name="twitter:description" content="Quali cookie utilizza il sito Niuexa e come gestire o revocare il consenso.">
+    <meta name="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -122,8 +146,7 @@
                 <p>Per domande sui cookie o per esercitare i vostri diritti:</p>
                 <p>
                     Email: <a href="mailto:privacy@niuexa.ai">privacy@niuexa.ai</a><br>
-                    Telefono: +39 02 1234 5678<br>
-                    Indirizzo: Via Roma 123, 20121 Milano, Italia
+                    Indirizzo: Via Rutilia 10, 20141 Milano (MI), Italia
                 </p>
                 
                 <div class="cookie-settings">
@@ -139,9 +162,17 @@
     <script src="includes/includes.js?v=20260428"></script>
     <script>
         function manageCookies() {
-            // This would integrate with a cookie management solution
-            alert('Funzionalità di gestione cookie in sviluppo. Contattate privacy@niuexa.ai per modificare le vostre preferenze.');
+            // Revoca il consenso salvato e ricarica la pagina: il banner cookie riappare
+            if (window.cookieBanner && typeof window.cookieBanner.revokeConsent === 'function') {
+                window.cookieBanner.revokeConsent();
+            } else if (window.cookieBanner && typeof window.revokeCookieConsent === 'function') {
+                window.revokeCookieConsent();
+            } else {
+                localStorage.removeItem('niuexa_cookie_consent');
+                window.location.reload();
+            }
         }
     </script>
+    <script src="/cookie-banner.js?v=20260428"></script>
 </body>
 </html>

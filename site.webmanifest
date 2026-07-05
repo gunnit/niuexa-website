@@ -4,8 +4,8 @@
     "description": "Trasforma la tua azienda con l'intelligenza artificiale generativa. Consulenza specializzata, formazione avanzata e prodotti AI pronti all'uso.",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#FAF7F0",
-    "theme_color": "#0B0E14",
+    "background_color": "#F1F5F8",
+    "theme_color": "#14324A",
     "orientation": "portrait-primary",
     "icons": [
         {

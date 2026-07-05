@@ -18,6 +18,13 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
       gtag('config', 'G-8JW0S3PJKM');
     </script>
     
@@ -42,7 +49,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Agente Vocale AI | Automatizza il Supporto Clienti 24/7">
     <meta name="twitter:description" content="Rivoluziona il tuo supporto clienti con l'Agente Vocale AI di Niuexa. Comprensione naturale, 15 lingue supportate, 70% riduzione costi.">
-    <meta property="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
+    <meta name="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="img/favicon 256.ico">
@@ -105,19 +112,19 @@
         .contact-form input::placeholder,
         .contact-form textarea::placeholder,
         .contact-form select option[value=""] {
-            color: #888888 !important;
+            color: var(--medium-gray) !important;
             opacity: 1;
         }
         
         .contact-form input::-webkit-input-placeholder,
         .contact-form textarea::-webkit-input-placeholder {
-            color: #888888 !important;
+            color: var(--medium-gray) !important;
             opacity: 1;
         }
         
         .contact-form input::-moz-placeholder,
         .contact-form textarea::-moz-placeholder {
-            color: #888888 !important;
+            color: var(--medium-gray) !important;
             opacity: 1;
         }
     </style>
@@ -132,7 +139,7 @@
     <nav class="navbar" style="background: white; padding: 1rem 0; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
         <div class="nav-container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: center; align-items: center;">
             <div class="nav-logo">
-            <a href="/en/index.html">
+            <a href="/index.html">
                 <div class="logo-container">
                     <img src="/img/pictogram_blue_transparent.png" alt="Niuexa" class="logo-icon">
                     <div class="logo-text">
@@ -153,7 +160,7 @@
         </div>
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(155, 89, 182, 0.1); border: 1px solid rgba(155, 89, 182, 0.3); padding: 0.5rem 1rem; border-radius: 50px; color: #9b59b6; font-size: 0.9rem; font-weight: 600; margin-bottom: 1.5rem;">
+                <div class="hero-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(14, 156, 154, 0.1); border: 1px solid rgba(14, 156, 154, 0.3); padding: 0.5rem 1rem; border-radius: 50px; color: var(--signal, #0E7A78); font-size: 0.9rem; font-weight: 600; margin-bottom: 1.5rem;">
                     <span class="badge-icon">🎤</span>
                     <span>Agente Vocale AI Avanzato</span>
                 </div>
@@ -200,7 +207,7 @@
     </section>
 
     <!-- Partners Section -->
-    <section class="partners-section" style="padding: 80px 0; background: #f8f9fa;">
+    <section class="partners-section" style="padding: 80px 0; background: var(--light-gray);">
         <div class="container">
             <h2 class="section-title" style="text-align: center; margin-bottom: 4rem;">I Nostri Partner</h2>
             <div class="partners-grid">
@@ -257,20 +264,20 @@
             </div>
             
             <div class="benefits-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
-                <div class="benefit-card" style="background: #f8f9fa; padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
+                <div class="benefit-card" style="background: var(--light-gray); padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
                     <div class="benefit-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-blue), var(--primary-green)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">🧠</div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-gray);">Comprensione Naturale</h3>
                     <p style="color: var(--medium-gray); line-height: 1.6;">Tecnologia NLP avanzata che comprende il contesto, le intenzioni e le emozioni del cliente. Conversazioni naturali come con un operatore umano.</p>
                 </div>
                 
-                <div class="benefit-card" style="background: #f8f9fa; padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
+                <div class="benefit-card" style="background: var(--light-gray); padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
                     <div class="benefit-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-green), var(--primary-blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">🌍</div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-gray);">15 Lingue Supportate</h3>
                     <p style="color: var(--medium-gray); line-height: 1.6;">Supporto multilingue completo con riconoscimento degli accenti regionali. Ideale per aziende internazionali e mercati multiculturali.</p>
                 </div>
                 
-                <div class="benefit-card" style="background: #f8f9fa; padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
-                    <div class="benefit-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #9b59b6, #8e44ad); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">⚡</div>
+                <div class="benefit-card" style="background: var(--light-gray); padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
+                    <div class="benefit-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--brand-teal), var(--signal, #0E7A78)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">⚡</div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-gray);">Riduzione Costi Immediata</h3>
                     <p style="color: var(--medium-gray); line-height: 1.6;">Riduci i costi del supporto clienti del 70% eliminando tempi di attesa e gestendo più chiamate contemporaneamente.</p>
                 </div>
@@ -307,9 +314,9 @@
             <div class="success-story" style="max-width: 800px; margin: 0 auto; text-align: center;">
                 <h2 class="section-title" style="margin-bottom: 2rem;">Caso di Successo Reale</h2>
                 
-                <div class="story-card" style="background: #f8f9fa; padding: 3rem; border-radius: 20px; margin-bottom: 2rem;">
+                <div class="story-card" style="background: var(--light-gray); padding: 3rem; border-radius: 20px; margin-bottom: 2rem;">
                     <div class="company-info" style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
-                        <div class="company-logo" style="width: 60px; height: 60px; background: #9b59b6; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.2rem;">SF</div>
+                        <div class="company-logo" style="width: 60px; height: 60px; background: var(--brand-teal); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.2rem;">SF</div>
                         <div>
                             <h3 style="margin: 0; color: var(--dark-gray); font-size: 1.3rem;">Azienda Servizi Finanziari</h3>
                             <p style="margin: 0; color: var(--medium-gray);">500+ dipendenti • Settore Bancario</p>
@@ -322,19 +329,19 @@
                     
                     <div class="results-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem;">
                         <div class="result-item" style="text-align: center;">
-                            <div class="result-number" style="font-size: 2.5rem; font-weight: 700; color: #9b59b6; font-family: var(--font-primary);">90%</div>
+                            <div class="result-number" style="font-size: 2.5rem; font-weight: 700; color: var(--signal, #0E7A78); font-family: var(--font-primary);">90%</div>
                             <div class="result-label" style="color: var(--medium-gray); font-size: 0.9rem;">Soddisfazione Clienti</div>
                         </div>
                         <div class="result-item" style="text-align: center;">
-                            <div class="result-number" style="font-size: 2.5rem; font-weight: 700; color: #9b59b6; font-family: var(--font-primary);">65%</div>
+                            <div class="result-number" style="font-size: 2.5rem; font-weight: 700; color: var(--signal, #0E7A78); font-family: var(--font-primary);">65%</div>
                             <div class="result-label" style="color: var(--medium-gray); font-size: 0.9rem;">Chiamate Gestite</div>
                         </div>
                         <div class="result-item" style="text-align: center;">
-                            <div class="result-number" style="font-size: 2.5rem; font-weight: 700; color: #9b59b6; font-family: var(--font-primary);">-60%</div>
+                            <div class="result-number" style="font-size: 2.5rem; font-weight: 700; color: var(--signal, #0E7A78); font-family: var(--font-primary);">-60%</div>
                             <div class="result-label" style="color: var(--medium-gray); font-size: 0.9rem;">Riduzione Costi</div>
                         </div>
                         <div class="result-item" style="text-align: center;">
-                            <div class="result-number" style="font-size: 2.5rem; font-weight: 700; color: #9b59b6; font-family: var(--font-primary);">6</div>
+                            <div class="result-number" style="font-size: 2.5rem; font-weight: 700; color: var(--signal, #0E7A78); font-family: var(--font-primary);">6</div>
                             <div class="result-label" style="color: var(--medium-gray); font-size: 0.9rem;">Mesi per ROI</div>
                         </div>
                     </div>
@@ -414,7 +421,7 @@
                 <div style="margin-bottom: 1rem;">
                     <label for="service" class="landing-form-label">Servizio di Interesse *</label>
                     <select id="service" name="service" required class="landing-form-input">
-                        <option value="" style="color: #888888;">Seleziona un servizio</option>
+                        <option value="" style="color: var(--medium-gray);">Seleziona un servizio</option>
                         <option value="agente-vocale">Agente Vocale AI</option>
                         <option value="consulenza">Consulenza AI Strategica</option>
                         <option value="formazione">Formazione AI per Team</option>
@@ -434,7 +441,7 @@
                 <div style="margin-bottom: 1rem;">
                     <label for="budget" class="landing-form-label">Budget Indicativo</label>
                     <select id="budget" name="budget" class="landing-form-input">
-                        <option value="" style="color: #888888;">Seleziona un range</option>
+                        <option value="" style="color: var(--medium-gray);">Seleziona un range</option>
                         <option value="< 10k">Meno di €10.000</option>
                         <option value="10k-25k">€10.000 - €25.000</option>
                         <option value="25k-50k">€25.000 - €50.000</option>
@@ -473,13 +480,12 @@
     </section>
 
     <!-- Footer Placeholder -->
-    <div id="footer-placeholder"></div>
 
     <!-- ElevenLabs Footer Bar -->
-    <div class="elevenlabs-footer-bar" style="background: #f8f9fa; border-top: 1px solid #e0e0e0; padding: 12px 0; font-size: 0.9rem; color: var(--medium-gray);">
+    <div class="elevenlabs-footer-bar" style="background: var(--light-gray); border-top: 1px solid #e0e0e0; padding: 12px 0; font-size: 0.9rem; color: var(--medium-gray);">
         <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
             <span style="text-align: left;">© 2026 Niuexa. Tutti i diritti riservati.</span>
-            <span style="text-align: right;">Niuexa è una BU di Bebit Srl - P.I. 1121570019</span>
+            <span style="text-align: right;">Niuexa è una BU di Bebit Srl - P.I. 11215720019</span>
         </div>
     </div>
 
@@ -535,11 +541,11 @@
         },
         "offers": {
             "@type": "Offer",
-            "price": "4000",
+            "price": "1250",
             "priceCurrency": "EUR",
             "priceSpecification": {
                 "@type": "PriceSpecification",
-                "price": "4000",
+                "price": "1250",
                 "priceCurrency": "EUR",
                 "billingIncrement": "P1M",
                 "unitText": "mensile"

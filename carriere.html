@@ -19,6 +19,13 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
       gtag('config', 'G-8JW0S3PJKM');
     </script>
     
@@ -162,8 +169,8 @@
                     <a href="index.html#contact" class="btn btn-primary">
                         Candidati Ora
                     </a>
-                    <a href="#open-positions" class="btn btn-secondary">
-                        Posizioni Aperte
+                    <a href="#candidati" class="btn btn-secondary">
+                        Come Candidarsi
                     </a>
                 </div>
             </div>
@@ -317,7 +324,7 @@
     </section>
 
     <!-- Call to Action Section -->
-    <section class="careers-cta-section">
+    <section class="careers-cta-section" id="candidati">
         <div class="container">
             <div class="cta-content">
                 <h2>Pronto a Unirti alla Rivoluzione AI?</h2>
@@ -345,5 +352,6 @@
     <!-- JavaScript -->
     <script src="includes/includes.js?v=20260428"></script>
     <script src="script.js?v=20260428"></script>
+    <script src="/cookie-banner.js?v=20260428"></script>
 </body>
 </html>

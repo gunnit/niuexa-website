@@ -18,12 +18,19 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
       gtag('config', 'G-8JW0S3PJKM');
     </script>
 
     <!-- SEO Meta Tags -->
     <title>Abbiamo gi&agrave; avviato un PoC con&hellip;: come passare da PoC a produzione (framework Niuexa) | Niuexa</title>
-    <meta name="description" content="Il 90% dei PoC che 'vanno bene' si blocca quando arrivano sicurezza, dati reali e integrazioni. Scopri il framework Niuexa per passare dalla demo a un progetto scalabile: KPI, ROI, checklist e piano in 4 settimane.">
+    <meta name="description" content="Come passare da PoC a produzione: framework Niuexa in 4 settimane con KPI, ROI, checklist e piano di scaling per superare il blocco post-demo.">
     <meta name="keywords" content="abbiamo gi&agrave; avviato un PoC con, cosa fare dopo un PoC, come passare da PoC a produzione, PoC digitale KPI e ROI, checklist PoC IT data AI, da PoC a MVP">
     <meta name="author" content="Niuexa">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -56,12 +63,10 @@
     <meta name="twitter:description" content="Il 90% dei PoC si blocca dopo la demo. Framework Niuexa: KPI, ROI, checklist e piano in 4 settimane per lo scaling.">
     <meta name="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
 
-    <link rel="canonical" href="https://niuexa.ai/articolo-poc-produzione-framework.html">
+    <link rel="canonical" href="https://niuexa.ai/articolo-poc-produzione.html">
 
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="img/favicon 256.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon 256.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon 256.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicon 256.ico">
     <link rel="manifest" href="site.webmanifest">
 
@@ -200,7 +205,11 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
+    <a href="#main-content" class="skip-link">Vai al contenuto principale</a>
+
     <div id="navigation-placeholder"></div>
+
+    <main id="main-content">
 
     <section class="tutorial-header">
         <div class="container">
@@ -220,7 +229,7 @@
         </div>
     </section>
 
-    <section class="risposta-rapida" style="background: linear-gradient(135deg, #f0f7ff, #e8f5e9); padding: 40px 30px; border-radius: 16px; margin: 30px auto; max-width: 900px; border-left: 5px solid var(--primary-blue);">
+    <section class="risposta-rapida" style="background: linear-gradient(135deg, var(--light-gray), var(--white)); padding: 40px 30px; border-radius: 16px; margin: 30px auto; max-width: 900px; border-left: 5px solid var(--primary-blue);">
         <h2 style="font-family: var(--font-primary); color: var(--primary-blue); font-size: 1.3rem; margin-bottom: 15px;">📋 Risposta Rapida</h2>
         <p style="font-size: 1.05rem; line-height: 1.7; color: var(--dark-gray);">L'<strong>80-90% dei PoC</strong> non raggiunge mai la produzione. I 3 motivi principali: <strong>dati non rappresentativi</strong> (il PoC usa dataset puliti, la produzione no), <strong>sicurezza e compliance ignorate</strong> (GDPR, audit trail, MFA assenti nella demo), e <strong>zero integrazioni reali</strong> (ERP, CRM, SSO mai testati). Il <strong>framework Niuexa in 4 settimane</strong> risolve questo gap attraverso: diagnosi dello stato reale del PoC, definizione di KPI di outcome (non solo output), hardening tecnico (architettura scalabile, CI/CD, monitoring) e rollout controllato con criteri go/no-go. Le metriche chiave di successo: costo di industrializzazione contenuto entro <strong>3-10x</strong> il costo del PoC, tempo di transizione ridotto da 3-12 mesi a <strong>4 settimane</strong>, e KPI di business misurabili dal giorno del go-live.</p>
     </section>
@@ -886,6 +895,8 @@
             <a href="consulting.html" class="btn btn-primary">Richiedi il PoC-to-Production Assessment</a>
         </div>
     </section>
+
+    </main>
 
     <div id="footer-placeholder"></div>
 

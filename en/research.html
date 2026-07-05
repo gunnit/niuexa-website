@@ -19,6 +19,13 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
       gtag('config', 'G-8JW0S3PJKM');
     </script>
 
@@ -83,6 +90,28 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/styles.css?v=20260429">
     <link rel="stylesheet" href="/research.css">
+    <style>
+        /* Same look as .read-more-btn, but as a plain link (no JS handler) */
+        .read-more-link {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: var(--white);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .read-more-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(35, 125, 166, 0.3);
+            color: var(--white);
+        }
+    </style>
 
     <!-- Schema.org structured data - Research Blog -->
     <script type="application/ld+json">
@@ -112,7 +141,7 @@
             "@type": "ItemList",
             "name": "AI Research 2025",
             "description": "Detailed analysis on artificial intelligence trends",
-            "numberOfItems": 24,
+            "numberOfItems": 6,
             "itemListElement": [
                 {
                     "@type": "Article",
@@ -214,7 +243,7 @@
                 <p class="hero-subtitle">In-depth insights on the latest artificial intelligence trends and their impact on business</p>
                 <div class="hero-stats">
                     <div class="stat-item">
-                        <span class="stat-number">24</span>
+                        <span class="stat-number">6</span>
                         <span class="stat-label">Detailed Research</span>
                     </div>
                     <div class="stat-item">
@@ -261,7 +290,7 @@
                                 <span class="topic">Enterprise</span>
                             </span>
                         </div>
-                        <button class="read-more-btn" data-target="agents">Read Full Research</button>
+                        <a class="read-more-link" href="/en/article-ai-email-pdf-crm-automation.html">Read Full Research</a>
                     </div>
                 </article>
 
@@ -282,7 +311,7 @@
                                 <span class="topic">Productivity</span>
                             </span>
                         </div>
-                        <button class="read-more-btn" data-target="codegen">Read Full Research</button>
+                        <a class="read-more-link" href="/en/learn.html">Read Full Research</a>
                     </div>
                 </article>
 
@@ -303,7 +332,7 @@
                                 <span class="topic">Enterprise</span>
                             </span>
                         </div>
-                        <button class="read-more-btn" data-target="rag">Read Full Research</button>
+                        <a class="read-more-link" href="/en/article-ai-consulting-milan.html">Read Full Research</a>
                     </div>
                 </article>
 
@@ -324,7 +353,7 @@
                                 <span class="topic">Innovation</span>
                             </span>
                         </div>
-                        <button class="read-more-btn" data-target="sanita">Read Full Research</button>
+                        <a class="read-more-link" href="/en/article-first-ai-projects-smb.html">Read Full Research</a>
                     </div>
                 </article>
 
@@ -345,7 +374,7 @@
                                 <span class="topic">Risk Management</span>
                             </span>
                         </div>
-                        <button class="read-more-btn" data-target="finanza">Read Full Research</button>
+                        <a class="read-more-link" href="/en/learn.html">Read Full Research</a>
                     </div>
                 </article>
 
@@ -366,7 +395,7 @@
                                 <span class="topic">Automation</span>
                             </span>
                         </div>
-                        <button class="read-more-btn" data-target="vision">Read Full Research</button>
+                        <a class="read-more-link" href="/en/learn.html">Read Full Research</a>
                     </div>
                 </article>
             </div>
@@ -414,5 +443,6 @@
     <script src="/en/includes/navigation-en.js?v=20260428"></script>
     <script src="/script.js?v=20260428"></script>
     <script src="/research.js"></script>
+    <script src="/cookie-banner.js?v=20260428"></script>
 </body>
 </html>

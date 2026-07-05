@@ -15,6 +15,13 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
       gtag('config', 'G-8JW0S3PJKM');
     </script>
 
@@ -75,17 +82,15 @@
 
         <!-- Hero Section -->
         <section class="book-hero">
-            <nav class="book-breadcrumb">
-                <div class="container">
+            <div class="container">
+                <nav class="book-breadcrumb" aria-label="Breadcrumb">
                     <ol>
                         <li><a href="../../index.html">Home</a></li>
                         <li><a href="../../ai-operator-series.html">AI Operator Series</a></li>
                         <li><a href="resources.html">The One-Person Empire</a></li>
                         <li><span class="current">ROI Calculator</span></li>
                     </ol>
-                </div>
-            </nav>
-            <div class="container">
+                </nav>
                 <span class="hero-badge">FREE TOOL — Chapter 12 QR Code</span>
                 <h1 class="hero-title">AI Automation <span class="highlight">ROI Calculator</span></h1>
                 <p class="hero-subtitle">Calculate exactly how much time and money AI agents save your business. Plug in your numbers, see the projections, and build an airtight business case for AI adoption — whether for yourself or your clients.</p>
@@ -150,7 +155,7 @@
                     <div class="preview-card">
                         <div class="preview-icon">&#128178;</div>
                         <h3>Cost Reduction</h3>
-                        <p>Compare the cost of your AI stack ($715/month) against what you'd pay for equivalent human labor. A virtual assistant ($2,000/mo), content writer ($3,000/mo), and research analyst ($4,000/mo) would cost $9,000/month. Your AI agents deliver 80% of this output for 8% of the cost.</p>
+                        <p>Compare the cost of your AI stack ($215/month) against what you'd pay for equivalent human labor. A virtual assistant ($2,000/mo), content writer ($3,000/mo), and research analyst ($4,000/mo) would cost $9,000/month. Your AI agents deliver 80% of this output for less than 3% of the cost.</p>
                     </div>
                     <div class="preview-card">
                         <div class="preview-icon">&#128200;</div>
@@ -204,7 +209,7 @@
 
     <div id="footer-placeholder"></div>
     <script src="../../script.js"></script>
-    <script src="../../includes/includes.js"></script>
+    <script src="/en/includes/navigation-en.js"></script>
     <script src="../../cookie-banner.js"></script>
     <script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cml56ej340008118xz5j3u0os"></script>
 </body>

@@ -18,6 +18,13 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
       gtag('config', 'G-8JW0S3PJKM');
     </script>
     
@@ -42,7 +49,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Formazione AI Milano | Corsi Intelligenza Artificiale Professionale">
     <meta name="twitter:description" content="Trasforma il tuo team con la formazione AI di eccellenza di Niuexa. Corsi certificati in intelligenza artificiale, prompt engineering, agenti AI. ROI garantito del 40%.">
-    <meta property="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
+    <meta name="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="img/favicon 256.ico">
@@ -154,19 +161,19 @@
         .contact-form input::placeholder,
         .contact-form textarea::placeholder,
         .contact-form select option[value=""] {
-            color: #888888 !important;
+            color: var(--medium-gray) !important;
             opacity: 1;
         }
         
         .contact-form input::-webkit-input-placeholder,
         .contact-form textarea::-webkit-input-placeholder {
-            color: #888888 !important;
+            color: var(--medium-gray) !important;
             opacity: 1;
         }
         
         .contact-form input::-moz-placeholder,
         .contact-form textarea::-moz-placeholder {
-            color: #888888 !important;
+            color: var(--medium-gray) !important;
             opacity: 1;
         }
     </style>
@@ -181,7 +188,7 @@
     <nav class="navbar" style="background: white; padding: 1rem 0; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
         <div class="nav-container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: center; align-items: center;">
             <div class="nav-logo">
-            <a href="/en/index.html">
+            <a href="/index.html">
                 <div class="logo-container">
                     <img src="/img/pictogram_blue_transparent.png" alt="Niuexa" class="logo-icon">
                     <div class="logo-text">
@@ -202,7 +209,7 @@
         </div>
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(52, 152, 219, 0.1); border: 1px solid rgba(52, 152, 219, 0.3); padding: 0.5rem 1rem; border-radius: 50px; color: #3498db; font-size: 0.9rem; font-weight: 600; margin-bottom: 1.5rem;">
+                <div class="hero-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(35, 125, 166, 0.1); border: 1px solid rgba(35, 125, 166, 0.3); padding: 0.5rem 1rem; border-radius: 50px; color: var(--primary-blue); font-size: 0.9rem; font-weight: 600; margin-bottom: 1.5rem;">
                     <span class="badge-icon">🎓</span>
                     <span>Formazione AI di Eccellenza</span>
                 </div>
@@ -249,7 +256,7 @@
     </section>
 
     <!-- Partners Section -->
-    <section class="partners-section" style="padding: 80px 0; background: #f8f9fa;">
+    <section class="partners-section" style="padding: 80px 0; background: var(--light-gray);">
         <div class="container">
             <h2 class="section-title" style="text-align: center; margin-bottom: 4rem;">I Nostri Partner</h2>
             <div class="partners-grid">
@@ -308,7 +315,7 @@
             <!-- Percorsi Strategici -->
             <div class="courses-subheading">Percorsi Strategici</div>
             <div class="benefits-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 0;">
-                <div class="benefit-card" style="background: #f8f9fa; padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
+                <div class="benefit-card" style="background: var(--light-gray); padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
                     <div class="benefit-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-blue), var(--primary-green)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">🎯</div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-gray);">AI Executive Mastery</h3>
                     <p style="color: var(--medium-gray); line-height: 1.6; margin-bottom: 1.5rem;">Guida la trasformazione digitale della tua azienda. Perfetto per manager e team leader.</p>
@@ -321,7 +328,7 @@
                     </ul>
                 </div>
 
-                <div class="benefit-card" style="background: #f8f9fa; padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
+                <div class="benefit-card" style="background: var(--light-gray); padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
                     <div class="benefit-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-green), var(--primary-blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">⚡</div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-gray);">Prompt Engineering Avanzato</h3>
                     <p style="color: var(--medium-gray); line-height: 1.6; margin-bottom: 1.5rem;">Moltiplica l'efficacia dei tuoi tool AI del 300%. Per sviluppatori e content creator.</p>
@@ -334,8 +341,8 @@
                     </ul>
                 </div>
 
-                <div class="benefit-card" style="background: #f8f9fa; padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
-                    <div class="benefit-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #9b59b6, #8e44ad); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">🤖</div>
+                <div class="benefit-card" style="background: var(--light-gray); padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
+                    <div class="benefit-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--brand-teal), var(--signal, #0E7A78)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">🤖</div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-gray);">AI Agent Developer</h3>
                     <p style="color: var(--medium-gray); line-height: 1.6; margin-bottom: 1.5rem;">Costruisci sistemi intelligenti che generano ROI. Per architetti software e team tecnici.</p>
                     <ul style="text-align: left; color: var(--medium-gray); font-size: 0.9rem; list-style: none; padding: 0;">
@@ -352,7 +359,7 @@
             <div class="courses-divider"></div>
             <div class="courses-subheading">Corsi su Strumenti AI</div>
             <div class="tools-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 4rem;">
-                <div class="benefit-card" style="background: #f8f9fa; padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
+                <div class="benefit-card" style="background: var(--light-gray); padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
                     <div class="benefit-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #10a37f, #1a7f64); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">💬</div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-gray);">ChatGPT for Business</h3>
                     <p style="color: var(--medium-gray); line-height: 1.6; margin-bottom: 1.5rem;">Sfrutta tutto il potenziale di ChatGPT in azienda: dalla creazione di Custom GPT all'automazione dei flussi di lavoro.</p>
@@ -365,7 +372,7 @@
                     </ul>
                 </div>
 
-                <div class="benefit-card" style="background: #f8f9fa; padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
+                <div class="benefit-card" style="background: var(--light-gray); padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
                     <div class="benefit-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #4285f4, #ea4335); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">✨</div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-gray);">Google Gemini for Enterprise</h3>
                     <p style="color: var(--medium-gray); line-height: 1.6; margin-bottom: 1.5rem;">Padroneggia l'ecosistema AI di Google: Gemini, Vertex AI e l'integrazione con Google Workspace.</p>
@@ -378,7 +385,7 @@
                     </ul>
                 </div>
 
-                <div class="benefit-card" style="background: #f8f9fa; padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
+                <div class="benefit-card" style="background: var(--light-gray); padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
                     <div class="benefit-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #0078d4, #50e6ff); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">🚀</div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-gray);">Microsoft Copilot for Productivity</h3>
                     <p style="color: var(--medium-gray); line-height: 1.6; margin-bottom: 1.5rem;">Trasforma il modo di lavorare con Microsoft 365 Copilot: automazione intelligente in Word, Excel, PowerPoint, Teams e Outlook.</p>
@@ -488,7 +495,7 @@
                 <div style="margin-bottom: 1rem;">
                     <label for="service" class="landing-form-label">Corso di Interesse *</label>
                     <select id="service" name="service" required class="landing-form-input">
-                        <option value="" style="color: #888888;">Seleziona un corso</option>
+                        <option value="" style="color: var(--medium-gray);">Seleziona un corso</option>
                         <option value="ai-executive-mastery">AI Executive Mastery</option>
                         <option value="prompt-engineering">Prompt Engineering Avanzato</option>
                         <option value="ai-agent-developer">AI Agent Developer Certification</option>
@@ -504,7 +511,7 @@
                 <div style="margin-bottom: 1rem;">
                     <label for="participants" class="landing-form-label">Numero Partecipanti</label>
                     <select id="participants" name="participants" class="landing-form-input">
-                        <option value="" style="color: #888888;">Seleziona numero partecipanti</option>
+                        <option value="" style="color: var(--medium-gray);">Seleziona numero partecipanti</option>
                         <option value="1-5">1-5 persone</option>
                         <option value="6-10">6-10 persone</option>
                         <option value="11-20">11-20 persone</option>
@@ -521,7 +528,7 @@
                 <div style="margin-bottom: 1rem;">
                     <label for="budget" class="landing-form-label">Budget Indicativo per la Formazione</label>
                     <select id="budget" name="budget" class="landing-form-input">
-                        <option value="" style="color: #888888;">Seleziona un range</option>
+                        <option value="" style="color: var(--medium-gray);">Seleziona un range</option>
                         <option value="< 5k">Meno di €5.000</option>
                         <option value="5k-15k">€5.000 - €15.000</option>
                         <option value="15k-30k">€15.000 - €30.000</option>
@@ -560,13 +567,12 @@
     </section>
 
     <!-- Footer Placeholder -->
-    <div id="footer-placeholder"></div>
 
     <!-- ElevenLabs Footer Bar -->
-    <div class="elevenlabs-footer-bar" style="background: #f8f9fa; border-top: 1px solid #e0e0e0; padding: 12px 0; font-size: 0.9rem; color: var(--medium-gray);">
+    <div class="elevenlabs-footer-bar" style="background: var(--light-gray); border-top: 1px solid #e0e0e0; padding: 12px 0; font-size: 0.9rem; color: var(--medium-gray);">
         <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
             <span style="text-align: left;">© 2026 Niuexa. Tutti i diritti riservati.</span>
-            <span style="text-align: right;">Niuexa è una BU di Bebit Srl - P.I. 1121570019</span>
+            <span style="text-align: right;">Niuexa è una BU di Bebit Srl - P.I. 11215720019</span>
         </div>
     </div>
 

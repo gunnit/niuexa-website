@@ -63,7 +63,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: #ff4500;
+    color: var(--error);
     font-weight: 600;
     animation: pulse 2s ease-in-out infinite;
 }
@@ -294,17 +294,17 @@
 
 .level-beginner {
     background: #e3f2fd;
-    color: #1976d2;
+    color: var(--primary-blue);
 }
 
 .level-intermediate {
     background: #fff3e0;
-    color: #f57c00;
+    color: var(--warning);
 }
 
 .level-advanced {
     background: #ffebee;
-    color: #d32f2f;
+    color: var(--error);
 }
 
 .program-description {
@@ -405,7 +405,7 @@
 .price-save {
     display: block;
     font-size: 0.9rem;
-    color: var(--primary-green);
+    color: var(--green-text);
     font-weight: 600;
     margin-top: 0.5rem;
 }
@@ -528,6 +528,7 @@
 
 .bundle-price .price-save {
     font-size: 1rem;
+    color: var(--primary-green); /* on dark gradient surface — keep brand green */
     opacity: 0.9;
     margin-top: 0.5rem;
 }

@@ -36,6 +36,7 @@ const navigationHTML = `
                     <li><a href="/en/research.html" class="dropdown-link" data-page="research">Research</a></li>
                     <li><a href="/en/roi-calculator.html" class="dropdown-link" data-page="roi-calculator">ROI Calculator</a></li>
                     <li><a href="/en/events.html" class="dropdown-link" data-page="events">Events</a></li>
+                    <li><a href="/resources.html" class="dropdown-link" data-page="free-resources">Free Resources</a></li>
                 </ul>
             </li>
             <li class="nav-item">
@@ -84,6 +85,7 @@ const footerHTML = `
                         <li><a href="/en/research.html">Research</a></li>
                         <li><a href="/en/roi-calculator.html">ROI Calculator</a></li>
                         <li><a href="/en/events.html">Events</a></li>
+                        <li><a href="/resources.html">Free Resources</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -102,12 +104,20 @@ const footerHTML = `
                         <li><a href="https://discord.gg/vyKckeS3" target="_blank" rel="noopener noreferrer">Discord Community</a></li>
                     </ul>
                 </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/en/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/en/cookie-policy.html">Cookie Policy</a></li>
+                        <li><a href="/en/terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
             <div class="footer-bottom-content">
-                <p class="footer-copyright">&copy; 2024 Niuexa. All rights reserved.</p>
-                <p class="footer-company">Niuexa is a BU of Bebit - V.N. 1121570019</p>
+                <p class="footer-copyright">&copy; 2024-2026 Niuexa. All rights reserved.</p>
+                <p class="footer-company">Niuexa is a BU of Bebit Srl - VAT No. 11215720019</p>
             </div>
         </div>
     </div>

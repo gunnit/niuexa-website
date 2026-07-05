@@ -231,6 +231,10 @@ function initContactForm() {
     const contactForm = document.querySelector('.contact-form');
 
     if (contactForm) {
+        // Guard against double binding (contatti.js also targets .contact-form)
+        if (contactForm.dataset.bound) return;
+        contactForm.dataset.bound = '1';
+
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
 
@@ -271,7 +275,7 @@ function initContactForm() {
                         }
 
                         // Redirect to thank you page
-                        window.location.href = 'thank-you-page.html';
+                        window.location.href = '/thank-you-page.html';
                     } else {
                         throw new Error('Form submission failed');
                     }

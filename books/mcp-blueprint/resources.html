@@ -16,11 +16,18 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
       gtag('config', 'G-8JW0S3PJKM');
     </script>
 
     <title>The MCP Blueprint — Resources | AI Operator Series</title>
-    <meta name="description" content="Companion resource hub for The MCP Blueprint book. Download starter kits, templates, access the breach timeline database, video walkthroughs, and community. Updated monthly.">
+    <meta name="description" content="Companion resource hub for The MCP Blueprint book. Download starter kits, templates, access the breach timeline database, video walkthroughs, and community.">
     <meta name="keywords" content="MCP Blueprint resources, Model Context Protocol book, MCP starter kit, AI security breach database, MCP implementation template, AI Operator Series, Gregor Maric">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="author" content="Gregor Maric">
@@ -28,7 +35,7 @@
 
     <meta property="og:type" content="website">
     <meta property="og:title" content="The MCP Blueprint — Resources | AI Operator Series">
-    <meta property="og:description" content="Your companion page for The MCP Blueprint book. Starter kits, templates, breach database, video walkthroughs, and community. Updated monthly.">
+    <meta property="og:description" content="Your companion page for The MCP Blueprint book. Starter kits, templates, breach database, video walkthroughs, and community.">
     <meta property="og:image" content="https://niuexa.ai/img/niuexalogo.png">
     <meta property="og:url" content="https://niuexa.ai/books/mcp-blueprint/resources.html">
     <meta property="og:site_name" content="Niuexa">
@@ -36,7 +43,7 @@
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="The MCP Blueprint — Resources | AI Operator Series">
-    <meta name="twitter:description" content="Your companion page for The MCP Blueprint book. Starter kits, templates, breach database, video walkthroughs, and community. Updated monthly.">
+    <meta name="twitter:description" content="Your companion page for The MCP Blueprint book. Starter kits, templates, breach database, video walkthroughs, and community.">
     <meta name="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
 
     <link rel="alternate" hreflang="en" href="https://niuexa.ai/books/mcp-blueprint/resources.html">
@@ -108,7 +115,7 @@
                 </nav>
                 <span class="hero-badge">BOOK COMPANION</span>
                 <h1 class="hero-title">The MCP Blueprint &mdash; <span class="highlight">Resources</span></h1>
-                <p class="hero-subtitle">Your companion page for The MCP Blueprint book. Download templates, explore the breach database, watch video walkthroughs, and join the community. Updated monthly with new resources and errata.</p>
+                <p class="hero-subtitle">Your companion page for The MCP Blueprint book. Download templates, explore the breach database, watch video walkthroughs, and join the community. Corrections and new resources are published here as they land.</p>
                 <div class="hero-buttons">
                     <a href="#resources" class="btn btn-primary">Browse Resources</a>
                     <a href="#bundles" class="btn btn-secondary">Get the Book</a>
@@ -195,13 +202,6 @@
                         </div>
                     </div>
                     <div class="update-item">
-                        <span class="update-date">Feb 2026</span>
-                        <div class="update-content">
-                            <h4>Breach Database Expanded</h4>
-                            <p>Added 3 new breach entries to the Chapter 3 AI Security Breach Timeline, including the latest enterprise LLM incidents from Q4 2025. Updated defensive pattern recommendations to align with current best practices.</p>
-                        </div>
-                    </div>
-                    <div class="update-item">
                         <span class="update-date">Jan 2026</span>
                         <div class="update-content">
                             <h4>First Edition Published</h4>
@@ -232,7 +232,7 @@
                             <li>Lifetime updates &amp; errata</li>
                             <li>Breach database (spreadsheet)</li>
                         </ul>
-                        <a href="#" class="btn btn-secondary">Buy Book Bundle</a>
+                        <a href="/en/contact.html" class="btn btn-secondary">Buy Book Bundle</a>
                     </div>
 
                     <!-- Course Bundle -->
@@ -247,7 +247,7 @@
                             <li>1-on-1 office hours (monthly)</li>
                             <li>Priority community access</li>
                         </ul>
-                        <a href="#" class="btn btn-secondary">Buy Course Bundle</a>
+                        <a href="/en/contact.html" class="btn btn-secondary">Buy Course Bundle</a>
                     </div>
 
                 </div>
@@ -267,7 +267,7 @@
 
     <div id="footer-placeholder"></div>
     <script src="../../script.js"></script>
-    <script src="../../includes/includes.js"></script>
+    <script src="/en/includes/navigation-en.js"></script>
     <script src="../../cookie-banner.js"></script>
     <script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cml56ej340008118xz5j3u0os"></script>
 </body>

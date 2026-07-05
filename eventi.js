@@ -1,5 +1,46 @@
 // Eventi Page JavaScript
 document.addEventListener('DOMContentLoaded', function() {
+    // User-facing strings keyed on document language (same pattern as cookie-banner.js)
+    const EVENTI_STRINGS = {
+        it: {
+            locale: 'it-IT',
+            soldOut: 'Sold Out',
+            spotsAvailableBadge: 'Posti Disponibili',
+            spotsAvailable: 'posti disponibili',
+            waitingList: 'Lista d\'Attesa',
+            register: 'Registrati',
+            share: 'Condividi',
+            attendees: 'partecipanti',
+            shareText: (title, date) => `Partecipa a "${title}" il ${date}`,
+            linkCopied: 'Link copiato negli appunti!',
+            registering: 'Registrazione in corso...',
+            fillRequired: 'Per favore compila tutti i campi obbligatori',
+            invalidEmail: 'Per favore inserisci un indirizzo email valido',
+            successTitle: '✅ Registrazione Completata!',
+            successBody: 'Grazie per la registrazione. Riceverai una email di conferma a breve.',
+            successFooter: 'Ti aspettiamo al nostro AI Aperitivo!'
+        },
+        en: {
+            locale: 'en-GB',
+            soldOut: 'Sold Out',
+            spotsAvailableBadge: 'Spots Available',
+            spotsAvailable: 'spots available',
+            waitingList: 'Waiting List',
+            register: 'Register',
+            share: 'Share',
+            attendees: 'attendees',
+            shareText: (title, date) => `Join "${title}" on ${date}`,
+            linkCopied: 'Link copied to clipboard!',
+            registering: 'Registering...',
+            fillRequired: 'Please fill in all required fields',
+            invalidEmail: 'Please enter a valid email address',
+            successTitle: '✅ Registration Complete!',
+            successBody: 'Thank you for registering. You will receive a confirmation email shortly.',
+            successFooter: 'We look forward to seeing you at our AI Aperitivo!'
+        }
+    };
+    const eventiT = EVENTI_STRINGS[(document.documentElement.lang || 'it').toLowerCase().startsWith('en') ? 'en' : 'it'];
+
     // Event data structure
     const eventsData = {
         upcoming: [
@@ -99,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
         div.className = 'event-card';
         
         const statusClass = event.status === 'full' ? 'full' : '';
-        const statusText = event.status === 'full' ? 'Sold Out' : 'Posti Disponibili';
+        const statusText = event.status === 'full' ? eventiT.soldOut : eventiT.spotsAvailableBadge;
         const availableSpots = event.maxAttendees - event.currentAttendees;
         
         div.innerHTML = `
@@ -125,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                     <div class="event-detail">
                         <span>👥</span>
-                        <span>${availableSpots} posti disponibili</span>
+                        <span>${availableSpots} ${eventiT.spotsAvailable}</span>
                     </div>
                     <div class="event-detail">
                         <span>🎯</span>
@@ -137,9 +178,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <div class="event-actions">
                     <a href="${event.registrationUrl || '#contact-form'}" ${event.registrationUrl ? 'target="_blank" rel="noopener noreferrer"' : `onclick="selectEvent(${event.id})"`} class="btn btn-primary">
-                        ${event.status === 'full' ? 'Lista d\'Attesa' : 'Registrati'}
+                        ${event.status === 'full' ? eventiT.waitingList : eventiT.register}
                     </a>
-                    <button class="btn btn-outline" onclick="shareEvent(${event.id})">Condividi</button>
+                    <button class="btn btn-outline" onclick="shareEvent(${event.id})">${eventiT.share}</button>
                 </div>
             </div>
         `;
@@ -173,7 +214,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <h4 class="past-event-title">${event.title}</h4>
                 <div class="past-event-date">${formatPastEventDate(event.date)}</div>
                 <div class="past-event-stats">
-                    <span>👥 ${event.attendees} partecipanti</span>
+                    <span>👥 ${event.attendees} ${eventiT.attendees}</span>
                 </div>
             </div>
         `;
@@ -207,17 +248,17 @@ document.addEventListener('DOMContentLoaded', function() {
             month: 'long', 
             day: 'numeric' 
         };
-        return date.toLocaleDateString('it-IT', options);
+        return date.toLocaleDateString(eventiT.locale, options);
     }
 
     // Format past event date
     function formatPastEventDate(date) {
-        const options = { 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric' 
+        const options = {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
         };
-        return date.toLocaleDateString('it-IT', options);
+        return date.toLocaleDateString(eventiT.locale, options);
     }
 
     // Global functions for event interaction
@@ -243,7 +284,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const shareData = {
             title: event.title,
-            text: `Partecipa a "${event.title}" il ${formatEventDate(event.date)}`,
+            text: eventiT.shareText(event.title, formatEventDate(event.date)),
             url: window.location.href
         };
 
@@ -253,7 +294,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Fallback: copy to clipboard
             const shareText = `${shareData.title} - ${shareData.text}\n${shareData.url}`;
             navigator.clipboard.writeText(shareText).then(() => {
-                showNotification('Link copiato negli appunti!', 'success');
+                showNotification(eventiT.linkCopied, 'success');
             });
         }
     };
@@ -283,7 +324,7 @@ document.addEventListener('DOMContentLoaded', function() {
         form.classList.add('form-loading');
         const submitButton = form.querySelector('button[type="submit"]');
         const originalText = submitButton.textContent;
-        submitButton.textContent = 'Registrazione in corso...';
+        submitButton.textContent = eventiT.registering;
 
         // Simulate API call
         setTimeout(() => {
@@ -309,14 +350,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const missing = required.filter(field => !data[field] || data[field].trim() === '');
         
         if (missing.length > 0) {
-            showNotification('Per favore compila tutti i campi obbligatori', 'error');
+            showNotification(eventiT.fillRequired, 'error');
             return false;
         }
 
         // Email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(data.email)) {
-            showNotification('Per favore inserisci un indirizzo email valido', 'error');
+            showNotification(eventiT.invalidEmail, 'error');
             return false;
         }
 
@@ -328,9 +369,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const successDiv = document.createElement('div');
         successDiv.className = 'form-success';
         successDiv.innerHTML = `
-            <h3>✅ Registrazione Completata!</h3>
-            <p>Grazie per la registrazione. Riceverai una email di conferma a breve.</p>
-            <p>Ti aspettiamo al nostro AI Aperitivo!</p>
+            <h3>${eventiT.successTitle}</h3>
+            <p>${eventiT.successBody}</p>
+            <p>${eventiT.successFooter}</p>
         `;
         
         form.parentNode.insertBefore(successDiv, form.nextSibling);

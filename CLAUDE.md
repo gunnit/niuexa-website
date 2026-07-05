@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a static website for Niuexa, an AI consulting company. The site showcases AI consulting services, training programs, and products. It's built with vanilla HTML, CSS, and JavaScript and deployed to Azure Static Web Apps.
+This is a static website for Niuexa, an AI consulting company. The site showcases AI consulting services, training programs, and products. It's built with vanilla HTML, CSS, and JavaScript and deployed to GitHub Pages (custom domain niuexa.ai via `CNAME`).
 
 ## Development Commands
 
@@ -31,9 +31,9 @@ npx http-server
 
 ### Deployment
 ```bash
-# Automatic deployment via GitHub Actions on push to master/main branch
-# Manual deployment via Azure CLI (if needed):
-az staticwebapp create --name niuexa-website --resource-group niuexa-rg --source https://github.com/USERNAME/REPO --location "East US" --branch master --app-location "/" --login-with-github
+# Automatic deployment to GitHub Pages via GitHub Actions on push to master/main branch
+# Workflow: .github/workflows/github-pages.yml (no build step - uploads the repo root as-is)
+# Custom domain (niuexa.ai) is configured via the CNAME file
 ```
 
 ## Architecture
@@ -86,21 +86,14 @@ az staticwebapp create --name niuexa-website --resource-group niuexa-rg --source
 - Hamburger menu for mobile navigation
 - Optimized images and typography scaling
 
-## Azure Static Web Apps Configuration
+## GitHub Pages Deployment
 
 ### Deployment Setup
-- **GitHub Actions**: Automated deployment via `.github/workflows/azure-static-web-apps.yml`
-  - Triggers on push to main/master branches and pull requests
-  - Uses `skip_app_build: "true"` since no build process is required
-  - Deploys from root directory (`app_location: "/"`)
-- **Static Web App Config**: `staticwebapp.config.json` handles routing, MIME types, and security headers
-
-### Routing and Configuration (`staticwebapp.config.json`)
-- **Route handling**: Direct serving of HTML files with fallback to `index.html`
-- **Static assets**: Proper MIME type configuration for all file types
-- **Security headers**: X-Content-Type-Options, X-Frame-Options, X-XSS-Protection
-- **Caching**: Long-term caching (31536000s) for static assets
-- **404 handling**: Fallback to `index.html` with 200 status for SPA-style navigation
+- **GitHub Actions**: Automated deployment via `.github/workflows/github-pages.yml`
+  - Triggers on push to main/master branches (plus manual `workflow_dispatch`)
+  - No build step - the repository root is uploaded as the Pages artifact
+- **Custom domain**: `CNAME` file points the site at niuexa.ai
+- **404 handling**: GitHub Pages automatically serves the root `404.html` for missing URLs
 
 ## Content Management
 
@@ -133,7 +126,7 @@ az staticwebapp create --name niuexa-website --resource-group niuexa-rg --source
 - Preconnect to Google Fonts
 - Optimized loading order
 - Compressed assets
-- CDN delivery via Azure Static Web Apps
+- CDN delivery via GitHub Pages
 
 ## Development Guidelines
 
@@ -196,7 +189,7 @@ az staticwebapp create --name niuexa-website --resource-group niuexa-rg --source
 --gradient-secondary: linear-gradient(135deg, var(--dark-blue), var(--dark-green));
 ```
 
-> **Accessibility note:** `--primary-green` (#43AE68) and the teal signal fail WCAG AA as *text* on light backgrounds. For green text use `--green-text`; the teal accent for text/links is `--signal: #0E7A78` (defined in `polish.css`). Reserve `--primary-green` for fills, borders, and gradients. The font import on every page is the Google Fonts link for `Space Grotesk + Hanken Grotesk + JetBrains Mono`.
+> **Accessibility note:** `--primary-green` (#43AE68) and the teal signal fail WCAG AA as *text* on light backgrounds. For green text use `--green-text`; the teal accent for text/links is `--signal: #0E7A78` (defined in `styles.css`). Reserve `--primary-green` for fills, borders, and gradients. The font import on every page is the Google Fonts link for `Space Grotesk + Hanken Grotesk + JetBrains Mono`.
 
 ### Critical Styling Rules
 - **NEVER use hard-coded colors** - always reference CSS custom properties from `:root` in `styles.css`
@@ -213,12 +206,10 @@ az staticwebapp create --name niuexa-website --resource-group niuexa-rg --source
 
 ## GitHub Actions Workflows
 The repository includes several automated workflows:
-- `azure-static-web-apps.yml`: Automated deployment to Azure Static Web Apps on push to master/main
-- `github-pages.yml`: Alternative GitHub Pages deployment 
+- `github-pages.yml`: Automated deployment to GitHub Pages on push to master/main
 - `claude-code-review.yml` and `claude.yml`: AI-assisted code review workflows
 
 ## Critical Files for Maintenance
-- `staticwebapp.config.json`: Azure Static Web Apps routing and MIME type configuration
 - `STYLESHEET_GUIDE.md`: Comprehensive design system documentation - reference this for all styling decisions
 - `robots.txt`, `sitemap.xml`, `site.webmanifest`: SEO and PWA configuration files
 - `CNAME`: Custom domain configuration for niuexa.ai

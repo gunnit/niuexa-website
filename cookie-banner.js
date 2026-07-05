@@ -1,7 +1,7 @@
 // GDPR Cookie Banner Implementation
 const COOKIE_BANNER_STRINGS = {
     it: {
-        privacyHref: 'privacy-policy.html',
+        privacyHref: '/privacy-policy.html',
         title: '🍪 Utilizziamo i Cookie',
         intro: 'Questo sito utilizza cookie tecnici e di analytics per migliorare la tua esperienza di navigazione. I dati sono trattati in conformità al',
         privacyLink: 'GDPR',
@@ -190,23 +190,41 @@ class CookieBanner {
 
     loadAcceptedCookies() {
         if (this.consentData && this.consentData.analytics) {
+            this.updateConsentMode(true);
             this.loadGoogleAnalytics();
+        } else {
+            this.updateConsentMode(false);
+        }
+    }
+
+    // Sync Google Consent Mode with the user's choice.
+    // GA loads in every page head with default consent DENIED; this flips it.
+    updateConsentMode(granted) {
+        if (typeof gtag === 'function') {
+            const state = granted ? 'granted' : 'denied';
+            gtag('consent', 'update', {
+                analytics_storage: state,
+                ad_storage: state,
+                ad_user_data: state,
+                ad_personalization: state
+            });
         }
     }
 
     loadGoogleAnalytics() {
-        // Load Google Analytics only if analytics cookies are accepted
+        // Fallback dynamic loader — only needed when gtag is absent
+        // (GA normally loads in the page head with default consent denied).
         if (window.gtag) return; // Already loaded
 
         const script = document.createElement('script');
         script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID';
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8JW0S3PJKM';
         document.head.appendChild(script);
 
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID', {
+        gtag('config', 'G-8JW0S3PJKM', {
             anonymize_ip: true,
             cookie_flags: 'SameSite=Strict;Secure'
         });
@@ -221,6 +239,7 @@ class CookieBanner {
 
     // Public method to revoke consent
     revokeConsent() {
+        this.updateConsentMode(false);
         localStorage.removeItem(this.cookieName);
         this.consentData = null;
         // Reload page to remove tracking cookies
@@ -415,7 +434,7 @@ document.head.appendChild(style);
 
 // Initialize Cookie Banner when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    new CookieBanner();
+    window.cookieBanner = new CookieBanner();
 });
 
 // Global function to revoke consent

@@ -478,7 +478,7 @@
 
 .pattern-list {
     background: #fff5f5;
-    border-left: 4px solid #e53e3e;
+    border-left: 4px solid var(--error);
     padding: 1.5rem 1.5rem 1.5rem 2rem;
     margin: 2rem 0;
     border-radius: 8px;
@@ -509,7 +509,7 @@
 
 .before {
     background: #fed7d7;
-    border-left: 4px solid #e53e3e;
+    border-left: 4px solid var(--error);
 }
 
 .after {
@@ -531,27 +531,27 @@
 
 .technique-box {
     background: #e6fffa;
-    border-left: 4px solid #38b2ac;
+    border-left: 4px solid var(--brand-teal);
     padding: 2rem;
     margin: 2rem 0;
     border-radius: 8px;
 }
 
 .technique-box h4 {
-    color: #234e52;
+    color: var(--signal);
     margin-top: 0;
 }
 
 .warning-box {
     background: #fffaf0;
-    border-left: 4px solid #ed8936;
+    border-left: 4px solid var(--warning);
     padding: 2rem;
     margin: 2rem 0;
     border-radius: 8px;
 }
 
 .warning-box h4 {
-    color: #744210;
+    color: var(--warning);
     margin-top: 0;
 }
 
@@ -735,7 +735,7 @@
 
 .coming-soon {
     background: #fed7d7;
-    color: #e53e3e;
+    color: var(--error);
     padding: 0.5rem 1rem;
     border-radius: 6px;
     font-size: 0.85rem;
@@ -958,35 +958,35 @@
 }
 
 .info-box.highlight {
-    background: #ebf8ff;
+    background: var(--light-blue);
     border-left-color: var(--primary-blue);
 }
 
 .info-box.warning {
     background: #fffaf0;
-    border-left-color: #ed8936;
+    border-left-color: var(--warning);
 }
 
 .info-box.warning h4 {
-    color: #744210;
+    color: var(--warning);
 }
 
 .info-box.case-study {
-    background: #f0fff4;
+    background: var(--light-green);
     border-left-color: var(--primary-green);
 }
 
 .info-box.case-study h4 {
-    color: #22543d;
+    color: var(--green-text);
 }
 
 .info-box.tip {
     background: #e6fffa;
-    border-left-color: #38b2ac;
+    border-left-color: var(--brand-teal);
 }
 
 .info-box.tip h4 {
-    color: #234e52;
+    color: var(--signal);
 }
 
 /* ========================================
@@ -1177,7 +1177,7 @@
 }
 
 .sources-section a:hover {
-    color: var(--primary-green);
+    color: var(--green-text);
     text-decoration: underline;
 }
 

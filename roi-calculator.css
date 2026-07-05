@@ -3,7 +3,7 @@
 /* Form Hints — live call helper text */
 .form-hint {
     text-align: center;
-    color: var(--primary-green);
+    color: var(--green-text);
     font-weight: 600;
     font-size: 0.95rem;
     margin-bottom: 1.5rem;
@@ -53,7 +53,7 @@
 
 .comparison-before {
     background: #fff3f3;
-    border: 2px solid #ff6b6b;
+    border: 2px solid var(--error);
 }
 
 .comparison-after {
@@ -69,7 +69,7 @@
 }
 
 .comparison-before h3 {
-    color: #ff6b6b;
+    color: var(--error);
 }
 
 .comparison-after h3 {
@@ -702,7 +702,7 @@
 
 /* Form Validation */
 .form-group input:invalid {
-    border-color: #dc3545;
+    border-color: var(--error);
 }
 
 .form-group input:valid {
@@ -710,7 +710,7 @@
 }
 
 .error-message {
-    color: #dc3545;
+    color: var(--error);
     font-size: 0.875rem;
     margin-top: 0.25rem;
 }
@@ -862,7 +862,7 @@
 }
 
 .disclaimer-item:last-child strong {
-    color: var(--primary-green);
+    color: var(--green-text);
 }
 
 .methodology-grid {

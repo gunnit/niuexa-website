@@ -35,7 +35,7 @@ All pages should use these standardized CSS custom properties:
 }
 ```
 
-> **Accessibility:** `--primary-green` and the teal signal fail WCAG AA as *text* on light backgrounds. Use `--green-text` for green text and `--signal: #0E7A78` (in `polish.css`) for teal text/links. `--medium-gray` is tuned to clear 4.5:1 on white and on tinted (`--light-gray` / cream) section backgrounds.
+> **Accessibility:** `--primary-green` and the teal signal fail WCAG AA as *text* on light backgrounds. Use `--green-text` for green text and `--signal: #0E7A78` (in `styles.css`) for teal text/links. `--medium-gray` is tuned to clear 4.5:1 on white and on tinted (`--light-gray` / cream) section backgrounds.
 
 ### Typography Standards
 ```css

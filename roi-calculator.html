@@ -19,6 +19,13 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
       gtag('config', 'G-8JW0S3PJKM');
     </script>
     
@@ -29,7 +36,10 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="author" content="Niuexa">
     <link rel="canonical" href="https://niuexa.ai/roi-calculator.html">
-    
+    <link rel="alternate" hreflang="it" href="https://niuexa.ai/roi-calculator.html">
+    <link rel="alternate" hreflang="en" href="https://niuexa.ai/en/roi-calculator.html">
+    <link rel="alternate" hreflang="x-default" href="https://niuexa.ai/roi-calculator.html">
+
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Calcolatore ROI Agenti AI | Calcola il Ritorno sull'Investimento | Niuexa">
     <meta property="og:description" content="Calcola il ROI dei tuoi agenti AI con il nostro strumento gratuito. Scopri risparmi di tempo e costi, periodo di recupero e benefici economici dell'automazione AI.">
@@ -373,7 +383,7 @@
         <div class="container">
             <div class="cta-content">
                 <h2>Pronto a Trasformare la Tua Azienda?</h2>
-                <p style="color: white !important; opacity: 1 !important;">I nostri esperti AI possono aiutarti a implementare questi risparmi nella tua organizzazione. Prenota una consulenza gratuita per discutere le tue esigenze specifiche.</p>
+                <p style="color: var(--white) !important; opacity: 1 !important;">I nostri esperti AI possono aiutarti a implementare questi risparmi nella tua organizzazione. Prenota una consulenza gratuita per discutere le tue esigenze specifiche.</p>
                 <div class="cta-buttons">
                     <a href="index.html#contact" class="btn btn-primary">Prenota Consulenza Gratuita</a>
                     <a href="index.html#services" class="btn btn-secondary">Esplora Soluzioni AI</a>
@@ -444,5 +454,6 @@
     <script src="script.js?v=20260428"></script>
     <script src="roi-calculator.js?v=20260429"></script>
     <script src="includes/includes.js?v=20260428"></script>
+    <script src="/cookie-banner.js?v=20260428"></script>
 </body>
 </html>

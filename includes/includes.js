@@ -38,6 +38,7 @@ const navigationHTML = `
                     <li><a href="/research.html" class="dropdown-link" data-page="research">Ricerca</a></li>
                     <li><a href="/roi-calculator.html" class="dropdown-link" data-page="roi-calculator">Calcolatore ROI</a></li>
                     <li><a href="/eventi.html" class="dropdown-link" data-page="eventi">Eventi</a></li>
+                    <li><a href="/resources.html" class="dropdown-link" data-page="resources">Risorse Gratuite</a></li>
                 </ul>
             </li>
             <li class="nav-item">
@@ -86,6 +87,7 @@ const footerHTML = `
                         <li><a href="/research.html">Ricerca</a></li>
                         <li><a href="/roi-calculator.html">Calcolatore ROI</a></li>
                         <li><a href="/eventi.html">Eventi</a></li>
+                        <li><a href="/resources.html">Risorse Gratuite</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -104,12 +106,20 @@ const footerHTML = `
                         <li><a href="https://discord.gg/vyKckeS3" target="_blank" rel="noopener noreferrer">Discord Community</a></li>
                     </ul>
                 </div>
+                <div class="footer-column">
+                    <h4>Legale</h4>
+                    <ul>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/cookie-policy.html">Cookie Policy</a></li>
+                        <li><a href="/terms-of-service.html">Termini di Servizio</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
             <div class="footer-bottom-content">
                 <p class="footer-copyright">&copy; 2024-2026 Niuexa. Tutti i diritti riservati.</p>
-                <p class="footer-company">Niuexa è una BU di Bebit Srl - P.I. 1121570019</p>
+                <p class="footer-company">Niuexa è una BU di Bebit Srl - P.I. 11215720019</p>
             </div>
         </div>
     </div>
@@ -355,6 +365,8 @@ function getCurrentPage() {
         return 'roi-calculator';
     } else if (page === 'eventi.html') {
         return 'eventi';
+    } else if (page === 'resources.html') {
+        return 'resources';
     } else if (page === 'carriere.html') {
         return 'carriere';
     } else if (page === 'login.html') {
