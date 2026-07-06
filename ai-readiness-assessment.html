@@ -62,20 +62,20 @@
     }
     </script>
     <style>
-      .phase-hero{background:linear-gradient(135deg,#0A1A26 0%,#14324A 45%,#237DA6 100%);color:white;padding:130px 0 90px;position:relative;overflow:hidden}.phase-hero:after{content:"";position:absolute;inset:auto -10% -30% -10%;height:300px;background:radial-gradient(circle,rgba(67,174,104,.22),transparent 60%)}.phase-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}.phase-card{background:white;border:1px solid rgba(20,50,74,.08);border-radius:22px;padding:1.6rem;box-shadow:0 14px 40px rgba(20,50,74,.08)}.phase-kicker{display:inline-flex;gap:.5rem;align-items:center;padding:.45rem .9rem;border-radius:999px;background:rgba(67,174,104,.14);color:#2C7A45;font-weight:700}.phase-section{padding:80px 0}.phase-check{list-style:none;padding:0;margin:0}.phase-check li{padding:.55rem 0 .55rem 2rem;position:relative}.phase-check li:before{content:"✓";position:absolute;left:0;color:#2C7A45;font-weight:800}.phase-form label{display:block;color:#14324A;font-weight:700;margin-bottom:.45rem}.phase-form input,.phase-form select,.phase-form textarea{width:100%;padding:.9rem;border:2px solid #E5EEF3;border-radius:10px;font-family:'Hanken Grotesk',system-ui,sans-serif;font-size:1rem}.phase-form input:focus,.phase-form select:focus,.phase-form textarea:focus{outline:none;border-color:#237DA6;box-shadow:0 0 0 4px rgba(35,125,166,.12)}.phase-muted{color:#54697A}.phase-two{display:grid;grid-template-columns:1.05fr .95fr;gap:2rem;align-items:start}@media(max-width:880px){.phase-two{grid-template-columns:1fr}.phase-hero{padding:105px 0 70px}.phase-hero h1{font-size:2.35rem!important}}
+      .phase-hero{background:linear-gradient(135deg,#0A1A26 0%,#14324A 45%,#237DA6 100%);color:white;padding:130px 0 90px;position:relative;overflow:hidden}.phase-hero:after{content:"";position:absolute;inset:auto -10% -30% -10%;height:300px;background:radial-gradient(circle,rgba(67,174,104,.22),transparent 60%)}.phase-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}.phase-card{background:white;border:1px solid rgba(20,50,74,.08);border-radius:22px;padding:1.6rem;box-shadow:0 14px 40px rgba(20,50,74,.08)}.phase-kicker{display:inline-flex;gap:.5rem;align-items:center;padding:.45rem .9rem;border-radius:999px;background:rgba(67,174,104,.14);color:#2C7A45;font-weight:700}.phase-section{padding:80px 0}.phase-check{list-style:none;padding:0;margin:0}.phase-check li{padding:.55rem 0 .55rem 2rem;position:relative}.phase-check li:before{content:"✓";position:absolute;left:0;color:#2C7A45;font-weight:800}.phase-form label{display:block;color:#14324A;font-weight:700;margin-bottom:.45rem}.phase-form input,.phase-form select,.phase-form textarea{width:100%;padding:.9rem;border:2px solid #E5EEF3;border-radius:10px;font-family:'Hanken Grotesk',system-ui,sans-serif;font-size:1rem}.phase-form input:focus,.phase-form select:focus,.phase-form textarea:focus{outline:none;border-color:#237DA6;box-shadow:0 0 0 4px rgba(35,125,166,.12)}.phase-muted{color:#54697A}.phase-two{display:grid;grid-template-columns:1.05fr .95fr;gap:2rem;align-items:start}@media(max-width:880px){.phase-two{grid-template-columns:1fr}.phase-hero{padding:105px 0 70px}.phase-hero h1{font-size:2.35rem!important}.phase-form .form-row{grid-template-columns:1fr!important}.phase-form{padding:1.25rem!important}.phase-form input,.phase-form select,.phase-form textarea{font-size:16px}.phase-hero .hero-actions{flex-direction:column;align-items:stretch}.phase-hero .hero-actions a{text-align:center;justify-content:center}}
     </style>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9S42S4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div id="nav-placeholder"></div>
 
-    <section class="phase-hero">
+    <section id="main-content" class="phase-hero">
       <div class="container" style="position:relative;z-index:1;">
         <div style="max-width:980px;">
           <span class="phase-kicker" style="background:rgba(255,255,255,.12);color:#E8F7F0;border:1px solid rgba(255,255,255,.22);">AI Readiness Assessment</span>
           <h1 style="font-family:var(--font-primary);font-size:3.8rem;line-height:1.05;margin:1.2rem 0 1rem;">Prima di investire in AI, scopri quali processi meritano davvero attenzione.</h1>
           <p style="font-size:1.25rem;line-height:1.75;max-width:850px;color:rgba(255,255,255,.9);">Niuexa aiuta le PMI italiane a trasformare l'interesse per l'intelligenza artificiale in una roadmap pratica: processi prioritari, dati necessari, competenze, governance e casi d'uso con impatto misurabile.</p>
-          <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem;">
+          <div class="hero-actions" style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem;">
             <a class="btn btn-primary" href="#assessment-form" data-track-cta="hero_assessment">Prenota l'assessment</a>
             <a class="btn btn-secondary" href="downloads/checklist-ai-readiness-pmi.pdf" data-track-cta="hero_checklist">Scarica la checklist PDF</a>
           </div>
@@ -184,21 +184,21 @@
           <input type="hidden" name="redirect" value="https://niuexa.ai/thank-you-ai-readiness-assessment.html">
           <input type="hidden" name="formSource" value="AI Readiness Assessment Phase 2 Landing Page">
           <input type="hidden" name="utm_source" id="utm_source"><input type="hidden" name="utm_medium" id="utm_medium"><input type="hidden" name="utm_campaign" id="utm_campaign"><input type="hidden" name="utm_content" id="utm_content"><input type="hidden" name="utm_term" id="utm_term">
-          <input type="checkbox" name="botcheck" style="display:none!important" tabindex="-1" autocomplete="off">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+          <input type="text" name="botcheck" style="display:none!important" tabindex="-1" autocomplete="off">
+          <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
             <div><label for="firstName">Nome *</label><input id="firstName" name="firstName" required placeholder="Mario"></div>
             <div><label for="lastName">Cognome *</label><input id="lastName" name="lastName" required placeholder="Rossi"></div>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;">
+          <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;">
             <div><label for="email">Email aziendale *</label><input id="email" type="email" name="email" required placeholder="mario@azienda.it"></div>
             <div><label for="company">Azienda *</label><input id="company" name="company" required placeholder="Nome azienda"></div>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;">
+          <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;">
             <div><label for="role">Ruolo</label><select id="role" name="role"><option value="">Seleziona</option><option>CEO / Founder</option><option>General Manager</option><option>Operations</option><option>Sales / Marketing</option><option>HR / Training</option><option>IT / Digital Transformation</option></select></div>
             <div><label for="employees">Dimensione azienda</label><select id="employees" name="employees"><option value="">Seleziona</option><option>1-10</option><option>11-50</option><option>51-250</option><option>250+</option></select></div>
           </div>
           <div style="margin-top:1rem;"><label for="website">Sito web</label><input id="website" type="url" name="website" placeholder="https://www.azienda.it"></div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;">
+          <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;">
             <div><label for="process_area">Area più interessante</label><select id="process_area" name="process_area"><option value="">Seleziona</option><option>Sales / Marketing</option><option>Operations / Back office</option><option>Customer service</option><option>HR / Training</option><option>Finance / Admin</option><option>Knowledge management</option><option>AI visibility / AEO-GEO</option></select></div>
             <div><label for="urgency">Quando volete partire?</label><select id="urgency" name="urgency"><option value="">Seleziona</option><option>Subito</option><option>Entro 30 giorni</option><option>Entro 90 giorni</option><option>Sto esplorando</option></select></div>
           </div>
