@@ -54,7 +54,7 @@
 - [Rischi AI in Azienda: i 7 Rischi Principali](https://niuexa.ai/articolo-rischi-ai-azienda.html): The 7 key risks of AI adoption and Niuexa's Risk Canvas mitigation framework
 - [Automazione Processi Manuali con AI](https://niuexa.ai/articolo-automazione-processi-manuali.html): When and how to automate manual processes — signals, quick wins, ROI timeline
 - [Costi Automazione AI: Guida Completa](https://niuexa.ai/articolo-costi-automazione-guida.html): Complete guide to automation project costs — €5K to €50K+ with 3 scenario comparisons
-- [Da PoC a Produzione: Framework Niuexa](https://niuexa.ai/articolo-poc-produzione-framework.html): How to transition AI from proof-of-concept to production in 4 weeks
+- [Da PoC a Produzione: Framework Niuexa](https://niuexa.ai/articolo-poc-produzione.html): How to transition AI from proof-of-concept to production in 4 weeks
 - [Roadmap Trasformazione AI](https://niuexa.ai/articolo-roadmap-trasformazione.html): Building an AI transformation roadmap — phases, milestones, success metrics
 - [Tool e Practice per Creare Agenti AI](https://niuexa.ai/articolo-tool-agenti-ai.html): Tools and best practices for building reliable AI agents — 10-step workflow
 - [Formazione AI per Manager](https://niuexa.ai/articolo-formazione-ai-manager.html): AI training programs for managers and executives

@@ -197,6 +197,20 @@
     color: var(--dark-gray);
 }
 
+.panel-more {
+    margin: 1.25rem 0 0;
+}
+
+.panel-more a {
+    color: var(--signal);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.panel-more a:hover {
+    text-decoration: underline;
+}
+
 .features-list {
     list-style: none;
     margin: 0;

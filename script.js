@@ -473,10 +473,10 @@ function showMessage(message, type) {
     }, 8000);
 }
 
-// Loading animation
-window.addEventListener('load', function() {
-    document.body.classList.add('loaded');
-});
+// Loading animation — reveal hero content as soon as this script runs (end of body,
+// right after HTML/CSS parse) instead of waiting for window 'load' (fonts, videos,
+// third-party scripts), which was delaying the LCP element's paint by up to ~1.4s.
+document.body.classList.add('loaded');
 
 // Tech grid animation enhancement
 function enhanceTechGrid() {

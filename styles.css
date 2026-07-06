@@ -3339,6 +3339,20 @@ button[aria-busy="true"]::after {
     color: var(--white);
 }
 
+/* The real nav is position:fixed and the real footer flows in normally, so once
+   includes.js swaps the loading placeholder's innerHTML for the real markup, the
+   placeholder container's own height collapses unless it reserves space itself
+   (fixed-position children contribute zero height to their parent). This min-height
+   prevents the ~70px layout shift that otherwise happens on every page load. */
+#nav-placeholder,
+#navigation-placeholder {
+    min-height: 70px;
+}
+
+#footer-placeholder {
+    min-height: 200px;
+}
+
 .error-placeholder {
     padding: 1rem;
     background: #f8d7da;
@@ -5977,23 +5991,25 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 .product-card:nth-child(4).animate-in { transition-delay: 0.4s; }
 
 /* Loading animation */
-body:not(.loaded) .hero-title,
-body:not(.loaded) .hero-subtitle,
-body:not(.loaded) .hero-buttons {
-    opacity: 0;
-    transform: translateY(30px);
-}
+@media (prefers-reduced-motion: no-preference) {
+    body:not(.loaded) .hero-title,
+    body:not(.loaded) .hero-subtitle,
+    body:not(.loaded) .hero-buttons {
+        opacity: 0;
+        transform: translateY(30px);
+    }
 
-body.loaded .hero-title,
-body.loaded .hero-subtitle,
-body.loaded .hero-buttons {
-    animation: fadeInUp 1s ease forwards;
-}
+    body.loaded .hero-title,
+    body.loaded .hero-subtitle,
+    body.loaded .hero-buttons {
+        animation: fadeInUp 1s ease forwards;
+    }
 
-body.loaded .hero-subtitle {
-    animation-delay: 0.2s;
-}
+    body.loaded .hero-subtitle {
+        animation-delay: 0.2s;
+    }
 
-body.loaded .hero-buttons {
-    animation-delay: 0.4s;
+    body.loaded .hero-buttons {
+        animation-delay: 0.4s;
+    }
 }
