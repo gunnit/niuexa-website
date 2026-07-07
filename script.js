@@ -54,6 +54,14 @@ function initSimpleSignupForms() {
                             'event_label': form.dataset.formLabel || form.id || 'simple-signup'
                         });
                     }
+                    if (window.NiuexaTracking && typeof window.NiuexaTracking.track === 'function') {
+                        window.NiuexaTracking.track('generate_lead', {
+                            form_name: form.dataset.formLabel || form.id || 'simple-signup',
+                            campaign: new FormData(form).get('campaign') || new FormData(form).get('utm_campaign') || 'book_lead_magnet_2026',
+                            lead_source: new FormData(form).get('utm_source') || 'website',
+                            lead_medium: new FormData(form).get('utm_medium') || 'organic'
+                        });
+                    }
                     const successHtml = form.dataset.successHtml ||
                         '<h3 style="margin-bottom: 12px;">Thank you!</h3>' +
                         '<p>We\'ve received your request and will be in touch shortly.</p>';
