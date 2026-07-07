@@ -62,7 +62,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
     <link rel="stylesheet" href="styles.css?v=20260429">
     <link rel="stylesheet" href="tutorial.css?v=20260429">
 
@@ -144,6 +145,32 @@
                     "@type": "Answer",
                     "text": "Ottimizza le pagine categoria aggiungendo: un'introduzione informativa (200-400 parole) che spiega la categoria e i criteri di scelta, filtri ben strutturati con URL crawlabili, guide all'acquisto integrate ('Come scegliere il miglior X'), FAQ specifiche sulla categoria, e schema CollectionPage o ItemList. Queste pagine possono catturare query informazionali pre-acquisto."
                 }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://niuexa.ai/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Ricerca AI",
+                "item": "https://niuexa.ai/research.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "AI SEO per E-commerce",
+                "item": "https://niuexa.ai/articolo-ai-seo-ecommerce.html"
             }
         ]
     }

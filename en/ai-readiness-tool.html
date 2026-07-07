@@ -82,6 +82,18 @@
         }
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "Is the analysis invasive for my site?", "acceptedAnswer": {"@type": "Answer", "text": "Absolutely not. Our analysis is completely non-invasive: we use respectful crawlers that do not overload your server, we do not modify any file or content on your site, we respect robots.txt and crawling policies, and the analysis does not affect your site's performance."}},
+            {"@type": "Question", "name": "What exactly does the report include?", "acceptedAnswer": {"@type": "Answer", "text": "The report includes a complete analysis with: an Executive Summary of the main findings, an AI Readiness Score (0-100), a Detailed Analysis for every area of your site, prioritized AI Opportunities with estimated ROI, a step-by-step Implementation Roadmap, and Competitive Benchmarks against your competitors."}},
+            {"@type": "Question", "name": "Do you need access to my site's backend?", "acceptedAnswer": {"@type": "Answer", "text": "No, the basic analysis requires no access at all. We only analyze publicly accessible information, we do not ask for credentials or FTP access, for deeper (optional) analyses we can integrate Google Analytics, and all data is handled with maximum security and confidentiality."}},
+            {"@type": "Question", "name": "Can I implement the solutions myself?", "acceptedAnswer": {"@type": "Answer", "text": "Certainly! The report is designed to be actionable, with detailed instructions for every recommendation, links to recommended resources and tools, a priority matrix to decide what to implement first, and the option for professional support if needed."}}
+        ]
+    }
+    </script>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/img/favicon 256.ico">
@@ -95,7 +107,8 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 
     <!-- Styles -->
     <link rel="stylesheet" href="/styles.css?v=20260429">

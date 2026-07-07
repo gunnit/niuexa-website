@@ -48,7 +48,7 @@ const navigationHTML = `
                 <a href="https://aeo.niuexa.ai" class="nav-link login-link" target="_blank" rel="noopener noreferrer">🔐 Login</a>
             </li>
             <li class="nav-item language-switcher">
-                <a href="/en/index.html" class="nav-link" title="Switch to English">🇬🇧 EN</a>
+                <a href="/en/" class="nav-link" title="Switch to English">🇬🇧 EN</a>
             </li>
         </ul>
         <div class="hamburger" role="button" aria-label="Apri menu di navigazione" aria-expanded="false" tabindex="0">

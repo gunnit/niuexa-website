@@ -69,7 +69,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
     <link rel="stylesheet" href="/styles.css?v=20260429">
     <link rel="stylesheet" href="/contatti.css">
 
@@ -113,6 +114,18 @@
                 }
             ]
         }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "How long does it take to receive a response?", "acceptedAnswer": {"@type": "Answer", "text": "We will contact you within 24 business hours of receiving your request. For urgent matters, you can use our AI Secretary available 24/7."}},
+            {"@type": "Question", "name": "Do you offer free consultations?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, we offer a first free 30-minute consultation to understand your needs and show you how we can help."}},
+            {"@type": "Question", "name": "Do you work with small and medium-sized businesses?", "acceptedAnswer": {"@type": "Answer", "text": "Absolutely! We have scalable solutions suitable for businesses of all sizes, from startups to large enterprises."}},
+            {"@type": "Question", "name": "In which geographic areas do you operate?", "acceptedAnswer": {"@type": "Answer", "text": "We operate throughout Italy with offices in Milan and Turin. We also offer remote consultations for international clients."}}
+        ]
     }
     </script>
 </head>
@@ -279,13 +292,13 @@
                     <div class="office-cards">
                         <h3>Our Offices</h3>
                         <div class="office-card">
-                            <img src="/img/ufficibebitmilano.jpg" alt="Niuexa Milan Office" class="office-image">
+                            <img src="/img/ufficibebitmilano.jpg" alt="Niuexa Milan Office" class="office-image" width="80" height="60" loading="lazy">
                             <div class="office-info">
                                 <h4>Milan</h4>
                             </div>
                         </div>
                         <div class="office-card">
-                            <img src="/img/ufficiotorino.jpg" alt="Niuexa Turin Office" class="office-image">
+                            <img src="/img/ufficiotorino.jpg" alt="Niuexa Turin Office" class="office-image" width="80" height="60" loading="lazy">
                             <div class="office-info">
                                 <h4>Turin</h4>
                             </div>

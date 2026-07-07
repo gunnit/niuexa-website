@@ -69,7 +69,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
     <link rel="stylesheet" href="styles.css?v=20260429">
     <link rel="stylesheet" href="contatti.css">
 
@@ -170,6 +171,18 @@
         "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://niuexa.ai/"},
             {"@type": "ListItem", "position": 2, "name": "Contatti", "item": "https://niuexa.ai/contatti.html"}
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "Quanto tempo ci vuole per ricevere una risposta?", "acceptedAnswer": {"@type": "Answer", "text": "Ti contatteremo entro 24 ore lavorative dalla ricezione della tua richiesta. Per urgenze, puoi utilizzare la nostra AI Secretary disponibile 24/7."}},
+            {"@type": "Question", "name": "Offrite consulenze gratuite?", "acceptedAnswer": {"@type": "Answer", "text": "Sì, offriamo una prima consulenza gratuita di 30 minuti per comprendere le tue esigenze e illustrarti come possiamo aiutarti."}},
+            {"@type": "Question", "name": "Lavorate con piccole e medie imprese?", "acceptedAnswer": {"@type": "Answer", "text": "Certamente! Abbiamo soluzioni scalabili adatte a imprese di ogni dimensione, dalle startup alle grandi aziende."}},
+            {"@type": "Question", "name": "In quali aree geografiche operate?", "acceptedAnswer": {"@type": "Answer", "text": "Operiamo in tutta Italia con uffici a Milano e Torino. Offriamo anche consulenze da remoto per clienti internazionali."}}
         ]
     }
     </script>
@@ -336,13 +349,13 @@
                     <div class="office-cards">
                         <h3>I Nostri Uffici</h3>
                         <div class="office-card">
-                            <img src="img/ufficibebitmilano.jpg" alt="Ufficio Niuexa Milano" class="office-image">
+                            <img src="img/ufficibebitmilano.jpg" alt="Ufficio Niuexa Milano" class="office-image" width="80" height="60" loading="lazy">
                             <div class="office-info">
                                 <h4>Milano</h4>
                             </div>
                         </div>
                         <div class="office-card">
-                            <img src="img/ufficiotorino.jpg" alt="Ufficio Niuexa Torino" class="office-image">
+                            <img src="img/ufficiotorino.jpg" alt="Ufficio Niuexa Torino" class="office-image" width="80" height="60" loading="lazy">
                             <div class="office-info">
                                 <h4>Torino</h4>
                             </div>
