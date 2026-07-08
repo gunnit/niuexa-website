@@ -2951,7 +2951,7 @@ button[aria-busy="true"]::after {
     .nav-item.dropdown.active .dropdown-menu {
         opacity: 1;
         visibility: visible;
-        max-height: 200px;
+        max-height: 500px;
         margin-bottom: 1rem;
         transform: none;
     }
@@ -5852,8 +5852,9 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 
 .talk-with-us-section .contact-details {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
     gap: 2rem;
+    width: 100%;
     max-width: 800px;
     margin: 0 auto;
     flex-direction: row;
