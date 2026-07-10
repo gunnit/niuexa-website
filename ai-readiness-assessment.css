@@ -1,0 +1,709 @@
+/* ============================================================
+   AI Readiness Assessment — landing page styles
+   Extends the design system in styles.css (tokens only, no overrides)
+   Prefix: .ara-
+   ============================================================ */
+
+/* ---------- Shared section rhythm ---------- */
+.ara-section { padding: clamp(64px, 9vw, 104px) 0; }
+.ara-section-tight { padding: clamp(44px, 6vw, 64px) 0; }
+
+.ara-h2 {
+  font-family: var(--font-primary);
+  font-size: clamp(1.85rem, 3.4vw, 2.5rem);
+  line-height: 1.15;
+  color: var(--dark-gray);
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  margin-bottom: 1rem;
+}
+
+.ara-lead {
+  color: var(--medium-gray);
+  font-size: 1.08rem;
+  line-height: 1.75;
+  max-width: 62ch;
+}
+
+/* ---------- Hero ---------- */
+.ara-hero {
+  position: relative;
+  background: var(--black);
+  color: var(--white);
+  padding: clamp(120px, 16vw, 168px) 0 clamp(56px, 8vw, 88px);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.ara-hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: url('img/ai-readiness-hero-poster.webp') center / cover no-repeat var(--black);
+}
+
+.ara-hero-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ara-hero::before {
+  /* readability scrim over the motion layer */
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(100deg, rgba(10, 26, 38, 0.94) 0%, rgba(10, 26, 38, 0.82) 46%, rgba(10, 26, 38, 0.55) 100%);
+}
+
+.ara-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.ara-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.08);
+  color: #DFF3EA;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.ara-hero-badge::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary-green);
+  box-shadow: 0 0 10px rgba(67, 174, 104, 0.9);
+}
+
+.ara-hero h1 {
+  font-family: var(--font-primary);
+  font-size: clamp(2.3rem, 5vw, 3.55rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin: 1.25rem 0 1.1rem;
+  text-wrap: balance;
+}
+
+.ara-hero-sub {
+  font-size: clamp(1.05rem, 1.6vw, 1.22rem);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 58ch;
+}
+
+.ara-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 2rem;
+}
+
+.ara-btn-ghost {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  color: var(--white);
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.ara-btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--white);
+  transform: translateY(-2px);
+}
+
+.ara-hero-note {
+  margin-top: 1.1rem;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.72);
+  max-width: 52ch;
+}
+
+.ara-hero-visual {
+  position: relative;
+  margin: 0;
+}
+
+.ara-hero-visual::before {
+  content: "";
+  position: absolute;
+  inset: -12% -8%;
+  background: radial-gradient(closest-side, rgba(14, 156, 154, 0.32), transparent 72%);
+  z-index: -1;
+}
+
+.ara-hero-visual img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 18px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
+}
+
+.ara-hero-visual figcaption {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(10, 26, 38, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.82rem;
+  font-weight: 600;
+  backdrop-filter: blur(6px);
+}
+
+/* ---------- Trust strip ---------- */
+.ara-trust {
+  background: var(--white);
+  border-bottom: 1px solid rgba(20, 50, 74, 0.08);
+  padding: 1.9rem 0;
+}
+
+.ara-trust-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.4rem 2.6rem;
+  justify-content: center;
+}
+
+.ara-trust-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--medium-gray);
+  white-space: nowrap;
+}
+
+.ara-trust-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem 2.4rem;
+}
+
+.ara-trust-logos img {
+  height: 30px;
+  width: auto;
+  max-width: 130px;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.72;
+  transition: filter var(--transition-fast), opacity var(--transition-fast);
+}
+
+.ara-trust-logos img:hover { filter: grayscale(0); opacity: 1; }
+
+/* ---------- Problem ---------- */
+.ara-problem-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+
+.ara-signals {
+  background: var(--light-gray);
+  border: 1px solid rgba(20, 50, 74, 0.08);
+  border-radius: 20px;
+  padding: clamp(1.4rem, 3vw, 2.1rem);
+}
+
+.ara-signals h3 {
+  font-size: 1.15rem;
+  color: var(--dark-gray);
+  margin-bottom: 0.4rem;
+}
+
+.ara-signals ul { list-style: none; margin: 0; padding: 0; }
+
+.ara-signals li {
+  position: relative;
+  padding: 0.85rem 0 0.85rem 2rem;
+  color: var(--dark-gray);
+  line-height: 1.55;
+}
+
+.ara-signals li + li { border-top: 1px solid rgba(20, 50, 74, 0.1); }
+
+.ara-signals li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0.8rem;
+  color: var(--green-text);
+  font-weight: 800;
+}
+
+/* ---------- Framework: 5 dimensions ---------- */
+.ara-framework { background: var(--light-gray); }
+
+.ara-framework-head { max-width: 720px; margin-bottom: clamp(2rem, 4vw, 3rem); }
+
+.ara-dims { border-top: 1px solid rgba(20, 50, 74, 0.14); }
+
+.ara-dim {
+  display: grid;
+  grid-template-columns: 30px minmax(180px, 240px) minmax(0, 1fr);
+  gap: 1.4rem;
+  align-items: baseline;
+  padding: 1.35rem 0.25rem;
+  border-bottom: 1px solid rgba(20, 50, 74, 0.14);
+  transition: background var(--transition-fast);
+}
+
+.ara-dim:hover { background: rgba(255, 255, 255, 0.75); }
+
+.ara-dim-mark {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  align-self: center;
+  background: var(--dim-color, var(--primary-blue));
+}
+
+.ara-dim h3 {
+  font-size: 1.18rem;
+  color: var(--dark-gray);
+  letter-spacing: -0.01em;
+}
+
+.ara-dim p {
+  color: var(--medium-gray);
+  line-height: 1.65;
+  max-width: 62ch;
+}
+
+/* spectrum accents: blue → teal → green, mirroring the brand gradient */
+.ara-dim:nth-child(1) { --dim-color: #237DA6; }
+.ara-dim:nth-child(2) { --dim-color: #1B8CA1; }
+.ara-dim:nth-child(3) { --dim-color: #0E9C9A; }
+.ara-dim:nth-child(4) { --dim-color: #2BA57F; }
+.ara-dim:nth-child(5) { --dim-color: #43AE68; }
+
+/* ---------- Process ---------- */
+.ara-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1.4rem, 3vw, 2.4rem);
+  margin-top: clamp(2rem, 4vw, 3rem);
+  counter-reset: ara-step;
+}
+
+.ara-step { position: relative; counter-increment: ara-step; }
+
+.ara-step::before {
+  content: counter(ara-step);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  color: var(--white);
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.9rem;
+}
+
+.ara-step::after {
+  /* connector line between steps */
+  content: "";
+  position: absolute;
+  top: 21px;
+  left: 54px;
+  right: -1rem;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(35, 125, 166, 0.35), rgba(67, 174, 104, 0.35));
+}
+
+.ara-step:last-child::after { display: none; }
+
+.ara-step h3 { font-size: 1.12rem; color: var(--dark-gray); margin-bottom: 0.45rem; }
+
+.ara-step p { color: var(--medium-gray); line-height: 1.6; font-size: 0.98rem; }
+
+/* ---------- Workflow X-Ray ---------- */
+.ara-xray-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+  gap: 1.2rem;
+  margin-top: clamp(1.6rem, 3vw, 2.4rem);
+}
+
+.ara-xray-item {
+  background: var(--white);
+  border: 1px solid rgba(20, 50, 74, 0.08);
+  border-radius: 18px;
+  padding: 1.3rem 1.4rem;
+}
+
+.ara-xray-item strong {
+  display: block;
+  font-family: var(--font-primary);
+  font-size: 1.08rem;
+  color: var(--dark-gray);
+  margin-bottom: 0.4rem;
+}
+
+.ara-xray-item p { color: var(--medium-gray); line-height: 1.6; }
+
+.ara-xray-more {
+  margin-top: 1.6rem;
+  color: var(--medium-gray);
+  line-height: 1.65;
+}
+
+.ara-xray-more a { color: var(--signal); font-weight: 600; }
+
+/* ---------- Deliverables (dark) ---------- */
+.ara-deliver {
+  background: var(--black);
+  color: var(--white);
+}
+
+.ara-deliver-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+
+.ara-deliver .ara-h2 { color: var(--white); }
+
+.ara-deliver-intro { color: rgba(255, 255, 255, 0.82); line-height: 1.7; max-width: 56ch; }
+
+.ara-outputs { list-style: none; margin: 1.8rem 0 2.2rem; padding: 0; }
+
+.ara-outputs li {
+  padding: 1.15rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.ara-outputs li:last-child { border-bottom: 1px solid rgba(255, 255, 255, 0.14); }
+
+.ara-outputs strong {
+  display: block;
+  font-family: var(--font-primary);
+  font-size: 1.12rem;
+  margin-bottom: 0.3rem;
+  color: var(--white);
+}
+
+.ara-outputs span { color: rgba(255, 255, 255, 0.78); line-height: 1.6; }
+
+.ara-deliver-visual { margin: 0; }
+
+.ara-deliver-visual img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* ---------- Founders ---------- */
+.ara-founders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  margin-top: clamp(1.8rem, 3vw, 2.6rem);
+}
+
+.ara-founder {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 1.3rem;
+  align-items: start;
+}
+
+.ara-founder img {
+  width: 92px;
+  height: 92px;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+
+.ara-founder h3 { font-size: 1.15rem; color: var(--dark-gray); margin-bottom: 0.15rem; }
+
+.ara-founder-role {
+  color: var(--signal);
+  font-weight: 600;
+  font-size: 0.92rem;
+  margin-bottom: 0.5rem;
+}
+
+.ara-founder p { color: var(--medium-gray); line-height: 1.65; font-size: 0.98rem; }
+
+/* ---------- Checklist band ---------- */
+.ara-checklist { background: var(--light-blue); }
+
+.ara-checklist-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.ara-checklist-card {
+  background: var(--white);
+  border: 1px solid rgba(20, 50, 74, 0.08);
+  border-radius: 20px;
+  padding: clamp(1.4rem, 3vw, 2rem);
+  box-shadow: 0 16px 44px rgba(20, 50, 74, 0.1);
+}
+
+.ara-checklist-card h3 { font-size: 1.1rem; color: var(--dark-gray); margin-bottom: 0.3rem; }
+
+.ara-checklist-card ul { list-style: none; margin: 0; padding: 0; }
+
+.ara-checklist-card li {
+  position: relative;
+  padding: 0.7rem 0 0.7rem 1.9rem;
+  color: var(--dark-gray);
+  line-height: 1.55;
+}
+
+.ara-checklist-card li + li { border-top: 1px solid rgba(20, 50, 74, 0.08); }
+
+.ara-checklist-card li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0.65rem;
+  color: var(--green-text);
+  font-weight: 800;
+}
+
+/* ---------- Form ---------- */
+.ara-form-section {
+  background: var(--gradient-secondary);
+  color: var(--white);
+  scroll-margin-top: 80px; /* keeps the section heading clear of the fixed navbar on anchor jumps */
+}
+
+.ara-form-head { text-align: center; max-width: 640px; margin: 0 auto 2.2rem; }
+
+.ara-form-head .ara-h2 { color: var(--white); }
+
+.ara-form-head p { color: rgba(255, 255, 255, 0.9); font-size: 1.1rem; line-height: 1.65; }
+
+.ara-form {
+  background: var(--white);
+  border-radius: 24px;
+  padding: clamp(1.4rem, 4vw, 2.75rem);
+  box-shadow: 0 24px 70px rgba(10, 26, 38, 0.35);
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.ara-form label {
+  display: block;
+  color: var(--dark-gray);
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+}
+
+.ara-form input:not([type="checkbox"]),
+.ara-form select,
+.ara-form textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 2px solid #DCE7EE;
+  border-radius: 12px;
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  color: var(--dark-gray);
+  background: var(--white);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.ara-form input::placeholder,
+.ara-form textarea::placeholder { color: #5F7385; }
+
+.ara-form input:focus,
+.ara-form select:focus,
+.ara-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 4px rgba(35, 125, 166, 0.14);
+}
+
+.ara-form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.ara-form-row:first-of-type { margin-top: 0; }
+
+.ara-form-field { margin-top: 1rem; }
+
+.ara-form-privacy {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  margin-top: 1.2rem;
+  font-weight: 500;
+  color: var(--dark-gray);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.ara-form-privacy input { width: auto; margin-top: 0.25rem; accent-color: var(--primary-blue); }
+
+.ara-form-privacy a { color: var(--signal); font-weight: 600; }
+
+.ara-form-submit {
+  width: 100%;
+  margin-top: 1.4rem;
+  border: 0;
+  cursor: pointer;
+  font-size: 1.08rem;
+  padding: 16px 30px;
+}
+
+.ara-form-micro {
+  color: var(--medium-gray);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* ---------- FAQ ---------- */
+.ara-faq-list { max-width: 860px; margin: clamp(1.8rem, 3vw, 2.6rem) auto 0; }
+
+.ara-faq-item {
+  border: 1px solid rgba(20, 50, 74, 0.12);
+  border-radius: 14px;
+  background: var(--white);
+  margin-bottom: 0.9rem;
+  overflow: hidden;
+}
+
+.ara-faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 1.3rem;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--dark-gray);
+}
+
+.ara-faq-item summary::-webkit-details-marker { display: none; }
+
+.ara-faq-item summary::after {
+  content: "+";
+  flex: 0 0 auto;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--signal);
+  transition: transform var(--transition-fast);
+}
+
+.ara-faq-item[open] summary::after { transform: rotate(45deg); }
+
+.ara-faq-item p {
+  padding: 0 1.3rem 1.2rem;
+  color: var(--medium-gray);
+  line-height: 1.7;
+}
+
+/* ---------- Closing CTA ---------- */
+.ara-final { background: var(--light-gray); text-align: center; }
+
+.ara-final .ara-h2 { margin-bottom: 0.6rem; }
+
+.ara-final p { color: var(--medium-gray); max-width: 54ch; margin: 0 auto 1.6rem; }
+
+/* ---------- Motion ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .ara-hero .ara-rise {
+    animation: ara-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .ara-hero .ara-rise:nth-child(2) { animation-delay: 0.08s; }
+  .ara-hero .ara-rise:nth-child(3) { animation-delay: 0.16s; }
+  .ara-hero .ara-rise:nth-child(4) { animation-delay: 0.24s; }
+  .ara-hero .ara-rise:nth-child(5) { animation-delay: 0.32s; }
+  .ara-hero-visual { animation: ara-rise 0.9s 0.2s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+  /* scroll reveals: initial state applied by JS only, so content is never hidden without it */
+  .ara-reveal-init {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .ara-reveal-init.ara-in { opacity: 1; transform: none; }
+}
+
+@keyframes ara-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px) {
+  .ara-hero-grid { grid-template-columns: 1fr; }
+  .ara-hero-visual { max-width: 560px; }
+  .ara-deliver-grid { grid-template-columns: 1fr; }
+  .ara-deliver-visual { max-width: 560px; }
+  .ara-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 1.6rem; }
+  .ara-step::after { display: none; }
+}
+
+@media (max-width: 880px) {
+  .ara-problem-grid,
+  .ara-checklist-grid { grid-template-columns: 1fr; }
+  .ara-dim {
+    grid-template-columns: 14px minmax(0, 1fr);
+    grid-template-areas: "mark title" ". desc";
+    gap: 0.4rem 1rem;
+  }
+  .ara-dim-mark { grid-area: mark; }
+  .ara-dim h3 { grid-area: title; }
+  .ara-dim p { grid-area: desc; }
+}
+
+@media (max-width: 640px) {
+  .ara-steps { grid-template-columns: 1fr; }
+  .ara-hero-actions { flex-direction: column; align-items: stretch; }
+  .ara-hero-actions .btn,
+  .ara-hero-actions .ara-btn-ghost { text-align: center; }
+  .ara-form-row { grid-template-columns: 1fr; }
+  .ara-form input:not([type="checkbox"]),
+  .ara-form select,
+  .ara-form textarea { font-size: 16px; } /* prevents iOS focus zoom */
+  .ara-trust-inner { flex-direction: column; gap: 1rem; }
+  .ara-trust-logos { gap: 1.2rem 1.8rem; }
+  .ara-trust-logos img { height: 24px; max-width: 104px; }
+}
