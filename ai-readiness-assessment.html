@@ -57,12 +57,15 @@
       "mainEntity":[
         {"@type":"Question","name":"Che cos'è un AI Readiness Assessment?","acceptedAnswer":{"@type":"Answer","text":"È una valutazione strutturata di processi, dati, competenze, governance e casi d'uso per capire dove l'AI può creare valore misurabile in azienda."}},
         {"@type":"Question","name":"Perché partire dai processi invece che dagli strumenti AI?","acceptedAnswer":{"@type":"Answer","text":"Perché l'AI genera ROI quando risolve un problema operativo chiaro. La scelta del modello o del tool viene dopo la priorità di business, i dati disponibili e la metrica di successo."}},
-        {"@type":"Question","name":"Cosa riceve l'azienda alla fine dell'assessment?","acceptedAnswer":{"@type":"Answer","text":"Una mappa delle opportunità AI, una shortlist di casi d'uso prioritari, rischi/governance da considerare e una roadmap iniziale per passare da idea a progetto operativo."}}
+        {"@type":"Question","name":"Cosa riceve l'azienda alla fine dell'assessment?","acceptedAnswer":{"@type":"Answer","text":"Una mappa delle opportunità AI, una shortlist di casi d'uso prioritari, rischi/governance da considerare e una roadmap iniziale per passare da idea a progetto operativo."}},
+        {"@type":"Question","name":"Quanto dura l'assessment?","acceptedAnswer":{"@type":"Answer","text":"La prima conversazione serve a definire contesto e priorità. Il percorso completo viene adattato in base a dimensione azienda, processi e livello di dettaglio richiesto."}},
+        {"@type":"Question","name":"È solo consulenza o anche implementazione?","acceptedAnswer":{"@type":"Answer","text":"L'assessment identifica priorità e roadmap. Dopo, Niuexa può supportare training, AI Automation Roadmap o AI Agents Sprint per portare i casi d'uso selezionati nei workflow operativi."}},
+        {"@type":"Question","name":"Serve già avere dati perfetti?","acceptedAnswer":{"@type":"Answer","text":"No. Parte della valutazione è capire quali dati esistono, quali mancano e quali casi d'uso sono realistici nel breve periodo."}}
       ]
     }
     </script>
     <style>
-      .phase-hero{background:linear-gradient(135deg,#0A1A26 0%,#14324A 45%,#237DA6 100%);color:white;padding:130px 0 90px;position:relative;overflow:hidden}.phase-hero:after{content:"";position:absolute;inset:auto -10% -30% -10%;height:300px;background:radial-gradient(circle,rgba(67,174,104,.22),transparent 60%)}.phase-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}.phase-card{background:white;border:1px solid rgba(20,50,74,.08);border-radius:22px;padding:1.6rem;box-shadow:0 14px 40px rgba(20,50,74,.08)}.phase-kicker{display:inline-flex;gap:.5rem;align-items:center;padding:.45rem .9rem;border-radius:999px;background:rgba(67,174,104,.14);color:#2C7A45;font-weight:700}.phase-section{padding:80px 0}.phase-check{list-style:none;padding:0;margin:0}.phase-check li{padding:.55rem 0 .55rem 2rem;position:relative}.phase-check li:before{content:"✓";position:absolute;left:0;color:#2C7A45;font-weight:800}.phase-form label{display:block;color:#14324A;font-weight:700;margin-bottom:.45rem}.phase-form input,.phase-form select,.phase-form textarea{width:100%;padding:.9rem;border:2px solid #E5EEF3;border-radius:10px;font-family:'Hanken Grotesk',system-ui,sans-serif;font-size:1rem}.phase-form input:focus,.phase-form select:focus,.phase-form textarea:focus{outline:none;border-color:#237DA6;box-shadow:0 0 0 4px rgba(35,125,166,.12)}.phase-muted{color:#54697A}.phase-two{display:grid;grid-template-columns:1.05fr .95fr;gap:2rem;align-items:start}@media(max-width:880px){.phase-two{grid-template-columns:1fr}.phase-hero{padding:105px 0 70px}.phase-hero h1{font-size:2.35rem!important}.phase-form .form-row{grid-template-columns:1fr!important}.phase-form{padding:1.25rem!important}.phase-form input,.phase-form select,.phase-form textarea{font-size:16px}.phase-hero .hero-actions{flex-direction:column;align-items:stretch}.phase-hero .hero-actions a{text-align:center;justify-content:center}}
+      .phase-hero{background:var(--gradient-secondary);color:white;padding:130px 0 90px;position:relative;overflow:hidden}.phase-hero:after{content:"";position:absolute;inset:auto -10% -30% -10%;height:300px;background:radial-gradient(circle,rgba(67,174,104,.22),transparent 60%)}.phase-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}.phase-card{background:white;border:1px solid rgba(20,50,74,.08);border-radius:22px;padding:1.6rem;box-shadow:0 14px 40px rgba(20,50,74,.08)}.phase-kicker{display:inline-flex;gap:.5rem;align-items:center;padding:.45rem .9rem;border-radius:999px;background:rgba(67,174,104,.14);color:var(--green-text);font-weight:700}.phase-section{padding:80px 0}.phase-check{list-style:none;padding:0;margin:0}.phase-check li{padding:.55rem 0 .55rem 2rem;position:relative}.phase-check li:before{content:"✓";position:absolute;left:0;color:var(--green-text);font-weight:800}.phase-form label{display:block;color:var(--dark-gray);font-weight:700;margin-bottom:.45rem}.phase-form input,.phase-form select,.phase-form textarea{width:100%;padding:.9rem;border:2px solid #E5EEF3;border-radius:10px;font-family:var(--font-secondary);font-size:1rem}.phase-form input:focus,.phase-form select:focus,.phase-form textarea:focus{outline:none;border-color:var(--primary-blue);box-shadow:0 0 0 4px rgba(35,125,166,.12)}.phase-muted{color:var(--medium-gray)}.phase-two{display:grid;grid-template-columns:1.05fr .95fr;gap:2rem;align-items:start}.phase-mini-matrix{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.phase-mini-matrix strong{display:block;color:var(--dark-gray);margin-bottom:.4rem}.phase-mini-matrix div{background:var(--white);border:1px solid rgba(20,50,74,.08);border-radius:18px;padding:1.2rem}@media(max-width:880px){.phase-two,.phase-mini-matrix{grid-template-columns:1fr}.phase-hero{padding:105px 0 70px}.phase-hero h1{font-size:2.35rem!important}.phase-form .form-row{grid-template-columns:1fr!important}.phase-form{padding:1.25rem!important}.phase-form input,.phase-form select,.phase-form textarea{font-size:16px}.phase-hero .hero-actions{flex-direction:column;align-items:stretch}.phase-hero .hero-actions a{text-align:center;justify-content:center}}
     </style>
 </head>
 <body>
@@ -132,6 +135,25 @@
           <div class="phase-card"><strong>AI opportunity map</strong><p class="phase-muted">Processi candidati e valore potenziale.</p></div>
           <div class="phase-card"><strong>Use-case shortlist</strong><p class="phase-muted">3–5 casi d'uso prioritari valutati per impatto, fattibilità e rischio.</p></div>
           <div class="phase-card"><strong>Roadmap iniziale</strong><p class="phase-muted">Prossimi passi: training, automazione roadmap, AI agent sprint o governance.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="phase-section" style="background:var(--light-gray);">
+      <div class="container">
+        <div style="max-width:900px;margin:0 auto 2rem;text-align:center;">
+          <span class="phase-kicker">Workflow X-Ray</span>
+          <h2 style="font-family:var(--font-primary);font-size:2.45rem;margin:1rem 0;">Dalla lista di idee AI alla prima automazione misurabile</h2>
+          <p class="phase-muted" style="font-size:1.08rem;line-height:1.75;">Nell'assessment usiamo un filtro operativo semplice: non chiediamo solo “quale tool usare?”, ma quale workflow ha abbastanza volume, dati, regole e responsabilità per diventare un progetto AI sostenibile.</p>
+        </div>
+        <div class="phase-mini-matrix">
+          <div><strong>1. Baseline</strong><p class="phase-muted">Quanto tempo, quante eccezioni e quali errori genera oggi il processo?</p></div>
+          <div><strong>2. Automabilità</strong><p class="phase-muted">Quali passaggi sono ripetitivi, documentati e verificabili da una persona?</p></div>
+          <div><strong>3. Governance</strong><p class="phase-muted">Dove servono controllo umano, privacy, escalation e metriche di qualità?</p></div>
+        </div>
+        <div class="phase-card" style="margin-top:1.5rem;display:flex;gap:1rem;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+          <p class="phase-muted" style="margin:0;max-width:720px;line-height:1.65;">Approfondimento collegato: come portare l'AI dai chatbot isolati ai workflow operativi governati.</p>
+          <a class="btn btn-secondary" href="articolo-ai-workflow-operativi-enterprise.html" data-track-cta="workflow_article">Leggi l'articolo</a>
         </div>
       </div>
     </section>
