@@ -255,51 +255,202 @@
   font-weight: 800;
 }
 
-/* ---------- Framework: 5 dimensions ---------- */
-.ara-framework { background: var(--light-gray); }
+/* ---------- Framework: 5 dimensions, scroll-driven exploded view ----------
+   The generated artwork (img/ai-readiness-strata-*.webp) is one image cut into
+   five slices along its own seams. JS pins the section and drives --y0..--y4
+   (unitless seam multipliers) + data-stage. Without JS / with reduced motion,
+   the section renders as a static exploded composition: nothing is JS-gated. */
+.ara-strata {
+  background: var(--black);
+  color: var(--white);
+  --ara-gap: clamp(26px, 4.2vh, 46px);  /* max travel each seam opens */
+  --ara-gap: clamp(26px, 4.2svh, 46px);
+  --ara-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
 
-.ara-framework-head { max-width: 720px; margin-bottom: clamp(2rem, 4vw, 3rem); }
+.ara-strata-head { padding: clamp(64px, 9vw, 104px) 0 clamp(28px, 4vw, 44px); max-width: 760px; }
 
-.ara-dims { border-top: 1px solid rgba(20, 50, 74, 0.14); }
+.ara-strata-head .ara-h2 { color: var(--white); }
 
-.ara-dim {
+.ara-strata-head .ara-lead { color: rgba(255, 255, 255, 0.78); }
+
+.ara-strata-pin { padding: clamp(32px, 5vh, 56px) 0 clamp(48px, 7vh, 72px); }
+
+.ara-strata-live .ara-strata-track { height: 380vh; }
+
+.ara-strata-live .ara-strata-pin {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: 88px 0 24px; /* keeps the exploded top slice clear of the fixed navbar */
+  overflow: hidden;
+}
+
+.ara-strata-stage {
   display: grid;
-  grid-template-columns: 30px minmax(180px, 240px) minmax(0, 1fr);
-  gap: 1.4rem;
-  align-items: baseline;
-  padding: 1.35rem 0.25rem;
-  border-bottom: 1px solid rgba(20, 50, 74, 0.14);
-  transition: background var(--transition-fast);
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+  width: 100%;
 }
 
-.ara-dim:hover { background: rgba(255, 255, 255, 0.75); }
-
-.ara-dim-mark {
-  width: 14px;
-  height: 14px;
-  border-radius: 4px;
-  align-self: center;
-  background: var(--dim-color, var(--primary-blue));
+.ara-strata-slab {
+  position: relative;
+  width: min(100%, 420px);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.ara-dim h3 {
-  font-size: 1.18rem;
-  color: var(--dark-gray);
+/* fit the slab plus its maximum explosion inside the pinned viewport */
+.ara-strata-live .ara-strata-slab {
+  gap: 4px;
+  width: min(100%, calc((100vh - 10rem - 4 * var(--ara-gap)) * 0.664), 420px);
+  width: min(100%, calc((100svh - 10rem - 4 * var(--ara-gap)) * 0.664), 420px);
+}
+
+.ara-strata-slab::before {
+  content: "";
+  position: absolute;
+  inset: -12% -18%;
+  background: radial-gradient(closest-side, rgba(14, 156, 154, 0.22), transparent 72%);
+  pointer-events: none;
+}
+
+.ara-slice {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.42);
+}
+
+/* slice heights follow the artwork's own seams (462/838/1206/1597 of 2048) */
+.ara-slice:nth-child(1) { aspect-ratio: 1360 / 462; }
+.ara-slice:nth-child(2) { aspect-ratio: 1360 / 376; }
+.ara-slice:nth-child(3) { aspect-ratio: 1360 / 368; }
+.ara-slice:nth-child(4) { aspect-ratio: 1360 / 391; }
+.ara-slice:nth-child(5) { aspect-ratio: 1360 / 451; }
+
+.ara-slice img { display: block; width: 100%; height: auto; }
+
+/* each slice shows its band of the full image */
+.ara-slice:nth-child(2) img { transform: translateY(-22.5586%); }
+.ara-slice:nth-child(3) img { transform: translateY(-40.918%); }
+.ara-slice:nth-child(4) img { transform: translateY(-58.8867%); }
+.ara-slice:nth-child(5) img { transform: translateY(-77.9785%); }
+
+.ara-strata-live .ara-slice { will-change: transform; }
+.ara-strata-live .ara-slice:nth-child(1) { transform: translate3d(0, calc(var(--y0, 0) * var(--ara-gap)), 0); }
+.ara-strata-live .ara-slice:nth-child(2) { transform: translate3d(0, calc(var(--y1, 0) * var(--ara-gap)), 0); }
+.ara-strata-live .ara-slice:nth-child(3) { transform: translate3d(0, calc(var(--y2, 0) * var(--ara-gap)), 0); }
+.ara-strata-live .ara-slice:nth-child(4) { transform: translate3d(0, calc(var(--y3, 0) * var(--ara-gap)), 0); }
+.ara-strata-live .ara-slice:nth-child(5) { transform: translate3d(0, calc(var(--y4, 0) * var(--ara-gap)), 0); }
+
+.ara-strata-dims {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.1rem, 2.6vh, 1.9rem);
+}
+
+.ara-strata-dim h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1.16rem;
+  color: var(--white);
   letter-spacing: -0.01em;
 }
 
-.ara-dim p {
-  color: var(--medium-gray);
-  line-height: 1.65;
-  max-width: 62ch;
+.ara-strata-dim h3::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 13px;
+  height: 13px;
+  border-radius: 4px;
+  background: var(--dim-color, var(--primary-blue));
+  transition: box-shadow 0.45s var(--ara-ease);
 }
 
-/* spectrum accents: blue → teal → green, mirroring the brand gradient */
-.ara-dim:nth-child(1) { --dim-color: #237DA6; }
-.ara-dim:nth-child(2) { --dim-color: #1B8CA1; }
-.ara-dim:nth-child(3) { --dim-color: #0E9C9A; }
-.ara-dim:nth-child(4) { --dim-color: #2BA57F; }
-.ara-dim:nth-child(5) { --dim-color: #43AE68; }
+.ara-strata-dim p {
+  margin: 0.35rem 0 0 calc(13px + 0.7rem);
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+  max-width: 46ch;
+}
+
+/* spectrum accents: blue → teal → green, mirroring the artwork's bands */
+.ara-strata-dim:nth-child(1) { --dim-color: #237DA6; }
+.ara-strata-dim:nth-child(2) { --dim-color: #1B8CA1; }
+.ara-strata-dim:nth-child(3) { --dim-color: #0E9C9A; }
+.ara-strata-dim:nth-child(4) { --dim-color: #2BA57F; }
+.ara-strata-dim:nth-child(5) { --dim-color: #43AE68; }
+
+/* live mode: labels start muted and light up per stage */
+.ara-strata-live .ara-strata-dim {
+  opacity: 0.24;
+  transform: translateY(8px);
+  transition: opacity 0.5s var(--ara-ease), transform 0.5s var(--ara-ease);
+}
+
+@media (min-width: 880px) {
+  /* revealed labels stay visible: stage N shows labels 1..N+1 */
+  .ara-strata-live[data-stage="0"] .ara-strata-dim:nth-child(-n+1),
+  .ara-strata-live[data-stage="1"] .ara-strata-dim:nth-child(-n+2),
+  .ara-strata-live[data-stage="2"] .ara-strata-dim:nth-child(-n+3),
+  .ara-strata-live[data-stage="3"] .ara-strata-dim:nth-child(-n+4),
+  .ara-strata-live[data-stage="4"] .ara-strata-dim:nth-child(-n+5) {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* the current dimension's mark glows */
+  .ara-strata-live[data-stage="0"] .ara-strata-dim:nth-child(1) h3::before,
+  .ara-strata-live[data-stage="1"] .ara-strata-dim:nth-child(2) h3::before,
+  .ara-strata-live[data-stage="2"] .ara-strata-dim:nth-child(3) h3::before,
+  .ara-strata-live[data-stage="3"] .ara-strata-dim:nth-child(4) h3::before,
+  .ara-strata-live[data-stage="4"] .ara-strata-dim:nth-child(5) h3::before {
+    box-shadow: 0 0 16px var(--dim-color);
+  }
+}
+
+@media (max-width: 879px) {
+  .ara-strata-stage {
+    grid-template-columns: 1fr;
+    gap: clamp(1.4rem, 4vh, 2.2rem);
+  }
+
+  .ara-strata-slab { width: min(74vw, 320px); }
+
+  .ara-strata-live .ara-strata-slab {
+    width: min(66vw, calc((100vh - 16rem - 4 * var(--ara-gap)) * 0.664), 320px);
+    width: min(66vw, calc((100svh - 16rem - 4 * var(--ara-gap)) * 0.664), 320px);
+    /* transforms don't affect layout: reserve the explosion travel so the
+       bottom slice never slides over the caption below */
+    margin-block: calc(2 * var(--ara-gap));
+  }
+
+  /* live mode: labels stack in one cell and crossfade (only the current one shows) */
+  .ara-strata-live .ara-strata-dims { display: grid; min-height: 7.5rem; align-items: start; }
+
+  .ara-strata-live .ara-strata-dim { grid-area: 1 / 1; opacity: 0; }
+
+  .ara-strata-live[data-stage="0"] .ara-strata-dim:nth-child(1),
+  .ara-strata-live[data-stage="1"] .ara-strata-dim:nth-child(2),
+  .ara-strata-live[data-stage="2"] .ara-strata-dim:nth-child(3),
+  .ara-strata-live[data-stage="3"] .ara-strata-dim:nth-child(4),
+  .ara-strata-live[data-stage="4"] .ara-strata-dim:nth-child(5) {
+    opacity: 1;
+    transform: none;
+  }
+}
 
 /* ---------- Process ---------- */
 .ara-steps {
