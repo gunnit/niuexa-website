@@ -40,7 +40,7 @@ function initContactForm() {
         `;
 
         try {
-            // Submit form data to Formcarry
+            // Submit form data to Web3Forms
             const formData = new FormData(form);
             const response = await fetch(form.action, {
                 method: 'POST',

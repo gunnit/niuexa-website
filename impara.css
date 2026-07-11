@@ -55,18 +55,7 @@
     padding: var(--section-padding);
 }
 
-.featured-tutorials h2 {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 3rem;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: var(--primary-blue);
-    font-family: var(--font-primary);
-    color: #2d3748;
-}
+/* "Tutorial in Evidenza" heading uses the shared .section-title class */
 
 .tutorials-grid {
     display: grid;
@@ -76,12 +65,12 @@
 }
 
 .tutorial-card {
-    background: white;
+    background: var(--white);
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    border: 1px solid #e2e8f0;
+    border: 1px solid rgba(35, 125, 166, 0.1);
     position: relative;
 }
 
@@ -244,12 +233,12 @@
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: #2d3748;
+    color: var(--dark-gray);
     line-height: 1.3;
 }
 
 .tutorial-content p {
-    color: #718096;
+    color: var(--medium-gray);
     line-height: 1.6;
     margin-bottom: 1.5rem;
 }
@@ -263,18 +252,18 @@
 
 .tutorial-highlights .highlight-tag {
     background: linear-gradient(135deg, var(--primary-blue) 0%, var(--brand-teal) 100%);
-    color: white;
+    color: var(--white);
     padding: 0.25rem 0.75rem;
     border-radius: 15px;
     font-size: 0.8rem;
     font-weight: 500;
-    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+    box-shadow: 0 2px 8px rgba(35, 125, 166, 0.2);
     transition: all 0.2s ease;
 }
 
 .tutorial-highlights .highlight-tag:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 4px 12px rgba(35, 125, 166, 0.3);
 }
 
 .tutorial-meta {
@@ -282,24 +271,24 @@
     gap: 1rem;
     margin-bottom: 1.5rem;
     font-size: 0.9rem;
-    color: #a0aec0;
+    color: var(--medium-gray);
 }
 
 .btn-tutorial {
     display: inline-block;
     background: linear-gradient(135deg, var(--primary-blue) 0%, var(--brand-teal) 100%);
-    color: white;
-    padding: 0.75rem 1.5rem;
+    color: var(--white);
+    padding: 0.75rem 1.75rem;
     text-decoration: none;
-    border-radius: 8px;
-    font-weight: 500;
+    border-radius: 50px;
+    font-weight: 600;
     transition: all 0.3s ease;
     border: none;
 }
 
 .btn-tutorial:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 10px 20px rgba(35, 125, 166, 0.3);
 }
 
 .coming-soon-badge {
@@ -314,10 +303,10 @@
 
 /* CTA Section */
 .cta-impara {
-    background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+    background: var(--gradient-secondary);
     padding: 80px 0;
     text-align: center;
-    color: white;
+    color: var(--white);
 }
 
 .cta-content h2 {
@@ -326,7 +315,9 @@
     margin-bottom: 1rem;
 }
 
-.cta-content p {
+/* Beats the light-surface `.cta-content p` (medium-gray) rule in styles.css */
+.cta-impara .cta-content p {
+    color: var(--white);
     font-size: 1.2rem;
     margin-bottom: 2rem;
     opacity: 0.9;
@@ -349,6 +340,9 @@
 .impara-js-loaded .tutorial-card:nth-child(2) { animation-delay: 0.2s; }
 .impara-js-loaded .tutorial-card:nth-child(3) { animation-delay: 0.3s; }
 .impara-js-loaded .tutorial-card:nth-child(4) { animation-delay: 0.4s; }
+.impara-js-loaded .tutorial-card:nth-child(5) { animation-delay: 0.5s; }
+.impara-js-loaded .tutorial-card:nth-child(6) { animation-delay: 0.6s; }
+.impara-js-loaded .tutorial-card:nth-child(7) { animation-delay: 0.7s; }
 
 @keyframes fadeInUp {
     to {
@@ -359,18 +353,6 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .hero-impara {
-        padding: 100px 0 60px;
-    }
-    
-    .hero-impara h1 {
-        font-size: 2.5rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.1rem;
-    }
-    
     .tutorial-categories,
     .featured-tutorials {
         padding: 60px 0;
@@ -386,11 +368,7 @@
     .tutorial-content {
         padding: 1.5rem;
     }
-    
-    .featured-tutorials h2 {
-        font-size: 2rem;
-    }
-    
+
     .cta-impara {
         padding: 60px 0;
     }
@@ -670,5 +648,31 @@
     
     .cert-hub-benefit p {
         font-size: 0.85rem;
+    }
+}
+
+/* Accessibility: disable decorative motion for users who ask for it */
+@media (prefers-reduced-motion: reduce) {
+    .tutorial-card:hover .tutorial-visual-header .floating-element,
+    .cert-hub-icon {
+        animation: none;
+    }
+
+    .impara-js-loaded .tutorial-card {
+        opacity: 1;
+        transform: none;
+        animation: none;
+    }
+
+    .tutorial-card:hover,
+    .category-card:hover,
+    .cert-hub-benefit:hover,
+    .btn-tutorial:hover,
+    .tutorial-highlights .highlight-tag:hover {
+        transform: none;
+    }
+
+    .tutorial-card:hover .tutorial-gradient-bg {
+        transform: none;
     }
 }

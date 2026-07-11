@@ -70,8 +70,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=20260708">
-    <link rel="stylesheet" href="contatti.css">
+    <link rel="stylesheet" href="styles.css?v=20260711">
+    <link rel="stylesheet" href="contatti.css?v=20260711">
 
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
@@ -183,6 +183,8 @@
     <!-- Navigation Placeholder -->
     <div id="nav-placeholder"></div>
 
+    <main id="main-content">
+
     <!-- Hero Section -->
     <section class="contact-hero">
         <div class="container">
@@ -214,32 +216,32 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="firstName">Nome *</label>
-                                <input type="text" id="firstName" name="firstName" required placeholder="Mario">
+                                <input type="text" id="firstName" name="firstName" required placeholder="Mario" autocomplete="given-name">
                             </div>
                             <div class="form-group">
                                 <label for="lastName">Cognome *</label>
-                                <input type="text" id="lastName" name="lastName" required placeholder="Rossi">
+                                <input type="text" id="lastName" name="lastName" required placeholder="Rossi" autocomplete="family-name">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="email">Email Aziendale *</label>
-                            <input type="email" id="email" name="email" required placeholder="mario.rossi@azienda.com">
+                            <input type="email" id="email" name="email" required placeholder="mario.rossi@azienda.com" autocomplete="email">
                         </div>
 
                         <div class="form-group">
                             <label for="phone">Telefono</label>
-                            <input type="tel" id="phone" name="phone" placeholder="+39 02 1234567">
+                            <input type="tel" id="phone" name="phone" placeholder="+39 02 1234567" autocomplete="tel">
                         </div>
 
                         <div class="form-group">
                             <label for="company">Azienda *</label>
-                            <input type="text" id="company" name="company" required placeholder="Nome Azienda S.p.A.">
+                            <input type="text" id="company" name="company" required placeholder="Nome Azienda S.p.A." autocomplete="organization">
                         </div>
 
                         <div class="form-group">
                             <label for="role">Ruolo</label>
-                            <input type="text" id="role" name="role" placeholder="CEO, CTO, Manager, etc.">
+                            <input type="text" id="role" name="role" placeholder="CEO, CTO, Manager, etc." autocomplete="organization-title">
                         </div>
 
                         <div class="form-group">
@@ -336,15 +338,17 @@
                     <div class="office-cards">
                         <h3>I Nostri Uffici</h3>
                         <div class="office-card">
-                            <img src="img/ufficibebitmilano.jpg" alt="Ufficio Niuexa Milano" class="office-image">
+                            <img src="img/ufficibebitmilano.jpg" alt="Ufficio Niuexa Milano, Via Rutilia 10" class="office-image" loading="lazy" decoding="async">
                             <div class="office-info">
                                 <h4>Milano</h4>
+                                <p>Via Rutilia, 10 &middot; 20141</p>
                             </div>
                         </div>
                         <div class="office-card">
-                            <img src="img/ufficiotorino.jpg" alt="Ufficio Niuexa Torino" class="office-image">
+                            <img src="img/ufficiotorino.jpg" alt="Ufficio Niuexa Torino, Via Andreis 18" class="office-image" loading="lazy" decoding="async">
                             <div class="office-info">
                                 <h4>Torino</h4>
+                                <p>Via Andreis, 18/16/M &middot; 10152</p>
                             </div>
                         </div>
                     </div>
@@ -410,7 +414,7 @@
                 <h2>Inizia Oggi la Tua Trasformazione AI</h2>
                 <p>Non aspettare che la concorrenza ti superi. L'AI è il presente e il futuro del business.</p>
                 <div class="cta-buttons">
-                    <a href="roi-calculator.html" class="btn btn-secondary">
+                    <a href="roi-calculator.html" class="btn btn-primary">
                         Calcola il Tuo ROI
                     </a>
                     <a href="consulting.html" class="btn btn-secondary">
@@ -420,6 +424,8 @@
             </div>
         </div>
     </section>
+
+    </main>
 
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>

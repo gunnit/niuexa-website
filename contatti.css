@@ -127,12 +127,13 @@
 .form-group select,
 .form-group textarea {
     padding: 12px 16px;
-    border: 2px solid #e0e0e0;
+    border: 2px solid rgba(20, 50, 74, 0.18); /* ink-tinted neutral — no border token exists */
     border-radius: 10px;
     font-size: 1rem;
     font-family: var(--font-secondary);
     transition: all var(--transition-fast);
     background: var(--white);
+    color: var(--dark-gray);
 }
 
 .form-group input:focus,
@@ -146,6 +147,17 @@
 .form-group textarea {
     resize: vertical;
     min-height: 120px;
+}
+
+/* Invalid-field state set by contatti.js validation */
+.form-group input.error,
+.form-group select.error,
+.form-group textarea.error {
+    border-color: var(--error);
+}
+
+.checkbox-label.error span {
+    color: var(--error);
 }
 
 .checkbox-group {
@@ -364,7 +376,7 @@
     background: var(--light-gray);
     padding: 30px;
     border-radius: 15px;
-    border-left: 4px solid var(--primary-blue);
+    border: 1px solid rgba(35, 125, 166, 0.12);
 }
 
 .faq-item h3 {
@@ -379,21 +391,16 @@
     line-height: 1.6;
 }
 
-/* CTA Section */
-.contact-form-section + .cta-section {
-    background: var(--gradient-primary);
-    padding: 60px 0;
-    text-align: center;
-    color: var(--white);
-}
-
+/* CTA Section: base .cta-section styles come from styles.css */
 .cta-content h2 {
     font-family: var(--font-primary);
     font-size: 2.5rem;
     margin-bottom: 15px;
 }
 
-.cta-content p {
+/* Beats the light-surface `.cta-content p` (medium-gray) rule in styles.css */
+.cta-section .cta-content p {
+    color: var(--white);
     font-size: 1.2rem;
     margin-bottom: 30px;
     opacity: 0.95;

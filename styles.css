@@ -5641,11 +5641,13 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
     text-align: center;
 }
 
+/* Same rationale as .hero .stat-number: the AA-safe light-surface green
+   is unreadable on the dark hero gradient; brand green clears 7:1 on navy */
 .consulting-hero .stat-number {
     display: block;
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--green-text);
+    color: var(--primary-green);
     font-family: var(--font-primary);
 }
 
@@ -5696,6 +5698,16 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
     .consulting-hero .hero-buttons .btn {
         width: 100%;
         max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .consulting-hero .hero-title {
+        font-size: 2rem;
+    }
+
+    .consulting-hero .stat-number {
+        font-size: 1.75rem;
     }
 }
 
