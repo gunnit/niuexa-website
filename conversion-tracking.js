@@ -174,6 +174,13 @@
     var path = window.location.pathname;
     if (!/thank-you/i.test(path)) return;
     var data = getStoredAttribution();
+    var dedupeKey = 'niuexa_lead_event_' + path + '_' + (data.last_submit_at || 'direct');
+    try {
+      if (window.sessionStorage && sessionStorage.getItem(dedupeKey)) return;
+      if (window.sessionStorage) sessionStorage.setItem(dedupeKey, nowIso());
+    } catch (e) {
+      // Tracking must continue when storage is unavailable or blocked.
+    }
     track('generate_lead', {
       form_name: data.last_form_name || (path.indexOf('ai-readiness') !== -1 ? 'AI Readiness Assessment' : 'Website contact form'),
       campaign: data.last_campaign || data.utm_campaign || (path.indexOf('ai-readiness') !== -1 ? 'ai_readiness_pmi_2026' : DEFAULT_CAMPAIGN),

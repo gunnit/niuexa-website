@@ -245,19 +245,6 @@
 
     <div id="footer-placeholder"></div>
     <script src="includes/includes.js?v=20260428"></script>
-    <script>
-      (function(){
-        const params = new URLSearchParams(window.location.search);
-        ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k => { const el=document.getElementById(k); if(el) el.value=params.get(k)||''; });
-        document.querySelectorAll('[data-track-cta]').forEach(el => el.addEventListener('click', () => {
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({event:'cta_click', cta_id:el.getAttribute('data-track-cta'), campaign:'ai_readiness_pmi_2026'});
-          if(typeof gtag !== 'undefined') gtag('event','cta_click',{event_category:'AI Readiness Assessment',event_label:el.getAttribute('data-track-cta')});
-        }));
-        const form=document.querySelector('.phase-form');
-        if(form){form.addEventListener('submit',()=>{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'assessment_request',campaign:'ai_readiness_pmi_2026'});if(typeof gtag!=='undefined')gtag('event','assessment_request',{event_category:'Lead',event_label:'AI Readiness Assessment'});});}
-      })();
-    </script>
     <script src="conversion-tracking.js?v=20260707"></script>
     <script src="cookie-banner.js?v=20260428"></script>
 </body>
