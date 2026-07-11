@@ -6,6 +6,8 @@
   'use strict';
 
   var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+  var CLICK_ID_KEYS = ['gclid', 'gbraid', 'wbraid'];
+  var ATTRIBUTION_KEYS = UTM_KEYS.concat(CLICK_ID_KEYS);
   var DEFAULT_CAMPAIGN = 'niuexa_website_conversion';
   var STORAGE_KEY = 'niuexa_attribution_v1';
 
@@ -31,13 +33,13 @@
   function captureAttribution() {
     var params = new URLSearchParams(window.location.search);
     var data = {};
-    UTM_KEYS.forEach(function (key) {
+    ATTRIBUTION_KEYS.forEach(function (key) {
       var value = params.get(key);
       if (value) data[key] = value;
     });
     if (document.referrer) data.referrer = document.referrer;
     data.landing_page = window.location.href;
-    if (Object.keys(data).some(function (k) { return UTM_KEYS.indexOf(k) !== -1; })) {
+    if (Object.keys(data).some(function (k) { return ATTRIBUTION_KEYS.indexOf(k) !== -1; })) {
       saveAttribution(data);
     } else if (!getStoredAttribution().landing_page) {
       saveAttribution(data);
@@ -48,7 +50,7 @@
     var params = new URLSearchParams(window.location.search);
     var stored = getStoredAttribution();
     var data = Object.assign({}, stored);
-    UTM_KEYS.forEach(function (key) {
+    ATTRIBUTION_KEYS.forEach(function (key) {
       var value = params.get(key);
       if (value) data[key] = value;
     });
@@ -94,6 +96,9 @@
   function populateForm(form) {
     var data = attribution();
     UTM_KEYS.forEach(function (key) {
+      ensureHidden(form, key, data[key] || '');
+    });
+    CLICK_ID_KEYS.forEach(function (key) {
       ensureHidden(form, key, data[key] || '');
     });
     ensureHidden(form, 'landing_page', data.landing_page || window.location.href);
