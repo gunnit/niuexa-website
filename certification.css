@@ -69,11 +69,16 @@
     margin-bottom: 4rem;
 }
 
+/* This hero sits on the white page body: override the white-on-dark
+   defaults that .hero-title/.hero-subtitle/.stat-label carry in styles.css */
 .hero-title {
     font-size: 3.5rem;
     font-family: var(--font-primary);
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.cert-hero .hero-title {
+    color: var(--dark-gray);
 }
 
 .hero-subtitle {
@@ -84,6 +89,14 @@
     margin-right: auto;
     opacity: 0.9;
     line-height: 1.6;
+}
+
+.cert-hero .hero-subtitle {
+    color: var(--medium-gray);
+}
+
+.cert-hero .stat-label {
+    color: var(--medium-gray);
 }
 
 .hero-stats {

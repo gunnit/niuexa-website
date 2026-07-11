@@ -2260,12 +2260,14 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-.cta-content h5 {
+/* Scoped to the light innovation card: unscoped, these leaked medium-gray
+   text into every dark .cta-* section site-wide */
+.innovation-cta .cta-content h5 {
     color: var(--dark-gray);
     margin-bottom: 1rem;
 }
 
-.cta-content p {
+.innovation-cta .cta-content p {
     color: var(--medium-gray);
     font-size: 0.9rem;
     line-height: 1.5;
