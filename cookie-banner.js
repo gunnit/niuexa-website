@@ -13,6 +13,8 @@ const COOKIE_BANNER_STRINGS = {
         necessaryDesc: 'Questi cookie sono essenziali per il funzionamento del sito web e non possono essere disabilitati.',
         analyticsLabel: 'Cookie Analitici',
         analyticsDesc: 'Ci aiutano a capire come i visitatori interagiscono con il sito raccogliendo informazioni anonime.',
+        marketingLabel: 'Cookie Marketing',
+        marketingDesc: 'Consentono di misurare campagne e conversioni LinkedIn e pubblicitarie. Si attivano solo con il tuo consenso.',
         save: 'Salva Preferenze',
         back: 'Indietro'
     },
@@ -29,6 +31,8 @@ const COOKIE_BANNER_STRINGS = {
         necessaryDesc: 'These cookies are essential for the website to function and cannot be disabled.',
         analyticsLabel: 'Analytics Cookies',
         analyticsDesc: 'These help us understand how visitors interact with the site by collecting anonymous information.',
+        marketingLabel: 'Marketing Cookies',
+        marketingDesc: 'These measure LinkedIn and advertising campaigns and conversions. They activate only with your consent.',
         save: 'Save Preferences',
         back: 'Back'
     }
@@ -96,6 +100,13 @@ class CookieBanner {
                     </div>
                     <p>${t.analyticsDesc}</p>
                 </div>
+                <div class="cookie-category">
+                    <div class="cookie-category-header">
+                        <input type="checkbox" id="marketing-cookies">
+                        <label for="marketing-cookies"><strong>${t.marketingLabel}</strong></label>
+                    </div>
+                    <p>${t.marketingDesc}</p>
+                </div>
                 <div class="cookie-settings-buttons">
                     <button id="cookie-save-preferences" class="cookie-btn cookie-btn-primary">
                         ${t.save}
@@ -135,8 +146,9 @@ class CookieBanner {
         const consent = {
             necessary: true,
             analytics: true,
+            marketing: true,
             timestamp: Date.now(),
-            version: '1.0'
+            version: '2.0'
         };
         this.saveConsent(consent);
         this.loadAcceptedCookies();
@@ -147,8 +159,9 @@ class CookieBanner {
         const consent = {
             necessary: true,
             analytics: false,
+            marketing: false,
             timestamp: Date.now(),
-            version: '1.0'
+            version: '2.0'
         };
         this.saveConsent(consent);
         this.loadAcceptedCookies();
@@ -167,11 +180,13 @@ class CookieBanner {
 
     savePreferences() {
         const analyticsConsent = document.getElementById('analytics-cookies').checked;
+        const marketingConsent = document.getElementById('marketing-cookies').checked;
         const consent = {
             necessary: true,
             analytics: analyticsConsent,
+            marketing: marketingConsent,
             timestamp: Date.now(),
-            version: '1.0'
+            version: '2.0'
         };
         this.saveConsent(consent);
         this.loadAcceptedCookies();
@@ -189,26 +204,38 @@ class CookieBanner {
     }
 
     loadAcceptedCookies() {
-        if (this.consentData && this.consentData.analytics) {
-            this.updateConsentMode(true);
-            this.loadGoogleAnalytics();
-        } else {
-            this.updateConsentMode(false);
+        const analyticsGranted = Boolean(this.consentData && this.consentData.analytics);
+        const marketingGranted = Boolean(this.consentData && this.consentData.marketing);
+        this.updateConsentMode(analyticsGranted, marketingGranted);
+        if (analyticsGranted) this.loadGoogleAnalytics();
+        if (marketingGranted) this.loadLinkedInInsightTag();
+    }
+
+    // Sync Google Consent Mode with separate analytics and marketing choices.
+    updateConsentMode(analyticsGranted, marketingGranted) {
+        if (typeof gtag === 'function') {
+            const analyticsState = analyticsGranted ? 'granted' : 'denied';
+            const marketingState = marketingGranted ? 'granted' : 'denied';
+            gtag('consent', 'update', {
+                analytics_storage: analyticsState,
+                ad_storage: marketingState,
+                ad_user_data: marketingState,
+                ad_personalization: marketingState
+            });
         }
     }
 
-    // Sync Google Consent Mode with the user's choice.
-    // GA loads in every page head with default consent DENIED; this flips it.
-    updateConsentMode(granted) {
-        if (typeof gtag === 'function') {
-            const state = granted ? 'granted' : 'denied';
-            gtag('consent', 'update', {
-                analytics_storage: state,
-                ad_storage: state,
-                ad_user_data: state,
-                ad_personalization: state
-            });
+    loadLinkedInInsightTag() {
+        if (window._linkedin_partner_id === '10532561') return;
+        window._linkedin_partner_id = '10532561';
+        window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+        if (!window._linkedin_data_partner_ids.includes(window._linkedin_partner_id)) {
+            window._linkedin_data_partner_ids.push(window._linkedin_partner_id);
         }
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://snap.licdn.com/li.lms-analytics/insight.min.js';
+        document.head.appendChild(script);
     }
 
     loadGoogleAnalytics() {
@@ -239,7 +266,7 @@ class CookieBanner {
 
     // Public method to revoke consent
     revokeConsent() {
-        this.updateConsentMode(false);
+        this.updateConsentMode(false, false);
         localStorage.removeItem(this.cookieName);
         this.consentData = null;
         // Reload page to remove tracking cookies
@@ -396,17 +423,17 @@ const cookieBannerCSS = `
         text-align: center;
         gap: 1.5rem;
     }
-    
+
     .cookie-banner-buttons {
         flex-direction: column;
         width: 100%;
     }
-    
+
     .cookie-btn {
         width: 100%;
         padding: 0.8rem;
     }
-    
+
     .cookie-settings-buttons {
         flex-direction: column;
     }
@@ -416,11 +443,11 @@ const cookieBannerCSS = `
     #cookie-banner {
         padding: 1rem;
     }
-    
+
     .cookie-banner-text h4 {
         font-size: 1rem;
     }
-    
+
     .cookie-banner-text p {
         font-size: 0.85rem;
     }
