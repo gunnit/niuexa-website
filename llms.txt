@@ -117,7 +117,7 @@
 - [Voice e Audio AI](https://niuexa.ai/tutorial-voice-audio-ai.html): AI voice and audio generation tutorial
 
 ## Tutorials (English)
-- [AI Video Generation](https://niuexa.ai/en/tutorial-ai-video-generation.html): AI video generation guide
+- [AI Tutorials Hub](https://niuexa.ai/en/learn.html): All English AI tutorials, including video generation
 - [AI Image Generation](https://niuexa.ai/en/tutorial-ai-image-generation.html): AI image generation guide
 - [AI Workflow Automation](https://niuexa.ai/en/tutorial-ai-workflow-automation.html): AI workflow automation guide
 - [Humanize AI Text](https://niuexa.ai/en/tutorial-humanize-ai-text.html): How to humanize AI text
