@@ -120,7 +120,7 @@
 /* Hero Stats */
 .hero-stats {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin: 2rem auto;
     padding: 2rem;
@@ -181,6 +181,99 @@
 /* Training Formats Section */
 .training-formats-section {
     padding: 120px 0 80px;
+}
+
+/* Workflow Evidence Scorecard */
+.training-scorecard-section {
+    padding: 96px 0;
+    background: var(--light-gray);
+}
+
+.scorecard-intro {
+    max-width: 860px;
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+.scorecard-kicker {
+    display: inline-block;
+    margin-bottom: 0.9rem;
+    color: var(--signal);
+    font-family: var(--font-secondary);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.scorecard-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.scorecard-card {
+    min-height: 250px;
+    padding: 2rem;
+    background: var(--white);
+    border: 1px solid var(--light-blue);
+    border-radius: 18px;
+}
+
+.scorecard-step {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+    background: var(--gradient-primary);
+    border-radius: 14px;
+    font-family: var(--font-primary);
+    font-weight: 700;
+}
+
+.scorecard-card h3 {
+    margin-bottom: 0.75rem;
+    color: var(--dark-gray);
+    font-family: var(--font-primary);
+    font-size: 1.2rem;
+}
+
+.scorecard-card p {
+    margin: 0;
+    color: var(--medium-gray);
+    line-height: 1.65;
+}
+
+.scorecard-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    padding: 2rem 2.25rem;
+    color: var(--white);
+    background: var(--gradient-secondary);
+    border-radius: 18px;
+}
+
+.scorecard-cta h3,
+.scorecard-cta p {
+    color: var(--white);
+}
+
+.scorecard-cta h3 {
+    margin-bottom: 0.35rem;
+}
+
+.scorecard-cta p {
+    margin: 0;
+    opacity: 0.88;
 }
 
 /* Section Headers */
@@ -997,6 +1090,10 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
+    .scorecard-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .bundle-content {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -1019,8 +1116,25 @@
     }
     
     .hero-stats {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 1rem;
+    }
+
+    .training-scorecard-section {
+        padding: 72px 0;
+    }
+
+    .scorecard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .scorecard-card {
+        min-height: auto;
+    }
+
+    .scorecard-cta {
+        align-items: flex-start;
+        flex-direction: column;
     }
     
     .trust-badges {
@@ -1072,6 +1186,11 @@
 @media (max-width: 480px) {
     .hero-stats {
         grid-template-columns: 1fr;
+    }
+
+    .scorecard-card,
+    .scorecard-cta {
+        padding: 1.5rem;
     }
     
     .program-card {
