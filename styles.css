@@ -46,7 +46,9 @@
     --cyan: #06B6D4;
     --signal: #0E7A78;                /* AA-safe teal for text/links on light surfaces */
     --error: #DC3545;
+    --error-text: #B02A37;            /* AA-safe red for text on light surfaces (5.9:1) */
     --warning: #B45309;
+    --warning-text: #92400E;          /* AA-safe amber for text on light surfaces (6.4:1) */
     --success: #2C7A45;
 
     /* Gradients */
@@ -3382,9 +3384,16 @@ button[aria-busy="true"]::after {
     }
 }
 
-/* Smooth scrolling */
+/* Smooth scrolling; scroll-padding keeps anchor targets clear of the fixed 70px navbar */
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
 }
 
 /* About Page Styles */
@@ -6057,6 +6066,7 @@ body.loaded .hero-buttons {
     .hero-particles,
     .hero-gradient,
     .hero-background::before,
+    .consulting-hero::before,
     .aeo-banner::before,
     .hero-title,
     .hero-subtitle,
