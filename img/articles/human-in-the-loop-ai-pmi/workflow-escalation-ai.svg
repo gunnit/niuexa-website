@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">Workflow di escalation umana per sistemi AI</title>
+  <desc id="desc">Un output AI passa dai controlli automatici alla decisione: esecuzione, revisione umana o blocco, con feedback verso il sistema.</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0A1A26"/><stop offset="1" stop-color="#14324A"/></linearGradient><marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#67C9C5"/></marker></defs>
+  <rect width="1200" height="650" rx="32" fill="url(#bg)"/>
+  <image href="../../niuexalogo.png" x="70" y="55" width="166" height="46"/>
+  <text x="70" y="150" fill="#FFFFFF" font-family="Space Grotesk,Arial,sans-serif" font-size="40" font-weight="700">Dall'output AI a una decisione controllata</text>
+  <text x="70" y="188" fill="#B7C8D5" font-family="Hanken Grotesk,Arial,sans-serif" font-size="21">Ogni deviazione produce un esito e un feedback tracciabile.</text>
+  <g font-family="Space Grotesk,Arial,sans-serif">
+    <rect x="70" y="255" width="210" height="120" rx="18" fill="#153F59" stroke="#237DA6"/><text x="175" y="303" text-anchor="middle" fill="#63C1E8" font-size="17">INPUT + CONTESTO</text><text x="175" y="342" text-anchor="middle" fill="#FFFFFF" font-size="25" font-weight="700">Output AI</text>
+    <rect x="340" y="255" width="230" height="120" rx="18" fill="#123F3E" stroke="#0E9C9A"/><text x="455" y="303" text-anchor="middle" fill="#65D2CF" font-size="17">GUARDRAIL</text><text x="455" y="342" text-anchor="middle" fill="#FFFFFF" font-size="25" font-weight="700">Controlli automatici</text>
+    <rect x="640" y="225" width="230" height="120" rx="18" fill="#1D4934" stroke="#43AE68"/><text x="755" y="273" text-anchor="middle" fill="#86D9A1" font-size="17">RISCHIO BASSO</text><text x="755" y="312" text-anchor="middle" fill="#FFFFFF" font-size="25" font-weight="700">Esegui + campiona</text>
+    <rect x="640" y="385" width="230" height="120" rx="18" fill="#4B3D20" stroke="#D9AA3D"/><text x="755" y="433" text-anchor="middle" fill="#F4D27A" font-size="17">DUBBIO / SOGLIA</text><text x="755" y="472" text-anchor="middle" fill="#FFFFFF" font-size="25" font-weight="700">Revisione umana</text>
+    <rect x="930" y="225" width="200" height="120" rx="18" fill="#123F3E" stroke="#0E9C9A"/><text x="1030" y="273" text-anchor="middle" fill="#65D2CF" font-size="17">ESITO</text><text x="1030" y="312" text-anchor="middle" fill="#FFFFFF" font-size="23" font-weight="700">Registra risultato</text>
+    <rect x="930" y="385" width="200" height="120" rx="18" fill="#4B2930" stroke="#E27B68"/><text x="1030" y="433" text-anchor="middle" fill="#FFB6A8" font-size="17">ALTO IMPATTO</text><text x="1030" y="472" text-anchor="middle" fill="#FFFFFF" font-size="23" font-weight="700">Correggi o blocca</text>
+  </g>
+  <g fill="none" stroke="#67C9C5" stroke-width="4" marker-end="url(#arrow)">
+    <path d="M280 315 H330"/><path d="M570 300 H630"/><path d="M570 340 C600 340 600 445 630 445"/><path d="M870 285 H920"/><path d="M870 445 H920"/>
+  </g>
+  <path d="M1030 515 C1030 580 455 590 455 390" fill="none" stroke="#43AE68" stroke-width="3" stroke-dasharray="10 8" marker-end="url(#arrow)"/>
+  <text x="680" y="570" text-anchor="middle" fill="#86D9A1" font-family="Hanken Grotesk,Arial,sans-serif" font-size="19">feedback: regole • dati • istruzioni • formazione</text>
+</svg>
