@@ -29,7 +29,8 @@ The domain `niuexa.ai` is configured via the `CNAME` file in the repository root
 
 ## Monitoring and Analytics
 
-- **Google Analytics 4** (`G-8JW0S3PJKM`): loaded on every page with Google Consent Mode — analytics are denied until the visitor accepts via the cookie banner (`cookie-banner.js`).
+- **Google Tag Manager** (`GTM-KG9S42S4`): the single container loaded on every page (head snippet + `<noscript>` fallback). All Google tags — Google Analytics 4, Google Ads, etc. — are configured and fired inside GTM, not hard-coded in the page.
+- **Google Consent Mode**: each page sets consent defaults to `denied` before GTM loads; the cookie banner (`cookie-banner.js`) calls `gtag('consent', 'update', …)` once the visitor accepts, so GTM-managed tags only fire with consent.
 
 ## Local Development
 

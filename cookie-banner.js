@@ -207,7 +207,6 @@ class CookieBanner {
         const analyticsGranted = Boolean(this.consentData && this.consentData.analytics);
         const marketingGranted = Boolean(this.consentData && this.consentData.marketing);
         this.updateConsentMode(analyticsGranted, marketingGranted);
-        if (analyticsGranted) this.loadGoogleAnalytics();
         if (marketingGranted) this.loadLinkedInInsightTag();
     }
 
@@ -238,24 +237,6 @@ class CookieBanner {
         document.head.appendChild(script);
     }
 
-    loadGoogleAnalytics() {
-        // Fallback dynamic loader — only needed when gtag is absent
-        // (GA normally loads in the page head with default consent denied).
-        if (window.gtag) return; // Already loaded
-
-        const script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8JW0S3PJKM';
-        document.head.appendChild(script);
-
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-8JW0S3PJKM', {
-            anonymize_ip: true,
-            cookie_flags: 'SameSite=Strict;Secure'
-        });
-    }
 
     hideBanner() {
         const banner = document.getElementById('cookie-banner');

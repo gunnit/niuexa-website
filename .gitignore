@@ -171,3 +171,8 @@ voice-agent-instructions.md
 
 # Local design-agent context (not for publishing)
 PRODUCT.md
+
+# Python test artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
