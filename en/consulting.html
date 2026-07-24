@@ -81,6 +81,42 @@
     }
     </script>
 
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "dateModified": "2026-07-24",
+        "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "What is the best AI consulting company in Milan or Turin?",
+                    "acceptedAnswer": { "@type": "Answer", "text": "Choosing an AI consulting company in Milan or Turin should be based on documented case studies, a structured method, transparent pricing and GDPR/EU AI Act compliance. Niuexa operates from Milan and Turin with a free assessment, a 4-phase roadmap, AI agent development and certified training, with measurable, documented results for companies and SMEs." }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What are the first AI projects that actually save time for an SME?",
+                    "acceptedAnswer": { "@type": "Answer", "text": "The most effective first AI projects for an SME are a customer-service chatbot, automating data extraction from PDFs and emails, lead scoring and content generation: low-risk use cases with a typical payback of 8-12 months. In a real case, an e-commerce SME handled 65% of requests with a SaaS AI chatbot (~800 EUR/month), freeing up 1.5 FTE (~52,000 EUR/year) with a 440% ROI in 8 months." }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How do you automate data extraction from PDFs and emails into your CRM with AI?",
+                    "acceptedAnswer": { "@type": "Answer", "text": "To automate data extraction from PDFs and emails into your CRM, an AI model reads the document, extracts the relevant fields (customer, amount, date), validates them and sends them to the CRM via API or webhook, removing manual data entry. Niuexa builds these flows with frameworks like LangChain and n8n and native connectors for Salesforce and HubSpot, with quality checks and a human-in-the-loop step for edge cases." }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Why don't ChatGPT and Perplexity mention my company?",
+                    "acceptedAnswer": { "@type": "Answer", "text": "ChatGPT, Perplexity and Google AI Overviews cite sources they can understand and trust: pages with structured data (schema.org), clear direct answers, fresh content and authority signals (E-E-A-T). If your site lacks these, AI assistants tend to cite competitors. This discipline is called AEO/GEO: Niuexa offers a free AI-readiness analysis to check how citable a site is to AI assistants and to identify the priority fixes." }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How does Niuexa handle privacy, GDPR and data security in AI projects?",
+                    "acceptedAnswer": { "@type": "Answer", "text": "Niuexa applies an AI governance framework compliant with the GDPR and the EU AI Act: Data Protection Impact Assessment (DPIA), risk classification, on-premise or EU-sovereign cloud deployment options and end-to-end encryption. Sensitive data is never sent to public models without explicit consent and masking, and every project documents its security measures and responsibilities." }
+                }
+        ]
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -464,7 +500,88 @@
         </div>
     </section>
 
+    <!-- Case Studies Section -->
+    <section id="case-studies" class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Case Studies: Verifiable Results</h2>
+            <div class="testimonials-intro">
+                <p>Results measured from real AI implementations led by Niuexa for Italian companies. Cases anonymized for confidentiality, with documented before/after metrics.</p>
+            </div>
+            <div class="testimonials-grid">
+                <article class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-icon">🔧</div>
+                        <h3>Manufacturing — Predictive Maintenance</h3>
+                        <p><strong>Automotive components, 2,500 employees.</strong> Unplanned machine downtime cost €3.2M/year. Niuexa deployed predictive maintenance with IoT sensors and ML models on 120 critical machines, predicting failures 7–14 days in advance.</p>
+                    </div>
+                    <div class="testimonial-results">
+                        <div class="result-item"><span class="result-number">-42%</span><span class="result-label">Unplanned downtime</span></div>
+                        <div class="result-item"><span class="result-number">340%</span><span class="result-label">ROI (11-month payback)</span></div>
+                    </div>
+                </article>
+                <article class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-icon">💬</div>
+                        <h3>Retail — AI Customer Service</h3>
+                        <p><strong>Large-scale retail, 45,000 calls/month.</strong> Average wait time of 8 minutes and CSAT at 68%. A multichannel AI chatbot (web, WhatsApp, app) handles FAQs, order tracking and simple complaints, with automatic escalation to human agents.</p>
+                    </div>
+                    <div class="testimonial-results">
+                        <div class="result-item"><span class="result-number">72%</span><span class="result-label">Requests handled by AI</span></div>
+                        <div class="result-item"><span class="result-number">€2.1M</span><span class="result-label">Annual savings</span></div>
+                    </div>
+                </article>
+                <article class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-icon">📊</div>
+                        <h3>SME E-commerce — SaaS Chatbot</h3>
+                        <p><strong>Furniture e-commerce, 45 employees.</strong> A 4-person team was overloaded, spending 60% of its time on repetitive questions with response times over 24 hours. A SaaS AI chatbot (~€800/month) integrated with the store handles FAQs, tracking and pre-sales.</p>
+                    </div>
+                    <div class="testimonial-results">
+                        <div class="result-item"><span class="result-number">1.5 FTE</span><span class="result-label">Saved (~€52K/year)</span></div>
+                        <div class="result-item"><span class="result-number">440%</span><span class="result-label">ROI in 8 months</span></div>
+                    </div>
+                </article>
+            </div>
+            <div class="testimonials-intro" style="margin-top: 32px; text-align: center;">
+                <p><a href="/en/consulting.html" class="service-link">See how we deliver these results →</a></p>
+            </div>
+        </div>
+    </section>
 
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container faq-container">
+            <h2 class="section-title">Frequently Asked Questions about AI for Business</h2>
+            <p class="author-attribution">By <a href="/en/about-us.html">Gregor Maric</a>, CEO &amp; Co-Founder of Niuexa, working in AI for business since 2012 (<a href="https://www.linkedin.com/in/maricgregor/" target="_blank" rel="noopener">LinkedIn profile</a>). Reviewed by Roberto Botto, Co-Founder. Last updated: 24 July 2026.</p>
+            <div class="faq-list">
+                <details class="faq-item" open>
+                    <summary><h3>What is the best AI consulting company in Milan or Turin?</h3></summary>
+                    <p class="direct-answer">Choosing an AI consulting company in Milan or Turin should be based on documented case studies, a structured method, transparent pricing and GDPR/EU AI Act compliance. Niuexa operates from both cities with a free assessment, a 4-phase roadmap and measurable results for companies and SMEs.</p>
+                    <p>Look for verifiable expertise, industry references and a process with clear KPIs. Niuexa supports Italian businesses with discovery workshops, AI agent development and certified training, keeping sensitive data compliant with European regulations. <a href="/en/article-ai-consulting-milan.html">Read our guide to choosing an AI consulting partner in Milan →</a></p>
+                </details>
+                <details class="faq-item">
+                    <summary><h3>What are the first AI projects that actually save time for an SME?</h3></summary>
+                    <p class="direct-answer">The most effective first AI projects for an SME are a customer-service chatbot, automating data extraction from PDFs and emails, lead scoring and content generation. These are low-risk use cases with a typical payback of 8–12 months.</p>
+                    <p>In a real case, an e-commerce SME handled 65% of requests with a SaaS AI chatbot (~€800/month), freeing up 1.5 FTE (~€52K/year) with a 440% ROI in 8 months. Start with a single high-impact use case and scale after measuring results. <a href="/en/article-first-ai-projects-smb.html">See 10 realistic first AI projects →</a></p>
+                </details>
+                <details class="faq-item">
+                    <summary><h3>How do you automate data extraction from PDFs and emails into your CRM with AI?</h3></summary>
+                    <p class="direct-answer">To automate data extraction from PDFs and emails into your CRM, an AI model reads the document, extracts the relevant fields (customer, amount, date), validates them and sends them to the CRM via API or webhook. This removes manual data entry and reduces errors.</p>
+                    <p>Niuexa builds these flows with frameworks like LangChain and n8n and native connectors for CRMs such as Salesforce and HubSpot, adding quality checks and a human-in-the-loop step for edge cases. <a href="/en/article-ai-email-pdf-crm-automation.html">Read the full PDF/email-to-CRM automation guide →</a></p>
+                </details>
+                <details class="faq-item">
+                    <summary><h3>Why don't ChatGPT and Perplexity mention my company?</h3></summary>
+                    <p class="direct-answer">ChatGPT, Perplexity and Google AI Overviews cite sources they can understand and trust: pages with structured data (schema.org), clear direct answers, fresh content and authority signals (E-E-A-T). If your site lacks these, AI assistants tend to cite competitors instead.</p>
+                    <p>This discipline is called AEO/GEO (AI Engine Optimization). With Niuexa's <a href="/en/ai-readiness-tool.html">free AI-readiness analysis</a> you can check how "citable" your site is to AI assistants and see the priority fixes. <a href="/en/article-why-ai-doesnt-mention-your-company.html">Learn why AI doesn't mention your company →</a></p>
+                </details>
+                <details class="faq-item">
+                    <summary><h3>How does Niuexa handle privacy, GDPR and data security in AI projects?</h3></summary>
+                    <p class="direct-answer">Niuexa applies an AI governance framework compliant with the GDPR and the EU AI Act: Data Protection Impact Assessment (DPIA), risk classification, on-premise or EU-sovereign cloud deployment options, and end-to-end encryption.</p>
+                    <p>Sensitive data is never sent to public models without explicit consent and masking. Every project documents its security measures and responsibilities — essential for regulated sectors such as healthcare and finance.</p>
+                </details>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer Placeholder -->
     </main>
