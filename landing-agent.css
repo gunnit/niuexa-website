@@ -1,0 +1,1283 @@
+/* ==========================================================================
+   landing-agent.css
+   Shared design system for the AI agent landing pages:
+   landing-sales-agent.html, landing-marketing-agent.html and their en/ twins.
+
+   Extends styles.css. All colour/typography values resolve to :root tokens
+   defined there. Scoped under .agent-landing so nothing leaks to other pages.
+   ========================================================================== */
+
+.agent-landing {
+    /* Ink ramp for dark sections. Both verified against --black (#0A1A26):
+       --ink-on-dark 16.4:1, --muted-on-dark 8.1:1. */
+    --ink-on-dark: #E8F0F5;
+    --muted-on-dark: #9FB3C2;
+    --hairline-on-dark: rgba(232, 240, 245, 0.14);
+    --surface-on-dark: rgba(232, 240, 245, 0.05);
+
+    /* Fluid rhythm. Sections vary deliberately; this is the baseline step. */
+    --band-gap: clamp(4.5rem, 9vw, 8rem);
+    --measure: 68ch;
+
+    /* Semantic z-index scale. No arbitrary 999s. */
+    --z-base: 1;
+    --z-raised: 10;
+    --z-sticky: 100;
+    --z-nav: 1000;
+
+    /* ease-out-quint */
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+    /* White text on --gradient-primary falls to 2.80:1 where the ramp reaches
+       --primary-green (#43AE68), well under the 4.5:1 AA floor. This ramp uses
+       the AA-safe ends of the same three brand hues, so white clears 5.1:1 at
+       every stop: #1F64AE 6.02:1, #0E7A78 5.16:1, #2C7A45 5.27:1.
+       Scoped to these pages; the sitewide token is untouched. */
+    --gradient-cta: linear-gradient(115deg, #1F64AE 0%, #0E7A78 52%, #2C7A45 100%);
+}
+
+.agent-landing .btn-primary,
+.agent-landing .agent-form__submit {
+    background: var(--gradient-cta);
+}
+
+/* --------------------------------------------------------------------------
+   Sitewide overrides, scoped to these pages only.
+
+   styles.css sets gradient text on .section-title and .hero-title .highlight.
+   Gradient text is decorative rather than meaningful and degrades badly when
+   background-clip is unsupported, so these pages use solid ink instead.
+   -------------------------------------------------------------------------- */
+
+.agent-landing .section-title {
+    background: none;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    -webkit-text-fill-color: currentColor;
+    color: var(--dark-gray);
+    font-size: clamp(2rem, 4.4vw, 3rem);
+    letter-spacing: -0.02em;
+    margin-bottom: 0;
+}
+
+/* The hero heading deliberately does NOT reuse .hero-title from styles.css.
+   That class is hidden by `body:not(.loaded) .hero-title { opacity: 0 }` and
+   only revealed once script.js adds .loaded, which these pages do not load.
+   Owning the class keeps the heading visible no matter what runs. */
+.agent-hero__title .highlight {
+    color: var(--primary-green);
+}
+
+/* --------------------------------------------------------------------------
+   Shell
+   -------------------------------------------------------------------------- */
+
+body.agent-landing {
+    background: var(--white);
+    /* styles.css sets `overflow-x: hidden` on body. Per spec, `hidden` on one
+       axis computes the other from `visible` to `auto`, which turns body into a
+       scroll container. A view() timeline then resolves its scroll container to
+       body, which never actually scrolls (scrolling propagates to the viewport),
+       so the timeline stays inactive and no scroll-driven animation ever runs.
+       `clip` gives identical horizontal containment without creating a scroll
+       box. Browsers too old for `clip` drop this and get the static image. */
+    overflow-x: clip;
+    overflow-y: visible;
+}
+
+.agent-landing__nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: var(--z-nav);
+    padding: 0.9rem 0;
+    background: rgba(10, 26, 38, 0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--hairline-on-dark);
+    transition: background 0.4s var(--ease-out), border-color 0.4s var(--ease-out);
+}
+
+/* Past the dark hero the bar switches to light so the logo stays legible. */
+.agent-landing__nav[data-past-hero="true"] {
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom-color: rgba(20, 50, 74, 0.12);
+}
+
+.agent-landing__nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 2rem);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.agent-landing__nav .logo-title {
+    color: var(--ink-on-dark);
+    transition: color 0.4s var(--ease-out);
+}
+
+.agent-landing__nav .logo-tagline {
+    color: var(--muted-on-dark);
+    transition: color 0.4s var(--ease-out);
+}
+
+.agent-landing__nav[data-past-hero="true"] .logo-title {
+    color: var(--dark-gray);
+}
+
+.agent-landing__nav[data-past-hero="true"] .logo-tagline {
+    color: var(--medium-gray);
+}
+
+.agent-landing__nav-cta {
+    font-family: var(--font-secondary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.6rem 1.4rem;
+    border-radius: 50px;
+    color: var(--ink-on-dark);
+    border: 1px solid var(--hairline-on-dark);
+    white-space: nowrap;
+    transition: background 0.3s var(--ease-out), color 0.3s var(--ease-out),
+                border-color 0.3s var(--ease-out);
+}
+
+.agent-landing__nav-cta:hover,
+.agent-landing__nav-cta:focus-visible {
+    background: var(--ink-on-dark);
+    color: var(--black);
+    border-color: var(--ink-on-dark);
+}
+
+.agent-landing__nav[data-past-hero="true"] .agent-landing__nav-cta {
+    color: var(--dark-gray);
+    border-color: rgba(20, 50, 74, 0.28);
+}
+
+.agent-landing__nav[data-past-hero="true"] .agent-landing__nav-cta:hover,
+.agent-landing__nav[data-past-hero="true"] .agent-landing__nav-cta:focus-visible {
+    background: var(--dark-gray);
+    color: var(--white);
+    border-color: var(--dark-gray);
+}
+
+@media (max-width: 540px) {
+    .agent-landing__nav-cta {
+        display: none;
+    }
+    .agent-landing__nav-inner {
+        justify-content: center;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Hero
+   -------------------------------------------------------------------------- */
+
+.agent-hero {
+    position: relative;
+    isolation: isolate;
+    background: var(--gradient-hero-dark);
+    color: var(--ink-on-dark);
+    padding: clamp(9rem, 16vh, 12rem) 0 clamp(4.5rem, 9vw, 7rem);
+    overflow: hidden;
+}
+
+.agent-hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+}
+
+.agent-hero__media video,
+.agent-hero__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* The footage is set dressing, not content. Keep it well behind the type. */
+    opacity: 0.38;
+}
+
+/* Scrim: guarantees hero copy contrast regardless of what the video is doing. */
+.agent-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(120% 90% at 15% 10%, rgba(10, 26, 38, 0.35) 0%, rgba(10, 26, 38, 0.9) 65%),
+        linear-gradient(180deg, rgba(10, 26, 38, 0.75) 0%, rgba(10, 26, 38, 0.82) 60%, var(--black) 100%);
+}
+
+.agent-hero__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 2rem);
+}
+
+.agent-hero__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted-on-dark);
+    margin-bottom: clamp(1.25rem, 3vw, 2rem);
+}
+
+.agent-hero__label::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--primary-green);
+    box-shadow: 0 0 0 4px rgba(67, 174, 104, 0.18);
+}
+
+.agent-hero__title {
+    /* Ceiling stays under the 6rem shout threshold; -0.03em keeps letters apart. */
+    font-family: var(--font-primary);
+    font-size: clamp(2.4rem, 5.4vw, 4.2rem);
+    font-weight: 700;
+    line-height: 1.06;
+    letter-spacing: -0.03em;
+    color: var(--ink-on-dark);
+    max-width: 18ch;
+    margin: 0 0 clamp(1.25rem, 2.5vw, 1.75rem);
+    text-wrap: balance;
+}
+
+.agent-hero__lede {
+    font-size: clamp(1.05rem, 1.9vw, 1.3rem);
+    line-height: 1.65;
+    color: var(--muted-on-dark);
+    max-width: 56ch;
+    margin: 0 0 clamp(2rem, 4vw, 2.75rem);
+    text-wrap: pretty;
+}
+
+.agent-hero__lede strong {
+    color: var(--ink-on-dark);
+    font-weight: 600;
+}
+
+.agent-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.agent-hero .btn-secondary {
+    color: var(--ink-on-dark);
+    border-color: var(--hairline-on-dark);
+}
+
+.agent-hero .btn-secondary:hover {
+    background: var(--ink-on-dark);
+    color: var(--black);
+    border-color: var(--ink-on-dark);
+}
+
+.agent-hero__terms {
+    margin: clamp(1.75rem, 3.5vw, 2.5rem) 0 0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--muted-on-dark);
+}
+
+.agent-hero__terms span + span::before {
+    content: '·';
+    margin: 0 0.6rem;
+    color: var(--hairline-on-dark);
+}
+
+@media (max-width: 620px) {
+    .agent-hero__actions .btn {
+        width: 100%;
+    }
+    .agent-hero__terms span {
+        display: block;
+    }
+    .agent-hero__terms span + span::before {
+        display: none;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Pipeline stage — the scroll-driven sliced reveal
+   --------------------------------------------------------------------------
+   Structure: one image painted four times, each copy clipped to a quarter-height
+   horizontal band. At rest the four bands reconstruct the image exactly. When
+   scroll-driven animation is available the bands enter offset from alternating
+   edges and lock into register one after another.
+
+   The default state is the finished, sharp image. The animation is layered on
+   top of that, so a browser without view() timelines, a headless renderer, or a
+   reader with reduced motion still gets the complete picture.
+   -------------------------------------------------------------------------- */
+
+.pipeline {
+    position: relative;
+    background: var(--black);
+    color: var(--ink-on-dark);
+    padding: var(--band-gap) 0;
+    /* `clip`, never `hidden`: `hidden` would make this section a scroll
+       container and the figure's view timeline would be measured against it
+       rather than the viewport, leaving it inactive. Same trap as on body. */
+    overflow-x: clip;
+}
+
+.pipeline__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 2rem);
+}
+
+.pipeline__head {
+    max-width: var(--measure);
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.pipeline__title {
+    font-family: var(--font-primary);
+    font-size: clamp(1.9rem, 4vw, 2.85rem);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: var(--ink-on-dark);
+    margin: 0 0 1rem;
+    text-wrap: balance;
+}
+
+.pipeline__intro {
+    font-size: clamp(1rem, 1.6vw, 1.15rem);
+    line-height: 1.7;
+    color: var(--muted-on-dark);
+    margin: 0;
+    max-width: 60ch;
+    text-wrap: pretty;
+}
+
+.pipeline__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+}
+
+/* ---- The sliced figure ---- */
+
+.pipeline__figure {
+    /* Sticky, so the figure holds its place while the four stages scroll past
+       it. `sticky` still establishes the containing block the bands need. */
+    position: sticky;
+    top: clamp(5.5rem, 14vh, 8rem);
+    aspect-ratio: 16 / 9;
+    border-radius: 14px;
+    /* `clip-path`, deliberately, NOT `overflow: hidden`. Overflow would make the
+       figure a scroll container, and the view timeline declared on the subject
+       inside it would then be measured against the figure instead of the
+       viewport. The subject exactly fills the figure, so it would read as
+       permanently fully-visible and the animation would sit pinned at its end
+       state. clip-path gives the same rounded clipping with no scroll box. */
+    clip-path: inset(0 round 14px);
+    background: #060F17;
+    border: 1px solid var(--hairline-on-dark);
+    margin: 0;
+    isolation: isolate;
+}
+
+.pipeline__band {
+    position: absolute;
+    inset: 0;
+    /* Each page sets the two URLs inline; the figure is ~92vw on small screens
+       and ~55% of a 1200px container above that, so this is the right split. */
+    background-image: var(--pipeline-image-sm);
+    background-size: cover;
+    background-position: center;
+    /* Each band shows one horizontal quarter. Together: the whole image. */
+    clip-path: inset(calc(var(--band) * 25%) 0 calc(75% - var(--band) * 25%) 0);
+    will-change: transform, opacity, filter;
+}
+
+/* A faint seam between bands so the slicing reads as deliberate at rest. */
+.pipeline__band::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(var(--band) * 25%);
+    height: 1px;
+    background: rgba(10, 26, 38, 0.55);
+    opacity: 0.7;
+}
+
+.pipeline__band[style*="--band: 0"]::after,
+.pipeline__band[style*="--band:0"]::after {
+    display: none;
+}
+
+/* Vignette + brand wash tying the photograph to the palette. */
+.pipeline__figure::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: var(--z-raised);
+    pointer-events: none;
+    background:
+        linear-gradient(115deg, rgba(35, 125, 166, 0.18) 0%, rgba(14, 156, 154, 0.08) 50%, rgba(67, 174, 104, 0.16) 100%),
+        radial-gradient(120% 100% at 50% 50%, transparent 40%, rgba(6, 15, 23, 0.6) 100%);
+    mix-blend-mode: screen;
+    opacity: 0.55;
+}
+
+/* ---- The stage list ---- */
+
+.pipeline__stages {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+/* Rail running the height of the list; fills as the section is read. */
+.pipeline__stages::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6rem;
+    bottom: 0.6rem;
+    width: 2px;
+    background: var(--hairline-on-dark);
+}
+
+.pipeline__stages::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6rem;
+    bottom: 0.6rem;
+    width: 2px;
+    background: linear-gradient(180deg, var(--primary-blue), var(--brand-teal) 55%, var(--primary-green));
+    transform-origin: top;
+    transform: scaleY(1);
+}
+
+.pipeline__stage {
+    position: relative;
+    padding: 0 0 clamp(1.75rem, 3.5vw, 2.5rem) clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.pipeline__stage:last-child {
+    padding-bottom: 0;
+}
+
+.pipeline__stage::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 0.55rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--black);
+    border: 2px solid var(--primary-green);
+}
+
+.pipeline__stage-name {
+    font-family: var(--font-primary);
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--ink-on-dark);
+    margin: 0 0 0.4rem;
+}
+
+.pipeline__stage-body {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: var(--muted-on-dark);
+    margin: 0 0 0.7rem;
+    text-wrap: pretty;
+}
+
+.pipeline__stage-metric {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+    color: var(--ink-on-dark);
+    background: var(--surface-on-dark);
+    border: 1px solid var(--hairline-on-dark);
+    border-radius: 6px;
+    padding: 0.35rem 0.7rem;
+}
+
+.pipeline__stage-metric b {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--primary-green);
+}
+
+@media (min-width: 901px) {
+    .pipeline__band {
+        background-image: var(--pipeline-image-lg);
+    }
+}
+
+@media (max-width: 900px) {
+    .pipeline__layout {
+        grid-template-columns: 1fr;
+    }
+
+    /* Single column: the figure sits above the stages, so sticking it would
+       pin it over the text it is meant to accompany. */
+    .pipeline__figure {
+        position: relative;
+        top: auto;
+        margin-bottom: clamp(1.75rem, 5vw, 2.5rem);
+    }
+}
+
+/* ---- Motion layer ----------------------------------------------------------
+   Everything above renders the finished state. Only inside these guards do the
+   bands start offset and travel into register.
+   -------------------------------------------------------------------------- */
+
+@keyframes pipeline-lock-left {
+    from { transform: translate3d(-9%, 0, 0); opacity: 0; filter: blur(7px); }
+    to   { transform: translate3d(0, 0, 0);   opacity: 1; filter: blur(0); }
+}
+
+@keyframes pipeline-lock-right {
+    from { transform: translate3d(9%, 0, 0); opacity: 0; filter: blur(7px); }
+    to   { transform: translate3d(0, 0, 0);  opacity: 1; filter: blur(0); }
+}
+
+@keyframes pipeline-rail {
+    from { transform: scaleY(0); }
+    to   { transform: scaleY(1); }
+}
+
+@keyframes pipeline-stage-in {
+    from { transform: translate3d(0, 14px, 0); opacity: 0; }
+    to   { transform: translate3d(0, 0, 0);    opacity: 1; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+
+    /* Preferred path: CSS scroll-driven timelines. No JS, no jank. */
+    @supports (animation-timeline: view()) {
+
+        /* One timeline measured on the figure. Bands are its descendants and
+           the stage list is a following sibling; both can read the name. This
+           only resolves because nothing between the figure and the viewport is
+           a scroll container. See the clip-path note on .pipeline__figure. */
+        /* The bands are descendants of the figure and see the name directly.
+           The stage list is only a *sibling* of the figure, and a named timeline
+           does not reach siblings on its own, so the shared parent widens the
+           name's scope to cover both branches. */
+        .pipeline__layout {
+            timeline-scope: --pipeline-figure;
+        }
+
+        .pipeline__figure {
+            view-timeline-name: --pipeline-figure;
+            view-timeline-axis: block;
+        }
+
+        .pipeline__band {
+            animation: pipeline-lock-left linear both;
+            animation-timeline: --pipeline-figure;
+        }
+
+        .pipeline__band:nth-child(even) {
+            animation-name: pipeline-lock-right;
+        }
+
+        /* Staggered so the bands lock top to bottom, the last one landing just
+           as the figure finishes entering the viewport. */
+        .pipeline__band:nth-child(1) { animation-range: entry 8% entry 55%; }
+        .pipeline__band:nth-child(2) { animation-range: entry 20% entry 70%; }
+        .pipeline__band:nth-child(3) { animation-range: entry 32% entry 85%; }
+        .pipeline__band:nth-child(4) { animation-range: entry 44% entry 100%; }
+
+        .pipeline__stages::after {
+            animation: pipeline-rail linear both;
+            animation-timeline: --pipeline-figure;
+            animation-range: entry 20% entry 95%;
+        }
+
+        .pipeline__stage {
+            animation: pipeline-stage-in linear both;
+            animation-timeline: --pipeline-figure;
+        }
+
+        .pipeline__stage:nth-child(1) { animation-range: entry 18% entry 45%; }
+        .pipeline__stage:nth-child(2) { animation-range: entry 30% entry 57%; }
+        .pipeline__stage:nth-child(3) { animation-range: entry 42% entry 69%; }
+        .pipeline__stage:nth-child(4) { animation-range: entry 54% entry 81%; }
+    }
+
+    /* Fallback for Firefox and anything else without view() timelines.
+       JS adds .is-armed only when it has confirmed the effect can run, so the
+       offset state is never applied to a browser that cannot undo it. */
+    .pipeline.is-armed .pipeline__band {
+        transform: translate3d(-9%, 0, 0);
+        opacity: 0;
+        filter: blur(7px);
+        transition: transform 1.1s var(--ease-out), opacity 0.9s var(--ease-out),
+                    filter 0.9s var(--ease-out);
+    }
+
+    .pipeline.is-armed .pipeline__band:nth-child(even) {
+        transform: translate3d(9%, 0, 0);
+    }
+
+    .pipeline.is-armed .pipeline__band:nth-child(2) { transition-delay: 0.12s; }
+    .pipeline.is-armed .pipeline__band:nth-child(3) { transition-delay: 0.24s; }
+    .pipeline.is-armed .pipeline__band:nth-child(4) { transition-delay: 0.36s; }
+
+    .pipeline.is-armed.is-visible .pipeline__band {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+        filter: blur(0);
+    }
+
+    .pipeline.is-armed .pipeline__stages::after {
+        transform: scaleY(0);
+        transition: transform 1.6s var(--ease-out);
+    }
+
+    .pipeline.is-armed.is-visible .pipeline__stages::after {
+        transform: scaleY(1);
+    }
+
+    .pipeline.is-armed .pipeline__stage {
+        opacity: 0;
+        transform: translate3d(0, 14px, 0);
+        transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    }
+
+    .pipeline.is-armed .pipeline__stage:nth-child(2) { transition-delay: 0.14s; }
+    .pipeline.is-armed .pipeline__stage:nth-child(3) { transition-delay: 0.28s; }
+    .pipeline.is-armed .pipeline__stage:nth-child(4) { transition-delay: 0.42s; }
+
+    .pipeline.is-armed.is-visible .pipeline__stage {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Capability — replaces the three identical icon cards
+   -------------------------------------------------------------------------- */
+
+.capability {
+    padding: var(--band-gap) 0;
+    background: var(--white);
+}
+
+.capability__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 2rem);
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: start;
+}
+
+.capability__aside {
+    position: sticky;
+    top: 7rem;
+}
+
+.capability__aside .section-title {
+    text-align: left;
+}
+
+.capability__aside p {
+    margin: 1.25rem 0 0;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--medium-gray);
+    max-width: 42ch;
+    text-wrap: pretty;
+}
+
+.capability__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.capability__item {
+    padding: clamp(1.75rem, 3vw, 2.25rem) 0;
+    border-top: 1px solid rgba(20, 50, 74, 0.14);
+}
+
+.capability__item:first-child {
+    border-top: 0;
+    padding-top: 0;
+}
+
+.capability__item h3 {
+    font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--dark-gray);
+    margin: 0 0 0.75rem;
+}
+
+.capability__item p {
+    margin: 0;
+    font-size: 1.02rem;
+    line-height: 1.72;
+    color: var(--medium-gray);
+    max-width: var(--measure);
+    text-wrap: pretty;
+}
+
+@media (max-width: 900px) {
+    .capability__inner {
+        grid-template-columns: 1fr;
+    }
+    .capability__aside {
+        position: static;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Integrations strip
+   -------------------------------------------------------------------------- */
+
+.integrations {
+    padding: clamp(2.5rem, 5vw, 3.5rem) 0;
+    background: var(--light-gray);
+    border-top: 1px solid rgba(20, 50, 74, 0.1);
+    border-bottom: 1px solid rgba(20, 50, 74, 0.1);
+}
+
+.integrations__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 2rem);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: clamp(1rem, 3vw, 2.5rem);
+}
+
+.integrations__label {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.74rem;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--medium-gray);
+    margin: 0;
+    flex: 0 0 auto;
+}
+
+.integrations__names {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.integrations__names li {
+    font-family: var(--font-primary);
+    font-size: clamp(1rem, 1.7vw, 1.2rem);
+    font-weight: 600;
+    color: var(--dark-gray);
+}
+
+/* --------------------------------------------------------------------------
+   Proof
+   -------------------------------------------------------------------------- */
+
+.proof {
+    padding: var(--band-gap) 0;
+    background: var(--white);
+}
+
+.proof__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 2rem);
+}
+
+.proof__quote {
+    margin: 0 0 clamp(2.5rem, 5vw, 3.5rem);
+    max-width: 24ch;
+    font-family: var(--font-primary);
+    font-size: clamp(1.6rem, 3.6vw, 2.6rem);
+    font-weight: 600;
+    line-height: 1.24;
+    letter-spacing: -0.022em;
+    color: var(--dark-gray);
+    text-wrap: balance;
+}
+
+.proof__quote p {
+    margin: 0;
+}
+
+.proof__attribution {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-top: clamp(1.5rem, 3vw, 2rem);
+    font-family: var(--font-secondary);
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.5;
+    color: var(--medium-gray);
+}
+
+.proof__mark {
+    flex: 0 0 auto;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    background: var(--dark-gray);
+    color: var(--white);
+    font-family: var(--font-primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.proof__results {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1px;
+    background: rgba(20, 50, 74, 0.14);
+    border: 1px solid rgba(20, 50, 74, 0.14);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.proof__results > div {
+    background: var(--white);
+    padding: clamp(1.4rem, 3vw, 1.9rem);
+}
+
+.proof__results dt {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: var(--medium-gray);
+    margin: 0 0 0.5rem;
+}
+
+.proof__results dd {
+    margin: 0;
+    font-family: var(--font-primary);
+    font-size: clamp(1.8rem, 3.4vw, 2.4rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--green-text);
+    line-height: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Pricing
+   -------------------------------------------------------------------------- */
+
+.pricing {
+    padding: var(--band-gap) 0;
+    background: var(--light-gray);
+}
+
+.pricing__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 2rem);
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+}
+
+.pricing__aside .section-title {
+    text-align: left;
+}
+
+.pricing__amount {
+    margin: clamp(1.5rem, 3vw, 2rem) 0 0.5rem;
+    font-family: var(--font-primary);
+    font-size: clamp(2.6rem, 6vw, 3.6rem);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1;
+    color: var(--dark-gray);
+}
+
+.pricing__amount span {
+    display: block;
+    font-family: var(--font-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    color: var(--medium-gray);
+    margin-top: 0.6rem;
+}
+
+.pricing__setup {
+    margin: 1.25rem 0 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--medium-gray);
+    max-width: 40ch;
+}
+
+.pricing__guarantee {
+    margin: clamp(1.5rem, 3vw, 2rem) 0 0;
+    padding: 1.1rem 1.25rem;
+    background: var(--light-green);
+    border: 1px solid rgba(44, 122, 69, 0.22);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--dark-gray);
+    max-width: 40ch;
+}
+
+.pricing__guarantee b {
+    color: var(--green-text);
+}
+
+.pricing__includes {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: var(--white);
+    border: 1px solid rgba(20, 50, 74, 0.12);
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.pricing__includes li {
+    display: grid;
+    grid-template-columns: 1.25rem 1fr;
+    gap: 0.9rem;
+    align-items: start;
+    padding: clamp(1rem, 2vw, 1.25rem) clamp(1.1rem, 2.5vw, 1.75rem);
+    border-top: 1px solid rgba(20, 50, 74, 0.09);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--medium-gray);
+}
+
+.pricing__includes li:first-child {
+    border-top: 0;
+}
+
+.pricing__includes li::before {
+    content: '';
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-top: 0.15rem;
+    border-radius: 50%;
+    background: var(--light-green);
+    /* Inline check mark, so no icon font and no emoji. */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%232C7A45' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.5 8.5l3 3 6-6'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
+}
+
+.pricing__includes strong {
+    color: var(--dark-gray);
+    font-weight: 600;
+}
+
+@media (max-width: 900px) {
+    .pricing__inner {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Closing CTA + form
+   -------------------------------------------------------------------------- */
+
+.closing {
+    position: relative;
+    isolation: isolate;
+    padding: var(--band-gap) 0;
+    background: var(--gradient-hero-dark);
+    color: var(--ink-on-dark);
+    overflow: hidden;
+}
+
+.closing::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(90% 70% at 80% 0%, rgba(14, 156, 154, 0.22) 0%, transparent 60%);
+}
+
+.closing__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 2rem);
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(2.5rem, 6vw, 4.5rem);
+    align-items: start;
+}
+
+.closing__title {
+    font-family: var(--font-primary);
+    font-size: clamp(1.9rem, 4.2vw, 2.9rem);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    color: var(--ink-on-dark);
+    margin: 0 0 1.25rem;
+    text-wrap: balance;
+}
+
+.closing__body {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--muted-on-dark);
+    margin: 0 0 clamp(1.75rem, 3.5vw, 2.25rem);
+    max-width: 46ch;
+    text-wrap: pretty;
+}
+
+.closing__points {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.85rem;
+}
+
+.closing__points li {
+    display: grid;
+    grid-template-columns: 1.1rem 1fr;
+    gap: 0.75rem;
+    align-items: start;
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: var(--muted-on-dark);
+}
+
+.closing__points li::before {
+    content: '';
+    width: 1.1rem;
+    height: 1.1rem;
+    margin-top: 0.2rem;
+    border-radius: 50%;
+    border: 1px solid rgba(67, 174, 104, 0.5);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%2343AE68' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.5 8.5l3 3 6-6'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
+}
+
+/* Form ---------------------------------------------------------------------- */
+
+.agent-form {
+    background: var(--white);
+    padding: clamp(1.5rem, 3.5vw, 2.5rem);
+    border-radius: 16px;
+    box-shadow: 0 24px 60px rgba(6, 15, 23, 0.35);
+}
+
+.agent-form__title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--dark-gray);
+    margin: 0 0 0.4rem;
+}
+
+.agent-form__note {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--medium-gray);
+    margin: 0 0 1.75rem;
+}
+
+.agent-form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.agent-form__field {
+    margin-bottom: 1rem;
+}
+
+.agent-form .landing-form-label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--dark-gray);
+}
+
+/* Placeholders must clear 4.5:1 like any other body text. */
+.agent-form input::placeholder,
+.agent-form textarea::placeholder {
+    color: var(--medium-gray);
+    opacity: 1;
+}
+
+.agent-form__consent {
+    display: grid;
+    gap: 0.75rem;
+    margin: 1.25rem 0 1.5rem;
+}
+
+.agent-form__consent label {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.6rem;
+    align-items: start;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--medium-gray);
+    cursor: pointer;
+}
+
+.agent-form__consent input[type="checkbox"] {
+    margin-top: 0.22rem;
+    width: 1rem;
+    height: 1rem;
+    accent-color: var(--primary-green);
+}
+
+.agent-form__consent a {
+    color: var(--signal);
+    text-underline-offset: 2px;
+}
+
+.agent-form__submit {
+    width: 100%;
+    padding: 0.95rem 1.5rem;
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--white);
+    background: var(--gradient-primary);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+}
+
+.agent-form__submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(35, 125, 166, 0.4);
+}
+
+.agent-form__submit:focus-visible {
+    outline: 3px solid var(--primary-green);
+    outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+    .closing__inner {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 560px) {
+    .agent-form__row {
+        grid-template-columns: 1fr;
+        gap: 0;
+        margin-bottom: 0;
+    }
+    .agent-form__row > div {
+        margin-bottom: 1rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Footer bar
+   -------------------------------------------------------------------------- */
+
+.agent-footer {
+    background: var(--black);
+    border-top: 1px solid var(--hairline-on-dark);
+    padding: 1.25rem 0;
+}
+
+.agent-footer__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 2rem);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+    font-size: 0.88rem;
+    color: var(--muted-on-dark);
+}
+
+.agent-footer__inner a {
+    color: var(--muted-on-dark);
+    text-underline-offset: 2px;
+}
+
+.agent-footer__inner a:hover {
+    color: var(--ink-on-dark);
+}
+
+/* --------------------------------------------------------------------------
+   Reduced motion: hold every element at its finished state.
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    .agent-landing *,
+    .agent-landing *::before,
+    .agent-landing *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .pipeline__band {
+        transform: none !important;
+        opacity: 1 !important;
+        filter: none !important;
+    }
+
+    .pipeline__stage {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .pipeline__stages::after {
+        transform: scaleY(1) !important;
+    }
+}
