@@ -68,7 +68,73 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css?v=20260711">
-    
+
+    <!-- Scroll-world ("La nostra storia") — page-scoped theming for the scrub engine -->
+    <style>
+        /* styles.css sets body{overflow-x:hidden}, which makes the body a scroll
+           container and can detach the flight's fixed layers. `clip` suppresses
+           horizontal overflow without creating one. Scoped to this page only. */
+        body { overflow-x: clip; }
+
+        .storia-world-wrap { position: relative; }
+
+        /* Brand tokens for the engine (unlayered, so they beat its @layer sw defaults). */
+        #storia-world {
+            --sw-bg: #F1F5F8;                 /* matches the rendered scene background */
+            --sw-ink: #14324A;
+            --sw-ink-soft: #54697A;
+            --sw-accent: #237DA6;
+            --sw-font-display: var(--font-primary);
+            --sw-font-body: var(--font-secondary);
+        }
+
+        /* The engine's eyebrow paints straight from --sw-accent at 12.8px/700, which
+           is below the WCAG large-text threshold — the lighter brand greens/cyans
+           would fail AA there. Darkening toward the ink keeps the hue per scene and
+           clears 4.5:1 on the pale background. */
+        #storia-world .sw-copy__eyebrow {
+            color: color-mix(in srgb, var(--sw-accent) 72%, #0A1A26);
+        }
+
+        /* styles.css opens with an unlayered `* { margin:0; padding:0 }` reset.
+           The engine ships its CSS inside `@layer sw`, and unlayered rules always
+           beat layered ones — so that reset silently flattens every margin and
+           padding in the component (buttons lose their 13px/24px padding, tag
+           pills collapse, the copy stack loses all rhythm). Re-assert the
+           engine's intended spacing here, unlayered, so it wins back. */
+        #storia-world .sw-copy__eyebrow { margin-top: 18px; }
+        #storia-world .sw-copy__title   { margin: 12px 0 0; }
+        #storia-world .sw-copy__body    { margin-top: 18px; }
+        #storia-world .sw-copy__tags    { margin: 24px 0 0; padding: 0; }
+        #storia-world .sw-copy__tags li { padding: 7px 14px; }
+        #storia-world .sw-copy__cta     { margin-top: 28px; }
+        #storia-world .sw-btn           { padding: 13px 24px; }
+        #storia-world .sw-route         { padding: 18px 10px; }
+
+        /* The engine writes .sw-copy's transform inline every frame for its
+           parallax nudge, which overwrites the stylesheet's translateY(-50%)
+           centering — so copy hangs below the middle and the finale's CTA lands
+           behind the cookie banner. `translate` is a separate property, so it
+           survives the inline transform and restores centering. Desktop only:
+           on narrow viewports the engine bottom-anchors the copy instead. */
+        @media (min-width: 861px) {
+            #storia-world .sw-copy { translate: 0 -50%; }
+        }
+
+        /* Every engine layer is position:fixed, so once the flight is behind us they
+           would keep painting over the article below. .sw-track is the in-flow spacer
+           that supplies the scroll height, so it must stay. */
+        .storia-world-wrap.is-past #storia-world > *:not(.sw-track) {
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        /* Hand off from the film to the written page: keep its own gradient,
+           just make sure it stacks above the world's fixed layers mid-transition. */
+        .about-hero { position: relative; z-index: 2; }
+
+    </style>
+
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
     [
@@ -191,6 +257,11 @@
     <div id="nav-placeholder"></div>
 
     <main id="main-content">
+
+    <!-- La Nostra Storia — scroll-scrubbed camera flight (see chi-siamo-world.js) -->
+    <div class="storia-world-wrap">
+        <div id="storia-world"></div>
+    </div>
 
     <!-- Hero Section -->
     <section class="about-hero">
@@ -515,6 +586,8 @@
 
     <div id="footer-placeholder"></div>
 
+    <script src="scroll-world.js?v=20260729"></script>
+    <script src="chi-siamo-world.js?v=20260729"></script>
     <script src="script.js?v=20260428"></script>
     <script src="includes/includes.js?v=20260428"></script>
     <script src="cookie-banner.js?v=20260428"></script>
