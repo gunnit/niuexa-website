@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+<title id="title">Framework Niuexa per la governance delle fonti di un assistente AI</title>
+<desc id="desc">Quattro controlli: fonte autorevole, proprietario, scadenza e permessi, collegati a ingestione, recupero con citazione, risposta e revisione.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0A1A26"/><stop offset="1" stop-color="#14324A"/></linearGradient><filter id="s"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-opacity=".22"/></filter></defs>
+<rect width="1200" height="760" fill="url(#bg)"/><rect x="44" y="44" width="1112" height="672" rx="30" fill="none" stroke="#237DA6" stroke-width="2"/>
+<text x="80" y="105" fill="#FFFFFF" font-family="Space Grotesk,Arial,sans-serif" font-size="38" font-weight="700">Dalla conoscenza dispersa alla risposta verificabile</text>
+<text x="80" y="142" fill="#BFD5E0" font-family="Hanken Grotesk,Arial,sans-serif" font-size="21">Il modello viene dopo: prima servono fonti governate e un percorso di controllo.</text>
+<g font-family="Hanken Grotesk,Arial,sans-serif" filter="url(#s)">
+<g transform="translate(80 200)"><rect width="230" height="150" rx="20" fill="#14324A" stroke="#43AE68" stroke-width="3"/><text x="24" y="43" fill="#43AE68" font-size="18" font-weight="700">1 • FONTE</text><text x="24" y="80" fill="#FFFFFF" font-size="24" font-weight="700">Versione autorevole</text><text x="24" y="112" fill="#C9DBE4" font-size="18">ID, ambito, citazione</text></g>
+<g transform="translate(340 200)"><rect width="230" height="150" rx="20" fill="#14324A" stroke="#237DA6" stroke-width="3"/><text x="24" y="43" fill="#6BC5E8" font-size="18" font-weight="700">2 • PROPRIETARIO</text><text x="24" y="80" fill="#FFFFFF" font-size="24" font-weight="700">Responsabilità</text><text x="24" y="112" fill="#C9DBE4" font-size="18">Approva e corregge</text></g>
+<g transform="translate(600 200)"><rect width="230" height="150" rx="20" fill="#14324A" stroke="#0E9C9A" stroke-width="3"/><text x="24" y="43" fill="#5ED0CE" font-size="18" font-weight="700">3 • SCADENZA</text><text x="24" y="80" fill="#FFFFFF" font-size="24" font-weight="700">Validità nel tempo</text><text x="24" y="112" fill="#C9DBE4" font-size="18">Review e stato</text></g>
+<g transform="translate(860 200)"><rect width="230" height="150" rx="20" fill="#14324A" stroke="#43AE68" stroke-width="3"/><text x="24" y="43" fill="#43AE68" font-size="18" font-weight="700">4 • PERMESSI</text><text x="24" y="80" fill="#FFFFFF" font-size="24" font-weight="700">Accesso coerente</text><text x="24" y="112" fill="#C9DBE4" font-size="18">Ruoli e tracciabilità</text></g>
+</g>
+<g stroke="#43AE68" stroke-width="4" fill="none"><path d="M195 370v65h810v-65"/><path d="M455 370v65M715 370v65"/><path d="M600 435v55"/></g>
+<g font-family="Hanken Grotesk,Arial,sans-serif"><rect x="150" y="490" width="900" height="150" rx="24" fill="#F1F5F8"/>
+<text x="190" y="535" fill="#14324A" font-size="19" font-weight="700">INGESTIONE CONTROLLATA</text><text x="190" y="580" fill="#54697A" font-size="19">documento + metadati</text>
+<path d="M410 565h85" stroke="#237DA6" stroke-width="4"/><path d="M485 555l15 10-15 10" fill="#237DA6"/>
+<text x="525" y="535" fill="#14324A" font-size="19" font-weight="700">RECUPERO + CITAZIONE</text><text x="525" y="580" fill="#54697A" font-size="19">fonte visibile nella risposta</text>
+<path d="M790 565h75" stroke="#237DA6" stroke-width="4"/><path d="M855 555l15 10-15 10" fill="#237DA6"/>
+<text x="895" y="535" fill="#14324A" font-size="19" font-weight="700">REVISIONE</text><text x="895" y="580" fill="#54697A" font-size="19">feedback all’owner</text>
+<text x="150" y="690" fill="#9EC4D5" font-size="18">Esito atteso: risposta tracciabile, contenuto aggiornabile, accesso proporzionato.</text></g>
+</svg>
