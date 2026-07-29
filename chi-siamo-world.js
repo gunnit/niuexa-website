@@ -66,9 +66,27 @@
     }
   ];
 
+  /* Phones and touch tablets don't get the film. There is no native 9:16 chain,
+     so a portrait screen would centre-crop the 16:9 clips to roughly their
+     middle quarter — unreadable — while asking a phone decoder to scrub ~29MB
+     of 1080p. Bailing out here leaves the standard chi-siamo article, which
+     lives in the page markup below the film and needs no fallback of its own.
+     Matches the engine's own isMobile() test, and is decided once at load so a
+     URL-bar resize can't tear down a running flight. */
+  function isSmallOrTouch() {
+    return window.matchMedia('(max-width: 860px)').matches ||
+           window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+  }
+
   function start() {
     var host = document.getElementById('storia-world');
     if (!host || typeof window.mountScrollWorld !== 'function') return;
+
+    if (isSmallOrTouch()) {
+      // Mark it so the CSS can collapse the wrapper; never mount the engine.
+      document.documentElement.classList.add('storia-no-world');
+      return;
+    }
 
     mountScrollWorld(host, {
       nav: false,              // the site's own navbar is the only nav

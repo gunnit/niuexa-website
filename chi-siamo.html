@@ -78,6 +78,18 @@
 
         .storia-world-wrap { position: relative; }
 
+        /* Phones and touch tablets skip the film entirely and get the standard
+           chi-siamo article, which is the markup below this wrapper. No native
+           9:16 chain was rendered, so a portrait screen would centre-crop the
+           16:9 clips to roughly their middle quarter while scrubbing ~29MB of
+           1080p on a phone decoder. Done in CSS as well as JS
+           (chi-siamo-world.js bails before mounting) so there is no flash of an
+           empty container, and so it still degrades correctly if JS fails. */
+        @media (max-width: 860px), (hover: none) and (pointer: coarse) {
+            .storia-world-wrap { display: none; }
+        }
+        .storia-no-world .storia-world-wrap { display: none; }
+
         /* Brand tokens for the engine (unlayered, so they beat its @layer sw defaults). */
         #storia-world {
             --sw-bg: #F1F5F8;                 /* matches the rendered scene background */
