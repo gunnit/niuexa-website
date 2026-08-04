@@ -49,4 +49,14 @@
         font-size: 0.88rem;
         padding: 0.85rem 0.95rem 1rem;
     }
+
+    .article-diagram-scroll {
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+    }
+
+    .article-diagram-scroll img {
+        width: 760px;
+        max-width: none;
+    }
 }

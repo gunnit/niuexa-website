@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KG9S42S4');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
+
+    <title>Incident Response AI per PMI: Runbook Operativo | Niuexa</title>
+    <meta name="description" content="Runbook pratico per gestire incidenti AI: severità, contenimento, evidenze, ripristino, comunicazione e post-mortem per aziende e PMI.">
+    <meta name="keywords" content="incident response AI, gestione incidenti intelligenza artificiale, runbook AI, incidente AI agent, sicurezza AI PMI, piano risposta incidenti AI">
+    <meta name="author" content="Niuexa">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://niuexa.ai/articolo-incident-response-ai-pmi.html">
+    <meta property="og:title" content="Incident response AI per PMI: il runbook operativo">
+    <meta property="og:description" content="Come rilevare, contenere e risolvere un incidente AI senza perdere evidenze, continuità e responsabilità.">
+    <meta property="og:image" content="https://niuexa.ai/img/articles/incident-response-ai-pmi/incident-response-ai-pmi-og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Runbook Niuexa per la gestione degli incidenti AI">
+    <meta property="og:locale" content="it_IT">
+    <meta property="article:published_time" content="2026-08-04">
+    <meta property="article:modified_time" content="2026-08-04">
+    <meta property="article:author" content="Niuexa">
+    <meta property="article:section" content="AI Governance e Operations">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Incident response AI per PMI: il runbook operativo">
+    <meta name="twitter:description" content="Severità, contenimento, evidenze, ripristino e post-mortem per sistemi AI in produzione.">
+    <meta name="twitter:image" content="https://niuexa.ai/img/articles/incident-response-ai-pmi/incident-response-ai-pmi-og.png">
+    <meta name="twitter:image:alt" content="Runbook Niuexa per la gestione degli incidenti AI">
+
+    <link rel="canonical" href="https://niuexa.ai/articolo-incident-response-ai-pmi.html">
+    <link rel="alternate" hreflang="it" href="https://niuexa.ai/articolo-incident-response-ai-pmi.html">
+    <link rel="alternate" hreflang="it-it" href="https://niuexa.ai/articolo-incident-response-ai-pmi.html">
+    <link rel="alternate" hreflang="x-default" href="https://niuexa.ai/articolo-incident-response-ai-pmi.html">
+    <link rel="icon" type="image/x-icon" href="img/favicon 256.ico">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=20260711">
+    <link rel="stylesheet" href="tutorial.css?v=20260429">
+    <link rel="stylesheet" href="article-visuals.css?v=20260804">
+
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"Article",
+      "headline":"Incident response AI per PMI: il runbook operativo",
+      "description":"Runbook pratico per gestire incidenti AI: severità, contenimento, evidenze, ripristino, comunicazione e post-mortem per aziende e PMI.",
+      "author":{"@type":"Organization","name":"Niuexa","url":"https://niuexa.ai"},
+      "publisher":{"@type":"Organization","name":"Niuexa","logo":{"@type":"ImageObject","url":"https://niuexa.ai/img/niuexalogo.png"}},
+      "datePublished":"2026-08-04",
+      "dateModified":"2026-08-04",
+      "mainEntityOfPage":{"@type":"WebPage","@id":"https://niuexa.ai/articolo-incident-response-ai-pmi.html"},
+      "image":["https://niuexa.ai/img/articles/incident-response-ai-pmi/incident-response-ai-pmi-og.png"],
+      "articleSection":"AI Governance e Operations",
+      "keywords":["incident response AI","runbook AI","AI agent","governance AI","sicurezza AI","PMI"],
+      "inLanguage":"it-IT",
+      "speakable":{"@type":"SpeakableSpecification","cssSelector":["h1",".tutorial-description",".quick-answer"]}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Che cos’è un incidente AI?","acceptedAnswer":{"@type":"Answer","text":"È un evento in cui un sistema AI produce o abilita un comportamento inatteso con impatto su dati, persone, denaro, sicurezza, conformità o continuità operativa."}},
+        {"@type":"Question","name":"Qual è la prima azione durante un incidente AI?","acceptedAnswer":{"@type":"Answer","text":"Mettere in sicurezza il processo: fermare le azioni rischiose, revocare accessi non necessari e attivare un fallback, preservando nel frattempo log e versioni utili all’analisi."}},
+        {"@type":"Question","name":"Quali evidenze bisogna conservare?","acceptedAnswer":{"@type":"Answer","text":"Input e output rilevanti, timestamp, identità e permessi, versione di modello e prompt, fonti recuperate, tool chiamati, configurazioni, log applicativi e decisioni umane."}},
+        {"@type":"Question","name":"Ogni incidente AI deve essere notificato alle autorità?","acceptedAnswer":{"@type":"Answer","text":"No. Gli obblighi dipendono da sistema, ruolo dell’organizzazione, gravità e normativa applicabile. La classificazione interna non sostituisce una valutazione legale, privacy o di sicurezza."}},
+        {"@type":"Question","name":"Quando si può riattivare un sistema AI?","acceptedAnswer":{"@type":"Answer","text":"Quando la causa è compresa a sufficienza, il controllo correttivo è stato verificato, il fallback resta disponibile, un owner accetta il rischio residuo e il monitoraggio è attivo."}}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://niuexa.ai/"},
+      {"@type":"ListItem","position":2,"name":"Ricerca","item":"https://niuexa.ai/research.html"},
+      {"@type":"ListItem","position":3,"name":"Incident response AI per PMI","item":"https://niuexa.ai/articolo-incident-response-ai-pmi.html"}
+    ]}
+    </script>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9S42S4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <a href="#main-content" class="skip-link">Vai al contenuto principale</a>
+    <div id="navigation-placeholder"></div>
+    <main id="main-content">
+        <section class="tutorial-header"><div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="research.html">Ricerca</a> / <span>Incident response AI</span></nav><div class="tutorial-intro">
+            <div class="tutorial-badge">AI Governance e Operations</div>
+            <h1>Incident response AI per PMI: il runbook operativo</h1>
+            <p class="tutorial-description">Quando un sistema AI sbaglia in produzione, “spegnerlo” è solo l’inizio. Servono severità, ruoli, contenimento, evidenze e criteri di riapertura definiti prima dell’incidente.</p>
+            <div class="tutorial-stats"><span class="stat">11 minuti di lettura</span><span class="stat">Per CEO, COO, IT e security</span><span class="stat">Runbook in 7 fasi</span></div>
+        </div></div></section>
+
+        <article class="tutorial-content"><div class="container"><div class="content-wrapper">
+            <figure class="article-visual article-visual-hero"><img src="img/articles/incident-response-ai-pmi/incident-response-ai-pmi-og.png" alt="Runbook Niuexa per rilevare, contenere, ripristinare e imparare da un incidente AI" width="1200" height="630" loading="eager"><figcaption>Un piano utile protegge prima il processo, poi permette di capire la causa senza distruggere le evidenze.</figcaption></figure>
+
+            <section class="content-section quick-answer">
+                <h2>Risposta rapida: che cos’è l’incident response AI?</h2>
+                <p>L’<strong>incident response AI</strong> è il processo con cui un’azienda rileva, classifica, contiene e risolve eventi inattesi legati a un sistema AI. Un incidente può essere un output falso inviato a un cliente, un agente che esegue un’azione non autorizzata, una fuga di dati attraverso prompt o retrieval, un degrado improvviso della qualità oppure l’impossibilità di ricostruire quale modello e quali fonti abbiano prodotto una decisione. Il runbook stabilisce in anticipo chi decide, che cosa fermare, quali prove conservare e quando il sistema può tornare operativo.</p>
+            </section>
+
+            <section class="content-section">
+                <h2>Perché il piano IT tradizionale non basta</h2>
+                <p>Un guasto applicativo classico tende a essere riproducibile: un servizio non risponde, un database è indisponibile, una release introduce un errore. Un incidente AI può invece dipendere dall’interazione tra input, contesto recuperato, versione del modello, prompt di sistema, strumenti disponibili e decisioni umane. Due richieste simili possono produrre esiti diversi.</p>
+                <p>Per questo non basta registrare “errore del chatbot”. Bisogna ricostruire la catena: chi ha inviato l’input, quale conoscenza è stata recuperata, quale versione era attiva, quali tool sono stati chiamati, quale azione è stata eseguita e quale controllo avrebbe dovuto intervenire. Il NIST AI RMF include meccanismi organizzativi per identificare e gestire i rischi; il profilo NIST per l’AI generativa invita inoltre a verificare e aggiornare processi di risposta e disclosure degli incidenti.</p>
+                <p>Per una PMI il principio è semplice: integrare l’AI nel processo di incident management esistente, aggiungendo le evidenze e le decisioni specifiche dei sistemi probabilistici. Non serve creare una centrale operativa separata; serve evitare che l’AI resti una zona senza owner.</p>
+            </section>
+
+            <section class="content-section">
+                <h2>Prima dell’incidente: prepara cinque elementi</h2>
+                <ol>
+                    <li><strong>Inventario:</strong> sistema, owner, uso previsto, dati, integrazioni, utenti, fornitore e criticità del processo.</li>
+                    <li><strong>Telemetria:</strong> log di input e output consentiti, versioni, fonti, chiamate a strumenti, decisioni umane e alert, con minimizzazione e retention definite.</li>
+                    <li><strong>Kill switch:</strong> modalità per sospendere invii, pagamenti, aggiornamenti o accessi senza spegnere servizi non coinvolti.</li>
+                    <li><strong>Fallback:</strong> percorso manuale o degradato che mantiene il servizio essenziale mentre l’AI è isolata.</li>
+                    <li><strong>Contatti:</strong> incident lead, process owner, referente tecnico, privacy/legale e comunicazione, con sostituti e reperibilità proporzionati al rischio.</li>
+                </ol>
+                <p>Se questi elementi vengono cercati durante l’emergenza, il tempo di contenimento aumenta e la ricostruzione diventa meno affidabile.</p>
+            </section>
+
+            <section class="content-section">
+                <h2>La matrice di severità: da S1 a S4</h2>
+                <figure class="article-visual article-diagram article-diagram-scroll"><img src="img/articles/incident-response-ai-pmi/matrice-severita-incidenti-ai.svg" alt="Matrice Niuexa con quattro livelli di severità per incidenti AI" width="1200" height="680" loading="eager"><figcaption>La severità non dipende da quanto l’output appare strano, ma dalle conseguenze: persone, dati, denaro, diffusione e reversibilità. Su mobile, scorri il diagramma in orizzontale.</figcaption></figure>
+                <table class="comparison-table">
+                    <thead><tr><th>Livello</th><th>Esempio</th><th>Risposta minima</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>S1 — Basso</strong></td><td>Bozza interna errata, intercettata prima dell’uso.</td><td>Correzione, registrazione e verifica di ricorrenza.</td></tr>
+                        <tr><td><strong>S2 — Medio</strong></td><td>Classificazione errata su un gruppo limitato di ticket.</td><td>Contenimento, fallback e analisi entro lo SLA interno.</td></tr>
+                        <tr><td><strong>S3 — Alto</strong></td><td>Azioni errate verso clienti, dati riservati possibili o impatto economico.</td><td>Stop del flusso, incident team, verifica legale/privacy e comunicazione controllata.</td></tr>
+                        <tr><td><strong>S4 — Critico</strong></td><td>Impatto esteso o non reversibile su diritti, salute, sicurezza o dati sensibili.</td><td>Crisis lead, contenimento immediato, decisioni esecutive e valutazione degli obblighi esterni.</td></tr>
+                    </tbody>
+                </table>
+                <p>Questa classificazione è una guida operativa Niuexa, non una classificazione legale. Gli obblighi di notifica dipendono dal sistema, dal ruolo dell’organizzazione, dai dati e dalla normativa applicabile.</p>
+            </section>
+
+            <section class="content-section">
+                <h2>Il runbook in sette fasi</h2>
+                <figure class="article-visual article-diagram article-diagram-scroll"><img src="img/articles/incident-response-ai-pmi/workflow-incident-response-ai.svg" alt="Sette fasi del ciclo di incident response AI: rilevare, classificare, contenere, preservare, ripristinare, comunicare e imparare" width="1200" height="760" loading="eager"><figcaption>Contenimento e preservazione devono procedere insieme: bloccare il rischio senza cancellare le tracce necessarie a comprenderlo. Su mobile, scorri il diagramma in orizzontale.</figcaption></figure>
+
+                <h3>1. Rileva e apri un evento</h3>
+                <p>Accetta segnali da utenti, controlli automatici, monitoraggio qualità, sicurezza e fornitori. Registra subito timestamp, sistema, segnalante, comportamento osservato e azione già avvenuta. Evita diagnosi premature.</p>
+
+                <h3>2. Classifica impatto e perimetro</h3>
+                <p>Chiedi quali persone, dati, processi e canali sono coinvolti; se l’azione è reversibile; se il comportamento continua; se altri sistemi condividono modello, credenziali o knowledge base. Assegna una severità provvisoria, che può aumentare.</p>
+
+                <h3>3. Contieni con il minimo raggio d’azione</h3>
+                <p>Sospendi la funzione rischiosa, revoca token o permessi compromessi, disabilita un tool, congela una versione o devia sul fallback. Non applicare modifiche non tracciate “per vedere se passa”: possono alterare le evidenze e introdurre nuove variabili.</p>
+
+                <h3>4. Preserva le evidenze</h3>
+                <p>Conserva input e output pertinenti, prompt di sistema, versione del modello, parametri, documenti recuperati, log delle chiamate, identità, autorizzazioni, configurazioni e decisioni umane. Proteggi accesso, integrità e tempi di conservazione; non raccogliere dati oltre il necessario.</p>
+
+                <h3>5. Correggi e ripristina per gradi</h3>
+                <p>La correzione può riguardare dati, istruzioni, accessi, validazioni, soglie, interfaccia o processo. Verificala su casi normali, edge case e caso dell’incidente. Riapri prima in ambiente controllato o su traffico limitato, mantenendo fallback e monitoraggio rafforzato.</p>
+
+                <h3>6. Comunica con una fonte unica</h3>
+                <p>Definisci un incident lead e un log decisionale. Aggiornamenti interni, assistenza clienti, fornitori e valutazioni normative devono partire dallo stesso stato verificato. Distingui fatti, ipotesi e azioni in corso. Evita messaggi rassicuranti prima di conoscere perimetro e impatto.</p>
+
+                <h3>7. Chiudi con un post-mortem</h3>
+                <p>Documenta sequenza, causa, controlli mancanti, tempo di rilevazione, tempo di contenimento e impatto. Ogni azione correttiva deve avere owner e scadenza. Il post-mortem non cerca un colpevole: cerca la condizione che ha permesso all’errore di raggiungere il processo reale.</p>
+            </section>
+
+            <section class="content-section">
+                <h2>Il gate di riapertura</h2>
+                <p>Un sistema non torna in produzione solo perché “sembra funzionare”. Prima della riapertura verifica:</p>
+                <ul>
+                    <li>la causa è compresa abbastanza da evitare una replica immediata;</li>
+                    <li>il controllo correttivo è stato testato sul caso dell’incidente e su casi adiacenti;</li>
+                    <li>credenziali, permessi e versioni sono coerenti con il perimetro approvato;</li>
+                    <li>fallback e kill switch sono disponibili;</li>
+                    <li>un process owner accetta il rischio residuo;</li>
+                    <li>alert e campionamento rafforzato sono attivi per un periodo definito;</li>
+                    <li>eventuali comunicazioni o adempimenti sono stati valutati dai ruoli competenti.</li>
+                </ul>
+                <p>Per S3 e S4 è utile una decisione nominativa di go/no-go. Per S1 e S2 può bastare un’approvazione operativa tracciata, purché il criterio sia stabilito prima.</p>
+            </section>
+
+            <section class="content-section">
+                <h2>KPI per migliorare la risposta</h2>
+                <ul>
+                    <li><strong>Tempo di rilevazione:</strong> dall’inizio dell’evento al primo alert attendibile.</li>
+                    <li><strong>Tempo di contenimento:</strong> dall’apertura alla sospensione del comportamento rischioso.</li>
+                    <li><strong>Escalation corretta:</strong> quota di eventi assegnati al livello e ai ruoli appropriati.</li>
+                    <li><strong>Recidiva:</strong> incidenti simili dopo la correzione.</li>
+                    <li><strong>Copertura delle evidenze:</strong> eventi per cui versione, fonti, azioni e identità sono ricostruibili.</li>
+                    <li><strong>Tempo in fallback:</strong> durata e capacità del percorso alternativo.</li>
+                </ul>
+                <p>Non usare il numero assoluto di incidenti come unico KPI: un sistema con segnalazioni aperte e tracciate può essere più maturo di uno che non rileva nulla.</p>
+            </section>
+
+            <section class="content-section">
+                <h2>Fonti e perimetro</h2>
+                <p>Il runbook e la matrice di severità sono una guida operativa Niuexa. Sono informati da:</p>
+                <ul>
+                    <li><a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener">NIST AI Risk Management Framework</a>, per governare, mappare, misurare e gestire i rischi AI.</li>
+                    <li><a href="https://doi.org/10.6028/NIST.AI.600-1" target="_blank" rel="noopener">NIST AI 600-1, Generative AI Profile</a>, che include azioni su incident response e incident disclosure.</li>
+                    <li><a href="https://genai.owasp.org/resource/genai-incident-response-guide-1-0/" target="_blank" rel="noopener">OWASP GenAI Incident Response Guide</a>, guida per professionisti della sicurezza che gestiscono incidenti GenAI.</li>
+                    <li><a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" target="_blank" rel="noopener">Commissione europea, quadro dell’AI Act</a>, per ruoli, approccio basato sul rischio e casi che prevedono gestione o segnalazione di incidenti seri.</li>
+                </ul>
+                <p>Il contenuto è informativo e non sostituisce una valutazione legale, privacy, cybersecurity o regolamentare sul caso specifico.</p>
+            </section>
+
+            <section class="content-section faq-section">
+                <h2>FAQ sulla gestione degli incidenti AI</h2>
+                <div class="faq-item"><h3>Che cos’è un incidente AI?</h3><p>È un evento in cui un sistema AI produce o abilita un comportamento inatteso con impatto su dati, persone, denaro, sicurezza, conformità o continuità.</p></div>
+                <div class="faq-item"><h3>Qual è la prima azione?</h3><p>Mettere in sicurezza il processo: fermare azioni rischiose, limitare accessi e attivare il fallback, preservando log e versioni.</p></div>
+                <div class="faq-item"><h3>Quali evidenze devo conservare?</h3><p>Input e output pertinenti, timestamp, identità, permessi, versione del modello e del prompt, fonti recuperate, tool chiamati e decisioni umane.</p></div>
+                <div class="faq-item"><h3>Ogni incidente va notificato?</h3><p>No. Gli obblighi dipendono da sistema, ruolo, gravità e normativa applicabile; serve una valutazione specifica.</p></div>
+                <div class="faq-item"><h3>Quando posso riattivare il sistema?</h3><p>Quando causa e controllo sono verificati, il fallback resta disponibile, un owner accetta il rischio residuo e il monitoraggio è attivo.</p></div>
+            </section>
+
+            <section class="content-section"><h2>Approfondimenti correlati</h2><div class="related-articles">
+                <a href="articolo-human-in-the-loop-ai-pmi.html" class="related-card"><span class="related-category">Governance</span><h4>Progettare il controllo umano dell’AI</h4></a>
+                <a href="articolo-due-diligence-fornitori-ai-pmi.html" class="related-card"><span class="related-category">Procurement</span><h4>Due diligence dei fornitori AI</h4></a>
+                <a href="articolo-rischi-ai-azienda.html" class="related-card"><span class="related-category">AI Risk</span><h4>I rischi dell’AI in azienda</h4></a>
+                <a href="ai-readiness-assessment.html" class="related-card"><span class="related-category">Assessment</span><h4>Valuta la tua AI readiness</h4></a>
+            </div></section>
+        </div></div></article>
+
+        <section class="cta-section"><div class="container"><h2>I tuoi sistemi AI hanno un piano di incidente e ripristino?</h2><p>Niuexa aiuta le aziende a definire inventario, ruoli, controlli, kill switch, fallback e criteri di riapertura per workflow e AI agent.</p><a href="ai-readiness-assessment.html" class="btn btn-primary">Prenota un assessment AI</a><a href="consulting.html" class="btn btn-secondary" style="margin-left:15px;">Scopri la consulenza AI</a></div></section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="includes/includes.js?v=20260428"></script>
+    <script src="tutorial.js"></script>
+    <script src="cookie-banner.js?v=20260428"></script>
+</body>
+</html>
