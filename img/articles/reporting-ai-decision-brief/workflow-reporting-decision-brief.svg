@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Workflow Niuexa per il reporting AI governato</title>
+  <desc id="desc">Cinque passaggi dalle fonti autorizzate alla decisione dell'owner umano.</desc>
+  <rect width="1200" height="700" fill="#F1F5F8"/>
+  <rect x="36" y="36" width="1128" height="628" rx="32" fill="#FFFFFF" stroke="#237DA6" stroke-width="3"/>
+  <text x="84" y="112" font-family="Space Grotesk,Arial,sans-serif" font-size="34" font-weight="700" fill="#14324A">Dal dato al decision brief</text>
+  <text x="84" y="154" font-family="Hanken Grotesk,Arial,sans-serif" font-size="22" fill="#54697A">Ogni passaggio produce un output verificabile prima della decisione.</text>
+  <g font-family="Space Grotesk,Arial,sans-serif" font-size="21" font-weight="700" text-anchor="middle">
+    <rect x="72" y="238" width="186" height="168" rx="22" fill="#E8F4F8" stroke="#237DA6" stroke-width="3"/>
+    <text x="165" y="300" fill="#14324A">1. ACQUISISCI</text><text x="165" y="338" font-family="Hanken Grotesk,Arial,sans-serif" font-size="18" font-weight="400" fill="#54697A">Fonti autorizzate</text><text x="165" y="366" font-family="Hanken Grotesk,Arial,sans-serif" font-size="18" font-weight="400" fill="#54697A">e aggiornate</text>
+    <rect x="286" y="238" width="186" height="168" rx="22" fill="#E5F5F4" stroke="#0E9C9A" stroke-width="3"/>
+    <text x="379" y="300" fill="#14324A">2. NORMALIZZA</text><text x="379" y="338" font-family="Hanken Grotesk,Arial,sans-serif" font-size="18" font-weight="400" fill="#54697A">Definizioni, KPI</text><text x="379" y="366" font-family="Hanken Grotesk,Arial,sans-serif" font-size="18" font-weight="400" fill="#54697A">e periodi</text>
+    <rect x="500" y="238" width="186" height="168" rx="22" fill="#ECF7EF" stroke="#43AE68" stroke-width="3"/>
+    <text x="593" y="300" fill="#14324A">3. VALIDA</text><text x="593" y="338" font-family="Hanken Grotesk,Arial,sans-serif" font-size="18" font-weight="400" fill="#54697A">Completezza e</text><text x="593" y="366" font-family="Hanken Grotesk,Arial,sans-serif" font-size="18" font-weight="400" fill="#54697A">coerenza</text>
+    <rect x="714" y="238" width="186" height="168" rx="22" fill="#FFF5E6" stroke="#D98B21" stroke-width="3"/>
+    <text x="807" y="300" fill="#14324A">4. SEGNALA</text><text x="807" y="338" font-family="Hanken Grotesk,Arial,sans-serif" font-size="18" font-weight="400" fill="#54697A">Eccezioni sopra</text><text x="807" y="366" font-family="Hanken Grotesk,Arial,sans-serif" font-size="18" font-weight="400" fill="#54697A">soglia</text>
+    <rect x="928" y="238" width="186" height="168" rx="22" fill="#E9EFF8" stroke="#1F64AE" stroke-width="3"/>
+    <text x="1021" y="300" fill="#14324A">5. DECIDI</text><text x="1021" y="338" font-family="Hanken Grotesk,Arial,sans-serif" font-size="18" font-weight="400" fill="#54697A">Owner, azione</text><text x="1021" y="366" font-family="Hanken Grotesk,Arial,sans-serif" font-size="18" font-weight="400" fill="#54697A">e scadenza</text>
+  </g>
+  <g stroke="#54697A" stroke-width="4" fill="none"><path d="M258 322h28"/><path d="M472 322h28"/><path d="M686 322h28"/><path d="M900 322h28"/></g>
+  <g fill="#54697A"><path d="M278 313l12 9-12 9z"/><path d="M492 313l12 9-12 9z"/><path d="M706 313l12 9-12 9z"/><path d="M920 313l12 9-12 9z"/></g>
+  <rect x="180" y="490" width="840" height="100" rx="22" fill="#14324A"/>
+  <text x="600" y="535" text-anchor="middle" font-family="Space Grotesk,Arial,sans-serif" font-size="25" font-weight="700" fill="#FFFFFF">AI: prepara evidenze e opzioni · Owner: interpreta e decide</text>
+  <text x="600" y="568" text-anchor="middle" font-family="Hanken Grotesk,Arial,sans-serif" font-size="19" fill="#DCE7EF">Provenienza, controlli e responsabilità restano visibili.</text>
+</svg>
