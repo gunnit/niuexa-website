@@ -20,6 +20,20 @@
     padding: 12px 0;
 }
 
+/* "Ultimo aggiornamento | Autore" strip that sits between the last section and
+   the footer. Lives here rather than in a page stylesheet so every page that
+   uses it renders it the same way; `.author-bio` is a different component
+   styled by tutorial.css and is left alone. */
+.page-meta:not(.author-bio) {
+    font-family: var(--font-secondary);
+    font-size: 13px;
+    color: var(--medium-gray);
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -2678,8 +2692,10 @@ button[aria-busy="true"]::after {
 
 .footer-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    /* Brand keeps a compact column so the five link columns get the space they
+       need; a 1fr/1fr split left half the footer empty and crushed the links. */
+    grid-template-columns: minmax(180px, 220px) minmax(0, 1fr);
+    gap: 2.5rem;
     margin-bottom: 2rem;
 }
 
@@ -2697,8 +2713,9 @@ button[aria-busy="true"]::after {
 
 .footer-links {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    /* Five columns: Servizi, Risorse, Azienda, Social, Legale. */
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 2rem 1.25rem;
 }
 
 .footer-column h4 {
@@ -2878,23 +2895,34 @@ button[aria-busy="true"]::after {
 }
 
 /* Responsive Design */
+
+/* Below this width the brand sits above the links instead of beside them, so
+   the five link columns keep a wide enough measure to hold their labels. */
+@media (max-width: 1200px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
 @media (max-width: 1024px) {
     .hero-container {
         gap: 3rem;
     }
-    
+
     .hero-title {
         font-size: 3.2rem;
     }
-    
+
     .ai-visualization {
         width: 350px;
         height: 350px;
     }
-    
+}
+
+@media (max-width: 960px) {
     .footer-links {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 
@@ -3138,10 +3166,10 @@ button[aria-busy="true"]::after {
     }
     
     .footer-links {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 2rem 1.5rem;
     }
-    
+
     .footer-contact {
         text-align: center;
     }
@@ -3163,6 +3191,15 @@ button[aria-busy="true"]::after {
     
     .footer-disclaimer {
         font-size: 0.7rem !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-links {
+        /* Two columns rather than one: a single stack turned the footer into a
+           ~1000px scroll on phones. */
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.75rem 1rem;
     }
 }
 
@@ -3270,10 +3307,6 @@ button[aria-busy="true"]::after {
     }
 
     .use-case-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .footer-links {
         grid-template-columns: 1fr;
     }
     
@@ -4388,6 +4421,13 @@ html {
     position: relative;
     z-index: 2;
     display: block;
+}
+
+/* Trailing margins on the last block leaked past the section's own bottom
+   padding, leaving 30-55px of extra dead space right above the footer. */
+.cta-content > *:last-child,
+.cta-content > *:last-child > *:last-child {
+    margin-bottom: 0;
 }
 
 .cta-content h2 {

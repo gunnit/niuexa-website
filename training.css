@@ -773,15 +773,6 @@
     color: rgba(255, 255, 255, 0.92);
 }
 
-/* ============ Page meta ============ */
-
-.page-meta {
-    text-align: center;
-    font-size: 0.85rem;
-    color: var(--medium-gray);
-    padding: 1.5rem 20px;
-}
-
 /* ============ Focus visibility ============ */
 
 .btn:focus-visible,
