@@ -377,9 +377,13 @@
     display: block;
 }
 
-/* Tables: wrap in scroll container on small screens */
+/* Tables: wrap in scroll container on small screens. .comparison-table is
+   listed by class as well because it also appears outside .content-section,
+   where a wide table widened the whole page instead of scrolling itself. */
 .content-section table,
-.tutorial-content table {
+.tutorial-content table,
+table.comparison-table,
+table.data-table {
     display: block;
     max-width: 100%;
     overflow-x: auto;
@@ -388,7 +392,9 @@
 
 @media (min-width: 769px) {
     .content-section table,
-    .tutorial-content table {
+    .tutorial-content table,
+    table.comparison-table,
+    table.data-table {
         display: table;
         width: 100%;
     }

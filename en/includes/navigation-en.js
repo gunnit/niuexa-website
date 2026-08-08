@@ -419,7 +419,7 @@ document.addEventListener('DOMContentLoaded', function() {
     makeScrollRegionsFocusable();
 });
 
-var SCROLL_REGION_LABELS = { code: 'Scrollable code block', table: 'Scrollable table' };
+var SCROLL_REGION_LABELS = { code: 'Scrollable code block', table: 'Scrollable table', block: 'Scrollable content' };
 
 // Horizontally scrollable code blocks and wide tables are reachable with a
 // mouse or a finger but not with a keyboard, which fails WCAG 2.1.1. Whether
@@ -427,7 +427,8 @@ var SCROLL_REGION_LABELS = { code: 'Scrollable code block', table: 'Scrollable t
 // runtime and re-checked on resize rather than hard-coded into the markup.
 function makeScrollRegionsFocusable() {
     var scrollRegionCounts = {};
-    var candidates = document.querySelectorAll('pre, table, .table-wrapper, .comparison-table, .data-table');
+    var candidates = document.querySelectorAll(
+        'pre, table, figure, [class*="table-wrapper"], [class*="-scroll"], [class*="scroll-"]');
     Array.prototype.forEach.call(candidates, function (el) {
         // A table inside a scrolling wrapper is not itself the scroller.
         var scroller = el;
@@ -436,12 +437,19 @@ function makeScrollRegionsFocusable() {
 
         if (scrolls) {
             if (!scroller.hasAttribute('tabindex')) scroller.setAttribute('tabindex', '0');
-            if (!scroller.hasAttribute('role')) scroller.setAttribute('role', 'region');
+            // <figure> restricts which roles may override its implicit one, so
+            // it gets focus and a name without a role; tabindex alone is what
+            // WCAG 2.1.1 actually needs here.
+            if (!scroller.hasAttribute('role') && scroller.tagName !== 'FIGURE') {
+                scroller.setAttribute('role', 'region');
+            }
             if (!scroller.hasAttribute('aria-label')) {
                 // Landmarks of the same role must have distinct names, so the
                 // label is numbered — a page with six scrollable code blocks
                 // would otherwise expose six identically-named regions.
-                var kind = scroller.tagName === 'PRE' ? 'code' : 'table';
+                var kind = scroller.tagName === 'PRE' ? 'code'
+                    : (scroller.tagName === 'TABLE' || scroller.querySelector('table')) ? 'table'
+                    : 'block';
                 scrollRegionCounts[kind] = (scrollRegionCounts[kind] || 0) + 1;
                 scroller.setAttribute('aria-label',
                     SCROLL_REGION_LABELS[kind] + ' ' + scrollRegionCounts[kind]);

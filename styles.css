@@ -131,6 +131,10 @@ body {
     font-family: var(--font-secondary);
     line-height: 1.6;
     color: var(--dark-gray);
+    /* Kept as a backstop, not as the fix: the five pages that were genuinely
+       overflowing (a decorative ring inset past its container, a wide table
+       with no scroll container, an unbreakable identifier in prose) are fixed
+       at the source, so this no longer hides anything. */
     overflow-x: hidden;
 }
 
@@ -3586,6 +3590,12 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+    /* .decoration-ring is inset -20px on every side, so on a narrow viewport
+       it pushed the document 21-27px past the fold. body { overflow-x: hidden }
+       was hiding that rather than fixing it. Clipping here keeps the ring's
+       look and stops it widening the page. */
+    overflow: hidden;
+    padding: 24px;
 }
 
 .profile-image {
@@ -6297,6 +6307,7 @@ body.loaded .hero-buttons {
    whenever a link's colour is under 3:1 against the surrounding text, which
    these author bylines are. Underlining them is that cue; standalone
    link-buttons and card links are excluded because they read as controls. */
+.legal-content a:not(.btn):not([class*="btn-"]),
 .page-meta a:not(.btn):not([class*="btn-"]),
 .author-attribution a:not(.btn):not([class*="btn-"]),
 .author-bio a:not(.btn):not([class*="btn-"]) {
@@ -6311,4 +6322,20 @@ body.loaded .hero-buttons {
 .author-attribution a:focus-visible,
 .author-bio a:focus-visible {
     text-decoration-thickness: 2px;
+}
+
+
+/* Long unbreakable tokens in running copy — API names, identifiers, URLs —
+   have no break opportunity and push the whole page wider than the viewport
+   on narrow screens. One such string ("search_and_summarize_and_send_email")
+   was widening an article by 21px. */
+body {
+    overflow-wrap: break-word;
+}
+
+pre,
+code,
+kbd,
+samp {
+    overflow-wrap: normal;
 }
