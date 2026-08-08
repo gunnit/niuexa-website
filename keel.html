@@ -181,21 +181,22 @@
     <div id="nav-placeholder"></div>
 
     <!-- Hero Section -->
+    <main id="main-content">
     <section class="hero" style="background: var(--gradient-hero-dark); padding: 120px 0 80px; color: white; text-align: center; position: relative; overflow: hidden;">
         <div class="container" style="position: relative; z-index: 1;">
             <div class="hero-content">
-                <div class="hero-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, rgba(255, 153, 0, 0.15), rgba(255, 107, 107, 0.15)); border: 1px solid rgba(255, 153, 0, 0.3); padding: 0.5rem 1rem; border-radius: 50px; color: #ff9900; font-size: 1rem; font-weight: 600; margin-bottom: 1.5rem;">
+                <div class="hero-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, rgba(255, 153, 0, 0.15), rgba(255, 107, 107, 0.15)); border: 1px solid rgba(255, 153, 0, 0.3); padding: 0.5rem 1rem; border-radius: 50px; color: var(--white); font-size: 1rem; font-weight: 600; margin-bottom: 1.5rem;">
                     <span>📦</span>
                     <span>Prodotto Niuexa — Amazon × AI Agents</span>
                 </div>
                 <h1 class="hero-title" style="font-size: 3.5rem; margin-bottom: 1.5rem; line-height: 1.1; font-family: 'JetBrains Mono', monospace;">
-                    Parla con i Tuoi Dati <span class="highlight" style="background: linear-gradient(135deg, #ff9900, #ff6b6b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Amazon</span>
+                    Parla con i Tuoi Dati <span class="highlight" style="background: linear-gradient(135deg, var(--warning), var(--error)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Amazon</span>
                 </h1>
                 <p class="hero-subtitle" style="font-size: 1.3rem; color: rgba(255, 255, 255, 0.9); margin-bottom: 2.5rem; max-width: 900px; margin-left: auto; margin-right: auto;">
                     Keel è il layer MCP che collega Seller Central, Vendor Central, SP-API, Ads API e Brand Analytics agli AI agent come Claude e ChatGPT. Query in linguaggio naturale, multi-account, multi-marketplace. Niente più dashboard manuali, niente più export CSV ogni lunedì.
                 </p>
                 <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="https://keelai.it/" target="_blank" rel="noopener" class="btn btn-primary" style="padding: 1.2rem 2.5rem; font-size: 1.1rem; font-weight: 600; background: linear-gradient(135deg, #ff9900, #ff6b6b); border: none;">
+                    <a href="https://keelai.it/" target="_blank" rel="noopener" class="btn btn-primary" style="padding: 1.2rem 2.5rem; font-size: 1.1rem; font-weight: 600; background: linear-gradient(135deg, var(--warning), var(--error-text)); border: none;">
                         Prenota una Demo →
                     </a>
                     <a href="#how-it-works" class="btn btn-secondary" style="padding: 1.2rem 2.5rem; font-size: 1.1rem; font-weight: 600; background: rgba(255, 255, 255, 0.1); color: white; border: 1px solid rgba(255, 255, 255, 0.3);">
@@ -206,11 +207,10 @@
         </div>
     </section>
 
-    <main id="main-content">
     <!-- Quick Answer / Risposta Rapida (AEO) -->
     <section style="padding: 60px 0; background: var(--light-gray);">
         <div class="container" style="max-width: 900px;">
-            <div style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); border-left: 5px solid #ff9900;">
+            <div style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); border-left: 5px solid var(--warning);">
                 <h2 style="font-size: 1.5rem; color: var(--dark-gray); margin-bottom: 1rem; font-weight: 700;">⚡ Risposta Rapida</h2>
                 <p style="color: var(--medium-gray); font-size: 1.1rem; line-height: 1.7; margin: 0;">
                     <strong>Keel</strong> è il prodotto Niuexa che trasforma Amazon Seller Central, Vendor Central, SP-API, Ads API e Brand Analytics in dati interrogabili tramite AI agent (Claude, ChatGPT, custom). Permette di chiedere in linguaggio naturale "qual è il margine sugli ASIN top in Germania questo trimestre?" e ottenere risposte unificando dati da più account e marketplace. Funzioni: forecasting con seasonality, export Excel/CSV/Sheets/PDF/Notion, permission scoping, audit logging, multi-currency. Pricing: su richiesta — prenota demo su keelai.it.
@@ -223,20 +223,20 @@
     <section style="padding: 60px 0; background: white;">
         <div class="container">
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 2rem; max-width: 1100px; margin: 0 auto;">
-                <div style="text-align: center; padding: 2rem; background: #fff8f0; border-radius: 16px;">
-                    <div style="font-size: 2.5rem; font-weight: 700; color: #ff9900; font-family: 'JetBrains Mono', monospace;">8+</div>
+                <div style="text-align: center; padding: 2rem; background: var(--warning-surface); border-radius: 16px;">
+                    <div style="font-size: 2.5rem; font-weight: 700; color: var(--warning-text); font-family: 'JetBrains Mono', monospace;">8+</div>
                     <div style="color: var(--medium-gray); margin-top: 0.5rem;">Fonti Amazon unificate</div>
                 </div>
-                <div style="text-align: center; padding: 2rem; background: #fff8f0; border-radius: 16px;">
-                    <div style="font-size: 2.5rem; font-weight: 700; color: #ff9900; font-family: 'JetBrains Mono', monospace;">∞</div>
+                <div style="text-align: center; padding: 2rem; background: var(--warning-surface); border-radius: 16px;">
+                    <div style="font-size: 2.5rem; font-weight: 700; color: var(--warning-text); font-family: 'JetBrains Mono', monospace;">∞</div>
                     <div style="color: var(--medium-gray); margin-top: 0.5rem;">Account & marketplace</div>
                 </div>
-                <div style="text-align: center; padding: 2rem; background: #fff8f0; border-radius: 16px;">
-                    <div style="font-size: 2.5rem; font-weight: 700; color: #ff9900; font-family: 'JetBrains Mono', monospace;">1-2 gg</div>
+                <div style="text-align: center; padding: 2rem; background: var(--warning-surface); border-radius: 16px;">
+                    <div style="font-size: 2.5rem; font-weight: 700; color: var(--warning-text); font-family: 'JetBrains Mono', monospace;">1-2 gg</div>
                     <div style="color: var(--medium-gray); margin-top: 0.5rem;">Setup iniziale</div>
                 </div>
-                <div style="text-align: center; padding: 2rem; background: #fff8f0; border-radius: 16px;">
-                    <div style="font-size: 2.5rem; font-weight: 700; color: #ff9900; font-family: 'JetBrains Mono', monospace;">100%</div>
+                <div style="text-align: center; padding: 2rem; background: var(--warning-surface); border-radius: 16px;">
+                    <div style="font-size: 2.5rem; font-weight: 700; color: var(--warning-text); font-family: 'JetBrains Mono', monospace;">100%</div>
                     <div style="color: var(--medium-gray); margin-top: 0.5rem;">Audit logging</div>
                 </div>
             </div>
@@ -252,7 +252,7 @@
             </div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 2rem;">
                 <article style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);">
-                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #ff9900, #ff6b6b); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 1.5rem;">🔌</div>
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--warning), var(--error)); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 1.5rem;">🔌</div>
                     <h3 style="color: var(--dark-gray); margin-bottom: 1rem; font-size: 1.3rem;">Multi-Account & Multi-Marketplace</h3>
                     <p style="color: var(--medium-gray); line-height: 1.7;">Brand multipli, marketplace internazionali (US, EU, UK, JP) in una singola conversazione. Riconciliazione multi-currency automatica.</p>
                 </article>
@@ -267,12 +267,12 @@
                     <p style="color: var(--medium-gray); line-height: 1.7;">Query su Brand Analytics che uniscono dati di account diversi. Confronta performance tra brand, identifica share-of-voice e cross-sell.</p>
                 </article>
                 <article style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);">
-                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #9b59b6, #8e44ad); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 1.5rem;">📈</div>
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue)); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 1.5rem;">📈</div>
                     <h3 style="color: var(--dark-gray); margin-bottom: 1rem; font-size: 1.3rem;">Forecasting con Seasonality</h3>
                     <p style="color: var(--medium-gray); line-height: 1.7;">Previsioni di domanda e ricavi che includono modelli di stagionalità. Pianifica scorte e budget pubblicitario con basi quantitative.</p>
                 </article>
                 <article style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);">
-                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #f39c12, #e67e22); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 1.5rem;">📤</div>
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--warning), var(--warning-text)); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 1.5rem;">📤</div>
                     <h3 style="color: var(--dark-gray); margin-bottom: 1rem; font-size: 1.3rem;">Export Universale</h3>
                     <p style="color: var(--medium-gray); line-height: 1.7;">Excel, CSV, Google Sheets, PDF, Notion: il risultato di ogni query è esportabile dove serve. Live dashboard e reporting on-demand.</p>
                 </article>
@@ -294,7 +294,7 @@
             </div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 2rem; max-width: 1100px; margin: 0 auto;">
                 <div style="text-align: center; padding: 2rem;">
-                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #ff9900, #ff6b6b); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; color: white; font-family: 'JetBrains Mono', monospace; margin: 0 auto 1.5rem;">1</div>
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--warning), var(--error-text)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; color: white; font-family: 'JetBrains Mono', monospace; margin: 0 auto 1.5rem;">1</div>
                     <h3 style="color: var(--dark-gray); margin-bottom: 1rem; font-size: 1.2rem;">Connetti gli Account</h3>
                     <p style="color: var(--medium-gray); line-height: 1.6;">Autenticazione OAuth ufficiale Amazon per Seller Central, Vendor Central e Ads API.</p>
                 </div>
@@ -304,12 +304,12 @@
                     <p style="color: var(--medium-gray); line-height: 1.6;">Definisci quali dati ogni AI agent può vedere. Permission scoping per account, marketplace e tipologia.</p>
                 </div>
                 <div style="text-align: center; padding: 2rem;">
-                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-green), var(--dark-green)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; color: white; font-family: 'JetBrains Mono', monospace; margin: 0 auto 1.5rem;">3</div>
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--green-text), #256B3D); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; color: white; font-family: 'JetBrains Mono', monospace; margin: 0 auto 1.5rem;">3</div>
                     <h3 style="color: var(--dark-gray); margin-bottom: 1rem; font-size: 1.2rem;">Collega l'AI Agent</h3>
                     <p style="color: var(--medium-gray); line-height: 1.6;">Configura Claude Desktop, ChatGPT o agente custom tramite endpoint MCP. Setup in pochi minuti.</p>
                 </div>
                 <div style="text-align: center; padding: 2rem;">
-                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #9b59b6, #8e44ad); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; color: white; font-family: 'JetBrains Mono', monospace; margin: 0 auto 1.5rem;">4</div>
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; color: white; font-family: 'JetBrains Mono', monospace; margin: 0 auto 1.5rem;">4</div>
                     <h3 style="color: var(--dark-gray); margin-bottom: 1rem; font-size: 1.2rem;">Chiedi e Esporta</h3>
                     <p style="color: var(--medium-gray); line-height: 1.6;">Query in linguaggio naturale. L'agente ti restituisce dati strutturati e li esporta dove vuoi.</p>
                 </div>
@@ -325,7 +325,7 @@
                 <p style="font-size: 1.2rem; color: var(--medium-gray); max-width: 800px; margin: 0 auto;">Cosa puoi chiedere a Claude o ChatGPT con Keel collegato</p>
             </div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 2rem; max-width: 1100px; margin: 0 auto;">
-                <article style="background: white; padding: 2rem; border-radius: 16px; border-left: 4px solid #ff9900;">
+                <article style="background: white; padding: 2rem; border-radius: 16px; border-left: 4px solid var(--warning);">
                     <h3 style="color: var(--dark-gray); margin-bottom: 1rem; font-size: 1.1rem;">📊 Analisi Performance</h3>
                     <p style="color: var(--medium-gray); line-height: 1.7; font-style: italic;">"Quali ASIN hanno generato più margine in Germania nel Q1 confrontati al Q1 dell'anno scorso?"</p>
                 </article>
@@ -337,15 +337,15 @@
                     <h3 style="color: var(--dark-gray); margin-bottom: 1rem; font-size: 1.1rem;">💰 Ottimizzazione Ads</h3>
                     <p style="color: var(--medium-gray); line-height: 1.7; font-style: italic;">"Quali campagne Sponsored Products hanno ACOS > 30% questo mese? Esporta tutto in Sheets."</p>
                 </article>
-                <article style="background: white; padding: 2rem; border-radius: 16px; border-left: 4px solid #9b59b6;">
+                <article style="background: white; padding: 2rem; border-radius: 16px; border-left: 4px solid var(--primary-blue);">
                     <h3 style="color: var(--dark-gray); margin-bottom: 1rem; font-size: 1.1rem;">🎯 Brand Analytics</h3>
                     <p style="color: var(--medium-gray); line-height: 1.7; font-style: italic;">"Quali sono i top search term che convertono per il brand X confrontati con il brand Y?"</p>
                 </article>
-                <article style="background: white; padding: 2rem; border-radius: 16px; border-left: 4px solid #ff6b6b;">
+                <article style="background: white; padding: 2rem; border-radius: 16px; border-left: 4px solid var(--error);">
                     <h3 style="color: var(--dark-gray); margin-bottom: 1rem; font-size: 1.1rem;">📈 Forecasting</h3>
                     <p style="color: var(--medium-gray); line-height: 1.7; font-style: italic;">"Prevedi le vendite del Q4 considerando Black Friday e Cyber Monday — esporta in PDF per il board."</p>
                 </article>
-                <article style="background: white; padding: 2rem; border-radius: 16px; border-left: 4px solid #f39c12;">
+                <article style="background: white; padding: 2rem; border-radius: 16px; border-left: 4px solid var(--warning);">
                     <h3 style="color: var(--dark-gray); margin-bottom: 1rem; font-size: 1.1rem;">🔄 Reporting Multi-Account</h3>
                     <p style="color: var(--medium-gray); line-height: 1.7; font-style: italic;">"Riassumi performance di tutti i 12 account che gestisco — top 3 vincitori e top 3 perdenti."</p>
                 </article>
@@ -360,22 +360,22 @@
                 <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--dark-gray);">Per Chi è Keel</h2>
             </div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 2rem; max-width: 1100px; margin: 0 auto;">
-                <div style="text-align: center; padding: 2rem; background: #fff8f0; border-radius: 16px;">
+                <div style="text-align: center; padding: 2rem; background: var(--warning-surface); border-radius: 16px;">
                     <div style="font-size: 3rem; margin-bottom: 1rem;">🏪</div>
                     <h3 style="color: var(--dark-gray); margin-bottom: 1rem; font-size: 1.3rem;">Venditori Amazon</h3>
                     <p style="color: var(--medium-gray); line-height: 1.6;">Brand con 100+ SKU che operano su più marketplace e hanno bisogno di consolidare reporting.</p>
                 </div>
-                <div style="text-align: center; padding: 2rem; background: #fff8f0; border-radius: 16px;">
+                <div style="text-align: center; padding: 2rem; background: var(--warning-surface); border-radius: 16px;">
                     <div style="font-size: 3rem; margin-bottom: 1rem;">🏢</div>
                     <h3 style="color: var(--dark-gray); margin-bottom: 1rem; font-size: 1.3rem;">Vendor Amazon</h3>
                     <p style="color: var(--medium-gray); line-height: 1.6;">Aziende con relazione 1P che gestiscono PO, chargeback e Brand Analytics complessi.</p>
                 </div>
-                <div style="text-align: center; padding: 2rem; background: #fff8f0; border-radius: 16px;">
+                <div style="text-align: center; padding: 2rem; background: var(--warning-surface); border-radius: 16px;">
                     <div style="font-size: 3rem; margin-bottom: 1rem;">🤝</div>
                     <h3 style="color: var(--dark-gray); margin-bottom: 1rem; font-size: 1.3rem;">Agenzie</h3>
                     <p style="color: var(--medium-gray); line-height: 1.6;">Agenzie Amazon che gestiscono 10+ account clienti e hanno bisogno di reporting unificato e automatizzato.</p>
                 </div>
-                <div style="text-align: center; padding: 2rem; background: #fff8f0; border-radius: 16px;">
+                <div style="text-align: center; padding: 2rem; background: var(--warning-surface); border-radius: 16px;">
                     <div style="font-size: 3rem; margin-bottom: 1rem;">⚡</div>
                     <h3 style="color: var(--dark-gray); margin-bottom: 1rem; font-size: 1.3rem;">Team E-commerce</h3>
                     <p style="color: var(--medium-gray); line-height: 1.6;">Team che vogliono uscire dal ciclo "export CSV ogni lunedì" e abilitare decisioni data-driven veloci.</p>
@@ -442,12 +442,12 @@
     </section>
 
     <!-- CTA Final -->
-    <section style="padding: 80px 0; background: linear-gradient(135deg, #ff9900 0%, #ff6b6b 100%); color: white; text-align: center;">
+    <section style="padding: 80px 0; background: linear-gradient(135deg, var(--warning) 0%, var(--error) 100%); color: white; text-align: center;">
         <div class="container">
             <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: white !important; -webkit-text-fill-color: white !important;">Inizia a Parlare con i Tuoi Dati Amazon</h2>
             <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 2.5rem; opacity: 0.95;">Prenota una demo personalizzata: ti mostriamo come Keel si integra con i tuoi account Amazon esistenti.</p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="https://keelai.it/" target="_blank" rel="noopener" style="background: white; color: #ff6b6b; padding: 1.2rem 3rem; font-size: 1.1rem; font-weight: 600; text-decoration: none; border-radius: 50px; display: inline-block;">
+                <a href="https://keelai.it/" target="_blank" rel="noopener" style="background: white; color: var(--error-text); padding: 1.2rem 3rem; font-size: 1.1rem; font-weight: 600; text-decoration: none; border-radius: 50px; display: inline-block;">
                     Prenota Demo su keelai.it →
                 </a>
                 <a href="index.html#contact" style="background: rgba(255, 255, 255, 0.15); color: white; padding: 1.2rem 3rem; font-size: 1.1rem; font-weight: 600; text-decoration: none; border-radius: 50px; display: inline-block; border: 1px solid rgba(255, 255, 255, 0.3);">

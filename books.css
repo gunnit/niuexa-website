@@ -5,7 +5,7 @@
 
 /* --- Hero Section --- */
 .book-hero {
-    background: var(--gradient-secondary);
+    background: var(--gradient-cta);
     padding: 140px 0 80px;
     position: relative;
     overflow: hidden;
@@ -31,8 +31,10 @@
 
 .book-hero .hero-badge {
     display: inline-block;
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    /* A translucent white pill lifted its own backdrop and left the label at
+       ~4.0:1; an ink pill darkens instead. */
+    background: rgba(10, 26, 38, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.35);
     padding: 6px 16px;
     border-radius: 20px;
     font-family: var(--font-secondary);
@@ -79,7 +81,7 @@
     font-family: var(--font-secondary);
     font-size: 1.15rem;
     line-height: 1.7;
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--white);
     max-width: 700px;
     margin-bottom: 30px;
 }
@@ -516,17 +518,17 @@
 }
 
 .resource-card .resource-type.video {
-    background: #FFF3E0;
-    color: var(--warning);
+    background: var(--warning-surface);
+    color: var(--warning-text);
 }
 
 .resource-card .resource-type.github {
-    background: #F3E5F5;
+    background: var(--signal-surface);
     color: var(--signal);
 }
 
 .resource-card .resource-type.community {
-    background: #E8EAF6;
+    background: var(--info-surface);
     color: var(--dark-blue);
 }
 
@@ -745,7 +747,7 @@
 /* --- Bundle / Course Section --- */
 .bundle-section {
     padding: var(--section-padding);
-    background: var(--gradient-secondary);
+    background: var(--gradient-cta);
     color: var(--white);
     text-align: center;
 }
@@ -760,7 +762,7 @@
 .bundle-section p {
     font-family: var(--font-secondary);
     font-size: 1.05rem;
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--white);
     max-width: 600px;
     margin: 0 auto 30px;
     line-height: 1.7;
@@ -909,7 +911,7 @@
 /* --- CTA Banner --- */
 .book-cta {
     padding: 60px 0;
-    background: var(--gradient-primary);
+    background: var(--gradient-cta);
     text-align: center;
     color: var(--white);
 }
@@ -924,7 +926,7 @@
 .book-cta p {
     font-family: var(--font-secondary);
     font-size: 1rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--white);
     margin-bottom: 25px;
     max-width: 500px;
     margin-left: auto;
@@ -1071,18 +1073,18 @@
 }
 
 .breach-severity.critical {
-    background: #FFEBEE;
-    color: var(--error);
+    background: var(--error-surface);
+    color: var(--error-text);
 }
 
 .breach-severity.high {
-    background: #FFF3E0;
-    color: var(--warning);
+    background: var(--warning-surface);
+    color: var(--warning-text);
 }
 
 .breach-severity.medium {
-    background: #FFFDE7;
-    color: var(--warning);
+    background: var(--warning-surface);
+    color: var(--warning-text);
 }
 
 .breach-details {
@@ -1240,5 +1242,19 @@
     .preview-grid,
     .checklist-categories {
         grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================================
+   Reduced motion
+   No looping animation here, only hover and reveal transitions; they are
+   shortened so state changes still register instantly without travel.
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }

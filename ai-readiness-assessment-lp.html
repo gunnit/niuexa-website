@@ -70,14 +70,14 @@
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9S42S4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <a href="#main-content" class="skip-link">Vai al contenuto principale</a>
     <div id="nav-placeholder"></div>
 
-    <div class="ai-summary">
+    <div class="ai-summary" role="region" aria-label="Page summary">
       Niuexa (business unit di Bebit S.r.l., Milano) offre un AI Readiness Assessment per PMI italiane: una valutazione strutturata di processi, dati, competenze, governance e ROI che produce una mappa delle opportunità AI, una shortlist di 3-5 casi d'uso prioritari e una roadmap operativa a 30, 60 e 90 giorni. Il primo colloquio conoscitivo è gratuito e senza impegno. Destinatari: CEO, founder, operations manager, responsabili sales, marketing, HR e IT di PMI italiane. Richiesta tramite il modulo su https://niuexa.ai/ai-readiness-assessment-lp.html#assessment-form oppure via email ad ai@niuexa.ai.
     </div>
 
-    <section id="main-content" class="ara-hero">
+    <main id="main-content">
+    <section class="ara-hero">
       <div class="ara-hero-media" aria-hidden="true">
         <video id="araHeroVideo" autoplay muted loop playsinline preload="metadata" poster="img/ai-readiness-hero-poster.webp" tabindex="-1">
           <source src="img/ai-readiness-hero-loop.mp4" type="video/mp4">
@@ -100,7 +100,7 @@
                  srcset="img/ai-readiness-report-800.webp 800w, img/ai-readiness-report-1600.webp 1600w"
                  sizes="(max-width: 960px) 92vw, 500px"
                  width="2048" height="1360" fetchpriority="high" decoding="async"
-                 alt="Esempio di report AI Readiness Assessment Niuexa: copertina navy, radar delle cinque dimensioni valutate e roadmap a 30, 60 e 90 giorni">
+                 alt="Esempio di report AI Readiness Assessment Niuexa: copertina navy, radar delle cinque dimensioni valutate e roadmap a 30, 60 e 90 giorni" loading="lazy">
             <figcaption>Esempio di report finale</figcaption>
           </figure>
         </div>
@@ -111,12 +111,12 @@
       <div class="container ara-trust-inner">
         <span class="ara-trust-label">Tecnologie e partner con cui lavoriamo</span>
         <div class="ara-trust-logos">
-          <img src="img/microsoft.png" alt="Microsoft" loading="lazy">
-          <img src="img/OpenAI_Logo.svg.png" alt="OpenAI" loading="lazy">
-          <img src="img/Google_Gemini_logo.svg.png" alt="Google Gemini" loading="lazy">
-          <img src="img/Anthropic_logo.svg.png" alt="Anthropic" loading="lazy">
-          <img src="img/arredo3.svg" alt="Arredo3, cliente Niuexa" loading="lazy">
-          <img src="img/aused-logo.png" alt="AUSED, associazione utenti sistemi evoluti digitali" loading="lazy">
+          <img src="img/microsoft.png" alt="Microsoft" loading="lazy" width="2345" height="1126" decoding="async">
+          <img src="img/OpenAI_Logo.svg.png" alt="OpenAI" loading="lazy" width="2560" height="695" decoding="async">
+          <img src="img/Google_Gemini_logo.svg.png" alt="Google Gemini" loading="lazy" width="2560" height="946" decoding="async">
+          <img src="img/Anthropic_logo.svg.png" alt="Anthropic" loading="lazy" width="1200" height="135" decoding="async">
+          <img src="img/arredo3.svg" alt="Arredo3, cliente Niuexa" loading="lazy" decoding="async">
+          <img src="img/aused-logo.png" alt="AUSED, associazione utenti sistemi evoluti digitali" loading="lazy" width="715" height="384" decoding="async">
         </div>
       </div>
     </section>
@@ -320,7 +320,7 @@
           <input type="hidden" name="redirect" value="https://niuexa.ai/thank-you-ai-readiness-assessment.html">
           <input type="hidden" name="formSource" value="AI Readiness Assessment Conversion LP">
           <input type="hidden" name="utm_source" id="utm_source"><input type="hidden" name="utm_medium" id="utm_medium"><input type="hidden" name="utm_campaign" id="utm_campaign"><input type="hidden" name="utm_content" id="utm_content"><input type="hidden" name="utm_term" id="utm_term">
-          <input type="text" name="botcheck" style="display:none!important" tabindex="-1" autocomplete="off">
+          <input type="text" name="botcheck" style="display:none!important" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="ara-form-row">
             <div><label for="firstName">Nome *</label><input id="firstName" name="firstName" required autocomplete="given-name" placeholder="Mario"></div>
             <div><label for="lastName">Cognome *</label><input id="lastName" name="lastName" required autocomplete="family-name" placeholder="Rossi"></div>
@@ -339,7 +339,7 @@
             <div><label for="urgency">Quando volete partire?</label><select id="urgency" name="urgency"><option value="">Seleziona</option><option>Subito</option><option>Entro 30 giorni</option><option>Entro 90 giorni</option><option>Sto esplorando</option></select></div>
           </div>
           <div class="ara-form-field"><label for="message">Quale processo o problema vorresti valutare?</label><textarea id="message" name="message" rows="4" placeholder="Esempio: lead qualification, reportistica, customer service, formazione team, back office..."></textarea></div>
-          <label class="ara-form-privacy"><input type="checkbox" name="privacy" required> <span>Accetto la <a href="privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a> e autorizzo il trattamento dei miei dati personali *</span></label>
+          <label class="ara-form-privacy"><input type="checkbox" name="privacy" required style="width:24px;height:24px;flex:0 0 auto;"> <span>Accetto la <a href="privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a> e autorizzo il trattamento dei miei dati personali *</span></label>
           <button type="submit" class="btn btn-primary ara-form-submit">Richiedi l'assessment</button>
           <p class="ara-form-micro">Useremo queste informazioni solo per preparare una prima conversazione utile.</p>
         </form>
@@ -387,6 +387,7 @@
     </section>
 
     <p class="content-last-updated">Ultimo aggiornamento: 10 luglio 2026</p>
+    </main>
 
     <div id="footer-placeholder"></div>
     <script src="includes/includes.js?v=20260428"></script>

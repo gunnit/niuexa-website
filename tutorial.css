@@ -2,7 +2,7 @@
 
 /* Tutorial Header */
 .tutorial-header {
-    background: var(--gradient-primary);
+    background: var(--gradient-cta);
     padding: 120px 0 60px;
     color: white;
     position: relative;
@@ -11,18 +11,24 @@
 .breadcrumb {
     margin-bottom: 2rem;
     font-size: 0.9rem;
-    opacity: 0.8;
 }
 
+/* The two nested opacity: 0.8 rules multiplied to 0.64, which put these links
+   at 2.70:1 on the hero. Full-strength white, and the link is padded out to a
+   24px target since a breadcrumb row is a real tap zone (WCAG 2.5.8). */
 .breadcrumb a {
-    color: white;
-    text-decoration: none;
-    opacity: 0.8;
+    color: var(--white);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 2px;
+    min-height: 44px;
 }
 
-.breadcrumb a:hover {
-    opacity: 1;
-    text-decoration: underline;
+.breadcrumb a:hover,
+.breadcrumb a:focus-visible {
+    text-decoration-thickness: 2px;
 }
 
 .tutorial-badge {
@@ -46,7 +52,6 @@
     font-size: 1.2rem;
     line-height: 1.6;
     margin-bottom: 2rem;
-    opacity: 0.9;
     max-width: 800px;
 }
 
@@ -172,7 +177,7 @@
 }
 
 .accordion-header.active {
-    background: var(--gradient-primary);
+    background: var(--gradient-cta);
     color: white;
 }
 
@@ -270,7 +275,7 @@
 }
 
 .highlight-tag {
-    background: var(--gradient-primary);
+    background: var(--gradient-cta);
     color: white;
     padding: 0.25rem 0.75rem;
     border-radius: 15px;
@@ -372,9 +377,13 @@
     display: block;
 }
 
-/* Tables: wrap in scroll container on small screens */
+/* Tables: wrap in scroll container on small screens. .comparison-table is
+   listed by class as well because it also appears outside .content-section,
+   where a wide table widened the whole page instead of scrolling itself. */
 .content-section table,
-.tutorial-content table {
+.tutorial-content table,
+table.comparison-table,
+table.data-table {
     display: block;
     max-width: 100%;
     overflow-x: auto;
@@ -383,7 +392,9 @@
 
 @media (min-width: 769px) {
     .content-section table,
-    .tutorial-content table {
+    .tutorial-content table,
+    table.comparison-table,
+    table.data-table {
         display: table;
         width: 100%;
     }
@@ -485,7 +496,7 @@
 }
 
 .pattern-list {
-    background: #fff5f5;
+    background: var(--error-surface);
     border-left: 3px solid var(--error);
     padding: 1.5rem 1.5rem 1.5rem 2rem;
     margin: 2rem 0;
@@ -493,7 +504,7 @@
 }
 
 .pattern-list li {
-    color: #742a2a;
+    color: var(--error-text);
 }
 
 .example-box {
@@ -516,12 +527,12 @@
 }
 
 .before {
-    background: #fed7d7;
+    background: var(--error-surface);
     border-left: 3px solid var(--error);
 }
 
 .after {
-    background: #c6f6d5;
+    background: var(--success-surface);
     border-left: 3px solid var(--primary-green);
 }
 
@@ -538,7 +549,7 @@
 }
 
 .technique-box {
-    background: #e6fffa;
+    background: var(--signal-surface);
     border-left: 3px solid var(--brand-teal);
     padding: 2rem;
     margin: 2rem 0;
@@ -551,7 +562,7 @@
 }
 
 .warning-box {
-    background: #fffaf0;
+    background: var(--warning-surface);
     border-left: 3px solid var(--warning);
     padding: 2rem;
     margin: 2rem 0;
@@ -572,7 +583,7 @@
 }
 
 .tip-box h4 {
-    color: var(--dark-green);
+    color: var(--green-text);
     margin-top: 0;
 }
 
@@ -731,9 +742,13 @@
     position: relative;
 }
 
-.related-card h4 {
+.related-card h3 {
     margin: 0 0 1rem 0;
     color: var(--dark-gray);
+    /* Card titles sit under an <h2> section heading, so they are h3 for the
+       document outline; the size below keeps them reading as card titles. */
+    font-size: 1.15rem;
+    font-weight: 600;
 }
 
 .related-card p {
@@ -742,8 +757,8 @@
 }
 
 .coming-soon {
-    background: #fed7d7;
-    color: var(--error);
+    background: var(--error-surface);
+    color: var(--error-text);
     padding: 0.5rem 1rem;
     border-radius: 6px;
     font-size: 0.85rem;
@@ -891,10 +906,31 @@
    Tutorial Hero (alias for tutorial-header)
    ======================================== */
 .tutorial-hero {
-    background: var(--gradient-primary);
+    background: var(--gradient-cta);
     padding: 120px 0 60px;
     color: white;
     position: relative;
+}
+
+/* AA fix. White text over the bare --gradient-primary measures 4.61:1 at the
+   blue stop but 3.37:1 at the teal and 2.80:1 at the green, so the breadcrumb,
+   the meta row and the description were all failing on every tutorial and
+   article page. A 25% ink scrim deepens the gradient without changing its hue
+   and lifts the worst stop to 4.67:1. .tutorial-header and .tutorial-hero are
+   the same hero under two class names, so both carry it. */
+.tutorial-header::before,
+.tutorial-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 26, 38, 0.25);
+    pointer-events: none;
+}
+
+.tutorial-header > *,
+.tutorial-hero > * {
+    position: relative;
+    z-index: 1;
 }
 
 .tutorial-hero h1 {
@@ -915,7 +951,9 @@
 
 .category-badge {
     display: inline-block;
-    background: rgba(255, 255, 255, 0.2);
+    /* A 20% white pill lifted its own backdrop to 4.05:1 under the label. An
+       ink pill darkens instead, so the white label reads at 8.9:1. */
+    background: rgba(10, 26, 38, 0.35);
     padding: 0.4rem 1rem;
     border-radius: 20px;
     font-size: 0.85rem;
@@ -926,7 +964,6 @@
 .reading-time,
 .last-updated {
     font-size: 0.9rem;
-    opacity: 0.85;
 }
 
 /* ========================================
@@ -971,12 +1008,12 @@
 }
 
 .info-box.warning {
-    background: #fffaf0;
+    background: var(--warning-surface);
     border-left-color: var(--warning);
 }
 
 .info-box.warning h4 {
-    color: var(--warning);
+    color: var(--warning-text);
 }
 
 .info-box.case-study {
@@ -989,7 +1026,7 @@
 }
 
 .info-box.tip {
-    background: #e6fffa;
+    background: var(--signal-surface);
     border-left-color: var(--brand-teal);
 }
 
@@ -1011,7 +1048,7 @@
 }
 
 .data-table thead {
-    background: var(--gradient-primary);
+    background: var(--gradient-cta);
     color: white;
 }
 
@@ -1152,7 +1189,7 @@
     letter-spacing: 0.03em;
 }
 
-.content-section .related-card h4 {
+.content-section .related-card h3 {
     font-size: 1.05rem;
     font-weight: 600;
     color: var(--dark-gray);
@@ -1288,18 +1325,18 @@
 }
 
 .sidebar-section.cta-box {
-    background: var(--gradient-primary);
+    background: var(--gradient-cta);
     color: white;
     border: none;
 }
 
 .sidebar-section.cta-box h3 {
     color: white;
-    border-bottom-color: rgba(255, 255, 255, 0.3);
+    border-bottom-color: var(--white);
 }
 
 .sidebar-section.cta-box p {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--white);
     font-size: 0.9rem;
     line-height: 1.5;
     margin-bottom: 1rem;
@@ -1453,19 +1490,21 @@
 }
 
 .cert-cta-text p {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--white);
     margin: 0;
     font-size: 0.95rem;
 }
 
 .cert-cta-btn {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
+    /* A 20% white fill lightened its own backdrop to 2.39:1 under the white
+       label. Ink fill instead; the white border keeps the outlined look. */
+    background: rgba(10, 26, 38, 0.4);
+    color: var(--white);
     text-decoration: none;
     padding: 1rem 1.5rem;
     border-radius: 12px;
     font-weight: 600;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.6);
     transition: all 0.3s ease;
     flex-shrink: 0;
 }
@@ -1576,8 +1615,9 @@
 .cert-info {
     margin-top: 1rem;
     font-size: 0.9rem;
+    /* No opacity: --medium-gray is picked to clear AA at full strength, and
+       dimming it to 0.8 dropped this line to 3.7:1 on white. */
     color: var(--medium-gray);
-    opacity: 0.8;
 }
 
 /* Bounce animation for certification icon */
@@ -1590,5 +1630,28 @@
     }
     60% {
         transform: translateY(-4px);
+    }
+}
+/* ==========================================================================
+   Reduced motion
+   The looping certificate bounce is removed and the accordion opens without
+   the fade. The accordion's open state lives on grid-template-rows, not on the
+   animation, so content still expands.
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    .cert-final-icon {
+        animation: none;
+    }
+
+    .accordion-content.active {
+        animation: none;
+        opacity: 1;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }

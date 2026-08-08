@@ -7,7 +7,7 @@
 
 #certification-app {
     min-height: 100vh;
-    background: var(--gradient-primary);
+    background: var(--gradient-cta);
     position: relative;
 }
 
@@ -38,7 +38,7 @@
    ======================================== */
 
 #welcome-screen {
-    background: var(--gradient-primary);
+    background: var(--gradient-cta);
     color: var(--white);
     padding: 120px 0 80px 0;
     position: relative;
@@ -78,7 +78,9 @@
 }
 
 .cert-hero .hero-title {
-    color: var(--dark-gray);
+    /* #welcome-screen is a --gradient-primary field, not a light surface;
+       --dark-gray measured 1.4:1 here. */
+    color: var(--white);
 }
 
 .hero-subtitle {
@@ -87,16 +89,15 @@
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    opacity: 0.9;
     line-height: 1.6;
 }
 
 .cert-hero .hero-subtitle {
-    color: var(--medium-gray);
+    color: var(--white);
 }
 
 .cert-hero .stat-label {
-    color: var(--medium-gray);
+    color: var(--white);
 }
 
 .hero-stats {
@@ -117,12 +118,12 @@
     font-family: var(--font-primary);
     font-weight: 900;
     line-height: 1;
+    color: var(--white);
 }
 
 .stat-label {
     display: block;
     font-size: 0.9rem;
-    opacity: 0.8;
     margin-top: 0.5rem;
 }
 
@@ -388,9 +389,9 @@
 }
 
 .passing-score {
-    background: #fed7d7 !important;
-    color: #c53030 !important;
-    border-color: #feb2b2 !important;
+    background: var(--error-surface) !important;
+    color: var(--error-text) !important;
+    border-color: var(--error) !important;
 }
 
 /* Progress Bar */
@@ -1149,4 +1150,39 @@
 /* Dark mode support (optional) */
 @media (prefers-color-scheme: dark) {
     /* Add dark mode styles if needed */
+}
+
+/* ==========================================================================
+   Reduced motion
+   Decorative loops and entrance animations are removed; the loading spinner
+   is kept because it is the only signal that work is in progress, just slowed
+   so it no longer reads as fast rotation. Transitions are shortened rather
+   than killed so hover, focus and answer-selection feedback survives.
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    .benefit-card:nth-child(odd),
+    .benefit-card:nth-child(even),
+    .generate-cert-btn {
+        animation: none;
+    }
+
+    .quiz-container,
+    .quiz-result,
+    .certificate-preview {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    [class*="shimmer"],
+    .progress-fill::after {
+        animation-duration: 3s;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }

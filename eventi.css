@@ -255,7 +255,7 @@
 /* CTA Section */
 .events-cta {
     padding: var(--section-padding);
-    background: var(--gradient-secondary);
+    background: var(--gradient-cta);
     color: var(--white);
     text-align: center;
 }
