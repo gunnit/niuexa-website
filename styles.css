@@ -5759,7 +5759,9 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
     display: block;
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--primary-green);
+    /* AA fix, matching .training-hero: --primary-green reads 1.55:1 on the
+       mid-tone --gradient-secondary hero and needs 3:1 as large text. */
+    color: var(--white);
     font-family: var(--font-primary);
 }
 

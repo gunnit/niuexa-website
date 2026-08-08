@@ -52,11 +52,27 @@
     color: var(--white);
 }
 
+/* AA fix, matching .training-hero: gradient-clipped text over the mid-tone
+   --gradient-secondary hero measures 1.06:1 to 2.15:1 against a 3:1 minimum
+   for large text. White text, gradient moved to an underline. */
 .book-hero .hero-title .highlight {
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    -webkit-text-fill-color: var(--white);
+    color: var(--white);
+    position: relative;
+}
+
+.book-hero .hero-title .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 3px;
     background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    border-radius: 2px;
 }
 
 .book-hero .hero-subtitle {
