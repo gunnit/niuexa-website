@@ -779,7 +779,7 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
+    height: 2px;
     background: var(--gradient-primary);
     border-radius: 20px 20px 0 0;
 }
@@ -813,7 +813,7 @@
     padding: 1.5rem;
     background: var(--light-gray);
     border-radius: 12px;
-    border-left: 4px solid var(--primary-blue);
+    border-left: 3px solid var(--primary-blue);
     position: relative;
     transition: all var(--transition-fast);
 }

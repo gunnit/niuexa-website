@@ -921,7 +921,7 @@ h1, h2, h3, h4, h5, h6 {
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
+    height: 2px;
     background: var(--gradient-primary);
     transform: scaleX(0);
     transition: transform var(--transition-fast);
@@ -1219,7 +1219,7 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--light-gray);
     padding: 1.5rem;
     border-radius: 10px;
-    border-left: 4px solid var(--primary-blue);
+    border-left: 3px solid var(--primary-blue);
 }
 
 .use-case h5 {
@@ -1463,7 +1463,7 @@ h1, h2, h3, h4, h5, h6 {
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
+    height: 2px;
     background: var(--gradient-primary);
     transform: scaleX(0);
     transition: transform var(--transition-fast);

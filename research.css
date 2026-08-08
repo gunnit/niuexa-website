@@ -204,7 +204,7 @@
     font-size: 1.8rem;
     color: var(--dark-gray);
     margin: 2.5rem 0 1.5rem 0;
-    border-left: 4px solid var(--primary-blue);
+    border-left: 3px solid var(--primary-blue);
     padding-left: 1rem;
 }
 
@@ -253,7 +253,7 @@
     padding: 1.5rem;
     border-radius: 10px;
     text-align: center;
-    border-left: 4px solid var(--primary-blue);
+    border-left: 3px solid var(--primary-blue);
 }
 
 .stat-box h4 {

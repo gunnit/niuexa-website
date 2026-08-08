@@ -403,7 +403,7 @@
     padding: 1.5rem;
     background: var(--light-gray);
     border-radius: 15px;
-    border-left: 4px solid var(--primary-blue);
+    border-left: 3px solid var(--primary-blue);
 }
 
 .use-case h4 {
@@ -951,7 +951,7 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
+    height: 2px;
     background: var(--gradient-primary);
     transform: scaleX(0);
     transition: transform var(--transition-fast);

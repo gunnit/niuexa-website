@@ -96,7 +96,7 @@
     padding: 1.5rem 2rem;
     background: var(--light-gray);
     border-radius: 8px;
-    border-left: 4px solid var(--primary-blue);
+    border-left: 3px solid var(--primary-blue);
     font-family: var(--font-secondary);
 }
 
@@ -446,7 +446,7 @@
 /* Special Content Boxes */
 .highlight-box {
     background: var(--gradient-light);
-    border-left: 4px solid var(--primary-blue);
+    border-left: 3px solid var(--primary-blue);
     padding: 2rem;
     margin: 2rem 0;
     border-radius: 8px;
@@ -486,7 +486,7 @@
 
 .pattern-list {
     background: #fff5f5;
-    border-left: 4px solid var(--error);
+    border-left: 3px solid var(--error);
     padding: 1.5rem 1.5rem 1.5rem 2rem;
     margin: 2rem 0;
     border-radius: 8px;
@@ -517,12 +517,12 @@
 
 .before {
     background: #fed7d7;
-    border-left: 4px solid var(--error);
+    border-left: 3px solid var(--error);
 }
 
 .after {
     background: #c6f6d5;
-    border-left: 4px solid var(--primary-green);
+    border-left: 3px solid var(--primary-green);
 }
 
 .before h5,
@@ -539,7 +539,7 @@
 
 .technique-box {
     background: #e6fffa;
-    border-left: 4px solid var(--brand-teal);
+    border-left: 3px solid var(--brand-teal);
     padding: 2rem;
     margin: 2rem 0;
     border-radius: 8px;
@@ -552,7 +552,7 @@
 
 .warning-box {
     background: #fffaf0;
-    border-left: 4px solid var(--warning);
+    border-left: 3px solid var(--warning);
     padding: 2rem;
     margin: 2rem 0;
     border-radius: 8px;
@@ -565,7 +565,7 @@
 
 .tip-box {
     background: var(--light-green);
-    border-left: 4px solid var(--primary-green);
+    border-left: 3px solid var(--primary-green);
     padding: 2rem;
     margin: 2rem 0;
     border-radius: 8px;
@@ -694,7 +694,7 @@
     background: white;
     padding: 2rem;
     border-radius: 8px;
-    border-left: 4px solid var(--primary-blue);
+    border-left: 3px solid var(--primary-blue);
 }
 
 .next-steps h3 {
@@ -934,7 +934,7 @@
    ======================================== */
 .info-box {
     background: var(--light-gray);
-    border-left: 4px solid var(--primary-blue);
+    border-left: 3px solid var(--primary-blue);
     padding: 2rem;
     margin: 2rem 0;
     border-radius: 8px;
@@ -1327,7 +1327,7 @@
    ======================================== */
 .content-section blockquote {
     background: var(--light-gray);
-    border-left: 4px solid var(--primary-blue);
+    border-left: 3px solid var(--primary-blue);
     padding: 1.5rem 2rem;
     margin: 2rem 0;
     border-radius: 0 8px 8px 0;
