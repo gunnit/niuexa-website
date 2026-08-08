@@ -202,8 +202,8 @@ function validateField(field) {
         }
     }
 
-    field.style.borderColor = '#e0e0e0';
-    field.style.backgroundColor = 'white';
+    field.style.borderColor = 'var(--border-light)';
+    field.style.backgroundColor = 'var(--white)';
     field.classList.remove('error');
     return true;
 }
@@ -223,13 +223,13 @@ function showMessage(type, message) {
         padding: 1rem 1.5rem;
         margin-bottom: 1.5rem;
         border-radius: 8px;
-        font-family: 'Inter', sans-serif;
+        font-family: var(--font-secondary);
         font-size: 1rem;
         display: flex;
         align-items: center;
         gap: 0.75rem;
         animation: slideDown 0.3s ease;
-        ${type === 'success' ? 'background: #d4edda; color: #155724; border: 1px solid #c3e6cb;' : 'background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb;'}
+        ${type === 'success' ? 'background: var(--success-surface); color: var(--green-text); border: 1px solid var(--green-text);' : 'background: var(--error-surface); color: var(--error-text); border: 1px solid var(--error);'}
     `;
 
     const icon = type === 'success' ? '✅' : '❌';

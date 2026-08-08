@@ -189,15 +189,23 @@ function initReadingProgress() {
             left: 0;
             width: 100%;
             height: 4px;
-            background: rgba(102, 126, 234, 0.1);
+            background: rgba(35, 125, 166, 0.12);
             z-index: 1000;
         }
-        
+
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-            width: 0%;
-            transition: width 0.3s ease;
+            background: var(--gradient-primary);
+            /* Scaled, not resized: animating width relayouts the page on every
+               scroll frame, transform stays on the compositor. */
+            width: 100%;
+            transform: scaleX(0);
+            transform-origin: left center;
+            transition: transform 0.1s linear;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .progress-fill { transition: none; }
         }
     `;
     
@@ -208,15 +216,22 @@ function initReadingProgress() {
     
     const progressFill = progressBar.querySelector('.progress-fill');
     
-    // Update progress on scroll
+    // Update progress on scroll. Reads are batched into a rAF so a fast scroll
+    // cannot force a layout per wheel event.
+    let ticking = false;
     window.addEventListener('scroll', function() {
-        const windowHeight = window.innerHeight;
-        const documentHeight = document.documentElement.scrollHeight - windowHeight;
-        const scrollTop = window.pageYOffset;
-        const progress = (scrollTop / documentHeight) * 100;
-        
-        progressFill.style.width = Math.min(progress, 100) + '%';
-    });
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function() {
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight - windowHeight;
+            const scrollTop = window.pageYOffset;
+            const progress = documentHeight > 0 ? scrollTop / documentHeight : 0;
+
+            progressFill.style.transform = 'scaleX(' + Math.min(Math.max(progress, 0), 1) + ')';
+            ticking = false;
+        });
+    }, { passive: true });
 }
 
 // Code copying functionality
@@ -327,13 +342,13 @@ function initPrintFeature() {
         position: fixed;
         bottom: 2rem;
         right: 2rem;
-        background: #667eea;
-        color: white;
+        background: var(--dark-blue);
+        color: var(--white);
         border: none;
         padding: 1rem;
         border-radius: 50px;
         cursor: pointer;
-        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        box-shadow: 0 4px 12px rgba(31, 100, 174, 0.3);
         font-weight: 500;
         transition: all 0.3s ease;
         z-index: 100;
@@ -341,12 +356,12 @@ function initPrintFeature() {
     
     printButton.addEventListener('mouseenter', function() {
         this.style.transform = 'scale(1.05)';
-        this.style.boxShadow = '0 6px 20px rgba(102, 126, 234, 0.4)';
+        this.style.boxShadow = '0 6px 20px rgba(31, 100, 174, 0.4)';
     });
     
     printButton.addEventListener('mouseleave', function() {
         this.style.transform = 'scale(1)';
-        this.style.boxShadow = '0 4px 12px rgba(102, 126, 234, 0.3)';
+        this.style.boxShadow = '0 4px 12px rgba(31, 100, 174, 0.3)';
     });
     
     printButton.addEventListener('click', function() {
@@ -409,7 +424,7 @@ function initSocialSharing() {
         }
         
         .share-btn:hover {
-            border-color: #667eea;
+            border-color: var(--primary-blue);
             transform: translateY(-2px);
         }
         
@@ -490,8 +505,8 @@ function initBookmarks() {
     
     bookmarkButton.style.cssText = `
         background: transparent;
-        border: 2px solid #667eea;
-        color: #667eea;
+        border: 2px solid var(--primary-blue);
+        color: var(--blue-text);
         padding: 0.75rem 1.5rem;
         border-radius: 8px;
         cursor: pointer;
@@ -548,8 +563,8 @@ function initBackToTop() {
         right: 2rem;
         width: 50px;
         height: 50px;
-        background: #667eea;
-        color: white;
+        background: var(--dark-blue);
+        color: var(--white);
         border: none;
         border-radius: 50%;
         cursor: pointer;
@@ -586,16 +601,16 @@ initBackToTop();
 const tocStyle = document.createElement('style');
 tocStyle.textContent = `
     .toc-list a.active {
-        color: #5a67d8;
+        color: var(--blue-text);
         font-weight: 600;
-        border-left: 3px solid #667eea;
+        border-left: 3px solid var(--primary-blue);
         padding-left: 1rem;
-        background: rgba(102, 126, 234, 0.1);
+        background: rgba(35, 125, 166, 0.1);
     }
-    
+
     .bookmark-btn.bookmarked {
-        background: #667eea;
-        color: white;
+        background: var(--dark-blue);
+        color: var(--white);
     }
 `;
 document.head.appendChild(tocStyle);

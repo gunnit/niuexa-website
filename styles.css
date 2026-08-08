@@ -83,6 +83,16 @@
     --warning-text: #92400E;          /* AA-safe amber for text on light surfaces (6.4:1) */
     --success: #2C7A45;
 
+    /* Status surfaces. Every callout, badge and alert tint in the page
+       stylesheets used to be a one-off hex (#fed7d7, #FFF3E0, #d4edda, …),
+       which is how they drifted below AA against their own text token. Each
+       tint below is paired with its --*-text partner at 4.5:1 or better. */
+    --error-surface: #FDEDEE;         /* carries --error-text at 5.73:1 */
+    --warning-surface: #FDF4E7;       /* carries --warning-text at 6.28:1 */
+    --success-surface: #E6F5EC;       /* carries --green-text at 4.69:1 */
+    --signal-surface: #EAF6F5;        /* carries --signal at 4.66:1 */
+    --info-surface: #E9F2F6;          /* carries --blue-text at 4.98:1 */
+
     /* Structural borders and dividers. --border-light replaces the var(--border-light) and
        var(--border-light) pair that were doing the same hairline-border job in different
        stylesheets. */
@@ -92,6 +102,14 @@
     /* Gradients */
     --gradient-primary: linear-gradient(115deg, var(--primary-blue) 0%, var(--brand-teal) 50%, var(--primary-green) 100%);
     --gradient-secondary: linear-gradient(135deg, var(--dark-blue), var(--dark-green));
+    /* Same spectrum as --gradient-primary, deep enough to carry white text at
+       every stop AND at every blend between them: 6.83:1 / 6.32:1 / 6.73:1.
+       --gradient-primary itself measures 4.61 / 3.37 / 2.80, so anything with
+       white text on it — buttons, pills, hero fields, CTA panels — must use
+       this one instead. Fills with no text on them keep --gradient-primary.
+       The stops are one step deeper than the AA-safe text tokens because the
+       interpolated midpoints sit lighter than either endpoint. */
+    --gradient-cta: linear-gradient(115deg, #1C5C9E 0%, #0B6B69 50%, #25683B 100%);
     --gradient-light: linear-gradient(135deg, var(--light-blue), var(--light-green));
     --gradient-hero-dark: linear-gradient(135deg, var(--black) 0%, #0F2638 55%, var(--dark-gray) 100%);
     
@@ -201,7 +219,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary {
-    background: var(--gradient-primary);
+    /* White on --gradient-primary is 2.80:1 at the green stop; the deep
+       variant clears AA at every stop. */
+    background: var(--gradient-cta);
     color: var(--white);
     box-shadow: 0 4px 15px rgba(35, 125, 166, 0.3);
 }
@@ -310,6 +330,15 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
     transition: color var(--transition-fast);
     position: relative;
+    /* The two dropdown toggles are <button>s so their expanded/collapsed state
+       is announced. These resets keep them pixel-identical to the <a> siblings
+       they sit beside. */
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    background: none;
+    border: 0;
+    padding: 0;
 }
 
 .nav-link::after {
@@ -393,7 +422,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Login Link Styling */
 .nav-link.login-link {
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+    /* Same fix as .btn-primary: white on --primary-green is 2.80:1. */
+    background: linear-gradient(135deg, var(--dark-blue), var(--green-text));
     color: var(--white) !important;
     padding: 0.5rem 1rem;
     border-radius: 25px;
@@ -423,6 +453,10 @@ h1, h2, h3, h4, h5, h6 {
     padding: 8px;
     border-radius: 4px;
     transition: background-color var(--transition-fast);
+    /* Real <button> rather than role="button" on a div, so it is focusable and
+       activates on Enter/Space natively. Strip the UA chrome. */
+    background: none;
+    border: 0;
 }
 
 .hamburger:focus {
@@ -508,11 +542,15 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(35, 125, 166, 0.1);
-    border: 1px solid rgba(35, 125, 166, 0.3);
+    /* This badge appears on light, gradient and dark heroes. A translucent
+       tint took its contrast from whatever sat behind it (1.69:1 on the
+       contact hero, 4.35:1 on the about tint); a solid ink pill is identical
+       everywhere and carries white at 13.25:1. */
+    background: var(--dark-gray);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     padding: 0.5rem 1rem;
     border-radius: 50px;
-    color: var(--blue-text);
+    color: var(--white);
     font-size: 0.9rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
@@ -554,7 +592,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-subtitle {
     font-size: 1.3rem;
-    color: rgba(255, 255, 255, 0.85);
+    /* Was rgba(255,255,255,0.85): 3.1–4.3:1 over the hero gradients. */
+    color: var(--white);
     margin-bottom: 2rem;
     line-height: 1.65;
     animation: fadeInUp 1s ease 0.4s both;
@@ -593,7 +632,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .stat-label {
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
+    /* Was rgba(255,255,255,0.7): 2.57–3.39:1 over the hero gradients. */
+    color: var(--white);
     margin-top: 0.25rem;
 }
 
@@ -645,7 +685,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-trust p {
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--white);
     font-size: 0.9rem;
     margin-bottom: 1rem;
 }
@@ -660,7 +700,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0.5rem 1rem;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--white);
     font-size: 0.8rem;
     font-weight: 600;
 }
@@ -1247,7 +1287,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .cta-card {
-    background: var(--gradient-primary);
+    background: var(--gradient-cta);
     color: var(--white);
     padding: 2rem;
     border-radius: 15px;
@@ -1610,7 +1650,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Final CTA Section */
 .final-cta-section {
     padding: var(--section-padding);
-    background: var(--gradient-primary);
+    background: var(--gradient-cta);
     position: relative;
     overflow: hidden;
 }
@@ -1739,7 +1779,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .stat-highlight .stat-label {
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--white);
 }
 
 .cta-buttons {
@@ -2280,7 +2320,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Standalone Innovation CTA - More Prominent */
 .innovation-cta-standalone {
-    background: var(--gradient-primary);
+    background: var(--gradient-cta);
     padding: 2.5rem 1.5rem;
     border-radius: 20px;
     text-align: center;
@@ -2298,7 +2338,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .innovation-cta-standalone .cta-content p {
-    color: rgba(255, 255, 255, 0.9) !important;
+    color: var(--white) !important;
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
@@ -2594,7 +2634,7 @@ button[aria-busy="true"]::after {
 
 /* AEO Banner */
 .aeo-banner {
-    background: var(--gradient-primary);
+    background: var(--gradient-cta);
     padding: 1rem 0;
     position: relative;
     overflow: hidden;
@@ -3492,11 +3532,13 @@ html {
 }
 
 .about-hero .hero-badge {
-    background: rgba(35, 125, 166, 0.1);
-    border: 1px solid rgba(35, 125, 166, 0.3);
+    /* Matches the shared .hero-badge: the translucent tint left this label at
+       4.35:1 on the about hero. */
+    background: var(--dark-gray);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     padding: 0.5rem 1rem;
     border-radius: 50px;
-    color: var(--blue-text);
+    color: var(--white);
     font-size: 0.9rem;
     font-weight: 600;
     display: inline-flex;
@@ -5205,7 +5247,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
     text-align: center;
     margin-top: 4rem;
     padding: 3rem;
-    background: var(--gradient-primary);
+    background: var(--gradient-cta);
     color: var(--white);
     border-radius: 20px;
 }
@@ -5369,7 +5411,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
     font-size: 1.2rem;
     line-height: 1.5;
     margin-bottom: 2rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--white);
 }
 
 .events-hero-section .btn {
@@ -5689,7 +5731,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
    ======================================== */
 .consulting-hero {
     padding: 120px 0 80px;
-    background: var(--gradient-secondary);
+    background: var(--gradient-cta);
     color: var(--white);
     text-align: center;
     position: relative;
@@ -5733,7 +5775,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 
 .consulting-hero .hero-subtitle {
     font-size: 1.3rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--white);
     margin-bottom: 2.5rem;
     max-width: 800px;
     margin-left: auto;
@@ -5767,7 +5809,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 
 .consulting-hero .stat-label {
     font-size: 1rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--white);
     margin-top: 0.5rem;
     display: block;
 }
@@ -6030,7 +6072,22 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
     height: 22px;
 }
 
-/* Author Attribution */
+/* Author Attribution. The base colours are for a light surface; on the
+   article pages that place the byline inside the gradient hero they landed at
+   1.22:1, so the hero scope overrides them below. */
+.tutorial-header .author-attribution,
+.tutorial-hero .author-attribution,
+.tutorial-header .author-attribution a,
+.tutorial-hero .author-attribution a {
+    color: var(--white);
+}
+
+.tutorial-header .author-attribution a,
+.tutorial-hero .author-attribution a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
 .author-attribution {
     font-family: var(--font-secondary);
     font-size: 0.85rem;

@@ -292,8 +292,8 @@
 }
 
 .coming-soon-badge {
-    background: #fed7d7;
-    color: var(--error);
+    background: var(--error-surface);
+    color: var(--error-text);
     padding: 0.5rem 1rem;
     border-radius: 6px;
     font-size: 0.85rem;
@@ -537,7 +537,7 @@
 
 .cert-hub-info {
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--white);
     margin: 0;
 }
 
@@ -675,4 +675,4 @@
     .tutorial-card:hover .tutorial-gradient-bg {
         transform: none;
     }
-}
+}
