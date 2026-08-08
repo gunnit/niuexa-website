@@ -70,7 +70,8 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9S42S4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div id="nav-placeholder"></div>
 
-    <section id="main-content" class="phase-hero">
+    <main id="main-content">
+    <section class="phase-hero">
       <div class="container" style="position:relative;z-index:1;">
         <div style="max-width:980px;">
           <span class="phase-kicker" style="background:rgba(10,26,38,.4);color:var(--white);border:1px solid rgba(255,255,255,.3);">AI Readiness Assessment</span>
@@ -204,7 +205,7 @@
           <input type="hidden" name="redirect" value="https://niuexa.ai/thank-you-ai-readiness-assessment.html">
           <input type="hidden" name="formSource" value="AI Readiness Assessment Phase 2 Landing Page">
           <input type="hidden" name="utm_source" id="utm_source"><input type="hidden" name="utm_medium" id="utm_medium"><input type="hidden" name="utm_campaign" id="utm_campaign"><input type="hidden" name="utm_content" id="utm_content"><input type="hidden" name="utm_term" id="utm_term">
-          <input type="text" name="botcheck" style="display:none!important" tabindex="-1" autocomplete="off">
+          <input type="text" name="botcheck" style="display:none!important" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
             <div><label for="firstName">Nome *</label><input id="firstName" name="firstName" required placeholder="Mario"></div>
             <div><label for="lastName">Cognome *</label><input id="lastName" name="lastName" required placeholder="Rossi"></div>
@@ -223,7 +224,7 @@
             <div><label for="urgency">Quando volete partire?</label><select id="urgency" name="urgency"><option value="">Seleziona</option><option>Subito</option><option>Entro 30 giorni</option><option>Entro 90 giorni</option><option>Sto esplorando</option></select></div>
           </div>
           <div style="margin-top:1rem;"><label for="message">Quale processo o problema vorresti valutare?</label><textarea id="message" name="message" rows="4" placeholder="Esempio: lead qualification, reportistica, customer service, formazione team, back office..."></textarea></div>
-          <label style="display:flex;gap:.7rem;align-items:flex-start;margin-top:1rem;font-weight:500;color:#14324A;"><input type="checkbox" name="privacy" required style="width:auto;margin-top:.25rem;"> <span>Accetto la <a href="privacy-policy.html" target="_blank">Privacy Policy</a> e autorizzo il trattamento dei miei dati personali *</span></label>
+          <label style="display:flex;gap:.7rem;align-items:flex-start;margin-top:1rem;font-weight:500;color:#14324A;"><input type="checkbox" name="privacy" required style="width:auto;margin-top:.25rem;"> <span>Accetto la <a href="privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a> e autorizzo il trattamento dei miei dati personali *</span></label>
           <button type="submit" class="btn btn-primary" style="width:100%;margin-top:1.3rem;border:0;cursor:pointer;justify-content:center;">Richiedi assessment</button>
           <p class="phase-muted" style="font-size:.9rem;margin-top:1rem;text-align:center;">Nessun impegno: useremo le informazioni solo per preparare una prima conversazione utile.</p>
         </form>
@@ -240,6 +241,7 @@
         </div>
       </div>
     </section>
+    </main>
 
     <div id="footer-placeholder"></div>
     <script src="includes/includes.js?v=20260428"></script>

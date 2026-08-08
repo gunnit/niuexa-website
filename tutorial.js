@@ -508,6 +508,7 @@ function initBookmarks() {
         border: 2px solid var(--primary-blue);
         color: var(--blue-text);
         padding: 0.75rem 1.5rem;
+        min-height: 44px;
         border-radius: 8px;
         cursor: pointer;
         font-weight: 500;

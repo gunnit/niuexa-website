@@ -20,9 +20,10 @@
     color: var(--white);
     text-decoration: underline;
     text-underline-offset: 3px;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     padding: 4px 2px;
-    min-height: 24px;
+    min-height: 44px;
 }
 
 .breadcrumb a:hover,

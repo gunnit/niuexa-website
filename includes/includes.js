@@ -67,12 +67,12 @@ const footerHTML = `
     <div class="container">
         <div class="footer-content">
             <div class="footer-brand">
-                <h3>NIUEXA</h3>
+                <h2>NIUEXA</h2>
                 <p>Soluzioni AI Avanzate per il tuo Business.</p>
             </div>
             <div class="footer-links">
                 <div class="footer-column">
-                    <h4>Servizi</h4>
+                    <h3>Servizi</h3>
                     <ul>
                         <li><a href="/consulting.html">Consulenza AI</a></li>
                         <li><a href="/training.html">Formazione AI</a></li>
@@ -81,7 +81,7 @@ const footerHTML = `
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h4>Risorse</h4>
+                    <h3>Risorse</h3>
                     <ul>
                         <li><a href="/impara.html">Impara</a></li>
                         <li><a href="/research.html">Ricerca</a></li>
@@ -91,7 +91,7 @@ const footerHTML = `
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h4>Azienda</h4>
+                    <h3>Azienda</h3>
                     <ul>
                         <li><a href="/chi-siamo.html">Chi Siamo</a></li>
                         <li><a href="/carriere.html">Carriere</a></li>
@@ -100,14 +100,14 @@ const footerHTML = `
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h4>Social</h4>
+                    <h3>Social</h3>
                     <ul>
                         <li><a href="https://linkedin.com/company/niuexa" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
                         <li><a href="https://discord.gg/vyKckeS3" target="_blank" rel="noopener noreferrer">Discord Community</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h4>Legale</h4>
+                    <h3>Legale</h3>
                     <ul>
                         <li><a href="/privacy-policy.html">Privacy Policy</a></li>
                         <li><a href="/cookie-policy.html">Cookie Policy</a></li>
@@ -420,4 +420,47 @@ function initRevealAnimations() {
 document.addEventListener('DOMContentLoaded', function() {
     loadIncludes();
     initRevealAnimations();
+    makeScrollRegionsFocusable();
+});
+
+var SCROLL_REGION_LABELS = { code: 'Blocco di codice scorrevole', table: 'Tabella scorrevole' };
+
+// Horizontally scrollable code blocks and wide tables are reachable with a
+// mouse or a finger but not with a keyboard, which fails WCAG 2.1.1. Whether
+// an element actually scrolls depends on the viewport, so this is decided at
+// runtime and re-checked on resize rather than hard-coded into the markup.
+function makeScrollRegionsFocusable() {
+    var scrollRegionCounts = {};
+    var candidates = document.querySelectorAll('pre, table, .table-wrapper, .comparison-table, .data-table');
+    Array.prototype.forEach.call(candidates, function (el) {
+        // A table inside a scrolling wrapper is not itself the scroller.
+        var scroller = el;
+        var style = window.getComputedStyle(scroller);
+        var scrolls = /(auto|scroll)/.test(style.overflowX) && scroller.scrollWidth > scroller.clientWidth + 1;
+
+        if (scrolls) {
+            if (!scroller.hasAttribute('tabindex')) scroller.setAttribute('tabindex', '0');
+            if (!scroller.hasAttribute('role')) scroller.setAttribute('role', 'region');
+            if (!scroller.hasAttribute('aria-label')) {
+                // Landmarks of the same role must have distinct names, so the
+                // label is numbered — a page with six scrollable code blocks
+                // would otherwise expose six identically-named regions.
+                var kind = scroller.tagName === 'PRE' ? 'code' : 'table';
+                scrollRegionCounts[kind] = (scrollRegionCounts[kind] || 0) + 1;
+                scroller.setAttribute('aria-label',
+                    SCROLL_REGION_LABELS[kind] + ' ' + scrollRegionCounts[kind]);
+            }
+        } else if (scroller.getAttribute('data-scroll-region') === 'auto') {
+            scroller.removeAttribute('tabindex');
+            scroller.removeAttribute('role');
+            scroller.removeAttribute('aria-label');
+        }
+        if (scrolls) scroller.setAttribute('data-scroll-region', 'auto');
+    });
+}
+
+var scrollRegionTimer;
+window.addEventListener('resize', function () {
+    clearTimeout(scrollRegionTimer);
+    scrollRegionTimer = setTimeout(makeScrollRegionsFocusable, 200);
 });
