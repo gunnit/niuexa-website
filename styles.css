@@ -44,6 +44,7 @@
 :root {
     /* Color Palette */
     --primary-blue: #237DA6;
+    --blue-text: #1F6E94;             /* AA-safe blue for text on light surfaces (5.15:1 on --light-gray) */
     --dark-blue: #1F64AE;
     --light-blue: #E3F0F5;
     --logo-blue: #1F64AE;
@@ -59,6 +60,9 @@
     --brand-teal: #0E9C9A;
     --cyan: #06B6D4;
     --signal: #0E7A78;                /* AA-safe teal for text/links on light surfaces */
+    --signal-on-dark: #4FD1C5;        /* AA-safe teal for text on --dark-gray / dark gradients (7.1:1) */
+    --green-on-dark: #5CC98A;         /* AA-safe green for text on dark surfaces (6.4:1 on --dark-gray) */
+    --muted-on-dark: #ADB5BD;         /* muted body text on dark surfaces — footer, cookie banner (6.4:1 on --dark-gray) */
     --error: #DC3545;
     --error-text: #B02A37;            /* AA-safe red for text on light surfaces (5.9:1) */
     --warning: #B45309;
@@ -137,7 +141,7 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     /* Fallback for browsers without background-clip support */
-    color: var(--primary-blue);
+    color: var(--blue-text);
 }
 
 /* Buttons */
@@ -184,7 +188,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-secondary {
     background: transparent;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     border: 2px solid var(--primary-blue);
 }
 
@@ -241,7 +245,7 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     /* Fallback for browsers without background-clip support */
-    color: var(--primary-blue);
+    color: var(--blue-text);
     margin: 0;
     line-height: 1;
     font-family: var(--font-primary);
@@ -293,7 +297,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-link:hover {
-    color: var(--primary-blue);
+    color: var(--blue-text);
 }
 
 .nav-link:hover::after {
@@ -355,7 +359,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .dropdown-link:hover {
     background: var(--light-gray);
-    color: var(--primary-blue);
+    color: var(--blue-text);
 }
 
 /* Login Link Styling */
@@ -473,7 +477,7 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid rgba(35, 125, 166, 0.3);
     padding: 0.5rem 1rem;
     border-radius: 50px;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     font-size: 0.9rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
@@ -595,7 +599,7 @@ h1, h2, h3, h4, h5, h6 {
 .impara-hero .btn-secondary:hover,
 [class*="hero"] .btn-secondary:hover {
     background: var(--white);
-    color: var(--primary-blue) !important;
+    color: var(--blue-text) !important;
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
 }
@@ -937,7 +941,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .service-link {
-    color: var(--primary-blue);
+    color: var(--blue-text);
     text-decoration: none;
     font-weight: 600;
     transition: color var(--transition-fast);
@@ -979,7 +983,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .stat h3 {
     font-size: 2.5rem;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     margin-bottom: 0.5rem;
 }
 
@@ -1059,7 +1063,7 @@ h1, h2, h3, h4, h5, h6 {
 .use-cases h4 {
     font-size: 1.4rem;
     margin-bottom: 1.5rem;
-    color: var(--primary-blue);
+    color: var(--blue-text);
 }
 
 .use-case-grid {
@@ -1245,7 +1249,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .training-programs {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: 2rem;
     margin-bottom: 3rem;
 }
@@ -1376,7 +1380,7 @@ h1, h2, h3, h4, h5, h6 {
     content: '●';
     position: absolute;
     left: 0;
-    color: var(--primary-blue);
+    color: var(--blue-text);
 }
 
 .product-cta {
@@ -1403,7 +1407,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .testimonials-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
     gap: 2rem;
     margin-bottom: 3rem;
 }
@@ -1465,7 +1469,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1.25rem;
     background: var(--light-blue);
     border-radius: 14px;
-    color: var(--primary-blue);
+    color: var(--blue-text);
 }
 
 .proof-icon svg {
@@ -1514,7 +1518,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .author-info p {
-    color: var(--primary-blue);
+    color: var(--blue-text);
     font-size: 0.9rem;
     font-weight: 600;
 }
@@ -1543,7 +1547,7 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     font-family: var(--font-primary);
 }
 
@@ -1653,7 +1657,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .counter-number {
     background: var(--white);
-    color: var(--primary-blue);
+    color: var(--blue-text);
     padding: 0.5rem 1rem;
     border-radius: 25px;
     font-weight: 700;
@@ -1717,7 +1721,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .final-cta-section .btn-primary {
     background: var(--white);
-    color: var(--primary-blue);
+    color: var(--blue-text);
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
 }
 
@@ -1735,7 +1739,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .final-cta-section .btn-secondary:hover {
     background: var(--white);
-    color: var(--primary-blue);
+    color: var(--blue-text);
     transform: translateY(-2px);
 }
 
@@ -2219,7 +2223,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .contact-item h5 {
-    color: var(--primary-blue);
+    color: var(--blue-text);
     margin-bottom: 0.25rem;
 }
 
@@ -2263,7 +2267,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .innovation-cta-standalone .btn {
     background: var(--white);
-    color: var(--primary-blue);
+    color: var(--blue-text);
     font-weight: 600;
     padding: 0.8rem 1.5rem;
     border-radius: 50px;
@@ -2397,7 +2401,7 @@ button[aria-busy="true"]::after {
 
 .landing-form-label {
     display: block;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
     font-weight: 600;
@@ -2630,7 +2634,7 @@ button[aria-busy="true"]::after {
 .aeo-banner-btn {
     display: inline-block;
     background: var(--white);
-    color: var(--primary-blue);
+    color: var(--blue-text);
     padding: 0.75rem 1.5rem;
     border-radius: 50px;
     text-decoration: none;
@@ -2708,7 +2712,7 @@ button[aria-busy="true"]::after {
 }
 
 .footer-brand p {
-    color: #ADB5BD;
+    color: var(--muted-on-dark);
 }
 
 .footer-links {
@@ -2732,20 +2736,20 @@ button[aria-busy="true"]::after {
 }
 
 .footer-column a {
-    color: #ADB5BD;
+    color: var(--muted-on-dark);
     text-decoration: none;
     transition: color var(--transition-fast);
 }
 
 .footer-column a:hover {
-    color: var(--primary-blue);
+    color: var(--blue-text);
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
     border-top: 1px solid #495057;
-    color: #ADB5BD;
+    color: var(--muted-on-dark);
 }
 
 .footer-bottom-content {
@@ -3441,7 +3445,7 @@ html {
     border: 1px solid rgba(35, 125, 166, 0.3);
     padding: 0.5rem 1rem;
     border-radius: 50px;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     font-size: 0.9rem;
     font-weight: 600;
     display: inline-flex;
@@ -3536,7 +3540,7 @@ html {
 
 .ceo-title {
     font-size: 1.2rem;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     margin-bottom: 2rem;
     font-weight: 600;
 }
@@ -3622,8 +3626,10 @@ html {
 .social-content a {
     display: inline-block;
     padding: 0.5rem 1rem;
-    background: var(--primary-green);
-    color: white;
+    /* --primary-green carries white text at only 2.8:1; --green-text clears AA
+       at 5.28:1 and is the same hue family. */
+    background: var(--green-text);
+    color: var(--white);
     text-decoration: none;
     border-radius: 25px;
     font-size: 0.85rem;
@@ -3744,7 +3750,7 @@ html {
 .vision-statement blockquote::before {
     content: '';
     font-size: 4rem;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     position: absolute;
     top: -20px;
     left: -20px;
@@ -3752,7 +3758,7 @@ html {
 }
 
 .vision-statement cite {
-    color: var(--primary-blue);
+    color: var(--blue-text);
     font-weight: 600;
 }
 
@@ -3822,7 +3828,7 @@ html {
 .timeline-year {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     margin-bottom: 0.5rem;
 }
 
@@ -3866,7 +3872,7 @@ html {
 
 .libera-subtitle {
     font-size: 1.3rem;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     margin-top: 1rem;
     font-weight: 600;
     background: linear-gradient(135deg, var(--primary-blue), #0E9C9A);
@@ -4017,7 +4023,7 @@ html {
 }
 
 .pillar h4 {
-    color: var(--primary-blue);
+    color: var(--blue-text);
     margin-bottom: 0.8rem;
     font-size: 1.1rem;
     font-weight: 700;
@@ -4112,7 +4118,7 @@ html {
 }
 
 .benefit-content h4 {
-    color: var(--primary-blue);
+    color: var(--blue-text);
     margin-bottom: 0.8rem;
     font-size: 1.1rem;
     font-weight: 700;
@@ -4176,7 +4182,7 @@ html {
 
 .btn-explosive {
     background: white !important;
-    color: var(--primary-blue) !important;
+    color: var(--blue-text) !important;
     font-weight: 700;
     padding: 1rem 2.5rem;
     font-size: 1.1rem;
@@ -4451,7 +4457,7 @@ html {
 
 .cta-section .btn-primary {
     background: var(--white);
-    color: var(--primary-blue);
+    color: var(--blue-text);
 }
 
 .cta-section .btn-primary:hover {
@@ -4466,7 +4472,7 @@ html {
 
 .cta-section .btn-secondary:hover {
     background: var(--white);
-    color: var(--primary-blue);
+    color: var(--blue-text);
 }
 
 .cta-section .section-title {
@@ -4663,7 +4669,7 @@ html {
     .libera-subtitle {
         font-size: 1.1rem;
         /* Fallback for browsers without background-clip support */
-        color: var(--primary-blue);
+        color: var(--blue-text);
     }
     
     .libera-info,
@@ -4803,7 +4809,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 
 .courses-value-prop {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
     gap: 1.5rem;
     margin: 3rem 0;
     padding: 2rem;
@@ -4836,7 +4842,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 
 .courses-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
     gap: 2rem;
     margin: 3rem 0;
 }
@@ -5090,7 +5096,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 
 .trust-stats {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
     gap: 2rem;
     margin-bottom: 3rem;
     text-align: center;
@@ -5104,7 +5110,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
     display: block;
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     margin-bottom: 0.5rem;
 }
 
@@ -5449,7 +5455,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 }
 
 .legal-content h2 {
-    color: var(--primary-blue);
+    color: var(--blue-text);
     margin: 2rem 0 1rem;
     border-bottom: 2px solid var(--light-gray);
     padding-bottom: 0.5rem;
@@ -5470,7 +5476,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 }
 
 .legal-content a {
-    color: var(--primary-blue);
+    color: var(--blue-text);
     text-decoration: none;
 }
 
@@ -5493,7 +5499,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 
 .footer-contact p {
     margin: 0.3rem 0;
-    color: #ADB5BD;
+    color: var(--muted-on-dark);
 }
 
 /* Responsive Legal Pages */
@@ -5795,7 +5801,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
     content: '+';
     font-size: 1.5rem;
     font-weight: 300;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     transition: transform var(--transition-fast);
     flex-shrink: 0;
     margin-left: 1rem;
@@ -5958,7 +5964,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
     margin: 0 auto 1rem;
     background: var(--white);
     border-radius: 12px;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     box-shadow: 0 2px 8px rgba(10, 26, 38, 0.08);
 }
 
@@ -5978,7 +5984,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 }
 
 .author-attribution a {
-    color: var(--primary-blue);
+    color: var(--blue-text);
     text-decoration: none;
 }
 

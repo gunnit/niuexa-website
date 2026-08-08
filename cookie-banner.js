@@ -264,11 +264,11 @@ const cookieBannerCSS = `
     right: 0;
     background: rgba(52, 58, 64, 0.98);
     backdrop-filter: blur(10px);
-    color: white;
+    color: var(--white);
     padding: 1.5rem;
     z-index: 9999;
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
-    border-top: 2px solid #0066CC;
+    border-top: 2px solid var(--primary-blue);
 }
 
 .cookie-banner-content {
@@ -282,7 +282,7 @@ const cookieBannerCSS = `
 
 .cookie-banner-text h4 {
     margin: 0 0 0.5rem 0;
-    color: #00CC66;
+    color: var(--green-on-dark);
     font-size: 1.1rem;
 }
 
@@ -293,7 +293,7 @@ const cookieBannerCSS = `
 }
 
 .cookie-banner-text a {
-    color: #00CC66;
+    color: var(--green-on-dark);
     text-decoration: underline;
 }
 
@@ -315,34 +315,37 @@ const cookieBannerCSS = `
 }
 
 .cookie-btn-primary {
-    background: linear-gradient(135deg, #0066CC, #00CC66);
-    color: white;
+    /* Both gradient ends must carry white text: the old #00CC66 end sat at
+       2.14:1 and its #009944 hover at 3.72:1. These brand tokens clear AA
+       across the whole sweep (--dark-blue 6.01:1, --green-text 5.28:1). */
+    background: linear-gradient(135deg, var(--dark-blue), var(--green-text));
+    color: var(--white);
 }
 
 .cookie-btn-primary:hover {
-    background: linear-gradient(135deg, #004499, #009944);
+    background: linear-gradient(135deg, #17518C, #236438);
     transform: translateY(-1px);
 }
 
 .cookie-btn-secondary {
     background: transparent;
-    color: white;
-    border: 2px solid #6C757D;
+    color: var(--white);
+    border: 2px solid var(--medium-gray);
 }
 
 .cookie-btn-secondary:hover {
-    background: #6C757D;
-    border-color: #6C757D;
+    background: var(--medium-gray);
+    border-color: var(--medium-gray);
 }
 
 .cookie-btn-text {
     background: transparent;
-    color: #00CC66;
+    color: var(--green-on-dark);
     text-decoration: underline;
 }
 
 .cookie-btn-text:hover {
-    color: white;
+    color: var(--white);
 }
 
 .cookie-settings-panel {
@@ -351,7 +354,7 @@ const cookieBannerCSS = `
 }
 
 .cookie-settings-panel h4 {
-    color: #00CC66;
+    color: var(--green-on-dark);
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
 }
@@ -359,7 +362,7 @@ const cookieBannerCSS = `
 .cookie-category {
     margin-bottom: 1.5rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid #495057;
+    border-bottom: 1px solid var(--medium-gray);
 }
 
 .cookie-category:last-of-type {
@@ -376,18 +379,18 @@ const cookieBannerCSS = `
 .cookie-category-header input[type="checkbox"] {
     width: 18px;
     height: 18px;
-    accent-color: #0066CC;
+    accent-color: var(--primary-blue);
 }
 
 .cookie-category-header label {
-    color: white;
+    color: var(--white);
     font-size: 0.95rem;
 }
 
 .cookie-category p {
     margin: 0;
     font-size: 0.85rem;
-    color: #ADB5BD;
+    color: var(--muted-on-dark);
     line-height: 1.4;
 }
 

@@ -463,7 +463,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .topic-tag {
             display: inline-block;
             background: var(--light-blue);
-            color: var(--primary-blue);
+            color: var(--blue-text);
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
             font-size: 0.8rem;

@@ -180,7 +180,7 @@
 }
 
 .checkbox-label a {
-    color: var(--primary-blue);
+    color: var(--blue-text);
     text-decoration: underline;
 }
 
@@ -297,7 +297,7 @@
 
 .office-info h4 {
     font-size: 1.1rem;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     margin-bottom: 5px;
 }
 
@@ -350,7 +350,7 @@
 }
 
 .contact-method a {
-    color: var(--primary-blue);
+    color: var(--blue-text);
     text-decoration: none;
     font-weight: 600;
 }
@@ -367,7 +367,7 @@
 
 .faq-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: 40px;
     margin-top: 40px;
 }

@@ -10,7 +10,7 @@
 
 .events-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: 2rem;
     margin-top: 2rem;
     max-width: 1200px;
@@ -73,7 +73,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     font-weight: 600;
     margin-bottom: 0.5rem;
 }
@@ -115,7 +115,7 @@
 
 .topic-tag {
     background: var(--light-blue);
-    color: var(--primary-blue);
+    color: var(--blue-text);
     padding: 0.25rem 0.75rem;
     border-radius: 15px;
     font-size: 0.8rem;
@@ -131,7 +131,7 @@
 /* On white cards the CTA-section outline button (white on white) is invisible:
    restyle it as the standard light-surface secondary button */
 .event-actions .btn-outline {
-    color: var(--primary-blue) !important;
+    color: var(--blue-text) !important;
     border-color: var(--primary-blue);
 }
 
@@ -150,7 +150,7 @@
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
     gap: 2rem;
     margin-top: 2rem;
 }
@@ -191,7 +191,7 @@
 
 .events-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
     gap: 1.5rem;
     margin-top: 2rem;
 }
@@ -292,7 +292,7 @@
 
 .events-cta .btn-secondary:hover {
     background: var(--white);
-    color: var(--primary-blue) !important;
+    color: var(--blue-text) !important;
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
 }

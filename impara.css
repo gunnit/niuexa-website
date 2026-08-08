@@ -11,7 +11,7 @@
 
 .categories-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
     gap: 2rem;
     margin-top: 3rem;
 }
@@ -59,7 +59,7 @@
 
 .tutorials-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
     gap: 2rem;
     margin-top: 3rem;
 }
@@ -136,7 +136,7 @@
     top: 1rem;
     left: 1rem;
     background: rgba(255, 255, 255, 0.95);
-    color: var(--primary-blue);
+    color: var(--blue-text);
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.85rem;

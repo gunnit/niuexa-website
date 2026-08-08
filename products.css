@@ -91,7 +91,7 @@
 .product-index a:hover,
 .product-index a:focus-visible {
     border-color: var(--primary-blue);
-    color: var(--primary-blue);
+    color: var(--blue-text);
 }
 
 /* ===== Product panels ===== */
@@ -202,7 +202,7 @@
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(290px, 100%), 1fr));
     gap: 0.35rem 2rem;
 }
 
