@@ -242,7 +242,7 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
+    height: 2px;
     background: var(--gradient-primary);
 }
 
@@ -358,7 +358,7 @@
     font-size: 1.75rem;
     font-weight: 700;
     font-family: var(--font-primary);
-    color: var(--primary-blue);
+    color: var(--blue-text);
 }
 
 .price-unit {
@@ -636,7 +636,7 @@
     font-size: 1.1rem;
     font-weight: 700;
     font-family: var(--font-primary);
-    color: var(--primary-blue);
+    color: var(--blue-text);
 }
 
 /* ============ FAQ (native disclosure) ============ */
@@ -732,7 +732,7 @@
 
 .cta-benefits {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
     gap: 1.5rem;
     max-width: 800px;
     margin: 0 auto 3rem;
@@ -756,7 +756,7 @@
 
 .training-cta-section .btn-cta-white {
     background: var(--white);
-    color: var(--primary-blue);
+    color: var(--blue-text);
     padding: 1.1rem 3rem;
     font-size: 1.1rem;
     font-weight: 600;
@@ -771,15 +771,6 @@
     margin-top: 1.5rem;
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.92);
-}
-
-/* ============ Page meta ============ */
-
-.page-meta {
-    text-align: center;
-    font-size: 0.85rem;
-    color: var(--medium-gray);
-    padding: 1.5rem 20px;
 }
 
 /* ============ Focus visibility ============ */

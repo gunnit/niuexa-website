@@ -95,7 +95,7 @@
 
 .comparison-arrow {
     font-size: 2rem;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     font-weight: 700;
     flex-shrink: 0;
 }
@@ -200,7 +200,7 @@
 .form-section {
     margin-bottom: 2.5rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid #e9ecef;
+    border-bottom: 1px solid var(--border-light);
 }
 
 .form-section:last-of-type {
@@ -209,7 +209,7 @@
 }
 
 .form-section h3 {
-    color: var(--primary-blue);
+    color: var(--blue-text);
     margin-bottom: 1.5rem;
     font-size: 1.3rem;
     display: flex;
@@ -227,7 +227,7 @@
 
 .form-row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
     gap: 1.5rem;
 }
 
@@ -246,7 +246,7 @@
 .form-group input,
 .form-group select {
     padding: 0.8rem;
-    border: 2px solid #e9ecef;
+    border: 2px solid var(--border-light);
     border-radius: 8px;
     font-family: var(--font-secondary);
     font-size: 1rem;
@@ -264,7 +264,7 @@
     -webkit-appearance: none;
     appearance: none;
     height: 6px;
-    background: #e9ecef;
+    background: var(--border-light);
     border-radius: 3px;
     outline: none;
 }
@@ -294,7 +294,7 @@
     display: inline-block;
     margin-left: 1rem;
     font-weight: 600;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     font-size: 1.1rem;
 }
 
@@ -329,7 +329,7 @@
 
 .results-summary {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
     gap: 1.5rem;
     margin-bottom: 2.5rem;
 }
@@ -365,7 +365,7 @@
     font-size: 2rem;
     font-weight: 700;
     font-family: var(--font-primary);
-    color: var(--primary-blue);
+    color: var(--blue-text);
 }
 
 .result-card.highlight .result-value {
@@ -398,7 +398,7 @@
 }
 
 .breakdown-item:hover {
-    background: #e9ecef;
+    background: var(--border-light);
 }
 
 .breakdown-label {
@@ -408,7 +408,7 @@
 
 .breakdown-value {
     font-weight: 700;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     font-family: var(--font-primary);
 }
 
@@ -442,7 +442,7 @@
 
 .btn-outline {
     background: transparent;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     border: 2px solid var(--primary-blue);
 }
 
@@ -459,7 +459,7 @@
 
 .benchmarks-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: 2rem;
     margin-top: 3rem;
 }
@@ -507,7 +507,7 @@
 
 .benchmark-stat .stat-value {
     font-weight: 700;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     font-family: var(--font-primary);
 }
 
@@ -546,7 +546,7 @@
 
 .cta-buttons .btn-secondary {
     background: var(--white);
-    color: var(--primary-blue);
+    color: var(--blue-text);
     border: none;
 }
 
@@ -569,7 +569,7 @@
 
 /* Active Navigation Link */
 .nav-link.active {
-    color: var(--primary-blue);
+    color: var(--blue-text);
 }
 
 .nav-link.active::after {
@@ -746,7 +746,7 @@
 /* Disclaimer Section - Production Ready */
 .disclaimer-section {
     padding: var(--section-padding);
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    background: linear-gradient(135deg, #f8f9fa 0%, var(--border-light) 100%);
     position: relative;
     overflow: hidden;
 }
@@ -779,7 +779,7 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
+    height: 2px;
     background: var(--gradient-primary);
     border-radius: 20px 20px 0 0;
 }
@@ -813,7 +813,7 @@
     padding: 1.5rem;
     background: var(--light-gray);
     border-radius: 12px;
-    border-left: 4px solid var(--primary-blue);
+    border-left: 3px solid var(--primary-blue);
     position: relative;
     transition: all var(--transition-fast);
 }
@@ -857,7 +857,7 @@
 }
 
 .disclaimer-item strong {
-    color: var(--primary-blue);
+    color: var(--blue-text);
     font-weight: 600;
 }
 
@@ -867,7 +867,7 @@
 
 .methodology-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
     gap: 1rem;
     margin: 1.5rem 0;
     padding: 1.5rem;
@@ -894,14 +894,14 @@
 
 .methodology-item .value {
     font-weight: 600;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     font-size: 0.9rem;
 }
 
 .disclaimer-footer {
     margin-top: 2rem;
     padding-top: 2rem;
-    border-top: 1px solid #e9ecef;
+    border-top: 1px solid var(--border-light);
     text-align: center;
 }
 

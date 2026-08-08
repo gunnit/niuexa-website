@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <img src="${event.image}" alt="${event.title}" loading="lazy">
             </div>
             <div class="past-event-content">
-                <h4 class="past-event-title">${event.title}</h4>
+                <h3 class="past-event-title">${event.title}</h3>
                 <div class="past-event-date">${formatPastEventDate(event.date)}</div>
                 <div class="past-event-stats">
                     <span>👥 ${event.attendees} ${eventiT.attendees}</span>
@@ -463,7 +463,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .topic-tag {
             display: inline-block;
             background: var(--light-blue);
-            color: var(--primary-blue);
+            color: var(--blue-text);
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
             font-size: 0.8rem;

@@ -11,6 +11,20 @@
     border: 0;
 }
 
+/* Visually hidden but available to screen readers. Use for structural
+   headings a sighted reader gets from layout alone. */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 /* Content Versioning */
 .content-last-updated {
     font-family: var(--font-secondary);
@@ -18,6 +32,20 @@
     color: var(--medium-gray);
     text-align: center;
     padding: 12px 0;
+}
+
+/* "Ultimo aggiornamento | Autore" strip that sits between the last section and
+   the footer. Lives here rather than in a page stylesheet so every page that
+   uses it renders it the same way; `.author-bio` is a different component
+   styled by tutorial.css and is left alone. */
+.page-meta:not(.author-bio) {
+    font-family: var(--font-secondary);
+    font-size: 13px;
+    color: var(--medium-gray);
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 /* Reset and Base Styles */
@@ -30,6 +58,7 @@
 :root {
     /* Color Palette */
     --primary-blue: #237DA6;
+    --blue-text: #1F6E94;             /* AA-safe blue for text on light surfaces (5.15:1 on --light-gray) */
     --dark-blue: #1F64AE;
     --light-blue: #E3F0F5;
     --logo-blue: #1F64AE;
@@ -45,17 +74,26 @@
     --brand-teal: #0E9C9A;
     --cyan: #06B6D4;
     --signal: #0E7A78;                /* AA-safe teal for text/links on light surfaces */
+    --signal-on-dark: #4FD1C5;        /* AA-safe teal for text on --dark-gray / dark gradients (7.1:1) */
+    --green-on-dark: #5CC98A;         /* AA-safe green for text on dark surfaces (6.4:1 on --dark-gray) */
+    --muted-on-dark: #ADB5BD;         /* muted body text on dark surfaces — footer, cookie banner (6.4:1 on --dark-gray) */
     --error: #DC3545;
     --error-text: #B02A37;            /* AA-safe red for text on light surfaces (5.9:1) */
     --warning: #B45309;
     --warning-text: #92400E;          /* AA-safe amber for text on light surfaces (6.4:1) */
     --success: #2C7A45;
 
+    /* Structural borders and dividers. --border-light replaces the var(--border-light) and
+       var(--border-light) pair that were doing the same hairline-border job in different
+       stylesheets. */
+    --border-light: #E2E8F0;
+    --border-medium: #CBD5E0;
+
     /* Gradients */
-    --gradient-primary: linear-gradient(115deg, #237DA6 0%, #0E9C9A 50%, #43AE68 100%);
+    --gradient-primary: linear-gradient(115deg, var(--primary-blue) 0%, var(--brand-teal) 50%, var(--primary-green) 100%);
     --gradient-secondary: linear-gradient(135deg, var(--dark-blue), var(--dark-green));
     --gradient-light: linear-gradient(135deg, var(--light-blue), var(--light-green));
-    --gradient-hero-dark: linear-gradient(135deg, #0A1A26 0%, #0F2638 55%, #14324A 100%);
+    --gradient-hero-dark: linear-gradient(135deg, var(--black) 0%, #0F2638 55%, var(--dark-gray) 100%);
     
     /* Typography */
     --font-primary: 'Space Grotesk', system-ui, sans-serif;
@@ -123,12 +161,17 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     /* Fallback for browsers without background-clip support */
-    color: var(--primary-blue);
+    color: var(--blue-text);
 }
 
 /* Buttons */
 .btn {
-    display: inline-block;
+    /* inline-flex + min-height so the target clears the WCAG 2.5.5 44px
+       minimum whatever the font-size; padding alone left buttons at 38-43px. */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
     padding: 12px 30px;
     border: none;
     border-radius: 50px;
@@ -170,7 +213,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-secondary {
     background: transparent;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     border: 2px solid var(--primary-blue);
 }
 
@@ -227,7 +270,7 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     /* Fallback for browsers without background-clip support */
-    color: var(--primary-blue);
+    color: var(--blue-text);
     margin: 0;
     line-height: 1;
     font-family: var(--font-primary);
@@ -244,6 +287,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-logo a {
+    /* WCAG 2.5.5: the logo is a home link and measured 34px tall */
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
     text-decoration: none;
 }
 
@@ -279,7 +326,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-link:hover {
-    color: var(--primary-blue);
+    color: var(--blue-text);
 }
 
 .nav-link:hover::after {
@@ -341,7 +388,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .dropdown-link:hover {
     background: var(--light-gray);
-    color: var(--primary-blue);
+    color: var(--blue-text);
 }
 
 /* Login Link Styling */
@@ -366,6 +413,12 @@ h1, h2, h3, h4, h5, h6 {
 .hamburger {
     display: none;
     flex-direction: column;
+    /* WCAG 2.5.5: the only nav control on phones, so it has to reach 44x44.
+       Bar geometry plus 8px padding left it at 41x43. */
+    justify-content: center;
+    align-items: center;
+    min-width: 44px;
+    min-height: 44px;
     cursor: pointer;
     padding: 8px;
     border-radius: 4px;
@@ -459,7 +512,7 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid rgba(35, 125, 166, 0.3);
     padding: 0.5rem 1rem;
     border-radius: 50px;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     font-size: 0.9rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
@@ -581,7 +634,7 @@ h1, h2, h3, h4, h5, h6 {
 .impara-hero .btn-secondary:hover,
 [class*="hero"] .btn-secondary:hover {
     background: var(--white);
-    color: var(--primary-blue) !important;
+    color: var(--blue-text) !important;
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
 }
@@ -868,7 +921,7 @@ h1, h2, h3, h4, h5, h6 {
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
+    height: 2px;
     background: var(--gradient-primary);
     transform: scaleX(0);
     transition: transform var(--transition-fast);
@@ -923,7 +976,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .service-link {
-    color: var(--primary-blue);
+    color: var(--blue-text);
     text-decoration: none;
     font-weight: 600;
     transition: color var(--transition-fast);
@@ -965,7 +1018,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .stat h3 {
     font-size: 2.5rem;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     margin-bottom: 0.5rem;
 }
 
@@ -1045,7 +1098,7 @@ h1, h2, h3, h4, h5, h6 {
 .use-cases h4 {
     font-size: 1.4rem;
     margin-bottom: 1.5rem;
-    color: var(--primary-blue);
+    color: var(--blue-text);
 }
 
 .use-case-grid {
@@ -1166,7 +1219,7 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--light-gray);
     padding: 1.5rem;
     border-radius: 10px;
-    border-left: 4px solid var(--primary-blue);
+    border-left: 3px solid var(--primary-blue);
 }
 
 .use-case h5 {
@@ -1231,7 +1284,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .training-programs {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: 2rem;
     margin-bottom: 3rem;
 }
@@ -1362,7 +1415,7 @@ h1, h2, h3, h4, h5, h6 {
     content: '●';
     position: absolute;
     left: 0;
-    color: var(--primary-blue);
+    color: var(--blue-text);
 }
 
 .product-cta {
@@ -1389,7 +1442,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .testimonials-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
     gap: 2rem;
     margin-bottom: 3rem;
 }
@@ -1410,7 +1463,7 @@ h1, h2, h3, h4, h5, h6 {
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
+    height: 2px;
     background: var(--gradient-primary);
     transform: scaleX(0);
     transition: transform var(--transition-fast);
@@ -1451,7 +1504,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1.25rem;
     background: var(--light-blue);
     border-radius: 14px;
-    color: var(--primary-blue);
+    color: var(--blue-text);
 }
 
 .proof-icon svg {
@@ -1469,7 +1522,7 @@ h1, h2, h3, h4, h5, h6 {
 .testimonial-source {
     margin-top: 1rem;
     padding-top: 1rem;
-    border-top: 1px solid #e9ecef;
+    border-top: 1px solid var(--border-light);
 }
 
 .testimonial-source p {
@@ -1500,7 +1553,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .author-info p {
-    color: var(--primary-blue);
+    color: var(--blue-text);
     font-size: 0.9rem;
     font-weight: 600;
 }
@@ -1529,7 +1582,7 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     font-family: var(--font-primary);
 }
 
@@ -1639,7 +1692,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .counter-number {
     background: var(--white);
-    color: var(--primary-blue);
+    color: var(--blue-text);
     padding: 0.5rem 1rem;
     border-radius: 25px;
     font-weight: 700;
@@ -1703,7 +1756,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .final-cta-section .btn-primary {
     background: var(--white);
-    color: var(--primary-blue);
+    color: var(--blue-text);
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
 }
 
@@ -1721,7 +1774,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .final-cta-section .btn-secondary:hover {
     background: var(--white);
-    color: var(--primary-blue);
+    color: var(--blue-text);
     transform: translateY(-2px);
 }
 
@@ -1924,7 +1977,7 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: linear-gradient(135deg, #237DA6 0%, #0E9C9A 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--brand-teal) 100%);
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 50px;
@@ -1992,7 +2045,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #237DA6 0%, #0E9C9A 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--brand-teal) 100%);
     border-radius: 50%;
     font-size: 2rem;
 }
@@ -2003,7 +2056,7 @@ h1, h2, h3, h4, h5, h6 {
     left: -5px;
     right: -5px;
     bottom: -5px;
-    background: linear-gradient(135deg, #237DA6 0%, #0E9C9A 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--brand-teal) 100%);
     border-radius: 50%;
     opacity: 0.3;
     animation: pulse 2s ease-in-out infinite;
@@ -2015,7 +2068,7 @@ h1, h2, h3, h4, h5, h6 {
     left: -10px;
     right: -10px;
     bottom: -10px;
-    border: 2px solid #237DA6;
+    border: 2px solid var(--primary-blue);
     border-radius: 50%;
     opacity: 0.6;
     animation: pulse 3s ease-in-out infinite;
@@ -2031,6 +2084,7 @@ h1, h2, h3, h4, h5, h6 {
     50% { transform: scale(1.1); opacity: 0.3; }
 }
 
+.ai-agent-status h3,
 .ai-agent-status h4 {
     color: var(--dark-gray);
     margin-bottom: 0.5rem;
@@ -2060,6 +2114,7 @@ h1, h2, h3, h4, h5, h6 {
     51%, 100% { opacity: 0.3; }
 }
 
+.ai-interaction-guide h4,
 .ai-interaction-guide h5 {
     color: var(--dark-gray);
     margin-bottom: 1rem;
@@ -2204,8 +2259,9 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
+.contact-item h4,
 .contact-item h5 {
-    color: var(--primary-blue);
+    color: var(--blue-text);
     margin-bottom: 0.25rem;
 }
 
@@ -2233,6 +2289,7 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid rgba(35, 125, 166, 0.1);
 }
 
+.innovation-cta-standalone .cta-content h4,
 .innovation-cta-standalone .cta-content h5 {
     color: var(--white) !important;
     font-size: 1.3rem;
@@ -2249,7 +2306,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .innovation-cta-standalone .btn {
     background: var(--white);
-    color: var(--primary-blue);
+    color: var(--blue-text);
     font-weight: 600;
     padding: 0.8rem 1.5rem;
     border-radius: 50px;
@@ -2299,7 +2356,7 @@ h1, h2, h3, h4, h5, h6 {
 .form-group textarea {
     width: 100%;
     padding: 0.8rem;
-    border: 2px solid #e9ecef;
+    border: 2px solid var(--border-light);
     border-radius: 8px;
     font-family: var(--font-secondary);
     transition: border-color var(--transition-fast);
@@ -2315,14 +2372,14 @@ h1, h2, h3, h4, h5, h6 {
 .form-group input.error,
 .form-group select.error,
 .form-group textarea.error {
-    border-color: #dc3545;
+    border-color: var(--error);
     background-color: #fff5f5;
 }
 
 .form-group input.error:focus,
 .form-group select.error:focus,
 .form-group textarea.error:focus {
-    border-color: #dc3545;
+    border-color: var(--error);
     box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 }
 
@@ -2383,7 +2440,7 @@ button[aria-busy="true"]::after {
 
 .landing-form-label {
     display: block;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
     font-weight: 600;
@@ -2436,7 +2493,7 @@ button[aria-busy="true"]::after {
 .hs-form-frame .hs-form .hs-form-field textarea {
     width: 100% !important;
     padding: 0.8rem !important;
-    border: 2px solid #e9ecef !important;
+    border: 2px solid var(--border-light) !important;
     border-radius: 8px !important;
     font-family: var(--font-secondary) !important;
     font-size: 1rem !important;
@@ -2471,7 +2528,7 @@ button[aria-busy="true"]::after {
 }
 
 .hs-form-frame .hs-form .hs-error-msgs {
-    color: #dc3545 !important;
+    color: var(--error) !important;
     font-size: 0.875rem !important;
     margin-top: 0.25rem !important;
 }
@@ -2614,9 +2671,13 @@ button[aria-busy="true"]::after {
 }
 
 .aeo-banner-btn {
-    display: inline-block;
+    /* WCAG 2.5.5 minimum target size */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
     background: var(--white);
-    color: var(--primary-blue);
+    color: var(--blue-text);
     padding: 0.75rem 1.5rem;
     border-radius: 50px;
     text-decoration: none;
@@ -2678,8 +2739,10 @@ button[aria-busy="true"]::after {
 
 .footer-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    /* Brand keeps a compact column so the five link columns get the space they
+       need; a 1fr/1fr split left half the footer empty and crushed the links. */
+    grid-template-columns: minmax(180px, 220px) minmax(0, 1fr);
+    gap: 2.5rem;
     margin-bottom: 2rem;
 }
 
@@ -2692,13 +2755,14 @@ button[aria-busy="true"]::after {
 }
 
 .footer-brand p {
-    color: #ADB5BD;
+    color: var(--muted-on-dark);
 }
 
 .footer-links {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    /* Five columns: Servizi, Risorse, Azienda, Social, Legale. */
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 2rem 1.25rem;
 }
 
 .footer-column h4 {
@@ -2715,20 +2779,20 @@ button[aria-busy="true"]::after {
 }
 
 .footer-column a {
-    color: #ADB5BD;
+    color: var(--muted-on-dark);
     text-decoration: none;
     transition: color var(--transition-fast);
 }
 
 .footer-column a:hover {
-    color: var(--primary-blue);
+    color: var(--blue-text);
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
     border-top: 1px solid #495057;
-    color: #ADB5BD;
+    color: var(--muted-on-dark);
 }
 
 .footer-bottom-content {
@@ -2878,23 +2942,34 @@ button[aria-busy="true"]::after {
 }
 
 /* Responsive Design */
+
+/* Below this width the brand sits above the links instead of beside them, so
+   the five link columns keep a wide enough measure to hold their labels. */
+@media (max-width: 1200px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
 @media (max-width: 1024px) {
     .hero-container {
         gap: 3rem;
     }
-    
+
     .hero-title {
         font-size: 3.2rem;
     }
-    
+
     .ai-visualization {
         width: 350px;
         height: 350px;
     }
-    
+}
+
+@media (max-width: 960px) {
     .footer-links {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 
@@ -3138,10 +3213,10 @@ button[aria-busy="true"]::after {
     }
     
     .footer-links {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 2rem 1.5rem;
     }
-    
+
     .footer-contact {
         text-align: center;
     }
@@ -3163,6 +3238,15 @@ button[aria-busy="true"]::after {
     
     .footer-disclaimer {
         font-size: 0.7rem !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-links {
+        /* Two columns rather than one: a single stack turned the footer into a
+           ~1000px scroll on phones. */
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.75rem 1rem;
     }
 }
 
@@ -3273,10 +3357,6 @@ button[aria-busy="true"]::after {
         grid-template-columns: 1fr;
     }
     
-    .footer-links {
-        grid-template-columns: 1fr;
-    }
-    
     .footer-brand h3 {
         font-size: 1.5rem;
     }
@@ -3337,7 +3417,15 @@ button[aria-busy="true"]::after {
 }
 
 .nav-loading {
+    /* Fixed, like the .navbar that replaces it. As an in-flow 70px block it
+       pushed content down, then collapsed when the fixed navbar swapped in —
+       a 70px jump that accounted for half the 0.166 CLS on every page. */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 70px;
+    z-index: 1000;
     background: rgba(255, 255, 255, 0.95);
     border-bottom: 1px solid rgba(35, 125, 166, 0.1);
 }
@@ -3408,7 +3496,7 @@ html {
     border: 1px solid rgba(35, 125, 166, 0.3);
     padding: 0.5rem 1rem;
     border-radius: 50px;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     font-size: 0.9rem;
     font-weight: 600;
     display: inline-flex;
@@ -3503,7 +3591,7 @@ html {
 
 .ceo-title {
     font-size: 1.2rem;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     margin-bottom: 2rem;
     font-weight: 600;
 }
@@ -3587,10 +3675,16 @@ html {
 }
 
 .social-content a {
-    display: inline-block;
+    /* WCAG 2.5.5 minimum target size */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
     padding: 0.5rem 1rem;
-    background: var(--primary-green);
-    color: white;
+    /* --primary-green carries white text at only 2.8:1; --green-text clears AA
+       at 5.28:1 and is the same hue family. */
+    background: var(--green-text);
+    color: var(--white);
     text-decoration: none;
     border-radius: 25px;
     font-size: 0.85rem;
@@ -3711,7 +3805,7 @@ html {
 .vision-statement blockquote::before {
     content: '';
     font-size: 4rem;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     position: absolute;
     top: -20px;
     left: -20px;
@@ -3719,7 +3813,7 @@ html {
 }
 
 .vision-statement cite {
-    color: var(--primary-blue);
+    color: var(--blue-text);
     font-weight: 600;
 }
 
@@ -3789,7 +3883,7 @@ html {
 .timeline-year {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     margin-bottom: 0.5rem;
 }
 
@@ -3833,10 +3927,10 @@ html {
 
 .libera-subtitle {
     font-size: 1.3rem;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     margin-top: 1rem;
     font-weight: 600;
-    background: linear-gradient(135deg, var(--primary-blue), #0E9C9A);
+    background: linear-gradient(135deg, var(--primary-blue), var(--brand-teal));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -3885,7 +3979,7 @@ html {
     left: 0;
     width: 60px;
     height: 3px;
-    background: linear-gradient(135deg, var(--primary-blue), #0E9C9A);
+    background: linear-gradient(135deg, var(--primary-blue), var(--brand-teal));
     border-radius: 2px;
 }
 
@@ -3902,7 +3996,7 @@ html {
     gap: 2rem;
     margin-top: 2rem;
     padding: 1.5rem;
-    background: linear-gradient(135deg, var(--primary-blue), #0E9C9A);
+    background: linear-gradient(135deg, var(--primary-blue), var(--brand-teal));
     border-radius: 15px;
     color: white;
 }
@@ -3973,7 +4067,7 @@ html {
     font-size: 2rem;
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, var(--primary-blue), #0E9C9A);
+    background: linear-gradient(135deg, var(--primary-blue), var(--brand-teal));
     border-radius: 15px;
     display: flex;
     align-items: center;
@@ -3984,7 +4078,7 @@ html {
 }
 
 .pillar h4 {
-    color: var(--primary-blue);
+    color: var(--blue-text);
     margin-bottom: 0.8rem;
     font-size: 1.1rem;
     font-weight: 700;
@@ -4018,7 +4112,7 @@ html {
     left: 0;
     right: 0;
     height: 5px;
-    background: linear-gradient(135deg, var(--primary-blue), #0E9C9A);
+    background: linear-gradient(135deg, var(--primary-blue), var(--brand-teal));
 }
 
 .libera-collaboration h3 {
@@ -4038,7 +4132,7 @@ html {
     transform: translateX(-50%);
     width: 80px;
     height: 3px;
-    background: linear-gradient(135deg, var(--primary-blue), #0E9C9A);
+    background: linear-gradient(135deg, var(--primary-blue), var(--brand-teal));
     border-radius: 2px;
 }
 
@@ -4069,7 +4163,7 @@ html {
     font-size: 2rem;
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, var(--primary-blue), #0E9C9A);
+    background: linear-gradient(135deg, var(--primary-blue), var(--brand-teal));
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -4079,7 +4173,7 @@ html {
 }
 
 .benefit-content h4 {
-    color: var(--primary-blue);
+    color: var(--blue-text);
     margin-bottom: 0.8rem;
     font-size: 1.1rem;
     font-weight: 700;
@@ -4099,7 +4193,7 @@ html {
 }
 
 .cta-box {
-    background: linear-gradient(135deg, var(--primary-blue), #0E9C9A);
+    background: linear-gradient(135deg, var(--primary-blue), var(--brand-teal));
     padding: 3rem;
     border-radius: 25px;
     text-align: center;
@@ -4143,7 +4237,7 @@ html {
 
 .btn-explosive {
     background: white !important;
-    color: var(--primary-blue) !important;
+    color: var(--blue-text) !important;
     font-weight: 700;
     padding: 1rem 2.5rem;
     font-size: 1.1rem;
@@ -4326,7 +4420,7 @@ html {
 }
 
 .ai-badge {
-    background: linear-gradient(135deg, #237DA6 0%, #0E9C9A 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--brand-teal) 100%);
     color: white;
     padding: 4px 8px;
     border-radius: 12px;
@@ -4390,6 +4484,13 @@ html {
     display: block;
 }
 
+/* Trailing margins on the last block leaked past the section's own bottom
+   padding, leaving 30-55px of extra dead space right above the footer. */
+.cta-content > *:last-child,
+.cta-content > *:last-child > *:last-child {
+    margin-bottom: 0;
+}
+
 .cta-content h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
@@ -4411,7 +4512,7 @@ html {
 
 .cta-section .btn-primary {
     background: var(--white);
-    color: var(--primary-blue);
+    color: var(--blue-text);
 }
 
 .cta-section .btn-primary:hover {
@@ -4426,7 +4527,7 @@ html {
 
 .cta-section .btn-secondary:hover {
     background: var(--white);
-    color: var(--primary-blue);
+    color: var(--blue-text);
 }
 
 .cta-section .section-title {
@@ -4623,7 +4724,7 @@ html {
     .libera-subtitle {
         font-size: 1.1rem;
         /* Fallback for browsers without background-clip support */
-        color: var(--primary-blue);
+        color: var(--blue-text);
     }
     
     .libera-info,
@@ -4763,7 +4864,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 
 .courses-value-prop {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
     gap: 1.5rem;
     margin: 3rem 0;
     padding: 2rem;
@@ -4796,7 +4897,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 
 .courses-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
     gap: 2rem;
     margin: 3rem 0;
 }
@@ -4865,15 +4966,15 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 }
 
 .course-gradient-bg.automation {
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 50%, #0E9C9A 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 50%, var(--brand-teal) 100%);
 }
 
 .course-gradient-bg.visual {
-    background: linear-gradient(135deg, #237DA6 0%, #0E9C9A 50%, var(--primary-green) 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--brand-teal) 50%, var(--primary-green) 100%);
 }
 
 .course-gradient-bg.video {
-    background: linear-gradient(135deg, var(--primary-green) 0%, #237DA6 50%, var(--primary-blue) 100%);
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-blue) 50%, var(--primary-blue) 100%);
 }
 
 .course-icon-container {
@@ -5050,7 +5151,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 
 .trust-stats {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
     gap: 2rem;
     margin-bottom: 3rem;
     text-align: center;
@@ -5064,7 +5165,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
     display: block;
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     margin-bottom: 0.5rem;
 }
 
@@ -5258,7 +5359,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 }
 
 .events-hero-title .highlight {
-    background: linear-gradient(135deg, #43AE68, #237DA6);
+    background: linear-gradient(135deg, var(--primary-green), var(--primary-blue));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -5409,7 +5510,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 }
 
 .legal-content h2 {
-    color: var(--primary-blue);
+    color: var(--blue-text);
     margin: 2rem 0 1rem;
     border-bottom: 2px solid var(--light-gray);
     padding-bottom: 0.5rem;
@@ -5430,7 +5531,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 }
 
 .legal-content a {
-    color: var(--primary-blue);
+    color: var(--blue-text);
     text-decoration: none;
 }
 
@@ -5453,7 +5554,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 
 .footer-contact p {
     margin: 0.3rem 0;
-    color: #ADB5BD;
+    color: var(--muted-on-dark);
 }
 
 /* Responsive Legal Pages */
@@ -5755,7 +5856,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
     content: '+';
     font-size: 1.5rem;
     font-weight: 300;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     transition: transform var(--transition-fast);
     flex-shrink: 0;
     margin-left: 1rem;
@@ -5918,7 +6019,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
     margin: 0 auto 1rem;
     background: var(--white);
     border-radius: 12px;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     box-shadow: 0 2px 8px rgba(10, 26, 38, 0.08);
 }
 
@@ -5938,7 +6039,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 }
 
 .author-attribution a {
-    color: var(--primary-blue);
+    color: var(--blue-text);
     text-decoration: none;
 }
 

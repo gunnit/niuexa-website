@@ -25,6 +25,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      # upload-pages-artifact excludes only .git and .github and takes no
+      # exclude input, so anything else at the root ships to the live site.
+      # Strip local agent tooling from the checkout before it is packaged.
+      - name: Remove agent tooling from the Pages artifact
+        run: rm -rf .claude
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact

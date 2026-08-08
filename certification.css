@@ -175,7 +175,7 @@
 
 .tutorials-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
     gap: 2rem;
 }
 
@@ -244,7 +244,7 @@
     padding: 0.5rem 1rem;
     border-radius: 20px;
     color: var(--medium-gray);
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-light);
 }
 
 .start-cert-btn {
@@ -289,7 +289,7 @@
 
 .benefits-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
     gap: 2rem;
 }
 
@@ -329,7 +329,7 @@
    ======================================== */
 
 #quiz-screen {
-    background: linear-gradient(135deg, var(--light-gray) 0%, #e2e8f0 100%);
+    background: linear-gradient(135deg, var(--light-gray) 0%, var(--border-light) 100%);
     min-height: 100vh;
     padding: 2rem 0;
 }
@@ -340,7 +340,7 @@
     padding: 2rem;
     margin-bottom: 2rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-light);
 }
 
 .quiz-breadcrumb {
@@ -350,7 +350,7 @@
 .back-btn {
     background: none;
     border: 2px solid var(--primary-blue);
-    color: var(--primary-blue);
+    color: var(--blue-text);
     padding: 0.5rem 1rem;
     border-radius: 8px;
     cursor: pointer;
@@ -383,7 +383,7 @@
     padding: 0.5rem 1rem;
     border-radius: 20px;
     color: var(--medium-gray);
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-light);
     font-size: 0.9rem;
 }
 
@@ -401,7 +401,7 @@
 .progress-bar {
     width: 100%;
     height: 8px;
-    background: #e2e8f0;
+    background: var(--border-light);
     border-radius: 4px;
     overflow: hidden;
     margin-bottom: 0.5rem;
@@ -409,9 +409,15 @@
 
 .progress-fill {
     height: 100%;
+    /* Full-width bar scaled horizontally rather than animated on `width`, so
+       each frame is a compositor transform instead of a layout pass. The JS
+       sets --progress (0-100). */
+    width: 100%;
+    transform: scaleX(calc(var(--progress, 0) / 100));
+    transform-origin: left center;
     background: linear-gradient(90deg, var(--primary-blue) 0%, var(--brand-teal) 100%);
     border-radius: 4px;
-    transition: width 0.5s ease;
+    transition: transform 0.5s ease;
     position: relative;
 }
 
@@ -453,7 +459,7 @@
     border-radius: 20px;
     padding: 3rem;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-light);
     animation: slideIn 0.5s ease;
 }
 
@@ -492,7 +498,7 @@
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.8rem;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-light);
 }
 
 .question-text {
@@ -512,7 +518,7 @@
 
 .answer-option {
     background: var(--light-gray);
-    border: 2px solid #e2e8f0;
+    border: 2px solid var(--border-light);
     border-radius: 12px;
     padding: 1.5rem;
     cursor: pointer;
@@ -525,7 +531,7 @@
 
 .answer-option:hover {
     background: var(--light-gray);
-    border-color: #cbd5e0;
+    border-color: var(--border-medium);
     transform: translateX(5px);
 }
 
@@ -542,7 +548,7 @@
 .option-indicator {
     width: 20px;
     height: 20px;
-    border: 2px solid #cbd5e0;
+    border: 2px solid var(--border-medium);
     border-radius: 50%;
     transition: all 0.3s ease;
     flex-shrink: 0;
@@ -625,7 +631,7 @@
    ======================================== */
 
 #registration-screen {
-    background: linear-gradient(135deg, var(--light-gray) 0%, #e2e8f0 100%);
+    background: linear-gradient(135deg, var(--light-gray) 0%, var(--border-light) 100%);
     min-height: 100vh;
     padding: 4rem 0;
 }
@@ -688,7 +694,7 @@
 }
 
 .score-value.good {
-    color: var(--primary-blue);
+    color: var(--blue-text);
 }
 
 /* Registration Form */
@@ -697,7 +703,7 @@
     border-radius: 20px;
     padding: 3rem;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-light);
 }
 
 .registration-form-container h2 {
@@ -733,7 +739,7 @@
 
 .form-group input {
     padding: 1rem;
-    border: 2px solid #e2e8f0;
+    border: 2px solid var(--border-light);
     border-radius: 12px;
     font-size: 1rem;
     transition: all 0.3s ease;
@@ -772,7 +778,7 @@
 .checkmark {
     width: 20px;
     height: 20px;
-    border: 2px solid #cbd5e0;
+    border: 2px solid var(--border-medium);
     border-radius: 4px;
     display: flex;
     align-items: center;
@@ -817,7 +823,7 @@
    ======================================== */
 
 #certificate-screen {
-    background: linear-gradient(135deg, var(--light-gray) 0%, #e2e8f0 100%);
+    background: linear-gradient(135deg, var(--light-gray) 0%, var(--border-light) 100%);
     min-height: 100vh;
     padding: 4rem 0;
 }
@@ -852,7 +858,7 @@
     padding: 2rem;
     margin-bottom: 3rem;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-light);
     text-align: center;
 }
 
@@ -896,7 +902,7 @@
 .action-btn.secondary {
     background: white;
     color: var(--medium-gray);
-    border: 2px solid #e2e8f0;
+    border: 2px solid var(--border-light);
 }
 
 .action-btn:hover {
@@ -911,7 +917,7 @@
     padding: 2rem;
     text-align: center;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-light);
 }
 
 .sharing-section h3 {
@@ -956,7 +962,7 @@
 .share-btn.copy {
     background: var(--light-gray);
     color: var(--medium-gray);
-    border: 2px solid #e2e8f0;
+    border: 2px solid var(--border-light);
 }
 
 .share-btn:hover {
@@ -971,7 +977,7 @@
     padding: 2rem;
     text-align: center;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-light);
 }
 
 .next-steps h3 {
@@ -993,7 +999,7 @@
     background: var(--light-gray);
     color: var(--medium-gray);
     text-decoration: none;
-    border: 2px solid #e2e8f0;
+    border: 2px solid var(--border-light);
     border-radius: 12px;
     font-weight: 500;
     transition: all 0.3s ease;
@@ -1002,7 +1008,7 @@
 
 .next-btn:hover {
     background: var(--light-gray);
-    border-color: #cbd5e0;
+    border-color: var(--border-medium);
     transform: translateY(-2px);
     text-decoration: none;
     color: var(--dark-gray);
@@ -1143,4 +1149,4 @@
 /* Dark mode support (optional) */
 @media (prefers-color-scheme: dark) {
     /* Add dark mode styles if needed */
-}
+}

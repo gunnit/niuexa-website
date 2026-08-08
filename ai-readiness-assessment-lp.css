@@ -387,11 +387,11 @@
 }
 
 /* spectrum accents: blue → teal → green, mirroring the artwork's bands */
-.ara-strata-dim:nth-child(1) { --dim-color: #237DA6; }
+.ara-strata-dim:nth-child(1) { --dim-color: var(--primary-blue); }
 .ara-strata-dim:nth-child(2) { --dim-color: #1B8CA1; }
-.ara-strata-dim:nth-child(3) { --dim-color: #0E9C9A; }
+.ara-strata-dim:nth-child(3) { --dim-color: var(--brand-teal); }
 .ara-strata-dim:nth-child(4) { --dim-color: #2BA57F; }
-.ara-strata-dim:nth-child(5) { --dim-color: #43AE68; }
+.ara-strata-dim:nth-child(5) { --dim-color: var(--primary-green); }
 
 /* live mode: labels start muted and light up per stage */
 .ara-strata-live .ara-strata-dim {

@@ -130,37 +130,28 @@ const footerHTML = `
 function loadIncludes() {
     // Load navigation with loading state - support both placeholder IDs
     const navPlaceholder = document.getElementById('nav-placeholder') || document.getElementById('navigation-placeholder');
+    // Both markup blocks are static strings in this file, so there is nothing
+    // to wait for. The old setTimeout(100)/setTimeout(50) only delayed paint
+    // and made the swap from the loading box visible as a layout jump.
     if (navPlaceholder) {
-        // Show loading state
-        navPlaceholder.innerHTML = '<div class="loading-placeholder nav-loading" aria-label="Loading navigation">Loading navigation...</div>';
-        
-        // Simulate brief loading and then load content
-        setTimeout(() => {
-            try {
-                navPlaceholder.innerHTML = navigationHTML;
-                setActiveNavItem();
-                // Initialize navigation functionality after loading
-                initNavigationFunctionality();
-            } catch (error) {
-                console.error('Failed to load navigation:', error);
-                navPlaceholder.innerHTML = '<div class="error-placeholder">Navigation failed to load. <button onclick="loadIncludes()">Retry</button></div>';
-            }
-        }, 100);
+        try {
+            navPlaceholder.innerHTML = navigationHTML;
+            setActiveNavItem();
+            initNavigationFunctionality();
+        } catch (error) {
+            console.error('Failed to load navigation:', error);
+            navPlaceholder.innerHTML = '<div class="error-placeholder">Navigation failed to load. <button onclick="loadIncludes()">Retry</button></div>';
+        }
     }
 
-    // Load footer with loading state
     const footerPlaceholder = document.getElementById('footer-placeholder');
     if (footerPlaceholder) {
-        footerPlaceholder.innerHTML = '<div class="loading-placeholder footer-loading" aria-label="Loading footer">Loading footer...</div>';
-        
-        setTimeout(() => {
-            try {
-                footerPlaceholder.innerHTML = footerHTML;
-            } catch (error) {
-                console.error('Failed to load footer:', error);
-                footerPlaceholder.innerHTML = '<div class="error-placeholder">Footer failed to load.</div>';
-            }
-        }, 50);
+        try {
+            footerPlaceholder.innerHTML = footerHTML;
+        } catch (error) {
+            console.error('Failed to load footer:', error);
+            footerPlaceholder.innerHTML = '<div class="error-placeholder">Footer failed to load.</div>';
+        }
     }
 }
 

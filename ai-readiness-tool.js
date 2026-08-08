@@ -253,9 +253,12 @@ function showMessage(type, message) {
     messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
-// Add CSS animation for spinning loader
-const style = document.createElement('style');
-style.textContent = `
+// Add CSS animation for spinning loader.
+// Named distinctly because cookie-banner.js also declares a top-level `style`
+// in the same global scope; a shared name made one of the two scripts die with
+// "Identifier 'style' has already been declared".
+const readinessToolStyle = document.createElement('style');
+readinessToolStyle.textContent = `
     @keyframes spin {
         from {
             transform: rotate(0deg);
@@ -276,4 +279,4 @@ style.textContent = `
         }
     }
 `;
-document.head.appendChild(style);
+document.head.appendChild(readinessToolStyle);

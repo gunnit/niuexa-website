@@ -430,7 +430,9 @@ class NiuexaCertification {
         
         if (progressFill) {
             const progress = ((this.currentQuestionIndex + 1) / this.quizData.totalQuestions) * 100;
-            progressFill.style.width = `${progress}%`;
+            // Drives a scaleX transform in CSS, not a width reflow.
+            progressFill.style.setProperty('--progress', progress);
+            progressFill.setAttribute('aria-valuenow', Math.round(progress));
         }
         
         if (currentQuestionSpan) {

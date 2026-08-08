@@ -167,7 +167,8 @@ npx http-server
 ### CSS Custom Properties (Required Usage)
 ```css
 /* Colors - ALWAYS use these variables */
---primary-blue: #237DA6;
+--primary-blue: #237DA6;           /* fills/borders/gradients */
+--blue-text: #1F6E94;              /* AA-safe blue for TEXT on light surfaces (5.15:1 on --light-gray) */
 --dark-blue: #1F64AE;
 --primary-green: #43AE68;          /* fills/borders/gradients */
 --dark-green: #2C8A4C;
@@ -180,6 +181,11 @@ npx http-server
 --light-gray: #F1F5F8;
 --white: #FFFFFF;
 
+/* Text on DARK surfaces (navy cards, cookie banner, dark gradients) */
+--signal-on-dark: #4FD1C5;         /* AA-safe teal on dark (7.1:1 on --dark-gray) */
+--green-on-dark: #5CC98A;          /* AA-safe green on dark (6.4:1 on --dark-gray) */
+--muted-on-dark: #ADB5BD;          /* muted body text on dark (6.4:1 on --dark-gray) */
+
 /* Typography - ALWAYS use these variables */
 --font-primary: 'Space Grotesk', system-ui, sans-serif;    /* For headings */
 --font-secondary: 'Hanken Grotesk', system-ui, sans-serif; /* For body text */
@@ -189,7 +195,14 @@ npx http-server
 --gradient-secondary: linear-gradient(135deg, var(--dark-blue), var(--dark-green));
 ```
 
-> **Accessibility note:** `--primary-green` (#43AE68) and the teal signal fail WCAG AA as *text* on light backgrounds. For green text use `--green-text`; the teal accent for text/links is `--signal: #0E7A78` (defined in `styles.css`). Reserve `--primary-green` for fills, borders, and gradients. The font import on every page is the Google Fonts link for `Space Grotesk + Hanken Grotesk + JetBrains Mono`.
+> **Accessibility note:** every brand fill colour fails WCAG AA as *text* somewhere. The rule is: **fill tokens are never text tokens.**
+>
+> | Surface | Blue text | Green text | Teal text | Muted text |
+> |---|---|---|---|---|
+> | Light (white, `--light-gray`, `--light-blue`, `--light-green`) | `--blue-text` | `--green-text` | `--signal` | `--medium-gray` |
+> | Dark (`--dark-gray`, dark gradients, cookie banner) | `--white` | `--green-on-dark` | `--signal-on-dark` | `--muted-on-dark` |
+>
+> Reserve `--primary-blue`, `--primary-green`, `--dark-green` and `--brand-teal` for fills, borders and gradients only. Two traps worth knowing: `--primary-blue` on `--light-gray` is 4.21:1 (fails), and `--dark-green` carries white text at only 4.33:1 — when a gradient must hold white text, every stop needs to clear 4.5:1, so use `--dark-blue` → `--green-text`. The font import on every page is the Google Fonts link for `Space Grotesk + Hanken Grotesk + JetBrains Mono`.
 
 ### Critical Styling Rules
 - **NEVER use hard-coded colors** - always reference CSS custom properties from `:root` in `styles.css`

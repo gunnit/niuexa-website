@@ -8,7 +8,7 @@
    ========================================================================== */
 
 .agent-landing {
-    /* Ink ramp for dark sections. Both verified against --black (#0A1A26):
+    /* Ink ramp for dark sections. Both verified against --black (var(--black)):
        --ink-on-dark 16.4:1, --muted-on-dark 8.1:1. */
     --ink-on-dark: #E8F0F5;
     --muted-on-dark: #9FB3C2;
@@ -29,11 +29,11 @@
     --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 
     /* White text on --gradient-primary falls to 2.80:1 where the ramp reaches
-       --primary-green (#43AE68), well under the 4.5:1 AA floor. This ramp uses
+       --primary-green (var(--primary-green)), well under the 4.5:1 AA floor. This ramp uses
        the AA-safe ends of the same three brand hues, so white clears 5.1:1 at
-       every stop: #1F64AE 6.02:1, #0E7A78 5.16:1, #2C7A45 5.27:1.
+       every stop: var(--dark-blue) 6.02:1, var(--signal) 5.16:1, var(--green-text) 5.27:1.
        Scoped to these pages; the sitewide token is untouched. */
-    --gradient-cta: linear-gradient(115deg, #1F64AE 0%, #0E7A78 52%, #2C7A45 100%);
+    --gradient-cta: linear-gradient(115deg, var(--dark-blue) 0%, var(--signal) 52%, var(--green-text) 100%);
 }
 
 .agent-landing .btn-primary,
@@ -871,7 +871,7 @@ body.agent-landing {
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr));
     gap: 1px;
     background: rgba(20, 50, 74, 0.14);
     border: 1px solid rgba(20, 50, 74, 0.14);

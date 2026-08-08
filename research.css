@@ -11,7 +11,7 @@
 
 .articles-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
     gap: 2rem;
     margin-top: 2rem;
 }
@@ -113,7 +113,7 @@
 
 .topic {
     background: var(--light-blue);
-    color: var(--primary-blue);
+    color: var(--blue-text);
     padding: 0.25rem 0.75rem;
     border-radius: 15px;
     font-size: 0.8rem;
@@ -121,6 +121,11 @@
 }
 
 .read-more-btn {
+    /* WCAG 2.5.5: this button repeats 57x on the page and sat 1px short at 43px */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
     background: var(--gradient-primary);
     color: var(--white);
     border: none;
@@ -199,7 +204,7 @@
     font-size: 1.8rem;
     color: var(--dark-gray);
     margin: 2.5rem 0 1.5rem 0;
-    border-left: 4px solid var(--primary-blue);
+    border-left: 3px solid var(--primary-blue);
     padding-left: 1rem;
 }
 
@@ -231,14 +236,14 @@
 }
 
 .article-body strong {
-    color: var(--primary-blue);
+    color: var(--blue-text);
     font-weight: 600;
 }
 
 /* Stats Grid in Articles */
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
     gap: 1.5rem;
     margin: 2rem 0;
 }
@@ -248,12 +253,12 @@
     padding: 1.5rem;
     border-radius: 10px;
     text-align: center;
-    border-left: 4px solid var(--primary-blue);
+    border-left: 3px solid var(--primary-blue);
 }
 
 .stat-box h4 {
     font-size: 2rem;
-    color: var(--primary-blue);
+    color: var(--blue-text);
     font-family: var(--font-primary);
     margin-bottom: 0.5rem;
 }
@@ -413,7 +418,7 @@
 
 .research-cta .btn-secondary:hover {
     background: var(--white);
-    color: var(--primary-blue);
+    color: var(--blue-text);
 }
 
 @media (max-width: 768px) {
