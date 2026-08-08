@@ -121,6 +121,11 @@
 }
 
 .read-more-btn {
+    /* WCAG 2.5.5: this button repeats 57x on the page and sat 1px short at 43px */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
     background: var(--gradient-primary);
     color: var(--white);
     border: none;

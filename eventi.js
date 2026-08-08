@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <img src="${event.image}" alt="${event.title}" loading="lazy">
             </div>
             <div class="past-event-content">
-                <h4 class="past-event-title">${event.title}</h4>
+                <h3 class="past-event-title">${event.title}</h3>
                 <div class="past-event-date">${formatPastEventDate(event.date)}</div>
                 <div class="past-event-stats">
                     <span>👥 ${event.attendees} ${eventiT.attendees}</span>

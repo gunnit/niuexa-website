@@ -77,6 +77,10 @@
 }
 
 .product-index a {
+    /* WCAG 2.5.5 minimum target size */
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
     padding: 0.5rem 1.1rem;
     border-radius: 50px;
     border: 1px solid rgba(20, 50, 74, 0.18);

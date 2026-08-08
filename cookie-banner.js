@@ -304,6 +304,11 @@ const cookieBannerCSS = `
 }
 
 .cookie-btn {
+    /* WCAG 2.5.5 minimum target size */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
     padding: 0.7rem 1.5rem;
     border: none;
     border-radius: 6px;

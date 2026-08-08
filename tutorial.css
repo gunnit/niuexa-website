@@ -237,14 +237,21 @@
 }
 
 .accordion-content {
-    max-height: 0;
+    /* grid-template-rows 0fr -> 1fr animates without a layout pass per frame
+       and, unlike the old max-height: 200px cap, never clips taller content. */
+    display: grid;
+    grid-template-rows: 0fr;
     overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
+    transition: grid-template-rows 0.3s ease;
     background: var(--light-gray);
 }
 
+.accordion-content > * {
+    min-height: 0;
+}
+
 .accordion-content.active {
-    max-height: 200px;
+    grid-template-rows: 1fr;
     padding: 1.5rem 2rem;
 }
 
@@ -272,13 +279,14 @@
 }
 
 /* Smooth animations */
+/* Opacity only. This used to animate max-height 0 -> 200px with `forwards`,
+   which re-applied the 200px clamp after the transition and clipped any
+   accordion taller than that. Height is now owned by grid-template-rows. */
 @keyframes accordionOpen {
     from {
-        max-height: 0;
         opacity: 0;
     }
     to {
-        max-height: 200px;
         opacity: 1;
     }
 }
