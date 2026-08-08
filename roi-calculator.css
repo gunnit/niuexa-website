@@ -200,7 +200,7 @@
 .form-section {
     margin-bottom: 2.5rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid #e9ecef;
+    border-bottom: 1px solid var(--border-light);
 }
 
 .form-section:last-of-type {
@@ -246,7 +246,7 @@
 .form-group input,
 .form-group select {
     padding: 0.8rem;
-    border: 2px solid #e9ecef;
+    border: 2px solid var(--border-light);
     border-radius: 8px;
     font-family: var(--font-secondary);
     font-size: 1rem;
@@ -264,7 +264,7 @@
     -webkit-appearance: none;
     appearance: none;
     height: 6px;
-    background: #e9ecef;
+    background: var(--border-light);
     border-radius: 3px;
     outline: none;
 }
@@ -398,7 +398,7 @@
 }
 
 .breakdown-item:hover {
-    background: #e9ecef;
+    background: var(--border-light);
 }
 
 .breakdown-label {
@@ -746,7 +746,7 @@
 /* Disclaimer Section - Production Ready */
 .disclaimer-section {
     padding: var(--section-padding);
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    background: linear-gradient(135deg, #f8f9fa 0%, var(--border-light) 100%);
     position: relative;
     overflow: hidden;
 }
@@ -901,7 +901,7 @@
 .disclaimer-footer {
     margin-top: 2rem;
     padding-top: 2rem;
-    border-top: 1px solid #e9ecef;
+    border-top: 1px solid var(--border-light);
     text-align: center;
 }
 

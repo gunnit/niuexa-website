@@ -779,7 +779,7 @@
 .consultation-form textarea {
     width: 100%;
     padding: 1rem;
-    border: 2px solid #e9ecef;
+    border: 2px solid var(--border-light);
     border-radius: 10px;
     font-family: var(--font-secondary);
     font-size: 1rem;

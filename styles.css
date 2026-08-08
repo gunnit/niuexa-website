@@ -83,11 +83,17 @@
     --warning-text: #92400E;          /* AA-safe amber for text on light surfaces (6.4:1) */
     --success: #2C7A45;
 
+    /* Structural borders and dividers. --border-light replaces the var(--border-light) and
+       var(--border-light) pair that were doing the same hairline-border job in different
+       stylesheets. */
+    --border-light: #E2E8F0;
+    --border-medium: #CBD5E0;
+
     /* Gradients */
-    --gradient-primary: linear-gradient(115deg, #237DA6 0%, #0E9C9A 50%, #43AE68 100%);
+    --gradient-primary: linear-gradient(115deg, var(--primary-blue) 0%, var(--brand-teal) 50%, var(--primary-green) 100%);
     --gradient-secondary: linear-gradient(135deg, var(--dark-blue), var(--dark-green));
     --gradient-light: linear-gradient(135deg, var(--light-blue), var(--light-green));
-    --gradient-hero-dark: linear-gradient(135deg, #0A1A26 0%, #0F2638 55%, #14324A 100%);
+    --gradient-hero-dark: linear-gradient(135deg, var(--black) 0%, #0F2638 55%, var(--dark-gray) 100%);
     
     /* Typography */
     --font-primary: 'Space Grotesk', system-ui, sans-serif;
@@ -1516,7 +1522,7 @@ h1, h2, h3, h4, h5, h6 {
 .testimonial-source {
     margin-top: 1rem;
     padding-top: 1rem;
-    border-top: 1px solid #e9ecef;
+    border-top: 1px solid var(--border-light);
 }
 
 .testimonial-source p {
@@ -1971,7 +1977,7 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: linear-gradient(135deg, #237DA6 0%, #0E9C9A 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--brand-teal) 100%);
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 50px;
@@ -2039,7 +2045,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #237DA6 0%, #0E9C9A 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--brand-teal) 100%);
     border-radius: 50%;
     font-size: 2rem;
 }
@@ -2050,7 +2056,7 @@ h1, h2, h3, h4, h5, h6 {
     left: -5px;
     right: -5px;
     bottom: -5px;
-    background: linear-gradient(135deg, #237DA6 0%, #0E9C9A 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--brand-teal) 100%);
     border-radius: 50%;
     opacity: 0.3;
     animation: pulse 2s ease-in-out infinite;
@@ -2062,7 +2068,7 @@ h1, h2, h3, h4, h5, h6 {
     left: -10px;
     right: -10px;
     bottom: -10px;
-    border: 2px solid #237DA6;
+    border: 2px solid var(--primary-blue);
     border-radius: 50%;
     opacity: 0.6;
     animation: pulse 3s ease-in-out infinite;
@@ -2350,7 +2356,7 @@ h1, h2, h3, h4, h5, h6 {
 .form-group textarea {
     width: 100%;
     padding: 0.8rem;
-    border: 2px solid #e9ecef;
+    border: 2px solid var(--border-light);
     border-radius: 8px;
     font-family: var(--font-secondary);
     transition: border-color var(--transition-fast);
@@ -2366,14 +2372,14 @@ h1, h2, h3, h4, h5, h6 {
 .form-group input.error,
 .form-group select.error,
 .form-group textarea.error {
-    border-color: #dc3545;
+    border-color: var(--error);
     background-color: #fff5f5;
 }
 
 .form-group input.error:focus,
 .form-group select.error:focus,
 .form-group textarea.error:focus {
-    border-color: #dc3545;
+    border-color: var(--error);
     box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 }
 
@@ -2487,7 +2493,7 @@ button[aria-busy="true"]::after {
 .hs-form-frame .hs-form .hs-form-field textarea {
     width: 100% !important;
     padding: 0.8rem !important;
-    border: 2px solid #e9ecef !important;
+    border: 2px solid var(--border-light) !important;
     border-radius: 8px !important;
     font-family: var(--font-secondary) !important;
     font-size: 1rem !important;
@@ -2522,7 +2528,7 @@ button[aria-busy="true"]::after {
 }
 
 .hs-form-frame .hs-form .hs-error-msgs {
-    color: #dc3545 !important;
+    color: var(--error) !important;
     font-size: 0.875rem !important;
     margin-top: 0.25rem !important;
 }
@@ -3924,7 +3930,7 @@ html {
     color: var(--blue-text);
     margin-top: 1rem;
     font-weight: 600;
-    background: linear-gradient(135deg, var(--primary-blue), #0E9C9A);
+    background: linear-gradient(135deg, var(--primary-blue), var(--brand-teal));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -3973,7 +3979,7 @@ html {
     left: 0;
     width: 60px;
     height: 3px;
-    background: linear-gradient(135deg, var(--primary-blue), #0E9C9A);
+    background: linear-gradient(135deg, var(--primary-blue), var(--brand-teal));
     border-radius: 2px;
 }
 
@@ -3990,7 +3996,7 @@ html {
     gap: 2rem;
     margin-top: 2rem;
     padding: 1.5rem;
-    background: linear-gradient(135deg, var(--primary-blue), #0E9C9A);
+    background: linear-gradient(135deg, var(--primary-blue), var(--brand-teal));
     border-radius: 15px;
     color: white;
 }
@@ -4061,7 +4067,7 @@ html {
     font-size: 2rem;
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, var(--primary-blue), #0E9C9A);
+    background: linear-gradient(135deg, var(--primary-blue), var(--brand-teal));
     border-radius: 15px;
     display: flex;
     align-items: center;
@@ -4106,7 +4112,7 @@ html {
     left: 0;
     right: 0;
     height: 5px;
-    background: linear-gradient(135deg, var(--primary-blue), #0E9C9A);
+    background: linear-gradient(135deg, var(--primary-blue), var(--brand-teal));
 }
 
 .libera-collaboration h3 {
@@ -4126,7 +4132,7 @@ html {
     transform: translateX(-50%);
     width: 80px;
     height: 3px;
-    background: linear-gradient(135deg, var(--primary-blue), #0E9C9A);
+    background: linear-gradient(135deg, var(--primary-blue), var(--brand-teal));
     border-radius: 2px;
 }
 
@@ -4157,7 +4163,7 @@ html {
     font-size: 2rem;
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, var(--primary-blue), #0E9C9A);
+    background: linear-gradient(135deg, var(--primary-blue), var(--brand-teal));
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -4187,7 +4193,7 @@ html {
 }
 
 .cta-box {
-    background: linear-gradient(135deg, var(--primary-blue), #0E9C9A);
+    background: linear-gradient(135deg, var(--primary-blue), var(--brand-teal));
     padding: 3rem;
     border-radius: 25px;
     text-align: center;
@@ -4414,7 +4420,7 @@ html {
 }
 
 .ai-badge {
-    background: linear-gradient(135deg, #237DA6 0%, #0E9C9A 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--brand-teal) 100%);
     color: white;
     padding: 4px 8px;
     border-radius: 12px;
@@ -4960,15 +4966,15 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 }
 
 .course-gradient-bg.automation {
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 50%, #0E9C9A 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 50%, var(--brand-teal) 100%);
 }
 
 .course-gradient-bg.visual {
-    background: linear-gradient(135deg, #237DA6 0%, #0E9C9A 50%, var(--primary-green) 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--brand-teal) 50%, var(--primary-green) 100%);
 }
 
 .course-gradient-bg.video {
-    background: linear-gradient(135deg, var(--primary-green) 0%, #237DA6 50%, var(--primary-blue) 100%);
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-blue) 50%, var(--primary-blue) 100%);
 }
 
 .course-icon-container {
@@ -5353,7 +5359,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 }
 
 .events-hero-title .highlight {
-    background: linear-gradient(135deg, #43AE68, #237DA6);
+    background: linear-gradient(135deg, var(--primary-green), var(--primary-blue));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
