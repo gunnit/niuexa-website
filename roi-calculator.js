@@ -507,20 +507,20 @@ const ROICalculator = {
     <meta charset="UTF-8">
     <title>${roiT.reportTitle} - ${r.processName}</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 20px; line-height: 1.6; color: #333; }
-        .header { text-align: center; margin-bottom: 40px; padding: 20px; background: linear-gradient(135deg, #0066cc, #00cc66); color: white; border-radius: 10px; }
+        body { font-family: 'Hanken Grotesk', system-ui, sans-serif; margin: 20px; line-height: 1.6; color: #14324A; }
+        .header { text-align: center; margin-bottom: 40px; padding: 20px; background: linear-gradient(135deg, #1F64AE, #2C7A45); color: white; border-radius: 10px; }
         .header h1 { margin: 0; font-size: 2.5rem; }
         .header h2 { margin: 10px 0; font-size: 1.5rem; opacity: 0.9; }
         .header p { margin: 5px 0; opacity: 0.8; }
         .comparison { display: flex; gap: 20px; margin: 30px 0; }
         .comparison > div { flex: 1; padding: 20px; border-radius: 10px; text-align: center; }
-        .before { background: #fff3f3; border: 2px solid #ff6b6b; }
-        .after { background: #f0fff4; border: 2px solid #00cc66; }
+        .before { background: #FDEDEE; border: 2px solid #B02A37; }
+        .after { background: #E6F5EC; border: 2px solid #2C7A45; }
         .comparison h3 { margin-bottom: 10px; }
         .comparison .value { font-size: 1.8rem; font-weight: bold; }
         .summary { display: flex; justify-content: space-around; margin: 30px 0; gap: 20px; }
-        .summary-card { flex: 1; text-align: center; padding: 20px; border: 2px solid #0066cc; border-radius: 10px; background: #f8f9fa; }
-        .summary-card h3 { color: #0066cc; margin-bottom: 10px; }
+        .summary-card { flex: 1; text-align: center; padding: 20px; border: 2px solid #1F64AE; border-radius: 10px; background: #F1F5F8; }
+        .summary-card h3 { color: #1F6E94; margin-bottom: 10px; }
         .summary-card .value { font-size: 2rem; font-weight: bold; }
         .breakdown { margin: 40px 0; }
         .breakdown h3 { color: #0066cc; border-bottom: 2px solid #0066cc; padding-bottom: 10px; }
@@ -583,12 +583,12 @@ const ROICalculator = {
         const modal = document.createElement('div');
         modal.style.cssText = 'background:white;padding:2rem;border-radius:15px;max-width:500px;width:90%;box-shadow:0 20px 40px rgba(0,0,0,0.2);';
         modal.innerHTML = `
-            <h3 style="margin-bottom:1rem;color:#0066cc;">${roiT.emailModalTitle}</h3>
-            <p style="margin-bottom:1.5rem;color:#666;">${roiT.emailModalBody}</p>
+            <h3 style="margin-bottom:1rem;color:var(--blue-text);">${roiT.emailModalTitle}</h3>
+            <p style="margin-bottom:1.5rem;color:var(--medium-gray);">${roiT.emailModalBody}</p>
             <input type="email" id="emailInput" placeholder="${roiT.emailPlaceholder}" style="width:100%;padding:0.8rem;border:2px solid #e9ecef;border-radius:8px;margin-bottom:1rem;font-size:1rem;box-sizing:border-box;">
             <div style="display:flex;gap:1rem;justify-content:flex-end;">
-                <button id="cancelEmail" style="padding:0.8rem 1.5rem;border:2px solid #6c757d;background:transparent;color:#6c757d;border-radius:8px;cursor:pointer;">${roiT.cancel}</button>
-                <button id="sendEmail" style="padding:0.8rem 1.5rem;border:none;background:#0066cc;color:white;border-radius:8px;cursor:pointer;">${roiT.sendReport}</button>
+                <button id="cancelEmail" style="padding:0.8rem 1.5rem;border:2px solid var(--medium-gray);background:transparent;color:var(--medium-gray);border-radius:8px;cursor:pointer;">${roiT.cancel}</button>
+                <button id="sendEmail" style="padding:0.8rem 1.5rem;border:none;background:var(--dark-blue);color:var(--white);border-radius:8px;cursor:pointer;">${roiT.sendReport}</button>
             </div>`;
 
         overlay.appendChild(modal);

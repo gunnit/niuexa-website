@@ -382,7 +382,7 @@
 /* CTA Section (used by en/research.html) */
 .research-cta {
     padding: var(--section-padding);
-    background: var(--gradient-secondary);
+    background: var(--gradient-cta);
     color: var(--white);
     text-align: center;
 }
@@ -488,5 +488,30 @@
     
     .stats-grid {
         break-inside: avoid;
+    }
+}
+/* ==========================================================================
+   Reduced motion
+   .fade-in declares opacity: 0 and relies on its animation to reveal, so the
+   end state has to be restored explicitly here — killing the animation alone
+   would leave the article body invisible. The spinner is kept, only slowed.
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    .fade-in {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    .loading-spinner,
+    [class*="spinner"] {
+        animation-duration: 3s;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }

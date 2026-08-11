@@ -1,12 +1,14 @@
 // Navigation HTML content - English Version
 const navigationHTML = `
+<!-- Skip Navigation -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <!-- Navigation -->
-<nav class="navbar">
+<nav class="navbar" aria-label="Main navigation">
     <div class="nav-container">
         <div class="nav-logo">
             <a href="/en/index.html">
                 <div class="logo-container">
-                    <img src="/img/pictogram_blue_transparent.png" alt="Niuexa" class="logo-icon">
+                    <img src="/img/pictogram_blue_transparent.png" alt="Niuexa" class="logo-icon" width="40" height="40" loading="eager">
                     <div class="logo-text">
                         <div class="logo-title">NIUEXA</div>
                         <span class="logo-tagline">AI Solutions</span>
@@ -14,7 +16,7 @@ const navigationHTML = `
                 </div>
             </a>
         </div>
-        <ul class="nav-menu">
+        <ul class="nav-menu" id="nav-menu">
             <li class="nav-item">
                 <a href="/en/index.html" class="nav-link" data-page="home">Home</a>
             </li>
@@ -22,16 +24,16 @@ const navigationHTML = `
                 <a href="/en/about-us.html" class="nav-link" data-page="about-us">About Us</a>
             </li>
             <li class="nav-item dropdown">
-                <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-page="solutions">Solutions <span class="dropdown-arrow">▼</span></a>
-                <ul class="dropdown-menu">
+                <button type="button" class="nav-link dropdown-toggle" data-page="solutions" aria-expanded="false" aria-haspopup="true" aria-controls="dropdown-solutions">Solutions <span class="dropdown-arrow" aria-hidden="true">▼</span></button>
+                <ul class="dropdown-menu" id="dropdown-solutions">
                     <li><a href="/en/consulting.html" class="dropdown-link" data-page="consulting">Consulting</a></li>
                     <li><a href="/en/training.html" class="dropdown-link" data-page="training">Training</a></li>
                     <li><a href="/en/products.html" class="dropdown-link" data-page="products">Products</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
-                <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-page="resources">Resources <span class="dropdown-arrow">▼</span></a>
-                <ul class="dropdown-menu">
+                <button type="button" class="nav-link dropdown-toggle" data-page="resources" aria-expanded="false" aria-haspopup="true" aria-controls="dropdown-resources">Resources <span class="dropdown-arrow" aria-hidden="true">▼</span></button>
+                <ul class="dropdown-menu" id="dropdown-resources">
                     <li><a href="/en/learn.html" class="dropdown-link" data-page="learn">Learn</a></li>
                     <li><a href="/en/research.html" class="dropdown-link" data-page="research">Research</a></li>
                     <li><a href="/en/roi-calculator.html" class="dropdown-link" data-page="roi-calculator">ROI Calculator</a></li>
@@ -49,11 +51,11 @@ const navigationHTML = `
                 <a href="/index.html" class="nav-link" title="Switch to Italian">🇮🇹 IT</a>
             </li>
         </ul>
-        <div class="hamburger" role="button" aria-label="Open navigation menu" aria-expanded="false" tabindex="0">
+        <button type="button" class="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-menu">
             <span class="bar" aria-hidden="true"></span>
             <span class="bar" aria-hidden="true"></span>
             <span class="bar" aria-hidden="true"></span>
-        </div>
+        </button>
     </div>
 </nav>
 `;
@@ -65,12 +67,12 @@ const footerHTML = `
     <div class="container">
         <div class="footer-content">
             <div class="footer-brand">
-                <h3>NIUEXA</h3>
+                <h2>NIUEXA</h2>
                 <p>Advanced AI Solutions for Your Business.</p>
             </div>
             <div class="footer-links">
                 <div class="footer-column">
-                    <h4>Services</h4>
+                    <h3>Services</h3>
                     <ul>
                         <li><a href="/en/consulting.html">AI Consulting</a></li>
                         <li><a href="/en/training.html">AI Training</a></li>
@@ -79,7 +81,7 @@ const footerHTML = `
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h4>Resources</h4>
+                    <h3>Resources</h3>
                     <ul>
                         <li><a href="/en/learn.html">Learn</a></li>
                         <li><a href="/en/research.html">Research</a></li>
@@ -89,7 +91,7 @@ const footerHTML = `
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h4>Company</h4>
+                    <h3>Company</h3>
                     <ul>
                         <li><a href="/en/about-us.html">About Us</a></li>
                         <li><a href="/en/careers.html">Careers</a></li>
@@ -98,14 +100,14 @@ const footerHTML = `
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h4>Social</h4>
+                    <h3>Social</h3>
                     <ul>
                         <li><a href="https://linkedin.com/company/niuexa" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
                         <li><a href="https://discord.gg/vyKckeS3" target="_blank" rel="noopener noreferrer">Discord Community</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h4>Legal</h4>
+                    <h3>Legal</h3>
                     <ul>
                         <li><a href="/en/privacy-policy.html">Privacy Policy</a></li>
                         <li><a href="/en/cookie-policy.html">Cookie Policy</a></li>
@@ -126,39 +128,31 @@ const footerHTML = `
 
 // Function to load HTML includes
 function loadIncludes() {
-    // Load navigation with loading state - support both placeholder IDs
+    // Load navigation - support both placeholder IDs
     const navPlaceholder = document.getElementById('nav-placeholder') || document.getElementById('navigation-placeholder');
+    // Both markup blocks are static strings in this file, so there is nothing
+    // to wait for. The old setTimeout(100)/setTimeout(50) only delayed paint
+    // and made the swap from the loading box visible as a layout jump.
     if (navPlaceholder) {
-        // Show loading state
-        navPlaceholder.innerHTML = '<div class="loading-placeholder nav-loading" aria-label="Loading navigation">Loading navigation...</div>';
-
-        // Simulate brief loading and then load content
-        setTimeout(() => {
-            try {
-                navPlaceholder.innerHTML = navigationHTML;
-                setActiveNavItem();
-                // Initialize navigation functionality after loading
-                initNavigationFunctionality();
-            } catch (error) {
-                console.error('Failed to load navigation:', error);
-                navPlaceholder.innerHTML = '<div class="error-placeholder">Navigation failed to load. <button onclick="loadIncludes()">Retry</button></div>';
-            }
-        }, 100);
+        try {
+            navPlaceholder.innerHTML = navigationHTML;
+            setActiveNavItem();
+            // Initialize navigation functionality after loading
+            initNavigationFunctionality();
+        } catch (error) {
+            console.error('Failed to load navigation:', error);
+            navPlaceholder.innerHTML = '<div class="error-placeholder">Navigation failed to load. <button onclick="loadIncludes()">Retry</button></div>';
+        }
     }
 
-    // Load footer with loading state
     const footerPlaceholder = document.getElementById('footer-placeholder');
     if (footerPlaceholder) {
-        footerPlaceholder.innerHTML = '<div class="loading-placeholder footer-loading" aria-label="Loading footer">Loading footer...</div>';
-
-        setTimeout(() => {
-            try {
-                footerPlaceholder.innerHTML = footerHTML;
-            } catch (error) {
-                console.error('Failed to load footer:', error);
-                footerPlaceholder.innerHTML = '<div class="error-placeholder">Footer failed to load.</div>';
-            }
-        }, 50);
+        try {
+            footerPlaceholder.innerHTML = footerHTML;
+        } catch (error) {
+            console.error('Failed to load footer:', error);
+            footerPlaceholder.innerHTML = '<div class="error-placeholder">Footer failed to load.</div>';
+        }
     }
 }
 
@@ -188,15 +182,9 @@ function initNavigationFunctionality() {
             }
         }
 
+        // A <button> already activates on Enter and Space, so a keydown
+        // handler here would toggle the menu twice per keypress.
         hamburger.addEventListener('click', toggleMenu);
-
-        // Keyboard support for hamburger button
-        hamburger.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                toggleMenu();
-            }
-        });
 
         // Close menu on Escape key
         document.addEventListener('keydown', function(e) {
@@ -212,33 +200,51 @@ function initNavigationFunctionality() {
     // Handle dropdown functionality
     const dropdowns = document.querySelectorAll('.nav-item.dropdown');
 
+    // The toggle is a <button> carrying aria-expanded, so the open/closed state
+    // has to be written to the attribute everywhere the class changes —
+    // otherwise a screen reader announces "collapsed" over an open menu.
+    function setDropdown(dropdown, open) {
+        dropdown.classList.toggle('active', open);
+        const toggle = dropdown.querySelector('.dropdown-toggle');
+        if (toggle) toggle.setAttribute('aria-expanded', String(open));
+    }
+
+    function closeAllDropdowns(except) {
+        dropdowns.forEach(dropdown => {
+            if (dropdown !== except) setDropdown(dropdown, false);
+        });
+    }
+
     dropdowns.forEach(dropdown => {
         const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
         const dropdownMenu = dropdown.querySelector('.dropdown-menu');
 
         if (dropdownToggle && dropdownMenu) {
-            // Handle dropdown toggle clicks
+            // Handle dropdown toggle clicks. A <button> fires click on both
+            // Enter and Space, so no separate keydown handler is needed for
+            // activation — only for Escape.
             dropdownToggle.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
 
-                // Close other dropdowns
-                dropdowns.forEach(otherDropdown => {
-                    if (otherDropdown !== dropdown) {
-                        otherDropdown.classList.remove('active');
-                    }
-                });
-
-                // Toggle current dropdown
-                dropdown.classList.toggle('active');
+                const willOpen = !dropdown.classList.contains('active');
+                closeAllDropdowns(dropdown);
+                setDropdown(dropdown, willOpen);
             });
 
-            // Handle keyboard navigation for dropdown toggles
-            dropdownToggle.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    dropdown.classList.toggle('active');
+            // Escape closes the open dropdown and returns focus to its toggle,
+            // so keyboard users are never stranded inside an invisible menu.
+            dropdown.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && dropdown.classList.contains('active')) {
+                    e.stopPropagation();
+                    setDropdown(dropdown, false);
+                    dropdownToggle.focus();
                 }
+            });
+
+            // Tabbing past the last link closes the menu behind you.
+            dropdown.addEventListener('focusout', function(e) {
+                if (!dropdown.contains(e.relatedTarget)) setDropdown(dropdown, false);
             });
         }
     });
@@ -246,9 +252,7 @@ function initNavigationFunctionality() {
     // Close dropdowns when clicking outside
     document.addEventListener('click', function(e) {
         if (!e.target.closest('.nav-item.dropdown')) {
-            dropdowns.forEach(dropdown => {
-                dropdown.classList.remove('active');
-            });
+            closeAllDropdowns();
         }
     });
 
@@ -262,9 +266,7 @@ function initNavigationFunctionality() {
                 hamburger.setAttribute('aria-expanded', 'false');
             }
             // Close all dropdowns
-            dropdowns.forEach(dropdown => {
-                dropdown.classList.remove('active');
-            });
+            closeAllDropdowns();
         });
     });
 
@@ -272,6 +274,9 @@ function initNavigationFunctionality() {
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
+
+            // The dropdown toggles are <button>s and carry no href at all.
+            if (!href) return;
 
             // Only prevent default for internal anchor links (starting with #)
             if (href.startsWith('#')) {
@@ -411,4 +416,55 @@ function initRevealAnimations() {
 document.addEventListener('DOMContentLoaded', function() {
     loadIncludes();
     initRevealAnimations();
+    makeScrollRegionsFocusable();
+});
+
+var SCROLL_REGION_LABELS = { code: 'Scrollable code block', table: 'Scrollable table', block: 'Scrollable content' };
+
+// Horizontally scrollable code blocks and wide tables are reachable with a
+// mouse or a finger but not with a keyboard, which fails WCAG 2.1.1. Whether
+// an element actually scrolls depends on the viewport, so this is decided at
+// runtime and re-checked on resize rather than hard-coded into the markup.
+function makeScrollRegionsFocusable() {
+    var scrollRegionCounts = {};
+    var candidates = document.querySelectorAll(
+        'pre, table, figure, [class*="table-wrapper"], [class*="-scroll"], [class*="scroll-"]');
+    Array.prototype.forEach.call(candidates, function (el) {
+        // A table inside a scrolling wrapper is not itself the scroller.
+        var scroller = el;
+        var style = window.getComputedStyle(scroller);
+        var scrolls = /(auto|scroll)/.test(style.overflowX) && scroller.scrollWidth > scroller.clientWidth + 1;
+
+        if (scrolls) {
+            if (!scroller.hasAttribute('tabindex')) scroller.setAttribute('tabindex', '0');
+            // <figure> restricts which roles may override its implicit one, so
+            // it gets focus and a name without a role; tabindex alone is what
+            // WCAG 2.1.1 actually needs here.
+            if (!scroller.hasAttribute('role') && scroller.tagName !== 'FIGURE') {
+                scroller.setAttribute('role', 'region');
+            }
+            if (!scroller.hasAttribute('aria-label')) {
+                // Landmarks of the same role must have distinct names, so the
+                // label is numbered — a page with six scrollable code blocks
+                // would otherwise expose six identically-named regions.
+                var kind = scroller.tagName === 'PRE' ? 'code'
+                    : (scroller.tagName === 'TABLE' || scroller.querySelector('table')) ? 'table'
+                    : 'block';
+                scrollRegionCounts[kind] = (scrollRegionCounts[kind] || 0) + 1;
+                scroller.setAttribute('aria-label',
+                    SCROLL_REGION_LABELS[kind] + ' ' + scrollRegionCounts[kind]);
+            }
+        } else if (scroller.getAttribute('data-scroll-region') === 'auto') {
+            scroller.removeAttribute('tabindex');
+            scroller.removeAttribute('role');
+            scroller.removeAttribute('aria-label');
+        }
+        if (scrolls) scroller.setAttribute('data-scroll-region', 'auto');
+    });
+}
+
+var scrollRegionTimer;
+window.addEventListener('resize', function () {
+    clearTimeout(scrollRegionTimer);
+    scrollRegionTimer = setTimeout(makeScrollRegionsFocusable, 200);
 });

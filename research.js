@@ -150,36 +150,47 @@ function initializeReadingProgress() {
         position: fixed;
         top: 0;
         left: 0;
-        width: 0%;
+        width: 100%;
         height: 3px;
         background: linear-gradient(90deg, var(--primary-blue), var(--primary-green));
         z-index: 9999;
-        transition: width 0.1s ease;
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform 0.1s linear;
         display: none;
     `;
     document.body.appendChild(progressBar);
-    
-    // Update progress on scroll
+
+    // Update progress on scroll. Scaled rather than resized — animating width
+    // relayouts the page on every scroll frame — and the measurement is batched
+    // into a rAF so a fast scroll cannot force a layout per event.
+    let ticking = false;
     window.addEventListener('scroll', function() {
-        const currentArticle = document.querySelector('.full-article-content[style*="block"]');
-        
-        if (currentArticle) {
-            progressBar.style.display = 'block';
-            
-            const articleBody = currentArticle.querySelector('.article-body');
-            if (articleBody) {
-                const scrollTop = window.pageYOffset;
-                const docHeight = articleBody.offsetHeight;
-                const winHeight = window.innerHeight;
-                const scrollPercent = scrollTop / (docHeight - winHeight);
-                const scrollPercentRounded = Math.round(scrollPercent * 100);
-                
-                progressBar.style.width = Math.min(scrollPercentRounded, 100) + '%';
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function() {
+            const currentArticle = document.querySelector('.full-article-content[style*="block"]');
+
+            if (currentArticle) {
+                progressBar.style.display = 'block';
+
+                const articleBody = currentArticle.querySelector('.article-body');
+                if (articleBody) {
+                    const scrollTop = window.pageYOffset;
+                    const docHeight = articleBody.offsetHeight;
+                    const winHeight = window.innerHeight;
+                    const scrollable = docHeight - winHeight;
+                    const scrollPercent = scrollable > 0 ? scrollTop / scrollable : 0;
+
+                    progressBar.style.transform =
+                        'scaleX(' + Math.min(Math.max(scrollPercent, 0), 1) + ')';
+                }
+            } else {
+                progressBar.style.display = 'none';
             }
-        } else {
-            progressBar.style.display = 'none';
-        }
-    });
+            ticking = false;
+        });
+    }, { passive: true });
 }
 
 // Scroll Animations

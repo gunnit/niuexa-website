@@ -381,7 +381,7 @@
 
 .ara-strata-dim p {
   margin: 0.35rem 0 0 calc(13px + 0.7rem);
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.92);
   line-height: 1.6;
   max-width: 46ch;
 }
@@ -393,9 +393,12 @@
 .ara-strata-dim:nth-child(4) { --dim-color: #2BA57F; }
 .ara-strata-dim:nth-child(5) { --dim-color: var(--primary-green); }
 
-/* live mode: labels start muted and light up per stage */
+/* live mode: labels start muted and light up per stage. The resting opacity
+   is the floor at which the not-yet-revealed labels still clear WCAG AA on
+   --black (heading 6.93:1, body 6.05:1) — at the old 0.24 they measured
+   2.16:1 and 1.73:1, i.e. unreadable for anyone who never scrolls. */
 .ara-strata-live .ara-strata-dim {
-  opacity: 0.24;
+  opacity: 0.6;
   transform: translateY(8px);
   transition: opacity 0.5s var(--ara-ease), transform 0.5s var(--ara-ease);
 }

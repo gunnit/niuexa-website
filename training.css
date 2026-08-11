@@ -45,11 +45,11 @@
 }
 
 .training-hero .stat-label {
-    color: rgba(255, 255, 255, 0.92);
+    color: var(--white);
 }
 
 .training-hero .hero-subtitle {
-    color: rgba(255, 255, 255, 0.92);
+    color: var(--white);
 }
 
 .hero-note {
@@ -705,7 +705,7 @@
 
 .training-cta-section {
     padding: var(--section-padding);
-    background: var(--gradient-secondary);
+    background: var(--gradient-cta);
     color: var(--white);
     text-align: center;
 }
@@ -721,7 +721,7 @@
     font-size: 1.2rem;
     margin: 0 auto 2.5rem;
     max-width: 600px;
-    color: rgba(255, 255, 255, 0.92);
+    color: var(--white);
 }
 
 .training-cta-section h3 {
@@ -770,7 +770,7 @@
 .cta-note {
     margin-top: 1.5rem;
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.92);
+    color: var(--white);
 }
 
 /* ============ Focus visibility ============ */

@@ -115,7 +115,7 @@
 /* Calculator Hero Section */
 .calculator-hero {
     padding: 120px 0 80px;
-    background: var(--gradient-secondary);
+    background: var(--gradient-cta);
     color: var(--white);
     text-align: center;
 }
@@ -131,7 +131,7 @@
 
 .calculator-hero .hero-subtitle {
     font-size: 1.3rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--white);
     margin-bottom: 3rem;
     max-width: 800px;
     margin-left: auto;
@@ -161,7 +161,7 @@
 
 .calculator-hero .stat-label {
     font-size: 1rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--white);
     margin-top: 0.5rem;
 }
 
@@ -516,7 +516,7 @@
 /* CTA Section */
 .cta-section {
     padding: var(--section-padding);
-    background: var(--gradient-primary);
+    background: var(--gradient-cta);
     color: var(--white);
     text-align: center;
 }
@@ -962,5 +962,30 @@
     .disclaimer-item {
         padding: 1rem;
         margin-bottom: 1.5rem;
+    }
+}
+
+/* ==========================================================================
+   Reduced motion
+   The results panel arrives without sliding; the spinner keeps turning, only
+   slower, because it is the sole indication the calculation is running.
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    .calculator-results {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    .loading-spinner,
+    [class*="spinner"] {
+        animation-duration: 3s;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }

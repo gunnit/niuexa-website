@@ -68,7 +68,7 @@ function initSimpleSignupForms() {
                     const successDiv = document.createElement('div');
                     successDiv.className = 'form-success';
                     successDiv.setAttribute('role', 'status');
-                    successDiv.style.cssText = 'background: var(--light-gray, #F8F9FA); border-left: 4px solid var(--primary-green, #00CC66); padding: 1.5rem; border-radius: 8px; font-family: var(--font-secondary, sans-serif);';
+                    successDiv.style.cssText = 'background: var(--light-gray, #F8F9FA); border-left: 4px solid var(--primary-green); padding: 1.5rem; border-radius: 8px; font-family: var(--font-secondary, sans-serif);';
                     successDiv.innerHTML = successHtml;
                     form.parentNode.replaceChild(successDiv, form);
                 } else {

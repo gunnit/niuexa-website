@@ -53,7 +53,8 @@
 
     <style>
         .thank-you-hero {
-            background: var(--gradient-primary);
+            /* White copy over --gradient-primary is 2.78:1 at the green stop. */
+            background: var(--gradient-cta);
             padding: 120px 0 80px;
             text-align: center;
             color: var(--white);
@@ -99,7 +100,6 @@
             font-size: 1.25rem;
             line-height: 1.8;
             margin-bottom: 2rem;
-            opacity: 0.95;
         }
 
         .thank-you-details {
@@ -198,7 +198,7 @@
                 </p>
 
                 <div class="thank-you-details">
-                    <h3>I Prossimi Passi</h3>
+                    <h2>I Prossimi Passi</h2>
                     <ul>
                         <li>Analizzeremo le informazioni che ci hai fornito</li>
                         <li>Un nostro esperto ti contatterà entro 24 ore lavorative</li>

@@ -16,7 +16,7 @@ const navigationHTML = `
                 </div>
             </a>
         </div>
-        <ul class="nav-menu">
+        <ul class="nav-menu" id="nav-menu">
             <li class="nav-item">
                 <a href="/" class="nav-link" data-page="home">Home</a>
             </li>
@@ -24,16 +24,16 @@ const navigationHTML = `
                 <a href="/chi-siamo.html" class="nav-link" data-page="chi-siamo">Chi Siamo</a>
             </li>
             <li class="nav-item dropdown">
-                <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-page="soluzioni">Soluzioni <span class="dropdown-arrow">▼</span></a>
-                <ul class="dropdown-menu">
+                <button type="button" class="nav-link dropdown-toggle" data-page="soluzioni" aria-expanded="false" aria-haspopup="true" aria-controls="dropdown-soluzioni">Soluzioni <span class="dropdown-arrow" aria-hidden="true">▼</span></button>
+                <ul class="dropdown-menu" id="dropdown-soluzioni">
                     <li><a href="/consulting.html" class="dropdown-link" data-page="consulting">Consulenza</a></li>
                     <li><a href="/training.html" class="dropdown-link" data-page="training">Formazione</a></li>
                     <li><a href="/products.html" class="dropdown-link" data-page="products">Prodotti</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
-                <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-page="risorse">Risorse <span class="dropdown-arrow">▼</span></a>
-                <ul class="dropdown-menu">
+                <button type="button" class="nav-link dropdown-toggle" data-page="risorse" aria-expanded="false" aria-haspopup="true" aria-controls="dropdown-risorse">Risorse <span class="dropdown-arrow" aria-hidden="true">▼</span></button>
+                <ul class="dropdown-menu" id="dropdown-risorse">
                     <li><a href="/impara.html" class="dropdown-link" data-page="impara">Impara</a></li>
                     <li><a href="/research.html" class="dropdown-link" data-page="research">Ricerca</a></li>
                     <li><a href="/roi-calculator.html" class="dropdown-link" data-page="roi-calculator">Calcolatore ROI</a></li>
@@ -51,11 +51,11 @@ const navigationHTML = `
                 <a href="/en/index.html" class="nav-link" title="Switch to English">🇬🇧 EN</a>
             </li>
         </ul>
-        <div class="hamburger" role="button" aria-label="Apri menu di navigazione" aria-expanded="false" tabindex="0">
+        <button type="button" class="hamburger" aria-label="Apri menu di navigazione" aria-expanded="false" aria-controls="nav-menu">
             <span class="bar" aria-hidden="true"></span>
             <span class="bar" aria-hidden="true"></span>
             <span class="bar" aria-hidden="true"></span>
-        </div>
+        </button>
     </div>
 </nav>
 `;
@@ -67,12 +67,12 @@ const footerHTML = `
     <div class="container">
         <div class="footer-content">
             <div class="footer-brand">
-                <h3>NIUEXA</h3>
+                <h2>NIUEXA</h2>
                 <p>Soluzioni AI Avanzate per il tuo Business.</p>
             </div>
             <div class="footer-links">
                 <div class="footer-column">
-                    <h4>Servizi</h4>
+                    <h3>Servizi</h3>
                     <ul>
                         <li><a href="/consulting.html">Consulenza AI</a></li>
                         <li><a href="/training.html">Formazione AI</a></li>
@@ -81,7 +81,7 @@ const footerHTML = `
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h4>Risorse</h4>
+                    <h3>Risorse</h3>
                     <ul>
                         <li><a href="/impara.html">Impara</a></li>
                         <li><a href="/research.html">Ricerca</a></li>
@@ -91,7 +91,7 @@ const footerHTML = `
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h4>Azienda</h4>
+                    <h3>Azienda</h3>
                     <ul>
                         <li><a href="/chi-siamo.html">Chi Siamo</a></li>
                         <li><a href="/carriere.html">Carriere</a></li>
@@ -100,14 +100,14 @@ const footerHTML = `
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h4>Social</h4>
+                    <h3>Social</h3>
                     <ul>
                         <li><a href="https://linkedin.com/company/niuexa" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
                         <li><a href="https://discord.gg/vyKckeS3" target="_blank" rel="noopener noreferrer">Discord Community</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h4>Legale</h4>
+                    <h3>Legale</h3>
                     <ul>
                         <li><a href="/privacy-policy.html">Privacy Policy</a></li>
                         <li><a href="/cookie-policy.html">Cookie Policy</a></li>
@@ -181,16 +181,11 @@ function initNavigationFunctionality() {
             }
         }
         
+        // A <button> already activates on Enter and Space, so a keydown
+        // handler here would toggle the menu twice per keypress.
         hamburger.addEventListener('click', toggleMenu);
-        
-        // Keyboard support for hamburger button
-        hamburger.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                toggleMenu();
-            }
-        });
-        
+
+
         // Close menu on Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && navMenu.classList.contains('active')) {
@@ -204,34 +199,52 @@ function initNavigationFunctionality() {
 
     // Handle dropdown functionality
     const dropdowns = document.querySelectorAll('.nav-item.dropdown');
-    
+
+    // The toggle is a <button> carrying aria-expanded, so the open/closed state
+    // has to be written to the attribute everywhere the class changes —
+    // otherwise a screen reader announces "collapsed" over an open menu.
+    function setDropdown(dropdown, open) {
+        dropdown.classList.toggle('active', open);
+        const toggle = dropdown.querySelector('.dropdown-toggle');
+        if (toggle) toggle.setAttribute('aria-expanded', String(open));
+    }
+
+    function closeAllDropdowns(except) {
+        dropdowns.forEach(dropdown => {
+            if (dropdown !== except) setDropdown(dropdown, false);
+        });
+    }
+
     dropdowns.forEach(dropdown => {
         const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
         const dropdownMenu = dropdown.querySelector('.dropdown-menu');
-        
+
         if (dropdownToggle && dropdownMenu) {
-            // Handle dropdown toggle clicks
+            // Handle dropdown toggle clicks. A <button> fires click on both
+            // Enter and Space, so no separate keydown handler is needed for
+            // activation — only for Escape.
             dropdownToggle.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                
-                // Close other dropdowns
-                dropdowns.forEach(otherDropdown => {
-                    if (otherDropdown !== dropdown) {
-                        otherDropdown.classList.remove('active');
-                    }
-                });
-                
-                // Toggle current dropdown
-                dropdown.classList.toggle('active');
+
+                const willOpen = !dropdown.classList.contains('active');
+                closeAllDropdowns(dropdown);
+                setDropdown(dropdown, willOpen);
             });
 
-            // Handle keyboard navigation for dropdown toggles
-            dropdownToggle.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    dropdown.classList.toggle('active');
+            // Escape closes the open dropdown and returns focus to its toggle,
+            // so keyboard users are never stranded inside an invisible menu.
+            dropdown.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && dropdown.classList.contains('active')) {
+                    e.stopPropagation();
+                    setDropdown(dropdown, false);
+                    dropdownToggle.focus();
                 }
+            });
+
+            // Tabbing past the last link closes the menu behind you.
+            dropdown.addEventListener('focusout', function(e) {
+                if (!dropdown.contains(e.relatedTarget)) setDropdown(dropdown, false);
             });
         }
     });
@@ -239,9 +252,7 @@ function initNavigationFunctionality() {
     // Close dropdowns when clicking outside
     document.addEventListener('click', function(e) {
         if (!e.target.closest('.nav-item.dropdown')) {
-            dropdowns.forEach(dropdown => {
-                dropdown.classList.remove('active');
-            });
+            closeAllDropdowns();
         }
     });
 
@@ -255,9 +266,7 @@ function initNavigationFunctionality() {
                 hamburger.setAttribute('aria-expanded', 'false');
             }
             // Close all dropdowns
-            dropdowns.forEach(dropdown => {
-                dropdown.classList.remove('active');
-            });
+            closeAllDropdowns();
         });
     });
 
@@ -265,7 +274,10 @@ function initNavigationFunctionality() {
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
-            
+
+            // The dropdown toggles are <button>s and carry no href at all.
+            if (!href) return;
+
             // Only prevent default for internal anchor links (starting with #)
             if (href.startsWith('#')) {
                 e.preventDefault();
@@ -408,4 +420,55 @@ function initRevealAnimations() {
 document.addEventListener('DOMContentLoaded', function() {
     loadIncludes();
     initRevealAnimations();
+    makeScrollRegionsFocusable();
+});
+
+var SCROLL_REGION_LABELS = { code: 'Blocco di codice scorrevole', table: 'Tabella scorrevole', block: 'Contenuto scorrevole' };
+
+// Horizontally scrollable code blocks and wide tables are reachable with a
+// mouse or a finger but not with a keyboard, which fails WCAG 2.1.1. Whether
+// an element actually scrolls depends on the viewport, so this is decided at
+// runtime and re-checked on resize rather than hard-coded into the markup.
+function makeScrollRegionsFocusable() {
+    var scrollRegionCounts = {};
+    var candidates = document.querySelectorAll(
+        'pre, table, figure, [class*="table-wrapper"], [class*="-scroll"], [class*="scroll-"]');
+    Array.prototype.forEach.call(candidates, function (el) {
+        // A table inside a scrolling wrapper is not itself the scroller.
+        var scroller = el;
+        var style = window.getComputedStyle(scroller);
+        var scrolls = /(auto|scroll)/.test(style.overflowX) && scroller.scrollWidth > scroller.clientWidth + 1;
+
+        if (scrolls) {
+            if (!scroller.hasAttribute('tabindex')) scroller.setAttribute('tabindex', '0');
+            // <figure> restricts which roles may override its implicit one, so
+            // it gets focus and a name without a role; tabindex alone is what
+            // WCAG 2.1.1 actually needs here.
+            if (!scroller.hasAttribute('role') && scroller.tagName !== 'FIGURE') {
+                scroller.setAttribute('role', 'region');
+            }
+            if (!scroller.hasAttribute('aria-label')) {
+                // Landmarks of the same role must have distinct names, so the
+                // label is numbered — a page with six scrollable code blocks
+                // would otherwise expose six identically-named regions.
+                var kind = scroller.tagName === 'PRE' ? 'code'
+                    : (scroller.tagName === 'TABLE' || scroller.querySelector('table')) ? 'table'
+                    : 'block';
+                scrollRegionCounts[kind] = (scrollRegionCounts[kind] || 0) + 1;
+                scroller.setAttribute('aria-label',
+                    SCROLL_REGION_LABELS[kind] + ' ' + scrollRegionCounts[kind]);
+            }
+        } else if (scroller.getAttribute('data-scroll-region') === 'auto') {
+            scroller.removeAttribute('tabindex');
+            scroller.removeAttribute('role');
+            scroller.removeAttribute('aria-label');
+        }
+        if (scrolls) scroller.setAttribute('data-scroll-region', 'auto');
+    });
+}
+
+var scrollRegionTimer;
+window.addEventListener('resize', function () {
+    clearTimeout(scrollRegionTimer);
+    scrollRegionTimer = setTimeout(makeScrollRegionsFocusable, 200);
 });

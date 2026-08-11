@@ -65,12 +65,14 @@ class CookieBanner {
     createBannerHTML() {
         const banner = document.createElement('div');
         banner.id = 'cookie-banner';
+        banner.setAttribute('role', 'region');
+        banner.setAttribute('aria-labelledby', 'cookie-banner-title');
         const t = this.t;
         banner.innerHTML = `
             <div class="cookie-banner-content">
                 <div class="cookie-banner-text">
-                    <h4>${t.title}</h4>
-                    <p>${t.intro} <a href="${t.privacyHref}" target="_blank">${t.privacyLink}</a>.</p>
+                    <h2 id="cookie-banner-title">${t.title}</h2>
+                    <p>${t.intro} <a href="${t.privacyHref}" target="_blank" rel="noopener noreferrer">${t.privacyLink}</a>.</p>
                 </div>
                 <div class="cookie-banner-buttons">
                     <button id="cookie-accept-all" class="cookie-btn cookie-btn-primary">
@@ -280,7 +282,7 @@ const cookieBannerCSS = `
     gap: 2rem;
 }
 
-.cookie-banner-text h4 {
+.cookie-banner-text h2 {
     margin: 0 0 0.5rem 0;
     color: var(--green-on-dark);
     font-size: 1.1rem;
@@ -433,7 +435,7 @@ const cookieBannerCSS = `
         padding: 1rem;
     }
 
-    .cookie-banner-text h4 {
+    .cookie-banner-text h2 {
         font-size: 1rem;
     }
 

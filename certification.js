@@ -660,9 +660,9 @@ class NiuexaCertification {
         
         // Create gradient background
         const gradient = ctx.createLinearGradient(0, 0, canvasWidth, canvasHeight);
-        gradient.addColorStop(0, '#667eea');
-        gradient.addColorStop(0.5, '#764ba2');
-        gradient.addColorStop(1, '#667eea');
+        gradient.addColorStop(0, '#237DA6');
+        gradient.addColorStop(0.5, '#0E9C9A');
+        gradient.addColorStop(1, '#43AE68');
         
         ctx.fillStyle = gradient;
         ctx.fillRect(0, 0, canvasWidth, canvasHeight);
@@ -884,8 +884,8 @@ const certificationStyles = `
     }
     
     .retry-btn {
-        background: #667eea;
-        color: white;
+        background: var(--dark-blue);
+        color: var(--white);
     }
     
     .review-btn {
