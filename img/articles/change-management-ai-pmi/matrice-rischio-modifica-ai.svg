@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">Matrice del rischio di modifica AI</title><desc id="desc">Quattro classi di modifica AI in base a impatto e reversibilità</desc>
+  <rect width="1200" height="680" fill="#F1F5F8"/><rect x="36" y="36" width="1128" height="608" rx="28" fill="#FFFFFF" stroke="#D8E3EA" stroke-width="2"/>
+  <image href="../../niuexalogo.png" x="72" y="62" width="166" height="46" preserveAspectRatio="xMidYMid meet"/>
+  <text x="72" y="154" font-family="Space Grotesk,Arial,sans-serif" font-size="34" font-weight="700" fill="#14324A">Quanto controllo serve per questa modifica?</text>
+  <text x="72" y="192" font-family="Hanken Grotesk,Arial,sans-serif" font-size="20" fill="#54697A">Classifica per impatto sul processo e difficoltà di ripristino</text>
+  <text x="58" y="395" transform="rotate(-90 58 395)" font-family="JetBrains Mono,monospace" font-size="15" font-weight="700" fill="#54697A">IMPATTO →</text>
+  <text x="580" y="618" font-family="JetBrains Mono,monospace" font-size="15" font-weight="700" fill="#54697A">REVERSIBILITÀ: FACILE → DIFFICILE</text>
+  <rect x="120" y="230" width="470" height="155" rx="20" fill="#E8F4F9" stroke="#237DA6" stroke-width="3"/>
+  <text x="150" y="278" font-family="Space Grotesk,Arial,sans-serif" font-size="26" font-weight="700" fill="#1F64AE">C2 · OPERATIVA</text><text x="150" y="316" font-family="Hanken Grotesk,Arial,sans-serif" font-size="20" fill="#14324A">Regression test + process owner</text><text x="150" y="348" font-family="Hanken Grotesk,Arial,sans-serif" font-size="18" fill="#54697A">Rilascio graduale e monitoraggio</text>
+  <rect x="610" y="230" width="470" height="155" rx="20" fill="#FDECEC" stroke="#B42335" stroke-width="3"/>
+  <text x="640" y="278" font-family="Space Grotesk,Arial,sans-serif" font-size="26" font-weight="700" fill="#8E1F2F">C4 · CRITICA</text><text x="640" y="316" font-family="Hanken Grotesk,Arial,sans-serif" font-size="20" fill="#14324A">Go/no-go + fallback obbligatorio</text><text x="640" y="348" font-family="Hanken Grotesk,Arial,sans-serif" font-size="18" fill="#54697A">Sorveglianza rafforzata</text>
+  <rect x="120" y="405" width="470" height="155" rx="20" fill="#EAF6EE" stroke="#43AE68" stroke-width="3"/>
+  <text x="150" y="453" font-family="Space Grotesk,Arial,sans-serif" font-size="26" font-weight="700" fill="#2C7A45">C1 · LIMITATA</text><text x="150" y="491" font-family="Hanken Grotesk,Arial,sans-serif" font-size="20" fill="#14324A">Peer review + test campione</text><text x="150" y="523" font-family="Hanken Grotesk,Arial,sans-serif" font-size="18" fill="#54697A">Versione e rollback semplice</text>
+  <rect x="610" y="405" width="470" height="155" rx="20" fill="#FFF5DE" stroke="#D28A00" stroke-width="3"/>
+  <text x="640" y="453" font-family="Space Grotesk,Arial,sans-serif" font-size="26" font-weight="700" fill="#8B5B00">C3 · SENSIBILE</text><text x="640" y="491" font-family="Hanken Grotesk,Arial,sans-serif" font-size="20" fill="#14324A">Review tecnica + privacy/security</text><text x="640" y="523" font-family="Hanken Grotesk,Arial,sans-serif" font-size="18" fill="#54697A">Test avversariali e approvazione</text>
+</svg>
