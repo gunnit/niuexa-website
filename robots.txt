@@ -1,5 +1,5 @@
 # robots.txt for Niuexa - AI Consulting Services
-# Last Updated: 2026-03-25
+# Last Updated: 2026-08-12
 
 # Default: allow all crawlers
 User-agent: *
@@ -10,6 +10,14 @@ Disallow: /node_modules/
 Disallow: /quiz-data/
 
 # AI Search Engine Crawlers - Explicitly Welcomed
+#
+# OpenAI runs three separate crawlers and each answers to its own group.
+# Grouping them under * only allows them implicitly; naming them is safer and
+# self-documenting, and OAI-SearchBot is the one that decides whether Niuexa
+# can be cited in ChatGPT search results at all.
+User-agent: OAI-SearchBot
+Allow: /
+
 User-agent: GPTBot
 Allow: /
 
