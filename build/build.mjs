@@ -11,8 +11,10 @@
  *   node build/build.mjs <slug> ...   render only these
  *   node build/build.mjs --check      render to memory and diff against disk
  *
- * --check exits non-zero if any generated page differs from what is committed,
- * which is what keeps "commit the generated HTML" honest in CI.
+ * The sitemap entry of every generated article is kept in step with its content
+ * record too. --check exits non-zero if any generated page or sitemap entry
+ * differs from what is committed, which is what keeps "commit the generated
+ * HTML" honest in CI.
  */
 
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
@@ -509,6 +511,39 @@ export function renderArticle(article, { site, authors, allArticles = [] }) {
 // Entry point
 // ---------------------------------------------------------------------------
 
+/**
+ * Keep each generated article's sitemap entry in step with its content record.
+ *
+ * Only the articles the generator owns are touched; the rest of the file stays
+ * hand-maintained until Phase 2 hands the whole index over. Rule AEO-07 already
+ * gates presence in the sitemap, so a missing entry is an error here.
+ */
+export function syncSitemap(articles, site, { check = false } = {}) {
+  const path = join(ROOT, 'sitemap.xml');
+  const original = readFileSync(path, 'utf8');
+  let updated = original;
+  const missing = [];
+
+  for (const article of articles) {
+    const loc = `${site.site.url}/articolo-${article.slug}.html`;
+    const pattern = new RegExp(
+      `(<loc>${loc.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}</loc>\\s*<lastmod>)\\d{4}-\\d{2}-\\d{2}(</lastmod>)`,
+    );
+    if (!pattern.test(updated)) {
+      missing.push(article.slug);
+      continue;
+    }
+    updated = updated.replace(pattern, `$1${article.modified ?? article.published}$2`);
+  }
+
+  if (missing.length) {
+    throw new Error(`sitemap.xml has no entry for: ${missing.join(', ')}`);
+  }
+  const drifted = updated !== original;
+  if (drifted && !check) writeFileSync(path, updated, 'utf8');
+  return drifted;
+}
+
 export function build({ slugs = null, check = false } = {}) {
   const site = loadSite();
   const authors = loadAuthors();
@@ -524,7 +559,9 @@ export function build({ slugs = null, check = false } = {}) {
     changed.push(article.slug);
     if (!check) writeFileSync(out, html, 'utf8');
   }
-  return { rendered: targets.map((a) => a.slug), changed };
+
+  const sitemapDrifted = syncSitemap(allArticles, site, { check });
+  return { rendered: targets.map((a) => a.slug), changed, sitemapDrifted };
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
@@ -532,16 +569,18 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const check = args.includes('--check');
   const slugs = args.filter((a) => !a.startsWith('-'));
   try {
-    const { rendered, changed } = build({ slugs: slugs.length ? slugs : null, check });
+    const { rendered, changed, sitemapDrifted } = build({ slugs: slugs.length ? slugs : null, check });
     if (check) {
-      if (changed.length) {
+      if (changed.length || sitemapDrifted) {
+        const detail = changed.length ? `:\n  ${changed.join('\n  ')}` : '.';
         console.error(
-          `Generated HTML is out of date for ${changed.length} article(s):\n  ${changed.join('\n  ')}\n` +
-            'Run: node build/build.mjs',
+          (changed.length
+            ? `Generated HTML is out of date for ${changed.length} article(s)${detail}`
+            : 'sitemap.xml is out of date.') + '\nRun: node build/build.mjs',
         );
         process.exit(1);
       }
-      console.log(`${rendered.length} article(s) match their committed HTML.`);
+      console.log(`${rendered.length} article(s) and sitemap.xml match their sources.`);
     } else {
       console.log(
         `Rendered ${rendered.length} article(s); ${changed.length} written` +

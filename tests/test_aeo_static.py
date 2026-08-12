@@ -18,7 +18,7 @@ Run the scoreboard on its own with::
 
 import unittest
 
-from aeo_rules import evaluate, load_articles, scoreboard
+from aeo_rules import ROOT, evaluate, load_articles, scoreboard
 
 EXPECTED_ARTICLE_COUNT = 61
 
@@ -46,6 +46,17 @@ class AeoStaticTests(unittest.TestCase):
             detail = "; ".join(f"{slug} ({reason})" for slug, reason in result.failing[:5])
             broken.append(f"{rule_id} {result.rule.title}: {detail}")
         self.assertEqual([], broken)
+
+    def test_llms_txt_copies_stay_identical(self) -> None:
+        """llms.txt and llm.txt are two hand-synced copies of one file."""
+        canonical = (ROOT / "llms.txt").read_text(encoding="utf-8")
+        alias = (ROOT / "llm.txt").read_text(encoding="utf-8")
+        self.assertEqual(
+            canonical,
+            alias,
+            "llm.txt has drifted from llms.txt; they must stay byte-identical "
+            "until the generator owns both",
+        )
 
     def test_scoreboard_is_reported(self) -> None:
         """Always passes. Prints the Phase 0 backlog so it stays visible."""
