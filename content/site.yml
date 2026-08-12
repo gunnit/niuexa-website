@@ -1,0 +1,46 @@
+# Site-wide values the generator stamps into every article.
+#
+# Everything here was previously retyped by hand in each articolo-*.html head.
+# Changing a value here and re-running `node build/build.mjs` updates every
+# generated article at once.
+
+site:
+  name: Niuexa
+  url: https://niuexa.ai
+  lang: it
+  locale: it_IT
+
+publisher:
+  name: Niuexa
+  url: https://niuexa.ai
+  logo: https://niuexa.ai/img/niuexalogo.png
+
+analytics:
+  gtm_id: GTM-KG9S42S4
+
+# Cache-busting stamps. Keep in step with the rest of the site; tests/aeo_rules.py
+# rule AEO-15 reports any article that disagrees with the corpus.
+assets:
+  styles_css: 20260807
+  tutorial_css: 20260812
+  article_visuals_css: 20260812
+  includes_js: 20260428
+  cookie_banner_js: 20260428
+
+# Breadcrumb labels resolved to URLs for the BreadcrumbList schema.
+breadcrumbs:
+  Home: ""
+  Ricerca: research.html
+  Impara: impara.html
+  Consulenza: consulting.html
+
+defaults:
+  reading_time_wpm: 180   # Italian technical prose; articles may override reading_time
+  robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+  cta:
+    heading: Vuoi applicare l'AI ai tuoi processi con criteri verificabili?
+    body: Niuexa affianca le PMI italiane dalla valutazione iniziale alla messa in produzione di workflow e AI agent.
+    primary_label: Prenota un assessment AI
+    primary_href: ai-readiness-assessment.html
+    secondary_label: Scopri la consulenza AI
+    secondary_href: consulting.html

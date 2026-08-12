@@ -1,0 +1,11 @@
+# Person entity for schema.org author/reviewer attribution (rule AEO-03).
+id: gregor-maric
+name: Gregor Maric
+job_title: CEO & Co-Fondatore di Niuexa
+url: https://niuexa.ai/chi-siamo.html#gregor-maric
+same_as:
+  - https://www.linkedin.com/in/maricgregor/
+knows_about:
+  - Intelligenza artificiale generativa
+  - AI governance
+  - Automazione dei processi aziendali

@@ -418,7 +418,7 @@ AEO11 = _rule("AEO-11", "canonical present, self-referential or a real merge", g
 AEO12 = _rule("AEO-12", "hreflang set complete and self-referential")
 AEO13 = _rule("AEO-13", "html lang matches the article's directory")
 AEO14 = _rule("AEO-14", "GTM and Consent Mode present, consent before gtm.js", gate=True)
-AEO15 = _rule("AEO-15", "stylesheet version stamps agree across the corpus")
+AEO15 = _rule("AEO-15", "stylesheet version stamps agree across the corpus", gate=True)
 AEO16 = _rule("AEO-16", "article-level schema present and parseable", gate=True)
 AEO17 = _rule("AEO-17", "internal links resolve to a file in the repo", gate=True)
 
