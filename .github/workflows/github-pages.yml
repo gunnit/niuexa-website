@@ -25,11 +25,21 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      # The generated HTML is committed, so the site never depends on this
+      # step succeeding. It only catches a page that drifted from its source.
+      - name: Verify generated articles match their content sources
+        run: node build/build.mjs --check
+      - name: Run the static content checks
+        run: python3 -m unittest discover -s tests
       # upload-pages-artifact excludes only .git and .github and takes no
       # exclude input, so anything else at the root ships to the live site.
-      # Strip local agent tooling from the checkout before it is packaged.
-      - name: Remove agent tooling from the Pages artifact
-        run: rm -rf .claude
+      # Strip local tooling and content sources before the checkout is packaged.
+      - name: Remove build tooling from the Pages artifact
+        run: rm -rf .claude build content templates tests
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact

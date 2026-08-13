@@ -1,0 +1,33 @@
+name: Checks
+
+# Runs on pull requests so the content gates are protective before a merge, not
+# after it. github-pages.yml repeats the same two commands before packaging the
+# artifact; that copy is what guarantees a failure blocks a publish rather than
+# taking the live site down.
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+      - main
+  workflow_dispatch:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # migration-diff.py compares an article against its committed
+          # baseline, so it needs more than a shallow clone.
+          fetch-depth: 0
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify generated articles match their content sources
+        run: node build/build.mjs --check
+      - name: Run the static content checks
+        run: python3 -m unittest discover -s tests

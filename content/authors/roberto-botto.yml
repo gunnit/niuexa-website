@@ -1,0 +1,11 @@
+# Person entity for schema.org author/reviewer attribution (rule AEO-03).
+id: roberto-botto
+name: Roberto Botto
+job_title: Co-Fondatore di Niuexa & CEO Libera Brand Building Group
+url: https://niuexa.ai/chi-siamo.html#roberto-botto
+same_as:
+  - https://www.linkedin.com/in/roberto-botto-10498a3/
+knows_about:
+  - Brand building
+  - Strategia digitale
+  - Trasformazione digitale

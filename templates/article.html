@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','{{GTM_ID}}');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
+
+{{HEAD_META}}
+
+{{HEAD_LINKS}}
+
+{{HEAD_SCHEMA}}
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{GTM_ID}}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <div id="navigation-placeholder"></div>
+    <main id="main-content">
+{{HEADER}}
+
+        <article class="tutorial-content"><div class="container"><div class="content-wrapper">
+{{BODY}}
+        </div></div></article>
+
+{{CTA}}
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="includes/includes.js?v={{INCLUDES_V}}"></script>
+    <script src="tutorial.js"></script>
+    <script src="cookie-banner.js?v={{COOKIE_BANNER_V}}"></script>
+</body>
+</html>
