@@ -358,28 +358,44 @@ function renderHero(hero) {
   );
 }
 
+/** True when the article has anything at all to say about its sources. */
+const hasSources = (article) =>
+  Boolean(article.sources?.length || article.sources_intro || article.sources_disclaimer);
+
 function renderSources(article) {
   const pad = ' '.repeat(12);
-  const items = article.sources
-    .map((s) => {
-      const external = /^https?:\/\//.test(s.url) && !s.url.includes('niuexa.ai');
-      const rel = external ? ' target="_blank" rel="noopener"' : '';
-      const note = s.note ? `, ${renderInline(s.note)}` : '';
-      return `${pad}${INDENT}${INDENT}<li><a href="${s.url}"${rel}>${escapeHtml(s.title)}</a>${note}</li>`;
-    })
-    .join('\n');
-  return [
+  const prose = article.sources_paragraphs ?? [];
+  const lines = [
     `${pad}<section class="content-section">`,
-    `${pad}${INDENT}<h2 id="fonti">Fonti e perimetro</h2>`,
-    `${pad}${INDENT}<p>${renderInline(article.sources_intro ?? 'Questo contenuto è informato dalle fonti seguenti:')}</p>`,
-    `${pad}${INDENT}<ul>`,
-    items,
-    `${pad}${INDENT}</ul>`,
-    ...(article.sources_disclaimer
-      ? [`${pad}${INDENT}<p>${renderInline(article.sources_disclaimer)}</p>`]
-      : []),
-    `${pad}</section>`,
-  ].join('\n');
+    `${pad}${INDENT}<h2 id="fonti">${escapeHtml(article.sources_heading ?? 'Fonti e perimetro')}</h2>`,
+  ];
+  if (article.sources_intro) {
+    lines.push(`${pad}${INDENT}<p>${renderInline(article.sources_intro)}</p>`);
+  }
+  for (const paragraph of prose) {
+    lines.push(`${pad}${INDENT}<p>${renderInline(paragraph)}</p>`);
+  }
+
+  // Some articles cite in prose rather than in a list. Their sources[] still
+  // feeds schema citation, but rendering the list too would print every source
+  // twice, so the prose is left to satisfy AEO-04's "renders visibly" half.
+  if (article.sources?.length && !prose.length) {
+    const items = article.sources
+      .map((s) => {
+        const external = /^https?:\/\//.test(s.url) && !s.url.includes('niuexa.ai');
+        const rel = external ? ' target="_blank" rel="noopener"' : '';
+        const note = s.note ? `, ${renderInline(s.note)}` : '';
+        return `${pad}${INDENT}${INDENT}<li><a href="${s.url}"${rel}>${escapeHtml(s.title)}</a>${note}</li>`;
+      })
+      .join('\n');
+    lines.push(`${pad}${INDENT}<ul>`, items, `${pad}${INDENT}</ul>`);
+  }
+
+  if (article.sources_disclaimer) {
+    lines.push(`${pad}${INDENT}<p>${renderInline(article.sources_disclaimer)}</p>`);
+  }
+  lines.push(`${pad}</section>`);
+  return lines.join('\n');
 }
 
 function renderFaq(article, anchor) {
@@ -488,7 +504,7 @@ export function renderArticle(article, { site, authors, allArticles = [] }) {
     ),
     ...(article.quick_answer ? [renderQuickAnswer(article)] : []),
     ...sections.map((s) => s.html),
-    ...(article.sources?.length ? [renderSources(article)] : []),
+    ...(hasSources(article) ? [renderSources(article)] : []),
     ...(faqAnchor ? [renderFaq(article, faqAnchor)] : []),
     ...(article.related?.length ? [renderRelated(article, ctx)] : []),
   ].join('\n\n');
@@ -526,6 +542,8 @@ export function syncSitemap(articles, site, { check = false } = {}) {
 
   for (const article of articles) {
     const loc = `${site.site.url}/articolo-${article.slug}.html`;
+    // A page merged into another via canonical belongs out of the sitemap.
+    if (article.canonical && article.canonical !== loc) continue;
     const pattern = new RegExp(
       `(<loc>${loc.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}</loc>\\s*<lastmod>)\\d{4}-\\d{2}-\\d{2}(</lastmod>)`,
     );

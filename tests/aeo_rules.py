@@ -197,7 +197,9 @@ class ArticleParser(HTMLParser):
             return
 
         self.body_text_parts.append(data)
-        if self._quick_answer_depth is not None:
+        # The 40-60 word budget is on the answer itself, so the section's own
+        # heading does not count toward it.
+        if self._quick_answer_depth is not None and self._pending_heading is None:
             self.quick_answer_parts.append(data)
         if self._current_faq is not None and self._faq_field:
             self._current_faq[self._faq_field].append(data)

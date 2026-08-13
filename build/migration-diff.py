@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import argparse
 import difflib
+import html
 import re
 import subprocess
 import sys
@@ -32,16 +33,21 @@ GENERATED_BLOCKS = (
 )
 
 
-def readable_text(html: str) -> list[str]:
+def readable_text(markup: str) -> list[str]:
     """The words a reader sees in the article body."""
-    if '<div class="content-wrapper">' not in html:
+    if '<div class="content-wrapper">' not in markup:
         raise ValueError("page has no .content-wrapper; not an article")
-    body = html.split('<div class="content-wrapper">', 1)[1]
+    body = markup.split('<div class="content-wrapper">', 1)[1]
     body = body.split("</div></div></article>", 1)[0]
     for pattern in GENERATED_BLOCKS:
         body = pattern.sub(" ", body)
     text = re.sub(r"<[^>]+>", " ", body)
-    for curly, plain in (("’", "'"), ("‘", "'"), ("“", '"'), ("”", '"')):
+    # The older articles spell accents as character entities and the generator
+    # emits real characters. Decode before comparing, or every "&egrave;" reads
+    # as a lost word.
+    text = html.unescape(text)
+    for curly, plain in (("’", "'"), ("‘", "'"), ("“", '"'), ("”", '"'),
+                         (" ", " ")):
         text = text.replace(curly, plain)
     return re.sub(r"\s+", " ", text).split()
 
