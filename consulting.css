@@ -242,6 +242,91 @@
     font-weight: bold;
 }
 
+/* Quote-to-order operational checklist */
+.quote-order-section {
+    padding: var(--section-padding);
+    background: var(--light-gray);
+}
+
+.quote-order-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 3rem;
+    align-items: center;
+}
+
+.quote-order-intro .section-title {
+    margin: 0.75rem 0 1rem;
+    text-align: left;
+}
+
+.quote-order-intro > p {
+    max-width: 680px;
+    color: var(--medium-gray);
+    line-height: 1.7;
+}
+
+.quote-order-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.75rem;
+}
+
+.quote-order-checks {
+    display: grid;
+    gap: 0.85rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.quote-order-checks li {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem 1.15rem;
+    border: 1px solid var(--primary-blue);
+    border-radius: 14px;
+    background: var(--white);
+}
+
+.quote-order-checks span {
+    color: var(--blue-text);
+    font-family: var(--font-primary);
+    font-weight: 700;
+}
+
+.quote-order-checks strong,
+.quote-order-checks small {
+    display: block;
+}
+
+.quote-order-checks strong {
+    color: var(--dark-gray);
+    font-family: var(--font-primary);
+}
+
+.quote-order-checks small {
+    margin-top: 0.2rem;
+    color: var(--medium-gray);
+    line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+    .quote-order-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 560px) {
+    .quote-order-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
 /* Vendor due-diligence lead magnet */
 .vendor-checklist-section {
     padding: var(--section-padding);
