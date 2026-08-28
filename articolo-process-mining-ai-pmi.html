@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KG9S42S4');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
+
+    <title>Process Mining per PMI: Mappare Prima dell’AI | Niuexa</title>
+    <meta name="description" content="Guida pratica al process mining per PMI: ricostruire il flusso reale, trovare varianti e colli di bottiglia, scegliere dove applicare l’AI.">
+    <meta name="keywords" content="process mining PMI, mappatura processi, automazione AI, event log, process discovery, analisi workflow">
+    <meta name="author" content="Gregor Maric">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://niuexa.ai/articolo-process-mining-ai-pmi.html">
+    <meta property="og:title" content="Process mining per PMI: osservare il lavoro prima di automatizzarlo">
+    <meta property="og:description" content="Un metodo leggero per trasformare tracce operative in una mappa utile, selezionare il caso d’uso AI e definire una baseline misurabile.">
+    <meta property="og:image" content="https://niuexa.ai/img/articles/process-mining-ai-pmi/process-mining-ai-pmi-og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Framework Niuexa dal processo reale alla decisione di automazione AI">
+    <meta property="og:locale" content="it_IT">
+    <meta property="article:published_time" content="2026-08-28">
+    <meta property="article:modified_time" content="2026-08-28">
+    <meta property="article:author" content="Gregor Maric">
+    <meta property="article:section" content="AI Strategy e Automazione">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Process mining per PMI: mappare prima di automatizzare">
+    <meta name="twitter:description" content="Come ricostruire il flusso reale, misurare varianti e colli di bottiglia e scegliere un caso d’uso AI verificabile.">
+    <meta name="twitter:image" content="https://niuexa.ai/img/articles/process-mining-ai-pmi/process-mining-ai-pmi-og.png">
+    <meta name="twitter:image:alt" content="Framework Niuexa dal processo reale alla decisione di automazione AI">
+
+    <link rel="canonical" href="https://niuexa.ai/articolo-process-mining-ai-pmi.html">
+    <link rel="alternate" hreflang="it" href="https://niuexa.ai/articolo-process-mining-ai-pmi.html">
+    <link rel="alternate" hreflang="it-it" href="https://niuexa.ai/articolo-process-mining-ai-pmi.html">
+    <link rel="alternate" hreflang="x-default" href="https://niuexa.ai/articolo-process-mining-ai-pmi.html">
+    <link rel="icon" type="image/x-icon" href="img/favicon 256.ico">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=20260807">
+    <link rel="stylesheet" href="tutorial.css?v=20260812">
+    <link rel="stylesheet" href="article-visuals.css?v=20260812">
+
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"Article",
+      "headline":"Process mining per PMI: osservare il lavoro prima di automatizzarlo con l’AI",
+      "description":"Guida pratica al process mining per PMI: ricostruire il flusso reale, trovare varianti e colli di bottiglia, scegliere dove applicare l’AI.",
+      "author":{"@type":"Person","name":"Gregor Maric","url":"https://niuexa.ai/chi-siamo.html#gregor-maric","jobTitle":"CEO & Co-Fondatore di Niuexa","sameAs":["https://www.linkedin.com/in/maricgregor/"]},
+      "publisher":{"@type":"Organization","name":"Niuexa","url":"https://niuexa.ai","logo":{"@type":"ImageObject","url":"https://niuexa.ai/img/niuexalogo.png"}},
+      "datePublished":"2026-08-28",
+      "dateModified":"2026-08-28",
+      "mainEntityOfPage":{"@type":"WebPage","@id":"https://niuexa.ai/articolo-process-mining-ai-pmi.html"},
+      "image":["https://niuexa.ai/img/articles/process-mining-ai-pmi/process-mining-ai-pmi-og.png"],
+      "articleSection":"AI Strategy e Automazione",
+      "keywords":["process mining PMI","mappatura processi","automazione AI","event log","process discovery"],
+      "inLanguage":"it-IT",
+      "citation":[
+        {"@type":"CreativeWork","name":"IEEE Task Force on Process Mining","url":"https://www.tf-pm.org/","publisher":{"@type":"Organization","name":"IEEE Task Force on Process Mining"}},
+        {"@type":"CreativeWork","name":"Event Data for Process Mining","url":"https://www.processmining.org/event-data.html","publisher":{"@type":"Organization","name":"ProcessMining.org"}}
+      ],
+      "speakable":{"@type":"SpeakableSpecification","cssSelector":["h1",".tutorial-description",".quick-answer"]}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Che cos’è il process mining?","acceptedAnswer":{"@type":"Answer","text":"È l’analisi dei dati evento prodotti dai sistemi aziendali per ricostruire, confrontare e migliorare il processo realmente eseguito."}},
+        {"@type":"Question","name":"Quali dati servono per iniziare?","acceptedAnswer":{"@type":"Answer","text":"Almeno ID del caso, attività e timestamp. Owner, esito, canale e costo rendono la diagnosi più utile."}},
+        {"@type":"Question","name":"Serve un grande progetto software?","acceptedAnswer":{"@type":"Answer","text":"No. Una PMI può partire da un processo circoscritto e da un estratto controllato, verificando definizioni e qualità."}},
+        {"@type":"Question","name":"Come aiuta a scegliere un’automazione AI?","acceptedAnswer":{"@type":"Answer","text":"Rende visibili volumi, varianti, attese, rilavorazioni ed eccezioni, così la priorità parte da una baseline e non da impressioni."}}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://niuexa.ai/"},{"@type":"ListItem","position":2,"name":"Ricerca","item":"https://niuexa.ai/research.html"},{"@type":"ListItem","position":3,"name":"Process mining per PMI","item":"https://niuexa.ai/articolo-process-mining-ai-pmi.html"}]}
+    </script>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9S42S4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <div id="navigation-placeholder"></div>
+    <main id="main-content">
+        <section class="tutorial-header"><div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="research.html">Ricerca</a> / <span>Process mining per PMI</span></nav><div class="tutorial-intro">
+            <div class="tutorial-badge">AI Strategy e Automazione</div>
+            <h1>Process mining per PMI: osservare il lavoro prima di automatizzarlo con l’AI</h1>
+            <p class="tutorial-description">Le procedure descrivono il processo ideale. Le tracce operative mostrano attese, deviazioni e rilavorazioni. Collegare le due viste aiuta a scegliere un’automazione utile e misurabile.</p>
+            <div class="tutorial-stats"><span class="stat">10 minuti di lettura</span><span class="stat">Per COO, process owner e IT</span><span class="stat">Metodo in 5 passaggi</span></div>
+        </div></div></section>
+
+        <article class="tutorial-content"><div class="container"><div class="content-wrapper">
+            <figure class="article-visual article-visual-hero"><img src="img/articles/process-mining-ai-pmi/process-mining-ai-pmi-og.png" alt="Framework Niuexa dal processo reale alla decisione di automazione AI" width="1200" height="630" loading="eager" decoding="async"><figcaption>Prima si ricostruisce il lavoro reale; poi si decide quale attività semplificare, automatizzare o lasciare sotto controllo umano.</figcaption></figure>
+
+            <nav class="article-toc" aria-labelledby="article-toc-heading"><h2 id="article-toc-heading">Indice</h2><ul>
+                <li><a href="#risposta-rapida">Risposta rapida</a></li>
+                <li><a href="#procedura-e-processo-reale">Procedura e processo reale</a></li>
+                <li><a href="#dati-minimi">I dati minimi</a></li>
+                <li><a href="#metodo-cinque-passaggi">Metodo in cinque passaggi</a></li>
+                <li><a href="#matrice-decisionale">Matrice decisionale</a></li>
+                <li><a href="#checklist-pilota">Checklist del pilota</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul></nav>
+
+            <section class="content-section quick-answer">
+                <h2 id="risposta-rapida">Risposta rapida: che cos’è il process mining?</h2>
+                <p>Il <strong>process mining</strong> usa le tracce dei sistemi aziendali per ricostruire come un processo viene eseguito davvero. Collegando ogni evento a un caso, un’attività e un momento, rende visibili percorsi frequenti, varianti, attese, rilavorazioni ed eccezioni. Per una PMI può essere una diagnosi circoscritta che rende verificabile la scelta del primo workflow AI.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="procedura-e-processo-reale">La procedura racconta il percorso previsto; i dati raccontano quello reale</h2>
+                <p>Una procedura può dire: richiesta, verifica, approvazione, esecuzione. Nella pratica alcune richieste tornano indietro perché manca un allegato, altre attendono un responsabile, altre ancora passano da email, fogli di calcolo e gestionale. Se si automatizza solo il diagramma ideale, l’AI incontra eccezioni che il progetto non aveva considerato.</p>
+                <p>L’IEEE Task Force on Process Mining distingue tra <strong>process discovery</strong>, che estrae un modello dagli eventi, e <strong>conformance checking</strong>, che confronta log e modello per osservare le deviazioni. Per la selezione di un caso d’uso AI la distinzione è pratica: prima scopri le varianti; poi decidi quali sono accettabili, quali indicano spreco e quali richiedono una regola o un controllo umano.</p>
+                <p>Il process mining non sostituisce le interviste. I log mostrano che cosa è accaduto nei sistemi, ma non spiegano sempre perché. Una diagnosi credibile combina eventi, documentazione e confronto con chi svolge il lavoro. Se un passaggio avviene fuori sistema, va dichiarato come area non osservata, non interpretato come inesistente.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="dati-minimi">I dati minimi: caso, attività e timestamp</h2>
+                <p>ProcessMining.org descrive un event log tradizionale con tre elementi essenziali: identificativo del caso, attività e timestamp. Il “caso” è l’unità che attraversa il processo: un ordine, un ticket, una pratica o una richiesta di preventivo. L’attività indica il passaggio eseguito. Il timestamp permette di ordinare gli eventi e misurare le attese.</p>
+                <table class="comparison-table"><thead><tr><th>Campo</th><th>Domanda a cui risponde</th><th>Esempio</th></tr></thead><tbody>
+                    <tr><td><strong>ID caso</strong></td><td>Quali eventi appartengono alla stessa pratica?</td><td>Ordine 10482</td></tr>
+                    <tr><td><strong>Attività</strong></td><td>Quale passaggio è avvenuto?</td><td>Verifica disponibilità</td></tr>
+                    <tr><td><strong>Timestamp</strong></td><td>Quando è avvenuto e quanto si è atteso?</td><td>28/08, 10:42</td></tr>
+                    <tr><td><strong>Attributi utili</strong></td><td>Chi, con quale esito, canale o costo?</td><td>Owner, reparto, esito, valore</td></tr>
+                </tbody></table>
+                <p>La qualità dell’analisi dipende dalla qualità semantica del log. Due sistemi possono usare nomi diversi per la stessa attività o lo stesso stato per eventi diversi. Prima di disegnare la mappa servono un dizionario dei campi, regole di esclusione, controllo dei duplicati e una verifica a campione con il process owner. Se i dati personali non sono necessari alla domanda, vanno esclusi o minimizzati.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="metodo-cinque-passaggi">Un metodo leggero in cinque passaggi</h2>
+                <figure class="article-visual article-diagram article-diagram-scroll"><img src="img/articles/process-mining-ai-pmi/workflow-process-mining-ai.svg" alt="Workflow Niuexa in cinque passaggi: perimetro, eventi, mappa reale, diagnosi e decisione AI" width="1200" height="720" loading="eager" decoding="async"><figcaption>Ogni passaggio produce un’evidenza riutilizzabile nel business case e nel test del workflow. Su mobile, scorri il diagramma in orizzontale.</figcaption></figure>
+
+                <h3>1. Delimita il processo e la decisione</h3>
+                <p>Non partire da “analizziamo tutto l’ERP”. Scegli un inizio, una fine, un owner e una domanda. Per esempio: perché alcune richieste di assistenza superano la soglia interna? Oppure: dove si accumulano rilavorazioni tra preventivo e ordine? Un perimetro chiaro impedisce di confondere attività adiacenti con lo stesso processo.</p>
+
+                <h3>2. Costruisci un estratto verificato</h3>
+                <p>Raccogli un periodo rappresentativo e documenta origine, campi, filtri e trasformazioni. Controlla casi senza ID, timestamp incoerenti, eventi duplicati e attività troppo generiche. Fai seguire manualmente alcuni casi dall’inizio alla fine: è il modo più rapido per trovare errori di correlazione.</p>
+
+                <h3>3. Ricostruisci percorso dominante e varianti</h3>
+                <p>La mappa non serve a produrre il diagramma più complesso. Deve separare il flusso dominante dalle varianti che muovono tempo, costo o rischio. Per ciascuna variante rileva frequenza, durata, esito e passaggi ripetuti. Una variante rara ma ad alto impatto può meritare più attenzione di una deviazione frequente e innocua.</p>
+
+                <h3>4. Diagnostica attese, rilavorazioni ed eccezioni</h3>
+                <p>Separa il tempo di lavorazione dal tempo di attesa. Evidenzia i passaggi che tornano indietro, i trasferimenti tra sistemi, le approvazioni prive di SLA e i casi che richiedono correzione manuale. Valida ogni ipotesi con chi esegue il processo: il log è una prova, non una spiegazione completa.</p>
+
+                <h3>5. Scegli l’intervento e fissa la baseline</h3>
+                <p>Non ogni problema richiede AI. Una regola, un campo obbligatorio o un’integrazione deterministica possono essere soluzioni migliori. L’AI è adatta quando deve interpretare testo, classificare casi, estrarre informazioni o supportare una decisione entro limiti definiti. Prima del pilota salva volumi, tempi, tasso di rilavorazione, eccezioni e qualità accettata: saranno il confronto per il go/no-go.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="matrice-decisionale">Dalla diagnosi alla decisione: quattro interventi possibili</h2>
+                <table class="comparison-table"><thead><tr><th>Segnale osservato</th><th>Intervento da valutare</th><th>Controllo</th></tr></thead><tbody>
+                    <tr><td>Dati mancanti all’ingresso</td><td>Semplificare modulo e validazioni</td><td>Completezza prima dell’invio</td></tr>
+                    <tr><td>Trasferimento manuale tra sistemi</td><td>Integrazione deterministica</td><td>Idempotenza e riconciliazione</td></tr>
+                    <tr><td>Testo non strutturato da interpretare</td><td>Classificazione o estrazione AI</td><td>Campione verificato e soglia</td></tr>
+                    <tr><td>Eccezioni ad alto impatto</td><td>Supporto AI con approvazione umana</td><td>Escalation, log e responsabilità</td></tr>
+                </tbody></table>
+                <p>Questa matrice evita il bias “AI per ogni problema”. Il risultato della discovery è un backlog di interventi con evidenza, non un elenco di funzionalità. La priorità combina volume, impatto, fattibilità dei dati, reversibilità e disponibilità di un owner.</p>
+                <p>Per confrontare due candidati, usa la stessa scheda: problema osservato, frequenza, tempo perso, costo dell’errore, quota di casi standard, dati disponibili e rischio dell’azione. Aggiungi l’alternativa senza AI e il criterio di uscita. In questo modo il management può scegliere un pilota piccolo ma informativo, invece di premiare il processo più visibile o il tool presentato meglio.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="checklist-pilota">Checklist prima di avviare un pilota</h2>
+                <ul>
+                    <li>Inizio, fine, caso e owner del processo sono definiti.</li>
+                    <li>La domanda decisionale è esplicita e non coincide con “usare l’AI”.</li>
+                    <li>Origine, significato e qualità dei campi sono documentati.</li>
+                    <li>Il percorso dominante e le varianti rilevanti sono validati con gli operatori.</li>
+                    <li>Tempo di attesa e tempo di lavorazione sono separati.</li>
+                    <li>La baseline include volume, durata, rilavorazioni, eccezioni ed esito accettato.</li>
+                    <li>È stato verificato se una regola o integrazione basta senza AI.</li>
+                    <li>Il pilota ha criteri di accettazione, fallback e owner del go/no-go.</li>
+                </ul>
+            </section>
+
+            <section class="content-section"><h2 id="fonti">Fonti e perimetro</h2><p>Le definizioni di process discovery e conformance checking sono allineate alla <a href="https://www.tf-pm.org/" target="_blank" rel="noopener">IEEE Task Force on Process Mining</a>. La struttura minima degli eventi e le note sui formati derivano dalla guida <a href="https://www.processmining.org/event-data.html" target="_blank" rel="noopener">Event Data for Process Mining</a>. Il metodo in cinque passaggi, la matrice decisionale e la checklist sono una guida operativa Niuexa. Non costituiscono una garanzia di ROI né una valutazione legale, privacy o cybersecurity.</p></section>
+
+            <section class="content-section faq-section">
+                <h2 id="faq">FAQ sul process mining per PMI</h2>
+                <div class="faq-item"><h3>Che cos’è il process mining?</h3><p>È l’analisi dei dati evento prodotti dai sistemi aziendali per ricostruire, confrontare e migliorare il processo realmente eseguito.</p></div>
+                <div class="faq-item"><h3>Quali dati servono per iniziare?</h3><p>Almeno ID del caso, attività e timestamp. Owner, esito, canale e costo rendono la diagnosi più utile.</p></div>
+                <div class="faq-item"><h3>Serve un grande progetto software?</h3><p>No. Una PMI può partire da un processo circoscritto e da un estratto controllato, verificando definizioni e qualità.</p></div>
+                <div class="faq-item"><h3>Come aiuta a scegliere un’automazione AI?</h3><p>Rende visibili volumi, varianti, attese, rilavorazioni ed eccezioni, così la priorità parte da una baseline e non da impressioni.</p></div>
+            </section>
+
+            <section class="content-section"><h2 id="approfondimenti">Approfondimenti correlati</h2><div class="related-articles">
+                <a href="articolo-automazione-processi-manuali.html" class="related-card"><span class="related-category">Automazione</span><h3>Processi manuali da automatizzare</h3></a>
+                <a href="articolo-processo-prima-ai-agent.html" class="related-card"><span class="related-category">AI Agents</span><h3>Prima il processo, poi l’agente</h3></a>
+                <a href="articolo-costi-automazione-guida.html" class="related-card"><span class="related-category">ROI</span><h3>Costi e baseline dell’automazione</h3></a>
+                <a href="ai-readiness-assessment.html" class="related-card"><span class="related-category">Assessment</span><h3>Valuta la tua AI readiness</h3></a>
+            </div></section>
+        </div></div></article>
+
+        <section class="cta-section"><div class="container"><h2 id="cta">Quale processo vale davvero un pilota AI?</h2><p>Niuexa aiuta le PMI a ricostruire il flusso reale, definire la baseline e selezionare un intervento proporzionato tra semplificazione, integrazione e AI.</p><a href="ai-readiness-assessment.html" class="btn btn-primary">Prenota un assessment AI</a><a href="consulting.html" class="btn btn-secondary" style="margin-left:15px;">Scopri la consulenza AI</a></div></section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="includes/includes.js?v=20260428"></script>
+    <script src="tutorial.js"></script>
+    <script src="cookie-banner.js?v=20260428"></script>
+</body>
+</html>
