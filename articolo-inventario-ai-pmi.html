@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KG9S42S4');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
+
+    <title>Inventario AI per PMI: dal Shadow AI al Controllo | Niuexa</title>
+    <meta name="description" content="Guida pratica per creare un inventario degli usi AI in azienda: scoprire il shadow AI, assegnare owner, classificare rischi e governare i workflow.">
+    <meta name="keywords" content="inventario AI PMI, shadow AI, registro sistemi AI, governance AI, catalogo use case AI, AI Act PMI">
+    <meta name="author" content="Gregor Maric">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://niuexa.ai/articolo-inventario-ai-pmi.html">
+    <meta property="og:title" content="Inventario AI per PMI: dal shadow AI a un catalogo governato">
+    <meta property="og:description" content="Un metodo leggero per censire strumenti e workflow AI, assegnare responsabilità e decidere che cosa approvare, correggere o fermare.">
+    <meta property="og:image" content="https://niuexa.ai/img/articles/inventario-ai-pmi/inventario-ai-pmi-og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Framework Niuexa per trasformare usi AI dispersi in un inventario governato">
+    <meta property="og:locale" content="it_IT">
+    <meta property="article:published_time" content="2026-09-01">
+    <meta property="article:modified_time" content="2026-09-01">
+    <meta property="article:author" content="Gregor Maric">
+    <meta property="article:section" content="AI Governance e Adozione">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Inventario AI per PMI: dal shadow AI al controllo">
+    <meta name="twitter:description" content="Come censire gli usi AI reali e costruire un catalogo operativo con owner, dati, rischio e decisione.">
+    <meta name="twitter:image" content="https://niuexa.ai/img/articles/inventario-ai-pmi/inventario-ai-pmi-og.png">
+    <meta name="twitter:image:alt" content="Framework Niuexa per trasformare usi AI dispersi in un inventario governato">
+
+    <link rel="canonical" href="https://niuexa.ai/articolo-inventario-ai-pmi.html">
+    <link rel="alternate" hreflang="it" href="https://niuexa.ai/articolo-inventario-ai-pmi.html">
+    <link rel="alternate" hreflang="it-it" href="https://niuexa.ai/articolo-inventario-ai-pmi.html">
+    <link rel="alternate" hreflang="x-default" href="https://niuexa.ai/articolo-inventario-ai-pmi.html">
+    <link rel="icon" type="image/x-icon" href="img/favicon 256.ico">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=20260807">
+    <link rel="stylesheet" href="tutorial.css?v=20260812">
+    <link rel="stylesheet" href="article-visuals.css?v=20260812">
+
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"Article",
+      "headline":"Inventario AI per PMI: dal shadow AI a un catalogo governato",
+      "description":"Guida pratica per creare un inventario degli usi AI in azienda: scoprire il shadow AI, assegnare owner, classificare rischi e governare i workflow.",
+      "author":{"@type":"Person","name":"Gregor Maric","url":"https://niuexa.ai/chi-siamo.html#gregor-maric","jobTitle":"CEO & Co-Fondatore di Niuexa","sameAs":["https://www.linkedin.com/in/maricgregor/"]},
+      "publisher":{"@type":"Organization","name":"Niuexa","url":"https://niuexa.ai","logo":{"@type":"ImageObject","url":"https://niuexa.ai/img/niuexalogo.png"}},
+      "datePublished":"2026-09-01",
+      "dateModified":"2026-09-01",
+      "mainEntityOfPage":{"@type":"WebPage","@id":"https://niuexa.ai/articolo-inventario-ai-pmi.html"},
+      "image":["https://niuexa.ai/img/articles/inventario-ai-pmi/inventario-ai-pmi-og.png"],
+      "articleSection":"AI Governance e Adozione",
+      "keywords":["inventario AI PMI","shadow AI","registro sistemi AI","governance AI","catalogo use case AI"],
+      "inLanguage":"it-IT",
+      "citation":[
+        {"@type":"CreativeWork","name":"NIST AI Risk Management Framework Core","url":"https://airc.nist.gov/airmf-resources/airmf/5-sec-core/","publisher":{"@type":"Organization","name":"National Institute of Standards and Technology"}},
+        {"@type":"CreativeWork","name":"AI talent, skills and literacy","url":"https://digital-strategy.ec.europa.eu/en/policies/ai-talent-skills-and-literacy","publisher":{"@type":"Organization","name":"European Commission"}}
+      ],
+      "speakable":{"@type":"SpeakableSpecification","cssSelector":["h1",".tutorial-description",".quick-answer"]}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Che cos’è un inventario AI aziendale?","acceptedAnswer":{"@type":"Answer","text":"È un registro operativo degli strumenti, sistemi e workflow AI effettivamente usati, con scopo, owner, dati, utenti, rischio, controlli e stato decisionale."}},
+        {"@type":"Question","name":"Come si scopre il shadow AI senza bloccare i team?","acceptedAnswer":{"@type":"Answer","text":"Con una raccolta breve e non punitiva per ruolo e processo, verificata con interviste, spese, integrazioni e log disponibili, offrendo un percorso rapido per regolarizzare gli usi utili."}},
+        {"@type":"Question","name":"Quali campi deve contenere il registro?","acceptedAnswer":{"@type":"Answer","text":"Almeno nome dell’uso, processo, scopo, owner, utenti, dati in ingresso, output e destinatari, fornitore, integrazioni, livello di autonomia, controlli, stato e data di revisione."}},
+        {"@type":"Question","name":"Ogni uso AI richiede lo stesso controllo?","acceptedAnswer":{"@type":"Answer","text":"No. La profondità del controllo dovrebbe essere proporzionata a dati, autonomia, impatto dell’errore e reversibilità della decisione."}},
+        {"@type":"Question","name":"Quanto tempo serve per una prima versione?","acceptedAnswer":{"@type":"Answer","text":"Una PMI può ottenere una baseline utile partendo da uno o due processi e aggiornandola in cicli brevi. L’obiettivo iniziale è rendere visibili gli usi prioritari, non censire tutto in modo perfetto."}}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://niuexa.ai/"},{"@type":"ListItem","position":2,"name":"Ricerca","item":"https://niuexa.ai/research.html"},{"@type":"ListItem","position":3,"name":"Inventario AI per PMI","item":"https://niuexa.ai/articolo-inventario-ai-pmi.html"}]}
+    </script>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9S42S4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <div id="navigation-placeholder"></div>
+    <main id="main-content">
+        <section class="tutorial-header"><div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="research.html">Ricerca</a> / <span>Inventario AI per PMI</span></nav><div class="tutorial-intro">
+            <div class="tutorial-badge">AI Governance e Adozione</div>
+            <h1>Inventario AI per PMI: dal shadow AI a un catalogo governato</h1>
+            <p class="tutorial-description">Non puoi governare un uso dell’AI che non sai di avere. Un inventario leggero rende visibili strumenti, workflow, dati e responsabilità senza trasformare l’adozione in burocrazia.</p>
+            <div class="tutorial-stats"><span class="stat">11 minuti di lettura</span><span class="stat">Per direzione, IT, HR e process owner</span><span class="stat">Metodo in 5 passaggi</span></div>
+        </div></div></section>
+
+        <article class="tutorial-content"><div class="container"><div class="content-wrapper">
+            <figure class="article-visual article-visual-hero"><img src="img/articles/inventario-ai-pmi/inventario-ai-pmi-og.png" alt="Framework Niuexa per trasformare usi AI dispersi in un inventario governato" width="1200" height="630" loading="eager" decoding="async"><figcaption>Il registro non è un elenco di software: collega ogni uso AI a un processo, un owner, dati, controlli e una decisione.</figcaption></figure>
+
+            <nav class="article-toc" aria-labelledby="article-toc-heading"><h2 id="article-toc-heading">Indice</h2><ul>
+                <li><a href="#risposta-rapida">Risposta rapida</a></li>
+                <li><a href="#perche-inventario">Perché serve un inventario</a></li>
+                <li><a href="#scheda-minima">La scheda minima</a></li>
+                <li><a href="#metodo-cinque-passaggi">Metodo in cinque passaggi</a></li>
+                <li><a href="#decisioni">Quattro decisioni possibili</a></li>
+                <li><a href="#checklist">Checklist operativa</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul></nav>
+
+            <section class="content-section quick-answer">
+                <h2 id="risposta-rapida">Risposta rapida: che cos’è un inventario AI aziendale?</h2>
+                <p>Un <strong>inventario AI</strong> è un registro operativo degli strumenti, sistemi e workflow AI effettivamente usati in azienda. Per ogni uso collega scopo, processo, owner, utenti, dati, output, livello di autonomia, controlli e stato decisionale. Serve a distinguere una sperimentazione innocua da un’attività che può influire su clienti, dipendenti, denaro o continuità operativa.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="perche-inventario">Perché la sola lista degli strumenti non basta</h2>
+                <p>Due persone possono usare lo stesso assistente generativo in modi molto diversi. Una prepara una bozza interna senza dati riservati; l’altra carica contratti, genera una risposta per un cliente e la invia senza revisione. Il nome del software è identico, ma processo, dati, destinatario e impatto cambiano completamente.</p>
+                <p>Per questo il censimento deve partire dall’<strong>uso nel workflow</strong>, non dal catalogo IT. Il NIST AI Risk Management Framework include tra gli esiti di governance la presenza di meccanismi per inventariare i sistemi AI in funzione delle priorità di rischio. Lo stesso framework collega governance, ruoli, monitoraggio e gestione lungo il ciclo di vita. Non impone a una PMI un unico modello di registro: indica però che visibilità e responsabilità sono prerequisiti della gestione.</p>
+                <p>Un inventario utile riduce tre zone grigie. La prima è il <strong>shadow AI</strong>: usi reali non ancora noti o approvati. La seconda è l’<strong>AI incorporata</strong>: funzioni intelligenti attivate dentro CRM, suite d’ufficio o software verticali e quindi dimenticate nel censimento. La terza è l’<strong>automazione indiretta</strong>: un output AI entra in una decisione tramite email, fogli o API anche se nessuno la chiama “sistema AI”.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="scheda-minima">La scheda minima: censire una decisione, non compilare un questionario</h2>
+                <table class="comparison-table"><thead><tr><th>Campo</th><th>Domanda operativa</th><th>Esempio</th></tr></thead><tbody>
+                    <tr><td><strong>Uso e processo</strong></td><td>Che lavoro cambia?</td><td>Classificazione ticket assistenza</td></tr>
+                    <tr><td><strong>Owner</strong></td><td>Chi risponde dell’esito?</td><td>Responsabile customer service</td></tr>
+                    <tr><td><strong>Dati</strong></td><td>Che cosa entra nel sistema?</td><td>Testo ticket e storico cliente</td></tr>
+                    <tr><td><strong>Output e destinatario</strong></td><td>Che cosa produce e chi lo usa?</td><td>Categoria proposta all’operatore</td></tr>
+                    <tr><td><strong>Autonomia</strong></td><td>Suggerisce o agisce?</td><td>Suggerimento con conferma umana</td></tr>
+                    <tr><td><strong>Controlli</strong></td><td>Come si rileva e corregge l’errore?</td><td>Campione settimanale ed escalation</td></tr>
+                    <tr><td><strong>Stato</strong></td><td>Qual è la decisione corrente?</td><td>Pilota approvato fino al 30/09</td></tr>
+                </tbody></table>
+                <p>Aggiungi fornitore, integrazioni, versione o configurazione, data di revisione e criterio di uscita quando sono rilevanti. Evita invece campi che nessuno usa per decidere. Se una riga non permette di capire chi deve intervenire in caso di errore, il registro è ancora troppo descrittivo.</p>
+                <p>L’inventario non sostituisce privacy, sicurezza, procurement o valutazione legale. Funziona come indice comune: permette a queste funzioni di trovare i casi che richiedono un controllo più profondo e di evitare revisioni identiche per usi con impatti molto diversi.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="metodo-cinque-passaggi">Un metodo leggero in cinque passaggi</h2>
+                <figure class="article-visual article-diagram article-diagram-scroll"><img src="img/articles/inventario-ai-pmi/workflow-inventario-ai.svg" alt="Workflow Niuexa in cinque passaggi: scopri, descrivi, classifica, decidi e riesamina gli usi AI" width="1200" height="720" loading="eager" decoding="async"><figcaption>La prima versione deve rendere visibili gli usi prioritari e produrre decisioni; la completezza cresce con le revisioni. Su mobile, scorri il diagramma in orizzontale.</figcaption></figure>
+
+                <h3>1. Scopri gli usi reali senza impostare una caccia al colpevole</h3>
+                <p>Chiedi ai team quali attività svolgono con AI, non soltanto quali tool hanno installato. Parti da uno o due processi e usa una raccolta breve: attività, strumento, dati, output, destinatario e frequenza. Verifica poi con interviste, spese SaaS, integrazioni e log disponibili. Una comunicazione punitiva spinge gli usi nell’ombra; un percorso rapido di regolarizzazione porta informazioni migliori.</p>
+
+                <h3>2. Descrivi il workflow e individua il punto di impatto</h3>
+                <p>Traccia ingresso, trasformazione, revisione, azione e archiviazione. Chiedi dove l’output AI diventa operativo: quando viene inviato a un cliente, copiato nel CRM, usato per approvare una pratica o passato a un’altra automazione. Questo punto determina il controllo necessario più del modello impiegato.</p>
+
+                <h3>3. Classifica con quattro domande proporzionate</h3>
+                <p>Valuta dati, autonomia, impatto dell’errore e reversibilità. Dati sensibili o confidenziali aumentano l’attenzione. Un sistema che agisce richiede più controllo di uno che propone. Un errore che modifica un pagamento pesa più di una bozza interna. Una decisione facilmente annullabile è diversa da una comunicazione già inviata o da un’azione fisica.</p>
+
+                <h3>4. Prendi una decisione esplicita e assegna l’owner</h3>
+                <p>Ogni riga deve arrivare a uno stato: approvato, pilota con condizioni, da correggere o sospeso. Registra controlli, scadenza e responsabile. “In valutazione” senza data è un limbo. Per i casi utili ma incompleti, definisci la modifica minima necessaria: rimuovere dati, aggiungere revisione umana, limitare l’integrazione o creare un fallback.</p>
+
+                <h3>5. Riesamina quando cambia il rischio, non solo a calendario</h3>
+                <p>Una revisione periodica è utile, ma non basta. Riavvia il controllo se cambiano modello, fornitore, dati, utenti, integrazioni, livello di autonomia o destinatari. Collega il registro al processo di change management e alla gestione degli incidenti: una variazione materiale non deve vivere soltanto nella memoria del team.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="decisioni">Quattro decisioni possibili per ogni uso AI</h2>
+                <table class="comparison-table"><thead><tr><th>Stato</th><th>Quando usarlo</th><th>Evidenza minima</th></tr></thead><tbody>
+                    <tr><td><strong>Approvato</strong></td><td>Scopo, dati e controlli sono adeguati</td><td>Owner, perimetro, istruzioni e revisione</td></tr>
+                    <tr><td><strong>Pilota condizionato</strong></td><td>Valore plausibile, rischio limitato e testabile</td><td>Campione, soglia, fallback e scadenza</td></tr>
+                    <tr><td><strong>Da correggere</strong></td><td>L’uso è utile ma il controllo è insufficiente</td><td>Azione, responsabile e data di verifica</td></tr>
+                    <tr><td><strong>Sospeso</strong></td><td>Dati, autonomia o impatto non sono accettabili</td><td>Motivo, alternativa sicura e criterio di riapertura</td></tr>
+                </tbody></table>
+                <p>Il catalogo approvato deve essere facile da consultare: quali strumenti usare, per quali attività, con quali dati e con quale revisione. Questa parte positiva è essenziale. Una policy che elenca soltanto divieti non offre ai team un modo rapido per lavorare bene e tende a ricreare lo shadow AI.</p>
+                <p>Collega inoltre inventario e competenze. La Commissione europea indica che le misure di AI literacy devono considerare conoscenze, esperienza, formazione e contesto d’uso, senza imporre un unico livello individuale. Il registro aiuta a rendere la formazione concreta: chi prepara bozze interne ha bisogno di competenze diverse da chi supervisiona un workflow che influenza clienti o decisioni operative.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="checklist">Checklist per la prima baseline</h2>
+                <ul>
+                    <li>Il perimetro iniziale è un processo o una funzione, non “tutta l’azienda”.</li>
+                    <li>La raccolta chiede usi e attività, non soltanto nomi di software.</li>
+                    <li>Ogni uso ha un owner operativo e un destinatario dell’output.</li>
+                    <li>Dati, integrazioni e livello di autonomia sono espliciti.</li>
+                    <li>Il punto in cui l’output diventa azione è identificato.</li>
+                    <li>La decisione usa uno stato chiaro con data di revisione.</li>
+                    <li>I casi sospesi hanno un’alternativa sicura per non bloccare il lavoro.</li>
+                    <li>Il catalogo degli usi approvati è accessibile ai team.</li>
+                    <li>Cambi materiali e incidenti attivano una nuova revisione.</li>
+                </ul>
+            </section>
+
+            <section class="content-section"><h2 id="fonti">Fonti e perimetro</h2><p>Il principio di inventariare i sistemi AI e collegare governance, responsabilità e monitoraggio è allineato al <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/" target="_blank" rel="noopener">NIST AI Risk Management Framework Core</a>, in particolare Govern 1.6. Il collegamento tra contesto d’uso e competenze si basa sulla pagina ufficiale della Commissione europea dedicata a <a href="https://digital-strategy.ec.europa.eu/en/policies/ai-talent-skills-and-literacy" target="_blank" rel="noopener">AI talent, skills and literacy</a>. Scheda, classificazione e workflow in cinque passaggi sono guida operativa Niuexa: non costituiscono parere legale, privacy o cybersecurity né una garanzia di conformità.</p></section>
+
+            <section class="content-section faq-section">
+                <h2 id="faq">FAQ sull’inventario AI aziendale</h2>
+                <div class="faq-item"><h3>Che cos’è un inventario AI aziendale?</h3><p>È un registro operativo degli strumenti, sistemi e workflow AI effettivamente usati, con scopo, owner, dati, utenti, rischio, controlli e stato decisionale.</p></div>
+                <div class="faq-item"><h3>Come si scopre il shadow AI senza bloccare i team?</h3><p>Con una raccolta breve e non punitiva per ruolo e processo, verificata con interviste, spese, integrazioni e log disponibili, offrendo un percorso rapido per regolarizzare gli usi utili.</p></div>
+                <div class="faq-item"><h3>Quali campi deve contenere il registro?</h3><p>Almeno nome dell’uso, processo, scopo, owner, utenti, dati in ingresso, output e destinatari, fornitore, integrazioni, livello di autonomia, controlli, stato e data di revisione.</p></div>
+                <div class="faq-item"><h3>Ogni uso AI richiede lo stesso controllo?</h3><p>No. La profondità del controllo dovrebbe essere proporzionata a dati, autonomia, impatto dell’errore e reversibilità della decisione.</p></div>
+                <div class="faq-item"><h3>Quanto tempo serve per una prima versione?</h3><p>Una PMI può ottenere una baseline utile partendo da uno o due processi e aggiornandola in cicli brevi. L’obiettivo iniziale è rendere visibili gli usi prioritari, non censire tutto in modo perfetto.</p></div>
+            </section>
+
+            <section class="content-section"><h2 id="approfondimenti">Approfondimenti correlati</h2><div class="related-articles">
+                <a href="articolo-change-management-ai-pmi.html" class="related-card"><span class="related-category">Governance</span><h3>Gestire le modifiche ai sistemi AI</h3></a>
+                <a href="articolo-human-in-the-loop-ai-pmi.html" class="related-card"><span class="related-category">Controllo umano</span><h3>Progettare escalation e supervisione</h3></a>
+                <a href="articolo-due-diligence-fornitori-ai-pmi.html" class="related-card"><span class="related-category">Procurement</span><h3>Valutare i fornitori AI</h3></a>
+                <a href="ai-readiness-assessment.html" class="related-card"><span class="related-category">Assessment</span><h3>Valuta la tua AI readiness</h3></a>
+            </div></section>
+        </div></div></article>
+
+        <section class="cta-section"><div class="container"><h2 id="cta">Sai già dove l’AI entra nei processi della tua azienda?</h2><p>Niuexa aiuta le PMI a costruire una baseline degli usi AI, assegnare responsabilità e trasformare sperimentazioni disperse in un portafoglio governato.</p><a href="ai-readiness-assessment.html" class="btn btn-primary">Prenota un assessment AI</a><a href="consulting.html" class="btn btn-secondary" style="margin-left:15px;">Scopri la consulenza AI</a></div></section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="includes/includes.js?v=20260428"></script>
+    <script src="tutorial.js"></script>
+    <script src="cookie-banner.js?v=20260428"></script>
+</body>
+</html>
