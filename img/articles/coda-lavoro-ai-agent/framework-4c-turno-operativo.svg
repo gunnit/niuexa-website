@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Framework 4C del turno operativo di un AI agent</title>
+  <desc id="desc">Quattro fasi collegate: Coda, Capacità, Continuità e Consegna, con un ciclo di monitoraggio e miglioramento.</desc>
+  <style>
+    :root{--ink:#14324A;--blue:#237DA6;--blue-dark:#1F64AE;--teal:#0E9C9A;--green:#43AE68;--paper:#FFFFFF;--soft:#F1F5F8;--muted:#54697A}
+    .h{font:700 38px 'Space Grotesk',Arial,sans-serif;fill:var(--ink)}.k{font:700 23px 'Space Grotesk',Arial,sans-serif;fill:var(--paper)}.b{font:500 18px 'Hanken Grotesk',Arial,sans-serif;fill:var(--ink)}.m{font:600 17px 'Hanken Grotesk',Arial,sans-serif;fill:var(--muted)}.n{font:700 28px 'Space Grotesk',Arial,sans-serif;fill:var(--paper)}
+  </style>
+  <rect width="1200" height="720" rx="28" fill="var(--soft)"/>
+  <text x="70" y="78" class="h">Le 4C del turno operativo</text>
+  <text x="70" y="112" class="m">Dal lavoro in ingresso alla prova verificabile di completamento</text>
+  <path d="M175 322 H1025" stroke="var(--muted)" stroke-width="8" stroke-linecap="round" opacity=".28"/>
+  <g transform="translate(70 170)"><rect width="245" height="300" rx="24" fill="var(--blue-dark)"/><circle cx="42" cy="45" r="24" fill="var(--paper)" opacity=".18"/><text x="34" y="54" class="n">1</text><text x="78" y="54" class="k">CODA</text><text x="24" y="112" class="b" fill="var(--paper)">ID e obiettivo</text><text x="24" y="148" class="b" fill="var(--paper)">Priorità aziendale</text><text x="24" y="184" class="b" fill="var(--paper)">Dati minimi</text><text x="24" y="220" class="b" fill="var(--paper)">Stato e owner</text><text x="24" y="264" class="m" fill="var(--paper)">Quale lavoro entra?</text></g>
+  <g transform="translate(340 170)"><rect width="245" height="300" rx="24" fill="var(--blue)"/><circle cx="42" cy="45" r="24" fill="var(--paper)" opacity=".18"/><text x="34" y="54" class="n">2</text><text x="78" y="54" class="k">CAPACITÀ</text><text x="24" y="112" class="b" fill="var(--paper)">Concorrenza</text><text x="24" y="148" class="b" fill="var(--paper)">Quote e budget</text><text x="24" y="184" class="b" fill="var(--paper)">Revisori disponibili</text><text x="24" y="220" class="b" fill="var(--paper)">Regola di pausa</text><text x="24" y="264" class="m" fill="var(--paper)">Quanto può sostenere?</text></g>
+  <g transform="translate(610 170)"><rect width="245" height="300" rx="24" fill="var(--teal)"/><circle cx="42" cy="45" r="24" fill="var(--paper)" opacity=".18"/><text x="34" y="54" class="n">3</text><text x="78" y="54" class="k">CONTINUITÀ</text><text x="24" y="112" class="b" fill="var(--paper)">Checkpoint</text><text x="24" y="148" class="b" fill="var(--paper)">Chiave idempotente</text><text x="24" y="184" class="b" fill="var(--paper)">Ripresa sicura</text><text x="24" y="220" class="b" fill="var(--paper)">Riconciliazione</text><text x="24" y="264" class="m" fill="var(--paper)">Da dove riparte?</text></g>
+  <g transform="translate(880 170)"><rect width="245" height="300" rx="24" fill="var(--green)"/><circle cx="42" cy="45" r="24" fill="var(--paper)" opacity=".18"/><text x="34" y="54" class="n">4</text><text x="78" y="54" class="k">CONSEGNA</text><text x="24" y="112" class="b" fill="var(--paper)">ID provider</text><text x="24" y="148" class="b" fill="var(--paper)">Stato letto</text><text x="24" y="184" class="b" fill="var(--paper)">URL o destinatario</text><text x="24" y="220" class="b" fill="var(--paper)">Prossimo owner</text><text x="24" y="264" class="m" fill="var(--paper)">Quale prova chiude?</text></g>
+  <rect x="180" y="540" width="840" height="96" rx="48" fill="var(--paper)" stroke="var(--teal)" stroke-width="3"/>
+  <text x="600" y="581" text-anchor="middle" class="k" fill="var(--ink)">MONITORAGGIO DEL TURNO</text>
+  <text x="600" y="612" text-anchor="middle" class="m">arretrato · età · tempo di ciclo · blocchi · chiusure con prova</text>
+  <path d="M1020 588 C1110 588 1120 516 1080 482" fill="none" stroke="var(--green)" stroke-width="6" stroke-linecap="round"/><path d="M1082 482 l-18 8 5-19" fill="var(--green)"/>
+  <path d="M180 588 C90 588 80 516 120 482" fill="none" stroke="var(--blue-dark)" stroke-width="6" stroke-linecap="round"/><path d="M118 482 l18 8-5-19" fill="var(--blue-dark)"/>
+</svg>
