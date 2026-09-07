@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-KG9S42S4');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
+    </script>
+
+    <!-- SEO Meta Tags -->
+    <title>Thank You for Contacting Us | Niuexa - AI Consulting</title>
+    <meta name="description" content="Thank you for contacting us. The Niuexa team will get back to you within 24 business hours to discuss your artificial intelligence needs.">
+    <meta name="robots" content="noindex, follow">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Thank You for Contacting Us - Niuexa">
+    <meta property="og:description" content="We will get back to you within 24 business hours.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://niuexa.ai/en/thank-you-page.html">
+    <meta property="og:image" content="https://niuexa.ai/img/niuexalogo.png">
+    <meta property="og:site_name" content="Niuexa">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://niuexa.ai/en/thank-you-page.html">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/img/favicon 256.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon 256.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon 256.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon 256.ico">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css?v=20260807">
+
+    <style>
+        .thank-you-hero {
+            /* White copy over --gradient-primary is 2.78:1 at the green stop. */
+            background: var(--gradient-cta);
+            padding: 120px 0 80px;
+            text-align: center;
+            color: var(--white);
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .thank-you-content {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .thank-you-icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .thank-you-icon {
+                animation: none;
+            }
+        }
+
+        .thank-you-title {
+            font-family: var(--font-primary);
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .thank-you-message {
+            font-family: var(--font-secondary);
+            font-size: 1.25rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .thank-you-details {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .thank-you-details h2 {
+            font-family: var(--font-primary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .thank-you-details ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        .thank-you-details li {
+            font-family: var(--font-secondary);
+            font-size: 1.1rem;
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .thank-you-details li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            color: var(--primary-green);
+        }
+
+        .btn-home {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2.5rem;
+            background: var(--white);
+            color: var(--blue-text);
+            font-family: var(--font-secondary);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-home:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .thank-you-hero {
+                padding: 100px 0 60px;
+            }
+
+            .thank-you-title {
+                font-size: 2rem;
+            }
+
+            .thank-you-message {
+                font-size: 1.1rem;
+            }
+
+            .thank-you-icon {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9S42S4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Navigation Placeholder -->
+    <div id="nav-placeholder"></div>
+
+    <main id="main-content">
+
+    <!-- Thank You Hero Section -->
+    <section class="thank-you-hero">
+        <div class="container">
+            <div class="thank-you-content">
+                <div class="thank-you-icon" aria-hidden="true">✓</div>
+                <h1 class="thank-you-title">Thank you for contacting us!</h1>
+                <p class="thank-you-message">
+                    Your request has been received. Our AI consultants will review your information and get back to you within 24 business hours.
+                </p>
+
+                <div class="thank-you-details">
+                    <h2>What happens next?</h2>
+                    <ul>
+                        <li>We carefully review your request</li>
+                        <li>One of our consultants contacts you within 24 business hours</li>
+                        <li>Together we discuss your needs and goals</li>
+                        <li>We propose a tailored next step</li>
+                    </ul>
+                </div>
+
+                <a href="/en/index.html" class="btn-home">Back to home</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder -->
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="/en/includes/navigation-en.js?v=20260428"></script>
+    <script src="/conversion-tracking.js?v=20260707"></script>
+    <script src="/cookie-banner.js?v=20260428"></script>
+</body>
+</html>
