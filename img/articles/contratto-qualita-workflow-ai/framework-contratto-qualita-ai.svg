@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Contratto di qualità per workflow AI in sei passaggi</title>
+  <desc id="desc">Il workflow procede da scopo e input a output, controlli, decisione e prova finale, con un owner lungo tutto il processo.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0A1A26"/><stop offset="1" stop-color="#14324A"/></linearGradient>
+    <linearGradient id="flow" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#237DA6"/><stop offset="0.5" stop-color="#0E9C9A"/><stop offset="1" stop-color="#43AE68"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0A1A26" flood-opacity=".28"/></filter>
+  </defs>
+  <rect width="1200" height="720" rx="34" fill="url(#bg)"/>
+  <text x="72" y="78" fill="#4FD1C5" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="2">FRAMEWORK NIUEXA</text>
+  <text x="72" y="128" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="38" font-weight="700">Il contratto di qualità, dall’ingresso alla prova</text>
+  <path d="M154 370 H1046" stroke="url(#flow)" stroke-width="10" stroke-linecap="round"/>
+  <g font-family="Arial, sans-serif" text-anchor="middle" filter="url(#shadow)">
+    <g transform="translate(145 370)"><circle r="62" fill="#1F64AE" stroke="#4FD1C5" stroke-width="3"/><text y="-5" fill="#FFFFFF" font-size="26" font-weight="700">1</text><text y="25" fill="#FFFFFF" font-size="17" font-weight="700">SCOPO</text><text y="104" fill="#FFFFFF" font-size="20" font-weight="700">Confine</text><text y="132" fill="#ADB5BD" font-size="17">lavoro ammesso</text></g>
+    <g transform="translate(327 370)"><circle r="62" fill="#1F64AE" stroke="#4FD1C5" stroke-width="3"/><text y="-5" fill="#FFFFFF" font-size="26" font-weight="700">2</text><text y="25" fill="#FFFFFF" font-size="17" font-weight="700">INPUT</text><text y="104" fill="#FFFFFF" font-size="20" font-weight="700">Ingresso</text><text y="132" fill="#ADB5BD" font-size="17">dati validi</text></g>
+    <g transform="translate(509 370)"><circle r="62" fill="#0E8584" stroke="#4FD1C5" stroke-width="3"/><text y="-5" fill="#FFFFFF" font-size="26" font-weight="700">3</text><text y="25" fill="#FFFFFF" font-size="17" font-weight="700">OUTPUT</text><text y="104" fill="#FFFFFF" font-size="20" font-weight="700">Struttura</text><text y="132" fill="#ADB5BD" font-size="17">schema richiesto</text></g>
+    <g transform="translate(691 370)"><circle r="62" fill="#0E8584" stroke="#4FD1C5" stroke-width="3"/><text y="-5" fill="#FFFFFF" font-size="26" font-weight="700">4</text><text y="25" fill="#FFFFFF" font-size="17" font-weight="700">REGOLE</text><text y="104" fill="#FFFFFF" font-size="20" font-weight="700">Controlli</text><text y="132" fill="#ADB5BD" font-size="17">test deterministici</text></g>
+    <g transform="translate(873 370)"><circle r="62" fill="#2C8A4C" stroke="#5CC98A" stroke-width="3"/><text y="-5" fill="#FFFFFF" font-size="26" font-weight="700">5</text><text y="25" fill="#FFFFFF" font-size="17" font-weight="700">ESITO</text><text y="104" fill="#FFFFFF" font-size="20" font-weight="700">Decisione</text><text y="132" fill="#ADB5BD" font-size="17">passa o escala</text></g>
+    <g transform="translate(1055 370)"><circle r="62" fill="#2C7A45" stroke="#5CC98A" stroke-width="3"/><text y="-5" fill="#FFFFFF" font-size="26" font-weight="700">6</text><text y="25" fill="#FFFFFF" font-size="17" font-weight="700">PROVA</text><text y="104" fill="#FFFFFF" font-size="20" font-weight="700">Chiusura</text><text y="132" fill="#ADB5BD" font-size="17">evidenza riletta</text></g>
+  </g>
+  <rect x="72" y="596" width="1056" height="70" rx="20" fill="#FFFFFF" fill-opacity=".08" stroke="#4FD1C5" stroke-opacity=".45"/>
+  <text x="100" y="638" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="23" font-weight="700">Owner unico del processo</text>
+  <text x="388" y="638" fill="#ADB5BD" font-family="Arial, sans-serif" font-size="20">• versione • eccezioni • metriche • responsabilità</text>
+</svg>
