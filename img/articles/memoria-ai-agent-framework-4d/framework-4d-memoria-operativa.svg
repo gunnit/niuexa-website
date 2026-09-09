@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Framework 4D per la memoria operativa degli AI agent</title>
+  <desc id="desc">Un flusso dal dato candidato alla memoria attiva, governato da Dato, Destinazione, Durata e Diritto di revisione.</desc>
+  <style>
+    :root { --navy:#14324A; --ink:#0A1A26; --blue:#237DA6; --teal:#0E9C9A; --green:#43AE68; --light:#F1F5F8; --white:#FFFFFF; --muted:#54697A; --signal:#4FD1C5; }
+    .title{font:700 38px 'Space Grotesk',Arial,sans-serif;fill:var(--white)}
+    .subtitle{font:500 19px 'Hanken Grotesk',Arial,sans-serif;fill:var(--signal)}
+    .label{font:700 25px 'Space Grotesk',Arial,sans-serif;fill:var(--ink)}
+    .copy{font:500 17px 'Hanken Grotesk',Arial,sans-serif;fill:var(--muted)}
+    .small{font:600 16px 'Hanken Grotesk',Arial,sans-serif;fill:var(--white)}
+    .footer{font:500 16px 'Hanken Grotesk',Arial,sans-serif;fill:var(--white)}
+  </style>
+  <rect width="1200" height="720" rx="24" fill="var(--navy)"/>
+  <text x="60" y="72" class="title">Le 4D della memoria operativa</text>
+  <text x="60" y="108" class="subtitle">Un dato diventa memoria solo quando supera quattro decisioni esplicite</text>
+
+  <path d="M128 362 H1072" stroke="var(--signal)" stroke-width="6" stroke-linecap="round" opacity=".5"/>
+  <path d="M1050 344 L1080 362 L1050 380" fill="none" stroke="var(--signal)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g transform="translate(55 180)">
+    <rect width="250" height="270" rx="22" fill="var(--white)"/>
+    <circle cx="44" cy="46" r="23" fill="var(--blue)"/><text x="36" y="54" class="small">1</text>
+    <text x="78" y="55" class="label">Dato</text>
+    <text x="28" y="108" class="copy"><tspan x="28">Fonte, data,</tspan><tspan x="28" dy="27">affidabilità, prova.</tspan><tspan x="28" dy="42">Che cosa può</tspan><tspan x="28" dy="27">diventare memoria?</tspan></text>
+    <rect x="28" y="220" width="194" height="30" rx="15" fill="var(--blue)"/><text x="56" y="241" class="small">QUALIFICARE</text>
+  </g>
+  <g transform="translate(335 180)">
+    <rect width="250" height="270" rx="22" fill="var(--white)"/>
+    <circle cx="44" cy="46" r="23" fill="var(--teal)"/><text x="36" y="54" class="small">2</text>
+    <text x="78" y="55" class="label">Destinazione</text>
+    <text x="28" y="108" class="copy"><tspan x="28">Workflow, ruolo,</tspan><tspan x="28" dy="27">decisione ammessa.</tspan><tspan x="28" dy="42">Dove può influire</tspan><tspan x="28" dy="27">questo dato?</tspan></text>
+    <rect x="28" y="220" width="194" height="30" rx="15" fill="var(--teal)"/><text x="66" y="241" class="small">LIMITARE</text>
+  </g>
+  <g transform="translate(615 180)">
+    <rect width="250" height="270" rx="22" fill="var(--white)"/>
+    <circle cx="44" cy="46" r="23" fill="var(--green)"/><text x="36" y="54" class="small">3</text>
+    <text x="78" y="55" class="label">Durata</text>
+    <text x="28" y="108" class="copy"><tspan x="28">Scadenza o evento</tspan><tspan x="28" dy="27">di chiusura.</tspan><tspan x="28" dy="42">Quando smette</tspan><tspan x="28" dy="27">di essere attivo?</tspan></text>
+    <rect x="28" y="220" width="194" height="30" rx="15" fill="var(--green)"/><text x="57" y="241" class="small">DISATTIVARE</text>
+  </g>
+  <g transform="translate(895 180)">
+    <rect width="250" height="270" rx="22" fill="var(--white)"/>
+    <circle cx="44" cy="46" r="23" fill="var(--blue)"/><text x="36" y="54" class="small">4</text>
+    <text x="78" y="42" class="label"><tspan x="78">Diritto di</tspan><tspan x="78" dy="29">revisione</tspan></text>
+    <text x="28" y="128" class="copy"><tspan x="28">Owner, correzione,</tspan><tspan x="28" dy="27">revoca, conflitti.</tspan><tspan x="28" dy="42">Chi può cambiare</tspan><tspan x="28" dy="27">la memoria?</tspan></text>
+    <rect x="28" y="220" width="194" height="30" rx="15" fill="var(--blue)"/><text x="62" y="241" class="small">CORREGGERE</text>
+  </g>
+
+  <rect x="175" y="510" width="850" height="104" rx="20" fill="var(--ink)" stroke="var(--signal)" stroke-width="2"/>
+  <text x="600" y="548" text-anchor="middle" class="subtitle">MEMORIA ATTIVA SOLO SE TUTTE LE 4D SONO VALIDE</text>
+  <text x="600" y="583" text-anchor="middle" class="footer">Recupero filtrato → fonte visibile → azione verificabile → revisione possibile</text>
+  <text x="60" y="674" class="footer">Framework operativo Niuexa · niuexa.ai</text>
+</svg>

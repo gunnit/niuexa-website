@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KG9S42S4');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
+
+    <title>Memoria degli AI Agent: Framework 4D | Niuexa</title>
+    <meta name="description" content="Guida pratica alla memoria degli AI agent: classificare dati, usi, durata e diritti di revisione con il framework operativo 4D.">
+    <meta name="keywords" content="memoria AI agent, framework 4D, governance dati AI, memoria RAG, retention AI, AI agent PMI">
+    <meta name="author" content="Gregor Maric">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://niuexa.ai/articolo-memoria-ai-agent-framework-4d.html">
+    <meta property="og:title" content="Memoria degli AI agent: progettare ciò che il sistema può ricordare">
+    <meta property="og:description" content="Dato, Destinazione, Durata e Diritto di revisione: un metodo operativo per evitare che il contesto vecchio diventi una decisione nuova.">
+    <meta property="og:image" content="https://niuexa.ai/img/articles/memoria-ai-agent-framework-4d/memoria-ai-agent-framework-4d-og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Framework Niuexa 4D per governare la memoria degli AI agent">
+    <meta property="og:locale" content="it_IT">
+    <meta property="article:published_time" content="2026-09-09">
+    <meta property="article:modified_time" content="2026-09-09">
+    <meta property="article:author" content="Gregor Maric">
+    <meta property="article:section" content="AI Agents e Governance">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Memoria degli AI agent: il framework 4D">
+    <meta name="twitter:description" content="Come decidere quali dati un AI agent può usare, dove, per quanto tempo e con quale diritto di revisione.">
+    <meta name="twitter:image" content="https://niuexa.ai/img/articles/memoria-ai-agent-framework-4d/memoria-ai-agent-framework-4d-og.png">
+    <meta name="twitter:image:alt" content="Framework Niuexa 4D per governare la memoria degli AI agent">
+
+    <link rel="canonical" href="https://niuexa.ai/articolo-memoria-ai-agent-framework-4d.html">
+    <link rel="alternate" hreflang="it" href="https://niuexa.ai/articolo-memoria-ai-agent-framework-4d.html">
+    <link rel="alternate" hreflang="it-it" href="https://niuexa.ai/articolo-memoria-ai-agent-framework-4d.html">
+    <link rel="alternate" hreflang="x-default" href="https://niuexa.ai/articolo-memoria-ai-agent-framework-4d.html">
+    <link rel="icon" type="image/x-icon" href="img/favicon 256.ico">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=20260807">
+    <link rel="stylesheet" href="tutorial.css?v=20260812">
+    <link rel="stylesheet" href="article-visuals.css?v=20260812">
+
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"Article",
+      "headline":"Memoria degli AI agent: progettare dati, durata e revisione con il framework 4D",
+      "description":"Guida pratica alla memoria degli AI agent: classificare dati, usi, durata e diritti di revisione con il framework operativo 4D.",
+      "author":{"@type":"Person","name":"Gregor Maric","url":"https://niuexa.ai/chi-siamo.html#gregor-maric","jobTitle":"CEO & Co-Fondatore di Niuexa","sameAs":["https://www.linkedin.com/in/maricgregor/"]},
+      "publisher":{"@type":"Organization","name":"Niuexa","url":"https://niuexa.ai","logo":{"@type":"ImageObject","url":"https://niuexa.ai/img/niuexalogo.png"}},
+      "datePublished":"2026-09-09",
+      "dateModified":"2026-09-09",
+      "mainEntityOfPage":{"@type":"WebPage","@id":"https://niuexa.ai/articolo-memoria-ai-agent-framework-4d.html"},
+      "image":["https://niuexa.ai/img/articles/memoria-ai-agent-framework-4d/memoria-ai-agent-framework-4d-og.png"],
+      "articleSection":"AI Agents e Governance",
+      "keywords":["memoria AI agent","framework 4D","governance dati AI","retention AI","AI agent PMI"],
+      "inLanguage":"it-IT",
+      "citation":[
+        {"@type":"CreativeWork","name":"NIST AI Risk Management Framework Core","url":"https://airc.nist.gov/airmf-resources/airmf/5-sec-core/","publisher":{"@type":"Organization","name":"National Institute of Standards and Technology"}},
+        {"@type":"CreativeWork","name":"Principi fondamentali del trattamento","url":"https://www.garanteprivacy.it/home/principi-fondamentali-del-trattamento","publisher":{"@type":"Organization","name":"Garante per la protezione dei dati personali"}},
+        {"@type":"CreativeWork","name":"OWASP LLM04:2025 Data and Model Poisoning","url":"https://genai.owasp.org/llmrisk/llm042025-data-and-model-poisoning/","publisher":{"@type":"Organization","name":"OWASP Foundation"}}
+      ],
+      "speakable":{"@type":"SpeakableSpecification","cssSelector":["h1",".tutorial-description",".quick-answer"]}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Che cosa significa memoria per un AI agent?","acceptedAnswer":{"@type":"Answer","text":"È l’insieme di informazioni che il sistema può recuperare e usare oltre il singolo passaggio, dalla sessione corrente fino a dati di caso, relazione e conoscenza organizzativa."}},
+        {"@type":"Question","name":"Quali sono le 4D della memoria operativa?","acceptedAnswer":{"@type":"Answer","text":"Dato, Destinazione, Durata e Diritto di revisione. Le quattro dimensioni chiariscono che cosa conservare, dove usarlo, quando disattivarlo e chi può correggerlo o cancellarlo."}},
+        {"@type":"Question","name":"Perché un AI agent non dovrebbe ricordare tutto?","acceptedAnswer":{"@type":"Answer","text":"Perché informazioni non verificate, fuori contesto o scadute possono influenzare nuove azioni. Più memoria senza regole aumenta rumore, conflitti, esposizione e difficoltà di audit."}},
+        {"@type":"Question","name":"Come si gestisce la scadenza di una memoria?","acceptedAnswer":{"@type":"Answer","text":"Con una data di scadenza oppure un evento di chiusura, come la fine di un ticket, l’aggiornamento di un contratto o la revisione di una policy. Conservare un dato non significa mantenerlo attivo per sempre."}},
+        {"@type":"Question","name":"Da dove può partire una PMI?","acceptedAnswer":{"@type":"Answer","text":"Da un solo workflow, un registro minimo delle memorie e test su errore, scadenza, conflitto e correzione prima di consentire azioni automatiche."}}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://niuexa.ai/"},{"@type":"ListItem","position":2,"name":"Ricerca","item":"https://niuexa.ai/research.html"},{"@type":"ListItem","position":3,"name":"Memoria degli AI agent","item":"https://niuexa.ai/articolo-memoria-ai-agent-framework-4d.html"}]}
+    </script>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9S42S4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <div id="navigation-placeholder"></div>
+    <main id="main-content">
+        <section class="tutorial-header"><div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="research.html">Ricerca</a> / <span>Memoria degli AI agent</span></nav><div class="tutorial-intro">
+            <div class="tutorial-badge">AI Agents e Governance</div>
+            <h1>Memoria degli AI agent: progettare dati, durata e revisione con il framework 4D</h1>
+            <p class="tutorial-description">La memoria utile non è accumulo. È un contratto operativo che stabilisce quale informazione può influenzare una decisione, in quale workflow, per quanto tempo e sotto la responsabilità di chi.</p>
+            <div class="tutorial-stats"><span class="stat">11 minuti di lettura</span><span class="stat">Per COO, IT e process owner</span><span class="stat">Framework operativo 4D</span></div>
+        </div></div></section>
+
+        <article class="tutorial-content"><div class="container"><div class="content-wrapper">
+            <figure class="article-visual article-visual-hero"><img src="img/articles/memoria-ai-agent-framework-4d/memoria-ai-agent-framework-4d-og.png" alt="Framework Niuexa 4D per governare la memoria degli AI agent" width="1200" height="630" loading="eager" decoding="async"><figcaption>Ogni ricordo operativo deve avere contenuto qualificato, uso consentito, scadenza e un responsabile della revisione.</figcaption></figure>
+
+            <nav class="article-toc" aria-labelledby="article-toc-heading"><h2 id="article-toc-heading">Indice</h2><ul>
+                <li><a href="#risposta-rapida">Risposta rapida</a></li>
+                <li><a href="#memoria-decisione">La memoria influenza decisioni</a></li>
+                <li><a href="#quattro-memorie">Quattro tipi di memoria</a></li>
+                <li><a href="#framework-4d">Il framework 4D</a></li>
+                <li><a href="#registro">Registro operativo</a></li>
+                <li><a href="#pilota">Pilota e test</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul></nav>
+
+            <section class="content-section quick-answer">
+                <h2 id="risposta-rapida">Risposta rapida: come si progetta la memoria di un AI agent?</h2>
+                <p>Si parte dalla decisione che il sistema deve supportare, non dalla quantità di contesto disponibile. Per ogni informazione persistente si definiscono quattro dimensioni: <strong>Dato</strong>, <strong>Destinazione</strong>, <strong>Durata</strong> e <strong>Diritto di revisione</strong>. Se fonte, uso consentito, scadenza o owner non sono chiari, quel dato non dovrebbe guidare un’azione automatica.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="memoria-decisione">La memoria non è un archivio neutrale: influenza la prossima decisione</h2>
+                <p>Un assistente che dimentica una preferenza può creare attrito. Un AI agent che usa una preferenza vecchia per aggiornare un ordine, qualificare un’opportunità o preparare un’offerta può modificare il processo. La differenza non sta nel modello, ma nell’effetto operativo del contesto recuperato.</p>
+                <p>Il rischio cresce quando note, inferenze, policy e dati approvati finiscono nello stesso contenitore. Il recupero semantico può trovare una frase plausibile senza dimostrare che sia ancora valida, autorizzata o pertinente. La domanda corretta non è quindi “l’agent ricorda?”, ma <strong>“questo ricordo ha ancora il diritto di influenzare questa azione?”</strong>.</p>
+                <p>Il NIST AI Risk Management Framework collega governance, documentazione, responsabilità e monitoraggio all’intero ciclo di vita del sistema. Non prescrive il framework 4D, che è una guida Niuexa, ma sostiene un principio compatibile: il rischio AI va gestito con processi continui e ruoli espliciti, non con una regola generica affidata al prompt.</p>
+                <p>Quando la memoria contiene dati personali, entrano inoltre in gioco obblighi che dipendono da finalità, base giuridica e contesto. Il GDPR include principi come minimizzazione, esattezza e limitazione della conservazione, oltre ai diritti applicabili dell’interessato. Questa guida non sostituisce una valutazione legale: mostra come tradurre il bisogno di controllo in campi e decisioni operative.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="quattro-memorie">Quattro memorie da non confondere</h2>
+                <p>Prima di scegliere database vettoriale, CRM o archivio documentale, è utile separare il ciclo di vita dell’informazione. In un workflow aziendale convivono almeno quattro categorie:</p>
+                <table class="comparison-table"><thead><tr><th>Tipo</th><th>Uso tipico</th><th>Evento di chiusura</th></tr></thead><tbody>
+                    <tr><td><strong>Sessione</strong></td><td>Completare la richiesta corrente</td><td>Fine dell’interazione o del task</td></tr>
+                    <tr><td><strong>Caso</strong></td><td>Gestire ticket, pratica o opportunità aperta</td><td>Esito verificato o annullamento</td></tr>
+                    <tr><td><strong>Relazione</strong></td><td>Preferenze confermate e storico rilevante</td><td>Revoca, aggiornamento o scadenza definita</td></tr>
+                    <tr><td><strong>Organizzazione</strong></td><td>Policy, procedure, listini e conoscenza condivisa</td><td>Nuova versione, ritiro o revisione periodica</td></tr>
+                </tbody></table>
+                <p>La memoria di sessione dovrebbe spesso svanire. La memoria del caso deve chiudersi con il lavoro. Quella di relazione richiede un perimetro e un meccanismo di aggiornamento. La memoria organizzativa deve rimandare a una fonte versionata e a un proprietario. Un’unica retention o un unico livello di accesso per tutte e quattro produce conflitti inevitabili.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="framework-4d">Le 4D: Dato, Destinazione, Durata, Diritto di revisione</h2>
+                <figure class="article-visual article-diagram article-diagram-scroll"><img src="img/articles/memoria-ai-agent-framework-4d/framework-4d-memoria-operativa.svg" alt="Diagramma delle 4D: Dato, Destinazione, Durata e Diritto di revisione" width="1200" height="720" loading="eager" decoding="async"><figcaption>Le 4D trasformano un frammento di contesto in una memoria governabile. Su mobile, scorri il diagramma in orizzontale.</figcaption></figure>
+
+                <h3>1. Dato: che cosa può diventare memoria?</h3>
+                <p>Una preferenza esplicita non equivale a un’ipotesi del commerciale. Un indirizzo confermato non equivale a quello estratto da una firma. Una policy approvata non equivale alla bozza discussa in chat. Il dato deve portare con sé fonte, timestamp, livello di affidabilità e, quando utile, collegamento all’evidenza originale.</p>
+                <p>Questo controllo protegge anche l’integrità del sistema. OWASP descrive i rischi di dati non verificati o manipolati nei sistemi LLM e raccomanda di tracciare origini e trasformazioni. La memoria applicativa non coincide con i dati di addestramento, ma la lezione operativa resta utile: provenienza e validazione non possono essere ricostruite dopo che il contenuto ha già influenzato un’azione.</p>
+
+                <h3>2. Destinazione: dove può influenzare il lavoro?</h3>
+                <p>Un dato può essere corretto e comunque fuori contesto. La lingua preferita può aiutare la preparazione di un’email, ma non autorizza uno sconto. Lo storico dei ticket può supportare il servizio clienti, ma non deve essere automaticamente disponibile a un workflow marketing. La destinazione specifica sistema, ruolo, workflow e tipo di decisione consentiti.</p>
+                <p>È una forma di minimo privilegio applicata non solo all’accesso, ma all’influenza. Il fatto che un agent possa leggere un dato non implica che possa usarlo per ogni azione.</p>
+
+                <h3>3. Durata: quando il dato smette di essere attivo?</h3>
+                <p>Molte memorie problematiche non sono false: sono scadute. Un referente cambia, un’eccezione termina, un listino viene sostituito. Serve una data oppure un evento di chiusura: fine ticket, nuova versione della policy, revisione dell’opportunità, rinnovo del contratto. Il dato può restare archiviato per finalità legittime senza restare attivo nel contesto dell’agent.</p>
+
+                <h3>4. Diritto di revisione: chi può correggere, sospendere o cancellare?</h3>
+                <p>Una memoria senza proprietario è difficile da contestare. Se due fonti confliggono, qualcuno deve stabilire quale prevale. Se un’informazione viene corretta, la modifica deve raggiungere indici, cache e sistemi che alimentano l’agent. Il diritto di revisione definisce owner, approvatore, procedura e tempo atteso di propagazione.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="registro">Il registro minimo della memoria operativa</h2>
+                <p>Una PMI può iniziare con una tabella prima di introdurre un’infrastruttura sofisticata. Ogni classe di memoria dovrebbe avere almeno questi campi:</p>
+                <ul>
+                    <li><strong>contenuto o schema:</strong> che cosa viene conservato;</li>
+                    <li><strong>fonte ed evidenza:</strong> da quale sistema o persona proviene;</li>
+                    <li><strong>uso consentito:</strong> workflow, ruolo e decisione;</li>
+                    <li><strong>validità:</strong> data o evento di scadenza;</li>
+                    <li><strong>owner:</strong> chi approva e risolve i conflitti;</li>
+                    <li><strong>azione di revisione:</strong> come correggere, disattivare o cancellare;</li>
+                    <li><strong>stato:</strong> proposto, confermato, sospeso, scaduto o revocato.</li>
+                </ul>
+                <p>Il valore del registro non è documentare tutto. È rendere visibile la regola prima che il dato entri nel contesto operativo. L’agent dovrebbe recuperare solo record attivi e compatibili con il workflow corrente, conservando l’identificativo delle fonti usate per permettere una verifica successiva.</p>
+
+                <h3>Esempio: follow-up commerciale</h3>
+                <p>Un agent che prepara il follow-up dopo una riunione può usare la lingua preferita, il problema esplicitamente dichiarato e il prossimo passo concordato. Non dovrebbe promuovere a memoria permanente una battuta sul budget, una richiesta non confermata o una valutazione interna sulla probabilità di chiusura.</p>
+                <p>Applicando le 4D: il <strong>Dato</strong> include solo impegni e preferenze confermate; la <strong>Destinazione</strong> è la bozza di follow-up e l’aggiornamento dell’opportunità; la <strong>Durata</strong> termina alla chiusura o alla riunione successiva; il <strong>Diritto di revisione</strong> appartiene all’account owner. L’agent non perde contesto: evita di trasformare il passato in una regola permanente.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="pilota">Un pilota in sei passaggi e quattro test obbligatori</h2>
+                <ol>
+                    <li><strong>Scegli una decisione.</strong> Non partire dalla memoria disponibile, ma dall’azione che deve migliorare.</li>
+                    <li><strong>Separa le quattro categorie.</strong> Sessione, caso, relazione e organizzazione non condividono automaticamente regole.</li>
+                    <li><strong>Compila il registro 4D.</strong> Nessun campo critico deve restare implicito.</li>
+                    <li><strong>Implementa i filtri.</strong> Il recupero deve rispettare stato, destinazione, validità e permessi prima del ranking semantico.</li>
+                    <li><strong>Mostra le fonti.</strong> Chi revisiona l’output deve poter vedere quali memorie hanno influenzato la proposta.</li>
+                    <li><strong>Misura gli errori.</strong> Registra memoria scaduta usata, conflitti, correzioni non propagate e azioni bloccate.</li>
+                </ol>
+                <p>Prima dell’automazione, esegui almeno quattro prove: un dato sbagliato, un dato scaduto, due fonti in conflitto e una richiesta di correzione. Il sistema deve sospendere o chiedere conferma, non scegliere silenziosamente il frammento più simile.</p>
+                <p>Le metriche utili sono operative: percentuale di output con fonti tracciate, memorie scadute intercettate, tempo di propagazione delle correzioni, conflitti aperti, azioni bloccate per dati insufficienti e rilavorazione attribuibile a contesto errato. Le soglie vanno definite sul workflow reale: non esiste un benchmark universale che garantisca affidabilità.</p>
+            </section>
+
+            <section class="content-section"><h2 id="fonti">Fonti e perimetro</h2><p>La guida collega il framework Niuexa 4D ai principi di governance continua, documentazione e responsabilità del <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/" target="_blank" rel="noopener">NIST AI Risk Management Framework Core</a>. Per provenienza e integrità dei dati richiama <a href="https://genai.owasp.org/llmrisk/llm042025-data-and-model-poisoning/" target="_blank" rel="noopener">OWASP LLM04:2025</a>. I riferimenti a minimizzazione, esattezza e limitazione della conservazione rimandano alla sintesi ufficiale sui <a href="https://www.garanteprivacy.it/home/principi-fondamentali-del-trattamento" target="_blank" rel="noopener">principi fondamentali del trattamento del Garante per la protezione dei dati personali</a>. Il framework 4D, il registro e il pilota sono guida operativa Niuexa; non costituiscono parere legale, valutazione privacy o garanzia di prestazione.</p></section>
+
+            <section class="content-section faq-section">
+                <h2 id="faq">FAQ sulla memoria degli AI agent</h2>
+                <div class="faq-item"><h3>Che cosa significa memoria per un AI agent?</h3><p>È l’insieme di informazioni che il sistema può recuperare e usare oltre il singolo passaggio, dalla sessione corrente fino a dati di caso, relazione e conoscenza organizzativa.</p></div>
+                <div class="faq-item"><h3>Quali sono le 4D della memoria operativa?</h3><p>Dato, Destinazione, Durata e Diritto di revisione. Le quattro dimensioni chiariscono che cosa conservare, dove usarlo, quando disattivarlo e chi può correggerlo o cancellarlo.</p></div>
+                <div class="faq-item"><h3>Perché un AI agent non dovrebbe ricordare tutto?</h3><p>Perché informazioni non verificate, fuori contesto o scadute possono influenzare nuove azioni. Più memoria senza regole aumenta rumore, conflitti, esposizione e difficoltà di audit.</p></div>
+                <div class="faq-item"><h3>Come si gestisce la scadenza di una memoria?</h3><p>Con una data di scadenza oppure un evento di chiusura, come la fine di un ticket, l’aggiornamento di un contratto o la revisione di una policy. Conservare un dato non significa mantenerlo attivo per sempre.</p></div>
+                <div class="faq-item"><h3>Da dove può partire una PMI?</h3><p>Da un solo workflow, un registro minimo delle memorie e test su errore, scadenza, conflitto e correzione prima di consentire azioni automatiche.</p></div>
+            </section>
+
+            <section class="content-section"><h2 id="approfondimenti">Approfondimenti correlati</h2><div class="related-articles">
+                <a href="articolo-fonte-unica-assistenti-ai.html" class="related-card"><span class="related-category">Knowledge Governance</span><h3>Costruire una fonte unica per gli assistenti AI</h3></a>
+                <a href="articolo-coda-lavoro-ai-agent.html" class="related-card"><span class="related-category">AI Agents</span><h3>Gestire la coda di lavoro con le 4C</h3></a>
+                <a href="articolo-inventario-ai-pmi.html" class="related-card"><span class="related-category">AI Governance</span><h3>Censire usi, dati e owner dell’AI</h3></a>
+                <a href="articolo-human-in-the-loop-ai-pmi.html" class="related-card"><span class="related-category">Controllo umano</span><h3>Progettare revisione ed escalation</h3></a>
+            </div></section>
+        </div></div></article>
+
+        <section class="cta-section"><div class="container"><h2 id="cta">Il tuo AI agent usa contesto o applica regole di memoria?</h2><p>Niuexa aiuta le PMI a progettare workflow agentici con fonti, validità, permessi e responsabilità verificabili.</p><a href="ai-readiness-assessment.html" class="btn btn-primary">Prenota un assessment AI</a><a href="consulting.html" class="btn btn-secondary" style="margin-left:15px;">Scopri la consulenza AI</a></div></section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="includes/includes.js?v=20260428"></script>
+    <script src="tutorial.js"></script>
+    <script src="cookie-banner.js?v=20260428"></script>
+</body>
+</html>

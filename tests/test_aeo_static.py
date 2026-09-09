@@ -20,7 +20,7 @@ import unittest
 
 from aeo_rules import ROOT, evaluate, load_articles, scoreboard
 
-EXPECTED_ARTICLE_COUNT = 65
+EXPECTED_ARTICLE_COUNT = 66
 
 
 class AeoStaticTests(unittest.TestCase):
@@ -37,7 +37,7 @@ class AeoStaticTests(unittest.TestCase):
         )
 
     def test_gate_rules_hold(self) -> None:
-        """Rules the corpus passes 65/65 today must not regress."""
+        """Rules the corpus passes 66/66 today must not regress."""
         broken = []
         for rule_id in sorted(self.results):
             result = self.results[rule_id]
