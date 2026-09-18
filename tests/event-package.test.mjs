@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync, unlinkSync } from 'node:fs';
+import { EVENTS } from '../build/event-content.mjs';
 import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 const root=resolve(import.meta.dirname,'..');
@@ -20,4 +21,23 @@ test('Pages builds the actual allowlisted release artifact without asserting leg
  assert.match(workflow,/node build\/package-pages.mjs/);
  assert.match(workflow,/path: '_site'/);
  console.log('Verified release/review packages, source parity, upstream assets and excluded private/QA paths.');
+});
+test('nested event package allows only known pages, resolves links and rejects private JSON/HTML',()=>{
+ const fixtures=['eventi-ai-aziende/qa-private.json','eventi-ai-aziende/qa-private.html','eventi-ai-aziende/farsi-trovare-era-ai/qa-private.json'];
+ try {
+  for(const p of fixtures) {assert.ok(!existsSync(resolve(root,p)));writeFileSync(resolve(root,p),'PRIVATE TEST FIXTURE');}
+  execFileSync(process.execPath,['build/package-pages.mjs'],{cwd:root});
+  for(const p of fixtures) assert.ok(!existsSync(resolve(root,'_site',p)),p);
+  for(const event of EVENTS){
+   const path=`eventi-ai-aziende/${event.slug}/index.html`;
+   const html=readFileSync(resolve(root,'_site',path),'utf8');
+   assert.equal(html,readFileSync(resolve(root,path),'utf8'));
+   for(const [,url] of html.matchAll(/(?:href|src)="([^"]+)"/g)){
+    if(!url.startsWith('/')) continue;
+    let target=decodeURIComponent(url.split(/[?#]/)[0]);
+    if(target.endsWith('/')) target+='index.html';
+    assert.ok(existsSync(resolve(root,'_site','.'+target)),`${path} -> ${url}`);
+   }
+  }
+ } finally {for(const p of fixtures) if(existsSync(resolve(root,p))) unlinkSync(resolve(root,p));}
 });

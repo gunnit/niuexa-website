@@ -3,6 +3,8 @@
 import { readdir, mkdir, copyFile, rm } from 'node:fs/promises';
 import { resolve, join, extname, relative } from 'node:path';
 
+import { EVENTS } from './event-content.mjs';
+const eventPages=new Set(['eventi-ai-aziende/index.html',...EVENTS.map(e=>`eventi-ai-aziende/${e.slug}/index.html`)]);
 const root=resolve(import.meta.dirname,'..');
 const review=process.argv.includes('--review');
 const output=join(root,review?'_site-review':'_site');
@@ -21,6 +23,8 @@ async function copyTree(dir='') {
   const path=join(dir,name);
   if(entry.isDirectory()) {if(dir || publicDirs.has(name)) await copyTree(path);continue;}
   if(!entry.isFile() || name==='event-registration.html') continue;
+  // Event content is static HTML only: never recursively publish drafts or QA data.
+  if(path.startsWith('eventi-ai-aziende/') && !eventPages.has(path)) continue;
   const allowed=dir ? publicExceptions.has(path) || assetExtensions.has(extname(name).toLowerCase()) || (dir==='assets/event-fonts' && name.endsWith('OFL.txt')) : rootExtensions.has(extname(name)) || rootFiles.has(name);
   if(!allowed) continue;
   const destination=join(output,path);

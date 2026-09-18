@@ -25,7 +25,7 @@ test('canonical, title, indexability, clean URL and static direct answers are co
  assert.ok(read('eventi.html').includes('href="/eventi-ai-aziende/"'));
  assert.equal(read('llm.txt'),read('llms.txt'));
 });
-test('approved logistics are visible for all dates and proposed programme is explicitly qualified',()=>{
+test('approved logistics and chosen series topics are visible for all dates',()=>{
  assert.match(html,/Ufficio Bebit/);
  assert.match(html,/Via Rutilia 10, 20141 Milano/);
  assert.match(html,/Europe\/Rome/);
@@ -35,8 +35,9 @@ test('approved logistics are visible for all dates and proposed programme is exp
   assert.match(row,/18:30/);
   assert.match(row,/Bebit · Milano/);
  }
- assert.match(html,/Programma proposto/);
- assert.match(html,/da confermare/);
+ assert.match(html,/Dalla visibilità<br>al lavoro quotidiano/);
+ assert.ok(!/Programma proposto|da confermare/.test(html));
+ for(const topic of ['Farsi trovare nell’era dell’AI','Dall’AI ai risultati','Agenti AI in azienda']) assert.ok(html.includes(topic));
  assert.ok(!/Sede, orario.*non.*pubblicati/.test(html));
  assert.ok(!/Sede, orario.*non.*pubblicati/.test(read('llms.txt')));
  assert.match(html,/Web3Forms/);
