@@ -1,3 +1,13 @@
+# Event handoff and QA evidence (local only)
+/EVENT-QA.md
+/EVENT-IMPLEMENTATION-BRIEF.md
+/qa/
+/roberto-draft*.json
+
+# Local public artifact builds
+/_site/
+/_site-review/
+
 # Dependencies
 node_modules/
 npm-debug.log*

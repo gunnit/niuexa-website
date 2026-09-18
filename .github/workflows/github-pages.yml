@@ -35,18 +35,18 @@ jobs:
         run: node build/build.mjs --check
       - name: Run the static content checks
         run: python3 -m unittest discover -s tests
-      # upload-pages-artifact excludes only .git and .github and takes no
-      # exclude input, so anything else at the root ships to the live site.
-      # Strip local tooling and content sources before the checkout is packaged.
-      - name: Remove build tooling from the Pages artifact
-        run: rm -rf .claude build content templates tests
+      # Package only public files; never upload the working tree.
+      - name: Test event transport, metadata and packaging (no live submissions)
+        run: node --test tests/event-registration.test.mjs tests/event-package.test.mjs tests/event-seo.test.mjs
+      - name: Package public site
+        run: node build/package-pages.mjs
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository since it's a static site
-          path: '.'
+          # Only the allowlisted public artifact. Pages must use the workflow source.
+          path: '_site'
 
   # Deployment job
   deploy:

@@ -9,6 +9,9 @@
 > and optimize their visibility across AI search platforms like ChatGPT, Perplexity,
 > Google AI Overviews, and Claude.
 
+## Eventi AI per aziende
+- [Incontri NIUEXA, autunno 2026](https://niuexa.ai/eventi-ai-aziende/): 6 ottobre, 17 novembre e 2 dicembre 2026. Modulo per richiedere la partecipazione, non conferma del posto. Tutte le date alle 18:30 (Europe/Rome), Ufficio Bebit, Via Rutilia 10, 20141 Milano. Programma proposto, contenuti e relatori da confermare.
+
 ## Core Services
 
 ### AI Consulting (Strategy + Implementation)
