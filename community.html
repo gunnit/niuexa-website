@@ -106,7 +106,7 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css?v=20260807">
-    <link rel="stylesheet" href="books.css">
+    <link rel="stylesheet" href="books.css?v=20260811">
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -140,18 +140,18 @@
         <!-- Community Stats -->
         <section class="series-intro">
             <div class="container">
-                <div style="display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; margin-bottom: 40px;">
-                    <div style="text-align: center;">
-                        <div style="font-family: var(--font-primary); font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">500+</div>
-                        <div style="font-family: var(--font-secondary); font-size: 1rem; color: var(--medium-gray); font-weight: 500;">Members</div>
+                <div class="hub-stats">
+                    <div class="hub-stat">
+                        <div class="hub-stat-value">500+</div>
+                        <div class="hub-stat-label">Members</div>
                     </div>
-                    <div style="text-align: center;">
-                        <div style="font-family: var(--font-primary); font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">4</div>
-                        <div style="font-family: var(--font-secondary); font-size: 1rem; color: var(--medium-gray); font-weight: 500;">Books</div>
+                    <div class="hub-stat">
+                        <div class="hub-stat-value">4</div>
+                        <div class="hub-stat-label">Books</div>
                     </div>
-                    <div style="text-align: center;">
-                        <div style="font-family: var(--font-primary); font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Weekly</div>
-                        <div style="font-family: var(--font-secondary); font-size: 1rem; color: var(--medium-gray); font-weight: 500;">Live Sessions</div>
+                    <div class="hub-stat">
+                        <div class="hub-stat-value">Weekly</div>
+                        <div class="hub-stat-label">Live Sessions</div>
                     </div>
                 </div>
                 <h2>Built for Operators, Not Observers</h2>
@@ -212,32 +212,32 @@
                     <div class="channel-card">
                         <h3>Discord — Main Hub</h3>
                         <p>Our primary community space with dedicated channels for each book, tool recommendations, job postings, show-and-tell, and general discussion. This is where the real-time conversations happen.</p>
-                        <ul style="list-style: none; padding: 0; margin: 0 0 15px 0;">
-                            <li style="font-family: var(--font-secondary); font-size: 0.9rem; color: var(--dark-gray); padding: 4px 0; padding-left: 22px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-green); font-weight: 700;">#</span> mcp-blueprint</li>
-                            <li style="font-family: var(--font-secondary); font-size: 0.9rem; color: var(--dark-gray); padding: 4px 0; padding-left: 22px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-green); font-weight: 700;">#</span> one-person-empire</li>
-                            <li style="font-family: var(--font-secondary); font-size: 0.9rem; color: var(--dark-gray); padding: 4px 0; padding-left: 22px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-green); font-weight: 700;">#</span> no-code-recipes</li>
-                            <li style="font-family: var(--font-secondary); font-size: 0.9rem; color: var(--dark-gray); padding: 4px 0; padding-left: 22px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-green); font-weight: 700;">#</span> ai-agents-field-guide</li>
-                            <li style="font-family: var(--font-secondary); font-size: 0.9rem; color: var(--dark-gray); padding: 4px 0; padding-left: 22px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-green); font-weight: 700;">#</span> show-and-tell</li>
+                        <ul class="resource-features resource-features--hash">
+                            <li>mcp-blueprint</li>
+                            <li>one-person-empire</li>
+                            <li>no-code-recipes</li>
+                            <li>ai-agents-field-guide</li>
+                            <li>show-and-tell</li>
                         </ul>
                         <a href="https://discord.gg/vyKckeS3" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Join Discord</a>
                     </div>
                     <div class="channel-card">
                         <h3>Monthly AMAs</h3>
                         <p>Every first Thursday of the month, join a live Ask Me Anything session with the series authors and guest experts. Topics range from AI strategy to technical deep-dives on specific tools and frameworks.</p>
-                        <ul style="list-style: none; padding: 0; margin: 0 0 15px 0;">
-                            <li style="font-family: var(--font-secondary); font-size: 0.9rem; color: var(--dark-gray); padding: 4px 0; padding-left: 22px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-green); font-weight: 700;">&#10003;</span> First Thursday monthly</li>
-                            <li style="font-family: var(--font-secondary); font-size: 0.9rem; color: var(--dark-gray); padding: 4px 0; padding-left: 22px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-green); font-weight: 700;">&#10003;</span> Guest industry experts</li>
-                            <li style="font-family: var(--font-secondary); font-size: 0.9rem; color: var(--dark-gray); padding: 4px 0; padding-left: 22px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-green); font-weight: 700;">&#10003;</span> Recorded &amp; replayable</li>
+                        <ul class="resource-features">
+                            <li>First Thursday monthly</li>
+                            <li>Guest industry experts</li>
+                            <li>Recorded &amp; replayable</li>
                         </ul>
                         <a href="newsletter.html" class="btn btn-secondary">Get Reminders</a>
                     </div>
                     <div class="channel-card">
                         <h3>Book Study Groups</h3>
                         <p>Join a cohort of readers working through the same book. Each study group meets weekly for 4-6 weeks, with structured discussions, accountability partners, and implementation challenges.</p>
-                        <ul style="list-style: none; padding: 0; margin: 0 0 15px 0;">
-                            <li style="font-family: var(--font-secondary); font-size: 0.9rem; color: var(--dark-gray); padding: 4px 0; padding-left: 22px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-green); font-weight: 700;">&#10003;</span> 4-6 week cohorts</li>
-                            <li style="font-family: var(--font-secondary); font-size: 0.9rem; color: var(--dark-gray); padding: 4px 0; padding-left: 22px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-green); font-weight: 700;">&#10003;</span> Accountability partners</li>
-                            <li style="font-family: var(--font-secondary); font-size: 0.9rem; color: var(--dark-gray); padding: 4px 0; padding-left: 22px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-green); font-weight: 700;">&#10003;</span> Implementation challenges</li>
+                        <ul class="resource-features">
+                            <li>4-6 week cohorts</li>
+                            <li>Accountability partners</li>
+                            <li>Implementation challenges</li>
                         </ul>
                         <a href="https://discord.gg/vyKckeS3" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Find a Group</a>
                     </div>
