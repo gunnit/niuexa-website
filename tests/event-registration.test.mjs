@@ -52,12 +52,12 @@ test('request timeout aborts transport without false receipt or automatic retry'
  await assert.rejects(flow.submit('2026-10-06',valid),/timeout/);
  assert.equal(calls,2);
 });
-test('approved dates share 18:30 Europe/Rome and verified Bebit Milano venue; no invented speakers or prices',()=>{
- assert.deepEqual(EVENTS.map(e=>e.date),['2026-10-06','2026-11-17','2026-12-02']);
+test('approved dates share 18:30 Europe/Rome and the Libera Milano venue; no invented speakers or prices',()=>{
+ assert.deepEqual(EVENTS.map(e=>e.date),['2026-10-06','2026-10-27','2026-11-17']);
  for(const e of EVENTS) {
   assert.equal(e.time,'18:30');
   assert.equal(e.timezone,'Europe/Rome');
-  assert.equal(e.venue,'Ufficio Bebit, Via Rutilia 10, 20141 Milano');
+  assert.equal(e.venue,'Ufficio Libera, Via Rutilia 10/8, 20141 Milano');
   for(const k of ['title','agenda','speakers','price']) assert.equal(e[k],null);
   assert.equal(e.format,'in-person');
  }

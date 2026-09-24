@@ -47,8 +47,8 @@ try {
  await page.locator('#submit-registration').click();
  await page.waitForFunction(()=>document.querySelector('#form-status').classList.contains('success'));
  assert.equal(sent.at(-1).event_date,'2026-11-17');
- await page.goto(base+'/eventi-ai-aziende/?event=2026-12-02');
- assert.equal(await page.locator('#event-date').inputValue(),'2026-12-02');
+ await page.goto(base+'/eventi-ai-aziende/?event=2026-10-27');
+ assert.equal(await page.locator('#event-date').inputValue(),'2026-10-27');
  await fill(); await page.locator('#botcheck').evaluate(el=>el.value='spam');
  const before=sent.length;
  await page.locator('#submit-registration').click();
@@ -56,7 +56,7 @@ try {
  assert.equal(sent.length,before);
  await page.goto(base+'/eventi-ai-aziende/?event=unknown');
  assert.equal(await page.locator('#submit-registration').isDisabled(),true);
- await page.locator('#event-date').selectOption('2026-12-02');
+ await page.locator('#event-date').selectOption('2026-10-27');
  assert.equal(await page.locator('#submit-registration').isDisabled(),false);
  await page.goto(base+'/eventi-ai-aziende/');
  for(const width of [320,390,768,1440]) {
