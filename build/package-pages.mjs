@@ -3,8 +3,8 @@
 import { readdir, mkdir, copyFile, rm } from 'node:fs/promises';
 import { resolve, join, extname, relative } from 'node:path';
 
-import { EVENTS } from './event-content.mjs';
-const eventPages=new Set(['eventi-ai-aziende/index.html',...EVENTS.map(e=>`eventi-ai-aziende/${e.slug}/index.html`)]);
+import { EVENTS, MOVED } from './event-content.mjs';
+const eventPages=new Set(['eventi-ai-aziende/index.html',...EVENTS.map(e=>`eventi-ai-aziende/${e.slug}/index.html`),...MOVED.map(([from])=>`eventi-ai-aziende/${from}/index.html`)]);
 const root=resolve(import.meta.dirname,'..');
 const review=process.argv.includes('--review');
 const output=join(root,review?'_site-review':'_site');
