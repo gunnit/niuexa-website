@@ -1,0 +1,17 @@
+// Cloudflare Workers static-assets hosting for niuexa.ai.
+// _site is built by build/package-pages.mjs + build/package-cloudflare.mjs; see
+// .github/workflows/github-pages.yml. There is no Worker script: every request
+// is answered from the uploaded files, _redirects and _headers.
+{
+  "name": "niuexa-website",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./_site",
+    // Serve exact paths so the canonical .html URLs never redirect; the URL
+    // shapes GitHub Pages resolved implicitly are generated into _redirects.
+    "html_handling": "none",
+    "not_found_handling": "404-page"
+  },
+  "workers_dev": true,
+  "preview_urls": true
+}
