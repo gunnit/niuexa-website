@@ -186,3 +186,6 @@ PRODUCT.md
 __pycache__/
 *.py[cod]
 .pytest_cache/
+
+# Wrangler local state (Cloudflare dev server)
+.wrangler/
