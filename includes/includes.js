@@ -119,7 +119,7 @@ const footerHTML = `
         <div class="footer-bottom">
             <div class="footer-bottom-content">
                 <p class="footer-copyright">&copy; 2024-2026 Niuexa. Tutti i diritti riservati.</p>
-                <p class="footer-company">Niuexa è una BU di Bebit Srl - P.I. 11215720019</p>
+                <p class="footer-company">NIUEXA S.R.L. · P.IVA e C.F. 13489560014 · REA TO-1366737</p>
             </div>
         </div>
     </div>
