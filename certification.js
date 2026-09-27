@@ -639,10 +639,10 @@ class NiuexaCertification {
     
     trackCertificationCompletion() {
         if (typeof gtag !== 'undefined') {
+            // Never send the email: Google Analytics forbids personal data in events.
             gtag('event', 'certification_completed', {
                 'tutorial': this.currentTutorial.id,
-                'score': this.score,
-                'user_email': this.userData.email
+                'score': this.score
             });
         }
     }
