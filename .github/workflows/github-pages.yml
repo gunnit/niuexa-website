@@ -26,6 +26,10 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
+    # configure-pages reads the Pages site; the old top-level grant covered this.
+    permissions:
+      contents: read
+      pages: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -100,8 +104,10 @@ jobs:
           else
             echo "::notice::CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID are not set; skipping the Cloudflare upload."
           fi
+      # Only master reaches production, like the github-pages environment's branch
+      # policy: a manual run on another branch must not replace the live site.
       - name: Deploy to Cloudflare
-        if: steps.credentials.outputs.ready == 'true' && github.event_name != 'pull_request'
+        if: steps.credentials.outputs.ready == 'true' && github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -113,6 +119,7 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
+          set -o pipefail
           npx --yes "$WRANGLER" versions upload --preview-alias "pr-$PR_NUMBER" --message "PR #$PR_NUMBER ${GITHUB_SHA::7}" | tee upload.log
           { echo "### Cloudflare preview"; grep -oE 'https://[^ ]+\.workers\.dev' upload.log | sort -u; } >> "$GITHUB_STEP_SUMMARY"
 

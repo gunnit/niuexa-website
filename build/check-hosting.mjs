@@ -137,6 +137,10 @@ if (reference) {
   const paths = [...new Set([...rules.map(r => r.from), ...files.map(f => '/' + f), ...sitemapUrls])].sort();
   await pool(paths, 6, async path => {
     const [ours, theirs] = await Promise.all([land(base, path), land(reference, path)]);
+    // An unreachable or erroring reference proves nothing; never count it as parity.
+    if (theirs.status === 0 || theirs.status === 429 || theirs.status >= 500 || theirs.status === 'loop') {
+      return fail(path, `reference answered ${theirs.status} (${theirs.hops.join(' -> ')})`);
+    }
     compared++;
     if (theirs.status !== 200) return;
     if (ours.status !== 200) return fail(path, `reference serves 200, we end at ${ours.hops.join(' -> ')}`);
@@ -147,6 +151,7 @@ if (reference) {
   });
 }
 
+if (reference && !compared) fail('--compare', `no URL could be compared with ${reference}`);
 console.log(`Checked ${rules.length} rules and ${files.length} files on ${base}${reference ? `; compared ${compared} URLs with ${reference}` : ''}.`);
 if (failures.length) {
   console.error(`${failures.length} problem(s):\n  ${failures.slice(0, 200).join('\n  ')}`);

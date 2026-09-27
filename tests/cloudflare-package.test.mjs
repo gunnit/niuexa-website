@@ -20,8 +20,8 @@ test('Cloudflare config serves exact paths from the packaged _site', () => {
 });
 
 test('rules cover every URL shape GitHub Pages resolved', () => {
-  assert.deepEqual(rulesFor('index.html', ''), [['/', '/index.html', 200]]);
-  assert.deepEqual(rulesFor('en/index.html', ''), [['/en', '/en/', 301], ['/en/', '/en/index.html', 200]]);
+  assert.deepEqual(rulesFor('index.html', ''), [['/', '/index.html', 200], ['/index', '/', 301]]);
+  assert.deepEqual(rulesFor('en/index.html', ''), [['/en', '/en/', 301], ['/en/', '/en/index.html', 200], ['/en/index', '/en/', 301]]);
   assert.deepEqual(rulesFor('consulting.html', ''), [['/consulting', '/consulting.html', 301]]);
   assert.deepEqual(rulesFor('old.html', '<meta http-equiv="refresh" content="0; url=/en/learn.html">'), [['/old.html', '/en/learn.html', 301], ['/old', '/en/learn.html', 301]]);
   assert.equal(urlFor('eventi-ai-aziende/index.html'), '/eventi-ai-aziende/');
@@ -58,4 +58,5 @@ test('the deploy workflow gates Cloudflare on the same checks as Pages', () => {
   assert.match(workflow, /node build\/package-cloudflare\.mjs/);
   assert.match(workflow, /node build\/check-hosting\.mjs http:\/\/127\.0\.0\.1:8787/);
   assert.match(workflow, /needs: build/);
+  assert.match(workflow, /github\.ref == 'refs\/heads\/master'/, 'production deploys only from master');
 });
