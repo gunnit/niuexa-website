@@ -349,6 +349,22 @@ function getCurrentPage() {
     const path = window.location.pathname;
     const page = path.split('/').pop();
 
+    // The AI Operator Series cluster has no nav entry of its own — every one
+    // of these pages is reached through "Resources > Free Resources". Without
+    // this the fall-through at the bottom returned 'home', so the whole
+    // cluster lit up the Home link instead.
+    var FREE_RESOURCE_PAGES = [
+        'resources.html',
+        'ai-operator-series.html',
+        'ai-operator-course.html',
+        'community.html',
+        'newsletter.html',
+        'nocode-toolkit.html'
+    ];
+    if (FREE_RESOURCE_PAGES.indexOf(page) !== -1 || path.indexOf('/books/') === 0) {
+        return 'free-resources';
+    }
+
     if (page === 'index.html' || page === '') {
         return 'home';
     } else if (page === 'about-us.html') {

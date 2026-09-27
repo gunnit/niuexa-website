@@ -118,6 +118,12 @@
     color: var(--medium-gray);
 }
 
+/* The global reset zeroes paragraph margins, so stacked copy needs its gap
+   back. Pages used to do this with style="margin-top: 15px" on the second p. */
+.series-intro p + p {
+    margin-top: 15px;
+}
+
 /* Book Grid */
 .books-section {
     padding: var(--section-padding);
@@ -371,6 +377,10 @@
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
     border-left: 3px solid var(--primary-blue);
     transition: transform var(--transition-fast);
+    /* Grid already stretches the cards to a shared height; the column layout
+       is what pushes each card's button down to a common baseline. */
+    display: flex;
+    flex-direction: column;
 }
 
 .channel-card:hover {
@@ -390,6 +400,11 @@
     color: var(--medium-gray);
     line-height: 1.6;
     margin-bottom: 15px;
+    flex: 1;
+}
+
+.channel-card .btn {
+    align-self: flex-start;
 }
 
 /* --- Newsletter Page --- */
@@ -474,11 +489,29 @@
     background: var(--white);
 }
 
+/* Section tint modifiers. These backgrounds used to be written as
+   `style="background: var(--light-gray)"` on the section itself; keeping them
+   here lets a page alternate white/tinted bands without inline overrides. */
+.resources-section--alt {
+    background: var(--light-gray);
+}
+
+.community-channels--alt {
+    background: var(--white);
+}
+
 .resources-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: 25px;
     margin-top: 40px;
+}
+
+/* Two-up variant, declared after the base so it actually wins. 300px tracks
+   fit three across inside the 1200px container, which strands a fourth card
+   alone on its own row; link-dense cards read better two-up anyway. */
+.resources-grid--two {
+    grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
 }
 
 .resource-card {
@@ -550,6 +583,124 @@
 
 .resource-card .btn {
     align-self: flex-start;
+}
+
+/* Icon + type badge share one row so the card keeps a shallow header instead
+   of stacking two full-width blocks above the title. */
+.resource-card-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.resource-card-head .resource-type {
+    margin-bottom: 0;
+}
+
+.resource-icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-light);
+    /* Stroked icons inherit this, so it doubles as the AA-safe icon colour. */
+    color: var(--blue-text);
+}
+
+.resource-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+/* Checklist inside a card. This was repeated as inline styles on every <li>
+   across the resource and community pages; the checkmark also used
+   --primary-green, which is a fill token and misses AA as text. */
+.resource-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+}
+
+.resource-features li {
+    font-family: var(--font-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--dark-gray);
+    padding: 5px 0 5px 24px;
+    position: relative;
+}
+
+.resource-features li::before {
+    content: '\2713';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    color: var(--green-text);
+    font-weight: 700;
+}
+
+/* Channel lists mark rooms, not completed items. */
+.resource-features--hash li::before {
+    content: '#';
+}
+
+.resource-features a {
+    color: var(--blue-text);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 1px;
+    transition: color var(--transition-fast);
+}
+
+.resource-features a:hover,
+.resource-features a:focus-visible {
+    color: var(--signal);
+    text-decoration-thickness: 2px;
+}
+
+/* --- Hub Stats Band --- */
+.hub-stats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: clamp(28px, 6vw, 60px);
+    margin-bottom: 40px;
+}
+
+.hub-stat {
+    text-align: center;
+}
+
+.hub-stat-value {
+    font-family: var(--font-primary);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.1;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hub-stat-label {
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--medium-gray);
+}
+
+/* Clipping the gradient to the glyphs makes them transparent, which forced
+   colour modes render as nothing at all. */
+@media (forced-colors: active) {
+    .hub-stat-value {
+        background: none;
+        -webkit-text-fill-color: currentColor;
+        color: CanvasText;
+    }
 }
 
 /* --- Lead Magnet / Download Pages --- */
@@ -943,6 +1094,34 @@
     background: var(--light-gray);
 }
 
+/* Lower-emphasis second action in a CTA banner. Pages wrote this as inline
+   border-color/color overrides; two solid white buttons side by side gave the
+   secondary choice the same weight as the primary one. */
+.book-cta .btn-ghost {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+.book-cta .btn-ghost:hover,
+.book-cta .btn-ghost:focus-visible {
+    background: var(--white);
+    color: var(--blue-text);
+}
+
+/* Centred row of one or two actions. Shared so a CTA banner and a plain
+   intro section space their buttons the same way. */
+.cta-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.series-intro .cta-actions {
+    margin-top: 25px;
+}
+
 /* --- Section Titles (shared) --- */
 .section-header {
     text-align: center;
@@ -1242,6 +1421,10 @@
     .preview-grid,
     .checklist-categories {
         grid-template-columns: 1fr;
+    }
+
+    .hub-stats {
+        gap: 24px 32px;
     }
 }
 
