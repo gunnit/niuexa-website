@@ -50,6 +50,9 @@ test('the packaged bundle has a route for every page and real redirects for reti
   }
   const headers = readFileSync(join(site, '_headers'), 'utf8');
   assert.match(headers, /^https:\/\/:worker\.:account\.workers\.dev\/\*\n {2}X-Robots-Tag: noindex$/m);
+  for (const pattern of ['/*.html', '/*.txt', '/', '/en/']) {
+    assert.ok(headers.includes(`${pattern}\n`) && new RegExp(`^${pattern.replace(/[*.\/]/g, '\\$&')}\\n(?: {2}.+\\n)*? {2}Content-Type: [^\\n]*charset=utf-8`, 'm').test(headers), `${pattern} declares charset=utf-8`);
+  }
   assert.ok(!existsSync(join(site, 'wrangler.jsonc')));
 });
 

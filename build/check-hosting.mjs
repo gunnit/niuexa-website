@@ -113,6 +113,7 @@ await pool(files.filter(f => !ruleFor.has('/' + f)), 8, async file => {
   if (html && sha(res.body) !== hashes.get(file)) fail(path, 'body differs from _site');
   const type = res.headers.get('content-type') || '';
   if (html && !type.startsWith('text/html')) fail(path, `content-type ${type}`);
+  if (/\.(html|txt|css|js|mjs)$/.test(file) && !/charset=utf-8/i.test(type)) fail(path, `content-type "${type}" has no charset=utf-8`);
   if (/\.(css|js|mjs)$/.test(file) && res.headers.get('cache-control') !== 'public, max-age=600') fail(path, `cache-control ${res.headers.get('cache-control')}`);
   const robots = res.headers.get('x-robots-tag') || '';
   if (isPreviewHost !== robots.includes('noindex')) fail(path, `x-robots-tag "${robots}" on ${isPreviewHost ? 'a preview' : 'the production'} host`);
