@@ -43,9 +43,10 @@ jobs:
         run: node build/build.mjs --check
       - name: Run the static content checks
         run: python3 -m unittest discover -s tests
-      # Package only public files; never upload the working tree.
+      # Package only public files; never upload the working tree. Two of these
+      # tests rebuild _site, so the files run one at a time.
       - name: Test event transport, metadata and packaging (no live submissions)
-        run: node --test tests/event-registration.test.mjs tests/event-package.test.mjs tests/event-seo.test.mjs tests/cloudflare-package.test.mjs
+        run: node --test --test-concurrency=1 tests/event-registration.test.mjs tests/event-package.test.mjs tests/event-seo.test.mjs tests/cloudflare-package.test.mjs
       - name: Package public site
         run: node build/package-pages.mjs
       - name: Setup Pages
