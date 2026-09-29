@@ -108,10 +108,23 @@ if(!html.includes('href="/event-details.css"')) html=html.replace('<link rel="st
 // After the last date the block names the closing date instead of a next one.
 const shown=next??EVENTS.at(-1);
 html=patch(html,/<div class="next-date">[\s\S]*?<\/div>/,`<div class="next-date"><span>${next?'PROSSIMO APPUNTAMENTO':'ULTIMO INCONTRO DEL CICLO'}</span><time datetime="${shown.date}T18:30:00${shown.offset}">${shown.label}</time><a href="#calendar" aria-label="Scopra tutte le date">Tutte le date <span aria-hidden="true">↓</span></a></div>`);
+// Dates in the hub's text come from EVENTS, so a moved date cannot leave the old one behind:
+// "6 ottobre, 27 ottobre e 17 novembre 2026", or with "il " before each date.
+if(EVENTS.length<2||EVENTS.length>6) throw new Error('event-content.mjs: the hub text is written for 2 to 6 events');
+const sameYear=EVENTS.every(e=>e.date.slice(0,4)===EVENTS.at(-1).date.slice(0,4));
+const dayMonth=e=>sameYear?e.label.replace(/ \d{4}$/,''):e.label;
+const dateList=(article='')=>`${EVENTS.slice(0,-1).map(e=>article+dayMonth(e)).join(', ')} e ${article}${EVENTS.at(-1).label}`;
+const howMany=['','','due','tre','quattro','cinque','sei'][EVENTS.length];
 // Once no date is open, nothing on the hub may still invite a request.
-html=patch(html,/<meta name="description" content="[^"]*">/,`<meta name="description" content="Eventi AI per aziende a Milano: 6 ottobre, 27 ottobre e 17 novembre 2026, ore 18:30 presso l’Ufficio Libera. ${next?'Invii la Sua richiesta di partecipazione.':'Gli incontri si sono conclusi.'}">`);
-html=patch(html,/<meta name="twitter:description" content="[^"]*">/,`<meta name="twitter:description" content="6 ottobre, 27 ottobre e 17 novembre 2026, ore 18:30 presso l’Ufficio Libera a Milano. ${next?'Richieda la partecipazione.':'Il ciclo si è concluso.'}">`);
-html=patch(html,/<a class="header-link" href="#[a-z]+">[^<]*<span aria-hidden="true">↗<\/span><\/a>/,next?'<a class="header-link" href="#registration">La Sua partecipazione <span aria-hidden="true">↗</span></a>':'<a class="header-link" href="#calendar">Tutte le date <span aria-hidden="true">↗</span></a>');
+html=patch(html,/<meta name="description" content="[^"]*">/,`<meta name="description" content="Eventi AI per aziende a Milano: ${dateList()}, ore 18:30 presso l’${venue.name}. ${next?'Invii la Sua richiesta di partecipazione.':'Gli incontri si sono conclusi.'}">`);
+html=patch(html,/<meta name="twitter:description" content="[^"]*">/,`<meta name="twitter:description" content="${dateList()}, ore 18:30 presso l’${venue.name} a ${venue.city}. ${next?'Richieda la partecipazione.':'Il ciclo si è concluso.'}">`);
+html=patch(html,/<a class="skip" href="#[a-z]+">[^<]*<\/a>/,next?'<a class="skip" href="#registration">Vai al modulo</a>':'<a class="skip" href="#calendar">Vai alle date</a>');
+html=patch(html,/<a class="header-link" href="#[a-z]+">[^<]*<span aria-hidden="true">[↗↓]<\/span><\/a>/,next?'<a class="header-link" href="#registration">La Sua partecipazione <span aria-hidden="true">↗</span></a>':'<a class="header-link" href="#calendar">Tutte le date <span aria-hidden="true">↓</span></a>');
+// The form markup is pinned by tests/event-details.test.mjs, so a closed series hides it
+// with a class (event-details.css) instead of changing it; heading and note explain why.
+html=patch(html,/<section class="registration[^"]*" id="registration"/,`<section class="registration${next?'':' is-closed'}" id="registration"`);
+html=patch(html,/<div class="form-topline"><span>[^<]*<\/span>/,`<div class="form-topline"><span>${next?'LA SUA PARTECIPAZIONE':'RICHIESTE CHIUSE'}</span>`);
+html=patch(html,/Questa pagina (?:raccoglie|ha raccolto le) richieste di partecipazione agli incontri NIUEXA\./,`Questa pagina ${next?'raccoglie':'ha raccolto le'} richieste di partecipazione agli incontri NIUEXA.`);
 html=patch(html,/<p class="eyebrow">[^<]*<\/p><h2 id="faq-title">/,`<p class="eyebrow">${next?'PRIMA DI INCONTRARCI':'DOPO GLI INCONTRI'}</p><h2 id="faq-title">`);
 // The FAQ is in the JSON-LD and on the page; both get the same question and answer.
 const faq=(questions,q,a)=>{
@@ -119,10 +132,10 @@ const faq=(questions,q,a)=>{
  html=patch(html,new RegExp(`"name": "${name}",(\\s*"acceptedAnswer": \\{\\s*"@type": "Answer",\\s*"text": )"[^"]*"`),(m,between)=>`"name": "${q}",${between}"${a}"`);
  html=patch(html,new RegExp(`<summary>${name}</summary><p>[^<]*</p>`),`<summary>${q}</summary><p>${a}</p>`);
 };
-faq(['Quali sono le date degli eventi NIUEXA nel 2026?'],'Quali sono le date degli eventi NIUEXA nel 2026?',next?'Il ciclo SIGNALS dell’autunno 2026 prevede tre incontri: il 6 ottobre, il 27 ottobre e il 17 novembre 2026. Nel modulo di questa pagina può scegliere tra le date non ancora passate.':'Il ciclo SIGNALS dell’autunno 2026 si è svolto in tre incontri: il 6 ottobre, il 27 ottobre e il 17 novembre 2026.');
+faq(['Quali sono le date degli eventi NIUEXA nel 2026?'],'Quali sono le date degli eventi NIUEXA nel 2026?',next?`Il ciclo SIGNALS dell’autunno 2026 prevede ${howMany} incontri: ${dateList('il ')}. Nel modulo di questa pagina può scegliere tra le date non ancora passate.`:`Il ciclo SIGNALS dell’autunno 2026 si è svolto in ${howMany} incontri: ${dateList('il ')}.`);
 faq(['Come si richiede la partecipazione?'],'Come si richiede la partecipazione?',next?'Scelga una data e inserisca nome, cognome, azienda, email e cellulare. Il messaggio di richiesta ricevuta indica che il servizio di invio ha accettato i dati: non conferma un posto né la consegna di un’email.':'Le richieste sono chiuse: gli incontri del ciclo si sono conclusi. Per informazioni scriva a ai@niuexa.ai.');
 const where=['Dove si svolgono gli incontri e a che ora?','Dove si sono svolti gli incontri e a che ora?'];
-faq(where,next?where[0]:where[1],`Tutti e tre gli incontri ${next?'si svolgono':'si sono svolti'} in presenza alle 18:30, ora locale di Milano (Europe/Rome), presso l’Ufficio Libera, Via Rutilia 10/8, 20141 Milano.`);
+faq(where,next?where[0]:where[1],`Tutti e ${howMany} gli incontri ${next?'si svolgono':'si sono svolti'} in presenza alle 18:30, ora locale di Milano (Europe/Rome), presso l’${venue.name}, ${venueLine}.`);
 html=patch(html,/<h2 id="registration-title">[\s\S]*?<\/h2>/,next?'<h2 id="registration-title">Il prossimo incontro<br>parte da Lei.</h2>':'<h2 id="registration-title">Gli incontri d’autunno<br>si sono conclusi.</h2>');
 html=patch(html,/<p class="form-intro">[\s\S]*?<\/p>/,next?'<p class="form-intro">Scelga una data e invii la Sua richiesta di partecipazione.</p>':'<p class="form-intro">Le richieste di partecipazione sono chiuse. Per informazioni scriva a <a href="mailto:ai@niuexa.ai">ai@niuexa.ai</a>.</p>');
 html=patch(html,/<span id="selected-date">[^<]*<\/span>/,`<span id="selected-date">${next?next.label:'Richieste chiuse'}</span>`);
