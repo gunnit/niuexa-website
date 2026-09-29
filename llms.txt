@@ -69,7 +69,7 @@
 - [FAQ Consulenza AI Italia](https://niuexa.ai/articolo-faq-consulenza-ai-italia.html): Frequently asked questions about AI consulting in Italy
 
 ## Articles — AEO, GEO & AI Search Optimization (Italian)
-- [SEO vs AEO vs GEO: Guida Completa](https://niuexa.ai/articolo-seo-aeo-geo-guida-completa.html): Comprehensive guide comparing traditional SEO, AI Engine Optimization, and Generative Engine Optimization
+- [SEO vs AEO vs GEO: Guida Completa](https://niuexa.ai/articolo-seo-aeo-geo-guida-completa.html): Comprehensive guide comparing traditional SEO, Answer Engine Optimization, and Generative Engine Optimization
 - [Visibilità su ChatGPT, Perplexity e Claude](https://niuexa.ai/articolo-visibilita-chatgpt-perplexity-claude.html): Strategies for appearing in AI platform responses
 - [Content Strategy per AI Search](https://niuexa.ai/articolo-content-strategy-ai-search.html): Content strategies optimized for AI search citation
 - [Structured Data per AI SEO](https://niuexa.ai/articolo-structured-data-ai-seo.html): Technical guide to schema markup for AI engines
