@@ -1,9 +1,21 @@
-import re
 import unittest
+from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "cookie-banner.js"
+
+
+class InputTags(HTMLParser):
+    """Collects every <input>'s attributes, whatever the quoting."""
+
+    def __init__(self):
+        super().__init__()
+        self.inputs = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "input":
+            self.inputs.append(dict(attrs))
 
 
 class MarketingConsentTests(unittest.TestCase):
@@ -27,10 +39,11 @@ class MarketingConsentTests(unittest.TestCase):
         for page in ("certification.html", "en/certification.html"):
             text = (ROOT / page).read_text(encoding="utf-8")
             form = text[text.index('<form id="certification-form"'):text.index("</form>", text.index('<form id="certification-form"'))]
-            # Any quoting style, and only the boolean attribute (not aria-required).
-            for tag in re.findall(r"<input\b[^>]*>", form, re.I):
-                if re.search(r"""\btype\s*=\s*["']?checkbox\b""", tag, re.I):
-                    self.assertIsNone(re.search(r"(?<![\w-])required(?![\w-])", tag, re.I), f"{page}: {tag}")
+            parser = InputTags()
+            parser.feed(form)
+            for attrs in parser.inputs:
+                if (attrs.get("type") or "").lower() == "checkbox":
+                    self.assertNotIn("required", attrs, f"{page}: {attrs}")
 
     def test_google_ad_consent_uses_marketing_choice(self):
         text = SCRIPT.read_text(encoding="utf-8")
