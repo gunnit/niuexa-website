@@ -37,33 +37,43 @@ jobs:
       - name: Check whether anything changed
         id: diff
         run: |
-          if [ -z "$(git status --porcelain)" ]; then
+          # Only the files the renderer writes, which are also the files the job commits.
+          if [ -z "$(git status --porcelain -- eventi-ai-aziende sitemap.xml llms.txt llm.txt)" ]; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "No event date has rolled over; nothing to publish."
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
             git status --short
           fi
-      # The same gates the deploy workflow runs, so this job never publishes a build it would reject.
-      - name: Run the checks
+      # Checks with the same gates the deploy workflow runs, so this job never publishes a
+      # build it would reject. If someone pushes to master while it runs, it starts again from
+      # their commit: the pages it pushes are always rendered and checked from that source.
+      - name: Check, commit and push
         if: steps.diff.outputs.changed == 'true'
         run: |
-          node build/build.mjs --check
-          python3 -m unittest discover -s tests
-          node --test --test-concurrency=1 tests/event-registration.test.mjs tests/event-package.test.mjs tests/event-seo.test.mjs tests/event-details.test.mjs tests/event-dates.test.mjs tests/cloudflare-package.test.mjs
-      - name: Commit and push
-        if: steps.diff.outputs.changed == 'true'
-        run: |
+          check() {
+            node build/build.mjs --check
+            python3 -m unittest discover -s tests
+            node --test --test-concurrency=1 tests/event-registration.test.mjs tests/event-package.test.mjs tests/event-seo.test.mjs tests/event-details.test.mjs tests/event-dates.test.mjs tests/cloudflare-package.test.mjs
+          }
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add eventi-ai-aziende sitemap.xml llms.txt llm.txt
-          git commit -m "Refresh SIGNALS event pages for $(TZ=Europe/Rome date +%F)"
-          # Someone may push to master while this job runs: replay the commit on top and retry.
           for attempt in 1 2 3; do
+            check
+            git add eventi-ai-aziende sitemap.xml llms.txt llm.txt
+            git commit -q -m "Refresh SIGNALS event pages for $(TZ=Europe/Rome date +%F)"
             git push origin HEAD:master && exit 0
+            [ "$attempt" = 3 ] && break
             sleep $((attempt * 10))
-            git pull --rebase origin master
+            git fetch -q origin master
+            git reset -q --hard origin/master
+            node build/render-events.mjs
+            if [ -z "$(git status --porcelain -- eventi-ai-aziende sitemap.xml llms.txt llm.txt)" ]; then
+              echo "master already has these pages; nothing to publish."
+              exit 0
+            fi
           done
+          echo "master kept moving; giving up after 3 attempts. The next night starts again." >&2
           exit 1
       # Runs every night, not only after a push: if a refresh was pushed but its deploy
       # failed, the next night's render changes nothing, so this is what publishes it.
@@ -75,9 +85,11 @@ jobs:
           git fetch -q origin master
           head=$(git rev-parse origin/master)
           author=$(git log -1 --format=%an origin/master)
-          live=$(gh run list --workflow github-pages.yml --branch master --status success --limit 1 --json headSha --jq '.[0].headSha // ""')
+          # The latest deploy run on master that succeeded in full (Pages and Cloudflare: once
+          # DNS moves, Cloudflare is the live site), ignoring pull request runs.
+          live=$(gh run list --workflow github-pages.yml --branch master --status success --limit 20 --json headSha,event --jq 'map(select(.event != "pull_request")) | .[0].headSha // ""')
           if [ "$author" != 'github-actions[bot]' ]; then
-            echo "master ($head) was pushed by $author; that push starts its own deploy."
+            echo "master's latest commit ($head) is by $author; pushing it started its own deploy."
           elif [ "$live" = "$head" ]; then
             echo "The latest refresh ($head) is already live."
           else
