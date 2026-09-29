@@ -3,7 +3,8 @@ name: Refresh event pages
 # The SIGNALS pages say which date comes next and stop taking requests for a date
 # once it has passed. build/render-events.mjs decides that from today's date in
 # Milan, so render every night and publish when a date has rolled over. On any
-# other night the render changes nothing and this job ends after the diff.
+# other night the render changes nothing, and the job only checks that the latest
+# refresh is live.
 on:
   schedule:
     # 23:45 UTC is 01:45 in Milan in summer time and 00:45 in winter time: always
@@ -57,9 +58,29 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add eventi-ai-aziende sitemap.xml llms.txt llm.txt
           git commit -m "Refresh SIGNALS event pages for $(TZ=Europe/Rome date +%F)"
-          git push origin HEAD:master
-      - name: Deploy
-        if: steps.diff.outputs.changed == 'true'
+          # Someone may push to master while this job runs: replay the commit on top and retry.
+          for attempt in 1 2 3; do
+            git push origin HEAD:master && exit 0
+            sleep $((attempt * 10))
+            git pull --rebase origin master
+          done
+          exit 1
+      # Runs every night, not only after a push: if a refresh was pushed but its deploy
+      # failed, the next night's render changes nothing, so this is what publishes it.
+      # A push by a person starts its own deploy, so only refresh commits are handled here.
+      - name: Deploy if the latest refresh is not live
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh workflow run github-pages.yml --ref master
+        run: |
+          git fetch -q origin master
+          head=$(git rev-parse origin/master)
+          author=$(git log -1 --format=%an origin/master)
+          live=$(gh run list --workflow github-pages.yml --branch master --status success --limit 1 --json headSha --jq '.[0].headSha // ""')
+          if [ "$author" != 'github-actions[bot]' ]; then
+            echo "master ($head) was pushed by $author; that push starts its own deploy."
+          elif [ "$live" = "$head" ]; then
+            echo "The latest refresh ($head) is already live."
+          else
+            echo "Deploying $head (last successful deploy: ${live:-none})."
+            gh workflow run github-pages.yml --ref master
+          fi
