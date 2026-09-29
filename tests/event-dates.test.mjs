@@ -41,6 +41,11 @@ for(const [today,openDates] of states) test(`as of ${today} the pages offer exac
   assert.ok(r.hub.includes(`<div class="next-date"><span>${next?'PROSSIMO APPUNTAMENTO':'ULTIMO INCONTRO DEL CICLO'}</span><time datetime="${shown.date}T18:30:00${shown.offset}">${shown.label}</time>`));
   assert.ok(r.hub.includes(`<span id="selected-date">${next?next.label:'Richieste chiuse'}</span>`));
   assert.equal(r.hub.includes('Gli incontri d’autunno<br>si sono conclusi.'),!next);
+  // Once no date is open, nothing on the hub or in llms.txt may still invite a request.
+  for(const invite of ['Invii la Sua richiesta di partecipazione.','Richieda la partecipazione.','Nel modulo di questa pagina può scegliere','Scelga una data e inserisca','PRIMA DI INCONTRARCI','Dove si svolgono gli incontri'])
+   assert.equal(r.hub.includes(invite),Boolean(next),invite);
+  assert.equal(r.read('llms.txt').includes('modulo unico per richiedere la partecipazione'),Boolean(next));
+  assert.equal(r.hub.includes('Dove si sono svolti gli incontri e a che ora?'),!next);
   faqParity(r.hub);
   for(const e of EVENTS){
    const open=openDates.includes(e.date), html=r.page(e);

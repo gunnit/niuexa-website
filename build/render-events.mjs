@@ -108,6 +108,20 @@ if(!html.includes('href="/event-details.css"')) html=html.replace('<link rel="st
 // After the last date the block names the closing date instead of a next one.
 const shown=next??EVENTS.at(-1);
 html=patch(html,/<div class="next-date">[\s\S]*?<\/div>/,`<div class="next-date"><span>${next?'PROSSIMO APPUNTAMENTO':'ULTIMO INCONTRO DEL CICLO'}</span><time datetime="${shown.date}T18:30:00${shown.offset}">${shown.label}</time><a href="#calendar" aria-label="Scopra tutte le date">Tutte le date <span aria-hidden="true">↓</span></a></div>`);
+// Once no date is open, nothing on the hub may still invite a request.
+html=patch(html,/<meta name="description" content="[^"]*">/,`<meta name="description" content="Eventi AI per aziende a Milano: 6 ottobre, 27 ottobre e 17 novembre 2026, ore 18:30 presso l’Ufficio Libera. ${next?'Invii la Sua richiesta di partecipazione.':'Gli incontri si sono conclusi.'}">`);
+html=patch(html,/<meta name="twitter:description" content="[^"]*">/,`<meta name="twitter:description" content="6 ottobre, 27 ottobre e 17 novembre 2026, ore 18:30 presso l’Ufficio Libera a Milano. ${next?'Richieda la partecipazione.':'Il ciclo si è concluso.'}">`);
+html=patch(html,/<p class="eyebrow">[^<]*<\/p><h2 id="faq-title">/,`<p class="eyebrow">${next?'PRIMA DI INCONTRARCI':'DOPO GLI INCONTRI'}</p><h2 id="faq-title">`);
+// The FAQ is in the JSON-LD and on the page; both get the same question and answer.
+const faq=(questions,q,a)=>{
+ const name=`(?:${questions.map(x=>x.replaceAll('?','\\?')).join('|')})`;
+ html=patch(html,new RegExp(`"name": "${name}",(\\s*"acceptedAnswer": \\{\\s*"@type": "Answer",\\s*"text": )"[^"]*"`),(m,between)=>`"name": "${q}",${between}"${a}"`);
+ html=patch(html,new RegExp(`<summary>${name}</summary><p>[^<]*</p>`),`<summary>${q}</summary><p>${a}</p>`);
+};
+faq(['Quali sono le date degli eventi NIUEXA nel 2026?'],'Quali sono le date degli eventi NIUEXA nel 2026?',next?'Il ciclo SIGNALS dell’autunno 2026 prevede tre incontri: il 6 ottobre, il 27 ottobre e il 17 novembre 2026. Nel modulo di questa pagina può scegliere tra le date non ancora passate.':'Il ciclo SIGNALS dell’autunno 2026 si è svolto in tre incontri: il 6 ottobre, il 27 ottobre e il 17 novembre 2026.');
+faq(['Come si richiede la partecipazione?'],'Come si richiede la partecipazione?',next?'Scelga una data e inserisca nome, cognome, azienda, email e cellulare. Il messaggio di richiesta ricevuta indica che il servizio di invio ha accettato i dati: non conferma un posto né la consegna di un’email.':'Le richieste sono chiuse: gli incontri del ciclo si sono conclusi. Per informazioni scriva a ai@niuexa.ai.');
+const where=['Dove si svolgono gli incontri e a che ora?','Dove si sono svolti gli incontri e a che ora?'];
+faq(where,next?where[0]:where[1],`Tutti e tre gli incontri ${next?'si svolgono':'si sono svolti'} in presenza alle 18:30, ora locale di Milano (Europe/Rome), presso l’Ufficio Libera, Via Rutilia 10/8, 20141 Milano.`);
 html=patch(html,/<h2 id="registration-title">[\s\S]*?<\/h2>/,next?'<h2 id="registration-title">Il prossimo incontro<br>parte da Lei.</h2>':'<h2 id="registration-title">Gli incontri d’autunno<br>si sono conclusi.</h2>');
 html=patch(html,/<p class="form-intro">[\s\S]*?<\/p>/,next?'<p class="form-intro">Scelga una data e invii la Sua richiesta di partecipazione.</p>':'<p class="form-intro">Le richieste di partecipazione sono chiuse. Per informazioni scriva a <a href="mailto:ai@niuexa.ai">ai@niuexa.ai</a>.</p>');
 html=patch(html,/<span id="selected-date">[^<]*<\/span>/,`<span id="selected-date">${next?next.label:'Richieste chiuse'}</span>`);
@@ -123,6 +137,6 @@ sitemap=sitemap.replace(/  <url><loc>https:\/\/niuexa\.ai\/eventi-ai-aziende\/([
 for(const e of EVENTS){const url='https://niuexa.ai'+path(e);if(!sitemap.includes(`<loc>${url}</loc>`)) sitemap=sitemap.replace('</urlset>',`  <url><loc>${url}</loc></url>\n</urlset>`);}
 write('sitemap.xml',sitemap);
 let llms=read('llms.txt');
-llms=llms.replace(/## Eventi AI per aziende\n[\s\S]*?\n## Core Services/,`## Eventi AI per aziende\n- [SIGNALS – Decifrare il futuro: incontri NIUEXA, autunno 2026](https://niuexa.ai/eventi-ai-aziende/): modulo unico per richiedere la partecipazione, non conferma del posto. Tutte le date alle 18:30 (Europe/Rome), ${venue.name}, ${venueLine}.\n${EVENTS.map(e=>`- [${e.title}](https://niuexa.ai${path(e)}): ${e.label}${isPast(e)?', incontro concluso':''}. ${e.excerpt}`).join('\n')}\n\n## Core Services`);
+llms=llms.replace(/## Eventi AI per aziende\n[\s\S]*?\n## Core Services/,`## Eventi AI per aziende\n- [SIGNALS – Decifrare il futuro: incontri NIUEXA, autunno 2026](https://niuexa.ai/eventi-ai-aziende/): ${next?'modulo unico per richiedere la partecipazione, non conferma del posto':'ciclo concluso, richieste di partecipazione chiuse'}. Tutte le date alle 18:30 (Europe/Rome), ${venue.name}, ${venueLine}.\n${EVENTS.map(e=>`- [${e.title}](https://niuexa.ai${path(e)}): ${e.label}${isPast(e)?', incontro concluso':''}. ${e.excerpt}`).join('\n')}\n\n## Core Services`);
 write('llms.txt',llms);write('llm.txt',llms);
 console.log(`Rendered ${EVENTS.length} event pages (${open.length} open as of ${today}), ${MOVED.length} redirects, hub topics and sitemap.`);
