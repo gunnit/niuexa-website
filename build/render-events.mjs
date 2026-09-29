@@ -111,6 +111,7 @@ html=patch(html,/<div class="next-date">[\s\S]*?<\/div>/,`<div class="next-date"
 // Once no date is open, nothing on the hub may still invite a request.
 html=patch(html,/<meta name="description" content="[^"]*">/,`<meta name="description" content="Eventi AI per aziende a Milano: 6 ottobre, 27 ottobre e 17 novembre 2026, ore 18:30 presso l’Ufficio Libera. ${next?'Invii la Sua richiesta di partecipazione.':'Gli incontri si sono conclusi.'}">`);
 html=patch(html,/<meta name="twitter:description" content="[^"]*">/,`<meta name="twitter:description" content="6 ottobre, 27 ottobre e 17 novembre 2026, ore 18:30 presso l’Ufficio Libera a Milano. ${next?'Richieda la partecipazione.':'Il ciclo si è concluso.'}">`);
+html=patch(html,/<a class="header-link" href="#[a-z]+">[^<]*<span aria-hidden="true">↗<\/span><\/a>/,next?'<a class="header-link" href="#registration">La Sua partecipazione <span aria-hidden="true">↗</span></a>':'<a class="header-link" href="#calendar">Tutte le date <span aria-hidden="true">↗</span></a>');
 html=patch(html,/<p class="eyebrow">[^<]*<\/p><h2 id="faq-title">/,`<p class="eyebrow">${next?'PRIMA DI INCONTRARCI':'DOPO GLI INCONTRI'}</p><h2 id="faq-title">`);
 // The FAQ is in the JSON-LD and on the page; both get the same question and answer.
 const faq=(questions,q,a)=>{
