@@ -49,7 +49,7 @@
 - [About Us (English)](https://niuexa.ai/en/about-us.html): English version
 - [Contact](https://niuexa.ai/contatti.html): Request a consultation
 - [Contact (English)](https://niuexa.ai/en/contact.html): English contact page
-- [Events / AI Aperitivo](https://niuexa.ai/eventi.html): Networking and training events in Milan
+- [Events](https://niuexa.ai/eventi.html): Networking and training events in Milan
 - [Careers](https://niuexa.ai/carriere.html): Join the Niuexa team
 - [ROI Calculator](https://niuexa.ai/roi-calculator.html): Estimate your AI investment return
 
