@@ -1,3 +1,4 @@
+import re
 import unittest
 from pathlib import Path
 
@@ -26,10 +27,10 @@ class MarketingConsentTests(unittest.TestCase):
         for page in ("certification.html", "en/certification.html"):
             text = (ROOT / page).read_text(encoding="utf-8")
             form = text[text.index('<form id="certification-form"'):text.index("</form>", text.index('<form id="certification-form"'))]
-            for tag in form.split("<input")[1:]:
-                tag = tag.split(">", 1)[0]
-                if 'type="checkbox"' in tag:
-                    self.assertNotIn("required", tag, page)
+            # Any quoting style, and only the boolean attribute (not aria-required).
+            for tag in re.findall(r"<input\b[^>]*>", form, re.I):
+                if re.search(r"""\btype\s*=\s*["']?checkbox\b""", tag, re.I):
+                    self.assertIsNone(re.search(r"(?<![\w-])required(?![\w-])", tag, re.I), f"{page}: {tag}")
 
     def test_google_ad_consent_uses_marketing_choice(self):
         text = SCRIPT.read_text(encoding="utf-8")

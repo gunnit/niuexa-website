@@ -9,11 +9,13 @@ const root=resolve(import.meta.dirname,'..');
 // Render the event pages as of a given day into a scratch copy; the committed pages are never touched.
 function renderAs(today,{hub}={}){
  const dir=mkdtempSync(join(tmpdir(),'events-'));
- mkdirSync(join(dir,'eventi-ai-aziende'));
- copyFileSync(join(root,'eventi-ai-aziende/index.html'),join(dir,'eventi-ai-aziende/index.html'));
- if(hub) writeFileSync(join(dir,'eventi-ai-aziende/index.html'),hub(readFileSync(join(dir,'eventi-ai-aziende/index.html'),'utf8')));
- for(const f of ['sitemap.xml','llms.txt']) copyFileSync(join(root,f),join(dir,f));
- execFileSync(process.execPath,['build/render-events.mjs',`--today=${today}`],{cwd:root,env:{...process.env,EVENTS_ROOT:dir},stdio:'pipe'});
+ try {
+  mkdirSync(join(dir,'eventi-ai-aziende'));
+  copyFileSync(join(root,'eventi-ai-aziende/index.html'),join(dir,'eventi-ai-aziende/index.html'));
+  if(hub) writeFileSync(join(dir,'eventi-ai-aziende/index.html'),hub(readFileSync(join(dir,'eventi-ai-aziende/index.html'),'utf8')));
+  for(const f of ['sitemap.xml','llms.txt']) copyFileSync(join(root,f),join(dir,f));
+  execFileSync(process.execPath,['build/render-events.mjs',`--today=${today}`],{cwd:root,env:{...process.env,EVENTS_ROOT:dir},stdio:'pipe'});
+ } catch(error) {rmSync(dir,{recursive:true,force:true});throw error;} // a failed render leaves nothing behind
  const read=p=>readFileSync(join(dir,p),'utf8');
  return {dir,read,hub:read('eventi-ai-aziende/index.html'),page:e=>read(`eventi-ai-aziende/${e.slug}/index.html`)};
 }
