@@ -1,16 +1,29 @@
 const { chromium } = await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
 import assert from 'node:assert/strict';
+import {execFileSync} from 'node:child_process';
+import {mkdtempSync,mkdirSync,copyFileSync,readFileSync,rmSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import {join,resolve} from 'node:path';
 const base = process.env.EVENT_PREVIEW_URL || 'http://127.0.0.1:8766';
 if (!['localhost','127.0.0.1'].includes(new URL(base).hostname)) throw Error('Local tests only');
-const browser=await chromium.launch({headless:true});
-const page=await browser.newPage({viewport:{width:1440,height:1050}});
-// Which dates are open depends on today's date in Milan, so every page pins its clock.
-await page.clock.setFixedTime(new Date('2026-09-29T10:00:00+02:00'));
+// Which dates the hub offers depends on the day it was rendered, so the hub is rendered
+// here as of a fixed day and served in place of the committed one.
+const root=resolve(import.meta.dirname,'..');
+const hubAsOf=today=>{
+ const dir=mkdtempSync(join(tmpdir(),'hub-'));
+ try {
+  mkdirSync(join(dir,'eventi-ai-aziende'));
+  for(const f of ['eventi-ai-aziende/index.html','sitemap.xml','llms.txt']) copyFileSync(join(root,f),join(dir,f));
+  execFileSync(process.execPath,['build/render-events.mjs',`--today=${today}`],{cwd:root,env:{...process.env,EVENTS_ROOT:dir},stdio:'pipe'});
+  return readFileSync(join(dir,'eventi-ai-aziende/index.html'),'utf8');
+ } finally {rmSync(dir,{recursive:true,force:true});}
+};
+const fullCalendar=hubAsOf('2026-09-29');
 const errors=[], external=[]; let sent=[], response={success:true}, httpStatus=200, delay=0;
-page.on('pageerror',e=>errors.push(e.message));
 // Intercept every remote request. A regression cannot submit real PII.
-await page.route('**/*',async route=>{
+const guard=hub=>async route=>{
  const req=route.request();
+ if(req.url().startsWith(base+'/eventi-ai-aziende/?')||req.url()===base+'/eventi-ai-aziende/') return route.fulfill({contentType:'text/html; charset=utf-8',body:hub});
  if(req.url().startsWith(base+'/')) return route.continue();
  if(req.url()==='https://api.web3forms.com/submit') {
   sent.push(JSON.parse(req.postData()));
@@ -18,12 +31,18 @@ await page.route('**/*',async route=>{
   return route.fulfill({status:httpStatus,contentType:'application/json',body:JSON.stringify(response)});
  }
  external.push(req.url()); return route.abort();
-});
+};
+const browser=await chromium.launch({headless:true});
+// Which dates are open also depends on today's date in Milan, so every page pins its clock.
+const at=async(when,hub=fullCalendar,options={})=>{const p=await browser.newPage(options);p.on('pageerror',e=>errors.push(e.message));await p.clock.setFixedTime(new Date(when));await p.route('**/*',guard(hub));return p;};
+const page=await at('2026-09-29T10:00:00+02:00',fullCalendar,{viewport:{width:1440,height:1050}});
+const options=p=>p.locator('#event-date option').evaluateAll(o=>o.map(x=>x.value));
 const data={firstName:'Ada',lastName:'Esempio',company:'TEST NON ISCRIZIONE',email:'qa@example.com',mobile:'+39 000 000 0000'};
-const fill=async()=>{for(const [k,v] of Object.entries(data)) await page.locator('#'+k).fill(v);};
+const fill=async(p=page)=>{for(const [k,v] of Object.entries(data)) await p.locator('#'+k).fill(v);};
 try {
  await page.goto(base+'/eventi-ai-aziende/');
  await page.locator('#registration-fields:not([disabled])').waitFor();
+ assert.deepEqual(await options(page),['2026-10-06','2026-10-27','2026-11-17']);
  assert.match(await page.title(),/Eventi AI per aziende/);
  assert.equal(await page.locator('link[rel=canonical]').getAttribute('href'),'https://niuexa.ai/eventi-ai-aziende/');
  await page.locator('#submit-registration').click();
@@ -61,8 +80,6 @@ try {
  await page.locator('#event-date').selectOption('2026-10-27');
  assert.equal(await page.locator('#submit-registration').isDisabled(),false);
  // The served page may predate today's render: the form must still drop dates that have passed.
- const at=async when=>{const p=await browser.newPage();p.on('pageerror',e=>errors.push(e.message));await p.clock.setFixedTime(new Date(when));return p;};
- const options=p=>p.locator('#event-date option').evaluateAll(o=>o.map(x=>x.value));
  const eve=await at('2026-10-06T21:30:00Z'); // 23:30 in Milan: the 6 October date is still open
  await eve.goto(base+'/eventi-ai-aziende/');
  assert.deepEqual(await options(eve),['2026-10-06','2026-10-27','2026-11-17']);
@@ -83,6 +100,44 @@ try {
  assert.equal(await closed.locator('#event-date').isDisabled(),true);
  assert.equal(await closed.locator('#submit-registration').isDisabled(),true);
  assert.match(await closed.locator('#form-status').innerText(),/si sono conclusi/);
+ // A device clock running late must not reopen a date that the served page has already closed.
+ const late=await at('2026-10-06T21:00:00Z',hubAsOf('2026-10-07')); // 23:00 on 6 October in Milan
+ await late.goto(base+'/eventi-ai-aziende/');
+ assert.deepEqual(await options(late),['2026-10-27','2026-11-17']);
+ assert.equal(await late.locator('#event-date').inputValue(),'2026-10-27');
+ await late.goto(base+'/eventi-ai-aziende/?event=2026-10-06');
+ assert.deepEqual(await options(late),['','2026-10-27','2026-11-17']);
+ assert.match(await late.locator('#form-status').innerText(),/La data richiesta non è disponibile/);
+ assert.equal(await late.locator('#submit-registration').isDisabled(),true);
+ // A tab left open past midnight must not send the date that has just closed.
+ const overnight=await at('2026-10-06T21:50:00Z'); // 23:50 on 6 October in Milan
+ await overnight.goto(base+'/eventi-ai-aziende/?event=2026-10-06');
+ await fill(overnight);
+ await overnight.clock.setFixedTime(new Date('2026-10-06T22:05:00Z')); // 00:05 on 7 October
+ let count=sent.length;
+ await overnight.locator('#submit-registration').click();
+ assert.equal(sent.length,count);
+ assert.match(await overnight.locator('#form-status').innerText(),/6 ottobre 2026 si è già svolto\. Scelga/);
+ assert.deepEqual(await options(overnight),['','2026-10-27','2026-11-17']);
+ assert.equal(await overnight.locator('#selected-date').innerText(),'Scelga una data');
+ assert.equal(await overnight.locator('#submit-registration').isDisabled(),true);
+ await overnight.locator('#event-date').selectOption('2026-10-27');
+ await overnight.locator('#submit-registration').click();
+ await overnight.waitForFunction(()=>document.querySelector('#form-status').classList.contains('success'));
+ assert.equal(sent.at(-1).event_date,'2026-10-27');
+ const lastNight=await at('2026-11-17T22:50:00Z'); // 23:50 on 17 November in Milan
+ await lastNight.goto(base+'/eventi-ai-aziende/');
+ assert.deepEqual(await options(lastNight),['2026-11-17']);
+ await fill(lastNight);
+ await lastNight.clock.setFixedTime(new Date('2026-11-17T23:05:00Z')); // 00:05 on 18 November
+ count=sent.length;
+ await lastNight.locator('#submit-registration').click();
+ assert.equal(sent.length,count);
+ assert.match(await lastNight.locator('#form-status').innerText(),/17 novembre 2026 si è già svolto\. Per informazioni/);
+ assert.deepEqual(await options(lastNight),['']);
+ assert.equal(await lastNight.locator('#event-date').isDisabled(),true);
+ assert.equal(await lastNight.locator('#selected-date').innerText(),'Richieste chiuse');
+ assert.equal(await lastNight.locator('#submit-registration').innerText(),'Richieste chiuse');
  await page.goto(base+'/eventi-ai-aziende/');
  for(const width of [320,390,768,1440]) {
   await page.setViewportSize({width,height:1000});
@@ -96,5 +151,5 @@ try {
  await broken.goto(base+'/eventi-ai-aziende/');
  assert.equal(await broken.locator('#submit-registration').isDisabled(),true);
  assert.deepEqual(errors,[]); assert.deepEqual(external,[]);
- console.log('PASS mocked production form: validation, loading, strict success, duplicate guard, false-success retry, honeypot, date payload/deep links, invalid date, past dates dropped at Milan midnight, closed series, 4 widths, no-JS/module safety; no external network, 0 page errors.');
+ console.log('PASS mocked production form: validation, loading, strict success, duplicate guard, false-success retry, honeypot, date payload/deep links, invalid date, past dates dropped at Milan midnight, late device clock, tab left open past midnight, closed series, 4 widths, no-JS/module safety; no external network, 0 page errors.');
 } finally {await browser.close();}

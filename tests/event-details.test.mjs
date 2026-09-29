@@ -61,8 +61,9 @@ test('retired topic URLs redirect to their renamed pages and leave the sitemap a
 });
 test('existing registration transport, config, styling and five-field form remain byte-identical',()=>{
  const hashes={
-  // Re-pinned when the form started dropping dates that have passed in Milan.
-  'event-registration.mjs':'ddabf7224380c7774241eac299c03f38cbcedccf31ef5959eb2a73e4bccdb00c',
+  // Re-pinned when the form started dropping dates that have passed in Milan, and again when
+  // it stopped offering dates the served page has closed and re-checked the date on submit.
+  'event-registration.mjs':'a20334630c76b52a8821f07060e399801483b208cb45758b75493dadba9484ec',
   'event-registration-core.mjs':'c1fd9773f202aa683afcc2e7d9982e260eae834d4ba07a3f3151258c0e2d0ae0',
   // Re-pinned for the dates/venue in Roberto's 20 September email.
   'event-registration-config.mjs':'6e4047ba273d8fd16e97e2b4fd3d2bbf9159db7e1615fce037db4c3042ee233e',
