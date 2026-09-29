@@ -6,7 +6,14 @@ const params = new URLSearchParams(location.search);
 const flow = createRegistration();
 const form = $('registration-form'), fields = $('registration-fields'), button = $('submit-registration');
 const select = $('event-date'), status = $('form-status');
-let event = EVENTS.find(item => item.id === (params.get('event') || EVENTS[0].id));
+// A date stays open until the end of its day in Milan. The page is re-rendered every
+// night, but a copy older than today must still never offer a date that has passed.
+const today = (p => `${p.year}-${p.month}-${p.day}`)(Object.fromEntries(
+  new Intl.DateTimeFormat('en', { timeZone: 'Europe/Rome', year: 'numeric', month: '2-digit', day: '2-digit' })
+    .formatToParts(new Date()).map(part => [part.type, part.value])));
+const open = EVENTS.filter(item => item.date >= today);
+for (const option of [...select.options]) if (!open.some(item => item.id === option.value)) option.remove();
+let event = open.find(item => item.id === (params.get('event') || open[0]?.id));
 let busy = false;
 const completed = new Set();
 
@@ -15,24 +22,32 @@ function showStatus(message, kind = '') {
   status.className = 'form-status ' + kind;
 }
 function updateEvent() {
-  $('selected-date').textContent = event?.label || 'Data non riconosciuta';
+  $('selected-date').textContent = event?.label || (open.length ? 'Data non riconosciuta' : 'Richieste chiuse');
   fields.disabled = !event || completed.has(event.id);
   button.disabled = fields.disabled;
-  button.textContent = !event ? 'Scelga una data valida' : completed.has(event.id) ? 'Richiesta già ricevuta' : 'Invii la richiesta ↗';
+  button.textContent = !event ? (open.length ? 'Scelga una data valida' : 'Richieste chiuse') : completed.has(event.id) ? 'Richiesta già ricevuta' : 'Invii la richiesta ↗';
 }
 // Prevent native form submission; CSP form-action:none is a second layer.
 form.addEventListener('submit', e => { e.preventDefault(); if (!button.disabled) submit(); });
 select.addEventListener('change', () => {
   if (busy) return;
-  event = EVENTS.find(item => item.id === select.value);
+  event = open.find(item => item.id === select.value);
   const url = new URL(location.href);
   url.searchParams.set('event', select.value);
   history.replaceState(null, '', url);
   showStatus('');
   updateEvent();
 });
+const requestedPast = EVENTS.find(item => item.id === params.get('event') && !open.includes(item));
 if (event) select.value = event.id;
-else {
+else if (!open.length) {
+  select.prepend(new Option('Nessuna data in calendario', '', true, true));
+  select.disabled = true;
+  showStatus('Gli incontri in calendario si sono conclusi. Per informazioni scriva a ai@niuexa.ai.');
+} else if (requestedPast) {
+  select.prepend(new Option('Scelga una data', '', true, true));
+  showStatus('L’incontro del ' + requestedPast.label + ' si è già svolto. Scelga uno degli appuntamenti in calendario.', 'error');
+} else {
   const option = new Option('Data non riconosciuta', '', true, true);
   select.prepend(option);
   showStatus('La data richiesta non è disponibile. Scelga uno degli appuntamenti in calendario.', 'error');

@@ -1,0 +1,65 @@
+name: Refresh event pages
+
+# The SIGNALS pages say which date comes next and stop taking requests for a date
+# once it has passed. build/render-events.mjs decides that from today's date in
+# Milan, so render every night and publish when a date has rolled over. On any
+# other night the render changes nothing and this job ends after the diff.
+on:
+  schedule:
+    # 23:45 UTC is 01:45 in Milan in summer time and 00:45 in winter time: always
+    # after local midnight, and away from the top of the hour when GitHub delays runs.
+    - cron: '45 23 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write # commit the re-rendered pages to master
+  actions: write # start the deploy; a push made with GITHUB_TOKEN does not trigger workflows
+
+concurrency:
+  group: event-pages-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: master
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Render the event pages as of today
+        run: node build/render-events.mjs
+      - name: Check whether anything changed
+        id: diff
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No event date has rolled over; nothing to publish."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git status --short
+          fi
+      # The same gates the deploy workflow runs, so this job never publishes a build it would reject.
+      - name: Run the checks
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          node build/build.mjs --check
+          python3 -m unittest discover -s tests
+          node --test --test-concurrency=1 tests/event-registration.test.mjs tests/event-package.test.mjs tests/event-seo.test.mjs tests/event-details.test.mjs tests/event-dates.test.mjs tests/cloudflare-package.test.mjs
+      - name: Commit and push
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add eventi-ai-aziende sitemap.xml llms.txt llm.txt
+          git commit -m "Refresh SIGNALS event pages for $(TZ=Europe/Rome date +%F)"
+          git push origin HEAD:master
+      - name: Deploy
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run github-pages.yml --ref master
