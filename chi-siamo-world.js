@@ -57,8 +57,8 @@
       scroll: 1.9, linger: 0.45,
       eyebrow: 'L’impatto',
       title: 'Conta il risultato, non la demo.',
-      body: 'Oltre 25 aziende accompagnate, un ROI medio del 150% e più di 40 ore a settimana restituite ai team che lavorano con noi.',
-      tags: ['25+ aziende', 'ROI 150%', '40h/settimana'],
+      body: 'Ogni progetto si misura su obiettivi concordati prima di iniziare: tempo restituito ai team, qualità e costi, confrontati con il punto di partenza.',
+      tags: ['Obiettivi', 'Indicatori', 'Misura'],
       cta: {
         primary: { label: 'Parliamone', href: 'contatti.html' },
         secondary: { label: 'Calcola il tuo ROI', href: 'roi-calculator.html' }
