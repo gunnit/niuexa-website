@@ -54,13 +54,7 @@ function initAIReadinessForm() {
             if (response.ok) {
                 console.log('AI Readiness Form - Submitted successfully to Formcarry');
 
-                // Track conversion event
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'form_submit', {
-                        'event_category': 'AI Readiness Tool',
-                        'event_label': 'AI Readiness Form'
-                    });
-                }
+                // form_submit is sent once by conversion-tracking.js; generate_lead by the thank-you page.
 
                 // Redirect to AI Readiness thank you page
                 window.location.href = 'thank-you-ai-readiness.html';

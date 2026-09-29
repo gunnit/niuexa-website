@@ -76,9 +76,41 @@
     return form.dataset.formLabel || form.getAttribute('aria-label') || form.id || form.getAttribute('name') || form.querySelector('[name="formSource"]')?.value || form.className || 'website_form';
   }
 
+  // Two offers share the word "readiness": the AI Readiness Assessment (consulting) and the
+  // AEO Analyzer sold on ai-readiness-tool.html. Match exact paths and label prefixes, never a
+  // substring, so neither offer's forms or thank-you page are counted as the other's.
+  var OFFERS = [
+    {
+      campaign: 'aeo_analyzer_2026', formName: 'AEO Analyzer',
+      thankYou: 'https://niuexa.ai/thank-you-ai-readiness.html',
+      paths: ['/ai-readiness-tool.html', '/en/ai-readiness-tool.html', '/thank-you-ai-readiness.html'],
+      labels: ['aeo analyzer', 'ai readiness tool']
+    },
+    {
+      campaign: 'ai_readiness_pmi_2026', formName: 'AI Readiness Assessment',
+      thankYou: 'https://niuexa.ai/thank-you-ai-readiness-assessment.html',
+      paths: ['/ai-readiness-assessment.html', '/ai-readiness-assessment-lp.html', '/thank-you-ai-readiness-assessment.html'],
+      labels: ['ai readiness assessment']
+    }
+  ];
+
+  function offerFor(label) {
+    var path = window.location.pathname;
+    label = (label || '').toLowerCase();
+    for (var i = 0; i < OFFERS.length; i++) {
+      var offer = OFFERS[i];
+      if (offer.paths.indexOf(path) !== -1) return offer;
+      for (var j = 0; j < offer.labels.length; j++) {
+        if (label.indexOf(offer.labels[j]) === 0) return offer;
+      }
+    }
+    return null;
+  }
+
   function inferCampaign(form) {
     var name = formName(form).toLowerCase();
-    if (name.indexOf('readiness') !== -1 || window.location.pathname.indexOf('ai-readiness') !== -1) return 'ai_readiness_pmi_2026';
+    var offer = offerFor(name);
+    if (offer) return offer.campaign;
     if (name.indexOf('newsletter') !== -1) return 'newsletter_growth_2026';
     if (window.location.pathname.indexOf('/books/') !== -1) return 'book_lead_magnet_2026';
     return DEFAULT_CAMPAIGN;
@@ -86,11 +118,8 @@
 
   function inferRedirect(form) {
     if (form.querySelector('[name="redirect"]')) return null;
-    var name = formName(form).toLowerCase();
-    if (name.indexOf('readiness') !== -1 || window.location.pathname.indexOf('ai-readiness') !== -1) {
-      return 'https://niuexa.ai/thank-you-ai-readiness-assessment.html';
-    }
-    return 'https://niuexa.ai/thank-you-page.html';
+    var offer = offerFor(formName(form));
+    return offer ? offer.thankYou : 'https://niuexa.ai/thank-you-page.html';
   }
 
   function populateForm(form) {
@@ -186,9 +215,10 @@
     } catch (e) {
       // Tracking must continue when storage is unavailable or blocked.
     }
+    var offer = offerFor('');
     track('generate_lead', {
-      form_name: data.last_form_name || (path.indexOf('ai-readiness') !== -1 ? 'AI Readiness Assessment' : 'Website contact form'),
-      campaign: data.last_campaign || data.utm_campaign || (path.indexOf('ai-readiness') !== -1 ? 'ai_readiness_pmi_2026' : DEFAULT_CAMPAIGN),
+      form_name: data.last_form_name || (offer ? offer.formName : 'Website contact form'),
+      campaign: data.last_campaign || data.utm_campaign || (offer ? offer.campaign : DEFAULT_CAMPAIGN),
       lead_source: data.utm_source || 'website',
       lead_medium: data.utm_medium || 'organic'
     });
