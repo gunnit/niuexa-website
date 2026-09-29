@@ -116,8 +116,10 @@ try {
  await overnight.clock.setFixedTime(new Date('2026-10-06T22:05:00Z')); // 00:05 on 7 October
  let count=sent.length;
  await overnight.locator('#submit-registration').click();
- assert.equal(sent.length,count);
+ // Wait for the outcome before counting, so a request sent late would still be caught.
+ await overnight.waitForFunction(()=>/si è già svolto|Richiesta ricevuta|Non possiamo verificare/.test(document.querySelector('#form-status').textContent));
  assert.match(await overnight.locator('#form-status').innerText(),/6 ottobre 2026 si è già svolto\. Scelga/);
+ assert.equal(sent.length,count);
  assert.deepEqual(await options(overnight),['','2026-10-27','2026-11-17']);
  assert.equal(await overnight.locator('#selected-date').innerText(),'Scelga una data');
  assert.equal(await overnight.locator('#submit-registration').isDisabled(),true);
@@ -132,8 +134,9 @@ try {
  await lastNight.clock.setFixedTime(new Date('2026-11-17T23:05:00Z')); // 00:05 on 18 November
  count=sent.length;
  await lastNight.locator('#submit-registration').click();
- assert.equal(sent.length,count);
+ await lastNight.waitForFunction(()=>/si è già svolto|Richiesta ricevuta|Non possiamo verificare/.test(document.querySelector('#form-status').textContent));
  assert.match(await lastNight.locator('#form-status').innerText(),/17 novembre 2026 si è già svolto\. Per informazioni/);
+ assert.equal(sent.length,count);
  assert.deepEqual(await options(lastNight),['']);
  assert.equal(await lastNight.locator('#event-date').isDisabled(),true);
  assert.equal(await lastNight.locator('#selected-date').innerText(),'Richieste chiuse');
@@ -144,10 +147,11 @@ try {
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`overflow ${width}`);
   if([390,1440].includes(width)) await page.screenshot({path:`qa/events/production-${width}.png`,fullPage:true});
  }
- const nojs=await browser.newPage({javaScriptEnabled:false});
+ const nojs=await at('2026-09-29T10:00:00+02:00',fullCalendar,{javaScriptEnabled:false});
  await nojs.goto(base+'/eventi-ai-aziende/');
  assert.equal(await nojs.locator('#submit-registration').isDisabled(),true);
- const broken=await browser.newPage(); await broken.route('**/event-registration.mjs',r=>r.abort());
+ // Registered after the guard, so it runs first for the module (Playwright runs the latest route first).
+ const broken=await at('2026-09-29T10:00:00+02:00'); await broken.route('**/event-registration.mjs',r=>r.abort());
  await broken.goto(base+'/eventi-ai-aziende/');
  assert.equal(await broken.locator('#submit-registration').isDisabled(),true);
  assert.deepEqual(errors,[]); assert.deepEqual(external,[]);
