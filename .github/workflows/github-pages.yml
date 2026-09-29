@@ -1,8 +1,8 @@
 name: Deploy to GitHub Pages and Cloudflare
 
-# GitHub Pages serves niuexa.ai until DNS moves to Cloudflare. Until then the
-# Cloudflare job deploys the same bundle to workers.dev so it can be checked
-# side by side (node build/check-hosting.mjs <url> --compare https://niuexa.ai).
+# Cloudflare Workers serves niuexa.ai (the Custom Domain is in wrangler.jsonc).
+# GitHub Pages still receives the same bundle until it is retired. Check a deploy
+# with node build/check-hosting.mjs https://niuexa.ai.
 on:
   push:
     branches:

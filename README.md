@@ -17,15 +17,13 @@ A professional website for Niuexa, showcasing AI consulting, training, and produ
 - Vanilla JavaScript
 - Google Fonts (Orbitron & Inter)
 
-## Deployment (GitHub Pages)
+## Deployment
 
-The site deploys automatically to GitHub Pages via `.github/workflows/github-pages.yml` on every push to `master`/`main`. The custom domain `niuexa.ai` is configured through the `CNAME` file; a branded `404.html` at the repo root is served automatically for missing pages.
-
-No build step is required — the repository root is published as-is.
+Every push to `master`/`main` runs `.github/workflows/github-pages.yml`. It checks the site, packages the public files into `_site` and deploys them to Cloudflare Workers (static assets), which serves `niuexa.ai`. GitHub Pages receives the same build until it is retired. The branded `404.html` is served for missing pages.
 
 ## Custom Domain
 
-The domain `niuexa.ai` is configured via the `CNAME` file in the repository root and the GitHub Pages settings of the repo. DNS is managed at the registrar (A/ALIAS records to GitHub Pages, CNAME for www).
+`niuexa.ai` is attached to the Worker as a Custom Domain in `wrangler.jsonc`. DNS is managed in Cloudflare; `www.niuexa.ai` redirects to `niuexa.ai` through a Cloudflare Redirect Rule. Email (MX) and `aeo.niuexa.ai` are separate DNS records.
 
 ## Monitoring and Analytics
 
@@ -56,10 +54,10 @@ npx http-server
 ├── index.html              # Main HTML file
 ├── styles.css              # Main stylesheet
 ├── script.js               # JavaScript functionality
-├── 404.html                # Branded 404 page (GitHub Pages)
+├── 404.html                # Branded 404 page
 ├── .github/
 │   └── workflows/
-│       └── github-pages.yml    # GitHub Pages deploy workflow
+│       └── github-pages.yml    # Deploy workflow (Cloudflare and GitHub Pages)
 └── README.md               # This file
 ```
 
@@ -68,7 +66,7 @@ npx http-server
 For issues with:
 - **Website functionality**: Check browser console for errors
 - **Deployment**: Check the GitHub Actions logs (github-pages.yml)
-- **DNS/Domain issues**: Contact your domain registrar
+- **DNS/Domain issues**: Cloudflare dashboard (DNS, and Workers & Pages → niuexa-website)
 
 ## License
 
