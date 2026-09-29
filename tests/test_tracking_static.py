@@ -30,6 +30,24 @@ class TrackingStaticTests(unittest.TestCase):
                 offenders.append(page.relative_to(ROOT).as_posix())
         self.assertEqual([], offenders, "use normalized form_start/form_submit/generate_lead events")
 
+    def test_consent_defaults_are_set_before_tag_manager_loads(self):
+        # Consent Mode: the denied defaults must be queued before the gtm.js event,
+        # or tags that fire on page load can run before the defaults apply.
+        consent = re.compile(r"gtag\(\s*['\"]consent['\"]\s*,\s*['\"]default['\"]")
+        offenders = []
+        for page in ROOT.rglob("*.html"):
+            rel = page.relative_to(ROOT).as_posix()
+            if rel.startswith(("_site", "qa/")):
+                continue
+            text = page.read_text(encoding="utf-8", errors="ignore")
+            loader = text.find("googletagmanager.com/gtm.js")
+            if loader == -1:
+                continue
+            match = consent.search(text)
+            if not match or match.start() > loader:
+                offenders.append(rel)
+        self.assertEqual([], offenders)
+
     def test_thank_you_lead_event_has_session_deduplication(self):
         script = (ROOT / "conversion-tracking.js").read_text(encoding="utf-8")
         self.assertIn("sessionStorage", script)
