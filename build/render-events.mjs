@@ -16,6 +16,8 @@ const venueLine=`${venue.street}, ${venue.postalCode} ${venue.city}`;
 const romeDate=d=>{const p=Object.fromEntries(new Intl.DateTimeFormat('en',{timeZone:'Europe/Rome',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(d).map(x=>[x.type,x.value]));return `${p.year}-${p.month}-${p.day}`;};
 const today=process.argv.find(a=>a.startsWith('--today='))?.slice(8)??romeDate(new Date());
 if(!/^\d{4}-\d{2}-\d{2}$/.test(today)) throw new Error(`--today must be YYYY-MM-DD, got "${today}"`);
+// "Next" is the first open event, so EVENTS must stay in date order.
+EVENTS.forEach((e,i)=>{if(i&&e.date<=EVENTS[i-1].date) throw new Error(`event-content.mjs: ${e.slug} must come after ${EVENTS[i-1].slug} (dates in order)`);});
 const isPast=e=>e.date<today;
 const open=EVENTS.filter(e=>!isPast(e));
 const next=open[0];
