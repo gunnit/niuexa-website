@@ -198,6 +198,11 @@ class CookieBanner {
     saveConsent(consent) {
         localStorage.setItem(this.cookieName, JSON.stringify(consent));
         this.consentData = consent;
+        // Lets scripts that store data only with consent (conversion-tracking.js)
+        // apply the new choice on this page, without waiting for a reload.
+        window.dispatchEvent(new CustomEvent('niuexa:consent', {
+            detail: { analytics: consent.analytics, marketing: consent.marketing }
+        }));
     }
 
     getConsentData() {
