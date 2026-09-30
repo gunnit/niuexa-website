@@ -13,5 +13,14 @@
     "not_found_handling": "404-page"
   },
   "workers_dev": true,
-  "preview_urls": true
+  "preview_urls": true,
+  // niuexa.ai is served by this Worker. Deploying from CI attaches the Custom
+  // Domain; wrangler runs non-interactively there, so it replaces the GitHub
+  // Pages A records in the same API call (no moment without a DNS record).
+  // While any Custom Domain is listed, this list is the Worker's complete set:
+  // a domain dropped from it is detached. www.niuexa.ai is not listed: a
+  // Cloudflare Redirect Rule sends it to https://niuexa.ai with path and query.
+  "routes": [
+    { "pattern": "niuexa.ai", "custom_domain": true }
+  ]
 }

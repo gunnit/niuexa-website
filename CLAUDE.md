@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a static website for Niuexa, an AI consulting company. The site showcases AI consulting services, training programs, and products. It's built with vanilla HTML, CSS, and JavaScript and deployed to GitHub Pages (custom domain niuexa.ai via `CNAME`).
+This is a static website for Niuexa, an AI consulting company. The site showcases AI consulting services, training programs, and products. It's built with vanilla HTML, CSS, and JavaScript and served from Cloudflare Workers static assets (niuexa.ai, see `wrangler.jsonc`); GitHub Pages still receives each build until it is retired.
 
 ## Development Commands
 
@@ -31,9 +31,11 @@ npx http-server
 
 ### Deployment
 ```bash
-# Automatic deployment to GitHub Pages via GitHub Actions on push to master/main branch
-# Workflow: .github/workflows/github-pages.yml (no build step - uploads the repo root as-is)
-# Custom domain (niuexa.ai) is configured via the CNAME file
+# Automatic deployment via GitHub Actions on push to master/main branch
+# Workflow: .github/workflows/github-pages.yml packages the public files into _site
+# (build/package-pages.mjs, build/package-cloudflare.mjs) and deploys them to
+# Cloudflare Workers, which serves niuexa.ai, and to GitHub Pages until it is retired
+# niuexa.ai is attached to the Worker in wrangler.jsonc; www redirects via a Cloudflare Redirect Rule
 ```
 
 ## Architecture
@@ -86,14 +88,15 @@ npx http-server
 - Hamburger menu for mobile navigation
 - Optimized images and typography scaling
 
-## GitHub Pages Deployment
+## Deployment
 
 ### Deployment Setup
 - **GitHub Actions**: Automated deployment via `.github/workflows/github-pages.yml`
   - Triggers on push to main/master branches (plus manual `workflow_dispatch`)
-  - No build step - the repository root is uploaded as the Pages artifact
-- **Custom domain**: `CNAME` file points the site at niuexa.ai
-- **404 handling**: GitHub Pages automatically serves the root `404.html` for missing URLs
+  - Packages only public files into `_site` (`build/package-pages.mjs`; `build/package-cloudflare.mjs` adds `_redirects` and `_headers`)
+  - Deploys `_site` to Cloudflare Workers static assets (`wrangler deploy`) and to GitHub Pages, which is kept until it is retired
+- **Custom domain**: `wrangler.jsonc` attaches niuexa.ai to the Worker; DNS is on Cloudflare, where a Redirect Rule sends www.niuexa.ai to niuexa.ai
+- **404 handling**: the Worker serves the root `404.html` for missing URLs (`not_found_handling` in `wrangler.jsonc`)
 
 ## Content Management
 
@@ -126,7 +129,7 @@ npx http-server
 - Preconnect to Google Fonts
 - Optimized loading order
 - Compressed assets
-- CDN delivery via GitHub Pages
+- CDN delivery via Cloudflare
 
 ## Development Guidelines
 
@@ -219,13 +222,13 @@ npx http-server
 
 ## GitHub Actions Workflows
 The repository includes several automated workflows:
-- `github-pages.yml`: Automated deployment to GitHub Pages on push to master/main
+- `github-pages.yml`: Automated deployment to Cloudflare Workers and GitHub Pages on push to master/main
 - `claude-code-review.yml` and `claude.yml`: AI-assisted code review workflows
 
 ## Critical Files for Maintenance
 - `STYLESHEET_GUIDE.md`: Comprehensive design system documentation - reference this for all styling decisions
 - `robots.txt`, `sitemap.xml`, `site.webmanifest`: SEO and PWA configuration files
-- `CNAME`: Custom domain configuration for niuexa.ai
+- `wrangler.jsonc`: Cloudflare Worker configuration, including the niuexa.ai Custom Domain (`CNAME` only matters to GitHub Pages)
 
 ## Cookie Consent System
 The site implements a cookie consent banner via `cookie-banner.js` for GDPR compliance. This script handles user consent preferences and cookie management across all pages.

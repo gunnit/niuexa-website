@@ -17,6 +17,9 @@ test('Cloudflare config serves exact paths from the packaged _site', () => {
   assert.equal(config.assets.html_handling, 'none');
   assert.equal(config.assets.not_found_handling, '404-page');
   assert.equal(config.main, undefined, 'assets-only: no Worker script');
+  // Production: the apex is the Worker's only Custom Domain (www redirects in a Cloudflare rule).
+  // wrangler treats a non-empty list as the complete set, so an edit here changes the live site.
+  assert.deepEqual(config.routes, [{ pattern: 'niuexa.ai', custom_domain: true }]);
 });
 
 test('rules cover every URL shape GitHub Pages resolved', () => {
