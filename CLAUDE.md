@@ -35,7 +35,7 @@ npx http-server
 # Workflow: .github/workflows/github-pages.yml packages the public files into _site
 # (build/package-pages.mjs, build/package-cloudflare.mjs) and deploys them to
 # Cloudflare Workers, which serves niuexa.ai, and to GitHub Pages until it is retired
-# niuexa.ai is attached to the Worker in wrangler.jsonc; www redirects via a Cloudflare Redirect Rule
+# niuexa.ai reaches the Worker through a route set in the Cloudflare dashboard (see wrangler.jsonc); www redirects via a Cloudflare Redirect Rule
 ```
 
 ## Architecture
@@ -95,7 +95,7 @@ npx http-server
   - Triggers on push to main/master branches (plus manual `workflow_dispatch`)
   - Packages only public files into `_site` (`build/package-pages.mjs`; `build/package-cloudflare.mjs` adds `_redirects` and `_headers`)
   - Deploys `_site` to Cloudflare Workers static assets (`wrangler deploy`) and to GitHub Pages, which is kept until it is retired
-- **Custom domain**: `wrangler.jsonc` attaches niuexa.ai to the Worker; DNS is on Cloudflare, where a Redirect Rule sends www.niuexa.ai to niuexa.ai
+- **Custom domain**: niuexa.ai reaches the Worker through the route `niuexa.ai/*` on the proxied apex records, both set in the Cloudflare dashboard (`wrangler.jsonc` explains why they are not in the config); a Redirect Rule sends www.niuexa.ai to niuexa.ai
 - **404 handling**: the Worker serves the root `404.html` for missing URLs (`not_found_handling` in `wrangler.jsonc`)
 
 ## Content Management
@@ -228,7 +228,7 @@ The repository includes several automated workflows:
 ## Critical Files for Maintenance
 - `STYLESHEET_GUIDE.md`: Comprehensive design system documentation - reference this for all styling decisions
 - `robots.txt`, `sitemap.xml`, `site.webmanifest`: SEO and PWA configuration files
-- `wrangler.jsonc`: Cloudflare Worker configuration, including the niuexa.ai Custom Domain (`CNAME` only matters to GitHub Pages)
+- `wrangler.jsonc`: Cloudflare Worker configuration; the niuexa.ai route is set in the Cloudflare dashboard (`CNAME` only matters to GitHub Pages)
 
 ## Cookie Consent System
 The site implements a cookie consent banner via `cookie-banner.js` for GDPR compliance. This script handles user consent preferences and cookie management across all pages.
