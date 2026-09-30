@@ -30,7 +30,7 @@
 - Sales Agent: AI-powered sales funnel automation with 90% accuracy
 - Marketing Agent: Automated content generation and campaign optimization
 - Voice Agent: AI-powered phone agent for customer service (Twilio + OpenAI Realtime)
-- [ChatAziendale](https://niuexa.ai/chat-aziendale.html): No-code AI chatbot trained on your business documents and website. Cites sources, no hallucinations, GDPR-compliant. Free / €29 Pro / €149 Business. Live product at chataziendale.it
+- [ChatAziendale](https://niuexa.ai/chat-aziendale.html): No-code AI chatbot trained on your business documents and website. Answers grounded in your content, with sources cited; encrypted data. Free / €29 Pro / €149 Business. Live product at chataziendale.it
 - [Keel](https://niuexa.ai/keel.html): MCP layer connecting Amazon Seller Central, Vendor Central, SP-API, Ads API and Brand Analytics to AI agents like Claude and ChatGPT. Multi-account, multi-marketplace natural-language queries. Live product at keelai.it
 
 ### AI Training Programs
@@ -49,7 +49,7 @@
 - [About Us (English)](https://niuexa.ai/en/about-us.html): English version
 - [Contact](https://niuexa.ai/contatti.html): Request a consultation
 - [Contact (English)](https://niuexa.ai/en/contact.html): English contact page
-- [Events / AI Aperitivo](https://niuexa.ai/eventi.html): Networking and training events in Milan
+- [Events](https://niuexa.ai/eventi.html): Networking and training events in Milan
 - [Careers](https://niuexa.ai/carriere.html): Join the Niuexa team
 - [ROI Calculator](https://niuexa.ai/roi-calculator.html): Estimate your AI investment return
 
@@ -69,7 +69,7 @@
 - [FAQ Consulenza AI Italia](https://niuexa.ai/articolo-faq-consulenza-ai-italia.html): Frequently asked questions about AI consulting in Italy
 
 ## Articles — AEO, GEO & AI Search Optimization (Italian)
-- [SEO vs AEO vs GEO: Guida Completa](https://niuexa.ai/articolo-seo-aeo-geo-guida-completa.html): Comprehensive guide comparing traditional SEO, AI Engine Optimization, and Generative Engine Optimization
+- [SEO vs AEO vs GEO: Guida Completa](https://niuexa.ai/articolo-seo-aeo-geo-guida-completa.html): Comprehensive guide comparing traditional SEO, Answer Engine Optimization, and Generative Engine Optimization
 - [Visibilità su ChatGPT, Perplexity e Claude](https://niuexa.ai/articolo-visibilita-chatgpt-perplexity-claude.html): Strategies for appearing in AI platform responses
 - [Content Strategy per AI Search](https://niuexa.ai/articolo-content-strategy-ai-search.html): Content strategies optimized for AI search citation
 - [Structured Data per AI SEO](https://niuexa.ai/articolo-structured-data-ai-seo.html): Technical guide to schema markup for AI engines
@@ -86,19 +86,14 @@
 - [AI Code Generation](https://niuexa.ai/articolo-ai-code-generation.html): AI-powered code generation tools and practices
 - [AI nel Manifatturiero e Industria 4.0](https://niuexa.ai/articolo-ai-manifatturiero-industria40.html): AI in manufacturing and Industry 4.0
 - [AI nel Retail in Italia](https://niuexa.ai/articolo-ai-retail-italia.html): AI in Italian retail sector
-- [AI nella Sanità in Italia](https://niuexa.ai/articolo-ai-sanita-italia.html): AI in Italian healthcare
 - [AI nel Fintech in Italia](https://niuexa.ai/articolo-ai-fintech-italia.html): AI in Italian fintech
 - [AI nella Cybersecurity in Italia](https://niuexa.ai/articolo-ai-cybersecurity-italia.html): AI in Italian cybersecurity
-- [AI nel Turismo in Italia](https://niuexa.ai/articolo-ai-turismo-italia.html): AI in Italian tourism
 - [AI nel Real Estate in Italia](https://niuexa.ai/articolo-ai-real-estate-italia.html): AI in Italian real estate
 - [AI nel Fashion Tech](https://niuexa.ai/articolo-ai-fashion-tech.html): AI in fashion technology
-- [AI nel Settore Pubblico](https://niuexa.ai/articolo-ai-settore-pubblico-italia.html): AI in Italian public sector
 - [AI nelle Smart Cities](https://niuexa.ai/articolo-ai-smart-cities-italia.html): AI in smart cities
 - [AI nell'Agritech](https://niuexa.ai/articolo-ai-agritech-italia.html): AI in Italian agritech
 - [AI nell'Automotive](https://niuexa.ai/articolo-ai-automotive-italia.html): AI in Italian automotive
 - [AI nell'Energia](https://niuexa.ai/articolo-ai-energia-transizione.html): AI in energy transition
-- [AI nell'Istruzione](https://niuexa.ai/articolo-ai-istruzione-italia.html): AI in Italian education
-- [AI nei Beni Culturali](https://niuexa.ai/articolo-ai-beni-culturali.html): AI in Italian cultural heritage
 - [AI e il Made in Italy](https://niuexa.ai/articolo-ai-made-in-italy.html): AI and Made in Italy brands
 - [AI Startup in Italia](https://niuexa.ai/articolo-ai-startup-italia.html): Italian AI startup ecosystem
 - [AI ed Etica in Italia](https://niuexa.ai/articolo-ai-etica-italia.html): AI ethics in Italy

@@ -1,0 +1,98 @@
+name: Refresh event pages
+
+# The SIGNALS pages say which date comes next and stop taking requests for a date
+# once it has passed. build/render-events.mjs decides that from today's date in
+# Milan, so render every night and publish when a date has rolled over. On any
+# other night the render changes nothing, and the job only checks that the latest
+# refresh is live.
+on:
+  schedule:
+    # 23:45 UTC is 01:45 in Milan in summer time and 00:45 in winter time: always
+    # after local midnight, and away from the top of the hour when GitHub delays runs.
+    - cron: '45 23 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write # commit the re-rendered pages to master
+  actions: write # start the deploy; a push made with GITHUB_TOKEN does not trigger workflows
+
+concurrency:
+  group: event-pages-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: master
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Render the event pages as of today
+        run: node build/render-events.mjs
+      - name: Check whether anything changed
+        id: diff
+        run: |
+          # Only the files the renderer writes, which are also the files the job commits.
+          if [ -z "$(git status --porcelain -- eventi-ai-aziende sitemap.xml llms.txt llm.txt)" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No event date has rolled over; nothing to publish."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git status --short
+          fi
+      # Checks with the same gates the deploy workflow runs, so this job never publishes a
+      # build it would reject. If someone pushes to master while it runs, it starts again from
+      # their commit: the pages it pushes are always rendered and checked from that source.
+      - name: Check, commit and push
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          check() {
+            node build/build.mjs --check
+            python3 -m unittest discover -s tests
+            node --test --test-concurrency=1 tests/event-registration.test.mjs tests/event-package.test.mjs tests/event-seo.test.mjs tests/event-details.test.mjs tests/event-dates.test.mjs tests/cloudflare-package.test.mjs
+          }
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          for attempt in 1 2 3; do
+            check
+            git add eventi-ai-aziende sitemap.xml llms.txt llm.txt
+            git commit -q -m "Refresh SIGNALS event pages for $(TZ=Europe/Rome date +%F)"
+            git push origin HEAD:master && exit 0
+            [ "$attempt" = 3 ] && break
+            sleep $((attempt * 10))
+            git fetch -q origin master
+            git reset -q --hard origin/master
+            node build/render-events.mjs
+            if [ -z "$(git status --porcelain -- eventi-ai-aziende sitemap.xml llms.txt llm.txt)" ]; then
+              echo "master already has these pages; nothing to publish."
+              exit 0
+            fi
+          done
+          echo "master kept moving; giving up after 3 attempts. The next night starts again." >&2
+          exit 1
+      # Runs every night, not only after a push: if a refresh was pushed but its deploy
+      # failed, the next night's render changes nothing, so this is what publishes it.
+      # A push by a person starts its own deploy, so only refresh commits are handled here.
+      - name: Deploy if the latest refresh is not live
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git fetch -q origin master
+          head=$(git rev-parse origin/master)
+          author=$(git log -1 --format=%an origin/master)
+          # The latest deploy run on master that succeeded in full (Pages and Cloudflare: once
+          # DNS moves, Cloudflare is the live site), ignoring pull request runs.
+          live=$(gh run list --workflow github-pages.yml --branch master --status success --limit 20 --json headSha,event --jq 'map(select(.event != "pull_request")) | .[0].headSha // ""')
+          if [ "$author" != 'github-actions[bot]' ]; then
+            echo "master's latest commit ($head) is by $author; pushing it started its own deploy."
+          elif [ "$live" = "$head" ]; then
+            echo "The latest refresh ($head) is already live."
+          else
+            echo "Deploying $head (last successful deploy: ${live:-none})."
+            gh workflow run github-pages.yml --ref master
+          fi

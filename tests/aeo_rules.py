@@ -245,6 +245,10 @@ class Article:
         return None
 
     @property
+    def noindex(self) -> bool:
+        return "noindex" in (self.meta(name="robots") or "").lower()
+
+    @property
     def hreflangs(self) -> dict[str, str]:
         out = {}
         for link in self.parser.links:
@@ -565,12 +569,13 @@ def evaluate(articles: list[Article] | None = None) -> dict[str, Result]:
                 clashes.append("shared h1")
         record(AEO06, not clashes, ", ".join(sorted(set(clashes))))
 
-        # AEO-07 -- discoverable. A page merged into another must be *absent*
-        # from the sitemap, not present in it.
+        # AEO-07 -- discoverable. A page merged into another, or withheld from
+        # search with noindex, must be *absent* from the sitemap, not present in it.
         problems = []
-        if merged_away:
+        if merged_away or a.noindex:
             if a.url in sitemap:
-                problems.append(f"canonicalized to {canonical_target[a.slug]} but still in sitemap.xml")
+                why = f"canonicalized to {canonical_target[a.slug]}" if merged_away else "noindex"
+                problems.append(f"{why} but still in sitemap.xml")
         else:
             if a.url not in sitemap:
                 problems.append("absent from sitemap.xml")

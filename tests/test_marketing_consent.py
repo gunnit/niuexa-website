@@ -1,8 +1,21 @@
 import unittest
+from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "cookie-banner.js"
+
+
+class InputTags(HTMLParser):
+    """Collects every <input>'s attributes, whatever the quoting."""
+
+    def __init__(self):
+        super().__init__()
+        self.inputs = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "input":
+            self.inputs.append(dict(attrs))
 
 
 class MarketingConsentTests(unittest.TestCase):
@@ -20,6 +33,17 @@ class MarketingConsentTests(unittest.TestCase):
         self.assertIn("10532561", text)
         self.assertIn("snap.licdn.com/li.lms-analytics/insight.min.js", text)
         self.assertNotIn("<noscript", text)
+
+    def test_certificate_is_never_conditional_on_marketing_consent(self):
+        # GDPR: consent to marketing cannot be a condition of getting the certificate.
+        for page in ("certification.html", "en/certification.html"):
+            text = (ROOT / page).read_text(encoding="utf-8")
+            form = text[text.index('<form id="certification-form"'):text.index("</form>", text.index('<form id="certification-form"'))]
+            parser = InputTags()
+            parser.feed(form)
+            for attrs in parser.inputs:
+                if (attrs.get("type") or "").lower() == "checkbox":
+                    self.assertNotIn("required", attrs, f"{page}: {attrs}")
 
     def test_google_ad_consent_uses_marketing_choice(self):
         text = SCRIPT.read_text(encoding="utf-8")

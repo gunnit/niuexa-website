@@ -43,24 +43,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Event data structure
     const eventsData = {
-        upcoming: [
+        // The current series (SIGNALS) is listed statically on the page and on /eventi-ai-aziende/.
+        upcoming: [],
+        past: [
             {
                 id: 3,
                 title: "Il SEO va in pensione. Il tuo brand è pronto?",
                 date: new Date('2026-07-14'),
-                time: "17:30 - 20:00",
-                location: "Bebit Srl - Via Rutilia, 10 - 20141 Milano",
-                description: "Evento Niuexa in collaborazione con il partner Aused. Una serata dedicata al futuro della visibilità online: perché la SEO tradizionale lascia spazio all'AEO (AI Engine Optimization) e come preparare il tuo brand a essere citato dai motori di ricerca basati su AI. A seguire, aperitivo e networking. La partecipazione è soggetta a conferma da parte del team Niuexa.",
-                image: "/img/eventi/event_team_speaker.webp",
-                status: "full", // available, full, past
-                maxAttendees: 40,
-                currentAttendees: 40,
-                topics: ["AEO & GEO", "AI Search", "Brand Visibility"],
-                speaker: "Team Niuexa · Partner Aused",
-                registrationUrl: "https://www.eventbrite.com/e/il-seo-va-in-pensione-il-tuo-brand-e-pronto-tickets-1992049125559"
-            }
-        ],
-        past: [
+                image: "/img/eventi/event_team_speaker.webp"
+            },
             {
                 id: 104,
                 title: "RENDI PIÙ EFFICIENTE LA TUA AZIENDA CON L'AI",
@@ -213,9 +204,9 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="past-event-content">
                 <h3 class="past-event-title">${event.title}</h3>
                 <div class="past-event-date">${formatPastEventDate(event.date)}</div>
-                <div class="past-event-stats">
+                ${event.attendees ? `<div class="past-event-stats">
                     <span>👥 ${event.attendees} ${eventiT.attendees}</span>
-                </div>
+                </div>` : ''}
             </div>
         `;
 

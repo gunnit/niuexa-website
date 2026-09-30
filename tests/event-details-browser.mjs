@@ -1,17 +1,38 @@
 const {chromium}=await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const {default:AxeBuilder}=await import(process.env.AXE_MODULE || '@axe-core/playwright');
 import assert from 'node:assert/strict';
-import {mkdirSync} from 'node:fs';
+import {mkdirSync,mkdtempSync,copyFileSync,existsSync,readFileSync,rmSync} from 'node:fs';
+import {execFileSync} from 'node:child_process';
+import {tmpdir} from 'node:os';
+import {join,resolve} from 'node:path';
 import {EVENTS,MOVED} from '../build/event-content.mjs';
 const base=process.env.EVENT_PREVIEW_URL || 'http://127.0.0.1:8766';
 if(!['localhost','127.0.0.1'].includes(new URL(base).hostname)) throw Error('Local tests only');
 mkdirSync('qa/events',{recursive:true});
+// Every journey below needs all dates open, so the event pages are rendered as of 29 September
+// and served in place of the committed ones, with the clock pinned to the same day.
+const root=resolve(import.meta.dirname,'..');
+const rendered=mkdtempSync(join(tmpdir(),'events-'));
+mkdirSync(join(rendered,'eventi-ai-aziende'));
+for(const f of ['eventi-ai-aziende/index.html','sitemap.xml','llms.txt']) copyFileSync(join(root,f),join(rendered,f));
+execFileSync(process.execPath,['build/render-events.mjs','--today=2026-09-29'],{cwd:root,env:{...process.env,EVENTS_ROOT:rendered},stdio:'pipe'});
+const serve=route=>{
+ const url=new URL(route.request().url());
+ if(url.origin!==new URL(base).origin) return false;
+ const file=join(rendered,decodeURIComponent(url.pathname),'index.html');
+ if(!url.pathname.startsWith('/eventi-ai-aziende/')||!url.pathname.endsWith('/')||!existsSync(file)) return false;
+ route.fulfill({contentType:'text/html; charset=utf-8',body:readFileSync(file,'utf8')});
+ return true;
+};
+const day=new Date('2026-09-29T10:00:00+02:00');
 const browser=await chromium.launch({headless:true});
 const errors=[], external=[], failed=[];
 try{
  const context=await browser.newContext();
+ await context.clock.setFixedTime(day);
  await context.route('**/*',route=>{
   const req=route.request();
+  if(serve(route)) return;
   if(req.url().startsWith(base+'/')) return route.continue();
   external.push(req.url());return route.abort();
  });
@@ -54,11 +75,11 @@ try{
   assert.equal(await page.locator('#event-date').inputValue(),e.date);
  }
  const nojs=await browser.newContext({javaScriptEnabled:false});
- await nojs.route('**/*',r=>r.request().url().startsWith(base+'/')?r.continue():r.abort());
+ await nojs.route('**/*',r=>serve(r)||(r.request().url().startsWith(base+'/')?r.continue():r.abort()));
  const staticPage=await nojs.newPage();
  for(const e of EVENTS){await staticPage.goto(`${base}/eventi-ai-aziende/${e.slug}/`);assert.equal(await staticPage.locator('h1').innerText(),e.title);assert.ok(await staticPage.locator('.event-abstract').isVisible());}
  // Retired URLs must land on the renamed page even without JavaScript (meta refresh).
  for(const [from,to] of MOVED){await staticPage.goto(`${base}/eventi-ai-aziende/${from}/`);await staticPage.waitForURL(`${base}/eventi-ai-aziende/${to}/`);assert.equal(await staticPage.locator('h1').innerText(),EVENTS.find(e=>e.slug===to).title);}
  assert.deepEqual(errors,[]);assert.deepEqual(external,[]);assert.deepEqual(failed,[]);
  console.log('PASS 3 hub-to-detail journeys, all 6 detail CTAs and 3 hub register actions preselect correct date; 4 widths each, 6 axe checks, no-JS abstracts, 3 retired-URL redirects, 6 screenshots; 0 external requests, 0 submissions, 0 browser errors.');
-}finally{await browser.close();}
+}finally{await browser.close();rmSync(rendered,{recursive:true,force:true});}

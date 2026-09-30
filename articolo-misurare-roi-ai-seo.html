@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-KG9S42S4');</script>
-    <!-- End Google Tag Manager -->
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -25,6 +17,13 @@
         wait_for_update: 500
       });
     </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KG9S42S4');</script>
+    <!-- End Google Tag Manager -->
 
     <title>Misurare il ROI dell'AI SEO: Metriche, KPI e Calcolo del Ritorno 2025</title>
     <meta name="description" content="Come misurare il ROI delle strategie AI SEO: metriche chiave, KPI, setup Google Analytics 4 e formule di calcolo per ChatGPT, Perplexity e AI Overviews.">
@@ -119,7 +118,7 @@
             {
                 "@type": "HowToStep",
                 "name": "Configura il tracciamento in GA4",
-                "text": "Crea segmenti per i referral da piattaforme AI (chat.openai.com, perplexity.ai, claude.ai) in Google Analytics 4."
+                "text": "Crea segmenti per i referral da piattaforme AI (chatgpt.com, perplexity.ai, claude.ai) in Google Analytics 4."
             },
             {
                 "@type": "HowToStep",
@@ -172,7 +171,7 @@
                 "name": "Come tracciare il traffico da ChatGPT in Google Analytics?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "In GA4, vai su Rapporti > Acquisizione > Acquisizione traffico. Filtra per 'Source' contenente 'chat.openai.com' per ChatGPT, 'perplexity.ai' per Perplexity, 'claude.ai' per Claude. Crea un segmento 'AI Referral' che includa tutti questi domini per analisi aggregate. Puoi anche creare eventi personalizzati per tracciare comportamenti specifici."
+                    "text": "In GA4, vai su Rapporti > Acquisizione > Acquisizione traffico. Filtra per 'Source' contenente 'chatgpt.com' per ChatGPT, 'perplexity.ai' per Perplexity, 'claude.ai' per Claude. Crea un segmento 'AI Referral' che includa tutti questi domini per analisi aggregate. Puoi anche creare eventi personalizzati per tracciare comportamenti specifici."
                 }
             },
             {
@@ -223,7 +222,7 @@
                 <!-- Quick Summary for AI -->
                 <section class="content-section quick-answer">
                     <h2>Sintesi: Misurare il ROI dell'AI SEO</h2>
-                    <p>Per misurare il ROI dell'AI SEO: (1) Configura tracciamento referral AI in GA4 (chat.openai.com, perplexity.ai, claude.ai), (2) Monitora citazioni brand con test periodici sulle piattaforme AI, (3) Traccia conversion rate e valore per i visitatori AI (4.4x superiore alla media), (4) Calcola ROI = (Valore Traffico + Conversioni + Brand Lift - Costi) / Costi x 100. I benchmark indicano ROI positivo in 4-8 mesi con un ritorno medio del 340% nel primo anno per strategie GEO ben implementate.</p>
+                    <p>Per misurare il ROI dell'AI SEO: (1) Configura tracciamento referral AI in GA4 (chatgpt.com, perplexity.ai, claude.ai), (2) Monitora citazioni brand con test periodici sulle piattaforme AI, (3) Traccia conversion rate e valore per i visitatori AI (secondo Semrush valgono in media 4,4 volte un visitatore da ricerca organica, in base al tasso di conversione), (4) Calcola ROI = (Valore Traffico + Conversioni + Brand Lift - Costi) / Costi x 100. I benchmark indicano ROI positivo in 4-8 mesi con un ritorno medio del 340% nel primo anno per strategie GEO ben implementate.</p>
                 </section>
 
                 <section id="intro" class="content-section">
@@ -327,7 +326,7 @@
                         <div class="tool-card">
                             <h4>AI Conversion Rate</h4>
                             <p><strong>Definizione:</strong> Tasso di conversione per visitatori da referral AI.</p>
-                            <p><strong>Benchmark:</strong> 4.4x superiore alla media di ricerca tradizionale</p>
+                            <p><strong>Riferimento:</strong> secondo Semrush un visitatore da ricerca AI vale in media 4,4 volte uno da ricerca organica, in base al tasso di conversione; lo studio non pubblica il metodo di calcolo</p>
                             <p><strong>Formula:</strong> (Conversioni da AI / Sessioni AI) x 100</p>
                         </div>
                         <div class="tool-card">
@@ -363,13 +362,13 @@
                         <tbody>
                             <tr>
                                 <td>ChatGPT</td>
-                                <td>chat.openai.com</td>
-                                <td>Principale fonte di referral AI</td>
+                                <td>chatgpt.com</td>
+                                <td>Principale fonte di referral AI; ChatGPT aggiunge utm_source=chatgpt.com ai link</td>
                             </tr>
                             <tr>
-                                <td>ChatGPT (browsing)</td>
-                                <td>chatgpt.com</td>
-                                <td>Nuovo dominio per browsing mode</td>
+                                <td>ChatGPT (vecchio dominio)</td>
+                                <td>chat.openai.com</td>
+                                <td>Ora reindirizza a chatgpt.com: serve solo per i dati storici</td>
                             </tr>
                             <tr>
                                 <td>Perplexity</td>
@@ -873,12 +872,12 @@ Note:
 
                     <div class="faq-item">
                         <h3>Quali metriche tracciare per l'AI SEO?</h3>
-                        <p>Le metriche chiave per l'AI SEO si dividono in tre categorie: (1) Metriche di visibilità: citation rate, share of voice AI, citation quality score; (2) Metriche di traffico: sessioni da referral AI, AI traffic share, qualità utenti AI; (3) Metriche di conversione: conversion rate da AI (tipicamente 4.4x superiore), revenue attribuita, customer lifetime value. Traccia tutte e tre le categorie per una visione completa dell'impatto.</p>
+                        <p>Le metriche chiave per l'AI SEO si dividono in tre categorie: (1) Metriche di visibilità: citation rate, share of voice AI, citation quality score; (2) Metriche di traffico: sessioni da referral AI, AI traffic share, qualità utenti AI; (3) Metriche di conversione: conversion rate da AI (secondo Semrush un visitatore AI vale in media 4,4 volte uno organico), revenue attribuita, customer lifetime value. Traccia tutte e tre le categorie per una visione completa dell'impatto.</p>
                     </div>
 
                     <div class="faq-item">
                         <h3>Come tracciare il traffico da ChatGPT in Google Analytics?</h3>
-                        <p>In GA4, vai su Rapporti > Acquisizione > Acquisizione traffico. Filtra per 'Sorgente' contenente 'chat.openai.com' per ChatGPT, 'perplexity.ai' per Perplexity, 'claude.ai' per Claude. Crea un segmento personalizzato 'AI Referral' che includa tutti questi domini per analisi aggregate. Puoi anche configurare eventi personalizzati per tracciare comportamenti specifici dei visitatori AI come tempo di engagement e conversioni.</p>
+                        <p>In GA4, vai su Rapporti > Acquisizione > Acquisizione traffico. Filtra per 'Sorgente' contenente 'chatgpt.com' per ChatGPT, 'perplexity.ai' per Perplexity, 'claude.ai' per Claude. Crea un segmento personalizzato 'AI Referral' che includa tutti questi domini per analisi aggregate. Puoi anche configurare eventi personalizzati per tracciare comportamenti specifici dei visitatori AI come tempo di engagement e conversioni.</p>
                     </div>
 
                     <div class="faq-item">
@@ -888,7 +887,7 @@ Note:
 
                     <div class="faq-item">
                         <h3>Come giustificare l'investimento in AI SEO al management?</h3>
-                        <p>Per giustificare l'investimento, presenta: (1) Dati di mercato sul traffico AI in crescita (+357% YoY), (2) Il tasso di conversione superiore (4.4x) che compensa volumi più bassi, (3) Il costo opportunità di non essere citati mentre i competitor lo sono, (4) Un business case con proiezione ROI basata su benchmark di settore, (5) Un piano di test pilota a budget limitato per validare le ipotesi prima di investimenti maggiori.</p>
+                        <p>Per giustificare l'investimento, presenta: (1) Dati di mercato sul traffico AI in crescita (+117,4% in un anno secondo Similarweb), (2) Il valore più alto dei visitatori AI (4,4 volte quello di un visitatore organico secondo Semrush) che compensa volumi più bassi, (3) Il costo opportunità di non essere citati mentre i competitor lo sono, (4) Un business case con proiezione ROI basata su benchmark di settore, (5) Un piano di test pilota a budget limitato per validare le ipotesi prima di investimenti maggiori.</p>
                     </div>
                 </section>
 

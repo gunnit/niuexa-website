@@ -9,7 +9,11 @@ const read=p=>readFileSync(resolve(root,p),'utf8');
 const cases=[['seo-in-pensione-aeo-geo','2026-10-06','La SEO va in pensione, benvenuta AEO/GEO','+02:00'],['ai-agent-processi-aziendali','2026-10-27','AI Agent – Come rendere efficienti i processi aziendali','+01:00'],['ai-marketing-agent','2026-11-17','AI Marketing Agent – Come semplificare ed efficientare i processi di marketing','+01:00']];
 const moved=[['farsi-trovare-era-ai','seo-in-pensione-aeo-geo'],['dall-ai-ai-risultati','ai-agent-processi-aziendali'],['agenti-ai-in-azienda','ai-marketing-agent']];
 test('three crawlable topic pages lead to the sole signup with correct event metadata',()=>{
- const titles=new Set(), descriptions=new Set();
+ const titles=new Set(), descriptions=new Set(), hub=read('eventi-ai-aziende/index.html');
+ const options=[...hub.match(/<select id="event-date" name="event">([\s\S]*?)<\/select>/)[1].matchAll(/<option value="([^"]+)"/g)].map(m=>m[1]);
+ // The committed pages are rendered as of some day; whatever that day was, every page
+ // is either open (asks for requests) or past (says so), and the hub agrees with it.
+ const openDates=[];
  for(const [slug,date,title,offset] of cases){
   const path=`eventi-ai-aziende/${slug}/index.html`;
   assert.ok(existsSync(resolve(root,path)),`Missing topic page ${path}`);
@@ -19,7 +23,10 @@ test('three crawlable topic pages lead to the sole signup with correct event met
   descriptions.add(html.match(/name="description" content="([^"]+)"/)[1]);
   assert.ok(html.includes(`rel="canonical" href="${url}"`));
   assert.ok(html.includes(`property="og:url" content="${url}"`));
-  assert.ok(html.includes(`href="/eventi-ai-aziende/?event=${date}#registration"`));
+  const signup=html.includes(`href="/eventi-ai-aziende/?event=${date}#registration"`), closed=html.includes('Incontro concluso: le richieste di partecipazione sono chiuse.');
+  assert.notEqual(signup,closed,`${slug}: must be either open for requests or marked as past`);
+  assert.equal(hub.includes(`href="/eventi-ai-aziende/?event=${date}#registration"`),signup,`${slug}: hub signup link disagrees with the page`);
+  if(signup) openDates.push(date);
   assert.ok(!/<form\b/.test(html));
   const graph=JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
   const event=graph.find(n=>n['@type']==='Event');
@@ -33,9 +40,12 @@ test('three crawlable topic pages lead to the sole signup with correct event met
   assert.equal((html.match(/class="learning-item"/g)||[]).length,3);
   for(const q of graph.find(n=>n['@type']==='FAQPage').mainEntity){assert.ok(html.includes(`<summary>${q.name}</summary>`));assert.ok(html.includes(`<p>${q.acceptedAnswer.text}</p>`));}
   assert.ok(read('sitemap.xml').includes(`<loc>${url}</loc>`));
-  assert.ok(read('eventi-ai-aziende/index.html').includes(`href="/eventi-ai-aziende/${slug}/"`));
+  assert.ok(hub.includes(`href="/eventi-ai-aziende/${slug}/"`));
  }
  assert.equal(titles.size,3); assert.equal(descriptions.size,3);
+ assert.deepEqual(options,openDates,'the hub form offers exactly the dates that are still open');
+ const shown=hub.match(/<div class="next-date"><span>([^<]+)<\/span><time datetime="([0-9-]+)T/);
+ assert.deepEqual([shown[1],shown[2]],openDates.length?['PROSSIMO APPUNTAMENTO',openDates[0]]:['ULTIMO INCONTRO DEL CICLO',cases.at(-1)[1]]);
 });
 test('retired topic URLs redirect to their renamed pages and leave the sitemap and hub',()=>{
  const sitemap=read('sitemap.xml'), hub=read('eventi-ai-aziende/index.html');
@@ -51,7 +61,9 @@ test('retired topic URLs redirect to their renamed pages and leave the sitemap a
 });
 test('existing registration transport, config, styling and five-field form remain byte-identical',()=>{
  const hashes={
-  'event-registration.mjs':'0c70c918eb00b1bd9c910f8c1cd96354366127a4918429f7bde9521aea68f020',
+  // Re-pinned when the form started dropping dates that have passed in Milan, and again when
+  // it stopped offering dates the served page has closed and re-checked the date on submit.
+  'event-registration.mjs':'a20334630c76b52a8821f07060e399801483b208cb45758b75493dadba9484ec',
   'event-registration-core.mjs':'c1fd9773f202aa683afcc2e7d9982e260eae834d4ba07a3f3151258c0e2d0ae0',
   // Re-pinned for the dates/venue in Roberto's 20 September email.
   'event-registration-config.mjs':'6e4047ba273d8fd16e97e2b4fd3d2bbf9159db7e1615fce037db4c3042ee233e',
