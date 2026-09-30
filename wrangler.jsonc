@@ -13,14 +13,13 @@
     "not_found_handling": "404-page"
   },
   "workers_dev": true,
-  "preview_urls": true,
-  // niuexa.ai is served by this Worker. Deploying from CI attaches the Custom
-  // Domain; wrangler runs non-interactively there, so it replaces the GitHub
-  // Pages A records in the same API call (no moment without a DNS record).
-  // While any Custom Domain is listed, this list is the Worker's complete set:
-  // a domain dropped from it is detached. www.niuexa.ai is not listed: a
-  // Cloudflare Redirect Rule sends it to https://niuexa.ai with path and query.
-  "routes": [
-    { "pattern": "niuexa.ai", "custom_domain": true }
-  ]
+  "preview_urls": true
+  // niuexa.ai reaches this Worker through the route niuexa.ai/* on the proxied
+  // niuexa.ai A records, both set in the Cloudflare dashboard; www.niuexa.ai is
+  // a Cloudflare Redirect Rule to https://niuexa.ai. No routes are listed here
+  // on purpose. Cloudflare refuses a Custom Domain on a hostname that already
+  // has DNS records (error 100117, even with override_existing_dns_record; see
+  // cloudflare/workers-sdk#9878), and deleting the records first would leave
+  // niuexa.ai without an address. With no routes listed, wrangler deploy leaves
+  // the dashboard route alone; a "routes" entry here would replace it.
 }

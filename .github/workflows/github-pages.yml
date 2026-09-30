@@ -1,6 +1,7 @@
 name: Deploy to GitHub Pages and Cloudflare
 
-# Cloudflare Workers serves niuexa.ai (the Custom Domain is in wrangler.jsonc).
+# Cloudflare Workers serves niuexa.ai (through a route set in the Cloudflare
+# dashboard; see wrangler.jsonc).
 # GitHub Pages still receives the same bundle until it is retired. Check a deploy
 # with node build/check-hosting.mjs https://niuexa.ai.
 on:
