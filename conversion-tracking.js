@@ -1,7 +1,17 @@
 // Niuexa conversion tracking and UTM standardization
 // - Captures UTM parameters into Web3Forms hidden fields
 // - Emits normalized GA4/GTM events: form_start, form_submit, generate_lead, cta_click
-// - Persists attribution for redirects and thank-you pages
+// - Persists attribution for redirects and thank-you pages, only with marketing consent
+//
+// Consent is the choice cookie-banner.js saves in localStorage (niuexa_cookie_consent)
+// and announces with the 'niuexa:consent' event. The privacy and cookie policies describe
+// this behaviour, so keep them in step with it:
+// - without marketing consent, nothing is written to localStorage, the Google Ads click IDs
+//   (gclid, gbraid, wbraid) never enter form fields, and UTMs and the referrer are used only
+//   in memory for the current page;
+// - with marketing consent, attribution is stored for at most 90 days after its last update;
+// - the sessionStorage marker that stops a reloaded thank-you page from counting a lead
+//   twice is written only with analytics consent.
 (function () {
   'use strict';
 
@@ -10,6 +20,8 @@
   var ATTRIBUTION_KEYS = UTM_KEYS.concat(CLICK_ID_KEYS);
   var DEFAULT_CAMPAIGN = 'niuexa_website_conversion';
   var STORAGE_KEY = 'niuexa_attribution_v1';
+  var CONSENT_KEY = 'niuexa_cookie_consent';
+  var MAX_AGE_MS = 90 * 24 * 60 * 60 * 1000;
 
   function nowIso() {
     return new Date().toISOString();
@@ -19,18 +31,57 @@
     try { return JSON.parse(value || '{}') || {}; } catch (e) { return {}; }
   }
 
+  // No saved choice, or storage that cannot be read, means no consent.
+  function hasConsent(purpose) {
+    try {
+      return safeJsonParse(localStorage.getItem(CONSENT_KEY))[purpose] === true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function forgetAttribution() {
+    try { localStorage.removeItem(STORAGE_KEY); } catch (e) { /* storage blocked: nothing was stored */ }
+  }
+
+  // Stored attribution is read only with marketing consent and while it is younger than
+  // 90 days; anything stale or undated is deleted.
   function getStoredAttribution() {
-    return safeJsonParse(window.localStorage ? localStorage.getItem(STORAGE_KEY) : '{}');
+    if (!hasConsent('marketing')) return {};
+    var data;
+    try { data = safeJsonParse(localStorage.getItem(STORAGE_KEY)); } catch (e) { return {}; }
+    var updated = Date.parse(data.updated_at);
+    if (updated && Date.now() - updated < MAX_AGE_MS) return data;
+    forgetAttribution();
+    return {};
   }
 
   function saveAttribution(data) {
-    if (!window.localStorage) return;
-    var current = getStoredAttribution();
-    var merged = Object.assign({}, current, data, { updated_at: nowIso() });
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
+    if (!hasConsent('marketing')) return;
+    var merged = Object.assign({}, getStoredAttribution(), data, { updated_at: nowIso() });
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(merged)); } catch (e) { /* storage full or blocked */ }
+  }
+
+  // Page addresses sent with a form must not smuggle a click ID in their query string.
+  function withoutClickIds(url) {
+    if (!url) return '';
+    try {
+      var parsed = new URL(url, window.location.href);
+      var found = CLICK_ID_KEYS.filter(function (key) { return parsed.searchParams.has(key); });
+      if (!found.length) return url;
+      found.forEach(function (key) { parsed.searchParams.delete(key); });
+      return parsed.href;
+    } catch (e) {
+      return '';
+    }
   }
 
   function captureAttribution() {
+    if (!hasConsent('marketing')) {
+      // Also removes attribution saved before consent was asked for or after it was withdrawn.
+      forgetAttribution();
+      return;
+    }
     var params = new URLSearchParams(window.location.search);
     var data = {};
     ATTRIBUTION_KEYS.forEach(function (key) {
@@ -46,6 +97,8 @@
     }
   }
 
+  // Without marketing consent this is built in memory from the current address and referrer
+  // only (nothing is stored), and it carries no click IDs.
   function attribution() {
     var params = new URLSearchParams(window.location.search);
     var stored = getStoredAttribution();
@@ -57,6 +110,12 @@
     data.landing_page = stored.landing_page || window.location.href;
     data.current_page = window.location.href;
     data.referrer = stored.referrer || document.referrer || '';
+    if (!hasConsent('marketing')) {
+      CLICK_ID_KEYS.forEach(function (key) { delete data[key]; });
+      data.landing_page = withoutClickIds(data.landing_page);
+      data.current_page = withoutClickIds(data.current_page);
+      data.referrer = withoutClickIds(data.referrer);
+    }
     return data;
   }
 
@@ -124,14 +183,20 @@
 
   function populateForm(form) {
     var data = attribution();
+    var marketing = hasConsent('marketing');
     UTM_KEYS.forEach(function (key) {
       ensureHidden(form, key, data[key] || '');
     });
     CLICK_ID_KEYS.forEach(function (key) {
-      ensureHidden(form, key, data[key] || '');
+      if (marketing) {
+        ensureHidden(form, key, data[key] || '');
+        return;
+      }
+      var field = form.querySelector('[name="' + key + '"]');
+      if (field) field.remove();
     });
-    ensureHidden(form, 'landing_page', data.landing_page || window.location.href);
-    ensureHidden(form, 'current_page', window.location.href);
+    ensureHidden(form, 'landing_page', data.landing_page);
+    ensureHidden(form, 'current_page', data.current_page);
     ensureHidden(form, 'referrer', data.referrer || '');
     ensureHidden(form, 'campaign', data.utm_campaign || inferCampaign(form));
     ensureHidden(form, 'form_name', formName(form));
@@ -209,11 +274,15 @@
     if (!/thank-you/i.test(path)) return;
     var data = getStoredAttribution();
     var dedupeKey = 'niuexa_lead_event_' + path + '_' + (data.last_submit_at || 'direct');
-    try {
-      if (window.sessionStorage && sessionStorage.getItem(dedupeKey)) return;
-      if (window.sessionStorage) sessionStorage.setItem(dedupeKey, nowIso());
-    } catch (e) {
-      // Tracking must continue when storage is unavailable or blocked.
+    // The marker is a measurement aid, so it needs analytics consent. Without it a reload
+    // of the thank-you page can count the lead again.
+    if (hasConsent('analytics')) {
+      try {
+        if (sessionStorage.getItem(dedupeKey)) return;
+        sessionStorage.setItem(dedupeKey, nowIso());
+      } catch (e) {
+        // Tracking must continue when storage is unavailable or blocked.
+      }
     }
     var offer = offerFor('');
     track('generate_lead', {
@@ -230,6 +299,13 @@
     bindCtaTracking();
     trackThankYouPage();
   }
+
+  // A choice made in the banner applies at once: consent stores what this page captured and
+  // adds the click IDs to the forms; a refusal deletes stored attribution and removes them.
+  window.addEventListener('niuexa:consent', function () {
+    captureAttribution();
+    document.querySelectorAll('form[data-niuexa-tracking-bound="1"]').forEach(populateForm);
+  });
 
   window.NiuexaTracking = {
     init: init,
