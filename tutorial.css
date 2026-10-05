@@ -1722,3 +1722,352 @@ table.data-table {
         scroll-behavior: auto !important;
     }
 }
+
+/* ========================================
+   Polish pass (Oct 2026): one quiet language across every guide.
+   Overrides earlier rules in this file; tokens from styles.css only.
+   ======================================== */
+
+/* Reading: navy ink for running text, hairline section rules */
+.content-section h2 {
+    font-size: clamp(1.6rem, 2.6vw, 2rem);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 0.75rem;
+}
+
+.content-section h3,
+.content-section h4,
+.content-section h5 {
+    color: var(--dark-gray);
+}
+
+.content-section p,
+.content-section li {
+    color: var(--dark-gray);
+}
+
+.content-section p a:not(.btn),
+.content-section li a:not(.btn),
+.content-section td a {
+    color: var(--blue-text);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.content-section p a:not(.btn):hover,
+.content-section li a:not(.btn):hover,
+.content-section td a:hover {
+    color: var(--dark-blue);
+}
+
+/* Callouts: tinted surface and a hairline, no thick coloured left rule */
+.page-meta.author-bio,
+.article-toc,
+.highlight-box,
+.pattern-list,
+.before,
+.after,
+.technique-box,
+.warning-box,
+.tip-box,
+.next-steps,
+.info-box {
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+}
+
+.info-box.highlight,
+.highlight-box {
+    border-color: var(--light-blue);
+}
+
+.info-box.warning,
+.warning-box {
+    border-color: var(--warning-surface);
+}
+
+.info-box.case-study,
+.info-box.tip,
+.tip-box,
+.after {
+    border-color: var(--border-light);
+}
+
+.content-section blockquote {
+    background: none;
+    border-left: 2px solid var(--border-medium);
+    border-radius: 0;
+    padding: 0.25rem 0 0.25rem 1.5rem;
+    font-style: normal;
+}
+
+.content-section blockquote p {
+    font-family: var(--font-primary);
+    font-weight: 500;
+    font-size: 1.15rem;
+}
+
+/* FAQ inside guides: hairline list instead of hover cards */
+.faq-section .faq-item,
+.faq-container .faq-item {
+    background: none;
+    border: 0;
+    border-bottom: 1px solid var(--border-light);
+    border-radius: 0;
+    padding: 1.25rem 0;
+    margin: 0;
+}
+
+.faq-section .faq-item:hover,
+.faq-container .faq-item:hover {
+    border-color: var(--border-light);
+    box-shadow: none;
+}
+
+.faq-section .faq-item p,
+.faq-container .faq-item p {
+    color: var(--dark-gray);
+}
+
+/* Related guides: quiet link cards */
+.content-section .related-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(10, 26, 38, 0.04);
+}
+
+.content-section .related-card:hover {
+    border-color: var(--border-medium);
+    box-shadow: 0 8px 24px rgba(10, 26, 38, 0.08);
+}
+
+.related-category {
+    align-self: flex-start;
+}
+
+/* Header controls (print) added by tutorial.js */
+.tutorial-stats {
+    align-items: center;
+}
+
+.tutorial-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0.5rem 1.1rem;
+    background: transparent;
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 50px;
+    font-family: var(--font-secondary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.tutorial-action-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--white);
+}
+
+.tutorial-action-btn:focus-visible {
+    outline: 2px solid var(--white);
+    outline-offset: 3px;
+}
+
+/* Code copy button: always visible, also on touch and keyboard */
+.code-wrapper {
+    position: relative;
+}
+
+.copy-code-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    min-height: 32px;
+    padding: 0.3rem 0.75rem;
+    background: var(--dark-gray);
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.copy-code-btn:focus-visible {
+    outline: 2px solid var(--signal-on-dark);
+    outline-offset: 2px;
+}
+
+/* Share block added after the conclusion */
+.social-share {
+    margin: 3rem 0;
+    padding: 1.75rem 2rem;
+    background: var(--light-gray);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+}
+
+.social-share-title {
+    margin: 0 0 1rem;
+    font-size: 1.1rem;
+    color: var(--dark-gray);
+    border: 0;
+    padding: 0;
+}
+
+.share-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 44px;
+    padding: 0.5rem 1rem;
+    background: var(--white);
+    color: var(--dark-gray);
+    border: 1px solid var(--border-medium);
+    border-radius: 50px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.share-btn:hover {
+    border-color: var(--primary-blue);
+    color: var(--blue-text);
+}
+
+.share-btn:focus-visible {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+}
+
+/* Back to top */
+.back-to-top {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    z-index: 99;
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    background: var(--dark-gray);
+    color: var(--white);
+    border: 0;
+    border-radius: 50%;
+    box-shadow: 0 6px 18px rgba(10, 26, 38, 0.2);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-fast), visibility var(--transition-fast);
+}
+
+.back-to-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:focus-visible {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 3px;
+}
+
+/* Active entry in a guide's table of contents */
+.toc-list a.active {
+    color: var(--blue-text);
+    font-weight: 600;
+    background: var(--light-blue);
+    border-radius: 6px;
+}
+
+/* Closing banner: the gradient overlay from styles.css sat above the
+   content, so the heading and button were barely visible. White text
+   needs --gradient-cta on every stop. */
+.cta-section::before {
+    background: var(--gradient-cta);
+    opacity: 1;
+}
+
+.cta-section > .container {
+    position: relative;
+    z-index: 2;
+}
+
+.cta-section h2,
+.cta-section p {
+    color: var(--white);
+}
+
+.cta-section .btn-primary {
+    background: var(--white);
+    color: var(--blue-text);
+}
+
+.cta-section .btn-secondary {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+@media (max-width: 768px) {
+    .tutorial-action-btn {
+        display: none;
+    }
+
+    .social-share {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .cta-section .btn + .btn {
+        margin-left: 0 !important;
+        margin-top: 0.75rem;
+    }
+}
+
+@media print {
+    .navbar,
+    #nav-placeholder,
+    #navigation-placeholder,
+    #footer-placeholder,
+    .footer,
+    .reading-progress,
+    .back-to-top,
+    .tutorial-action-btn,
+    .social-share,
+    .cta-section,
+    #cookie-banner {
+        display: none !important;
+    }
+
+    .tutorial-header {
+        background: none;
+        color: var(--black);
+        padding: 0 0 1rem;
+    }
+
+    .tutorial-header h1,
+    .tutorial-description,
+    .tutorial-stats,
+    .breadcrumb a {
+        color: var(--black);
+    }
+
+    .content-section {
+        break-inside: auto;
+    }
+}
