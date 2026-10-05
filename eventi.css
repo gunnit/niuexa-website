@@ -1,376 +1,456 @@
-/* Eventi Page Specific Styles */
+/* ============================================================
+   Eventi (eventi.html, en/events.html)
+   Loaded after styles.css and polish.css; scoped to body.events-page.
+   Same language as the homepage and polish.css: navy left-aligned
+   headings, hairline lists and cards, drawn SVG icons, solid accents.
+   Registration lives on /eventi-ai-aziende/; this page lists the
+   SIGNALS dates and the archive as static HTML.
+   Tokens from styles.css only.
+   ============================================================ */
 
-/* Hero: unified .consulting-hero styles from styles.css */
+/* ---------- Hero ---------- */
+/* styles.css clips --gradient-primary into the highlight; on the
+   --gradient-cta hero that is gradient text. Solid on-dark teal instead. */
+.events-page .consulting-hero .hero-title .highlight {
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    -webkit-text-fill-color: currentColor;
+    color: var(--signal-on-dark);
+}
 
-/* Events Grid */
-.events-upcoming {
-    padding: var(--section-padding);
+.events-page .consulting-hero .hero-title {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+}
+
+.events-page .consulting-hero .hero-subtitle {
+    max-width: 62ch;
+    font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+    line-height: 1.65;
+}
+
+.events-page .consulting-hero .hero-buttons {
+    flex-wrap: wrap;
+}
+
+/* ---------- SIGNALS dates ---------- */
+.events-page .events-upcoming {
+    padding: var(--polish-section) 0;
     background: var(--light-gray);
 }
 
-.events-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.event-card {
+.events-page .signals-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     background: var(--white);
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
-    position: relative;
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    box-shadow: var(--polish-card-shadow);
 }
 
-.event-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+.events-page .signals-item {
+    display: grid;
+    grid-template-columns: 88px minmax(0, 1fr) auto;
+    gap: 1.5rem 2rem;
+    align-items: start;
+    padding: 1.75rem 2rem;
 }
 
-.event-image {
-    height: 200px;
-    overflow: hidden;
-    position: relative;
+.events-page .signals-item + .signals-item {
+    border-top: 1px solid var(--border-light);
 }
 
-.event-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform var(--transition-medium);
-}
-
-.event-card:hover .event-image img {
-    transform: scale(1.05);
-}
-
-.event-status {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: var(--primary-green);
-    color: var(--white);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-.event-status.full {
-    background: var(--medium-gray);
-}
-
-.event-content {
-    padding: 1.5rem;
-}
-
-.event-date {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--blue-text);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.event-title {
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 0.8rem;
-    color: var(--dark-gray);
-}
-
-.event-description {
-    color: var(--medium-gray);
-    line-height: 1.6;
-    margin-bottom: 1rem;
-}
-
-.event-details {
+.events-page .signals-when {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
+    align-items: flex-start;
+    margin: 0;
+    line-height: 1;
 }
 
-.event-detail {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.9rem;
+.events-page .signals-month {
+    font-family: var(--font-primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     color: var(--medium-gray);
 }
 
-.event-topics {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.topic-tag {
-    background: var(--light-blue);
+.events-page .signals-day {
+    margin-top: 0.35rem;
+    font-family: var(--font-primary);
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
     color: var(--blue-text);
-    padding: 0.25rem 0.75rem;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    font-weight: 500;
 }
 
-.event-actions {
+.events-page .signals-title {
+    margin: 0 0 0.4rem;
+    font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+    line-height: 1.3;
+}
+
+.events-page .signals-list .signals-title a:not(.btn) {
+    color: var(--dark-gray);
+    text-decoration: none;
+}
+
+.events-page .signals-list .signals-title a:not(.btn):hover {
+    color: var(--blue-text);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.events-page .signals-meta {
     display: flex;
-    gap: 1rem;
     flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem 0.5rem;
+    margin: 0 0 0.75rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--medium-gray);
 }
 
-/* On white cards the CTA-section outline button (white on white) is invisible:
-   restyle it as the standard light-surface secondary button */
-.event-actions .btn-outline {
-    color: var(--blue-text) !important;
-    border-color: var(--primary-blue);
-}
-
-.event-actions .btn-outline:hover {
-    background: var(--light-blue);
-    border-color: var(--dark-blue);
-    color: var(--dark-blue) !important;
-    box-shadow: 0 8px 25px rgba(35, 125, 166, 0.2);
-}
-
-/* What to Expect Section */
-.events-what-to-expect {
-    padding: var(--section-padding);
-    background: var(--white);
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.feature-card {
-    text-align: center;
-    padding: 2rem 1.5rem;
-    border-radius: 15px;
+.events-page .signals-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.15rem 0.65rem;
+    border: 1px solid var(--border-medium);
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--dark-gray);
     background: var(--light-gray);
-    transition: transform var(--transition-medium);
 }
 
-.feature-card:hover {
-    transform: translateY(-5px);
-}
-
-.feature-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.feature-card h3 {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
+.events-page .signals-text {
+    max-width: 62ch;
+    margin: 0;
+    line-height: 1.65;
     color: var(--dark-gray);
 }
 
-.feature-card p {
-    color: var(--medium-gray);
-    line-height: 1.6;
+.events-page .signals-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.75rem;
+    padding-top: 0.25rem;
 }
 
-/* Past Events Section */
-.events-past {
-    padding: var(--section-padding);
+.events-page .signals-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-family: var(--font-primary);
+    font-weight: 600;
+    color: var(--blue-text);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    white-space: nowrap;
+}
+
+.events-page .signals-link:hover {
+    color: var(--dark-blue);
+}
+
+.events-page .signals-register {
+    white-space: nowrap;
+    padding: 10px 22px;
+}
+
+/* .btn sets display, which would otherwise beat the hidden attribute */
+.events-page [hidden] {
+    display: none !important;
+}
+
+.events-page .signals-item.is-past .signals-day {
+    color: var(--medium-gray);
+}
+
+.events-page .signals-note {
+    margin: 1rem 0 0;
+    font-size: 0.95rem;
+    color: var(--medium-gray);
+}
+
+/* ---------- What to expect ---------- */
+.events-page .events-what-to-expect {
+    padding: var(--polish-section) 0;
+    background: var(--white);
+}
+
+.events-page .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    gap: 1.5rem;
+}
+
+.events-page .feature-card {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    text-align: left;
+    background: var(--white);
+}
+
+.events-page .feature-card h3 {
+    margin: 0 0 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1.3;
+    color: var(--dark-gray);
+}
+
+.events-page .feature-card p {
+    margin: 0;
+    line-height: 1.65;
+    color: var(--medium-gray);
+}
+
+/* ---------- Past events ---------- */
+.events-page .events-past {
+    padding: var(--polish-section) 0;
     background: var(--light-gray);
 }
 
-.events-gallery {
+.events-page .events-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
     gap: 1.5rem;
-    margin-top: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-.past-event-card {
+.events-page .past-event-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
     background: var(--white);
-    border-radius: 10px;
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    box-shadow: var(--polish-card-shadow);
+}
+
+.events-page .past-event-image {
+    aspect-ratio: 16 / 10;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform var(--transition-fast);
+    background: var(--light-gray);
 }
 
-.past-event-card:hover {
-    transform: scale(1.02);
-}
-
-.past-event-image {
-    height: 180px;
-    overflow: hidden;
-}
-
-.past-event-image img {
+.events-page .past-event-image img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.past-event-content {
-    padding: 1rem;
+.events-page .past-event-image--empty {
+    display: grid;
+    place-items: center;
+    background: var(--light-blue);
+    color: var(--blue-text);
 }
 
-.past-event-title {
+.events-page .past-event-image--empty svg {
+    width: 40px;
+    height: 40px;
+}
+
+.events-page .past-event-content {
+    padding: 1.25rem 1.5rem 1.5rem;
+}
+
+.events-page .past-event-title {
+    margin: 0 0 0.4rem;
     font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+    line-height: 1.35;
     color: var(--dark-gray);
 }
 
-.past-event-date {
-    color: var(--medium-gray);
-    font-size: 0.9rem;
-}
-
-.past-event-stats {
-    color: var(--medium-gray);
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
-}
-
-.partner-note {
-    text-align: center;
-    margin-top: 2rem;
+.events-page .past-event-date {
+    margin: 0;
+    font-size: 0.95rem;
     color: var(--medium-gray);
 }
 
-.partner-note a {
-    color: var(--signal);
-    font-weight: 600;
+.events-page .partner-note {
+    max-width: 62ch;
+    margin: 2rem 0 0;
+    text-align: left;
+    color: var(--medium-gray);
 }
 
-/* CTA Section */
-.events-cta {
-    padding: var(--section-padding);
+/* ---------- Closing CTA ---------- */
+/* --gradient-cta carries white text at AA on every stop */
+.events-page .events-cta {
+    padding: var(--polish-section) 0;
     background: var(--gradient-cta);
     color: var(--white);
     text-align: center;
 }
 
-.cta-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+.events-page .events-cta .cta-content {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.events-page .events-cta h2 {
+    margin: 0 0 1rem;
+    font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+    letter-spacing: -0.02em;
+    color: var(--white);
 }
 
 /* Beats the light-surface `.cta-content p` (medium-gray) rule in styles.css */
-.events-cta .cta-content p {
+.events-page .events-cta .cta-content p {
+    max-width: 52ch;
+    margin: 0 auto 2rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
     color: var(--white);
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    opacity: 0.9;
 }
 
-.cta-buttons {
+.events-page .events-cta .cta-buttons {
     display: flex;
-    gap: 1rem;
-    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
 }
 
-/* Fix button visibility in CTA section */
-.events-cta .btn-secondary {
+.events-page .events-cta .btn-primary {
+    background: var(--white);
+    color: var(--blue-text);
+    box-shadow: 0 10px 30px rgba(10, 26, 38, 0.2);
+}
+
+.events-page .events-cta .btn-primary:hover {
+    background: var(--white);
+    color: var(--dark-blue);
+}
+
+.events-page .events-cta .btn-outline {
     background: transparent;
-    color: var(--white) !important;
+    color: var(--white);
     border: 2px solid var(--white);
 }
 
-.events-cta .btn-secondary:hover {
+.events-page .events-cta .btn-outline:hover {
     background: var(--white);
-    color: var(--blue-text) !important;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+    color: var(--blue-text);
 }
 
-.events-cta .btn-outline,
-.btn-outline {
-    background: transparent;
-    color: var(--white) !important;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    padding: 12px 30px;
-    border-radius: 50px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    display: inline-block;
+/* ---------- Focus ---------- */
+.events-page main a:focus-visible {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 3px;
+    border-radius: 4px;
 }
 
-.events-cta .btn-outline:hover,
-.btn-outline:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: var(--white);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+.events-page .consulting-hero a:focus-visible,
+.events-page .events-cta a:focus-visible {
+    outline-color: var(--white);
 }
 
-/* Mobile Responsiveness */
+/* ---------- Tablet and phone ---------- */
 @media (max-width: 768px) {
-    .events-grid {
-        grid-template-columns: 1fr;
+    .events-page .consulting-hero .hero-stats {
+        gap: 1.25rem;
     }
 
-    .features-grid {
-        grid-template-columns: 1fr;
+    .events-page .consulting-hero .stat-label {
+        margin-top: 0.2rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .events-page .signals-item {
+        grid-template-columns: 64px minmax(0, 1fr);
+        padding: 1.5rem;
     }
 
-    .cta-buttons {
-        flex-direction: column;
+    .events-page .signals-actions {
+        grid-column: 2;
+        flex-direction: row;
+        flex-wrap: wrap;
         align-items: center;
+        gap: 0.5rem 1.25rem;
+        padding-top: 0;
     }
 
-    .cta-content h2 {
+    .events-page .signals-day {
         font-size: 2rem;
     }
 }
 
-/* Animation Classes */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
+@media (max-width: 560px) {
+    .events-page .signals-item {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.75rem;
+        padding: 1.5rem 1.25rem;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+
+    .events-page .signals-when {
+        flex-direction: row;
+        align-items: baseline;
+        gap: 0.5rem;
+    }
+
+    .events-page .signals-day {
+        order: -1;
+        margin-top: 0;
+        font-size: 1.6rem;
+    }
+
+    .events-page .signals-actions {
+        grid-column: 1;
+    }
+
+    .events-page .signals-meta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .events-page .signals-sep {
+        display: none;
+    }
+
+    .events-page .signals-link,
+    .events-page .signals-register {
+        white-space: normal;
+    }
+
+    .events-page .events-cta .cta-buttons {
+        flex-direction: column;
+        align-items: center;
     }
 }
 
-.fade-in-up {
-    animation: fadeInUp 0.8s ease-out forwards;
+/* Phones: a little less inner padding so the copy keeps its width */
+@media (max-width: 560px) {
+    .events-page .feature-card {
+        padding: 1.5rem;
+    }
 }
 
-/* Accessibility Improvements */
 @media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+    .events-page .btn,
+    .events-page .signals-title a {
+        transition: none;
     }
-}
 
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
+    .events-page .btn:hover {
+        transform: none;
+    }
 }

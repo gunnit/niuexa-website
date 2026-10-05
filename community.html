@@ -24,17 +24,17 @@
     })(window,document,'script','dataLayer','GTM-KG9S42S4');</script>
     <!-- End Google Tag Manager -->
 
-    <title>AI Operator Community | Connect with AI Builders | Niuexa</title>
-    <meta name="description" content="Join the AI Operator community — connect with builders automating their businesses with AI. Discord, weekly live sessions, shared templates, and early access to new books.">
-    <meta name="keywords" content="AI operator community, AI automation community, AI business builders, Discord AI group, AI book club, AI operator series community, AI networking">
+    <title>AI Operator Community on Discord | Niuexa</title>
+    <meta name="description" content="The AI Operator Community: a free Discord server where readers of the AI Operator Series ask questions about the books, share what they build and form study groups.">
+    <meta name="keywords" content="AI operator community, AI automation community, Discord AI group, AI book study group, AI operator series community">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="author" content="Niuexa">
     <link rel="canonical" href="https://niuexa.ai/community.html">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="AI Operator Community | Connect with AI Builders">
-    <meta property="og:description" content="Join the AI Operator community — connect with builders automating their businesses with AI. Discord, weekly live sessions, shared templates, and early access to new books.">
+    <meta property="og:title" content="AI Operator Community on Discord">
+    <meta property="og:description" content="A free Discord server where readers of the AI Operator Series ask questions about the books, share what they build and form study groups.">
     <meta property="og:image" content="https://niuexa.ai/img/niuexalogo.png">
     <meta property="og:url" content="https://niuexa.ai/community.html">
     <meta property="og:site_name" content="Niuexa">
@@ -42,8 +42,8 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AI Operator Community | Connect with AI Builders">
-    <meta name="twitter:description" content="Join the AI Operator community — connect with builders automating their businesses with AI. Discord, weekly live sessions, shared templates, and early access.">
+    <meta name="twitter:title" content="AI Operator Community on Discord">
+    <meta name="twitter:description" content="A free Discord server where readers of the AI Operator Series ask questions about the books, share what they build and form study groups.">
     <meta name="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
 
     <!-- Hreflang -->
@@ -62,8 +62,10 @@
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "AI Operator Community",
-        "description": "Join the AI Operator community — connect with builders automating their businesses with AI.",
+        "description": "A free Discord server where readers of the AI Operator Series ask questions about the books, share what they build and form study groups.",
         "url": "https://niuexa.ai/community.html",
+        "inLanguage": "en",
+        "dateModified": "2026-10-05",
         "publisher": {
             "@type": "Organization",
             "name": "Niuexa",
@@ -105,9 +107,11 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css?v=20260807">
+    <link rel="stylesheet" href="polish.css?v=20261005">
     <link rel="stylesheet" href="books.css">
+    <link rel="stylesheet" href="community.css?v=20261005">
 </head>
-<body>
+<body class="polished community-page">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9S42S4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
@@ -116,22 +120,22 @@
     <main id="main-content">
         <!-- Hero Section -->
         <section class="book-hero">
-            <nav class="book-breadcrumb">
+            <nav class="book-breadcrumb" aria-label="Breadcrumb">
                 <div class="container">
                     <ol>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="ai-operator-series.html">AI Operator Series</a></li>
-                        <li><span class="current">Community</span></li>
+                        <li><span class="current" aria-current="page">Community</span></li>
                     </ol>
                 </div>
             </nav>
             <div class="container">
                 <span class="hero-badge">AI Operator Series</span>
                 <h1 class="hero-title">Join the <span class="highlight">AI Operator Community</span></h1>
-                <p class="hero-subtitle">Connect with builders, entrepreneurs, and technical leaders who are automating their businesses with AI. Share strategies, get answers, and grow together.</p>
+                <p class="hero-subtitle">A free Discord server for readers of the AI Operator Series. Ask questions about the books, show what you are building and find people working through the same chapters.</p>
                 <div class="hero-buttons">
                     <a href="https://discord.gg/vyKckeS3" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Join Discord</a>
-                    <a href="ai-operator-series.html" class="btn btn-secondary">Explore the Book Series</a>
+                    <a href="ai-operator-series.html" class="btn btn-secondary">Explore the book series</a>
                 </div>
             </div>
         </section>
@@ -139,18 +143,22 @@
         <!-- Community Stats -->
         <section class="series-intro">
             <div class="container">
-                <div style="display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; margin-bottom: 40px;">
-                    <div style="text-align: center;">
-                        <div style="font-family: var(--font-primary); font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">4</div>
-                        <div style="font-family: var(--font-secondary); font-size: 1rem; color: var(--medium-gray); font-weight: 500;">Books</div>
+                <dl class="community-stats">
+                    <div class="community-stat">
+                        <dt>4</dt>
+                        <dd>Books available in the series</dd>
                     </div>
-                    <div style="text-align: center;">
-                        <div style="font-family: var(--font-primary); font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Weekly</div>
-                        <div style="font-family: var(--font-secondary); font-size: 1rem; color: var(--medium-gray); font-weight: 500;">Live Sessions</div>
+                    <div class="community-stat">
+                        <dt>Free</dt>
+                        <dd>To join</dd>
                     </div>
-                </div>
-                <h2>Built for Operators, Not Observers</h2>
-                <p>The AI Operator Community is where readers of the AI Operator Series come to put knowledge into action. Whether you just finished your first chapter or you are shipping production AI agents, this is your space to ask questions, share wins, find collaborators, and stay ahead of the fastest-moving industry on the planet.</p>
+                    <div class="community-stat">
+                        <dt>Discord</dt>
+                        <dd>Where the community meets</dd>
+                    </div>
+                </dl>
+                <h2>For readers who want to build</h2>
+                <p>The AI Operator Community is where readers of the AI Operator Series bring their questions and their work. Whether you have just finished your first chapter or you already run an agent in production, you can ask for help, show what you built and find people to work with.</p>
             </div>
         </section>
 
@@ -158,39 +166,51 @@
         <section class="community-benefits">
             <div class="container">
                 <div class="section-header">
-                    <h2>Why Join?</h2>
-                    <p>Everything you need to go from reading about AI to building with it.</p>
+                    <h2>Why join?</h2>
+                    <p>What the community is for, from reading about AI to building with it.</p>
                 </div>
                 <div class="benefits-grid">
                     <div class="benefit-card">
-                        <div class="benefit-icon">&#x1F91D;</div>
-                        <h3>Peer Networking</h3>
-                        <p>Connect with CTOs, solo founders, no-code builders, and AI engineers who are actively shipping. Find co-founders, partners, or simply someone who understands the challenges you face.</p>
+                        <div class="icon-tile">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <h3>Peer discussion</h3>
+                        <p>Talk with founders, technical leads, no-code builders and engineers who build with AI. Compare approaches and find someone who has faced the same problem.</p>
                     </div>
                     <div class="benefit-card">
-                        <div class="benefit-icon">&#x2753;</div>
-                        <h3>Q&A with Authors</h3>
-                        <p>Get direct answers from the authors of the AI Operator Series. Post questions about specific chapters, implementation challenges, or tool choices and get thoughtful, experienced responses.</p>
+                        <div class="icon-tile icon-tile--teal">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                        </div>
+                        <h3>Questions about the books</h3>
+                        <p>Ask about a specific chapter, an implementation problem or a tool choice in the channel for that book, where other readers and the authors can see it.</p>
                     </div>
                     <div class="benefit-card">
-                        <div class="benefit-icon">&#x1F3A5;</div>
-                        <h3>Weekly Live Sessions</h3>
-                        <p>Join live workshops, tool demos, and AMA sessions every week. Watch real implementations being built, ask questions in real time, and replay recordings at your own pace.</p>
+                        <div class="icon-tile icon-tile--green">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                        </div>
+                        <h3>Live sessions</h3>
+                        <p>Workshops, tool demos and Q&amp;A sessions are announced on the Discord server when they are scheduled, with the date and the topic.</p>
                     </div>
                     <div class="benefit-card">
-                        <div class="benefit-icon">&#x1F4CB;</div>
-                        <h3>Shared Templates</h3>
-                        <p>Access a growing library of community-contributed templates: automation workflows, prompt libraries, agent architectures, business models, and pricing calculators used by real operators.</p>
+                        <div class="icon-tile">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                        </div>
+                        <h3>Shared templates</h3>
+                        <p>Members share their own automation workflows, prompt libraries and agent architectures. Read and test each one before you use it in your own work.</p>
                     </div>
                     <div class="benefit-card">
-                        <div class="benefit-icon">&#x1F680;</div>
-                        <h3>Early Access</h3>
-                        <p>Community members get early access to new books, chapters, and companion resources before public release. Be the first to read, review, and implement the latest strategies.</p>
+                        <div class="icon-tile icon-tile--teal">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                        </div>
+                        <h3>News on the books</h3>
+                        <p>The series has four books available and two in preparation. News about new books, chapters and companion resources is posted in the community.</p>
                     </div>
                     <div class="benefit-card">
-                        <div class="benefit-icon">&#x1F4B0;</div>
-                        <h3>Exclusive Discounts</h3>
-                        <p>Members receive exclusive pricing on book bundles, courses, tools, and partner products. Your membership pays for itself with a single discount on the Complete Bundle.</p>
+                        <div class="icon-tile icon-tile--green">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <h3>Free to join</h3>
+                        <p>Joining costs nothing and you can leave at any time. All you need is a Discord account.</p>
                     </div>
                 </div>
             </div>
@@ -200,69 +220,69 @@
         <section class="community-channels">
             <div class="container">
                 <div class="section-header">
-                    <h2>Where We Connect</h2>
-                    <p>Multiple channels, one mission: help you build and scale with AI.</p>
+                    <h2>Where we connect</h2>
+                    <p>Three ways to take part, all starting from the Discord server.</p>
                 </div>
                 <div class="channels-grid">
                     <div class="channel-card">
-                        <h3>Discord — Main Hub</h3>
-                        <p>Our primary community space with dedicated channels for each book, tool recommendations, job postings, show-and-tell, and general discussion. This is where the real-time conversations happen.</p>
-                        <ul style="list-style: none; padding: 0; margin: 0 0 15px 0;">
-                            <li style="font-family: var(--font-secondary); font-size: 0.9rem; color: var(--dark-gray); padding: 4px 0; padding-left: 22px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-green); font-weight: 700;">#</span> mcp-blueprint</li>
-                            <li style="font-family: var(--font-secondary); font-size: 0.9rem; color: var(--dark-gray); padding: 4px 0; padding-left: 22px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-green); font-weight: 700;">#</span> one-person-empire</li>
-                            <li style="font-family: var(--font-secondary); font-size: 0.9rem; color: var(--dark-gray); padding: 4px 0; padding-left: 22px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-green); font-weight: 700;">#</span> no-code-recipes</li>
-                            <li style="font-family: var(--font-secondary); font-size: 0.9rem; color: var(--dark-gray); padding: 4px 0; padding-left: 22px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-green); font-weight: 700;">#</span> ai-agents-field-guide</li>
-                            <li style="font-family: var(--font-secondary); font-size: 0.9rem; color: var(--dark-gray); padding: 4px 0; padding-left: 22px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-green); font-weight: 700;">#</span> show-and-tell</li>
+                        <h3>Discord: the main space</h3>
+                        <p>The main community space, with a channel for each book, tool recommendations, show-and-tell and general discussion. This is where conversations happen in real time.</p>
+                        <ul class="channel-list channel-list--hash">
+                            <li>mcp-blueprint</li>
+                            <li>one-person-empire</li>
+                            <li>no-code-recipes</li>
+                            <li>ai-agents-field-guide</li>
+                            <li>show-and-tell</li>
                         </ul>
                         <a href="https://discord.gg/vyKckeS3" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Join Discord</a>
                     </div>
                     <div class="channel-card">
-                        <h3>Monthly AMAs</h3>
-                        <p>Every first Thursday of the month, join a live Ask Me Anything session with the series authors and guest experts. Topics range from AI strategy to technical deep-dives on specific tools and frameworks.</p>
-                        <ul style="list-style: none; padding: 0; margin: 0 0 15px 0;">
-                            <li style="font-family: var(--font-secondary); font-size: 0.9rem; color: var(--dark-gray); padding: 4px 0; padding-left: 22px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-green); font-weight: 700;">&#10003;</span> First Thursday monthly</li>
-                            <li style="font-family: var(--font-secondary); font-size: 0.9rem; color: var(--dark-gray); padding: 4px 0; padding-left: 22px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-green); font-weight: 700;">&#10003;</span> Guest industry experts</li>
-                            <li style="font-family: var(--font-secondary); font-size: 0.9rem; color: var(--dark-gray); padding: 4px 0; padding-left: 22px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-green); font-weight: 700;">&#10003;</span> Recorded &amp; replayable</li>
+                        <h3>Q&amp;A sessions</h3>
+                        <p>Ask Me Anything sessions with the series authors, on topics from AI strategy to specific tools and frameworks. Each session is announced on Discord with its date.</p>
+                        <ul class="channel-list">
+                            <li>Announced on Discord</li>
+                            <li>Open to every member</li>
+                            <li>Email reminders through the newsletter</li>
                         </ul>
-                        <a href="newsletter.html" class="btn btn-secondary">Get Reminders</a>
+                        <a href="newsletter.html" class="btn btn-secondary">Get reminders</a>
                     </div>
                     <div class="channel-card">
-                        <h3>Book Study Groups</h3>
-                        <p>Join a cohort of readers working through the same book. Each study group meets weekly for 4-6 weeks, with structured discussions, accountability partners, and implementation challenges.</p>
-                        <ul style="list-style: none; padding: 0; margin: 0 0 15px 0;">
-                            <li style="font-family: var(--font-secondary); font-size: 0.9rem; color: var(--dark-gray); padding: 4px 0; padding-left: 22px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-green); font-weight: 700;">&#10003;</span> 4-6 week cohorts</li>
-                            <li style="font-family: var(--font-secondary); font-size: 0.9rem; color: var(--dark-gray); padding: 4px 0; padding-left: 22px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-green); font-weight: 700;">&#10003;</span> Accountability partners</li>
-                            <li style="font-family: var(--font-secondary); font-size: 0.9rem; color: var(--dark-gray); padding: 4px 0; padding-left: 22px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-green); font-weight: 700;">&#10003;</span> Implementation challenges</li>
+                        <h3>Book study groups</h3>
+                        <p>Readers working through the same book can form a study group in that book’s channel, agree their own pace and keep each other on track.</p>
+                        <ul class="channel-list">
+                            <li>Organised by readers</li>
+                            <li>One channel per book</li>
+                            <li>Your own pace</li>
                         </ul>
-                        <a href="https://discord.gg/vyKckeS3" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Find a Group</a>
+                        <a href="https://discord.gg/vyKckeS3" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Find a group</a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Community Guidelines -->
-        <section class="community-channels" style="background: var(--light-gray);">
+        <section class="community-channels community-guidelines">
             <div class="container">
                 <div class="section-header">
-                    <h2>Community Guidelines</h2>
-                    <p>A few principles that keep this community valuable for everyone.</p>
+                    <h2>Community guidelines</h2>
+                    <p>A few principles that keep this community useful for everyone.</p>
                 </div>
-                <div class="channels-grid" style="grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));">
-                    <div class="channel-card" style="border-left-color: var(--primary-green); text-align: center;">
-                        <h3>Ship, Don't Just Talk</h3>
-                        <p>We value action over theory. Share what you have built, what you are building, and what you learned from failures. Implementation stories beat abstract debates every time.</p>
+                <div class="channels-grid guidelines-grid">
+                    <div class="channel-card">
+                        <h3>Ship, don’t just talk</h3>
+                        <p>We value action over theory. Share what you have built, what you are building and what you learned from what failed. Implementation stories beat abstract debates.</p>
                     </div>
-                    <div class="channel-card" style="border-left-color: var(--primary-green); text-align: center;">
-                        <h3>Help Generously</h3>
-                        <p>If you have been through it, help someone who is going through it now. Answer questions, share resources, and pay forward the help you received when you were starting out.</p>
+                    <div class="channel-card">
+                        <h3>Help generously</h3>
+                        <p>If you have been through it, help someone who is going through it now. Answer questions, share resources and pass on the help you received when you started.</p>
                     </div>
-                    <div class="channel-card" style="border-left-color: var(--primary-green); text-align: center;">
-                        <h3>Stay Curious</h3>
-                        <p>AI moves fast. What worked last month may not work today. Approach every conversation with genuine curiosity and openness to new approaches, tools, and perspectives.</p>
+                    <div class="channel-card">
+                        <h3>Stay curious</h3>
+                        <p>AI tools change quickly and what worked last month may not work today. Come to every conversation open to new approaches, tools and points of view.</p>
                     </div>
-                    <div class="channel-card" style="border-left-color: var(--primary-green); text-align: center;">
-                        <h3>No Spam, No Pitches</h3>
-                        <p>This is a space for learning and building, not selling. Share your products in the designated channel, but keep discussions focused on helping each other succeed.</p>
+                    <div class="channel-card">
+                        <h3>No spam, no pitches</h3>
+                        <p>This is a space for learning and building, not selling. Keep promotion out of the discussion channels and focus on helping each other.</p>
                     </div>
                 </div>
             </div>
@@ -271,13 +291,13 @@
         <!-- CTA Section -->
         <section class="book-cta">
             <div class="container">
-                <h2>Ready to Build With Us?</h2>
-                <p>Join other operators who are turning AI knowledge into business results. Free to join.</p>
-                <a href="https://discord.gg/vyKckeS3" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Join the Community on Discord</a>
+                <h2>Join the community</h2>
+                <p>Bring a question or something you have built. Joining is free.</p>
+                <a href="https://discord.gg/vyKckeS3" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Join the community on Discord</a>
             </div>
         </section>
 
-        <p class="content-last-updated">Last updated: September 2026</p>
+        <p class="content-last-updated">Last updated: October 2026</p>
     </main>
 
     <!-- Footer Placeholder -->
