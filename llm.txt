@@ -53,10 +53,10 @@
 ## Company Information
 - [About Us / Chi Siamo](https://niuexa.ai/chi-siamo.html): Team, founders, mission
 - [About Us (English)](https://niuexa.ai/en/about-us.html): English version
-- [Contact](https://niuexa.ai/contatti.html): Request a consultation
+- [Contact](https://niuexa.ai/contatti.html): Book the free 30-minute first call ("Ci mostri un processo") or write to Niuexa
 - [Contact (English)](https://niuexa.ai/en/contact.html): English contact page
 - [Events](https://niuexa.ai/eventi.html): SIGNALS evenings on AI in business, at the Libera office in Milan
-- [Careers](https://niuexa.ai/carriere.html): Join the Niuexa team
+- [Careers](https://niuexa.ai/carriere.html): No open positions at the moment; how to send a spontaneous application
 
 ## Articles: AI Consulting & Business Strategy (Italian)
 - [Consulenza AI in Italia: Come Scegliere il Partner Giusto](https://niuexa.ai/articolo-consulenza-ai-italia.html): Guide to choosing an AI consulting partner in Italy, comparing Big 4 firms, system integrators and boutique specialists
@@ -65,12 +65,12 @@
 - [Rischi AI in Azienda: i 7 Rischi Principali](https://niuexa.ai/articolo-rischi-ai-azienda.html): The 7 key risks of AI adoption and Niuexa's Risk Canvas mitigation framework
 - [Automazione Processi Manuali con AI](https://niuexa.ai/articolo-automazione-processi-manuali.html): When and how to automate manual processes: signals, first candidates, how to measure
 - [Quanto costa un progetto di automazione? Le voci di costo e come leggere un preventivo](https://niuexa.ai/articolo-costi-automazione-guida.html): The 10 cost items of an industrial automation quote, what moves the price, hidden costs and how to calculate payback on your own data
-- [Da PoC a Produzione: Framework Niuexa](https://niuexa.ai/articolo-poc-produzione-framework.html): How to move an AI project from proof-of-concept to production
+- [Dal PoC alla produzione](https://niuexa.ai/articolo-poc-produzione.html): How to move an AI project from proof-of-concept to production, in four phases with go/no-go criteria agreed up front
 - [Roadmap Trasformazione AI](https://niuexa.ai/articolo-roadmap-trasformazione.html): Building an AI transformation roadmap: phases, milestones, success metrics
 - [Tool e Practice per Creare Agenti AI](https://niuexa.ai/articolo-tool-agenti-ai.html): Tools and practices for building reliable AI agents, in a 10-step workflow
 - [Formazione AI per Manager](https://niuexa.ai/articolo-formazione-ai-manager.html): AI training programs for managers and executives
 - [Scegliere il Partner per la Trasformazione Digitale](https://niuexa.ai/articolo-scegliere-partner-trasformazione-digitale.html): How to choose a digital transformation partner
-- [Il Metodo Niuexa: Analisi Aziendale](https://niuexa.ai/articolo-metodo-niuexa-analisi-aziendale.html): Niuexa's proprietary business analysis methodology
+- [Il Metodo Niuexa: Analisi Aziendale](https://niuexa.ai/articolo-metodo-niuexa-analisi-aziendale.html): How Niuexa reads data, processes and people before proposing any automation
 - [FAQ Consulenza AI Italia](https://niuexa.ai/articolo-faq-consulenza-ai-italia.html): Frequently asked questions about AI consulting in Italy
 
 ## Articles: AEO, GEO & AI Search Optimization (Italian)
@@ -123,7 +123,7 @@
 - [Voice e Audio AI](https://niuexa.ai/tutorial-voice-audio-ai.html): AI voice and audio generation tutorial
 
 ## Tutorials (English)
-- [AI Tutorials Hub](https://niuexa.ai/en/learn.html): All English AI tutorials, including video generation
+- [AI Tutorials Hub](https://niuexa.ai/en/learn.html): The English AI tutorials (the video and voice tutorials are in Italian only)
 - [AI Image Generation](https://niuexa.ai/en/tutorial-ai-image-generation.html): AI image generation guide
 - [AI Workflow Automation](https://niuexa.ai/en/tutorial-ai-workflow-automation.html): AI workflow automation guide
 - [Humanize AI Text](https://niuexa.ai/en/tutorial-humanize-ai-text.html): How to humanize AI text
