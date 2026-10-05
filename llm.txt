@@ -60,11 +60,11 @@
 
 ## Articles: AI Consulting & Business Strategy (Italian)
 - [Consulenza AI in Italia: Come Scegliere il Partner Giusto](https://niuexa.ai/articolo-consulenza-ai-italia.html): Guide to choosing an AI consulting partner in Italy, comparing Big 4 firms, system integrators and boutique specialists
-- [AI per le PMI Italiane: Guida Pratica](https://niuexa.ai/articolo-ai-pmi-italia.html): Practical guide to AI adoption for Italian SMBs: where to start, incentives, how to measure results
+- [AI per le PMI italiane: da dove partire e come misurare i risultati](https://niuexa.ai/articolo-ai-pmi-italia.html): Practical guide for Italian SMBs: five applications to start from, what to measure, what drives cost, incentives to check
 - [Il Management Chiede 'Mettiamo GenAI?': Framework Niuexa](https://niuexa.ai/articolo-management-genai-framework.html): Framework for responding to management requests for GenAI: value estimate, governance, triage
 - [Rischi AI in Azienda: i 7 Rischi Principali](https://niuexa.ai/articolo-rischi-ai-azienda.html): The 7 key risks of AI adoption and Niuexa's Risk Canvas mitigation framework
 - [Automazione Processi Manuali con AI](https://niuexa.ai/articolo-automazione-processi-manuali.html): When and how to automate manual processes: signals, first candidates, how to measure
-- [Costi Automazione AI: Guida Completa](https://niuexa.ai/articolo-costi-automazione-guida.html): What drives the cost of an automation project, with three scenarios compared
+- [Quanto costa un progetto di automazione? Le voci di costo e come leggere un preventivo](https://niuexa.ai/articolo-costi-automazione-guida.html): The 10 cost items of an industrial automation quote, what moves the price, hidden costs and how to calculate payback on your own data
 - [Da PoC a Produzione: Framework Niuexa](https://niuexa.ai/articolo-poc-produzione-framework.html): How to move an AI project from proof-of-concept to production
 - [Roadmap Trasformazione AI](https://niuexa.ai/articolo-roadmap-trasformazione.html): Building an AI transformation roadmap: phases, milestones, success metrics
 - [Tool e Practice per Creare Agenti AI](https://niuexa.ai/articolo-tool-agenti-ai.html): Tools and practices for building reliable AI agents, in a 10-step workflow
