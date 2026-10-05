@@ -9,7 +9,7 @@ standfirst: Quando un assistente AI cita la procedura sbagliata, cambiare modell
 section: Knowledge Management e AI Governance
 badge: Knowledge Management e AI Governance
 published: 2026-07-29
-modified: 2026-07-29
+modified: 2026-10-05
 author: gregor-maric
 reviewed_by: roberto-botto
 reading_time: 10 minuti di lettura
@@ -84,13 +84,13 @@ related:
     title: Dal pilot al valore misurabile
   - href: ai-readiness-assessment.html
     category: Assessment
-    title: Valuta la tua AI readiness
+    title: Valutare la readiness AI
 cta:
-  heading: Vuoi rendere affidabili le fonti del tuo assistente AI?
-  body: Niuexa aiuta le aziende a mappare conoscenza, owner, permessi e criteri di qualità prima di scalare chatbot, RAG e AI agent.
-  primary_label: Valuta la tua AI readiness
-  primary_href: ai-readiness-assessment.html
-  secondary_label: Scopri la consulenza AI
+  heading: Le fonti del Suo assistente AI hanno un owner?
+  body: "Ci mostri un processo: nella prima chiamata di 30 minuti, gratuita, guardiamo quali documenti guidano le risposte, chi li approva e quando scadono. Prima misuriamo, poi automatizziamo."
+  primary_label: Ci mostri un processo
+  primary_href: index.html#contact
+  secondary_label: Come lavoriamo
   secondary_href: consulting.html
 ---
 
@@ -152,21 +152,21 @@ Quando due fonti approvate confliggono, il sistema non dovrebbe scegliere in sil
 
 ## Un piano operativo in 30 giorni
 
-### Settimana 1 — Scegliere il dominio
+### Settimana 1: scegliere il dominio
 
-Definisci utenti, domande frequenti, decisioni supportate e danno potenziale di una risposta errata. Seleziona un dominio abbastanza stretto da essere governabile e abbastanza frequente da generare apprendimento.
+Definisca utenti, domande frequenti, decisioni supportate e danno potenziale di una risposta errata. Selezioni un dominio abbastanza stretto da essere governabile e abbastanza frequente da generare apprendimento.
 
-### Settimana 2 — Inventariare e assegnare
+### Settimana 2: inventariare e assegnare
 
-Raccogli le fonti candidate, rileva duplicati e assegna owner e stato. Escludi ciò che non ha provenienza chiara. Definisci i permessi usando ruoli esistenti, evitando eccezioni manuali non tracciate.
+Raccolga le fonti candidate, rilevi i duplicati e assegni owner e stato. Escluda ciò che non ha provenienza chiara. Definisca i permessi usando ruoli esistenti, evitando eccezioni manuali non tracciate.
 
-### Settimana 3 — Indicizzare e testare
+### Settimana 3: indicizzare e testare
 
-Configura il recupero usando soltanto fonti ammesse. Prepara domande normali, casi limite, richieste fuori perimetro e conflitti intenzionali. Verifica non solo la risposta, ma anche citazione, versione, accesso e comportamento quando manca una fonte valida.
+Configuri il recupero usando soltanto fonti ammesse. Prepari domande normali, casi limite, richieste fuori perimetro e conflitti intenzionali. Verifichi non solo la risposta, ma anche citazione, versione, accesso e comportamento quando manca una fonte valida.
 
-### Settimana 4 — Chiudere il ciclo di feedback
+### Settimana 4: chiudere il ciclo di feedback
 
-Ogni segnalazione deve diventare un ticket collegato a risposta, fonte e owner. Definisci tempo di correzione, reindicizzazione e retest. Il pilot è pronto a crescere quando l’organizzazione sa correggere il sistema, non quando la prima demo appare convincente.
+Ogni segnalazione deve diventare un ticket collegato a risposta, fonte e owner. Definisca tempo di correzione, reindicizzazione e retest. Il pilot è pronto a crescere quando l’organizzazione sa correggere il sistema, non quando la prima demo appare convincente.
 
 ## KPI per misurare conoscenza e risposte
 

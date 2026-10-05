@@ -9,10 +9,10 @@ standfirst: "L’adozione cresce, ma la mancanza di competenze continua a fermar
 section: Formazione AI
 badge: Formazione AI e Adozione
 published: 2026-07-22
-modified: 2026-07-22
+modified: 2026-10-05
 author: gregor-maric
 reviewed_by: roberto-botto
-reading_time: 9 minuti di lettura
+reading_time: 10 minuti di lettura
 audience: Per CEO, HR e process owner
 format: Framework in 4 livelli
 visuals: true
@@ -74,17 +74,17 @@ related:
     category: Governance
     title: Progettare il controllo umano dell’AI
 cta:
-  heading: Vuoi collegare formazione AI e processi reali?
-  body: Niuexa aiuta aziende e PMI a valutare competenze, workflow, dati e governance per costruire un percorso di adozione misurabile.
-  primary_label: Valuta la tua AI readiness
-  primary_href: ai-readiness-assessment.html
-  secondary_label: Scopri la formazione AI
+  heading: Formazione AI collegata a un processo reale
+  body: "Ci mostri un processo: nella prima chiamata di 30 minuti, gratuita, guardiamo dove il team usa già l’AI, dove si ferma e quale competenza manca per misurare il risultato."
+  primary_label: Ci mostri un processo
+  primary_href: index.html#contact
+  secondary_label: La formazione AI
   secondary_href: training.html
 ---
 
 ## Il dato italiano: l’adozione raddoppia, il gap resta
 
-Secondo il rapporto ISTAT *Imprese e ICT — Anno 2025*, l’uso di almeno una tecnologia di AI tra le imprese con almeno 10 addetti è passato dall’8,2% nel 2024 al 16,4% nel 2025. Nelle PMI il valore è salito dal 7,7% al 15,7%, mentre nelle grandi imprese ha raggiunto il 53,1%.
+Secondo il rapporto ISTAT *Imprese e ICT, anno 2025*, l’uso di almeno una tecnologia di AI tra le imprese con almeno 10 addetti è passato dall’8,2% nel 2024 al 16,4% nel 2025. Nelle PMI il valore è salito dal 7,7% al 15,7%, mentre nelle grandi imprese ha raggiunto il 53,1%.
 
 La crescita, però, non elimina il divario. ISTAT rileva che la mancanza di competenze adeguate frena quasi il 60% delle aziende che hanno valutato un investimento in AI senza poi realizzarlo. Inoltre, la distanza nell’intensità di utilizzo tra grandi imprese e PMI è arrivata a 37 punti percentuali nel 2025.
 
@@ -124,7 +124,7 @@ Ogni workflow AI ha bisogno di un owner, log, gestione delle eccezioni e KPI. Il
 
 ### Partire da una baseline
 
-Misura il processo prima della formazione: tempo ciclo, volume, rilavorazioni, errori, attese ed escalation. Senza baseline, è facile confondere entusiasmo e uso frequente con un miglioramento reale.
+Misuri il processo prima della formazione: tempo ciclo, volume, rilavorazioni, errori, attese ed escalation. Senza baseline, è facile confondere entusiasmo e uso frequente con un miglioramento reale.
 
 ### Lavorare su casi reali e dati autorizzati
 
@@ -164,6 +164,6 @@ Se mancano owner, dati o criteri, il caso non è pronto. La scelta corretta può
 
 ## Fonte e perimetro
 
-Il punto di partenza di questa guida è il post Niuexa pubblicato su LinkedIn il 13 luglio 2026, dedicato alla crescita dell’adozione AI e al gap di competenze operative. I dati citati provengono da [ISTAT, Imprese e ICT — Anno 2025](https://www.istat.it/comunicato-stampa/imprese-e-ict-anno-2025/), pubblicato il 15 dicembre 2025.
+Il punto di partenza di questa guida è il post Niuexa pubblicato su LinkedIn il 13 luglio 2026, dedicato alla crescita dell’adozione AI e al gap di competenze operative. I dati citati provengono da [ISTAT, Imprese e ICT, anno 2025](https://www.istat.it/comunicato-stampa/imprese-e-ict-anno-2025/), pubblicato il 15 dicembre 2025.
 
 Il framework in quattro livelli è una guida operativa Niuexa. Va adattato al processo, al settore, ai dati trattati e al livello di impatto delle decisioni. Non sostituisce valutazioni legali, normative o di sicurezza.

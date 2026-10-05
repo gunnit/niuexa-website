@@ -9,12 +9,12 @@ standfirst:  Cambiare un prompt, un modello o una fonte dati può modificare un 
 section:     AI Governance e Operations
 badge:       AI Governance e Operations
 published:   2026-08-11
-modified:    2026-08-11
+modified:    2026-10-05
 
 author:      gregor-maric
 reviewed_by: roberto-botto
 
-reading_time: 10 minuti di lettura   # preserved from the published article
+reading_time: 10 minuti di lettura   # words/220, rounded up to 5 minutes
 audience:    Per COO, IT, process owner e compliance
 format:      Framework in 6 gate
 visuals:     true
@@ -67,7 +67,7 @@ faq:
   - q: Quando devo fare rollback?
     a: Quando i criteri non sono rispettati, emergono effetti inattesi o il rischio residuo non è dimostrabilmente accettabile.
 
-sources_intro: Il framework in sei gate e la matrice C1–C4 sono una guida operativa Niuexa. Sono informati da:
+sources_intro: Il framework in sei gate e la matrice C1-C4 sono una guida operativa Niuexa. Sono informati da:
 sources_disclaimer: Il contenuto è informativo e non sostituisce una valutazione legale, privacy, cybersecurity o regolamentare sul caso specifico.
 sources:
   - title: NIST AI Risk Management Framework
@@ -99,14 +99,14 @@ related:
     title: Controllo umano dell'AI
   - href: ai-readiness-assessment.html
     category: Assessment
-    title: Valuta la tua AI readiness
+    title: Valutare la readiness AI
 
 cta:
-  heading: Le modifiche ai tuoi sistemi AI sono tracciabili e reversibili?
-  body: Niuexa aiuta le PMI a definire inventario, baseline, test, approvazioni, rollout e monitoraggio per workflow e AI agent in produzione.
-  primary_label: Prenota un assessment AI
-  primary_href: ai-readiness-assessment.html
-  secondary_label: Scopri la consulenza AI
+  heading: Le modifiche ai Suoi sistemi AI sono tracciabili e reversibili?
+  body: "Ci mostri un processo: nella prima chiamata di 30 minuti, gratuita, guardiamo come cambiano oggi prompt, dati e permessi e chi approva il rilascio. Prima misuriamo, poi automatizziamo."
+  primary_label: Ci mostri un processo
+  primary_href: index.html#contact
+  secondary_label: Come lavoriamo
   secondary_href: consulting.html
 ---
 
@@ -132,35 +132,35 @@ Ogni record minimo contiene owner, motivo, componenti coinvolti, rischio previst
 ## Classificare il rischio della modifica
 
 :::figure src="img/articles/change-management-ai-pmi/matrice-rischio-modifica-ai.svg" alt="Matrice Niuexa per classificare il rischio delle modifiche AI in base a impatto e reversibilità" width="1200" height="680" loading="eager" class="article-diagram article-diagram-scroll"
-Impatto e reversibilità determinano la profondità del controllo. Dati sensibili, azioni esterne e autonomia possono far salire il livello. Su mobile, scorri il diagramma in orizzontale.
+Impatto e reversibilità determinano la profondità del controllo. Dati sensibili, azioni esterne e autonomia possono far salire il livello. Su mobile, il diagramma scorre in orizzontale.
 :::
 
 | Classe | Esempio | Controllo minimo |
 | --- | --- | --- |
-| **C1 — Limitata** | Testo guida interno, senza dati o azioni esterne. | Peer review, test campione, versione e rollback semplice. |
-| **C2 — Operativa** | Prompt che classifica ticket o prepara comunicazioni. | Regression test, process owner, rilascio graduale e monitoraggio. |
-| **C3 — Sensibile** | Nuova fonte con dati personali o tool che aggiorna il CRM. | Review tecnica e privacy/security, test avversariali, approvazione nominativa. |
-| **C4 — Critica** | Modifica a decisioni o azioni difficili da invertire. | Go/no-go esecutivo, ambiente controllato, fallback obbligatorio e sorveglianza rafforzata. |
+| **C1: limitata** | Testo guida interno, senza dati o azioni esterne. | Peer review, test campione, versione e rollback semplice. |
+| **C2: operativa** | Prompt che classifica ticket o prepara comunicazioni. | Regression test, process owner, rilascio graduale e monitoraggio. |
+| **C3: sensibile** | Nuova fonte con dati personali o tool che aggiorna il CRM. | Review tecnica e privacy/security, test avversariali, approvazione nominativa. |
+| **C4: critica** | Modifica a decisioni o azioni difficili da invertire. | Go/no-go esecutivo, ambiente controllato, fallback obbligatorio e sorveglianza rafforzata. |
 
 Questa è una tassonomia operativa Niuexa, non una classificazione legale. Per sistemi o usi regolati, la valutazione va collegata agli obblighi applicabili e ai ruoli competenti.
 
 ## Il processo in sei gate
 
 :::figure src="img/articles/change-management-ai-pmi/workflow-change-control-ai.svg" alt="Sei gate del change control AI: richiesta, impatto, test, approvazione, rilascio e osservazione" width="1200" height="760" loading="eager" class="article-diagram article-diagram-scroll"
-Ogni gate produce un'evidenza. Se manca la prova richiesta, la modifica non avanza oppure viene ridotta di perimetro. Su mobile, scorri il diagramma in orizzontale.
+Ogni gate produce un'evidenza. Se manca la prova richiesta, la modifica non avanza oppure viene ridotta di perimetro. Su mobile, il diagramma scorre in orizzontale.
 :::
 
 ### 1. Richiesta e baseline
 
-Descrivi il problema, non solo la soluzione proposta. Salva la versione corrente e una baseline di qualità, errori, costo, latenza e interventi umani. Senza baseline non puoi dimostrare se il cambiamento ha migliorato il processo.
+Descriva il problema, non solo la soluzione proposta. Salvi la versione corrente e una baseline di qualità, errori, costo, latenza e interventi umani. Senza baseline non è possibile dimostrare se il cambiamento ha migliorato il processo.
 
 ### 2. Analisi d'impatto
 
-Mappa utenti, dati, decisioni, azioni, integrazioni e obblighi coinvolti. Verifica se cambiano lo scopo d'uso, l'autonomia, il fornitore o il perimetro dei dati. Assegna la classe C1–C4 e l'elenco degli approvatori.
+Mappi utenti, dati, decisioni, azioni, integrazioni e obblighi coinvolti. Verifichi se cambiano lo scopo d'uso, l'autonomia, il fornitore o il perimetro dei dati. Assegni la classe (da C1 a C4) e l'elenco degli approvatori.
 
 ### 3. Piano e prove di test
 
-Prepara casi normali, edge case, input vietati e regressioni storiche. Per un agente verifica anche tool selection, autorizzazioni, idempotenza, timeout e fallback. I criteri di accettazione vanno scritti prima del test: per esempio accuratezza minima, zero azioni non autorizzate e costo entro soglia.
+Prepari casi normali, edge case, input vietati e regressioni storiche. Per un agente verifichi anche tool selection, autorizzazioni, idempotenza, timeout e fallback. I criteri di accettazione vanno scritti prima del test: per esempio accuratezza minima, zero azioni non autorizzate e costo entro soglia.
 
 ### 4. Approvazione proporzionata
 
@@ -168,11 +168,11 @@ Il responsabile tecnico conferma la qualità dell'implementazione; il process ow
 
 ### 5. Rilascio controllato
 
-Distribuisci prima su un gruppo limitato, in modalità shadow o con approvazione umana rafforzata. Mantieni disponibile la versione precedente. Registra orario, owner, configurazione e percentuale di traffico: "rilasciato in produzione" non è un piano di deployment.
+Distribuisca prima su un gruppo limitato, in modalità shadow o con approvazione umana rafforzata. Mantenga disponibile la versione precedente. Registri orario, owner, configurazione e percentuale di traffico: "rilasciato in produzione" non è un piano di deployment.
 
 ### 6. Osservazione e chiusura
 
-Confronta i risultati con baseline e criteri di accettazione per una finestra definita. Se la modifica supera le soglie, chiudila con evidenze; se degrada il processo, esegui rollback; se l'esito è ambiguo, non estendere il traffico. Le lezioni aggiornano test e policy successive.
+Confronti i risultati con baseline e criteri di accettazione per una finestra definita. Se la modifica supera le soglie, la chiuda con evidenze; se degrada il processo, esegua il rollback; se l'esito è ambiguo, non estendere il traffico. Le lezioni aggiornano test e policy successive.
 
 ## Checklist prima del go-live
 

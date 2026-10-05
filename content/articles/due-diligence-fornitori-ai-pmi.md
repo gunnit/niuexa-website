@@ -9,7 +9,7 @@ standfirst: "Un prodotto AI non si valuta dalla demo più brillante. Si valuta d
 section: AI Strategy e Procurement
 badge: AI Strategy e Procurement
 published: 2026-07-28
-modified: 2026-07-31
+modified: 2026-10-05
 author: gregor-maric
 reviewed_by: roberto-botto
 reading_time: 10 minuti di lettura
@@ -88,13 +88,13 @@ related:
     title: Dal PoC AI alla produzione
   - href: ai-readiness-assessment.html
     category: Assessment
-    title: Valuta la tua AI readiness
+    title: Valutare la readiness AI
 cta:
-  heading: Devi valutare una soluzione o un fornitore AI?
-  body: Niuexa aiuta le aziende a trasformare requisiti, dati, rischi e costi in una short list verificabile e in un pilot con criteri go/no-go.
-  primary_label: Prenota un assessment AI
-  primary_href: ai-readiness-assessment.html
-  secondary_label: Scopri la consulenza AI
+  heading: Deve valutare una soluzione o un fornitore AI?
+  body: "Ci mostri il processo che la soluzione dovrebbe alleggerire: nella prima chiamata di 30 minuti, gratuita, guardiamo dati, rischi e metriche da chiedere prima di firmare. Se l’AI non serve, glielo diciamo."
+  primary_label: Ci mostri un processo
+  primary_href: index.html#contact
+  secondary_label: Come lavoriamo
   secondary_href: consulting.html
 ---
 
@@ -112,29 +112,29 @@ La Commissione europea descrive inoltre un quadro AI Act basato sul rischio e di
 Ogni gate deve produrre un’evidenza. Una risposta commerciale senza documento, test o clausola resta un’ipotesi.
 :::
 
-### Gate 1 — Scopo e responsabilità
+### Gate 1: scopo e responsabilità
 
-Definisci l’unità di lavoro prima del prodotto: input, output, utenti, decisione supportata e azioni consentite. Chiarisci chi è owner del processo e chi risponde dell’output. Se il vendor non sa spiegare uso previsto, limiti e casi esclusi, la valutazione non può proseguire.
+Definisca l’unità di lavoro prima del prodotto: input, output, utenti, decisione supportata e azioni consentite. Chiarisca chi è owner del processo e chi risponde dell’output. Se il vendor non sa spiegare uso previsto, limiti e casi esclusi, la valutazione non può proseguire.
 
-### Gate 2 — Dati e riservatezza
+### Gate 2: dati e riservatezza
 
-Mappa quali dati entrano nel sistema, dove transitano, quanto vengono conservati e se possono essere usati per addestramento o miglioramento. Verifica subfornitori, localizzazione, cancellazione, cifratura e separazione tra clienti. Non inserire dati reali nel pilot finché base giuridica, autorizzazioni e configurazione non sono definite.
+Mappi quali dati entrano nel sistema, dove transitano, quanto vengono conservati e se possono essere usati per addestramento o miglioramento. Verifichi subfornitori, localizzazione, cancellazione, cifratura e separazione tra clienti. Non inserisca dati reali nel pilot finché base giuridica, autorizzazioni e configurazione non sono definite.
 
-### Gate 3 — Qualità sul caso reale
+### Gate 3: qualità sul caso reale
 
-Prepara un piccolo set rappresentativo con casi normali, eccezioni ed esempi da rifiutare. Stabilisci prima le metriche: completezza, accuratezza rispetto alle fonti, formato, tempo e tasso di escalation. Confronta il risultato con la baseline manuale o con l’alternativa attuale, non con una promessa generica.
+Prepari un piccolo set rappresentativo con casi normali, eccezioni ed esempi da rifiutare. Stabilisca prima le metriche: completezza, accuratezza rispetto alle fonti, formato, tempo e tasso di escalation. Confronti il risultato con la baseline manuale o con l’alternativa attuale, non con una promessa generica.
 
-### Gate 4 — Sicurezza e controllo
+### Gate 4: sicurezza e controllo
 
-Chiedi come vengono gestiti identità, ruoli, log, prompt injection, accessi a strumenti, segregazione degli ambienti e incidenti. L’OWASP AISVS propone requisiti verificabili per ciclo di vita, supply chain, comportamento del modello, memoria, orchestrazione agentica e monitoraggio. Il livello di verifica deve crescere quando il sistema tratta dati sensibili o compie azioni.
+Chieda come vengono gestiti identità, ruoli, log, prompt injection, accessi a strumenti, segregazione degli ambienti e incidenti. L’OWASP AISVS propone requisiti verificabili per ciclo di vita, supply chain, comportamento del modello, memoria, orchestrazione agentica e monitoraggio. Il livello di verifica deve crescere quando il sistema tratta dati sensibili o compie azioni.
 
-### Gate 5 — Economics e operatività
+### Gate 5: economics e operatività
 
-Calcola il costo totale: licenze, consumo, integrazione, configurazione, test, revisione umana, monitoraggio, supporto e aggiornamenti. Chiedi come cambiano prezzo e prestazioni con volume e contesto. Il caso economico deve includere anche errori, rilavorazioni e tempo di supervisione.
+Calcoli il costo totale: licenze, consumo, integrazione, configurazione, test, revisione umana, monitoraggio, supporto e aggiornamenti. Chieda come cambiano prezzo e prestazioni con volume e contesto. Il caso economico deve includere anche errori, rilavorazioni e tempo di supervisione.
 
-### Gate 6 — Cambiamento, continuità e uscita
+### Gate 6: cambiamento, continuità e uscita
 
-I modelli e le API cambiano. Pretendi preavviso per modifiche rilevanti, versioning, possibilità di ritestare, SLA, fallback e piano di gestione incidenti. L’exit plan deve specificare export di dati e configurazioni, cancellazione verificabile, supporto alla migrazione e continuità minima del processo.
+I modelli e le API cambiano. Pretenda preavviso per modifiche rilevanti, versioning, possibilità di ritestare, SLA, fallback e piano di gestione incidenti. L’exit plan deve specificare export di dati e configurazioni, cancellazione verificabile, supporto alla migrazione e continuità minima del processo.
 
 ## Le 12 domande da portare al vendor
 
@@ -155,12 +155,12 @@ I modelli e le API cambiano. Pretendi preavviso per modifiche rilevanti, version
 
 ## Come eseguire un pilot comparabile
 
-1. **Blocca il perimetro:** un processo, un gruppo utenti, un set di azioni consentite.
-2. **Crea la baseline:** misura tempo, qualità, errori e rilavorazioni del metodo attuale.
-3. **Definisci il test set:** includi casi frequenti, edge case e input che il sistema deve rifiutare.
-4. **Scrivi i criteri prima:** soglia minima, errori bloccanti e regole di escalation.
-5. **Prova l’operatività:** accessi, log, export, supporto e fallback, non soltanto l’output.
-6. **Decidi con un go/no-go:** collega ogni requisito a un’evidenza e assegna un owner alle lacune.
+1. **Blocchi il perimetro:** un processo, un gruppo utenti, un set di azioni consentite.
+2. **Crei la baseline:** misuri tempo, qualità, errori e rilavorazioni del metodo attuale.
+3. **Definisca il test set:** includa casi frequenti, edge case e input che il sistema deve rifiutare.
+4. **Scriva i criteri prima:** soglia minima, errori bloccanti e regole di escalation.
+5. **Provi l’operatività:** accessi, log, export, supporto e fallback, non soltanto l’output.
+6. **Decida con un go/no-go:** colleghi ogni requisito a un’evidenza e assegni un owner alle lacune.
 
 Un pilot utile non deve dimostrare che l’AI “funziona”. Deve ridurre l’incertezza su valore, rischio e costo nel contesto dell’azienda.
 

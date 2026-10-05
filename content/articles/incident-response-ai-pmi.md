@@ -9,12 +9,12 @@ standfirst:  Quando un sistema AI sbaglia in produzione, "spegnerlo" è solo l'i
 section:     AI Governance e Operations
 badge:       AI Governance e Operations
 published:   2026-08-04
-modified:    2026-08-04
+modified:    2026-10-05
 
 author:      gregor-maric
 reviewed_by: roberto-botto
 
-reading_time: 11 minuti di lettura   # preserved from the published article
+reading_time: 10 minuti di lettura   # words/220, rounded up to 5 minutes
 audience:    Per CEO, COO, IT e security
 format:      Runbook in 7 fasi
 visuals:     true
@@ -99,14 +99,14 @@ related:
     title: I rischi dell'AI in azienda
   - href: ai-readiness-assessment.html
     category: Assessment
-    title: Valuta la tua AI readiness
+    title: Valutare la readiness AI
 
 cta:
-  heading: I tuoi sistemi AI hanno un piano di incidente e ripristino?
-  body: Niuexa aiuta le aziende a definire inventario, ruoli, controlli, kill switch, fallback e criteri di riapertura per workflow e AI agent.
-  primary_label: Prenota un assessment AI
-  primary_href: ai-readiness-assessment.html
-  secondary_label: Scopri la consulenza AI
+  heading: I Suoi sistemi AI hanno un piano di incidente e ripristino?
+  body: "Ci mostri un processo: nella prima chiamata di 30 minuti, gratuita, guardiamo che cosa succede se l’AI sbaglia, chi la ferma e quale percorso manuale resta disponibile."
+  primary_label: Ci mostri un processo
+  primary_href: index.html#contact
+  secondary_label: Come lavoriamo
   secondary_href: consulting.html
 ---
 
@@ -118,7 +118,7 @@ Per questo non basta registrare "errore del chatbot". Bisogna ricostruire la cat
 
 Per una PMI il principio è semplice: integrare l'AI nel processo di incident management esistente, aggiungendo le evidenze e le decisioni specifiche dei sistemi probabilistici. Non serve creare una centrale operativa separata; serve evitare che l'AI resti una zona senza owner.
 
-## Prima dell'incidente: prepara cinque elementi
+## Prima dell'incidente: preparare cinque elementi
 
 1. **Inventario:** sistema, owner, uso previsto, dati, integrazioni, utenti, fornitore e criticità del processo.
 2. **Telemetria:** log di input e output consentiti, versioni, fonti, chiamate a strumenti, decisioni umane e alert, con minimizzazione e retention definite.
@@ -131,55 +131,55 @@ Se questi elementi vengono cercati durante l'emergenza, il tempo di contenimento
 ## La matrice di severità: da S1 a S4
 
 :::figure src="img/articles/incident-response-ai-pmi/matrice-severita-incidenti-ai.svg" alt="Matrice Niuexa con quattro livelli di severità per incidenti AI" width="1200" height="680" loading="eager" class="article-diagram article-diagram-scroll"
-La severità non dipende da quanto l'output appare strano, ma dalle conseguenze: persone, dati, denaro, diffusione e reversibilità. Su mobile, scorri il diagramma in orizzontale.
+La severità non dipende da quanto l'output appare strano, ma dalle conseguenze: persone, dati, denaro, diffusione e reversibilità. Su mobile, il diagramma scorre in orizzontale.
 :::
 
 | Livello | Esempio | Risposta minima |
 | --- | --- | --- |
-| **S1 — Basso** | Bozza interna errata, intercettata prima dell'uso. | Correzione, registrazione e verifica di ricorrenza. |
-| **S2 — Medio** | Classificazione errata su un gruppo limitato di ticket. | Contenimento, fallback e analisi entro lo SLA interno. |
-| **S3 — Alto** | Azioni errate verso clienti, dati riservati possibili o impatto economico. | Stop del flusso, incident team, verifica legale/privacy e comunicazione controllata. |
-| **S4 — Critico** | Impatto esteso o non reversibile su diritti, salute, sicurezza o dati sensibili. | Crisis lead, contenimento immediato, decisioni esecutive e valutazione degli obblighi esterni. |
+| **S1: basso** | Bozza interna errata, intercettata prima dell'uso. | Correzione, registrazione e verifica di ricorrenza. |
+| **S2: medio** | Classificazione errata su un gruppo limitato di ticket. | Contenimento, fallback e analisi entro lo SLA interno. |
+| **S3: alto** | Azioni errate verso clienti, dati riservati possibili o impatto economico. | Stop del flusso, incident team, verifica legale/privacy e comunicazione controllata. |
+| **S4: critico** | Impatto esteso o non reversibile su diritti, salute, sicurezza o dati sensibili. | Crisis lead, contenimento immediato, decisioni esecutive e valutazione degli obblighi esterni. |
 
 Questa classificazione è una guida operativa Niuexa, non una classificazione legale. Gli obblighi di notifica dipendono dal sistema, dal ruolo dell'organizzazione, dai dati e dalla normativa applicabile.
 
 ## Il runbook in sette fasi
 
 :::figure src="img/articles/incident-response-ai-pmi/workflow-incident-response-ai.svg" alt="Sette fasi del ciclo di incident response AI: rilevare, classificare, contenere, preservare, ripristinare, comunicare e imparare" width="1200" height="760" loading="eager" class="article-diagram article-diagram-scroll"
-Contenimento e preservazione devono procedere insieme: bloccare il rischio senza cancellare le tracce necessarie a comprenderlo. Su mobile, scorri il diagramma in orizzontale.
+Contenimento e preservazione devono procedere insieme: bloccare il rischio senza cancellare le tracce necessarie a comprenderlo. Su mobile, il diagramma scorre in orizzontale.
 :::
 
-### 1. Rileva e apri un evento
+### 1. Rilevare e aprire un evento
 
-Accetta segnali da utenti, controlli automatici, monitoraggio qualità, sicurezza e fornitori. Registra subito timestamp, sistema, segnalante, comportamento osservato e azione già avvenuta. Evita diagnosi premature.
+Accetti segnali da utenti, controlli automatici, monitoraggio qualità, sicurezza e fornitori. Registri subito timestamp, sistema, segnalante, comportamento osservato e azione già avvenuta. Eviti diagnosi premature.
 
-### 2. Classifica impatto e perimetro
+### 2. Classificare impatto e perimetro
 
-Chiedi quali persone, dati, processi e canali sono coinvolti; se l'azione è reversibile; se il comportamento continua; se altri sistemi condividono modello, credenziali o knowledge base. Assegna una severità provvisoria, che può aumentare.
+Chieda quali persone, dati, processi e canali sono coinvolti; se l'azione è reversibile; se il comportamento continua; se altri sistemi condividono modello, credenziali o knowledge base. Assegni una severità provvisoria, che può aumentare.
 
-### 3. Contieni con il minimo raggio d'azione
+### 3. Contenere con il minimo raggio d'azione
 
-Sospendi la funzione rischiosa, revoca token o permessi compromessi, disabilita un tool, congela una versione o devia sul fallback. Non applicare modifiche non tracciate "per vedere se passa": possono alterare le evidenze e introdurre nuove variabili.
+Sospenda la funzione rischiosa, revochi token o permessi compromessi, disabiliti un tool, congeli una versione o devii sul fallback. Non applichi modifiche non tracciate "per vedere se passa": possono alterare le evidenze e introdurre nuove variabili.
 
-### 4. Preserva le evidenze
+### 4. Preservare le evidenze
 
-Conserva input e output pertinenti, prompt di sistema, versione del modello, parametri, documenti recuperati, log delle chiamate, identità, autorizzazioni, configurazioni e decisioni umane. Proteggi accesso, integrità e tempi di conservazione; non raccogliere dati oltre il necessario.
+Conservi input e output pertinenti, prompt di sistema, versione del modello, parametri, documenti recuperati, log delle chiamate, identità, autorizzazioni, configurazioni e decisioni umane. Protegga accesso, integrità e tempi di conservazione; non raccolga dati oltre il necessario.
 
-### 5. Correggi e ripristina per gradi
+### 5. Correggere e ripristinare per gradi
 
-La correzione può riguardare dati, istruzioni, accessi, validazioni, soglie, interfaccia o processo. Verificala su casi normali, edge case e caso dell'incidente. Riapri prima in ambiente controllato o su traffico limitato, mantenendo fallback e monitoraggio rafforzato.
+La correzione può riguardare dati, istruzioni, accessi, validazioni, soglie, interfaccia o processo. La verifichi su casi normali, edge case e caso dell'incidente. Riapra prima in ambiente controllato o su traffico limitato, mantenendo fallback e monitoraggio rafforzato.
 
-### 6. Comunica con una fonte unica
+### 6. Comunicare con una fonte unica
 
-Definisci un incident lead e un log decisionale. Aggiornamenti interni, assistenza clienti, fornitori e valutazioni normative devono partire dallo stesso stato verificato. Distingui fatti, ipotesi e azioni in corso. Evita messaggi rassicuranti prima di conoscere perimetro e impatto.
+Definisca un incident lead e un log decisionale. Aggiornamenti interni, assistenza clienti, fornitori e valutazioni normative devono partire dallo stesso stato verificato. Distingua fatti, ipotesi e azioni in corso. Eviti messaggi rassicuranti prima di conoscere perimetro e impatto.
 
-### 7. Chiudi con un post-mortem
+### 7. Chiudere con un post-mortem
 
-Documenta sequenza, causa, controlli mancanti, tempo di rilevazione, tempo di contenimento e impatto. Ogni azione correttiva deve avere owner e scadenza. Il post-mortem non cerca un colpevole: cerca la condizione che ha permesso all'errore di raggiungere il processo reale.
+Documenti sequenza, causa, controlli mancanti, tempo di rilevazione, tempo di contenimento e impatto. Ogni azione correttiva deve avere owner e scadenza. Il post-mortem non cerca un colpevole: cerca la condizione che ha permesso all'errore di raggiungere il processo reale.
 
 ## Il gate di riapertura
 
-Un sistema non torna in produzione solo perché "sembra funzionare". Prima della riapertura verifica:
+Un sistema non torna in produzione solo perché "sembra funzionare". Prima della riapertura verifichi:
 
 - la causa è compresa abbastanza da evitare una replica immediata;
 - il controllo correttivo è stato testato sul caso dell'incidente e su casi adiacenti;
@@ -200,4 +200,4 @@ Per S3 e S4 è utile una decisione nominativa di go/no-go. Per S1 e S2 può bast
 - **Copertura delle evidenze:** eventi per cui versione, fonti, azioni e identità sono ricostruibili.
 - **Tempo in fallback:** durata e capacità del percorso alternativo.
 
-Non usare il numero assoluto di incidenti come unico KPI: un sistema con segnalazioni aperte e tracciate può essere più maturo di uno che non rileva nulla.
+Non usi il numero assoluto di incidenti come unico KPI: un sistema con segnalazioni aperte e tracciate può essere più maturo di uno che non rileva nulla.

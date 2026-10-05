@@ -9,12 +9,12 @@ standfirst:  Automatizzare un report non significa produrre più pagine più vel
 section:     AI Automation e Operations
 badge:       AI Automation e Operations
 published:   2026-08-05
-modified:    2026-08-05
+modified:    2026-10-05
 
 author:      gregor-maric
 reviewed_by: roberto-botto
 
-reading_time: 9 minuti di lettura   # preserved from the published article
+reading_time: 10 minuti di lettura   # words/220, rounded up to 5 minutes
 audience:    Per COO, CFO, Sales e Marketing Ops
 format:      Workflow in 5 passaggi
 visuals:     true
@@ -60,11 +60,11 @@ faq:
   - q: Che cos'è un decision brief?
     a: Una sintesi che collega dati verificati, eccezioni, opzioni e owner alla decisione richiesta.
   - q: Quali report automatizzare per primi?
-    a: Quelli ricorrenti, con fonti stabili, KPI definiti e un owner disponibile; inizia con un perimetro ristretto.
+    a: Quelli ricorrenti, con fonti stabili, KPI definiti e un owner disponibile; conviene iniziare con un perimetro ristretto.
   - q: L'AI deve decidere le azioni?
     a: Può preparare evidenze e opzioni. Le decisioni ad alto impatto restano a un owner competente.
   - q: Come verifico i numeri?
-    a: Usa calcoli deterministici, riconciliazione con le fonti e provenienza esplicita per ogni KPI critico.
+    a: Con calcoli deterministici, riconciliazione con le fonti e provenienza esplicita per ogni KPI critico.
   - q: Quali KPI misurano il valore?
     a: Tempo netto, riconciliazione, completezza, rilavorazioni, eccezioni utili, tempo alla decisione e azioni entro SLA.
 
@@ -92,14 +92,14 @@ related:
     title: Dal pilot al valore misurabile
   - href: ai-readiness-assessment.html
     category: Assessment
-    title: Valuta la tua AI readiness
+    title: Valutare la readiness AI
 
 cta:
   heading: Quale report assorbe più ore ogni settimana?
-  body: Niuexa aiuta le aziende a mappare fonti, KPI, controlli, owner e fallback per trasformare il reporting in un workflow misurabile e governato.
-  primary_label: Prenota un assessment AI
-  primary_href: ai-readiness-assessment.html
-  secondary_label: Scopri la consulenza AI
+  body: "Ci mostri quel report: nella prima chiamata di 30 minuti, gratuita, guardiamo da quali fonti nasce, quanto tempo assorbe e quale decisione dovrebbe preparare. Prima misuriamo, poi automatizziamo."
+  primary_label: Ci mostri un processo
+  primary_href: index.html#contact
+  secondary_label: Come lavoriamo
   secondary_href: consulting.html
 ---
 
@@ -117,19 +117,19 @@ Dalle fonti al decision brief: ogni passaggio ha un controllo, un output osserva
 
 ### 1. Acquisire solo fonti autorizzate
 
-Definisci sistemi, tabelle, cartelle e caselle ammesse. Per ogni fonte registra owner, frequenza di aggiornamento, periodo coperto e permessi. Un export manuale senza timestamp non dovrebbe valere quanto un record del sistema autorevole. Quando una fonte manca o è scaduta, il report deve dichiararlo.
+Definisca sistemi, tabelle, cartelle e caselle ammesse. Per ogni fonte registri owner, frequenza di aggiornamento, periodo coperto e permessi. Un export manuale senza timestamp non dovrebbe valere quanto un record del sistema autorevole. Quando una fonte manca o è scaduta, il report deve dichiararlo.
 
 ### 2. Normalizzare definizioni e KPI
 
-Costruisci un dizionario minimo: nome del KPI, formula, filtri, unità, periodo, timezone e responsabile. La normalizzazione deve avvenire con regole ripetibili, non con una spiegazione generata dopo il calcolo. L'AI può tradurre "pipeline ponderata in calo" in linguaggio executive, ma il valore deve provenire da una funzione verificabile.
+Costruisca un dizionario minimo: nome del KPI, formula, filtri, unità, periodo, timezone e responsabile. La normalizzazione deve avvenire con regole ripetibili, non con una spiegazione generata dopo il calcolo. L'AI può tradurre "pipeline ponderata in calo" in linguaggio executive, ma il valore deve provenire da una funzione verificabile.
 
 ### 3. Validare completezza e coerenza
 
-Prima della sintesi esegui controlli espliciti: righe mancanti, duplicati, date future, totali non riconciliati, valuta errata, record senza owner, scostamenti anomali. Ogni controllo produce pass, warning o fail. Un fail critico deve bloccare il dato o il report, non essere nascosto in una nota finale.
+Prima della sintesi esegua controlli espliciti: righe mancanti, duplicati, date future, totali non riconciliati, valuta errata, record senza owner, scostamenti anomali. Ogni controllo produce pass, warning o fail. Un fail critico deve bloccare il dato o il report, non essere nascosto in una nota finale.
 
 ### 4. Segnalare le eccezioni che richiedono attenzione
 
-Un report utile non elenca tutto con la stessa priorità. Mostra variazioni sopra soglia, dipendenze, rischi e dati incompleti. Per ogni eccezione indica evidenza, impatto possibile, opzioni e informazione mancante. Le soglie vanno concordate con il process owner e riesaminate dopo i primi cicli.
+Un report utile non elenca tutto con la stessa priorità. Mostra variazioni sopra soglia, dipendenze, rischi e dati incompleti. Per ogni eccezione indichi evidenza, impatto possibile, opzioni e informazione mancante. Le soglie vanno concordate con il process owner e riesaminate dopo i primi cicli.
 
 ### 5. Lasciare decisione e assegnazione a un owner
 
@@ -147,9 +147,9 @@ Questa struttura evita due estremi: il dashboard senza interpretazione e la sint
 
 ## Un pilot verificabile in due cicli
 
-Per iniziare scegli un solo report ricorrente, massimo tre fonti, KPI fissi e un owner disponibile. Ricostruisci prima il processo attuale: tempo impiegato, passaggi manuali, errori ricorrenti, attese e rilavorazioni. Poi esegui due cicli affiancati.
+Per iniziare scelga un solo report ricorrente, massimo tre fonti, KPI fissi e un owner disponibile. Ricostruisca prima il processo attuale: tempo impiegato, passaggi manuali, errori ricorrenti, attese e rilavorazioni. Poi esegua due cicli affiancati.
 
-Nel primo ciclo confronta i numeri del workflow con il report esistente e correggi mapping, regole e controlli. Nel secondo verifica se le eccezioni sono utili e se il decision brief porta a un'azione più rapida. Non eliminare subito il percorso precedente: mantienilo come fallback finché completezza e riconciliazione non superano i criteri concordati.
+Nel primo ciclo confronti i numeri del workflow con il report esistente e corregga mapping, regole e controlli. Nel secondo verifichi se le eccezioni sono utili e se il decision brief porta a un'azione più rapida. Non elimini subito il percorso precedente: lo mantenga come fallback finché completezza e riconciliazione non superano i criteri concordati.
 
 ## KPI per misurare il valore reale
 

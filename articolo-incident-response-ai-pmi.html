@@ -23,7 +23,7 @@
     <meta property="og:image:alt" content="Runbook Niuexa per la gestione degli incidenti nei sistemi AI">
     <meta property="og:locale" content="it_IT">
     <meta property="article:published_time" content="2026-08-04">
-    <meta property="article:modified_time" content="2026-08-04">
+    <meta property="article:modified_time" content="2026-10-05">
     <meta property="article:author" content="Gregor Maric">
     <meta property="article:section" content="AI Governance e Operations">
 
@@ -76,7 +76,7 @@
         }
       },
       "datePublished": "2026-08-04",
-      "dateModified": "2026-08-04",
+      "dateModified": "2026-10-05",
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://niuexa.ai/articolo-incident-response-ai-pmi.html"
@@ -238,7 +238,7 @@
             <div class="tutorial-badge">AI Governance e Operations</div>
             <h1>Incident response AI per PMI: il runbook operativo</h1>
             <p class="tutorial-description">Quando un sistema AI sbaglia in produzione, “spegnerlo” è solo l’inizio. Servono severità, ruoli, contenimento, evidenze e criteri di riapertura definiti prima dell’incidente.</p>
-            <div class="tutorial-stats"><span class="stat">11 minuti di lettura</span><span class="stat">Per CEO, COO, IT e security</span><span class="stat">Runbook in 7 fasi</span></div>
+            <div class="tutorial-stats"><span class="stat">10 minuti di lettura</span><span class="stat">Per CEO, COO, IT e security</span><span class="stat">Runbook in 7 fasi</span></div>
         </div></div></section>
 
         <article class="tutorial-content"><div class="container"><div class="content-wrapper">
@@ -249,7 +249,7 @@
                 <ul>
                     <li><a href="#risposta-rapida">Risposta rapida</a></li>
                     <li><a href="#perche-il-piano-it-tradizionale-non-basta">Perché il piano IT tradizionale non basta</a></li>
-                    <li><a href="#prima-dellincidente-prepara-cinque-elementi">Prima dell'incidente: prepara cinque elementi</a></li>
+                    <li><a href="#prima-dellincidente-preparare-cinque-elementi">Prima dell'incidente: preparare cinque elementi</a></li>
                     <li><a href="#la-matrice-di-severita-da-s1-a-s4">La matrice di severità: da S1 a S4</a></li>
                     <li><a href="#il-runbook-in-sette-fasi">Il runbook in sette fasi</a></li>
                     <li><a href="#il-gate-di-riapertura">Il gate di riapertura</a></li>
@@ -271,7 +271,7 @@
             </section>
 
             <section class="content-section">
-                <h2 id="prima-dellincidente-prepara-cinque-elementi">Prima dell’incidente: prepara cinque elementi</h2>
+                <h2 id="prima-dellincidente-preparare-cinque-elementi">Prima dell’incidente: preparare cinque elementi</h2>
                 <ol>
                     <li><strong>Inventario:</strong> sistema, owner, uso previsto, dati, integrazioni, utenti, fornitore e criticità del processo.</li>
                     <li><strong>Telemetria:</strong> log di input e output consentiti, versioni, fonti, chiamate a strumenti, decisioni umane e alert, con minimizzazione e retention definite.</li>
@@ -284,14 +284,14 @@
 
             <section class="content-section">
                 <h2 id="la-matrice-di-severita-da-s1-a-s4">La matrice di severità: da S1 a S4</h2>
-                <figure class="article-visual article-diagram article-diagram-scroll"><img src="img/articles/incident-response-ai-pmi/matrice-severita-incidenti-ai.svg" alt="Matrice Niuexa con quattro livelli di severità per incidenti AI" width="1200" height="680" loading="eager" decoding="async"><figcaption>La severità non dipende da quanto l’output appare strano, ma dalle conseguenze: persone, dati, denaro, diffusione e reversibilità. Su mobile, scorri il diagramma in orizzontale.</figcaption></figure>
+                <figure class="article-visual article-diagram article-diagram-scroll"><img src="img/articles/incident-response-ai-pmi/matrice-severita-incidenti-ai.svg" alt="Matrice Niuexa con quattro livelli di severità per incidenti AI" width="1200" height="680" loading="eager" decoding="async"><figcaption>La severità non dipende da quanto l’output appare strano, ma dalle conseguenze: persone, dati, denaro, diffusione e reversibilità. Su mobile, il diagramma scorre in orizzontale.</figcaption></figure>
                 <table class="comparison-table">
                     <thead><tr><th>Livello</th><th>Esempio</th><th>Risposta minima</th></tr></thead>
                     <tbody>
-                        <tr><td><strong>S1 — Basso</strong></td><td>Bozza interna errata, intercettata prima dell’uso.</td><td>Correzione, registrazione e verifica di ricorrenza.</td></tr>
-                        <tr><td><strong>S2 — Medio</strong></td><td>Classificazione errata su un gruppo limitato di ticket.</td><td>Contenimento, fallback e analisi entro lo SLA interno.</td></tr>
-                        <tr><td><strong>S3 — Alto</strong></td><td>Azioni errate verso clienti, dati riservati possibili o impatto economico.</td><td>Stop del flusso, incident team, verifica legale/privacy e comunicazione controllata.</td></tr>
-                        <tr><td><strong>S4 — Critico</strong></td><td>Impatto esteso o non reversibile su diritti, salute, sicurezza o dati sensibili.</td><td>Crisis lead, contenimento immediato, decisioni esecutive e valutazione degli obblighi esterni.</td></tr>
+                        <tr><td><strong>S1: basso</strong></td><td>Bozza interna errata, intercettata prima dell’uso.</td><td>Correzione, registrazione e verifica di ricorrenza.</td></tr>
+                        <tr><td><strong>S2: medio</strong></td><td>Classificazione errata su un gruppo limitato di ticket.</td><td>Contenimento, fallback e analisi entro lo SLA interno.</td></tr>
+                        <tr><td><strong>S3: alto</strong></td><td>Azioni errate verso clienti, dati riservati possibili o impatto economico.</td><td>Stop del flusso, incident team, verifica legale/privacy e comunicazione controllata.</td></tr>
+                        <tr><td><strong>S4: critico</strong></td><td>Impatto esteso o non reversibile su diritti, salute, sicurezza o dati sensibili.</td><td>Crisis lead, contenimento immediato, decisioni esecutive e valutazione degli obblighi esterni.</td></tr>
                     </tbody>
                 </table>
                 <p>Questa classificazione è una guida operativa Niuexa, non una classificazione legale. Gli obblighi di notifica dipendono dal sistema, dal ruolo dell’organizzazione, dai dati e dalla normativa applicabile.</p>
@@ -299,33 +299,33 @@
 
             <section class="content-section">
                 <h2 id="il-runbook-in-sette-fasi">Il runbook in sette fasi</h2>
-                <figure class="article-visual article-diagram article-diagram-scroll"><img src="img/articles/incident-response-ai-pmi/workflow-incident-response-ai.svg" alt="Sette fasi del ciclo di incident response AI: rilevare, classificare, contenere, preservare, ripristinare, comunicare e imparare" width="1200" height="760" loading="eager" decoding="async"><figcaption>Contenimento e preservazione devono procedere insieme: bloccare il rischio senza cancellare le tracce necessarie a comprenderlo. Su mobile, scorri il diagramma in orizzontale.</figcaption></figure>
+                <figure class="article-visual article-diagram article-diagram-scroll"><img src="img/articles/incident-response-ai-pmi/workflow-incident-response-ai.svg" alt="Sette fasi del ciclo di incident response AI: rilevare, classificare, contenere, preservare, ripristinare, comunicare e imparare" width="1200" height="760" loading="eager" decoding="async"><figcaption>Contenimento e preservazione devono procedere insieme: bloccare il rischio senza cancellare le tracce necessarie a comprenderlo. Su mobile, il diagramma scorre in orizzontale.</figcaption></figure>
 
-                <h3>1. Rileva e apri un evento</h3>
-                <p>Accetta segnali da utenti, controlli automatici, monitoraggio qualità, sicurezza e fornitori. Registra subito timestamp, sistema, segnalante, comportamento osservato e azione già avvenuta. Evita diagnosi premature.</p>
+                <h3>1. Rilevare e aprire un evento</h3>
+                <p>Accetti segnali da utenti, controlli automatici, monitoraggio qualità, sicurezza e fornitori. Registri subito timestamp, sistema, segnalante, comportamento osservato e azione già avvenuta. Eviti diagnosi premature.</p>
 
-                <h3>2. Classifica impatto e perimetro</h3>
-                <p>Chiedi quali persone, dati, processi e canali sono coinvolti; se l’azione è reversibile; se il comportamento continua; se altri sistemi condividono modello, credenziali o knowledge base. Assegna una severità provvisoria, che può aumentare.</p>
+                <h3>2. Classificare impatto e perimetro</h3>
+                <p>Chieda quali persone, dati, processi e canali sono coinvolti; se l’azione è reversibile; se il comportamento continua; se altri sistemi condividono modello, credenziali o knowledge base. Assegni una severità provvisoria, che può aumentare.</p>
 
-                <h3>3. Contieni con il minimo raggio d’azione</h3>
-                <p>Sospendi la funzione rischiosa, revoca token o permessi compromessi, disabilita un tool, congela una versione o devia sul fallback. Non applicare modifiche non tracciate “per vedere se passa”: possono alterare le evidenze e introdurre nuove variabili.</p>
+                <h3>3. Contenere con il minimo raggio d’azione</h3>
+                <p>Sospenda la funzione rischiosa, revochi token o permessi compromessi, disabiliti un tool, congeli una versione o devii sul fallback. Non applichi modifiche non tracciate “per vedere se passa”: possono alterare le evidenze e introdurre nuove variabili.</p>
 
-                <h3>4. Preserva le evidenze</h3>
-                <p>Conserva input e output pertinenti, prompt di sistema, versione del modello, parametri, documenti recuperati, log delle chiamate, identità, autorizzazioni, configurazioni e decisioni umane. Proteggi accesso, integrità e tempi di conservazione; non raccogliere dati oltre il necessario.</p>
+                <h3>4. Preservare le evidenze</h3>
+                <p>Conservi input e output pertinenti, prompt di sistema, versione del modello, parametri, documenti recuperati, log delle chiamate, identità, autorizzazioni, configurazioni e decisioni umane. Protegga accesso, integrità e tempi di conservazione; non raccolga dati oltre il necessario.</p>
 
-                <h3>5. Correggi e ripristina per gradi</h3>
-                <p>La correzione può riguardare dati, istruzioni, accessi, validazioni, soglie, interfaccia o processo. Verificala su casi normali, edge case e caso dell’incidente. Riapri prima in ambiente controllato o su traffico limitato, mantenendo fallback e monitoraggio rafforzato.</p>
+                <h3>5. Correggere e ripristinare per gradi</h3>
+                <p>La correzione può riguardare dati, istruzioni, accessi, validazioni, soglie, interfaccia o processo. La verifichi su casi normali, edge case e caso dell’incidente. Riapra prima in ambiente controllato o su traffico limitato, mantenendo fallback e monitoraggio rafforzato.</p>
 
-                <h3>6. Comunica con una fonte unica</h3>
-                <p>Definisci un incident lead e un log decisionale. Aggiornamenti interni, assistenza clienti, fornitori e valutazioni normative devono partire dallo stesso stato verificato. Distingui fatti, ipotesi e azioni in corso. Evita messaggi rassicuranti prima di conoscere perimetro e impatto.</p>
+                <h3>6. Comunicare con una fonte unica</h3>
+                <p>Definisca un incident lead e un log decisionale. Aggiornamenti interni, assistenza clienti, fornitori e valutazioni normative devono partire dallo stesso stato verificato. Distingua fatti, ipotesi e azioni in corso. Eviti messaggi rassicuranti prima di conoscere perimetro e impatto.</p>
 
-                <h3>7. Chiudi con un post-mortem</h3>
-                <p>Documenta sequenza, causa, controlli mancanti, tempo di rilevazione, tempo di contenimento e impatto. Ogni azione correttiva deve avere owner e scadenza. Il post-mortem non cerca un colpevole: cerca la condizione che ha permesso all’errore di raggiungere il processo reale.</p>
+                <h3>7. Chiudere con un post-mortem</h3>
+                <p>Documenti sequenza, causa, controlli mancanti, tempo di rilevazione, tempo di contenimento e impatto. Ogni azione correttiva deve avere owner e scadenza. Il post-mortem non cerca un colpevole: cerca la condizione che ha permesso all’errore di raggiungere il processo reale.</p>
             </section>
 
             <section class="content-section">
                 <h2 id="il-gate-di-riapertura">Il gate di riapertura</h2>
-                <p>Un sistema non torna in produzione solo perché “sembra funzionare”. Prima della riapertura verifica:</p>
+                <p>Un sistema non torna in produzione solo perché “sembra funzionare”. Prima della riapertura verifichi:</p>
                 <ul>
                     <li>la causa è compresa abbastanza da evitare una replica immediata;</li>
                     <li>il controllo correttivo è stato testato sul caso dell’incidente e su casi adiacenti;</li>
@@ -348,7 +348,7 @@
                     <li><strong>Copertura delle evidenze:</strong> eventi per cui versione, fonti, azioni e identità sono ricostruibili.</li>
                     <li><strong>Tempo in fallback:</strong> durata e capacità del percorso alternativo.</li>
                 </ul>
-                <p>Non usare il numero assoluto di incidenti come unico KPI: un sistema con segnalazioni aperte e tracciate può essere più maturo di uno che non rileva nulla.</p>
+                <p>Non usi il numero assoluto di incidenti come unico KPI: un sistema con segnalazioni aperte e tracciate può essere più maturo di uno che non rileva nulla.</p>
             </section>
 
             <section class="content-section">
@@ -376,11 +376,11 @@
                 <a href="articolo-human-in-the-loop-ai-pmi.html" class="related-card"><span class="related-category">Governance</span><h3>Progettare il controllo umano dell’AI</h3></a>
                 <a href="articolo-due-diligence-fornitori-ai-pmi.html" class="related-card"><span class="related-category">Procurement</span><h3>Due diligence dei fornitori AI</h3></a>
                 <a href="articolo-rischi-ai-azienda.html" class="related-card"><span class="related-category">AI Risk</span><h3>I rischi dell’AI in azienda</h3></a>
-                <a href="ai-readiness-assessment.html" class="related-card"><span class="related-category">Assessment</span><h3>Valuta la tua AI readiness</h3></a>
+                <a href="ai-readiness-assessment.html" class="related-card"><span class="related-category">Assessment</span><h3>Valutare la readiness AI</h3></a>
             </div></section>
         </div></div></article>
 
-        <section class="cta-section"><div class="container"><h2 id="cta">I tuoi sistemi AI hanno un piano di incidente e ripristino?</h2><p>Niuexa aiuta le aziende a definire inventario, ruoli, controlli, kill switch, fallback e criteri di riapertura per workflow e AI agent.</p><a href="ai-readiness-assessment.html" class="btn btn-primary">Prenota un assessment AI</a><a href="consulting.html" class="btn btn-secondary" style="margin-left:15px;">Scopri la consulenza AI</a></div></section>
+        <section class="cta-section"><div class="container"><h2 id="cta">I Suoi sistemi AI hanno un piano di incidente e ripristino?</h2><p>Ci mostri un processo: nella prima chiamata di 30 minuti, gratuita, guardiamo che cosa succede se l’AI sbaglia, chi la ferma e quale percorso manuale resta disponibile.</p><a href="index.html#contact" class="btn btn-primary">Ci mostri un processo</a><a href="consulting.html" class="btn btn-secondary" style="margin-left:15px;">Come lavoriamo</a></div></section>
     </main>
     <div id="footer-placeholder"></div>
     <script src="includes/includes.js?v=20260428"></script>

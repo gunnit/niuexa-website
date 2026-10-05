@@ -23,7 +23,7 @@
     <meta property="og:image:alt" content="Framework Niuexa del contratto di qualità per workflow AI">
     <meta property="og:locale" content="it_IT">
     <meta property="article:published_time" content="2026-09-08">
-    <meta property="article:modified_time" content="2026-09-08">
+    <meta property="article:modified_time" content="2026-10-05">
     <meta property="article:author" content="Niuexa">
     <meta property="article:section" content="AI Operations e Qualità">
 
@@ -55,7 +55,7 @@
       "author":{"@type":"Organization","name":"Niuexa","url":"https://niuexa.ai/chi-siamo.html"},
       "publisher":{"@type":"Organization","name":"Niuexa","url":"https://niuexa.ai","logo":{"@type":"ImageObject","url":"https://niuexa.ai/img/niuexalogo.png"}},
       "datePublished":"2026-09-08",
-      "dateModified":"2026-09-08",
+      "dateModified":"2026-10-05",
       "mainEntityOfPage":{"@type":"WebPage","@id":"https://niuexa.ai/articolo-contratto-qualita-workflow-ai.html"},
       "image":["https://niuexa.ai/img/articles/contratto-qualita-workflow-ai/contratto-qualita-workflow-ai-og.png"],
       "articleSection":"AI Operations e Qualità",
@@ -71,15 +71,50 @@
     </script>
     <script type="application/ld+json">
     {
-      "@context":"https://schema.org",
-      "@type":"FAQPage",
-      "mainEntity":[
-        {"@type":"Question","name":"Che cos’è un contratto di qualità per un workflow AI?","acceptedAnswer":{"@type":"Answer","text":"È una specifica operativa che definisce input ammessi, output richiesto, controlli, soglie di accettazione, gestione delle eccezioni e prova di completamento."}},
-        {"@type":"Question","name":"Perché un prompt non basta a garantire la qualità?","acceptedAnswer":{"@type":"Answer","text":"Perché il prompt orienta il modello ma non valida dati, formato, regole aziendali, autorizzazioni o stato del sistema destinatario. Servono controlli deterministici attorno al modello."}},
-        {"@type":"Question","name":"Quali output AI possono essere accettati automaticamente?","acceptedAnswer":{"@type":"Answer","text":"Solo quelli a impatto limitato, reversibili e verificabili con regole affidabili. Gli output con effetti su persone, denaro, obblighi o sicurezza richiedono controlli più forti e spesso approvazione umana."}},
-        {"@type":"Question","name":"Come si misura la qualità di un workflow AI?","acceptedAnswer":{"@type":"Answer","text":"Con metriche collegate al processo: completezza degli input, output validi, accettazione al primo passaggio, rilavorazione, escalation corrette, falsi accettati e tempo di ciclo."}},
-        {"@type":"Question","name":"Da dove parte una PMI?","acceptedAnswer":{"@type":"Answer","text":"Da un solo workflow e da un campione reale. Si definiscono cinque o sette regole critiche, si misura la baseline manuale e si testa il percorso ideale insieme alle eccezioni."}}
-      ]
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Che cos’è un contratto di qualità per un workflow AI?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "È una specifica operativa che definisce input ammessi, output richiesto, controlli, soglie di accettazione, gestione delle eccezioni e prova di completamento."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Perché un prompt non basta a garantire la qualità?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Perché orienta il modello ma non valida dati, formato, regole aziendali, autorizzazioni o stato del sistema destinatario. Servono controlli deterministici attorno al modello."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quali output AI possono essere accettati automaticamente?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Solo quelli a impatto limitato, reversibili e verificabili con regole affidabili. Effetti su persone, denaro, obblighi o sicurezza richiedono controlli più forti e spesso approvazione umana."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Come si misura la qualità di un workflow AI?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Con metriche di processo: completezza degli input, output validi, accettazione al primo passaggio, rilavorazione, escalation corrette, falsi accettati e tempo di ciclo."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Da dove parte una PMI?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Da un solo workflow e da un campione reale. Si definiscono poche regole critiche, si misura la baseline manuale e si testa il percorso ideale insieme alle eccezioni."
+                }
+            }
+        ]
     }
     </script>
     <script type="application/ld+json">
@@ -94,7 +129,7 @@
             <div class="tutorial-badge">AI Operations e Qualità</div>
             <h1>Workflow AI affidabili: come definire un contratto di qualità per input e output</h1>
             <p class="tutorial-description">“La risposta sembra buona” non è un criterio operativo. Un contratto di qualità rende espliciti i dati ammessi, l’output richiesto, i controlli e la decisione da prendere quando qualcosa non torna.</p>
-            <div class="tutorial-stats"><span class="stat">12 minuti di lettura</span><span class="stat">Per COO, IT e process owner</span><span class="stat">Metodo in 6 passaggi</span></div>
+            <div class="tutorial-stats"><span class="stat">10 minuti di lettura</span><span class="stat">Per COO, IT e process owner</span><span class="stat">Metodo in 6 passaggi</span></div>
         </div></div></section>
 
         <article class="tutorial-content"><div class="container"><div class="content-wrapper">
@@ -124,25 +159,25 @@
 
             <section class="content-section">
                 <h2 id="sei-parti">Le sei parti di un contratto di qualità</h2>
-                <figure class="article-visual article-diagram article-diagram-scroll"><img src="img/articles/contratto-qualita-workflow-ai/framework-contratto-qualita-ai.svg" alt="Diagramma in sei passaggi del contratto di qualità per workflow AI" width="1200" height="720" loading="eager" decoding="async"><figcaption>Dall’ingresso alla prova finale: ogni passaggio ha una regola e un owner. Su mobile, scorri il diagramma in orizzontale.</figcaption></figure>
+                <figure class="article-visual article-diagram article-diagram-scroll"><img src="img/articles/contratto-qualita-workflow-ai/framework-contratto-qualita-ai.svg" alt="Diagramma in sei passaggi del contratto di qualità per workflow AI" width="1200" height="720" loading="eager" decoding="async"><figcaption>Dall’ingresso alla prova finale: ogni passaggio ha una regola e un owner. Su mobile, il diagramma scorre in orizzontale.</figcaption></figure>
 
                 <h3>1. Scopo e confine: quale lavoro è ammesso?</h3>
-                <p>Descrivi l’unità di lavoro con un verbo e un oggetto: “classificare un ticket”, “estrarre campi da una fattura”, “preparare una bozza di follow-up”. Elenca ciò che il sistema non deve fare. Un confine utile impedisce che un assistente nato per riassumere inizi a promettere condizioni commerciali o a modificare record senza autorizzazione.</p>
+                <p>Descriva l’unità di lavoro con un verbo e un oggetto: “classificare un ticket”, “estrarre campi da una fattura”, “preparare una bozza di follow-up”. Elenchi ciò che il sistema non deve fare. Un confine utile impedisce che un assistente nato per riassumere inizi a promettere condizioni commerciali o a modificare record senza autorizzazione.</p>
 
                 <h3>2. Contratto di input: quali dati devono essere presenti?</h3>
-                <p>Definisci campi obbligatori, formati, origine, freschezza e combinazioni impossibili. Se manca l’ID cliente, la richiesta va sospesa; se la valuta non è riconosciuta, non si calcola un importo; se un documento esterno contiene istruzioni, queste restano dati non attendibili. OWASP tratta la prompt injection diretta e indiretta come un rischio delle applicazioni LLM e raccomanda di separare il contenuto esterno, limitare i privilegi e validare formati e risposte. In pratica, il workflow deve sapere da dove arriva ogni elemento e che cosa può influenzare.</p>
+                <p>Definisca campi obbligatori, formati, origine, freschezza e combinazioni impossibili. Se manca l’ID cliente, la richiesta va sospesa; se la valuta non è riconosciuta, non si calcola un importo; se un documento esterno contiene istruzioni, queste restano dati non attendibili. OWASP tratta la prompt injection diretta e indiretta come un rischio delle applicazioni LLM e raccomanda di separare il contenuto esterno, limitare i privilegi e validare formati e risposte. In pratica, il workflow deve sapere da dove arriva ogni elemento e che cosa può influenzare.</p>
 
                 <h3>3. Contratto di output: quale forma deve avere il risultato?</h3>
-                <p>Stabilisci schema, campi, tipi, valori consentiti e fonti obbligatorie. Per una classificazione possono bastare categoria, motivazione breve, livello di confidenza e riferimento al ticket. Per una bozza commerciale servono destinatario, oggetto, corpo, fonte delle condizioni e stato “da approvare”. Il testo libero può rimanere, ma deve essere incapsulato in una struttura che il sistema possa controllare.</p>
+                <p>Stabilisca schema, campi, tipi, valori consentiti e fonti obbligatorie. Per una classificazione possono bastare categoria, motivazione breve, livello di confidenza e riferimento al ticket. Per una bozza commerciale servono destinatario, oggetto, corpo, fonte delle condizioni e stato “da approvare”. Il testo libero può rimanere, ma deve essere incapsulato in una struttura che il sistema possa controllare.</p>
 
                 <h3>4. Regole deterministiche: che cosa non deve decidere il modello?</h3>
-                <p>Usa codice o regole esplicite per verificare formati, autorizzazioni, duplicati, soglie, liste ammesse e coerenza tra campi. Il modello può interpretare un messaggio; non dovrebbe decidere se un IBAN è formalmente valido, se un destinatario è autorizzato o se una pratica è già stata inviata. OWASP definisce l’improper output handling come validazione o gestione insufficiente dell’output prima che passi ad altri componenti: trattare il testo generato come input non fidato riduce questo rischio.</p>
+                <p>Usi codice o regole esplicite per verificare formati, autorizzazioni, duplicati, soglie, liste ammesse e coerenza tra campi. Il modello può interpretare un messaggio; non dovrebbe decidere se un IBAN è formalmente valido, se un destinatario è autorizzato o se una pratica è già stata inviata. OWASP definisce l’improper output handling come validazione o gestione insufficiente dell’output prima che passi ad altri componenti: trattare il testo generato come input non fidato riduce questo rischio.</p>
 
-                <h3>5. Decisione di accettazione: passa, correggi, escala o rifiuta?</h3>
-                <p>Ogni controllo deve portare a una decisione. “Passa” significa che tutte le condizioni necessarie sono soddisfatte. “Correggi” autorizza una trasformazione limitata e verificabile. “Escala” assegna il caso a una persona con contesto e motivo. “Rifiuta” chiude un ingresso fuori perimetro senza inventare una soluzione. Evita il generico “bassa confidenza”: indica quale regola è fallita e chi possiede il prossimo passo.</p>
+                <h3>5. Decisione di accettazione: accettare, correggere, escalare o rifiutare?</h3>
+                <p>Ogni controllo deve portare a una decisione. “Accettare” significa che tutte le condizioni necessarie sono soddisfatte. “Correggere” autorizza una trasformazione limitata e verificabile. “Escalare” assegna il caso a una persona con contesto e motivo. “Rifiutare” chiude un ingresso fuori perimetro senza inventare una soluzione. Eviti il generico “bassa confidenza”: indichi quale regola è fallita e chi possiede il prossimo passo.</p>
 
                 <h3>6. Prova e apprendimento: come si chiude e come si migliora?</h3>
-                <p>Conserva input rilevanti, versione del contratto, output, controlli eseguiti, decisione, eventuale approvatore e stato letto dal sistema destinatario. Gli errori corretti diventano casi di test. Se una regola cambia, incrementa la versione e verifica nuovamente un campione rappresentativo. La cronologia deve permettere di capire non soltanto che cosa ha prodotto il modello, ma perché il workflow ha accettato quell’esito.</p>
+                <p>Conservi input rilevanti, versione del contratto, output, controlli eseguiti, decisione, eventuale approvatore e stato letto dal sistema destinatario. Gli errori corretti diventano casi di test. Se una regola cambia, incrementi la versione e verifichi nuovamente un campione rappresentativo. La cronologia deve permettere di capire non soltanto che cosa ha prodotto il modello, ma perché il workflow ha accettato quell’esito.</p>
             </section>
 
             <section class="content-section">
@@ -160,20 +195,20 @@
 
             <section class="content-section">
                 <h2 id="metriche">Metriche: distinguere qualità apparente e qualità operativa</h2>
-                <p>Una sola media nasconde troppo. Misura almeno: quota di input completi, output conformi allo schema, accettazione al primo passaggio, rilavorazione, escalation corrette, casi fuori perimetro intercettati, falsi accettati e tempo di ciclo. Per i contenuti con fonti, aggiungi copertura e validità dei riferimenti; per le azioni, misura esiti confermati dal sistema destinatario.</p>
-                <p>Le soglie dipendono dall’impatto. Una bozza interna reversibile può tollerare più revisione; un aggiornamento che influenza un ordine richiede controlli più severi. Non importare benchmark universali. Parti dalla baseline manuale dello stesso processo, definisci una soglia iniziale e registra le condizioni in cui vale.</p>
-                <p>Costruisci il set di test con casi normali, mancanti, contraddittori e ostili. Includi documenti con istruzioni estranee, duplicati, valori ai limiti e indisponibilità del sistema esterno. Il test deve verificare la decisione dell’intero workflow, non soltanto la risposta del modello. Un output elegante che supera il perimetro è un fallimento; un rifiuto chiaro davanti a dati insufficienti può essere il risultato corretto.</p>
+                <p>Una sola media nasconde troppo. Misuri almeno: quota di input completi, output conformi allo schema, accettazione al primo passaggio, rilavorazione, escalation corrette, casi fuori perimetro intercettati, falsi accettati e tempo di ciclo. Per i contenuti con fonti, aggiunga copertura e validità dei riferimenti; per le azioni, misuri esiti confermati dal sistema destinatario.</p>
+                <p>Le soglie dipendono dall’impatto. Una bozza interna reversibile può tollerare più revisione; un aggiornamento che influenza un ordine richiede controlli più severi. Non importi benchmark universali. Parta dalla baseline manuale dello stesso processo, definisca una soglia iniziale e registri le condizioni in cui vale.</p>
+                <p>Costruisca il set di test con casi normali, mancanti, contraddittori e ostili. Includa documenti con istruzioni estranee, duplicati, valori ai limiti e indisponibilità del sistema esterno. Il test deve verificare la decisione dell’intero workflow, non soltanto la risposta del modello. Un output elegante che supera il perimetro è un fallimento; un rifiuto chiaro davanti a dati insufficienti può essere il risultato corretto.</p>
             </section>
 
             <section class="content-section">
                 <h2 id="checklist">Checklist per avviare un pilota in sei passaggi</h2>
                 <ol>
-                    <li><strong>Scegli un workflow ristretto.</strong> Un solo tipo di richiesta, con owner e volume reale.</li>
-                    <li><strong>Raccogli un campione rappresentativo.</strong> Includi casi facili, eccezioni ed errori noti.</li>
-                    <li><strong>Scrivi il contratto versione 1.</strong> Scopo, input, output, regole, decisioni e prova.</li>
-                    <li><strong>Automatizza prima i controlli deterministici.</strong> Formati, duplicati, permessi e soglie non vanno delegati al linguaggio naturale.</li>
-                    <li><strong>Esegui in modalità assistita.</strong> Confronta decisione proposta, decisione umana e risultato finale.</li>
-                    <li><strong>Rivedi per evidenza.</strong> Modifica una regola solo quando casi osservati mostrano un difetto o un nuovo requisito.</li>
+                    <li><strong>Scelga un workflow ristretto.</strong> Un solo tipo di richiesta, con owner e volume reale.</li>
+                    <li><strong>Raccolga un campione rappresentativo.</strong> Includa casi facili, eccezioni ed errori noti.</li>
+                    <li><strong>Scriva il contratto versione 1.</strong> Scopo, input, output, regole, decisioni e prova.</li>
+                    <li><strong>Automatizzi prima i controlli deterministici.</strong> Formati, duplicati, permessi e soglie non vanno delegati al linguaggio naturale.</li>
+                    <li><strong>Esegua in modalità assistita.</strong> Confronti decisione proposta, decisione umana e risultato finale.</li>
+                    <li><strong>Riveda per evidenza.</strong> Modifichi una regola solo quando casi osservati mostrano un difetto o un nuovo requisito.</li>
                 </ol>
                 <p>Il deliverable minimo non è un prompt migliore. È una scheda versionata che un process owner può leggere, un tecnico può implementare e un revisore può usare per spiegare perché un caso è passato o si è fermato. Questo riduce le discussioni soggettive e rende il pilota confrontabile nel tempo.</p>
             </section>
@@ -193,11 +228,11 @@
                 <a href="articolo-process-mining-ai-pmi.html" class="related-card"><span class="related-category">Discovery</span><h3>Osservare il processo prima di automatizzarlo</h3></a>
                 <a href="articolo-inventario-ai-pmi.html" class="related-card"><span class="related-category">Governance</span><h3>Censire gli usi AI reali</h3></a>
                 <a href="articolo-coda-lavoro-ai-agent.html" class="related-card"><span class="related-category">Operatività</span><h3>Gestire il turno di lavoro di un AI agent</h3></a>
-                <a href="ai-readiness-assessment.html" class="related-card"><span class="related-category">Assessment</span><h3>Valuta la tua AI readiness</h3></a>
+                <a href="ai-readiness-assessment.html" class="related-card"><span class="related-category">Assessment</span><h3>Valutare la readiness AI</h3></a>
             </div></section>
         </div></div></article>
 
-        <section class="cta-section"><div class="container"><h2 id="cta">Il tuo workflow AI ha criteri di accettazione verificabili?</h2><p>Niuexa aiuta le PMI a trasformare casi d’uso promettenti in workflow con dati, controlli, owner e risultati misurabili.</p><a href="ai-readiness-assessment.html" class="btn btn-primary">Prenota un assessment AI</a><a href="consulting.html" class="btn btn-secondary" style="margin-left:15px;">Scopri la consulenza AI</a></div></section>
+        <section class="cta-section"><div class="container"><h2 id="cta">Il Suo workflow AI ha criteri di accettazione verificabili?</h2><p>Ci mostri un processo: nella prima chiamata di 30 minuti, gratuita, guardiamo quali input arrivano, quale output serve e dove deve decidere una persona. L’agente propone, la persona decide.</p><a href="index.html#contact" class="btn btn-primary">Ci mostri un processo</a><a href="consulting.html" class="btn btn-secondary" style="margin-left:15px;">Come lavoriamo</a></div></section>
     </main>
     <div id="footer-placeholder"></div>
     <script src="includes/includes.js?v=20260428"></script>

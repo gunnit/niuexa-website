@@ -33,7 +33,7 @@
     <meta property="og:image:alt" content="Matrice Niuexa per il controllo umano nei workflow AI">
     <meta property="og:locale" content="it_IT">
     <meta property="article:published_time" content="2026-07-21">
-    <meta property="article:modified_time" content="2026-07-21">
+    <meta property="article:modified_time" content="2026-10-05">
     <meta property="article:author" content="Niuexa">
     <meta property="article:section" content="AI Governance">
 
@@ -66,27 +66,68 @@
       "author":{"@type":"Organization","name":"Niuexa","url":"https://niuexa.ai"},
       "publisher":{"@type":"Organization","name":"Niuexa","logo":{"@type":"ImageObject","url":"https://niuexa.ai/img/niuexalogo.png"}},
       "datePublished":"2026-07-21",
-      "dateModified":"2026-07-21",
+      "dateModified":"2026-10-05",
       "mainEntityOfPage":{"@type":"WebPage","@id":"https://niuexa.ai/articolo-human-in-the-loop-ai-pmi.html"},
       "image":["https://niuexa.ai/img/articles/human-in-the-loop-ai-pmi/human-in-the-loop-ai-pmi-og.png"],
       "articleSection":"AI Governance",
       "keywords":["human-in-the-loop","supervisione umana AI","workflow AI","AI agent","governance AI","PMI"],
       "wordCount":"1600",
       "inLanguage":"it-IT",
+      "citation":[
+        {"@type":"CreativeWork","name":"NIST AI Risk Management Framework","url":"https://www.nist.gov/itl/ai-risk-management-framework","publisher":{"@type":"Organization","name":"National Institute of Standards and Technology"}},
+        {"@type":"CreativeWork","name":"NIST AI RMF, Appendix C: Human-AI Interaction","url":"https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/","publisher":{"@type":"Organization","name":"National Institute of Standards and Technology"}},
+        {"@type":"CreativeWork","name":"Regolamento (UE) 2024/1689 (AI Act)","url":"https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng","publisher":{"@type":"Organization","name":"Unione europea"}},
+        {"@type":"CreativeWork","name":"OECD AI Principles","url":"https://oecd.ai/en/ai-principles","publisher":{"@type":"Organization","name":"OECD"}}
+      ],
       "speakable":{"@type":"SpeakableSpecification","cssSelector":["h1",".tutorial-description",".quick-answer"]}
     }
     </script>
     <script type="application/ld+json">
     {
-      "@context":"https://schema.org",
-      "@type":"FAQPage",
-      "mainEntity":[
-        {"@type":"Question","name":"Cos’è il human-in-the-loop nell’AI?","acceptedAnswer":{"@type":"Answer","text":"È un modello operativo in cui una persona controlla, approva, corregge o interrompe determinate decisioni o azioni di un sistema AI in punti definiti del workflow."}},
-        {"@type":"Question","name":"Serve sempre una revisione umana degli output AI?","acceptedAnswer":{"@type":"Answer","text":"No. La supervisione deve essere proporzionata a impatto, reversibilità, qualità dei dati e capacità di rilevare l’errore. I task a basso impatto possono essere controllati a campione; quelli ad alto impatto richiedono approvazione preventiva."}},
-        {"@type":"Question","name":"Quali decisioni AI non dovrebbero essere automatiche?","acceptedAnswer":{"@type":"Answer","text":"In generale, decisioni con effetti significativi su persone, denaro, sicurezza, diritti o obblighi contrattuali richiedono un controllo umano competente e tracciabile."}},
-        {"@type":"Question","name":"Come si misura se il controllo umano funziona?","acceptedAnswer":{"@type":"Answer","text":"Con KPI come tasso di override, falsi positivi e negativi, tempo di revisione, escalation corrette, incidenti evitati e qualità degli output accettati."}},
-        {"@type":"Question","name":"Il human-in-the-loop basta per rendere sicuro un AI agent?","acceptedAnswer":{"@type":"Answer","text":"No. Servono anche limiti di accesso, logging, test, gestione delle eccezioni, dati autorizzati, fallback e un owner responsabile del workflow."}}
-      ]
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Cos’è il human-in-the-loop nell’AI?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "È un modello in cui una persona controlla, approva, corregge o interrompe decisioni e azioni AI in punti precisi del workflow."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Serve sempre una revisione umana?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Il controllo deve essere proporzionato a impatto, reversibilità, qualità dei dati e capacità di rilevare l’errore."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quali decisioni non dovrebbero essere automatiche?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Quelle con effetti significativi su persone, denaro, sicurezza, diritti o obblighi richiedono normalmente una decisione umana competente e tracciabile."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Come misuro se il controllo funziona?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Misurando override, falsi positivi e negativi, escalation mancate, tempo di revisione, incidenti e qualità degli output accettati."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Il human-in-the-loop basta per rendere sicuro un AI agent?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Servono anche accessi limitati, logging, test, dati autorizzati, fallback, gestione delle eccezioni e un owner responsabile."
+                }
+            }
+        ]
     }
     </script>
     <script type="application/ld+json">
@@ -152,18 +193,18 @@
 
                 <section class="content-section">
                     <h2>Come progettare l’escalation in sei passaggi</h2>
-                    <h3>1. Definisci l’unità di lavoro</h3>
-                    <p>Evita obiettivi vaghi come “controllare il chatbot”. Definisci un oggetto verificabile: una risposta, una riga estratta, un ticket classificato, un preventivo o un aggiornamento nel CRM.</p>
-                    <h3>2. Elenca gli errori che contano</h3>
-                    <p>Distingui errori di forma da errori con conseguenze. Un tono imperfetto è diverso dall’invio di un prezzo errato o dall’esposizione di dati riservati. La severità determina il controllo.</p>
-                    <h3>3. Imposta trigger osservabili</h3>
-                    <p>Un trigger può essere una regola — importo sopra soglia, dato personale presente, fonte mancante — oppure un segnale di qualità: bassa confidenza, conflitto tra fonti, formato non valido, richiesta fuori policy.</p>
-                    <h3>4. Dai al revisore il contesto minimo</h3>
+                    <h3>1. Definire l’unità di lavoro</h3>
+                    <p>Eviti obiettivi vaghi come “controllare il chatbot”. Definisca un oggetto verificabile: una risposta, una riga estratta, un ticket classificato, un preventivo o un aggiornamento nel CRM.</p>
+                    <h3>2. Elencare gli errori che contano</h3>
+                    <p>Distingua errori di forma da errori con conseguenze. Un tono imperfetto è diverso dall’invio di un prezzo errato o dall’esposizione di dati riservati. La severità determina il controllo.</p>
+                    <h3>3. Impostare trigger osservabili</h3>
+                    <p>Un trigger può essere una regola (importo sopra soglia, dato personale presente, fonte mancante) oppure un segnale di qualità: bassa confidenza, conflitto tra fonti, formato non valido, richiesta fuori policy.</p>
+                    <h3>4. Dare al revisore il contesto minimo</h3>
                     <p>Per decidere, la persona deve vedere input, output proposto, fonti, azione prevista e motivo dell’escalation. Una semplice finestra “Approva / Rifiuta” favorisce conferme automatiche, non supervisione.</p>
-                    <h3>5. Prevedi tre esiti</h3>
+                    <h3>5. Prevedere tre esiti</h3>
                     <p>Non solo approvare o rifiutare. Il revisore deve poter <strong>approvare</strong>, <strong>correggere</strong> o <strong>fermare e inoltrare</strong> a un ruolo più competente. La correzione diventa dato per migliorare il sistema.</p>
-                    <h3>6. Registra la decisione</h3>
-                    <p>Conserva evento, versione del sistema, revisore, motivazione, modifica e risultato. Il log serve per audit, formazione e miglioramento; deve rispettare minimizzazione e regole di conservazione dei dati.</p>
+                    <h3>6. Registrare la decisione</h3>
+                    <p>Conservi evento, versione del sistema, revisore, motivazione, modifica e risultato. Il log serve per audit, formazione e miglioramento; deve rispettare minimizzazione e regole di conservazione dei dati.</p>
                 </section>
 
                 <section class="content-section">
@@ -220,7 +261,7 @@
                     <ul>
                         <li><a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener">NIST, AI Risk Management Framework</a>, framework volontario per integrare l’affidabilità nella progettazione, nell’uso e nella valutazione dei sistemi AI.</li>
                         <li><a href="https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/" target="_blank" rel="noopener">NIST AI RMF, Appendix C: Human-AI Interaction</a>, su ruoli, responsabilità e limiti dell’interazione uomo-AI.</li>
-                        <li><a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng" target="_blank" rel="noopener">Regolamento (UE) 2024/1689 — AI Act</a>, incluso l’articolo 14 sulla supervisione umana dei sistemi ad alto rischio.</li>
+                        <li><a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng" target="_blank" rel="noopener">Regolamento (UE) 2024/1689 (AI Act)</a>, incluso l’articolo 14 sulla supervisione umana dei sistemi ad alto rischio.</li>
                         <li><a href="https://oecd.ai/en/ai-principles" target="_blank" rel="noopener">OECD AI Principles</a>, aggiornati nel 2024, su trasparenza, robustezza e accountability.</li>
                     </ul>
                     <p>Il contenuto è informativo e non sostituisce una valutazione legale o normativa del caso specifico.</p>
@@ -231,7 +272,7 @@
                     <div class="faq-item"><h3>Cos’è il human-in-the-loop nell’AI?</h3><p>È un modello in cui una persona controlla, approva, corregge o interrompe decisioni e azioni AI in punti precisi del workflow.</p></div>
                     <div class="faq-item"><h3>Serve sempre una revisione umana?</h3><p>No. Il controllo deve essere proporzionato a impatto, reversibilità, qualità dei dati e capacità di rilevare l’errore.</p></div>
                     <div class="faq-item"><h3>Quali decisioni non dovrebbero essere automatiche?</h3><p>Quelle con effetti significativi su persone, denaro, sicurezza, diritti o obblighi richiedono normalmente una decisione umana competente e tracciabile.</p></div>
-                    <div class="faq-item"><h3>Come misuro se il controllo funziona?</h3><p>Misura override, falsi positivi e negativi, escalation mancate, tempo di revisione, incidenti e qualità degli output accettati.</p></div>
+                    <div class="faq-item"><h3>Come misuro se il controllo funziona?</h3><p>Misurando override, falsi positivi e negativi, escalation mancate, tempo di revisione, incidenti e qualità degli output accettati.</p></div>
                     <div class="faq-item"><h3>Il human-in-the-loop basta per rendere sicuro un AI agent?</h3><p>No. Servono anche accessi limitati, logging, test, dati autorizzati, fallback, gestione delle eccezioni e un owner responsabile.</p></div>
                 </section>
 
@@ -241,17 +282,17 @@
                         <a href="articolo-ai-workflow-operativi-enterprise.html" class="related-card"><span class="related-category">AI Automation</span><h3>AI nei workflow operativi: dal pilot al valore misurabile</h3></a>
                         <a href="articolo-rischi-ai-azienda.html" class="related-card"><span class="related-category">AI Risk</span><h3>I rischi principali dell’AI in azienda e come mitigarli</h3></a>
                         <a href="articolo-processo-prima-ai-agent.html" class="related-card"><span class="related-category">AI Agents</span><h3>Prima il processo, poi l’AI agent</h3></a>
-                        <a href="ai-readiness-assessment.html" class="related-card"><span class="related-category">Assessment</span><h3>Valuta l’AI readiness della tua azienda</h3></a>
+                        <a href="ai-readiness-assessment.html" class="related-card"><span class="related-category">Assessment</span><h3>Valutare l’AI readiness dell’azienda</h3></a>
                     </div>
                 </section>
             </div></div>
         </article>
 
         <section class="cta-section"><div class="container">
-            <h2>Vuoi definire autonomia, controlli ed escalation per i tuoi workflow AI?</h2>
-            <p>Niuexa aiuta le aziende a mappare processi, rischi, ruoli e criteri di accettazione prima di portare automazioni e AI agent in produzione.</p>
-            <a href="ai-readiness-assessment.html" class="btn btn-primary">Prenota un assessment AI readiness</a>
-            <a href="consulting.html" class="btn btn-secondary" style="margin-left:15px;">Scopri la consulenza AI</a>
+            <h2>Chi decide sulle eccezioni nei Suoi workflow AI?</h2>
+            <p>Nei nostri progetti l’agente propone e la persona decide: le eccezioni vanno a una persona, mai direttamente nel gestionale o nel CRM. Ci mostri un processo e, nella prima chiamata di 30 minuti, gratuita, guardiamo insieme dove serve il controllo.</p>
+            <a href="index.html#contact" class="btn btn-primary">Ci mostri un processo</a>
+            <a href="consulting.html" class="btn btn-secondary" style="margin-left:15px;">Come lavoriamo</a>
         </div></section>
     </main>
     <div id="footer-placeholder"></div>
