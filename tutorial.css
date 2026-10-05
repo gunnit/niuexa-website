@@ -2039,6 +2039,110 @@ table.data-table {
     }
 }
 
+/* ---------- Template fixes, round 2 ---------- */
+
+/* styles.css's homepage FAQ band (80px padding, grey background, 2rem
+   answer indent, card shadow) leaked into every article FAQ */
+.content-section.faq-section {
+    padding: 0;
+    background: none;
+}
+
+.content-section.faq-section .faq-item {
+    box-shadow: none;
+    overflow: visible;
+}
+
+.content-section.faq-section .faq-item p {
+    padding: 0;
+}
+
+.content-section.faq-section .faq-item p + p {
+    margin-top: 0.75rem;
+}
+
+/* Comparison tables had no cell padding or rules */
+.content-section table th,
+.content-section table td,
+table.comparison-table th,
+table.comparison-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border-light);
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.5;
+}
+
+.content-section table th,
+table.comparison-table th {
+    background: var(--light-gray);
+    color: var(--dark-gray);
+    font-weight: 600;
+}
+
+.content-section table td,
+table.comparison-table td {
+    color: var(--dark-gray);
+}
+
+/* Conclusion box: room around its content */
+.conclusion {
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    border: 1px solid var(--border-light);
+}
+
+.conclusion > :first-child {
+    margin-top: 0;
+}
+
+.conclusion > :last-child {
+    margin-bottom: 0;
+}
+
+/* Chapter accordions: with more than one child the extra children took
+   implicit auto rows and stayed visible while collapsed */
+.accordion-content {
+    grid-auto-rows: 0fr;
+}
+
+.accordion-content.active {
+    grid-auto-rows: auto;
+}
+
+/* Closing banner buttons side by side on desktop */
+.cta-section .cta-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Quiz box: no glass, and an AA-safe button */
+.certification-cta {
+    /* sits on the --gradient-cta header: keep its white copy, drop the blur */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.cert-final-btn {
+    /* white text needs --gradient-cta; the green-to-green gradient was ~3:1 */
+    background: var(--gradient-cta);
+    border-radius: 50px;
+    box-shadow: 0 6px 18px rgba(10, 26, 38, 0.18);
+}
+
+.cert-final-btn:hover {
+    box-shadow: 0 10px 26px rgba(10, 26, 38, 0.24);
+}
+
+@media (max-width: 768px) {
+    .cta-section .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 @media print {
     .navbar,
     #nav-placeholder,
