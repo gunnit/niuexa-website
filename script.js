@@ -13,7 +13,10 @@ const FORM_STRINGS = {
         message: 'Descriva il processo in almeno 10 caratteri.',
         messageField: 'Inserisca almeno 10 caratteri.',
         phone: 'Inserisca un numero di telefono valido, per esempio +39 02 1234567.',
-        thankYou: '/thank-you-page.html'
+        thankYou: '/thank-you-page.html',
+        signupTitle: 'Grazie',
+        signupText: 'Abbiamo ricevuto la Sua richiesta e Le scriveremo a breve.',
+        signupError: 'Invio non riuscito. Riprovi o ci scriva a info@niuexa.ai.'
     },
     en: {
         sending: 'Sending…',
@@ -28,7 +31,10 @@ const FORM_STRINGS = {
         message: 'Describe the process in at least 10 characters.',
         messageField: 'Enter at least 10 characters.',
         phone: 'Enter a valid phone number, for example +39 02 1234567.',
-        thankYou: '/en/thank-you-page.html'
+        thankYou: '/en/thank-you-page.html',
+        signupTitle: 'Thank you',
+        signupText: 'We have received your request and will be in touch shortly.',
+        signupError: 'Sending failed. Please try again or email us at info@niuexa.ai.'
     }
 };
 const formT = FORM_STRINGS[(document.documentElement.lang || 'it').toLowerCase().startsWith('en') ? 'en' : 'it'];
@@ -98,12 +104,10 @@ function initSimpleSignupForms() {
                         });
                     }
                     const successHtml = form.dataset.successHtml ||
-                        '<h3 style="margin-bottom: 12px;">Thank you!</h3>' +
-                        '<p>We\'ve received your request and will be in touch shortly.</p>';
+                        '<h3>' + formT.signupTitle + '</h3><p>' + formT.signupText + '</p>';
                     const successDiv = document.createElement('div');
                     successDiv.className = 'form-success';
                     successDiv.setAttribute('role', 'status');
-                    successDiv.style.cssText = 'background: var(--light-gray, #F8F9FA); border-left: 4px solid var(--primary-green); padding: 1.5rem; border-radius: 8px; font-family: var(--font-secondary, sans-serif);';
                     successDiv.innerHTML = successHtml;
                     form.parentNode.replaceChild(successDiv, form);
                 } else {
@@ -115,7 +119,7 @@ function initSimpleSignupForms() {
                     submitBtn.disabled = false;
                     submitBtn.textContent = originalText;
                 }
-                showMessage('Something went wrong. Please try again or email us at info@niuexa.ai.', 'error');
+                showMessage(formT.signupError, 'error');
             }
         });
     });

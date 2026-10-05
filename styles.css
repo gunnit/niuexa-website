@@ -6160,6 +6160,25 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
     border: 1px solid var(--border-light);
 }
 
+/* Success panel that replaces a signup form (script.js) */
+.form-success {
+    padding: 1.5rem;
+    background: var(--success-surface);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    color: var(--dark-gray);
+    font-family: var(--font-secondary);
+}
+
+.form-success h3 {
+    margin: 0 0 0.5rem;
+    color: var(--green-text);
+}
+
+.form-success p:last-child {
+    margin-bottom: 0;
+}
+
 .form-message--error {
     background: var(--error-surface);
     color: var(--error-text);
