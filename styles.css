@@ -1236,7 +1236,11 @@ h1, h2, h3, h4, h5, h6 {
         max-width: 280px;
     }
 }
-    
+
+/* The opening of this phone block was lost in an August refactor, so its
+   rules applied at every width (stacked CTA buttons on desktop) and the
+   stray closing brace swallowed the .use-case rule below. */
+@media (max-width: 768px) {
     .cta-content {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -1276,7 +1280,7 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--light-gray);
     padding: 1.5rem;
     border-radius: 10px;
-    border-left: 3px solid var(--primary-blue);
+    border: 1px solid var(--border-light);
 }
 
 .use-case h5 {
@@ -1296,11 +1300,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .use-case li::before {
-    content: '→';
+    /* drawn mark in the text colour instead of a text glyph */
+    content: '';
     position: absolute;
     left: 0;
-    color: var(--green-text);
-    font-weight: bold;
+    top: 0.62em;
+    width: 0.9rem;
+    height: 0.9rem;
+    background: var(--green-text);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='5' y1='12' x2='19' y2='12'/%3E%3Cpolyline points='12 5 19 12 12 19'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='5' y1='12' x2='19' y2='12'/%3E%3Cpolyline points='12 5 19 12 12 19'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 .cta-card {
@@ -1380,11 +1389,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .program-card li::before {
-    content: '✓';
+    /* drawn mark in the text colour instead of a text glyph */
+    content: '';
     position: absolute;
     left: 0;
-    color: var(--green-text);
-    font-weight: bold;
+    top: 0.62em;
+    width: 0.9rem;
+    height: 0.9rem;
+    background: var(--green-text);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 .training-cta {
@@ -3815,32 +3829,8 @@ html {
     position: relative;
 }
 
-.icon-human-ai::after {
-    content: '🤝';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 1.5rem;
-}
 
-.icon-democratization::after {
-    content: '⚡';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 1.5rem;
-}
 
-.icon-sustainable::after {
-    content: '🌱';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 1.5rem;
-}
 
 .vision-card h3 {
     font-size: 1.4rem;
@@ -4371,41 +4361,9 @@ html {
     position: relative;
 }
 
-.icon-innovation::after {
-    content: '💡';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 1.2rem;
-}
 
-.icon-transparency::after {
-    content: '🔍';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 1.2rem;
-}
 
-.icon-excellence::after {
-    content: '⭐';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 1.2rem;
-}
 
-.icon-partnership::after {
-    content: '🤝';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 1.2rem;
-}
 
 .value-card h3 {
     font-size: 1.3rem;
