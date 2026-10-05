@@ -2441,7 +2441,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .field-error {
-    color: #721c24;
+    color: var(--error-text);
     font-size: 0.875rem;
     margin-top: 0.25rem;
     display: block;
@@ -6155,22 +6155,15 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 }
 
 .form-message--success {
-    background: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
+    background: var(--success-surface);
+    color: var(--green-text);
+    border: 1px solid var(--border-light);
 }
 
 .form-message--error {
-    background: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
-}
-
-/* Field-level errors */
-.field-error {
-    color: #721c24;
-    font-size: 0.875rem;
-    margin-top: 0.25rem;
+    background: var(--error-surface);
+    color: var(--error-text);
+    border: 1px solid var(--border-light);
 }
 
 /* Reveal animations (scroll-triggered)
