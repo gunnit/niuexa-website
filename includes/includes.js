@@ -102,7 +102,6 @@ const footerHTML = `
                     <h3>Social</h3>
                     <ul>
                         <li><a href="https://linkedin.com/company/niuexa" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                        <li><a href="https://discord.gg/vyKckeS3" target="_blank" rel="noopener noreferrer">Discord Community</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
