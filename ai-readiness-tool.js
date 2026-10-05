@@ -36,8 +36,6 @@ function initAIReadinessForm() {
             // Submit form data to Formcarry
             const formData = new FormData(form);
 
-            console.log('AI Readiness Form - Submitting to:', form.action);
-            console.log('AI Readiness Form - Data:', Object.fromEntries(formData));
 
             const response = await fetch(form.action, {
                 method: 'POST',
@@ -48,11 +46,8 @@ function initAIReadinessForm() {
                 // Content-Type auto-set by browser for FormData
             });
 
-            console.log('AI Readiness Form - Response status:', response.status);
-            console.log('AI Readiness Form - Response OK:', response.ok);
 
             if (response.ok) {
-                console.log('AI Readiness Form - Submitted successfully to Formcarry');
 
                 // form_submit is sent once by conversion-tracking.js; generate_lead by the thank-you page.
 
