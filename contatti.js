@@ -3,6 +3,18 @@
 // don't collide with the globals defined in script.js.
 (function() {
 
+// Copy follows the page language: contatti.html (it, formal "Lei") and en/contact.html share this file
+const isEnglish = (document.documentElement.lang || 'it').toLowerCase().startsWith('en');
+const CONTACT_STRINGS = isEnglish ? {
+    sending: 'Sending...',
+    sendError: 'Something went wrong. Please try again or write to us directly.',
+    invalid: 'Please fill in all required fields correctly.'
+} : {
+    sending: 'Invio in corso...',
+    sendError: 'Si è verificato un errore. Riprovi o ci scriva direttamente.',
+    invalid: 'Compili correttamente tutti i campi obbligatori.'
+};
+
 document.addEventListener('DOMContentLoaded', function() {
     initContactForm();
     initFormValidation();
@@ -33,9 +45,9 @@ function initContactForm() {
         // Show loading state
         submitButton.classList.add('loading');
         submitButton.innerHTML = `
-            Invio in corso...
-            <svg class="submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"/>
+            ${CONTACT_STRINGS.sending}
+            <svg class="submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
+                <path d="M21 12a9 9 0 1 1-6.2-8.56"/>
             </svg>
         `;
 
@@ -67,7 +79,7 @@ function initContactForm() {
             }
         } catch (error) {
             // Show error message
-            showMessage('error', 'Si è verificato un errore. Per favore riprova o contattaci direttamente.');
+            showMessage('error', CONTACT_STRINGS.sendError);
             console.error('Form submission error:', error);
         } finally {
             // Reset button state
@@ -120,7 +132,7 @@ function validateForm(form) {
     }
 
     if (!isValid) {
-        showMessage('error', 'Per favore compila tutti i campi obbligatori correttamente.');
+        showMessage('error', CONTACT_STRINGS.invalid);
     }
 
     return isValid;
@@ -196,15 +208,16 @@ function showMessage(type, message) {
         existingMessage.remove();
     }
 
-    // Create message element
+    // Create message element (drawn icon, text set as text, announced to screen readers)
     const messageDiv = document.createElement('div');
     messageDiv.className = `form-message ${type}`;
+    messageDiv.setAttribute('role', type === 'error' ? 'alert' : 'status');
 
-    const icon = type === 'success' ? '✅' : '❌';
-    messageDiv.innerHTML = `
-        <span>${icon}</span>
-        <span>${message}</span>
-    `;
+    const iconPath = type === 'success'
+        ? '<polyline points="20 6 9 17 4 12"/>'
+        : '<circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>';
+    messageDiv.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${iconPath}</svg><span></span>`;
+    messageDiv.querySelector('span').textContent = message;
 
     // Insert message
     const formColumn = document.querySelector('.form-column');
@@ -234,40 +247,19 @@ function initSmoothScroll() {
                     behavior: 'smooth',
                     block: 'start'
                 });
+                // Move keyboard focus with the scroll: first field of a form, else the target itself
+                const field = targetElement.querySelector('input:not([type="hidden"]), select, textarea');
+                if (field) {
+                    field.focus({ preventScroll: true });
+                } else {
+                    if (!targetElement.hasAttribute('tabindex')) targetElement.setAttribute('tabindex', '-1');
+                    targetElement.focus({ preventScroll: true });
+                }
             }
         });
     });
 }
 
-// Add CSS for error states dynamically
-const contattiFormStyle = document.createElement('style');
-contattiFormStyle.textContent = `
-    .form-group input.error,
-    .form-group select.error,
-    .form-group textarea.error {
-        border-color: #dc3545;
-        background-color: #fff5f5;
-    }
-
-    .checkbox-label.error {
-        color: #dc3545;
-    }
-
-    .form-message {
-        animation: slideDown 0.3s ease;
-    }
-
-    @keyframes slideDown {
-        from {
-            opacity: 0;
-            transform: translateY(-10px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-`;
-document.head.appendChild(contattiFormStyle);
+// Error and message styles live in contatti.css (tokens from styles.css).
 
 })();

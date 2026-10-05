@@ -26,21 +26,20 @@
     <!-- End Google Tag Manager -->
 
     <!-- SEO Meta Tags -->
-    <title>AI Agents ROI Calculator | Calculate Return on Investment | Niuexa</title>
-    <meta name="description" content="Calculate the ROI of your AI agents with our free tool. Discover time and cost savings, payback period, and economic benefits of AI automation.">
-    <meta name="keywords" content="AI ROI, ROI calculator, AI investment return, automation costs, AI savings, business automation ROI, calculate AI benefits">
+    <title>ROI Calculator for Process Automation with AI | Niuexa</title>
+    <meta name="description" content="Estimate what a repetitive process costs today and what would change if part of it were automated. Free calculator: the estimate uses only the values you enter and is not a promise of savings.">
+    <meta name="keywords" content="ROI calculator, process automation ROI, AI agents ROI, cost of a process, automation savings estimate, SMEs">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="author" content="Niuexa">
     <link rel="canonical" href="https://niuexa.ai/en/roi-calculator.html">
-
     <!-- Hreflang -->
     <link rel="alternate" hreflang="it" href="https://niuexa.ai/roi-calculator.html">
     <link rel="alternate" hreflang="en" href="https://niuexa.ai/en/roi-calculator.html">
     <link rel="alternate" hreflang="x-default" href="https://niuexa.ai/roi-calculator.html">
 
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="AI Agents ROI Calculator | Calculate Return on Investment | Niuexa">
-    <meta property="og:description" content="Calculate the ROI of your AI agents with our free tool. Discover time and cost savings, payback period, and economic benefits of AI automation.">
+    <meta property="og:title" content="ROI Calculator for Process Automation with AI | Niuexa">
+    <meta property="og:description" content="What a repetitive process costs today and what would change if part of it were automated: an estimate from your own numbers, calculated in your browser.">
     <meta property="og:image" content="https://niuexa.ai/img/niuexalogo.png">
     <meta property="og:url" content="https://niuexa.ai/en/roi-calculator.html">
     <meta property="og:type" content="website">
@@ -49,8 +48,8 @@
 
     <!-- X (Twitter) Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AI Agents ROI Calculator | Calculate Return on Investment | Niuexa">
-    <meta name="twitter:description" content="Calculate the ROI of your AI agents with our free tool. Discover time and cost savings, payback period, and economic benefits of AI automation.">
+    <meta name="twitter:title" content="ROI Calculator for Process Automation with AI | Niuexa">
+    <meta name="twitter:description" content="What a repetitive process costs today and what would change if part of it were automated: an estimate from your own numbers.">
     <meta name="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
 
     <!-- Structured Data -->
@@ -58,20 +57,15 @@
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "AI Agents ROI Calculator",
-        "description": "Free tool to calculate return on investment of AI agents",
+        "name": "ROI calculator for automating a process",
+        "url": "https://niuexa.ai/en/roi-calculator.html",
+        "description": "Free tool that estimates the annual cost of a repetitive process and the effect of automating part of it, using only the values the user enters. The calculation runs in the browser.",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "All",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "EUR"
-        },
-        "provider": {
-            "@type": "Organization",
-            "name": "Niuexa",
-            "url": "https://niuexa.ai"
-        }
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "dateModified": "2026-10-05",
+        "provider": {"@id": "https://niuexa.ai/#organization"}
     }
     </script>
 
@@ -88,14 +82,15 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="/styles.css?v=20260807">
-    <link rel="stylesheet" href="/roi-calculator.css">
+    <link rel="stylesheet" href="/polish.css?v=20261005">
+    <link rel="stylesheet" href="/roi-calculator.css?v=20261005">
 </head>
-<body>
+<body class="polished calculator-page">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9S42S4"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    
+
     <!-- Navigation Placeholder -->
     <div id="nav-placeholder"></div>
 
@@ -105,22 +100,13 @@
     <section class="calculator-hero">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">AI Agents ROI Calculator</h1>
-                <p class="hero-subtitle">Discover how much time and money you can save by implementing AI agents in your business processes</p>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">40+</span>
-                        <span class="stat-label">Hours Saved/Week</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">150-250%</span>
-                        <span class="stat-label">Typical ROI Range</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">6</span>
-                        <span class="stat-label">Months Payback</span>
-                    </div>
-                </div>
+                <h1 class="hero-title">ROI calculator for automating a process</h1>
+                <p class="hero-subtitle">Enter the numbers of a process you know: how long a task takes, how often it repeats, what an hour of work costs. The calculator estimates what it costs today and what would change if part of it were automated.</p>
+                <ul class="hero-points">
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Four fields are enough for a first estimate</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>The calculation runs in your browser</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>An estimate from your data, not a promise</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -130,217 +116,221 @@
         <div class="container">
             <div class="calculator-container">
                 <div class="calculator-form">
-                    <h2>Calculate Your Potential Savings</h2>
-                    <form id="roiCalculator" onsubmit="return false;">
+                    <h2>About the process</h2>
+                    <p class="form-hint">Results update as you fill in the fields.</p>
+
+                    <form id="roiCalculator">
                         <div class="form-section">
-                            <h3>Process Information</h3>
+                            <h3>The process today</h3>
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="processName">Process Name</label>
-                                    <input type="text" id="processName" name="processName" placeholder="e.g. Customer Support, Data Entry, Report Generation" required>
+                                    <label for="processName">Which process do you want to estimate?</label>
+                                    <input type="text" id="processName" name="processName" placeholder="E.g. entering supplier invoices">
                                 </div>
                                 <div class="form-group">
-                                    <label for="industry">Industry</label>
+                                    <label for="industry">Industry (optional)</label>
                                     <select id="industry" name="industry">
-                                        <option value="">Select Industry</option>
-                                        <option value="finance">Finance and Banking</option>
+                                        <option value="">Select an industry</option>
+                                        <option value="finance">Finance and banking</option>
                                         <option value="healthcare">Healthcare</option>
-                                        <option value="retail">Retail and E-commerce</option>
+                                        <option value="retail">Retail and e-commerce</option>
                                         <option value="manufacturing">Manufacturing</option>
                                         <option value="technology">Technology</option>
                                         <option value="consulting">Consulting</option>
-                                        <option value="marketing">Marketing and Advertising</option>
+                                        <option value="marketing">Marketing and advertising</option>
                                         <option value="other">Other</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="form-section">
-                            <h3>Time and Frequency</h3>
+                        <div class="form-section form-section-highlight">
+                            <h3>How much time does it take today?</h3>
+                            <p class="section-hint">These four fields are enough to see results.</p>
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="timePerProcess">Time per Process (minutes)</label>
-                                    <input type="number" id="timePerProcess" name="timePerProcess" min="1" placeholder="30" required>
+                                    <label for="timePerProcess">Minutes per run</label>
+                                    <input type="number" id="timePerProcess" name="timePerProcess" min="1" inputmode="decimal" placeholder="E.g. 30">
                                 </div>
                                 <div class="form-group">
-                                    <label for="frequency">Frequency</label>
-                                    <select id="frequency" name="frequency" required>
-                                        <option value="">Select Frequency</option>
-                                        <option value="daily">Daily</option>
-                                        <option value="weekly">Weekly</option>
-                                        <option value="monthly">Monthly</option>
+                                    <label for="frequency">How often?</label>
+                                    <select id="frequency" name="frequency">
+                                        <option value="">Select</option>
+                                        <option value="daily">Every working day</option>
+                                        <option value="weekly">Every week</option>
+                                        <option value="monthly">Every month</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="occurrences">Times per Period</label>
-                                    <input type="number" id="occurrences" name="occurrences" min="1" placeholder="10" required>
+                                    <label for="occurrences">How many times in that period?</label>
+                                    <input type="number" id="occurrences" name="occurrences" min="1" inputmode="decimal" placeholder="E.g. 10">
+                                </div>
+                                <div class="form-group">
+                                    <label for="hourlyRate">Gross hourly cost (€)</label>
+                                    <input type="number" id="hourlyRate" name="hourlyRate" min="1" step="0.01" inputmode="decimal" placeholder="E.g. 35">
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-section">
-                            <h3>Cost Information</h3>
+                            <h3>Optional details</h3>
+                            <p class="section-hint">For a more precise estimate.</p>
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="hourlyRate">Hourly Rate (€)</label>
-                                    <input type="number" id="hourlyRate" name="hourlyRate" min="1" step="0.01" placeholder="50" required>
+                                    <label for="peopleInvolved">People involved in each run</label>
+                                    <input type="number" id="peopleInvolved" name="peopleInvolved" min="1" inputmode="decimal" placeholder="E.g. 1">
                                 </div>
                                 <div class="form-group">
-                                    <label for="peopleInvolved">People Involved</label>
-                                    <input type="number" id="peopleInvolved" name="peopleInvolved" min="1" placeholder="2" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="errorRate">Error Rate (%)</label>
-                                    <input type="number" id="errorRate" name="errorRate" min="0" max="100" step="0.1" placeholder="5">
+                                    <label for="errorRate">Runs with errors to fix (%)</label>
+                                    <input type="number" id="errorRate" name="errorRate" min="0" max="100" step="0.1" inputmode="decimal" placeholder="E.g. 5">
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-section">
-                            <h3>AI Implementation</h3>
+                            <h3>The automation</h3>
                             <div class="form-row">
-                                <div class="form-group">
-                                    <label for="automationLevel">Expected Automation Level (%)</label>
-                                    <input type="range" id="automationLevel" name="automationLevel" min="10" max="95" value="80" class="slider">
-                                    <span class="slider-value">80%</span>
-                                </div>
-                                <div class="form-group">
-                                    <label for="implementationCost">Implementation Cost (€)</label>
-                                    <input type="number" id="implementationCost" name="implementationCost" min="0" step="100" placeholder="5000">
-                                </div>
-                                <div class="form-group">
-                                    <label for="monthlyCost">Monthly AI Cost (€)</label>
-                                    <input type="number" id="monthlyCost" name="monthlyCost" min="0" step="10" placeholder="200">
+                                <div class="form-group form-group-wide">
+                                    <div class="slider-head">
+                                        <label for="automationLevel">Share of the time that could be automated</label>
+                                        <output class="slider-value" for="automationLevel">50%</output>
+                                    </div>
+                                    <input type="range" id="automationLevel" name="automationLevel" min="10" max="95" value="50" class="slider" aria-describedby="automationHint">
+                                    <p class="field-hint" id="automationHint">Example value: replace it with your own estimate. Exceptions stay with a person, so 100% is not realistic.</p>
                                 </div>
                             </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="implementationCost">Initial build cost (€)</label>
+                                    <input type="number" id="implementationCost" name="implementationCost" min="0" step="100" inputmode="decimal" placeholder="From the quote" aria-describedby="costHint">
+                                </div>
+                                <div class="form-group">
+                                    <label for="monthlyCost">Running costs per month (€)</label>
+                                    <input type="number" id="monthlyCost" name="monthlyCost" min="0" step="10" inputmode="decimal" placeholder="Licences, APIs, hosting" aria-describedby="costHint">
+                                </div>
+                            </div>
+                            <p class="field-hint" id="costHint">If you do not have a quote yet, try several amounts and see how the result changes.</p>
                         </div>
 
                         <div class="form-actions">
-                            <button type="submit" class="btn btn-primary">Calculate ROI</button>
-                            <button type="button" id="resetForm" class="btn btn-secondary">Reset</button>
+                            <button type="submit" class="btn btn-primary">Show the results</button>
+                            <button type="button" id="resetForm" class="btn btn-secondary">Clear the fields</button>
                         </div>
                     </form>
                 </div>
 
-                <div class="calculator-results" id="calculatorResults" style="display: none;">
-                    <h2>Your ROI Analysis</h2>
+                <div class="calculator-results" id="calculatorResults" role="region" aria-labelledby="resultsTitle">
+                    <h2 id="resultsTitle">Your estimate</h2>
+                    <p class="results-note">Calculated only from the values entered. It does not include start-up time, training or maintenance, and it is neither a forecast nor a guarantee of results.</p>
+
+                    <!-- Today / with automation, side by side -->
+                    <div class="before-after-comparison">
+                        <div class="comparison-card comparison-before">
+                            <h3>Today</h3>
+                            <div class="comparison-metric">
+                                <span class="comparison-value" id="beforeHours">0 hours</span>
+                                <span class="comparison-label">per year</span>
+                            </div>
+                            <div class="comparison-metric">
+                                <span class="comparison-value" id="beforeCost">€0</span>
+                                <span class="comparison-label">annual cost</span>
+                            </div>
+                        </div>
+                        <div class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+                        <div class="comparison-card comparison-after">
+                            <h3>With automation (estimate)</h3>
+                            <div class="comparison-metric">
+                                <span class="comparison-value" id="afterHours">0 hours</span>
+                                <span class="comparison-label">per year</span>
+                            </div>
+                            <div class="comparison-metric">
+                                <span class="comparison-value" id="afterCost">€0</span>
+                                <span class="comparison-label">annual cost, running costs included</span>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="results-summary">
                         <div class="result-card highlight">
-                            <h3>Annual Savings</h3>
+                            <h3>Gross annual saving</h3>
                             <div class="result-value" id="annualSavings">€0</div>
                         </div>
                         <div class="result-card">
-                            <h3>ROI Percentage</h3>
+                            <h3>First-year ROI</h3>
                             <div class="result-value" id="roiPercentage">0%</div>
                         </div>
                         <div class="result-card">
-                            <h3>Payback Period</h3>
+                            <h3>Recovery of the initial cost</h3>
                             <div class="result-value" id="paybackPeriod">0 months</div>
                         </div>
                     </div>
 
                     <div class="results-breakdown">
-                        <h3>Complete Breakdown</h3>
+                        <h3>Calculation detail</h3>
                         <div class="breakdown-grid">
                             <div class="breakdown-item">
-                                <span class="breakdown-label">Current Annual Cost:</span>
+                                <span class="breakdown-label">Current annual cost of the process</span>
                                 <span class="breakdown-value" id="currentCost">€0</span>
                             </div>
                             <div class="breakdown-item">
-                                <span class="breakdown-label">Time Saved per Year:</span>
+                                <span class="breakdown-label">Hours saved per year</span>
                                 <span class="breakdown-value" id="timeSaved">0 hours</span>
                             </div>
                             <div class="breakdown-item">
-                                <span class="breakdown-label">Error Reduction Value:</span>
+                                <span class="breakdown-label">Value of errors avoided</span>
                                 <span class="breakdown-value" id="errorReduction">€0</span>
                             </div>
                             <div class="breakdown-item">
-                                <span class="breakdown-label">Total Implementation Cost:</span>
+                                <span class="breakdown-label">Initial cost</span>
                                 <span class="breakdown-value" id="totalImplementation">€0</span>
                             </div>
                             <div class="breakdown-item">
-                                <span class="breakdown-label">Annual AI Costs:</span>
+                                <span class="breakdown-label">Annual running costs</span>
                                 <span class="breakdown-value" id="annualAICosts">€0</span>
                             </div>
-                            <div class="breakdown-item">
-                                <span class="breakdown-label">Annual Net Benefit:</span>
+                            <div class="breakdown-item breakdown-item--total">
+                                <span class="breakdown-label">Net annual benefit</span>
                                 <span class="breakdown-value" id="netBenefit">€0</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="results-chart">
-                        <h3>5-Year Projection</h3>
-                        <canvas id="roiChart" width="400" height="200"></canvas>
+                        <h3>5-year projection with the same values</h3>
+                        <div class="chart-frame">
+                            <canvas id="roiChart" width="400" height="200"></canvas>
+                        </div>
                     </div>
 
                     <div class="results-actions">
-                        <button class="btn btn-primary" id="downloadReport">Download Report</button>
-                        <button class="btn btn-secondary" id="scheduleConsultation">Schedule Consultation</button>
-                        <button class="btn btn-outline" id="emailResults">Email Results</button>
+                        <button type="button" class="btn btn-primary" id="scheduleConsultation">Book a first call</button>
+                        <button type="button" class="btn btn-secondary" id="downloadReport">Print or save as PDF</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Industry Benchmarks -->
+    <!-- How to read the estimate (replaces unsourced industry benchmarks) -->
     <section class="benchmarks-section">
         <div class="container">
-            <h2 class="section-title">Industry Benchmarks</h2>
+            <h2 class="section-title">How to use the estimate</h2>
+            <p class="section-intro">The calculator does not know your process: it multiplies the numbers you enter. Three things make it useful.</p>
             <div class="benchmarks-grid">
                 <div class="benchmark-card">
-                    <h3>Finance and Banking</h3>
-                    <div class="benchmark-stats">
-                        <div class="benchmark-stat">
-                            <span class="stat-label">Average Time Saved</span>
-                            <span class="stat-value">45 hours/week</span>
-                        </div>
-                        <div class="benchmark-stat">
-                            <span class="stat-label">Average ROI</span>
-                            <span class="stat-value">180%</span>
-                        </div>
-                        <div class="benchmark-stat">
-                            <span class="stat-label">Payback Period</span>
-                            <span class="stat-value">4.2 months</span>
-                        </div>
-                    </div>
+                    <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg></div>
+                    <h3>Measure before you estimate</h3>
+                    <p>Minutes, volumes and exceptions counted over one or two weeks are worth more than any industry average. The <a href="/ai-metric-contract.html">AI Metric Contract</a> (in Italian) sets the starting measure and the success criteria.</p>
                 </div>
                 <div class="benchmark-card">
-                    <h3>Healthcare</h3>
-                    <div class="benchmark-stats">
-                        <div class="benchmark-stat">
-                            <span class="stat-label">Average Time Saved</span>
-                            <span class="stat-value">38 hours/week</span>
-                        </div>
-                        <div class="benchmark-stat">
-                            <span class="stat-label">Average ROI</span>
-                            <span class="stat-value">165%</span>
-                        </div>
-                        <div class="benchmark-stat">
-                            <span class="stat-label">Payback Period</span>
-                            <span class="stat-value">5.1 months</span>
-                        </div>
-                    </div>
+                    <div class="icon-tile icon-tile--teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                    <h3>Leave room for exceptions</h3>
+                    <p>Doubtful cases go to a person: the agent proposes, the person decides. That is why the share that can be automated starts from an example value of 50%, for you to replace with your own.</p>
                 </div>
                 <div class="benchmark-card">
-                    <h3>Manufacturing</h3>
-                    <div class="benchmark-stats">
-                        <div class="benchmark-stat">
-                            <span class="stat-label">Average Time Saved</span>
-                            <span class="stat-value">52 hours/week</span>
-                        </div>
-                        <div class="benchmark-stat">
-                            <span class="stat-label">Average ROI</span>
-                            <span class="stat-value">220%</span>
-                        </div>
-                        <div class="benchmark-stat">
-                            <span class="stat-label">Payback Period</span>
-                            <span class="stat-value">3.8 months</span>
-                        </div>
-                    </div>
+                    <div class="icon-tile icon-tile--green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+                    <h3>Compare it with costs in writing</h3>
+                    <p>The initial cost and the running costs depend on the process and the systems in use. Niuexa puts them in writing in a quote after the analysis; with the <a href="/ai-outcome-budget.html">AI Outcome Budget</a> (in Italian) you can compare them with the expected value.</p>
                 </div>
             </div>
         </div>
@@ -350,79 +340,89 @@
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2>Ready to Transform Your Business?</h2>
-                <p style="color: white !important; opacity: 1 !important;">Our AI experts can help you implement these savings in your organization. Book a free consultation to discuss your specific needs.</p>
+                <h2>Show us a process</h2>
+                <p>The estimate tells you what the time spent today is worth. In 30 minutes, free and without obligation, we look at the real process together and tell you whether AI can lighten it.</p>
                 <div class="cta-buttons">
-                    <a href="/en/index.html#contact" class="btn btn-primary">Book Free Consultation</a>
-                    <a href="/en/index.html#services" class="btn btn-secondary">Explore AI Solutions</a>
+                    <a href="/en/contact.html" class="btn btn-primary">Book a first call</a>
+                    <a href="/en/ai-readiness-tool.html" class="btn btn-secondary">Check your AI visibility</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Disclaimer Section -->
+    <!-- Method and limits -->
     <section class="disclaimer-section">
         <div class="container">
             <div class="disclaimer-content">
                 <div class="disclaimer-header">
-                    <h3>Calculation Methodology and Disclaimer</h3>
-                    <p class="subtitle">Transparent information about our calculations and limitations</p>
+                    <h2>Calculation method and limits</h2>
+                    <p class="subtitle">The formulas the calculator uses, with no hidden data.</p>
                 </div>
-
                 <div class="disclaimer-body">
                     <div class="disclaimer-item">
-                        <div class="icon">i</div>
-                        <p>The indicated ROI values are <strong>estimates based on aggregated data</strong> from similar projects and may vary significantly based on industry, company size, existing processes, and implementation level. The typical observed range is <strong>150-250% in 12-18 months</strong>.</p>
-                    </div>
-
-                    <div class="disclaimer-item">
-                        <div class="icon">📊</div>
-                        <p>The ROI calculation considers the following factors:</p>
-                        <div class="methodology-grid">
-                            <div class="methodology-item">
-                                <div class="label">Operational Savings</div>
-                                <div class="value">Labor cost reduction</div>
-                            </div>
-                            <div class="methodology-item">
-                                <div class="label">Time Efficiency</div>
-                                <div class="value">Process time reduction</div>
-                            </div>
-                            <div class="methodology-item">
-                                <div class="label">Productivity</div>
-                                <div class="value">Output increase</div>
-                            </div>
-                            <div class="methodology-item">
-                                <div class="label">Quality</div>
-                                <div class="value">Error decrease</div>
-                            </div>
+                        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                        <div class="disclaimer-text">
+                            <p><strong>How we calculate.</strong> Every result comes from the values you enter, with these formulas:</p>
+                            <dl class="methodology-grid">
+                                <div class="methodology-item">
+                                    <dt class="label">Hours per year today</dt>
+                                    <dd class="value">minutes ÷ 60 × people × runs per period × periods in a year (260 working days, 52 weeks or 12 months)</dd>
+                                </div>
+                                <div class="methodology-item">
+                                    <dt class="label">Annual cost today</dt>
+                                    <dd class="value">hours per year × hourly cost</dd>
+                                </div>
+                                <div class="methodology-item">
+                                    <dt class="label">Labour saving</dt>
+                                    <dd class="value">hours per year × share automated × hourly cost</dd>
+                                </div>
+                                <div class="methodology-item">
+                                    <dt class="label">Errors avoided</dt>
+                                    <dd class="value">annual cost × error rate × 50% (fixed assumption: automation halves the cost of errors)</dd>
+                                </div>
+                                <div class="methodology-item">
+                                    <dt class="label">Net annual benefit</dt>
+                                    <dd class="value">labour saving + errors avoided, minus annual running costs</dd>
+                                </div>
+                                <div class="methodology-item">
+                                    <dt class="label">First-year ROI</dt>
+                                    <dd class="value">net annual benefit ÷ (initial cost + annual running costs)</dd>
+                                </div>
+                                <div class="methodology-item">
+                                    <dt class="label">Recovery of the initial cost</dt>
+                                    <dd class="value">initial cost ÷ net monthly benefit</dd>
+                                </div>
+                            </dl>
                         </div>
-                        <p><em>Does not include: extended implementation costs, specialized training, and long-term maintenance.</em></p>
                     </div>
-
                     <div class="disclaimer-item">
-                        <div class="icon">⚠</div>
-                        <p><strong>Important:</strong> These results do not constitute a guarantee of future performance. Actual results may vary based on multiple factors specific to your business context. We invite you to carefully evaluate every technology investment with your financial and technical advisors.</p>
+                        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></div>
+                        <div class="disclaimer-text">
+                            <p><strong>What it leaves out.</strong> Start-up and adjustment time, training, maintenance, internal project costs and changes to the process over time.</p>
+                        </div>
+                    </div>
+                    <div class="disclaimer-item disclaimer-item--warning">
+                        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+                        <div class="disclaimer-text">
+                            <p><strong>An estimate, not a guarantee.</strong> The result depends entirely on the values entered and is neither a forecast nor a guarantee of savings. Before you decide, measure the real process and compare the estimate with costs in a written quote.</p>
+                        </div>
                     </div>
                 </div>
-
                 <div class="disclaimer-footer">
-                    <p class="legal-note">
-                        Calculations based on standard industry methodologies and market benchmarks updated to 2026.
-                        For personalized consultations, contact our experts.
-                    </p>
+                    <p class="legal-note">The calculation runs in your browser. The values you enter are saved only on this device, until you press "Clear the fields".</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer Placeholder -->
     </main>
 
+    <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="/script.js?v=20260428"></script>
-    <script src="/roi-calculator.js"></script>
+    <script src="/roi-calculator.js?v=20261005"></script>
     <script src="/en/includes/navigation-en.js?v=20260428"></script>
     <script src="/cookie-banner.js?v=20260428"></script>
 </body>
