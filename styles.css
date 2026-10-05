@@ -381,9 +381,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .dropdown-arrow {
-    font-size: 0.7em;
+    width: 14px;
+    height: 14px;
     margin-left: 0.3rem;
+    vertical-align: -2px;
     transition: transform var(--transition-fast);
+}
+
+.login-icon {
+    width: 15px;
+    height: 15px;
+    margin-right: 0.4rem;
+    vertical-align: -2px;
 }
 
 .nav-item.dropdown.active .dropdown-arrow {
@@ -2795,10 +2804,7 @@ button[aria-busy="true"]::after {
 }
 
 .footer-brand h2 {
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--signal-on-dark);
     margin-bottom: 1rem;
 }
 
@@ -2832,8 +2838,11 @@ button[aria-busy="true"]::after {
     transition: color var(--transition-fast);
 }
 
+/* --blue-text is a light-surface token: on the navy footer it fell to ~2:1 */
 .footer-column a:hover {
-    color: var(--blue-text);
+    color: var(--white);
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 .footer-bottom {
@@ -6338,4 +6347,63 @@ code,
 kbd,
 samp {
     overflow-wrap: normal;
+}
+
+/* Mobile menu: one left-aligned list. The desktop 32px gap carried into the
+   column (≈100px between rows) and links were centred while the dropdown
+   buttons shrank to their text, so rows alternated centre/left. */
+@media (max-width: 768px) {
+    .nav-menu {
+        gap: 0;
+        text-align: left;
+        padding: 0.5rem 0 1.25rem;
+        max-height: calc(100vh - 70px);
+        max-height: calc(100dvh - 70px);
+        overflow-y: auto;
+    }
+
+    .nav-menu .nav-item {
+        padding: 0 20px;
+        border-bottom: 1px solid var(--border-light);
+    }
+
+    .nav-menu .nav-item:last-child,
+    .nav-menu .nav-item:has(.login-link) {
+        border-bottom: 0;
+    }
+
+    .nav-menu .nav-link,
+    .nav-menu .dropdown-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        min-height: 52px;
+        padding: 0.75rem 0;
+        text-align: left;
+    }
+
+    .nav-menu .nav-link::after {
+        display: none;
+    }
+
+    .nav-menu .dropdown-menu {
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-menu .nav-item.dropdown.active .dropdown-menu {
+        margin: 0 0 0.75rem;
+        padding: 0.5rem 0;
+    }
+
+    .nav-menu .dropdown-link {
+        padding: 0.85rem 1rem;
+    }
+
+    .nav-menu .nav-link.login-link {
+        justify-content: center;
+        margin: 1rem 0 0.25rem;
+        min-height: 48px;
+    }
 }

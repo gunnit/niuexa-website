@@ -24,7 +24,7 @@ const navigationHTML = `
                 <a href="/en/about-us.html" class="nav-link" data-page="about-us">About Us</a>
             </li>
             <li class="nav-item dropdown">
-                <button type="button" class="nav-link dropdown-toggle" data-page="solutions" aria-expanded="false" aria-haspopup="true" aria-controls="dropdown-solutions">Solutions <span class="dropdown-arrow" aria-hidden="true">▼</span></button>
+                <button type="button" class="nav-link dropdown-toggle" data-page="solutions" aria-expanded="false" aria-haspopup="true" aria-controls="dropdown-solutions">Solutions <svg class="dropdown-arrow" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg></button>
                 <ul class="dropdown-menu" id="dropdown-solutions">
                     <li><a href="/en/consulting.html" class="dropdown-link" data-page="consulting">Consulting</a></li>
                     <li><a href="/en/training.html" class="dropdown-link" data-page="training">Training</a></li>
@@ -32,7 +32,7 @@ const navigationHTML = `
                 </ul>
             </li>
             <li class="nav-item dropdown">
-                <button type="button" class="nav-link dropdown-toggle" data-page="resources" aria-expanded="false" aria-haspopup="true" aria-controls="dropdown-resources">Resources <span class="dropdown-arrow" aria-hidden="true">▼</span></button>
+                <button type="button" class="nav-link dropdown-toggle" data-page="resources" aria-expanded="false" aria-haspopup="true" aria-controls="dropdown-resources">Resources <svg class="dropdown-arrow" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg></button>
                 <ul class="dropdown-menu" id="dropdown-resources">
                     <li><a href="/en/learn.html" class="dropdown-link" data-page="learn">Learn</a></li>
                     <li><a href="/en/research.html" class="dropdown-link" data-page="research">Research</a></li>
@@ -45,10 +45,10 @@ const navigationHTML = `
                 <a href="/en/contact.html" class="nav-link" data-page="contact">Contact</a>
             </li>
             <li class="nav-item">
-                <a href="/en/login.html" class="nav-link login-link" data-page="login">🔐 Login</a>
+                <a href="/en/login.html" class="nav-link login-link" data-page="login"><svg class="login-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Login</a>
             </li>
             <li class="nav-item language-switcher">
-                <a href="/index.html" class="nav-link" title="Switch to Italian">🇮🇹 IT</a>
+                <a href="/index.html" class="nav-link" hreflang="it" lang="it" title="Versione italiana">IT</a>
             </li>
         </ul>
         <button type="button" class="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-menu">
@@ -68,7 +68,7 @@ const footerHTML = `
         <div class="footer-content">
             <div class="footer-brand">
                 <h2>NIUEXA</h2>
-                <p>Advanced AI Solutions for Your Business.</p>
+                <p>AI consulting for Italian SMEs. We measure the process first, then automate it.</p>
             </div>
             <div class="footer-links">
                 <div class="footer-column">
@@ -77,7 +77,6 @@ const footerHTML = `
                         <li><a href="/en/consulting.html">AI Consulting</a></li>
                         <li><a href="/en/training.html">AI Training</a></li>
                         <li><a href="/en/products.html">AI Products</a></li>
-                        <li><a href="/en/roi-calculator.html">ROI Calculator</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -96,7 +95,7 @@ const footerHTML = `
                         <li><a href="/en/about-us.html">About Us</a></li>
                         <li><a href="/en/careers.html">Careers</a></li>
                         <li><a href="/en/contact.html">Contact</a></li>
-                        <li><a href="/en/index.html#contact">Talk to Us</a></li>
+                        <li><a href="/en/index.html#contact">Show us a process</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -119,7 +118,7 @@ const footerHTML = `
         <div class="footer-bottom">
             <div class="footer-bottom-content">
                 <p class="footer-copyright">&copy; 2024-2026 Niuexa. All rights reserved.</p>
-                <p class="footer-company">NIUEXA S.R.L. · VAT and tax ID 13489560014 · REA TO-1366737</p>
+                <p class="footer-company">NIUEXA S.R.L. · VAT and tax ID 13489560014 · REA TO-1366737<br>Registered office: Via Vittorio Andreis 18, 10152 Turin · Office: Via Rutilia 10, 20141 Milan</p>
             </div>
         </div>
     </div>
