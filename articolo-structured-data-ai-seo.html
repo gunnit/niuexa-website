@@ -25,7 +25,7 @@
     })(window,document,'script','dataLayer','GTM-KG9S42S4');</script>
     <!-- End Google Tag Manager -->
 
-    <title>Structured Data per AI SEO: Guida Tecnica Avanzata 2025</title>
+    <title>Structured Data per AI SEO: Guida Tecnica Avanzata</title>
     <meta name="description" content="Guida tecnica a schema markup per ottimizzare contenuti per ChatGPT, Perplexity, Claude e Google AI Overviews. Esempi di codice e best practice.">
 
     <meta property="og:type" content="article">
@@ -38,7 +38,7 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="language" content="Italian">
     <meta property="article:published_time" content="2025-01-15T00:00:00+01:00">
-    <meta property="article:modified_time" content="2026-02-25T00:00:00+01:00">
+    <meta property="article:modified_time" content="2026-10-05T00:00:00+02:00">
     <meta property="article:author" content="Roberto Botto">
     <meta property="article:section" content="AI SEO">
 
@@ -73,7 +73,7 @@
             "@type": "Person",
             "@id": "https://niuexa.ai/chi-siamo.html#roberto-botto",
             "name": "Roberto Botto",
-            "jobTitle": "Founder & AI Consultant",
+            "jobTitle": "Co-founder",
             "url": "https://niuexa.ai/chi-siamo.html",
             "worksFor": {
                 "@type": "Organization",
@@ -90,7 +90,7 @@
             }
         },
         "datePublished": "2025-01-15",
-        "dateModified": "2026-02-25",
+        "dateModified": "2026-10-05",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://niuexa.ai/articolo-structured-data-ai-seo.html"
@@ -123,7 +123,7 @@
                 "name": "Cos'è lo schema markup e perché è importante per l'AI SEO?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Lo schema markup è un vocabolario standardizzato (schema.org) che permette di strutturare i dati delle pagine web in modo che motori di ricerca e piattaforme AI possano comprenderli facilmente. Per l'AI SEO è cruciale perché aiuta ChatGPT, Perplexity e altre AI a identificare, categorizzare e citare i contenuti. I dati mostrano che lo structured data può aumentare il CTR fino al 58%."
+                    "text": "Lo schema markup è un vocabolario standardizzato (schema.org) che permette di strutturare i dati delle pagine web in modo che motori di ricerca e piattaforme AI possano comprenderli facilmente. Per l'AI SEO è cruciale perché aiuta ChatGPT, Perplexity e altre AI a identificare, categorizzare e citare i contenuti. Rende inoltre la pagina idonea ai risultati arricchiti."
                 }
             },
             {
@@ -131,7 +131,7 @@
                 "name": "Quale formato di schema markup devo usare: JSON-LD, Microdata o RDFa?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "JSON-LD è il formato raccomandato da Google e il più semplice da implementare. Si inserisce nel tag <head> o alla fine del <body> senza modificare l'HTML del contenuto. È più facile da mantenere, debuggare e aggiornare. Microdata e RDFa richiedono modifiche inline all'HTML e sono più soggetti a errori."
+                    "text": "JSON-LD è il formato raccomandato da Google e il più semplice da implementare. Si inserisce nel tag \u003chead> o alla fine del \u003cbody> senza modificare l'HTML del contenuto. È più facile da mantenere, debuggare e aggiornare rispetto a Microdata e RDFa che richiedono modifiche inline all'HTML."
                 }
             },
             {
@@ -139,7 +139,23 @@
                 "name": "Quali tipi di schema sono più importanti per essere citati dalle AI?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "I tipi di schema più importanti per la visibilità AI sono: Organization (per identificare il brand), Article/TechArticle (per i contenuti), FAQPage (altamente citabile), HowTo (per guide procedurali), Product (per e-commerce), e Author/Person (per E-E-A-T). Perplexity in particolare valuta attentamente la qualità dello structured data."
+                    "text": "I tipi di schema più importanti per la visibilità AI sono: Organization (per identificare il brand), Article/TechArticle (per i contenuti), FAQPage (altamente citabile grazie al formato domanda-risposta), HowTo (per guide procedurali), e Author/Person (per dimostrare E-E-A-T). Perplexity in particolare valuta attentamente la qualità dello structured data."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Posso avere più blocchi JSON-LD sulla stessa pagina?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sì, si possono avere più blocchi \u003cscript type=\"application/ld+json\"> sulla stessa pagina. Anzi, è consigliato separare i diversi tipi di schema (Organization, Article, FAQPage) in blocchi distinti per maggiore chiarezza e facilità di manutenzione. Gli @id servono a creare riferimenti tra i blocchi."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Come verifico se il mio schema markup è corretto?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Con il Google Rich Results Test (search.google.com/test/rich-results) si verifica che non ci siano errori e che i rich results siano disponibili. Per una validazione tecnica più approfondita c'è lo Schema.org Validator (validator.schema.org). Dopo la pubblicazione conviene monitorare la sezione \"Miglioramenti\" in Google Search Console per errori su larga scala."
                 }
             }
         ]
@@ -163,7 +179,7 @@
             <div class="tutorial-intro">
                 <div class="tutorial-badge">Technical SEO</div>
                 <h1>Structured Data per AI SEO: Guida Tecnica Avanzata al Schema Markup</h1>
-                <p class="tutorial-description">Lo schema markup è il linguaggio che permette alle piattaforme AI di comprendere i tuoi contenuti. In questa guida tecnica avanzata, esploreremo l'implementazione completa di structured data per massimizzare la visibilità su ChatGPT, Perplexity, Claude e Google AI Overviews. Esempi di codice pronti all'uso, best practice e una checklist di audit completa.</p>
+                <p class="tutorial-description">Lo schema markup è il linguaggio che permette alle piattaforme AI di comprendere i contenuti di un sito. In questa guida tecnica avanzata, esploreremo l'implementazione completa di structured data per massimizzare la visibilità su ChatGPT, Perplexity, Claude e Google AI Overviews. Esempi di codice pronti all'uso, best practice e una checklist di audit completa.</p>
                 <div class="tutorial-stats">
                     <span class="stat">50 minuti di lettura</span>
                     <span class="stat">Per Developer & Technical SEO</span>
@@ -171,9 +187,9 @@
                 </div>
                 <div class="article-meta">
                     <address class="author-info">
-                        Di <a rel="author" href="chi-siamo.html">Roberto Botto</a>, Founder &amp; AI Consultant — <a href="https://niuexa.ai">Niuexa</a>
+                        Di <a rel="author" href="chi-siamo.html">Roberto Botto</a>, co-founder di <a href="https://niuexa.ai">Niuexa</a>
                     </address>
-                    <time datetime="2025-01-15">15 Gennaio 2025</time> · Aggiornato: <time datetime="2026-02-25">25 Febbraio 2026</time>
+                    <time datetime="2025-01-15">15 Gennaio 2025</time> · Aggiornato: <time datetime="2026-10-05">5 Ottobre 2026</time>
                 </div>
             </div>
         </div>
@@ -186,7 +202,7 @@
                 <!-- Quick Summary for AI -->
                 <section class="content-section quick-answer">
                     <h2>Sintesi: Structured Data per AI SEO</h2>
-                    <p>Lo structured data (schema markup) è fondamentale per la visibilità AI perché rende i contenuti machine-readable. I tipi essenziali sono: Organization (identità brand), Article (contenuti), FAQPage (domande-risposte), HowTo (guide), e Author (credibilità). Il formato consigliato è JSON-LD, inserito nel <code>&lt;head&gt;</code>. Perplexity valuta particolarmente la qualità dello schema markup. L'implementazione corretta può aumentare il CTR fino al 58% e migliorare significativamente le probabilità di citazione AI.</p>
+                    <p>Lo structured data (schema markup) è fondamentale per la visibilità AI perché rende i contenuti machine-readable. I tipi essenziali sono: Organization (identità brand), Article (contenuti), FAQPage (domande-risposte), HowTo (guide), e Author (credibilità). Il formato consigliato è JSON-LD, inserito nel <code>&lt;head&gt;</code>. Perplexity valuta particolarmente la qualità dello schema markup. L'implementazione corretta può aumentare la visibilità nei risultati arricchiti e le probabilità di citazione AI.</p>
                 </section>
 
                 <section id="intro" class="content-section">
@@ -196,7 +212,7 @@
                     <div class="case-study-intro">
                         <h3>L'Impatto dei Dati Strutturati</h3>
                         <ul>
-                            <li><strong>+58%</strong> potenziale aumento del CTR con structured data correttamente implementato</li>
+                            <li><strong>Rich results:</strong> lo structured data corretto rende la pagina idonea ai risultati arricchiti, che attirano più clic</li>
                             <li><strong>Perplexity</strong> mostra "sofisticazione tecnica nell'analisi dei dati strutturati e del markup semantico"</li>
                             <li><strong>Google AI Overviews</strong> utilizzano lo schema per comprendere le relazioni tra entità</li>
                             <li><strong>Featured Snippet</strong> favoriscono contenuti con FAQPage e HowTo schema</li>
@@ -445,7 +461,7 @@
                     <div class="case-study-intro">
                         <h3>Perché FAQPage è Cruciale</h3>
                         <ul>
-                            <li>Le AI rispondono a domande &mdash; FAQ è il formato perfetto</li>
+                            <li>Le AI rispondono a domande: la FAQ è il formato perfetto</li>
                             <li>Featured Snippet prediligono contenuti FAQ strutturati</li>
                             <li>Google mostra FAQ direttamente nei risultati di ricerca</li>
                             <li>Aumenta lo spazio occupato in SERP</li>
@@ -958,7 +974,7 @@
 
                     <div class="faq-item">
                         <h3>Cos'è lo schema markup e perché è importante per l'AI SEO?</h3>
-                        <p>Lo schema markup è un vocabolario standardizzato (schema.org) che permette di strutturare i dati delle pagine web in modo che motori di ricerca e piattaforme AI possano comprenderli facilmente. Per l'AI SEO è cruciale perché aiuta ChatGPT, Perplexity e altre AI a identificare, categorizzare e citare i contenuti. I dati mostrano che lo structured data può aumentare il CTR fino al 58%.</p>
+                        <p>Lo schema markup è un vocabolario standardizzato (schema.org) che permette di strutturare i dati delle pagine web in modo che motori di ricerca e piattaforme AI possano comprenderli facilmente. Per l'AI SEO è cruciale perché aiuta ChatGPT, Perplexity e altre AI a identificare, categorizzare e citare i contenuti. Rende inoltre la pagina idonea ai risultati arricchiti.</p>
                     </div>
 
                     <div class="faq-item">
@@ -973,12 +989,12 @@
 
                     <div class="faq-item">
                         <h3>Posso avere più blocchi JSON-LD sulla stessa pagina?</h3>
-                        <p>Sì, puoi avere più blocchi &lt;script type="application/ld+json"&gt; sulla stessa pagina. Anzi, è consigliato separare i diversi tipi di schema (Organization, Article, FAQPage) in blocchi distinti per maggiore chiarezza e facilità di manutenzione. Usa gli @id per creare riferimenti tra i blocchi.</p>
+                        <p>Sì, si possono avere più blocchi &lt;script type="application/ld+json"&gt; sulla stessa pagina. Anzi, è consigliato separare i diversi tipi di schema (Organization, Article, FAQPage) in blocchi distinti per maggiore chiarezza e facilità di manutenzione. Gli @id servono a creare riferimenti tra i blocchi.</p>
                     </div>
 
                     <div class="faq-item">
                         <h3>Come verifico se il mio schema markup è corretto?</h3>
-                        <p>Usa il Google Rich Results Test (search.google.com/test/rich-results) per verificare che non ci siano errori e che i rich results siano disponibili. Per una validazione tecnica più approfondita, usa Schema.org Validator (validator.schema.org). Dopo la pubblicazione, monitora la sezione "Miglioramenti" in Google Search Console per errori su larga scala.</p>
+                        <p>Con il Google Rich Results Test (search.google.com/test/rich-results) si verifica che non ci siano errori e che i rich results siano disponibili. Per una validazione tecnica più approfondita c'è lo Schema.org Validator (validator.schema.org). Dopo la pubblicazione conviene monitorare la sezione "Miglioramenti" in Google Search Console per errori su larga scala.</p>
                     </div>
                 </section>
 
@@ -986,7 +1002,7 @@
                     <h2>Conclusione: Lo Schema Markup è il Fondamento della Visibilità AI</h2>
                     <p>Lo structured data non è più opzionale per chi vuole visibilità sulle piattaforme AI. È il linguaggio che permette a ChatGPT, Perplexity, Claude e Google AI Overviews di comprendere chi sei, cosa offri e perché sei affidabile.</p>
 
-                    <h3>Il Tuo Piano d'Azione Tecnico</h3>
+                    <h3>Il Piano d'Azione Tecnico</h3>
                     <ol>
                         <li><strong>Audit immediato:</strong> Verifica robots.txt e implementazione schema attuale</li>
                         <li><strong>Priorità 1:</strong> Implementa Organization e WebSite schema su tutto il sito</li>
@@ -1028,16 +1044,19 @@
 
     <div class="page-meta author-bio" itemscope itemtype="https://schema.org/Person">
         <h3>Autore</h3>
-        <p><strong itemprop="name">Roberto Botto</strong> — <span itemprop="jobTitle">Founder e AI Consultant</span> di <a href="https://niuexa.ai" itemprop="worksFor">Niuexa</a>. Esperto di structured data, schema markup e ottimizzazione tecnica per la visibilità nelle piattaforme di intelligenza artificiale. <a href="chi-siamo.html" rel="author">Profilo completo</a> · <a href="https://www.linkedin.com/company/niuexa" rel="noopener" target="_blank">LinkedIn</a></p>
-        <p>Ultimo aggiornamento: <time datetime="2026-02-25">25 Febbraio 2026</time></p>
+        <p><strong itemprop="name">Roberto Botto</strong>, <span itemprop="jobTitle">co-founder</span> di <a href="https://niuexa.ai" itemprop="worksFor">Niuexa</a>, è fondatore e CEO di Libera Brand Building Group e lavora da oltre 25 anni nella comunicazione digitale e nel marketing. <a href="chi-siamo.html" rel="author">Profilo completo</a> · <a href="https://www.linkedin.com/company/niuexa" rel="noopener" target="_blank">LinkedIn</a></p>
+        <p>Ultimo aggiornamento: <time datetime="2026-10-05">5 Ottobre 2026</time></p>
     </div>
 
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <h2>Serve Aiuto con i Dati Strutturati per AI SEO?</h2>
-            <p>Il team Niuexa implementa schema markup avanzato e strategie di structured data per massimizzare la visibilit&agrave; del tuo sito nelle risposte AI.</p>
-            <a href="/consulting.html" class="btn btn-primary">Parla con un Esperto Niuexa</a>
+            <h2>Come descrivono la Sua azienda le AI?</h2>
+            <p>Il check di visibilit&agrave; AI analizza se il Suo sito &egrave; leggibile per ChatGPT, Perplexity e Google AI Overviews, schema markup compreso. Per parlarne con noi, la prima chiamata di 30 minuti &egrave; gratuita e senza impegno.</p>
+            <div class="cta-buttons">
+                <a href="index.html#contact" class="btn btn-primary">Prenoti la prima chiamata</a>
+                <a href="ai-readiness-tool.html" class="btn btn-secondary">Check di visibilit&agrave; AI</a>
+            </div>
         </div>
     </section>
 
