@@ -1,0 +1,1639 @@
+/* ============================================================
+   AI visibility analysis page
+   (ai-readiness-tool.html + en/ai-readiness-tool.html)
+   Loaded after polish.css; everything is scoped to
+   body.readiness-tool-page. Same language as the homepage, the
+   consulting page and the paid landing: dark left-aligned hero,
+   navy left-aligned headings, hairline cards with pinned footers,
+   drawn SVG icons, no gradient text.
+   The Italian page still ends with an inline <style> block that is
+   shared with an unmerged branch and stays as it is; the few rules
+   here that must beat its !important declarations say so.
+   Tokens from styles.css only.
+   ============================================================ */
+
+.readiness-tool-page {
+    --rt-section: clamp(64px, 8vw, 104px);
+    --rt-hairline-dark: color-mix(in srgb, var(--white) 16%, transparent);
+    --rt-radius: 16px;
+}
+
+/* Panels toggled with the hidden attribute must stay hidden whatever
+   display a component rule sets */
+.readiness-tool-page [hidden] {
+    display: none !important;
+}
+
+/* ---------- Shared section rhythm ---------- */
+.readiness-tool-page .rt-checklist,
+.readiness-tool-page .rt-video,
+.readiness-tool-page .rt-problem,
+.readiness-tool-page .rt-features,
+.readiness-tool-page .rt-modes,
+.readiness-tool-page .rt-process,
+.readiness-tool-page .rt-enterprise,
+.readiness-tool-page .rt-report,
+.readiness-tool-page .rt-faq,
+.readiness-tool-page .rt-contact {
+    padding: var(--rt-section) 0;
+}
+
+.readiness-tool-page .rt-checklist,
+.readiness-tool-page .rt-problem,
+.readiness-tool-page .rt-modes,
+.readiness-tool-page .rt-enterprise,
+.readiness-tool-page .rt-faq {
+    background: var(--light-gray);
+}
+
+.readiness-tool-page .rt-video,
+.readiness-tool-page .rt-features,
+.readiness-tool-page .rt-process,
+.readiness-tool-page .rt-report {
+    background: var(--white);
+}
+
+.readiness-tool-page .rt-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* Shared focus ring */
+.readiness-tool-page main .btn:focus-visible,
+.readiness-tool-page main summary:focus-visible {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 3px;
+}
+
+.readiness-tool-page .rt-hero .btn:focus-visible {
+    outline-color: var(--white);
+}
+
+/* ---------- Drawn list markers ---------- */
+.readiness-tool-page .rt-ticks,
+.readiness-tool-page .rt-crosses {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--border-light);
+}
+
+.readiness-tool-page .rt-ticks li,
+.readiness-tool-page .rt-crosses li {
+    position: relative;
+    padding: 0.6rem 0 0.6rem 1.6rem;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 0.98rem;
+    line-height: 1.5;
+    color: var(--dark-gray);
+}
+
+.readiness-tool-page .rt-ticks li:last-child,
+.readiness-tool-page .rt-crosses li:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.readiness-tool-page .rt-ticks li::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 1rem;
+    width: 10px;
+    height: 5px;
+    border-left: 2px solid var(--green-text);
+    border-bottom: 2px solid var(--green-text);
+    transform: rotate(-45deg);
+}
+
+.readiness-tool-page .rt-crosses li::before,
+.readiness-tool-page .rt-crosses li::after {
+    content: '';
+    position: absolute;
+    left: 1px;
+    top: 1.25rem;
+    width: 12px;
+    height: 2px;
+    border-radius: 1px;
+    background: var(--error-text);
+    transform: rotate(45deg);
+}
+
+.readiness-tool-page .rt-crosses li::after {
+    transform: rotate(-45deg);
+}
+
+.readiness-tool-page .rt-bullets {
+    margin: 0;
+    padding-left: 1.15rem;
+    line-height: 1.55;
+    color: var(--medium-gray);
+}
+
+.readiness-tool-page .rt-bullets li + li {
+    margin-top: 0.45rem;
+}
+
+.readiness-tool-page .rt-bullets strong {
+    color: var(--dark-gray);
+}
+
+/* ---------- Hero ---------- */
+.readiness-tool-page .rt-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: clamp(120px, 13vw, 160px) 0 clamp(64px, 8vw, 96px);
+    background: var(--gradient-hero-dark);
+    color: var(--white);
+}
+
+/* A still spectrum glow on the right edge */
+.readiness-tool-page .rt-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(55% 75% at 92% 15%, color-mix(in srgb, var(--brand-teal) 22%, transparent), transparent 70%),
+        radial-gradient(45% 60% at 100% 100%, color-mix(in srgb, var(--primary-green) 14%, transparent), transparent 70%);
+    pointer-events: none;
+}
+
+.readiness-tool-page .rt-hero-content {
+    max-width: 780px;
+}
+
+.readiness-tool-page .rt-hero .hero-title {
+    max-width: 20ch;
+    margin: 0 0 1.5rem;
+    font-size: clamp(2.3rem, 5vw, 3.6rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    text-align: left;
+    color: var(--white);
+    opacity: 1;
+    transform: none;
+    animation: none;
+}
+
+.readiness-tool-page .rt-hero .hero-title .highlight {
+    position: static;
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    color: var(--signal-on-dark);
+}
+
+.readiness-tool-page .rt-hero .hero-title .highlight::after {
+    display: none;
+}
+
+.readiness-tool-page .rt-hero .hero-subtitle {
+    max-width: 60ch;
+    margin: 0 0 2.25rem;
+    padding: 0;
+    font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+    line-height: 1.7;
+    text-align: left;
+    color: var(--white);
+    opacity: 1;
+    transform: none;
+    animation: none;
+}
+
+/* Three steps as a hairline row, not big numbers */
+.readiness-tool-page .rt-hero-steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 720px;
+    margin: 0 0 2.25rem;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--rt-hairline-dark);
+}
+
+.readiness-tool-page .rt-hero-steps li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1rem 1.25rem 0 0;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--white);
+}
+
+.readiness-tool-page .rt-hero-steps span {
+    font-family: var(--font-primary);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--signal-on-dark);
+}
+
+.readiness-tool-page .rt-hero-note {
+    max-width: 60ch;
+    margin: 1.25rem 0 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--muted-on-dark);
+}
+
+/* ---------- Checklist ---------- */
+.readiness-tool-page .rt-check-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin: 0 0 1.25rem;
+}
+
+.readiness-tool-page .rt-check-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--rt-radius);
+    box-shadow: var(--polish-card-shadow);
+}
+
+.readiness-tool-page .rt-check-card h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0 0 1rem;
+    font-size: 1.15rem;
+    line-height: 1.3;
+    color: var(--dark-gray);
+}
+
+.readiness-tool-page .rt-check-num {
+    display: grid;
+    place-items: center;
+    flex: 0 0 36px;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--light-blue);
+    color: var(--blue-text);
+    font-size: 0.95rem;
+}
+
+.readiness-tool-page .rt-check-card ol {
+    margin: 0;
+    padding-left: 1.6rem;
+    line-height: 1.55;
+    color: var(--medium-gray);
+}
+
+.readiness-tool-page .rt-check-card li + li {
+    margin-top: 0.6rem;
+}
+
+.readiness-tool-page .rt-check-card li::marker {
+    font-weight: 700;
+    color: var(--blue-text);
+}
+
+.readiness-tool-page .rt-check-verdict {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem 2rem;
+    padding: 1.5rem 1.75rem;
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--rt-radius);
+    box-shadow: var(--polish-card-shadow);
+}
+
+.readiness-tool-page .rt-check-verdict p {
+    flex: 1 1 420px;
+    max-width: 62ch;
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--dark-gray);
+}
+
+/* ---------- Video ---------- */
+/* The player and the note under it are centred (their inline styles
+   belong to the privacy branch), so the heading is centred too */
+.readiness-tool-page .rt-video .section-header {
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.readiness-tool-page main .rt-video .section-title {
+    margin: 0 auto 1rem;
+    text-align: center;
+}
+
+.readiness-tool-page main .rt-video .section-subtitle {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.readiness-tool-page .rt-video .video-container {
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: var(--rt-radius);
+    overflow: hidden;
+    box-shadow: var(--polish-card-shadow);
+}
+
+.readiness-tool-page .rt-video video {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: var(--black);
+}
+
+/* ---------- Problem ---------- */
+.readiness-tool-page .rt-problem-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin: 0 0 1.5rem;
+}
+
+.readiness-tool-page .rt-problem-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.75rem;
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--rt-radius);
+    box-shadow: var(--polish-card-shadow);
+}
+
+.readiness-tool-page .rt-problem-head {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin: 0 0 1.25rem;
+}
+
+.readiness-tool-page main .rt-problem-head .icon-tile {
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    border-radius: 12px;
+}
+
+.readiness-tool-page main .rt-problem-head .icon-tile svg {
+    width: 22px;
+    height: 22px;
+}
+
+.readiness-tool-page main .rt-icon-tile--error {
+    background: var(--error-surface);
+    color: var(--error-text);
+}
+
+.readiness-tool-page .rt-problem-head h3 {
+    margin: 0;
+    font-size: 1.15rem;
+    line-height: 1.3;
+    color: var(--dark-gray);
+}
+
+.readiness-tool-page .rt-prompt {
+    margin: 0 0 1.25rem;
+    padding: 1rem 1.25rem;
+    background: var(--light-gray);
+    border-radius: 12px;
+}
+
+.readiness-tool-page .rt-prompt p {
+    margin: 0;
+    font-style: italic;
+    line-height: 1.55;
+    color: var(--dark-gray);
+}
+
+.readiness-tool-page .rt-problem-label {
+    margin: 0 0 0.5rem;
+    font-size: 0.95rem;
+    color: var(--medium-gray);
+}
+
+.readiness-tool-page .rt-prompt-list {
+    margin: 0;
+    padding-left: 1.15rem;
+    line-height: 1.6;
+    color: var(--medium-gray);
+}
+
+.readiness-tool-page .rt-outcome {
+    margin: 0 0 1rem;
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+}
+
+.readiness-tool-page .rt-outcome--miss {
+    background: var(--error-surface);
+}
+
+.readiness-tool-page .rt-outcome--hit {
+    background: var(--success-surface);
+}
+
+.readiness-tool-page .rt-outcome p {
+    margin: 0;
+    line-height: 1.55;
+    color: var(--dark-gray);
+}
+
+.readiness-tool-page .rt-outcome p + p {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.readiness-tool-page .rt-outcome .rt-outcome-title {
+    font-weight: 700;
+}
+
+/* Result pinned to the bottom of its card */
+.readiness-tool-page .rt-result {
+    margin: auto 0 0;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-light);
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.readiness-tool-page .rt-result--miss {
+    color: var(--error-text);
+}
+
+.readiness-tool-page .rt-result--hit {
+    color: var(--green-text);
+}
+
+.readiness-tool-page .rt-stat-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+    gap: 1rem 2.5rem;
+    align-items: center;
+    padding: clamp(1.5rem, 3vw, 2.25rem) clamp(1.5rem, 3vw, 2.5rem);
+    background: var(--dark-gray);
+    border-radius: var(--rt-radius);
+    color: var(--white);
+}
+
+.readiness-tool-page .rt-stat-figure {
+    margin: 0;
+    font-family: var(--font-primary);
+    line-height: 1.1;
+}
+
+.readiness-tool-page .rt-stat-number {
+    display: block;
+    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--white);
+}
+
+.readiness-tool-page .rt-stat-unit {
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--signal-on-dark);
+}
+
+.readiness-tool-page .rt-stat-text {
+    margin: 0;
+    line-height: 1.65;
+    color: var(--white);
+}
+
+/* Beats polish.css's light-surface link colour (.polished main p a:not(.btn)...) */
+.readiness-tool-page main .rt-stat-panel .rt-stat-text a:not(.btn):not([class*="btn"]) {
+    color: var(--white);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.readiness-tool-page main .rt-stat-panel .rt-stat-text a:not(.btn):not([class*="btn"]):hover,
+.readiness-tool-page main .rt-stat-panel .rt-stat-text a:not(.btn):not([class*="btn"]):focus-visible {
+    color: var(--signal-on-dark);
+}
+
+.readiness-tool-page main .rt-stat-panel a:focus-visible {
+    outline: 2px solid var(--white);
+    outline-offset: 2px;
+}
+
+.readiness-tool-page .rt-problem-close {
+    max-width: 62ch;
+    margin-top: 2.5rem;
+}
+
+.readiness-tool-page .rt-problem-close p {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--medium-gray);
+}
+
+.readiness-tool-page .rt-problem-close .rt-problem-close-lead {
+    margin-bottom: 0.5rem;
+    font-family: var(--font-primary);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--dark-gray);
+}
+
+/* ---------- Features ---------- */
+.readiness-tool-page .rt-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.readiness-tool-page .rt-feature-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.75rem;
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--rt-radius);
+    box-shadow: var(--polish-card-shadow);
+}
+
+.readiness-tool-page .rt-feature-card h3 {
+    margin: 0 0 0.6rem;
+    font-size: 1.2rem;
+    line-height: 1.3;
+    color: var(--dark-gray);
+}
+
+.readiness-tool-page .rt-feature-card > p {
+    margin: 0 0 1.25rem;
+    line-height: 1.6;
+    color: var(--medium-gray);
+}
+
+.readiness-tool-page .rt-feature-card .rt-ticks {
+    margin-top: auto;
+}
+
+/* ---------- Modes (Free, Business, Enterprise) ---------- */
+.readiness-tool-page .rt-mode-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+    align-items: stretch;
+}
+
+.readiness-tool-page .rt-mode-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.75rem;
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--rt-radius);
+    box-shadow: var(--polish-card-shadow);
+}
+
+.readiness-tool-page .rt-mode-head {
+    margin: 0 0 1.25rem;
+    padding: 0 0 1.25rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.readiness-tool-page .rt-mode-head h3 {
+    margin: 0 0 0.25rem;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    color: var(--dark-gray);
+}
+
+.readiness-tool-page .rt-mode-for {
+    margin: 0 0 1rem;
+    line-height: 1.5;
+    color: var(--medium-gray);
+}
+
+.readiness-tool-page .rt-mode-cost {
+    display: inline-flex;
+    margin: 0;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    background: var(--info-surface);
+    color: var(--blue-text);
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.readiness-tool-page .rt-mode-cost--free {
+    background: var(--success-surface);
+    color: var(--green-text);
+}
+
+.readiness-tool-page .rt-mode-terms {
+    margin: 0.75rem 0 0;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--medium-gray);
+}
+
+.readiness-tool-page .rt-mode-body h4,
+.readiness-tool-page .rt-mode-details h4 {
+    margin: 1.5rem 0 0.6rem;
+    font-size: 1rem;
+    line-height: 1.3;
+    color: var(--dark-gray);
+}
+
+.readiness-tool-page .rt-mode-body > h4:first-child,
+.readiness-tool-page .rt-mode-details > h4:first-child {
+    margin-top: 0;
+}
+
+/* Accordions inside the cards */
+.readiness-tool-page .rt-acc {
+    border-top: 1px solid var(--border-light);
+}
+
+.readiness-tool-page .rt-acc + h4 {
+    padding-top: 1.5rem;
+    margin-top: 0;
+    border-top: 1px solid var(--border-light);
+}
+
+.readiness-tool-page .rt-acc-head {
+    margin: 0;
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.readiness-tool-page .rt-acc-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    width: 100%;
+    min-height: 48px;
+    padding: 0.5rem 0;
+    background: none;
+    border: 0;
+    color: var(--dark-gray);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.readiness-tool-page .rt-acc-btn svg {
+    flex: 0 0 18px;
+    width: 18px;
+    height: 18px;
+    color: var(--blue-text);
+    transition: transform var(--transition-fast);
+}
+
+.readiness-tool-page .rt-acc-btn[aria-expanded="true"] svg {
+    transform: rotate(180deg);
+}
+
+.readiness-tool-page .rt-acc-btn:hover {
+    color: var(--blue-text);
+}
+
+.readiness-tool-page .rt-acc-btn:focus-visible {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+.readiness-tool-page .rt-acc-panel {
+    padding-bottom: 1rem;
+}
+
+.readiness-tool-page .rt-acc-panel.rt-ticks,
+.readiness-tool-page .rt-acc-panel .rt-ticks {
+    border-top: 0;
+}
+
+.readiness-tool-page .rt-acc-panel.rt-ticks li:first-child,
+.readiness-tool-page .rt-acc-panel .rt-ticks li:first-child {
+    padding-top: 0.2rem;
+}
+
+.readiness-tool-page .rt-acc-panel.rt-ticks li:first-child::before,
+.readiness-tool-page .rt-acc-panel .rt-ticks li:first-child::before {
+    top: 0.6rem;
+}
+
+.readiness-tool-page .rt-acc-note {
+    margin: 0 0 0.5rem;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--medium-gray);
+}
+
+/* Footer pinned to the bottom so the three cards line up */
+.readiness-tool-page .rt-mode-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.6rem;
+    margin-top: auto;
+    padding-top: 1.75rem;
+}
+
+.readiness-tool-page .rt-mode-actions .btn,
+.readiness-tool-page .rt-mode-actions .rt-toggle {
+    width: 100%;
+}
+
+.readiness-tool-page .rt-toggle {
+    min-height: 44px;
+    padding: 0.5rem 1.2rem;
+    background: var(--white);
+    border: 1px solid var(--border-medium);
+    border-radius: 50px;
+    color: var(--dark-gray);
+    font-family: var(--font-secondary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.readiness-tool-page .rt-toggle:hover {
+    border-color: var(--primary-blue);
+    color: var(--blue-text);
+}
+
+.readiness-tool-page .rt-toggle:focus-visible {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 3px;
+}
+
+.readiness-tool-page .rt-mode-details {
+    margin-top: 1rem;
+    padding: 1.25rem;
+    background: var(--light-gray);
+    border-radius: 12px;
+}
+
+.readiness-tool-page .rt-mode-details .rt-ticks,
+.readiness-tool-page .rt-mode-details .rt-crosses {
+    border-top: 0;
+}
+
+.readiness-tool-page .rt-mode-details .rt-ticks li:first-child,
+.readiness-tool-page .rt-mode-details .rt-crosses li:first-child {
+    padding-top: 0.2rem;
+}
+
+.readiness-tool-page .rt-mode-details .rt-ticks li:first-child::before {
+    top: 0.6rem;
+}
+
+.readiness-tool-page .rt-mode-details .rt-crosses li:first-child::before,
+.readiness-tool-page .rt-mode-details .rt-crosses li:first-child::after {
+    top: 0.85rem;
+}
+
+.readiness-tool-page .rt-modes-note {
+    max-width: 72ch;
+    margin: 1.5rem 0 0;
+    line-height: 1.65;
+    color: var(--medium-gray);
+}
+
+/* ---------- Business process ---------- */
+.readiness-tool-page .rt-steps {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.readiness-tool-page .rt-step {
+    display: flex;
+    flex-direction: column;
+    padding: 1.75rem;
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--rt-radius);
+    box-shadow: var(--polish-card-shadow);
+}
+
+.readiness-tool-page .rt-step-num {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    margin: 0 0 1.25rem;
+    border-radius: 12px;
+    background: var(--light-blue);
+    color: var(--blue-text);
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.readiness-tool-page .rt-step h3 {
+    margin: 0 0 0.6rem;
+    font-size: 1.15rem;
+    line-height: 1.3;
+    color: var(--dark-gray);
+}
+
+.readiness-tool-page .rt-step p {
+    margin: 0;
+    line-height: 1.6;
+    color: var(--medium-gray);
+}
+
+/* ---------- Enterprise process ---------- */
+.readiness-tool-page .rt-phases-panel {
+    margin: 0 0 3rem;
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--rt-radius);
+    box-shadow: var(--polish-card-shadow);
+}
+
+.readiness-tool-page .rt-phases-panel h3 {
+    margin: 0 0 1.75rem;
+    font-size: 1.25rem;
+    line-height: 1.3;
+    color: var(--dark-gray);
+}
+
+.readiness-tool-page .rt-phases {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Decorative line behind the dots; no text sits on it */
+.readiness-tool-page .rt-phases::before {
+    content: '';
+    position: absolute;
+    top: 9px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--gradient-primary);
+}
+
+.readiness-tool-page .rt-phases li {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding-top: 2.1rem;
+}
+
+.readiness-tool-page .rt-phases li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    box-sizing: border-box;
+    border: 4px solid var(--primary-blue);
+    border-radius: 50%;
+    background: var(--white);
+}
+
+.readiness-tool-page .rt-phases li:nth-child(even)::before {
+    border-color: var(--primary-green);
+}
+
+.readiness-tool-page .rt-phase-label {
+    font-family: var(--font-primary);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--signal);
+}
+
+.readiness-tool-page .rt-phase-name {
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--dark-gray);
+}
+
+.readiness-tool-page .rt-subhead {
+    margin: 0 0 1.25rem;
+    font-size: 1.35rem;
+    line-height: 1.3;
+    color: var(--dark-gray);
+}
+
+.readiness-tool-page .rt-flow-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin: 0 0 1.25rem;
+}
+
+.readiness-tool-page .rt-flow-card {
+    padding: 1.75rem;
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--rt-radius);
+    box-shadow: var(--polish-card-shadow);
+}
+
+.readiness-tool-page .rt-flow-card h4 {
+    margin: 0 0 1rem;
+    font-size: 1.15rem;
+    line-height: 1.3;
+    color: var(--dark-gray);
+}
+
+.readiness-tool-page .rt-flow-card dl {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    gap: 0.6rem 1rem;
+    margin: 0;
+}
+
+.readiness-tool-page .rt-flow-card dt {
+    font-weight: 700;
+    line-height: 1.55;
+    color: var(--dark-gray);
+}
+
+.readiness-tool-page .rt-flow-card dd {
+    margin: 0;
+    line-height: 1.55;
+    color: var(--medium-gray);
+}
+
+.readiness-tool-page .rt-flow-card dd:last-child {
+    font-weight: 600;
+    color: var(--green-text);
+}
+
+/* ---------- Sample report ---------- */
+.readiness-tool-page .rt-report-card {
+    max-width: 900px;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 20px;
+    box-shadow: var(--polish-card-shadow);
+}
+
+.readiness-tool-page .rt-report-head {
+    margin: 0 0 1.75rem;
+    padding: 0 0 1.25rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.readiness-tool-page .rt-report-head h3 {
+    margin: 0 0 0.3rem;
+    font-size: 1.5rem;
+    line-height: 1.25;
+    color: var(--dark-gray);
+}
+
+.readiness-tool-page .rt-report-head p {
+    margin: 0;
+    color: var(--medium-gray);
+}
+
+.readiness-tool-page .rt-report-block + .rt-report-block {
+    margin-top: 2rem;
+}
+
+.readiness-tool-page .rt-report-block h4 {
+    margin: 0 0 1rem;
+    font-size: 1.1rem;
+    line-height: 1.3;
+    color: var(--blue-text);
+}
+
+.readiness-tool-page .rt-score {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Example score as a 30% arc */
+.readiness-tool-page .rt-score-ring {
+    display: grid;
+    place-items: center;
+    flex: 0 0 96px;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: conic-gradient(var(--error) 0 30%, var(--border-light) 30% 100%);
+}
+
+.readiness-tool-page .rt-score-ring span {
+    display: grid;
+    place-items: center;
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: var(--white);
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--error-text);
+}
+
+.readiness-tool-page .rt-score p {
+    margin: 0;
+    line-height: 1.55;
+    color: var(--medium-gray);
+}
+
+.readiness-tool-page .rt-score .rt-score-status {
+    margin-bottom: 0.25rem;
+    font-weight: 700;
+    color: var(--error-text);
+}
+
+.readiness-tool-page .rt-fixes {
+    display: grid;
+    gap: 0.75rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.readiness-tool-page .rt-fix {
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+}
+
+.readiness-tool-page .rt-fix--high {
+    background: var(--error-surface);
+}
+
+.readiness-tool-page .rt-fix--mid {
+    background: var(--warning-surface);
+}
+
+.readiness-tool-page .rt-fix--low {
+    background: var(--success-surface);
+}
+
+.readiness-tool-page .rt-fix-priority {
+    display: block;
+    margin: 0 0 0.3rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.readiness-tool-page .rt-fix--high .rt-fix-priority {
+    color: var(--error-text);
+}
+
+.readiness-tool-page .rt-fix--mid .rt-fix-priority {
+    color: var(--warning-text);
+}
+
+.readiness-tool-page .rt-fix--low .rt-fix-priority {
+    color: var(--green-text);
+}
+
+.readiness-tool-page .rt-fix strong {
+    display: block;
+    color: var(--dark-gray);
+}
+
+.readiness-tool-page .rt-fix p {
+    margin: 0.35rem 0 0;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--dark-gray);
+}
+
+.readiness-tool-page .rt-report-foot {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+}
+
+.readiness-tool-page .rt-report-foot p {
+    margin: 0;
+    color: var(--medium-gray);
+}
+
+/* Wide screens: score on the left, fixes on the right */
+@media (min-width: 900px) {
+    .readiness-tool-page .rt-report-card {
+        display: grid;
+        grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+        column-gap: clamp(2rem, 4vw, 3.5rem);
+        max-width: none;
+    }
+
+    .readiness-tool-page .rt-report-head,
+    .readiness-tool-page .rt-report-foot {
+        grid-column: 1 / -1;
+    }
+
+    .readiness-tool-page .rt-report-block + .rt-report-block {
+        margin-top: 0;
+    }
+
+    .readiness-tool-page .rt-score {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+    }
+
+    .readiness-tool-page .rt-score-ring {
+        flex-basis: auto;
+        width: 120px;
+        height: 120px;
+    }
+
+    .readiness-tool-page .rt-score-ring span {
+        width: 96px;
+        height: 96px;
+        font-size: 1.8rem;
+    }
+}
+
+/* ---------- FAQ: title column + hairline list ---------- */
+.readiness-tool-page .rt-faq-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    column-gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
+}
+
+.readiness-tool-page main .rt-faq-intro .section-title {
+    margin: 0 0 1rem;
+}
+
+.readiness-tool-page .rt-faq-intro > p {
+    margin: 0;
+    line-height: 1.7;
+    color: var(--medium-gray);
+}
+
+.readiness-tool-page .rt-faq-list {
+    border-top: 1px solid var(--border-light);
+}
+
+.readiness-tool-page .rt-faq-list details.faq-item summary h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--dark-gray);
+    transition: color var(--transition-fast);
+}
+
+.readiness-tool-page .rt-faq-list details.faq-item summary:hover h3 {
+    color: var(--blue-text);
+}
+
+.readiness-tool-page .rt-faq-list details.faq-item p {
+    max-width: 68ch;
+    margin: 0 0 1.5rem;
+    padding: 0;
+    line-height: 1.7;
+    color: var(--medium-gray);
+}
+
+.readiness-tool-page .rt-faq-cta {
+    margin-top: 2rem;
+    padding: 1.75rem;
+    background: var(--dark-gray);
+    border-radius: var(--rt-radius);
+    color: var(--white);
+}
+
+.readiness-tool-page .rt-faq-cta h3 {
+    margin: 0 0 0.6rem;
+    font-size: 1.25rem;
+    color: var(--white);
+}
+
+.readiness-tool-page .rt-faq-cta p {
+    margin: 0 0 1.25rem;
+    line-height: 1.65;
+    color: var(--muted-on-dark);
+}
+
+.readiness-tool-page .rt-faq-cta .btn-primary {
+    background: var(--white);
+    color: var(--blue-text);
+    box-shadow: none;
+}
+
+.readiness-tool-page .rt-faq-cta .btn-primary:hover {
+    color: var(--dark-blue);
+}
+
+.readiness-tool-page .rt-faq-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 44px;
+    margin-top: 0.5rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--white);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.readiness-tool-page .rt-faq-link svg {
+    flex: 0 0 16px;
+    width: 16px;
+    height: 16px;
+}
+
+.readiness-tool-page .rt-faq-link:hover,
+.readiness-tool-page .rt-faq-link:focus-visible {
+    color: var(--signal-on-dark);
+}
+
+.readiness-tool-page .rt-faq-cta .btn:focus-visible,
+.readiness-tool-page .rt-faq-link:focus-visible {
+    outline: 2px solid var(--white);
+    outline-offset: 3px;
+}
+
+/* ---------- Contact form (Italian page) ---------- */
+.readiness-tool-page .rt-contact {
+    background: var(--gradient-hero-dark);
+    color: var(--white);
+}
+
+.readiness-tool-page .rt-contact-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: start;
+}
+
+.readiness-tool-page .rt-contact-intro h2 {
+    max-width: 18ch;
+    margin: 0 0 1rem;
+    font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: var(--white);
+}
+
+.readiness-tool-page .rt-contact-intro > p {
+    max-width: 52ch;
+    margin: 0 0 1.75rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--white);
+}
+
+.readiness-tool-page .rt-contact-points {
+    max-width: 52ch;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--rt-hairline-dark);
+}
+
+.readiness-tool-page .rt-contact-points li {
+    position: relative;
+    padding: 0.8rem 0 0.8rem 1.75rem;
+    border-bottom: 1px solid var(--rt-hairline-dark);
+    line-height: 1.55;
+    color: var(--white);
+}
+
+.readiness-tool-page .rt-contact-points li::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 1.2rem;
+    width: 10px;
+    height: 5px;
+    border-left: 2px solid var(--signal-on-dark);
+    border-bottom: 2px solid var(--signal-on-dark);
+    transform: rotate(-45deg);
+}
+
+.readiness-tool-page .rt-contact .ai-readiness-form {
+    padding: clamp(1.4rem, 2.6vw, 2rem);
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 24px 60px rgba(10, 26, 38, 0.35);
+    color: var(--dark-gray);
+    scroll-margin-top: 96px;
+}
+
+.readiness-tool-page .rt-form-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 1rem;
+}
+
+.readiness-tool-page .rt-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    min-width: 0;
+    margin: 0 0 1.1rem;
+}
+
+.readiness-tool-page .rt-field label {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--dark-gray);
+}
+
+/* ai-readiness-tool.js writes border and background colours inline on
+   focus, blur and error; the !important pair keeps one border language
+   and lets the .error class it adds carry the error state */
+.readiness-tool-page .ai-readiness-form .rt-field input,
+.readiness-tool-page .ai-readiness-form .rt-field textarea {
+    width: 100%;
+    min-height: 48px;
+    padding: 0.75rem 0.9rem;
+    border: 1.5px solid var(--border-medium) !important;
+    border-radius: 10px;
+    background: var(--white) !important;
+    color: var(--black);
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    line-height: 1.4;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.readiness-tool-page .ai-readiness-form .rt-field textarea {
+    min-height: 112px;
+    resize: vertical;
+}
+
+.readiness-tool-page .ai-readiness-form .rt-field input::placeholder,
+.readiness-tool-page .ai-readiness-form .rt-field textarea::placeholder {
+    color: var(--medium-gray);
+    opacity: 1;
+}
+
+.readiness-tool-page .ai-readiness-form .rt-field input:focus,
+.readiness-tool-page .ai-readiness-form .rt-field textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue) !important;
+    box-shadow: 0 0 0 4px rgba(35, 125, 166, 0.2);
+}
+
+.readiness-tool-page .ai-readiness-form .rt-field .error {
+    border-color: var(--error) !important;
+    background: var(--error-surface) !important;
+}
+
+.readiness-tool-page .rt-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    margin: 0 0 0.6rem;
+    padding: 0.35rem 0;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--dark-gray);
+    cursor: pointer;
+}
+
+.readiness-tool-page .rt-check.error {
+    color: var(--error-text) !important;
+}
+
+.readiness-tool-page .rt-check input {
+    flex: 0 0 20px;
+    width: 20px;
+    height: 20px;
+    margin: 1px 0 0;
+    accent-color: var(--primary-blue);
+    cursor: pointer;
+}
+
+.readiness-tool-page main .rt-check a {
+    color: var(--blue-text);
+    text-decoration: underline;
+}
+
+.readiness-tool-page .ai-readiness-form .btn-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    min-height: 54px;
+    margin-top: 1rem;
+    padding: 0.9rem 2rem;
+    border: 0;
+    border-radius: 50px;
+    background: var(--gradient-cta);
+    color: var(--white);
+    font-family: var(--font-secondary);
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(35, 125, 166, 0.3);
+    transition: box-shadow var(--transition-fast);
+}
+
+.readiness-tool-page .ai-readiness-form .btn-submit:hover {
+    box-shadow: 0 8px 25px rgba(35, 125, 166, 0.4);
+}
+
+.readiness-tool-page .ai-readiness-form .btn-submit:focus-visible {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 3px;
+}
+
+.readiness-tool-page .ai-readiness-form .btn-submit svg {
+    flex: 0 0 20px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+    .readiness-tool-page .rt-check-grid,
+    .readiness-tool-page .rt-steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .readiness-tool-page .rt-feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 960px) {
+    .readiness-tool-page .rt-problem-grid,
+    .readiness-tool-page .rt-mode-grid {
+        grid-template-columns: minmax(0, 1fr);
+        max-width: 680px;
+    }
+
+    .readiness-tool-page .rt-stat-panel,
+    .readiness-tool-page .rt-faq-layout,
+    .readiness-tool-page .rt-contact-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .readiness-tool-page .rt-faq-intro {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Beats the inline block's .hero-title { font-size: 2rem !important } */
+    .readiness-tool-page .rt-hero .hero-title {
+        font-size: clamp(2.1rem, 8.5vw, 2.6rem) !important;
+    }
+
+    .readiness-tool-page .rt-hero-steps {
+        grid-template-columns: minmax(0, 1fr);
+        border-top: 0;
+    }
+
+    .readiness-tool-page .rt-hero-steps li {
+        flex-direction: row;
+        align-items: baseline;
+        gap: 0.9rem;
+        padding: 0.75rem 0;
+        border-top: 1px solid var(--rt-hairline-dark);
+    }
+
+    .readiness-tool-page .rt-flow-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    /* Phases stack along a vertical line */
+    .readiness-tool-page .rt-phases {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
+    }
+
+    .readiness-tool-page .rt-phases::before {
+        top: 4px;
+        bottom: 4px;
+        left: 9px;
+        right: auto;
+        width: 2px;
+        height: auto;
+    }
+
+    .readiness-tool-page .rt-phases li {
+        padding: 0 0 1.25rem 2.25rem;
+    }
+
+    .readiness-tool-page .rt-phases li:last-child {
+        padding-bottom: 0;
+    }
+}
+
+@media (max-width: 640px) {
+    .readiness-tool-page .rt-check-grid,
+    .readiness-tool-page .rt-steps,
+    .readiness-tool-page .rt-feature-grid,
+    .readiness-tool-page .rt-form-row {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .readiness-tool-page .rt-actions .btn,
+    .readiness-tool-page .rt-report-foot .btn,
+    .readiness-tool-page .rt-faq-cta .btn {
+        width: 100%;
+        max-width: none;
+    }
+
+    .readiness-tool-page .rt-check-card,
+    .readiness-tool-page .rt-problem-card,
+    .readiness-tool-page .rt-feature-card,
+    .readiness-tool-page .rt-mode-card,
+    .readiness-tool-page .rt-step,
+    .readiness-tool-page .rt-flow-card {
+        padding: 1.5rem;
+    }
+
+    .readiness-tool-page .rt-check-verdict {
+        padding: 1.5rem;
+    }
+
+    .readiness-tool-page .rt-flow-card dl {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.15rem;
+    }
+
+    .readiness-tool-page .rt-flow-card dd + dt {
+        margin-top: 0.6rem;
+    }
+
+    .readiness-tool-page .rt-score {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .readiness-tool-page .rt-acc-btn svg,
+    .readiness-tool-page .rt-toggle,
+    .readiness-tool-page .rt-faq-list details.faq-item summary h3 {
+        transition: none;
+    }
+}
+
+/* ---------- Print ---------- */
+@media print {
+    .readiness-tool-page .rt-hero,
+    .readiness-tool-page .rt-contact {
+        padding: 2rem 0;
+        background: none;
+        color: var(--dark-gray);
+    }
+
+    .readiness-tool-page .rt-hero .hero-title,
+    .readiness-tool-page .rt-hero .hero-subtitle,
+    .readiness-tool-page .rt-hero-steps li,
+    .readiness-tool-page .rt-contact-intro h2,
+    .readiness-tool-page .rt-contact-intro > p,
+    .readiness-tool-page .rt-contact-points li {
+        color: var(--dark-gray);
+    }
+
+    .readiness-tool-page [hidden] {
+        display: block !important;
+    }
+
+    .readiness-tool-page .rt-check-card,
+    .readiness-tool-page .rt-feature-card,
+    .readiness-tool-page .rt-mode-card,
+    .readiness-tool-page .rt-step,
+    .readiness-tool-page .rt-flow-card {
+        box-shadow: none;
+        break-inside: avoid;
+    }
+}
