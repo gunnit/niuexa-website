@@ -1,0 +1,276 @@
+/* ============================================================
+   Shared polish layer for inner pages.
+   Opt-in: a page adds class="polished" on <body> and loads this file
+   after styles.css (and before its own page stylesheet). It applies
+   the language set on the homepage (home.css) and Chi siamo
+   (chi-siamo.css): navy left-aligned section headings, solid accents
+   instead of gradient text, hairline cards, readable links and a
+   closing CTA whose overlay carries white text at AA.
+   Tokens from styles.css only. Page-specific fixes belong in the
+   page's own stylesheet, scoped to body.polished or its own class.
+   ============================================================ */
+
+.polished {
+    --polish-container: 1200px;
+    --polish-section: clamp(64px, 8vw, 104px);
+    --polish-card-shadow: 0 1px 2px rgba(10, 26, 38, 0.04), 0 8px 24px rgba(10, 26, 38, 0.06);
+    --polish-card-shadow-hover: 0 2px 4px rgba(10, 26, 38, 0.05), 0 16px 36px rgba(10, 26, 38, 0.1);
+}
+
+.polished main .container {
+    max-width: var(--polish-container);
+}
+
+/* ---------- Section headings ---------- */
+.polished main .section-title {
+    font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    text-align: left;
+    color: var(--dark-gray);
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    margin: 0 0 2.5rem;
+    max-width: 24ch;
+}
+
+.polished main .section-subtitle,
+.polished main .section-intro,
+.polished main .section-description {
+    text-align: left;
+    max-width: 62ch;
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--medium-gray);
+}
+
+.polished main .section-title + .section-subtitle,
+.polished main .section-title + .section-intro,
+.polished main .section-title + .section-description {
+    margin-top: -1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+/* ---------- Gradient text becomes a solid accent ---------- */
+.polished main .highlight,
+.polished main .gradient-text,
+.polished main .text-gradient {
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    color: var(--blue-text);
+}
+
+.polished main .highlight::after {
+    display: none;
+}
+
+/* On dark heroes the light-surface blue fails; use the on-dark teal */
+.polished .hero .highlight,
+.polished [class*="-hero"] .highlight {
+    color: var(--signal-on-dark);
+}
+
+/* Light heroes (gradient-light backgrounds) keep the AA blue */
+.polished .about-hero .highlight,
+.polished .light-hero .highlight {
+    color: var(--blue-text);
+}
+
+/* ---------- Inline links in running copy ---------- */
+.polished main p a:not(.btn):not([class*="btn"]),
+.polished main li a:not(.btn):not([class*="btn"]) {
+    color: var(--blue-text);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.polished main p a:not(.btn):not([class*="btn"]):hover,
+.polished main li a:not(.btn):not([class*="btn"]):hover {
+    color: var(--dark-blue);
+}
+
+/* Dark surfaces keep white links */
+.polished main [class*="-hero"] p a:not(.btn),
+.polished main .cta-section p a:not(.btn),
+.polished main .aeo-banner p a:not(.btn) {
+    color: var(--white);
+}
+
+/* ---------- Cards: one quiet language ---------- */
+.polished main .card,
+.polished main .service-card,
+.polished main .feature-card,
+.polished main .benefit-card,
+.polished main .value-card,
+.polished main .vision-card,
+.polished main .pricing-card,
+.polished main .product-card,
+.polished main .course-card,
+.polished main .program-card,
+.polished main .step-card,
+.polished main .use-case-card,
+.polished main .testimonial-card,
+.polished main .research-card,
+.polished main .event-card,
+.polished main .job-card,
+.polished main .stat-card,
+.polished main .tool-card {
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    box-shadow: var(--polish-card-shadow);
+}
+
+.polished main .card::before,
+.polished main .service-card::before,
+.polished main .feature-card::before,
+.polished main .benefit-card::before,
+.polished main .testimonial-card::before {
+    display: none;
+}
+
+/* Only cards that are links lift on hover */
+.polished main div.card:hover,
+.polished main div.feature-card:hover,
+.polished main div.benefit-card:hover,
+.polished main div.value-card:hover,
+.polished main div.vision-card:hover,
+.polished main div.stat-card:hover,
+.polished main div.testimonial-card:hover,
+.polished main div.step-card:hover {
+    transform: none;
+    box-shadow: var(--polish-card-shadow);
+}
+
+.polished main a.card:hover,
+.polished main a.service-card:hover,
+.polished main a.product-card:hover,
+.polished main a.research-card:hover,
+.polished main a.event-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-medium);
+    box-shadow: var(--polish-card-shadow-hover);
+}
+
+/* ---------- Icon tiles (drawn SVG inside) ---------- */
+.polished main .icon-tile {
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 1.25rem;
+    border-radius: 14px;
+    background: var(--light-blue);
+    color: var(--blue-text);
+}
+
+.polished main .icon-tile svg {
+    width: 26px;
+    height: 26px;
+}
+
+.polished main .icon-tile--green {
+    background: var(--light-green);
+    color: var(--green-text);
+}
+
+.polished main .icon-tile--teal {
+    background: var(--signal-surface);
+    color: var(--signal);
+}
+
+/* ---------- FAQ (<details>) as a hairline list ---------- */
+.polished main details.faq-item {
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.polished main details.faq-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    padding: 1.25rem 0;
+    cursor: pointer;
+    list-style: none;
+}
+
+.polished main details.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.polished main details.faq-item summary:focus-visible {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+.polished main details.faq-item summary::after {
+    content: '';
+    flex: 0 0 16px;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    background:
+        linear-gradient(var(--blue-text), var(--blue-text)) center / 100% 2px no-repeat,
+        linear-gradient(var(--blue-text), var(--blue-text)) center / 2px 100% no-repeat;
+    transition: transform var(--transition-fast);
+}
+
+.polished main details.faq-item[open] summary::after {
+    content: '';
+    transform: rotate(45deg);
+}
+
+/* ---------- Closing CTA over video or gradient ---------- */
+/* --gradient-cta carries white text at AA on every stop */
+.polished .cta-section::before {
+    background: var(--gradient-cta);
+    opacity: 0.92;
+}
+
+.polished .cta-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.polished .cta-section .cta-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.polished .cta-section .btn-primary {
+    background: var(--white);
+    color: var(--blue-text);
+}
+
+.polished .cta-section .btn-primary:hover {
+    background: var(--white);
+    color: var(--dark-blue);
+}
+
+@media (max-width: 768px) {
+    .polished main .section-title {
+        margin-bottom: 2rem;
+    }
+
+    .polished .cta-section .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .polished main a.card:hover,
+    .polished main a.service-card:hover,
+    .polished main a.product-card:hover,
+    .polished main a.research-card:hover,
+    .polished main a.event-card:hover {
+        transform: none;
+    }
+}
