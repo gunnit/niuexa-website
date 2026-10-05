@@ -1,12 +1,20 @@
 /* ============================================================
-   AI Readiness Assessment — landing page styles
-   Extends the design system in styles.css (tokens only, no overrides)
-   Prefix: .ara-
+   AI Readiness Assessment: landing page styles
+   Used by ai-readiness-assessment-lp.html (paid traffic) and by the
+   organic ai-readiness-assessment.html, which adds a few rules in
+   ai-readiness-assessment.css. Extends styles.css and polish.css,
+   tokens only. Prefix: .ara-
    ============================================================ */
+
+/* Check mark drawn as a mask so it takes the token colour (no glyphs) */
+.ara-page {
+  --ara-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+}
 
 /* ---------- Shared section rhythm ---------- */
 .ara-section { padding: clamp(64px, 9vw, 104px) 0; }
 .ara-section-tight { padding: clamp(44px, 6vw, 64px) 0; }
+.ara-section-muted { background: var(--light-gray); }
 
 .ara-h2 {
   font-family: var(--font-primary);
@@ -24,6 +32,8 @@
   line-height: 1.75;
   max-width: 62ch;
 }
+
+.ara-lead-gap { margin-bottom: 1.6rem; }
 
 /* ---------- Hero ---------- */
 .ara-hero {
@@ -56,7 +66,10 @@
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(100deg, rgba(10, 26, 38, 0.94) 0%, rgba(10, 26, 38, 0.82) 46%, rgba(10, 26, 38, 0.55) 100%);
+    linear-gradient(100deg,
+      color-mix(in srgb, var(--black) 94%, transparent) 0%,
+      color-mix(in srgb, var(--black) 82%, transparent) 46%,
+      color-mix(in srgb, var(--black) 55%, transparent) 100%);
 }
 
 .ara-hero-grid {
@@ -66,41 +79,19 @@
   align-items: center;
 }
 
-.ara-hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  padding: 0.45rem 1rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  background: rgba(255, 255, 255, 0.08);
-  color: #DFF3EA;
-  font-weight: 600;
-  font-size: 0.92rem;
-}
-
-.ara-hero-badge::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--primary-green);
-  box-shadow: 0 0 10px rgba(67, 174, 104, 0.9);
-}
-
 .ara-hero h1 {
   font-family: var(--font-primary);
   font-size: clamp(2.3rem, 5vw, 3.55rem);
   line-height: 1.08;
   letter-spacing: -0.02em;
-  margin: 1.25rem 0 1.1rem;
+  margin: 0 0 1.1rem;
   text-wrap: balance;
 }
 
 .ara-hero-sub {
   font-size: clamp(1.05rem, 1.6vw, 1.22rem);
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.88);
+  color: var(--white);
   max-width: 58ch;
 }
 
@@ -112,10 +103,13 @@
 }
 
 .ara-btn-ghost {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
   padding: 12px 30px;
   border-radius: 50px;
-  border: 2px solid rgba(255, 255, 255, 0.55);
+  border: 2px solid color-mix(in srgb, var(--white) 55%, transparent);
   color: var(--white);
   font-family: var(--font-secondary);
   font-weight: 600;
@@ -124,8 +118,13 @@
   transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
 }
 
+.ara-btn-ghost:focus-visible {
+  outline: 3px solid var(--signal-on-dark);
+  outline-offset: 3px;
+}
+
 .ara-btn-ghost:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: color-mix(in srgb, var(--white) 12%, transparent);
   border-color: var(--white);
   transform: translateY(-2px);
 }
@@ -133,7 +132,7 @@
 .ara-hero-note {
   margin-top: 1.1rem;
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--muted-on-dark);
   max-width: 52ch;
 }
 
@@ -146,7 +145,7 @@
   content: "";
   position: absolute;
   inset: -12% -8%;
-  background: radial-gradient(closest-side, rgba(14, 156, 154, 0.32), transparent 72%);
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--brand-teal) 32%, transparent), transparent 72%);
   z-index: -1;
 }
 
@@ -155,7 +154,7 @@
   height: auto;
   display: block;
   border-radius: 18px;
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 30px 70px color-mix(in srgb, var(--black) 60%, transparent);
 }
 
 .ara-hero-visual figcaption {
@@ -164,18 +163,17 @@
   bottom: 14px;
   padding: 0.4rem 0.85rem;
   border-radius: 999px;
-  background: rgba(10, 26, 38, 0.82);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: rgba(255, 255, 255, 0.9);
+  background: var(--black);
+  border: 1px solid color-mix(in srgb, var(--white) 18%, transparent);
+  color: var(--white);
   font-size: 0.82rem;
   font-weight: 600;
-  backdrop-filter: blur(6px);
 }
 
 /* ---------- Trust strip ---------- */
 .ara-trust {
   background: var(--white);
-  border-bottom: 1px solid rgba(20, 50, 74, 0.08);
+  border-bottom: 1px solid var(--border-light);
   padding: 1.9rem 0;
 }
 
@@ -224,7 +222,7 @@
 
 .ara-signals {
   background: var(--light-gray);
-  border: 1px solid rgba(20, 50, 74, 0.08);
+  border: 1px solid var(--border-light);
   border-radius: 20px;
   padding: clamp(1.4rem, 3vw, 2.1rem);
 }
@@ -244,15 +242,19 @@
   line-height: 1.55;
 }
 
-.ara-signals li + li { border-top: 1px solid rgba(20, 50, 74, 0.1); }
+.ara-signals li + li { border-top: 1px solid var(--border-medium); }
 
-.ara-signals li::before {
-  content: "✓";
+.ara-signals li::before,
+.ara-checklist-card li::before {
+  content: "";
   position: absolute;
   left: 0;
-  top: 0.8rem;
-  color: var(--green-text);
-  font-weight: 800;
+  top: 1.05rem;
+  width: 18px;
+  height: 18px;
+  background: var(--green-text);
+  -webkit-mask: var(--ara-check) center / contain no-repeat;
+  mask: var(--ara-check) center / contain no-repeat;
 }
 
 /* ---------- Framework: 5 dimensions, scroll-driven exploded view ----------
@@ -272,7 +274,7 @@
 
 .ara-strata-head .ara-h2 { color: var(--white); }
 
-.ara-strata-head .ara-lead { color: rgba(255, 255, 255, 0.78); }
+.ara-strata-head .ara-lead { color: var(--muted-on-dark); }
 
 .ara-strata-pin { padding: clamp(32px, 5vh, 56px) 0 clamp(48px, 7vh, 72px); }
 
@@ -317,7 +319,7 @@
   content: "";
   position: absolute;
   inset: -12% -18%;
-  background: radial-gradient(closest-side, rgba(14, 156, 154, 0.22), transparent 72%);
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--brand-teal) 22%, transparent), transparent 72%);
   pointer-events: none;
 }
 
@@ -325,8 +327,8 @@
   position: relative;
   overflow: hidden;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.42);
+  border: 1px solid color-mix(in srgb, var(--white) 8%, transparent);
+  box-shadow: 0 18px 44px color-mix(in srgb, var(--black) 50%, transparent);
 }
 
 /* slice heights follow the artwork's own seams (462/838/1206/1597 of 2048) */
@@ -381,16 +383,16 @@
 
 .ara-strata-dim p {
   margin: 0.35rem 0 0 calc(13px + 0.7rem);
-  color: rgba(255, 255, 255, 0.92);
+  color: color-mix(in srgb, var(--white) 92%, transparent);
   line-height: 1.6;
   max-width: 46ch;
 }
 
-/* spectrum accents: blue → teal → green, mirroring the artwork's bands */
+/* spectrum accents from blue through teal to green, mirroring the artwork's bands */
 .ara-strata-dim:nth-child(1) { --dim-color: var(--primary-blue); }
-.ara-strata-dim:nth-child(2) { --dim-color: #1B8CA1; }
+.ara-strata-dim:nth-child(2) { --dim-color: color-mix(in srgb, var(--primary-blue), var(--brand-teal)); }
 .ara-strata-dim:nth-child(3) { --dim-color: var(--brand-teal); }
-.ara-strata-dim:nth-child(4) { --dim-color: #2BA57F; }
+.ara-strata-dim:nth-child(4) { --dim-color: color-mix(in srgb, var(--brand-teal), var(--primary-green)); }
 .ara-strata-dim:nth-child(5) { --dim-color: var(--primary-green); }
 
 /* live mode: labels start muted and light up per stage. The resting opacity
@@ -467,18 +469,19 @@
 .ara-step { position: relative; counter-increment: ara-step; }
 
 .ara-step::before {
-  content: counter(ara-step);
+  content: counter(ara-step, decimal-leading-zero);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: var(--gradient-primary);
-  color: var(--white);
-  font-family: var(--font-primary);
-  font-weight: 700;
-  font-size: 1.1rem;
+  background: var(--white);
+  border: 2px solid var(--brand-teal);
+  color: var(--signal);
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-weight: 500;
+  font-size: 0.85rem;
   margin-bottom: 0.9rem;
 }
 
@@ -490,7 +493,8 @@
   left: 54px;
   right: -1rem;
   height: 2px;
-  background: linear-gradient(90deg, rgba(35, 125, 166, 0.35), rgba(67, 174, 104, 0.35));
+  background: linear-gradient(90deg, var(--primary-blue), var(--brand-teal), var(--primary-green));
+  opacity: 0.45;
 }
 
 .ara-step:last-child::after { display: none; }
@@ -509,7 +513,7 @@
 
 .ara-xray-item {
   background: var(--white);
-  border: 1px solid rgba(20, 50, 74, 0.08);
+  border: 1px solid var(--border-light);
   border-radius: 18px;
   padding: 1.3rem 1.4rem;
 }
@@ -547,16 +551,16 @@
 
 .ara-deliver .ara-h2 { color: var(--white); }
 
-.ara-deliver-intro { color: rgba(255, 255, 255, 0.82); line-height: 1.7; max-width: 56ch; }
+.ara-deliver-intro { color: var(--muted-on-dark); line-height: 1.7; max-width: 56ch; }
 
 .ara-outputs { list-style: none; margin: 1.8rem 0 2.2rem; padding: 0; }
 
 .ara-outputs li {
   padding: 1.15rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  border-top: 1px solid color-mix(in srgb, var(--white) 14%, transparent);
 }
 
-.ara-outputs li:last-child { border-bottom: 1px solid rgba(255, 255, 255, 0.14); }
+.ara-outputs li:last-child { border-bottom: 1px solid color-mix(in srgb, var(--white) 14%, transparent); }
 
 .ara-outputs strong {
   display: block;
@@ -566,7 +570,7 @@
   color: var(--white);
 }
 
-.ara-outputs span { color: rgba(255, 255, 255, 0.78); line-height: 1.6; }
+.ara-outputs span { display: block; color: var(--muted-on-dark); line-height: 1.6; }
 
 .ara-deliver-visual { margin: 0; }
 
@@ -575,7 +579,7 @@
   height: auto;
   display: block;
   border-radius: 16px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 24px 60px color-mix(in srgb, var(--black) 55%, transparent);
 }
 
 /* ---------- Founders ---------- */
@@ -624,10 +628,10 @@
 
 .ara-checklist-card {
   background: var(--white);
-  border: 1px solid rgba(20, 50, 74, 0.08);
+  border: 1px solid var(--border-light);
   border-radius: 20px;
   padding: clamp(1.4rem, 3vw, 2rem);
-  box-shadow: 0 16px 44px rgba(20, 50, 74, 0.1);
+  box-shadow: var(--polish-card-shadow);
 }
 
 .ara-checklist-card h3 { font-size: 1.1rem; color: var(--dark-gray); margin-bottom: 0.3rem; }
@@ -641,20 +645,14 @@
   line-height: 1.55;
 }
 
-.ara-checklist-card li + li { border-top: 1px solid rgba(20, 50, 74, 0.08); }
+.ara-checklist-card li + li { border-top: 1px solid var(--border-light); }
 
-.ara-checklist-card li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  top: 0.65rem;
-  color: var(--green-text);
-  font-weight: 800;
-}
+.ara-checklist-card li::before { top: 0.9rem; }
 
 /* ---------- Form ---------- */
 .ara-form-section {
-  background: var(--gradient-secondary);
+  /* white copy on --gradient-cta clears AA at every stop */
+  background: var(--gradient-cta);
   color: var(--white);
   scroll-margin-top: 80px; /* keeps the section heading clear of the fixed navbar on anchor jumps */
 }
@@ -663,13 +661,13 @@
 
 .ara-form-head .ara-h2 { color: var(--white); }
 
-.ara-form-head p { color: rgba(255, 255, 255, 0.9); font-size: 1.1rem; line-height: 1.65; }
+.ara-form-head p { color: var(--white); font-size: 1.1rem; line-height: 1.65; }
 
 .ara-form {
   background: var(--white);
   border-radius: 24px;
   padding: clamp(1.4rem, 4vw, 2.75rem);
-  box-shadow: 0 24px 70px rgba(10, 26, 38, 0.35);
+  box-shadow: 0 24px 70px color-mix(in srgb, var(--black) 35%, transparent);
   max-width: 860px;
   margin: 0 auto;
 }
@@ -686,8 +684,9 @@
 .ara-form select,
 .ara-form textarea {
   width: 100%;
-  padding: 0.9rem 1rem;
-  border: 2px solid #DCE7EE;
+  min-height: 48px;
+  padding: 0.8rem 1rem;
+  border: 1.5px solid var(--border-medium);
   border-radius: 12px;
   font-family: var(--font-secondary);
   font-size: 1rem;
@@ -697,14 +696,14 @@
 }
 
 .ara-form input::placeholder,
-.ara-form textarea::placeholder { color: #5F7385; }
+.ara-form textarea::placeholder { color: var(--medium-gray); }
 
 .ara-form input:focus,
 .ara-form select:focus,
 .ara-form textarea:focus {
   outline: none;
   border-color: var(--primary-blue);
-  box-shadow: 0 0 0 4px rgba(35, 125, 166, 0.14);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary-blue) 18%, transparent);
 }
 
 .ara-form-row {
@@ -729,9 +728,15 @@
   line-height: 1.5;
 }
 
-.ara-form-privacy input { width: auto; margin-top: 0.25rem; accent-color: var(--primary-blue); }
+.ara-form-privacy input {
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  margin-top: 0.1rem;
+  accent-color: var(--primary-blue);
+}
 
-.ara-form-privacy a { color: var(--signal); font-weight: 600; }
+.ara-form-privacy a { color: var(--blue-text); font-weight: 600; text-decoration: underline; }
 
 .ara-form-submit {
   width: 100%;
@@ -749,16 +754,17 @@
   text-align: center;
 }
 
-/* ---------- FAQ ---------- */
-.ara-faq-list { max-width: 860px; margin: clamp(1.8rem, 3vw, 2.6rem) auto 0; }
-
-.ara-faq-item {
-  border: 1px solid rgba(20, 50, 74, 0.12);
-  border-radius: 14px;
-  background: var(--white);
-  margin-bottom: 0.9rem;
-  overflow: hidden;
+/* ---------- FAQ: hairline list beside its heading ---------- */
+.ara-faq-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
 }
+
+.ara-faq-list { border-top: 1px solid var(--border-light); }
+
+.ara-faq-item { border-bottom: 1px solid var(--border-light); }
 
 .ara-faq-item summary {
   list-style: none;
@@ -767,28 +773,35 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1.1rem 1.3rem;
+  padding: 1.2rem 0;
   font-family: var(--font-primary);
   font-weight: 600;
-  font-size: 1.05rem;
+  font-size: 1.08rem;
+  line-height: 1.35;
   color: var(--dark-gray);
 }
 
 .ara-faq-item summary::-webkit-details-marker { display: none; }
 
-.ara-faq-item summary::after {
-  content: "+";
-  flex: 0 0 auto;
-  font-size: 1.5rem;
-  line-height: 1;
-  color: var(--signal);
+.ara-faq-item summary svg {
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  color: var(--blue-text);
   transition: transform var(--transition-fast);
 }
 
-.ara-faq-item[open] summary::after { transform: rotate(45deg); }
+.ara-faq-item[open] summary svg { transform: rotate(45deg); }
+
+.ara-faq-item summary:focus-visible {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
 
 .ara-faq-item p {
-  padding: 0 1.3rem 1.2rem;
+  margin: 0 0 1.35rem;
+  max-width: 68ch;
   color: var(--medium-gray);
   line-height: 1.7;
 }
@@ -801,6 +814,11 @@
 .ara-final p { color: var(--medium-gray); max-width: 54ch; margin: 0 auto 1.6rem; }
 
 /* ---------- Motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .ara-faq-item summary svg,
+  .ara-btn-ghost { transition: none; }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .ara-hero .ara-rise {
     animation: ara-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -837,15 +855,8 @@
 
 @media (max-width: 880px) {
   .ara-problem-grid,
-  .ara-checklist-grid { grid-template-columns: 1fr; }
-  .ara-dim {
-    grid-template-columns: 14px minmax(0, 1fr);
-    grid-template-areas: "mark title" ". desc";
-    gap: 0.4rem 1rem;
-  }
-  .ara-dim-mark { grid-area: mark; }
-  .ara-dim h3 { grid-area: title; }
-  .ara-dim p { grid-area: desc; }
+  .ara-checklist-grid,
+  .ara-faq-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 640px) {
