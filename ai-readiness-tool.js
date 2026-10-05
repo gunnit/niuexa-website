@@ -65,7 +65,7 @@ function initAIReadinessForm() {
             }
         } catch (error) {
             // Show error message
-            showMessage('error', 'Si è verificato un errore. Per favore riprova o contattaci direttamente.');
+            showMessage('error', 'Invio non riuscito. Riprovi tra qualche istante oppure ci scriva dalla pagina contatti.');
             console.error('Form submission error:', error);
 
             // Reset button state
@@ -90,12 +90,9 @@ function validateForm(form) {
         if (field.type === 'checkbox') {
             if (!field.checked) {
                 field.parentElement.classList.add('error');
-                field.parentElement.style.color = '#dc3545';
                 isValid = false;
             }
         } else if (!field.value.trim()) {
-            field.style.borderColor = '#dc3545';
-            field.style.backgroundColor = '#fff5f5';
             field.classList.add('error');
             isValid = false;
         }
@@ -104,8 +101,6 @@ function validateForm(form) {
         if (field.type === 'email' && field.value) {
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailPattern.test(field.value)) {
-                field.style.borderColor = '#dc3545';
-                field.style.backgroundColor = '#fff5f5';
                 field.classList.add('error');
                 isValid = false;
             }
@@ -115,8 +110,6 @@ function validateForm(form) {
         if (field.type === 'url' && field.value) {
             const urlPattern = /^https?:\/\/.+\..+/;
             if (!urlPattern.test(field.value)) {
-                field.style.borderColor = '#dc3545';
-                field.style.backgroundColor = '#fff5f5';
                 field.classList.add('error');
                 isValid = false;
             }
@@ -124,7 +117,7 @@ function validateForm(form) {
     });
 
     if (!isValid) {
-        showMessage('error', 'Per favore compila tutti i campi obbligatori correttamente.');
+        showMessage('error', 'Controlli i campi evidenziati: sono obbligatori o non nel formato corretto.');
     }
 
     return isValid;
@@ -140,12 +133,8 @@ function initFormValidation() {
     inputs.forEach(input => {
         // Remove error on focus
         input.addEventListener('focus', function() {
-            this.style.borderColor = '#e0e0e0';
-            this.style.backgroundColor = 'white';
             this.classList.remove('error');
-            if (this.parentElement.style) {
-                this.parentElement.style.color = '#343A40';
-            }
+            this.parentElement.classList.remove('error');
         });
 
         // Validate on blur
@@ -168,8 +157,6 @@ function initFormValidation() {
 function validateField(field) {
     // Required field validation
     if (field.hasAttribute('required') && !field.value.trim() && field.type !== 'checkbox') {
-        field.style.borderColor = '#dc3545';
-        field.style.backgroundColor = '#fff5f5';
         field.classList.add('error');
         return false;
     }
@@ -178,8 +165,6 @@ function validateField(field) {
     if (field.type === 'email' && field.value) {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailPattern.test(field.value)) {
-            field.style.borderColor = '#dc3545';
-            field.style.backgroundColor = '#fff5f5';
             field.classList.add('error');
             return false;
         }
@@ -189,15 +174,11 @@ function validateField(field) {
     if (field.type === 'url' && field.value) {
         const urlPattern = /^https?:\/\/.+\..+/;
         if (!urlPattern.test(field.value)) {
-            field.style.borderColor = '#dc3545';
-            field.style.backgroundColor = '#fff5f5';
             field.classList.add('error');
             return false;
         }
     }
 
-    field.style.borderColor = 'var(--border-light)';
-    field.style.backgroundColor = 'var(--white)';
     field.classList.remove('error');
     return true;
 }
@@ -212,25 +193,10 @@ function showMessage(type, message) {
 
     // Create message element
     const messageDiv = document.createElement('div');
-    messageDiv.className = `form-message ${type}`;
-    messageDiv.style.cssText = `
-        padding: 1rem 1.5rem;
-        margin-bottom: 1.5rem;
-        border-radius: 8px;
-        font-family: var(--font-secondary);
-        font-size: 1rem;
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        animation: slideDown 0.3s ease;
-        ${type === 'success' ? 'background: var(--success-surface); color: var(--green-text); border: 1px solid var(--green-text);' : 'background: var(--error-surface); color: var(--error-text); border: 1px solid var(--error);'}
-    `;
-
-    const icon = type === 'success' ? '✅' : '❌';
-    messageDiv.innerHTML = `
-        <span>${icon}</span>
-        <span>${message}</span>
-    `;
+    // Styled by .form-message--success / --error in styles.css (tokens)
+    messageDiv.className = `form-message form-message--${type}`;
+    messageDiv.setAttribute('role', type === 'error' ? 'alert' : 'status');
+    messageDiv.textContent = message;
 
     // Insert message at top of form
     const form = document.querySelector('.ai-readiness-form');
