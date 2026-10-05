@@ -42,7 +42,7 @@
     <meta property="og:image" content="https://niuexa.ai/img/niuexalogo.png">
     <meta property="og:locale" content="en_US">
     <meta property="article:published_time" content="2026-03-24">
-    <meta property="article:modified_time" content="2026-03-24">
+    <meta property="article:modified_time" content="2026-10-05">
     <meta property="article:author" content="Niuexa">
     <meta property="article:section" content="Software Migration">
     <meta property="article:tag" content="Software Migration">
@@ -96,7 +96,7 @@
             }
         },
         "datePublished": "2026-03-24",
-        "dateModified": "2026-03-24",
+        "dateModified": "2026-10-05",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://niuexa.ai/articolo-software-migration-plan.html"
@@ -123,15 +123,15 @@
                 "name": "How long does a software migration usually take?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "For mid-sized teams, 6-16 weeks for straightforward swaps and 3-9 months with heavy integrations or poor data quality. The calendar is set by data cleanup and integration testing."
+                    "text": "For mid-sized teams, 6-16 weeks for straightforward swaps and 3-9 months with heavy integrations or poor data quality. The calendar is set by data cleanup and integration testing. Configuration is rarely the bottleneck: data quality and user acceptance testing consume the most time. Build contingency for data work: it almost always takes longer than estimated."
                 }
             },
             {
                 "@type": "Question",
-                "name": "What's the safest way to migrate data with minimal downtime?",
+                "name": "What’s the safest way to migrate data with minimal downtime?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Run 2-3 full dress rehearsals, use change data capture during the final week, cut over with blue/green or parallel run, and define a reconciliation pack with row counts and key field sampling."
+                    "text": "Run 2-3 full dress rehearsals, use change data capture during the final week, cut over with blue/green or parallel run, and define a reconciliation pack with row counts and key field sampling. The reconciliation pack is your proof that the migration succeeded, so write it before rehearsal 1 so every rehearsal uses the same validation criteria. For systems that cannot tolerate downtime, use a parallel run strategy with automated reconciliation."
                 }
             },
             {
@@ -139,7 +139,7 @@
                 "name": "Big-bang vs phased rollout: which is better?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Usually phased rollout wins: fewer failure modes, faster feedback, lower adoption shock. Do big-bang only when the process is tightly coupled like order-to-cash."
+                    "text": "Usually phased rollout wins: fewer failure modes, faster feedback, lower adoption shock. Do big-bang only when the process is tightly coupled like order-to-cash, where splitting modules creates more risk than migrating at once. With phased rollout, each wave teaches you something that makes the next wave smoother, and if a wave fails, the blast radius is contained to one team or department."
                 }
             },
             {
@@ -147,7 +147,7 @@
                 "name": "What should be included in a software migration checklist?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Scope and owners, success metrics, integrations, security, data mapping, testing, training, cutover plan, and rollback procedures. For TCO include licenses, implementation, integration, data work, training, and ongoing admin."
+                    "text": "Scope and owners, success metrics, integrations, security, data mapping, testing, training, cutover plan, and rollback procedures. For TCO include licenses, implementation, integration, data work, training, and ongoing admin. The Niuexa 10-point pre-flight checklist covers Value-Flow Map, Migration Charter, JTBD requirements, vendor PoC, data readiness, integration architecture, security review, role-based training, cutover with tested rollback, and hypercare plan."
                 }
             },
             {
@@ -155,7 +155,7 @@
                 "name": "How do you prevent low adoption after go-live?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Role-based training, in-app guidance, day-1 workflows, measured adoption KPIs, super-user network of 1 per 10-15 users, and hypercare with daily standups during week 1."
+                    "text": "Role-based training, in-app guidance, day-1 workflows, measured adoption KPIs, super-user network of 1 per 10-15 users, and hypercare with daily standups during week 1. The super-user network is the single most effective lever: super-users answer “how do I...” questions before tickets are filed. Track daily active users from day 1 and intervene immediately if adoption drops below 60%."
                 }
             },
             {
@@ -163,7 +163,7 @@
                 "name": "When should you bring in an external migration partner?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "When you have multiple systems with complex integrations, data quality issues, prior failed cutover, limited internal bandwidth, or executive risk where revenue ops or finance close can't pause."
+                    "text": "When you have multiple systems with complex integrations, data quality issues, prior failed cutover, limited internal bandwidth, or executive risk where revenue ops or finance close cannot pause. A good partner brings a method and the tooling, so your team can focus on the business decisions that only they can make."
                 }
             }
         ]
@@ -233,20 +233,18 @@
                 <!-- Quick Answer for AI Engines -->
                 <section class="content-section quick-answer">
                     <h2>Quick answer: how to plan a software migration</h2>
-                    <p>A software migration plan turns a vague &ldquo;we&rsquo;ve outgrown our system&rdquo; into a controlled project with clear milestones. The Niuexa playbook covers 7 steps: <strong>diagnose the real problem</strong> (symptoms vs root causes), <strong>build the business case</strong> (TCO, risk, stop/start/automate), <strong>define requirements and select a vendor</strong>, <strong>create a phased migration roadmap</strong>, <strong>handle data and integrations</strong>, <strong>drive adoption through change management</strong>, and <strong>optimize post-migration</strong>. This article provides checklists, tables, and templates for every step &mdash; so you can present a migration charter to stakeholders, not a wish list.</p>
+                    <p>A software migration plan turns a vague &ldquo;we&rsquo;ve outgrown our system&rdquo; into a controlled project with clear milestones. The Niuexa playbook covers 7 steps: <strong>diagnose the real problem</strong> (symptoms vs root causes), <strong>build the business case</strong> (TCO, risk, stop/start/automate), <strong>define requirements and select a vendor</strong>, <strong>create a phased migration roadmap</strong>, <strong>handle data and integrations</strong>, <strong>drive adoption through change management</strong>, and <strong>optimize post-migration</strong>. This article provides checklists, tables, and templates for every step, so you can present a migration charter to stakeholders, not a wish list.</p>
                 </section>
 
                 <!-- Intro Section -->
                 <section class="content-section">
-                    <h2>Introduction &mdash; The 7 signals you&rsquo;ve outgrown your current software</h2>
+                    <h2>Introduction: the 7 signals you&rsquo;ve outgrown your current software</h2>
 
                     <p>Every software migration starts the same way: not with a plan, but with pain. Someone on the team says &ldquo;I can&rsquo;t believe we still do this manually,&rdquo; a report takes 3 hours to pull, or a new hire asks why the system looks like it was built in 2009 (because it was).</p>
 
-                    <blockquote>
-                        <p>&ldquo;The question is never &lsquo;should we migrate?&rsquo; The question is &lsquo;what&rsquo;s the cost of not migrating?&rsquo; &mdash; and most teams underestimate that cost by 3-5x because they&rsquo;ve normalized the workarounds.&rdquo;</p>
-                    </blockquote>
+                    <p>The question is rarely &ldquo;should we migrate?&rdquo; It is &ldquo;what does it cost not to migrate?&rdquo;, and teams often underestimate that cost because they have normalized the workarounds.</p>
 
-                    <p>Here are the 7 outgrown-software signals Niuexa looks for in every assessment:</p>
+                    <p>Here are 7 signals that you have outgrown your current software:</p>
 
                     <ol>
                         <li><strong>Workaround proliferation:</strong> more than 3 spreadsheets or manual steps bolted onto the system to cover gaps</li>
@@ -258,7 +256,7 @@
                         <li><strong>Talent friction:</strong> new hires resist the system, onboarding takes weeks, or your best people leave partly because of the tools</li>
                     </ol>
 
-                    <p>If you recognize 3 or more of these signals, you don&rsquo;t have a software problem &mdash; you have a business problem that software is making worse.</p>
+                    <p>If you recognize 3 or more of these signals, you don&rsquo;t have a software problem: you have a business problem that software is making worse.</p>
 
                     <h3>What a good migration accomplishes</h3>
                     <p>A successful software migration is not just a system swap. It delivers three outcomes:</p>
@@ -303,27 +301,27 @@
                             <tr>
                                 <td>Reports take hours to generate</td>
                                 <td>Poor data model, missing indexes, wrong tool for analytics</td>
-                                <td>Maybe &mdash; often fixable with BI layer</td>
+                                <td>Maybe: often fixable with BI layer</td>
                             </tr>
                             <tr>
                                 <td>Data entered in 3 places</td>
                                 <td>No integration between systems, missing master data management</td>
-                                <td>Yes &mdash; if systems can&rsquo;t integrate</td>
+                                <td>Yes, if systems can&rsquo;t integrate</td>
                             </tr>
                             <tr>
                                 <td>System crashes at month-end</td>
                                 <td>Infrastructure under-provisioned, batch jobs conflicting</td>
-                                <td>Not always &mdash; may need scaling, not replacing</td>
+                                <td>Not always: may need scaling, not replacing</td>
                             </tr>
                             <tr>
                                 <td>New features impossible</td>
                                 <td>Platform is end-of-life, no API, closed ecosystem</td>
-                                <td>Yes &mdash; architectural dead end</td>
+                                <td>Yes: architectural dead end</td>
                             </tr>
                             <tr>
                                 <td>Team refuses to use the system</td>
                                 <td>Bad UX, lack of training, or wrong tool for the job</td>
-                                <td>Depends &mdash; training vs replacement</td>
+                                <td>Depends: training vs replacement</td>
                             </tr>
                         </tbody>
                     </table>
@@ -337,7 +335,7 @@
                         </div>
                         <div class="concept-card">
                             <h4>Data debt</h4>
-                            <p>Duplicated records, inconsistent formats, orphaned references, no single source of truth. Data debt makes every migration harder &mdash; but migrating without fixing it just moves dirty data to a new system.</p>
+                            <p>Duplicated records, inconsistent formats, orphaned references, no single source of truth. Data debt makes every migration harder, but migrating without fixing it just moves dirty data to a new system.</p>
                         </div>
                         <div class="concept-card">
                             <h4>Integration debt</h4>
@@ -367,7 +365,7 @@
                         <li><strong>Which processes are broken</strong> (not just which software is old)?</li>
                         <li><strong>What is the cost of doing nothing</strong> for 12 more months?</li>
                         <li><strong>Is the root cause architectural</strong> (requires migration) or operational (requires reconfiguration/training)?</li>
-                        <li><strong>Who owns the outcome</strong> &mdash; a named person with budget and authority?</li>
+                        <li><strong>Who owns the outcome</strong>: a named person with budget and authority?</li>
                     </ol>
 
                     <div class="pro-tips">
@@ -380,7 +378,7 @@
                 <section class="content-section">
                     <h2>2. Build the business case</h2>
 
-                    <p>A migration without a business case is a project that will get cut at the first budget review. The business case is not a slide deck for the board &mdash; it is a decision document that answers: &ldquo;What do we gain, what does it cost, and what happens if we don&rsquo;t?&rdquo;</p>
+                    <p>A migration without a business case is a project that will get cut at the first budget review. The business case is not a slide deck for the board: it is a decision document that answers: &ldquo;What do we gain, what does it cost, and what happens if we don&rsquo;t?&rdquo;</p>
 
                     <h3>TCO checklist: the costs everyone forgets</h3>
 
@@ -433,7 +431,7 @@
 
                     <div class="warning-box">
                         <h4>The hidden cost trap</h4>
-                        <p>Most migration budgets underestimate <strong>data work</strong> and <strong>integration</strong> by 40-60%. Data cleanup alone can consume more calendar time than the entire implementation. Build contingency specifically for data quality &mdash; you will need it.</p>
+                        <p>Migration budgets regularly underestimate <strong>data work</strong> and <strong>integration</strong>. Data cleanup alone can consume more calendar time than the entire implementation. Build contingency specifically for data quality: you will need it.</p>
                     </div>
 
                     <h3>Quantify the risk of doing nothing</h3>
@@ -452,7 +450,7 @@
                     <div class="concept-grid">
                         <div class="concept-card">
                             <h4>Stop</h4>
-                            <p>Processes, reports, or workflows that exist only because the old system forced them. Monthly reconciliation spreadsheets, manual data re-entry between systems, reports nobody reads. Kill them before migration &mdash; do not migrate waste.</p>
+                            <p>Processes, reports, or workflows that exist only because the old system forced them. Monthly reconciliation spreadsheets, manual data re-entry between systems, reports nobody reads. Kill them before migration: do not migrate waste.</p>
                         </div>
                         <div class="concept-card">
                             <h4>Start</h4>
@@ -483,7 +481,7 @@
 
                     <div class="pro-tips">
                         <h4>Niuexa rule: no charter, no project</h4>
-                        <p>If you cannot fit the migration rationale onto one page, you have not done enough diagnosis. The charter forces clarity. Stakeholders who approve the charter are committing to the scope, the budget, and the timeline &mdash; not just &ldquo;we should upgrade.&rdquo;</p>
+                        <p>If you cannot fit the migration rationale onto one page, you have not done enough diagnosis. The charter forces clarity. Stakeholders who approve the charter are committing to the scope, the budget, and the timeline, not just to &ldquo;we should upgrade.&rdquo;</p>
                     </div>
                 </section>
 
@@ -529,7 +527,7 @@
                     </table>
 
                     <h3>Must-have scoring: the weighted matrix</h3>
-                    <p>Score each vendor against your requirements using a weighted matrix. Weight categories reflect your business priorities &mdash; not the vendor&rsquo;s pitch deck.</p>
+                    <p>Score each vendor against your requirements using a weighted matrix. Weight categories reflect your business priorities, not the vendor&rsquo;s pitch deck.</p>
 
                     <table class="comparison-table">
                         <thead>
@@ -582,11 +580,11 @@
                     <p>Generic RFPs get generic answers. These questions force vendors to show their actual capabilities:</p>
 
                     <ol>
-                        <li><strong>&ldquo;Show us a customer with our volume and complexity who went live in under 4 months.&rdquo;</strong> &mdash; If they cannot, their timeline estimate is aspirational.</li>
-                        <li><strong>&ldquo;Walk us through your last failed implementation. What went wrong?&rdquo;</strong> &mdash; Honest vendors have these stories. Dishonest ones claim 100% success.</li>
-                        <li><strong>&ldquo;What does your system NOT do well?&rdquo;</strong> &mdash; Every system has weaknesses. You need to know them before signing.</li>
-                        <li><strong>&ldquo;Can we talk to a customer who left your platform?&rdquo;</strong> &mdash; Exit stories reveal lock-in risks, data portability, and support quality under stress.</li>
-                        <li><strong>&ldquo;Show us the API documentation right now.&rdquo;</strong> &mdash; If the API docs are hard to find, incomplete, or behind a login wall, integration will be painful.</li>
+                        <li><strong>&ldquo;Show us a customer with our volume and complexity who went live in under 4 months.&rdquo;</strong> If they cannot, their timeline estimate is aspirational.</li>
+                        <li><strong>&ldquo;Walk us through your last failed implementation. What went wrong?&rdquo;</strong> Honest vendors have these stories. Dishonest ones claim 100% success.</li>
+                        <li><strong>&ldquo;What does your system NOT do well?&rdquo;</strong> Every system has weaknesses. You need to know them before signing.</li>
+                        <li><strong>&ldquo;Can we talk to a customer who left your platform?&rdquo;</strong> Exit stories reveal lock-in risks, data portability, and support quality under stress.</li>
+                        <li><strong>&ldquo;Show us the API documentation right now.&rdquo;</strong> If the API docs are hard to find, incomplete, or behind a login wall, integration will be painful.</li>
                     </ol>
 
                     <h3>Proof-of-concept: test before you commit</h3>
@@ -597,9 +595,9 @@
                             <li><strong>3 critical workflows:</strong> the must-have jobs that define success</li>
                             <li><strong>1 integration:</strong> connect to your most important existing system</li>
                             <li><strong>1 data import:</strong> load a representative sample of your actual data (not demo data)</li>
-                            <li><strong>5 real users:</strong> not the implementation team &mdash; actual end users who will work in the system daily</li>
+                            <li><strong>5 real users:</strong> not the implementation team, but actual end users who will work in the system daily</li>
                         </ul>
-                        <p>Score the PoC on the same weighted matrix. If neither vendor scores above 70%, do not proceed &mdash; widen your search.</p>
+                        <p>Score the PoC on the same weighted matrix. If neither vendor scores above 70%, do not proceed: widen your search.</p>
                     </div>
 
                     <div class="pro-tips">
@@ -630,31 +628,31 @@
                                 <td><strong>Big-bang</strong></td>
                                 <td>All users switch to the new system on a single date</td>
                                 <td>Tightly coupled processes (order-to-cash); small teams (&lt; 50 users)</td>
-                                <td>High &mdash; no fallback to old system</td>
+                                <td>High: no fallback to old system</td>
                             </tr>
                             <tr>
                                 <td><strong>Phased rollout</strong></td>
                                 <td>Migrate by department, geography, or module over several waves</td>
                                 <td>Large organizations; loosely coupled processes; multiple locations</td>
-                                <td>Medium &mdash; each wave is a contained blast radius</td>
+                                <td>Medium: each wave is a contained blast radius</td>
                             </tr>
                             <tr>
                                 <td><strong>Parallel run</strong></td>
                                 <td>Both systems run simultaneously; results compared for a validation period</td>
                                 <td>Finance, compliance-heavy systems; high-accuracy requirements</td>
-                                <td>Low &mdash; but doubles operational effort during overlap</td>
+                                <td>Low, but doubles operational effort during overlap</td>
                             </tr>
                             <tr>
                                 <td><strong>Blue/green</strong></td>
                                 <td>New system stands up fully; traffic switches over; instant rollback available</td>
                                 <td>Web applications, APIs, systems with automated testing</td>
-                                <td>Low &mdash; requires infrastructure investment</td>
+                                <td>Low: requires infrastructure investment</td>
                             </tr>
                             <tr>
                                 <td><strong>Strangler fig</strong></td>
                                 <td>New system replaces old system feature by feature over time</td>
                                 <td>Monolithic legacy systems; teams with limited bandwidth</td>
-                                <td>Low &mdash; but extends the migration timeline significantly</td>
+                                <td>Low, but extends the migration timeline significantly</td>
                             </tr>
                         </tbody>
                     </table>
@@ -686,7 +684,7 @@
                             <div class="step-number">3</div>
                             <div class="step-content">
                                 <h4>Data reconciliation report</h4>
-                                <p>Row counts, key field sampling, and exception reports comparing source and target. Every record accounted for &mdash; migrated, excluded (with reason), or flagged for manual review.</p>
+                                <p>Row counts, key field sampling, and exception reports comparing source and target. Every record accounted for: migrated, excluded (with reason), or flagged for manual review.</p>
                             </div>
                         </div>
                         <div class="step">
@@ -752,7 +750,7 @@
 
                     <div class="warning-box">
                         <h4>Timeline truth</h4>
-                        <p>For mid-sized teams: 6-16 weeks for straightforward swaps, 3-9 months with heavy integrations or poor data quality. The calendar is almost always set by data cleanup and integration testing &mdash; not by system configuration. Plan accordingly.</p>
+                        <p>For mid-sized teams: 6-16 weeks for straightforward swaps, 3-9 months with heavy integrations or poor data quality. The calendar is almost always set by data cleanup and integration testing, not by system configuration. Plan accordingly.</p>
                     </div>
 
                     <h3>Governance: who decides what</h3>
@@ -855,7 +853,7 @@
                         <ul>
                             <li><strong>Rehearsal 1 (discovery):</strong> load a 10% sample. Expect failures. Document every mapping issue, transformation error, and missing field. This rehearsal builds your exception list.</li>
                             <li><strong>Rehearsal 2 (validation):</strong> load 100% of data into a staging environment. Compare row counts, key fields, and calculated totals against the source. Fix all exceptions from rehearsal 1.</li>
-                            <li><strong>Rehearsal 3 (time trial):</strong> full migration with timing. Measure how long each step takes. This sets the real cutover window. If the rehearsal takes 8 hours, your cutover window is 8 hours &mdash; not the 4 hours someone estimated in a meeting.</li>
+                            <li><strong>Rehearsal 3 (time trial):</strong> full migration with timing. Measure how long each step takes. This sets the real cutover window. If the rehearsal takes 8 hours, your cutover window is 8 hours, not the 4 hours someone estimated in a meeting.</li>
                         </ul>
                         <p>Use <strong>change data capture (CDC)</strong> during the final week to track records that change between the last rehearsal and the actual cutover. This minimizes the delta load.</p>
                     </div>
@@ -902,11 +900,9 @@
                 <section class="content-section">
                     <h2>6. Adoption and change management</h2>
 
-                    <p>The best migration in the world fails if people do not use the new system. Adoption is not a post-go-live problem &mdash; it starts during requirements and accelerates through training, hypercare, and continuous optimization.</p>
+                    <p>The best migration in the world fails if people do not use the new system. Adoption is not a post-go-live problem: it starts during requirements and accelerates through training, hypercare, and continuous optimization.</p>
 
-                    <blockquote>
-                        <p>&ldquo;A system with 95% functionality coverage and 30% adoption has less business value than a system with 70% functionality coverage and 90% adoption. Adoption is the multiplier.&rdquo;</p>
-                    </blockquote>
+                    <p>Put simply: a system that covers almost every function but that few people use delivers less business value than a system with fewer functions that everyone uses. Adoption is the multiplier.</p>
 
                     <h3>Role-based training: one size fits nobody</h3>
                     <p>Generic training sessions produce generic adoption (low). Design training around roles, not features:</p>
@@ -950,7 +946,7 @@
 
                     <div class="tip-box">
                         <h4>The super-user network</h4>
-                        <p>Recruit 1 super-user for every 10-15 end users. Super-users are the first line of support &mdash; they answer &ldquo;how do I...&rdquo; questions before tickets are filed. They receive advanced training, early access to the system, and recognition for their role. This network is the single most effective adoption lever.</p>
+                        <p>Recruit 1 super-user for every 10-15 end users. Super-users are the first line of support: they answer &ldquo;how do I...&rdquo; questions before tickets are filed. They receive advanced training, early access to the system, and recognition for their role. This network is the single most effective adoption lever.</p>
                     </div>
 
                     <h3>The change management plan</h3>
@@ -967,7 +963,7 @@
                         <tbody>
                             <tr>
                                 <td><strong>Discovery</strong></td>
-                                <td>Communicate the &ldquo;why&rdquo; &mdash; share the diagnosis, the cost of inaction, and the vision for the new system</td>
+                                <td>Communicate the &ldquo;why&rdquo;: share the diagnosis, the cost of inaction, and the vision for the new system</td>
                                 <td>Project owner + exec sponsor</td>
                             </tr>
                             <tr>
@@ -977,7 +973,7 @@
                             </tr>
                             <tr>
                                 <td><strong>Build</strong></td>
-                                <td>Share progress updates (not status reports &mdash; visible demos); recruit super-users</td>
+                                <td>Share progress updates (visible demos rather than status reports); recruit super-users</td>
                                 <td>Change lead + technical lead</td>
                             </tr>
                             <tr>
@@ -1004,8 +1000,8 @@
                     <div class="highlight-box">
                         <h4>Hypercare protocol</h4>
                         <ul>
-                            <li><strong>Daily standups:</strong> 15-minute meetings with project team, super-users, and support &mdash; review issues, blockers, and adoption metrics</li>
-                            <li><strong>Dedicated support channel:</strong> Slack channel, Teams group, or help desk queue with guaranteed response time (&lt; 2 hours)</li>
+                            <li><strong>Daily standups:</strong> 15-minute meetings with project team, super-users, and support to review issues, blockers, and adoption metrics</li>
+                            <li><strong>Dedicated support channel:</strong> Slack channel, Teams group, or help desk queue with a committed response time (&lt; 2 hours)</li>
                             <li><strong>Bug triage:</strong> classify issues as P1 (blocking work), P2 (workaround available), P3 (cosmetic/enhancement); fix P1s same day</li>
                             <li><strong>Adoption dashboard:</strong> track daily active users, feature usage, and support ticket volume; share with stakeholders</li>
                             <li><strong>Feedback loop:</strong> collect &ldquo;what&rsquo;s working / what&rsquo;s not&rdquo; daily from super-users; act on quick wins immediately</li>
@@ -1016,10 +1012,10 @@
                     <p>Migration does not end at go-live. The first 90 days after cutover are an optimization window:</p>
 
                     <ul>
-                        <li><strong>Week 1-2:</strong> stabilize &mdash; fix bugs, address adoption blockers, refine day-1 workflows</li>
-                        <li><strong>Week 3-4:</strong> optimize &mdash; review usage data, identify underused features, add automation rules</li>
-                        <li><strong>Month 2:</strong> expand &mdash; roll out phase 2 features, activate deferred integrations, decommission parallel systems</li>
-                        <li><strong>Month 3:</strong> measure &mdash; compare actual KPIs against Migration Charter targets, calculate realized ROI, document lessons learned</li>
+                        <li><strong>Week 1-2:</strong> stabilize: fix bugs, address adoption blockers, refine day-1 workflows</li>
+                        <li><strong>Week 3-4:</strong> optimize: review usage data, identify underused features, add automation rules</li>
+                        <li><strong>Month 2:</strong> expand: roll out phase 2 features, activate deferred integrations, decommission parallel systems</li>
+                        <li><strong>Month 3:</strong> measure: compare actual KPIs against Migration Charter targets, calculate realized ROI, document lessons learned</li>
                     </ul>
 
                     <div class="pro-tips">
@@ -1030,7 +1026,7 @@
 
                 <!-- Conclusion -->
                 <section class="content-section">
-                    <h2>Conclusion &mdash; Your migration in 7 steps</h2>
+                    <h2>Conclusion: your migration in 7 steps</h2>
 
                     <p>A software migration is not a technology project. It is a business transformation project that happens to involve technology. The 7 steps keep it structured:</p>
 
@@ -1041,7 +1037,7 @@
                         <li><strong>Roadmap:</strong> choose your cutover strategy (default: phased rollout); define the 5 golden deliverables per phase</li>
                         <li><strong>Data:</strong> run 3 dress rehearsals; define the reconciliation pack before rehearsal 1; use CDC for the final delta</li>
                         <li><strong>Adoption:</strong> role-based training, super-user network (1 per 10-15 users), hypercare with daily standups for week 1</li>
-                        <li><strong>Optimize:</strong> stabilize, expand, measure &mdash; compare actuals against charter targets at 90 days</li>
+                        <li><strong>Optimize:</strong> stabilize, expand, measure, then compare actuals against charter targets at 90 days</li>
                     </ol>
 
                     <h3>The 10-point migration checklist</h3>
@@ -1062,7 +1058,7 @@
                     </div>
 
                     <h3>The MVP migration plan</h3>
-                    <p>If you have limited time or resources, here is the minimum viable migration plan &mdash; the bare essentials that prevent disaster:</p>
+                    <p>If you have limited time or resources, here is the minimum viable migration plan, the bare essentials that prevent disaster:</p>
 
                     <table class="comparison-table">
                         <thead>
@@ -1118,17 +1114,15 @@
                         <li><strong>Data quality issues:</strong> the data cleanup alone would consume your team for months</li>
                         <li><strong>Prior failed cutover:</strong> you have already attempted this migration and it did not succeed</li>
                         <li><strong>Limited internal bandwidth:</strong> your team cannot absorb the migration workload on top of daily operations</li>
-                        <li><strong>Executive risk:</strong> revenue operations or finance close cannot pause &mdash; the cutover must be flawless</li>
+                        <li><strong>Executive risk:</strong> revenue operations or finance close cannot pause, so the cutover must be flawless</li>
                     </ul>
 
-                    <blockquote>
-                        <p>&ldquo;A migration partner does not replace your team. A good partner brings the playbook, the tooling, and the scar tissue from past migrations &mdash; so your team can focus on the business decisions that only they can make.&rdquo;</p>
-                    </blockquote>
+                    <p>A migration partner does not replace your team. A good partner brings a method and the tooling, so your team can focus on the business decisions that only they can make.</p>
 
                     <div class="info-box">
-                        <h4>Niuexa Migration Assessment</h4>
-                        <p>Not sure where to start? Niuexa runs a 5-day migration assessment: 48-hour test with your department heads, Value-Flow Map, data readiness audit, TCO estimate, and a Migration Charter ready for stakeholder approval. The output is a go/no-go decision and a phased roadmap tailored to your systems, data, and team capacity.</p>
-                        <a href="consulting.html" class="btn btn-primary">Request a Migration Assessment</a>
+                        <h4>Where Niuexa fits</h4>
+                        <p>Niuexa automates office processes with AI agents on the systems you already use; it is not a software vendor or a system integrator. If a migration is on the table, start by showing us one process. The first 30-minute call is free, any work after it is set out in a written quote, and if AI is not the answer for that process, we say so.</p>
+                        <a href="/en/index.html#contact" class="btn btn-primary">Show us a process</a>
                     </div>
                 </section>
 
@@ -1138,17 +1132,17 @@
 
                     <div class="faq-item">
                         <h3>How long does a software migration usually take?</h3>
-                        <p>For mid-sized teams, 6-16 weeks for straightforward swaps and 3-9 months with heavy integrations or poor data quality. The calendar is set by data cleanup and integration testing. Configuration is rarely the bottleneck &mdash; data quality and user acceptance testing consume the most time. Build contingency for data work: it almost always takes longer than estimated.</p>
+                        <p>For mid-sized teams, 6-16 weeks for straightforward swaps and 3-9 months with heavy integrations or poor data quality. The calendar is set by data cleanup and integration testing. Configuration is rarely the bottleneck: data quality and user acceptance testing consume the most time. Build contingency for data work: it almost always takes longer than estimated.</p>
                     </div>
 
                     <div class="faq-item">
                         <h3>What&rsquo;s the safest way to migrate data with minimal downtime?</h3>
-                        <p>Run 2-3 full dress rehearsals, use change data capture during the final week, cut over with blue/green or parallel run, and define a reconciliation pack with row counts and key field sampling. The reconciliation pack is your proof that the migration succeeded &mdash; write it before rehearsal 1 so every rehearsal uses the same validation criteria. For systems that cannot tolerate downtime, use a parallel run strategy with automated reconciliation.</p>
+                        <p>Run 2-3 full dress rehearsals, use change data capture during the final week, cut over with blue/green or parallel run, and define a reconciliation pack with row counts and key field sampling. The reconciliation pack is your proof that the migration succeeded, so write it before rehearsal 1 so every rehearsal uses the same validation criteria. For systems that cannot tolerate downtime, use a parallel run strategy with automated reconciliation.</p>
                     </div>
 
                     <div class="faq-item">
                         <h3>Big-bang vs phased rollout: which is better?</h3>
-                        <p>Usually phased rollout wins: fewer failure modes, faster feedback, lower adoption shock. Do big-bang only when the process is tightly coupled like order-to-cash, where splitting modules creates more risk than migrating at once. With phased rollout, each wave teaches you something that makes the next wave smoother &mdash; and if a wave fails, the blast radius is contained to one team or department.</p>
+                        <p>Usually phased rollout wins: fewer failure modes, faster feedback, lower adoption shock. Do big-bang only when the process is tightly coupled like order-to-cash, where splitting modules creates more risk than migrating at once. With phased rollout, each wave teaches you something that makes the next wave smoother, and if a wave fails, the blast radius is contained to one team or department.</p>
                     </div>
 
                     <div class="faq-item">
@@ -1163,7 +1157,7 @@
 
                     <div class="faq-item">
                         <h3>When should you bring in an external migration partner?</h3>
-                        <p>When you have multiple systems with complex integrations, data quality issues, prior failed cutover, limited internal bandwidth, or executive risk where revenue ops or finance close cannot pause. A good partner brings the playbook, the tooling, and the scar tissue from past migrations &mdash; so your team can focus on the business decisions that only they can make.</p>
+                        <p>When you have multiple systems with complex integrations, data quality issues, prior failed cutover, limited internal bandwidth, or executive risk where revenue ops or finance close cannot pause. A good partner brings a method and the tooling, so your team can focus on the business decisions that only they can make.</p>
                     </div>
                 </section>
 
@@ -1197,9 +1191,9 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <h2>Outgrowing Your Software? Let&rsquo;s Build Your Migration Plan.</h2>
-            <p>Niuexa consultants guide you from assessment to go-live: 48-hour diagnostic, Value-Flow Map, data readiness audit, Migration Charter, and phased roadmap. Turn a vague &ldquo;we need to upgrade&rdquo; into a controlled project with clear milestones.</p>
-            <a href="consulting.html" class="btn btn-primary">Request a Migration Assessment</a>
+            <h2>One process at a time, measured before and after</h2>
+            <p>Niuexa automates office processes with AI agents on the systems you already use, starting from a measurement of the process as it runs today. The first 30-minute call is free: show us a process and we will tell you whether AI can lighten it, even when the answer is no.</p>
+            <a href="/en/index.html#contact" class="btn btn-primary">Show us a process</a>
         </div>
     </section>
 
