@@ -6231,37 +6231,14 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 .product-card:nth-child(3).animate-in { transition-delay: 0.3s; }
 .product-card:nth-child(4).animate-in { transition-delay: 0.4s; }
 
-/* Loading animation */
-body:not(.loaded) .hero-title,
-body:not(.loaded) .hero-subtitle,
-body:not(.loaded) .hero-buttons {
-    opacity: 0;
-    transform: translateY(30px);
-}
-
-body.loaded .hero-title,
-body.loaded .hero-subtitle,
-body.loaded .hero-buttons {
-    animation: fadeInUp 1s ease forwards;
-}
-
-body.loaded .hero-subtitle {
-    animation-delay: 0.2s;
-}
-
-body.loaded .hero-buttons {
-    animation-delay: 0.4s;
-}
+/* Hero copy used to stay at opacity 0 until script.js added body.loaded, so
+   every page without script.js (most articles, the product and worksheet
+   pages, the English pages that load only navigation-en.js) could show an
+   empty hero. The hero elements already run their own CSS entrance, which
+   needs no script. */
 
 /* Reduced motion: show content immediately, stop decorative loops */
 @media (prefers-reduced-motion: reduce) {
-    body:not(.loaded) .hero-title,
-    body:not(.loaded) .hero-subtitle,
-    body:not(.loaded) .hero-buttons {
-        opacity: 1;
-        transform: none;
-    }
-
     .hero-particles,
     .hero-gradient,
     .hero-background::before,
