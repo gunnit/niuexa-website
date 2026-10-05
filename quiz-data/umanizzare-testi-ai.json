@@ -6,7 +6,7 @@
     "timeLimit": 20,
     "category": "Scrittura AI",
     "difficulty": "Intermedio",
-    "description": "Test di certificazione per validare le competenze nell'umanizzazione di testi generati dall'intelligenza artificiale.",
+    "description": "Quiz sulla guida all'umanizzazione dei testi generati dall'intelligenza artificiale. Superandolo si ottiene un attestato di completamento Niuexa, non una certificazione accreditata.",
     "questions": [
         {
             "id": 1,
@@ -189,9 +189,9 @@
             "points": 1
         }
     ],
-    "passingMessage": "Complimenti! Hai dimostrato una solida comprensione delle tecniche di umanizzazione AI. Sei pronto/a a trasformare contenuti artificiali in testi autentici e coinvolgenti.",
-    "failingMessage": "Non hai raggiunto il punteggio minimo. Ti consigliamo di rivedere il tutorial, prestando particolare attenzione alle sezioni su perplexity, burstiness e tecniche di editing strategico.",
-    "certificateTitle": "Specialista in Umanizzazione Testi AI",
+    "passingMessage": "Quiz superato: le risposte mostrano una buona comprensione delle tecniche per rendere naturali i testi generati dall'AI.",
+    "failingMessage": "Punteggio minimo non raggiunto. Le consigliamo di rileggere la guida, in particolare le sezioni su perplexity, burstiness e tecniche di editing.",
+    "certificateTitle": "Attestato di completamento: umanizzare i testi AI",
     "skills": [
         "Tecniche di umanizzazione avanzate",
         "Comprensione dei detector AI",

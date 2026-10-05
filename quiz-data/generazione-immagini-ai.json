@@ -1,12 +1,12 @@
 {
-    "tutorial": "Generazione di Immagini AI: La Guida Definitiva 2025",
+    "tutorial": "Generazione di immagini con l'AI (guida 2025)",
     "tutorialId": "generazione-immagini-ai",
     "totalQuestions": 12,
     "passingScore": 80,
     "timeLimit": 15,
     "category": "AI Visuale",
     "difficulty": "Principiante-Avanzato",
-    "description": "Test di certificazione per validare le competenze nella generazione di immagini con strumenti di intelligenza artificiale.",
+    "description": "Quiz sulla guida alla generazione di immagini con strumenti di intelligenza artificiale. Superandolo si ottiene un attestato di completamento Niuexa, non una certificazione accreditata.",
     "questions": [
         {
             "id": 1,
@@ -153,9 +153,9 @@
             "points": 1
         }
     ],
-    "passingMessage": "Eccellente! Hai dimostrato una comprensione completa dei tool e delle tecniche per la generazione di immagini AI. Sei pronto/a a creare contenuti visuali professionali con l'intelligenza artificiale.",
-    "failingMessage": "Non hai raggiunto il punteggio minimo. Ti consigliamo di approfondire le sezioni sui tool specifici, le tecniche di prompting e i workflow professionali.",
-    "certificateTitle": "Specialista in Generazione Immagini AI",
+    "passingMessage": "Quiz superato: le risposte mostrano una buona comprensione dei tool e delle tecniche per generare immagini con l'AI.",
+    "failingMessage": "Punteggio minimo non raggiunto. Le consigliamo di rileggere le sezioni sui singoli tool, sulle tecniche di prompting e sui workflow.",
+    "certificateTitle": "Attestato di completamento: generazione di immagini con l'AI",
     "skills": [
         "Padronanza dei principali tool AI (Recraft V3, FLUX, Midjourney)",
         "Tecniche di prompting avanzate per immagini",

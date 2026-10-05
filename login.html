@@ -27,7 +27,7 @@
     })(window,document,'script','dataLayer','GTM-KG9S42S4');</script>
     <!-- End Google Tag Manager -->
     
-    <title>Accesso Clienti - Niuexa</title>
+    <title>Accesso clienti | Niuexa</title>
     
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="img/favicon 256.ico">
@@ -40,255 +40,33 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css?v=20260807">
-    <style>
-        .login-container {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--gradient-hero-dark);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .login-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 40%, rgba(35, 125, 166, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 60%, rgba(67, 174, 104, 0.1) 0%, transparent 50%);
-            animation: particleFloat 20s ease-in-out infinite;
-        }
-
-        .login-card {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-            width: 100%;
-            max-width: 450px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .login-header {
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
-
-        .login-logo {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: var(--gradient-secondary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
-        }
-
-        .login-subtitle {
-            color: var(--medium-gray);
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .client-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(35, 125, 166, 0.1);
-            border: 1px solid rgba(35, 125, 166, 0.3);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            color: var(--blue-text);
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--dark-gray);
-            font-weight: 600;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #e9ecef;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-            font-family: 'Hanken Grotesk', system-ui, sans-serif;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: var(--blue-text);
-            box-shadow: 0 0 0 3px rgba(35, 125, 166, 0.1);
-        }
-
-        .login-btn {
-            width: 100%;
-            padding: 1.2rem;
-            background: var(--gradient-secondary);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Hanken Grotesk', system-ui, sans-serif;
-        }
-
-        .login-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(35, 125, 166, 0.3);
-        }
-
-        .login-btn:active {
-            transform: translateY(0);
-        }
-
-        .login-notice {
-            background: rgba(35, 125, 166, 0.08);
-            color: var(--dark-gray);
-            padding: 1rem;
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
-            border-left: 4px solid var(--primary-blue);
-            line-height: 1.5;
-        }
-
-        .login-notice a {
-            color: var(--blue-text);
-            font-weight: 600;
-        }
-
-        a.login-btn {
-            display: block;
-            text-align: center;
-            text-decoration: none;
-            box-sizing: border-box;
-        }
-
-        .forgot-password {
-            text-align: center;
-            margin-top: 1.5rem;
-        }
-
-        .forgot-password a {
-            color: var(--blue-text);
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-
-        .forgot-password a:hover {
-            text-decoration: underline;
-        }
-
-        .back-home {
-            position: absolute;
-            top: 2rem;
-            left: 2rem;
-            z-index: 2;
-        }
-
-        .back-home a {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: white;
-            text-decoration: none;
-            padding: 0.8rem 1.2rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .back-home a:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes particleFloat {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            33% { transform: translateY(-30px) rotate(120deg); }
-            66% { transform: translateY(30px) rotate(240deg); }
-        }
-
-        @media (max-width: 768px) {
-            .login-card {
-                margin: 1rem;
-                padding: 2rem;
-            }
-
-            .login-logo {
-                font-size: 2rem;
-            }
-
-            .back-home {
-                top: 1rem;
-                left: 1rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="polish.css?v=20261005">
+    <link rel="stylesheet" href="login.css?v=20261005">
 </head>
-<body>
+<body class="polished login-page">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9S42S4"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     
-    <main id="main-content">
-    <div class="back-home">
-        <a href="index.html">
-            <span>←</span>
-            <span>Torna alla Home</span>
-        </a>
-    </div>
+    <main id="main-content" class="login-container">
+        <a href="index.html" class="back-home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>Torna alla home</a>
 
-    <div class="login-container">
         <div class="login-card">
-            <div class="login-header">
-                <h1 class="login-logo">NIUEXA</h1>
-                <p class="login-subtitle">Accesso Clienti</p>
-                <div class="client-badge">
-                    <span>🔐</span>
-                    <span>Area Riservata</span>
-                </div>
-            </div>
-
-            <div class="login-notice" role="status">
-                <p>L'area clienti è in fase di attivazione. Accedi alla piattaforma AEO su <a href="https://aeo.niuexa.ai">aeo.niuexa.ai</a> o scrivici a <a href="mailto:ai@niuexa.ai">ai@niuexa.ai</a>.</p>
-            </div>
-
-            <a href="https://aeo.niuexa.ai" class="login-btn">
-                Vai alla piattaforma AEO
+            <a href="index.html" class="login-brand" aria-label="Niuexa, torna alla home">
+                <img src="img/landing/niuexa-ai-solutions.webp" alt="" width="600" height="139" decoding="async">
             </a>
+            <h1>Accesso clienti</h1>
+            <p class="login-subtitle">Area riservata ai clienti Niuexa.</p>
+
+            <div class="login-notice">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <p>L'area clienti sul sito è in preparazione. Per la piattaforma AEO usi l'accesso su <a href="https://aeo.niuexa.ai">aeo.niuexa.ai</a>; per tutto il resto ci scriva.</p>
+            </div>
+
+            <a href="https://aeo.niuexa.ai" class="btn btn-primary login-btn">Vai alla piattaforma AEO<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            <p class="login-alt">Oppure scriva a <a href="mailto:ai@niuexa.ai">ai@niuexa.ai</a></p>
         </div>
-    </div>
     </main>
 
     <script src="/cookie-banner.js?v=20260428"></script>

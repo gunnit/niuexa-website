@@ -1,1188 +1,763 @@
-/* Niuexa Certification System Styles */
-/* Modern, engaging UI for the certification experience */
+/* ============================================================
+   Quiz on the free guides (certification.html, en/certification.html)
+   Four screens driven by certification.js: welcome, quiz,
+   registration and certificate. Loaded after polish.css, which
+   sets the navy left-aligned section headings, icon tiles and
+   hairline cards. Tokens from styles.css only.
+   Scoped to body.cert-page.
+   ============================================================ */
 
-/* ========================================
-   Base Certification Styles
-   ======================================== */
-
-#certification-app {
-    min-height: 100vh;
-    background: var(--gradient-cta);
-    position: relative;
+.cert-page {
+    --cert-card-shadow: 0 1px 2px rgba(10, 26, 38, 0.04), 0 8px 24px rgba(10, 26, 38, 0.06);
 }
 
-.certification-screen {
+/* ---------- Screens ---------- */
+.cert-page .certification-screen {
     display: none;
-    min-height: 100vh;
-    position: relative;
 }
 
-.certification-screen.active {
+.cert-page .certification-screen.active {
     display: block;
-    animation: fadeIn 0.6s ease;
+    animation: certFadeIn 0.35s ease;
 }
 
-@keyframes fadeIn {
+@keyframes certFadeIn {
     from {
         opacity: 0;
-        transform: translateY(20px);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
     }
 }
 
-/* ========================================
-   Welcome Screen Styles
-   ======================================== */
-
-#welcome-screen {
-    background: var(--gradient-cta);
-    color: var(--white);
-    padding: 120px 0 80px 0;
-    position: relative;
-    overflow: hidden;
-}
-
-#welcome-screen::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-    opacity: 0.3;
-}
-
-.welcome-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    position: relative;
-    z-index: 2;
-}
-
-.cert-hero {
-    text-align: center;
-    margin-bottom: 4rem;
-}
-
-/* This hero sits on the white page body: override the white-on-dark
-   defaults that .hero-title/.hero-subtitle/.stat-label carry in styles.css */
-.hero-title {
-    font-size: 3.5rem;
-    font-family: var(--font-primary);
-    margin-bottom: 1rem;
-}
-
-.cert-hero .hero-title {
-    /* #welcome-screen is a --gradient-primary field, not a light surface;
-       --dark-gray measured 1.4:1 here. */
-    color: var(--white);
-}
-
-.hero-subtitle {
-    font-size: 1.25rem;
-    margin-bottom: 3rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.6;
-}
-
-.cert-hero .hero-subtitle {
-    color: var(--white);
-}
-
-.cert-hero .stat-label {
-    color: var(--white);
-}
-
-.hero-stats {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    flex-wrap: wrap;
-    margin-bottom: 4rem;
-}
-
-.stat {
-    text-align: center;
-}
-
-.stat-number {
-    display: block;
-    font-size: 2.5rem;
-    font-family: var(--font-primary);
-    font-weight: 900;
-    line-height: 1;
-    color: var(--white);
-}
-
-.stat-label {
-    display: block;
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.1rem;
-    }
-    
-    .hero-stats {
-        gap: 2rem;
-    }
-    
-    .stat-number {
-        font-size: 2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: 2rem;
-    }
-    
-    .hero-stats {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-}
-
-/* Tutorial Selection */
-.tutorial-selection {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 3rem;
-    margin-bottom: 4rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.tutorial-selection h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: white;
-}
-
-.tutorials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
-    gap: 2rem;
-}
-
-.tutorial-cert-card {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 16px;
-    padding: 2rem;
-    color: var(--dark-gray);
-    transition: all 0.4s ease;
-    cursor: pointer;
-    border: 2px solid transparent;
-    position: relative;
-    overflow: hidden;
-}
-
-.tutorial-cert-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-    transition: left 0.6s ease;
-}
-
-.tutorial-cert-card:hover::before {
-    left: 100%;
-}
-
-.tutorial-cert-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    border-color: rgba(255, 255, 255, 0.5);
-}
-
-.tutorial-cert-icon {
-    font-size: 3rem;
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-.tutorial-cert-content h3 {
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--dark-gray);
-}
-
-.tutorial-cert-content p {
-    color: var(--medium-gray);
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-}
-
-.tutorial-cert-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    font-size: 0.9rem;
-}
-
-.tutorial-cert-meta span {
-    background: var(--light-gray);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    color: var(--medium-gray);
-    border: 1px solid var(--border-light);
-}
-
-.start-cert-btn {
-    width: 100%;
-    background: var(--gradient-primary);
-    color: var(--white);
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all var(--transition-fast);
-    position: relative;
-    overflow: hidden;
-}
-
-.start-cert-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(35, 125, 166, 0.4);
-}
-
-.start-cert-btn:active {
-    transform: translateY(0);
-}
-
-/* Certification Benefits */
-.certification-benefits {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 3rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.certification-benefits h3 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: white;
-}
-
-.benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
-    gap: 2rem;
-}
-
-.benefit-card {
-    text-align: center;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
-}
-
-.benefit-card:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-5px);
-}
-
-.benefit-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.benefit-card h4 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: white;
-}
-
-.benefit-card p {
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.6;
-}
-
-/* ========================================
-   Quiz Screen Styles
-   ======================================== */
-
-#quiz-screen {
-    background: linear-gradient(135deg, var(--light-gray) 0%, var(--border-light) 100%);
+/* Inner screens sit on the light surface below the fixed navbar */
+.cert-page #quiz-screen,
+.cert-page #registration-screen,
+.cert-page #certificate-screen {
     min-height: 100vh;
-    padding: 2rem 0;
+    padding: clamp(104px, 11vw, 136px) 0 clamp(56px, 7vw, 88px);
+    background: var(--light-gray);
 }
 
-.quiz-header {
-    background: white;
-    border-radius: 16px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    border: 1px solid var(--border-light);
-}
-
-.quiz-breadcrumb {
-    margin-bottom: 1rem;
-}
-
-.back-btn {
-    background: none;
-    border: 2px solid var(--primary-blue);
-    color: var(--blue-text);
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: all var(--transition-fast);
-}
-
-.back-btn:hover {
-    background: var(--primary-blue);
+/* ---------- Welcome: hero ---------- */
+.cert-page .cert-hero {
+    background: var(--gradient-hero-dark);
     color: var(--white);
-    transform: translateX(-3px);
+    padding: clamp(120px, 13vw, 168px) 0 clamp(56px, 7vw, 88px);
 }
 
-.quiz-info h1 {
-    font-size: 2rem;
-    color: var(--dark-gray);
-    margin-bottom: 1rem;
+.cert-page .cert-hero h1 {
+    max-width: 20ch;
+    margin: 0 0 1.5rem;
+    font-family: var(--font-primary);
+    font-size: clamp(2.3rem, 5vw, 3.6rem);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+    color: var(--white);
+}
+
+.cert-page .cert-lead {
+    max-width: 64ch;
+    margin: 0;
+    font-size: 1.12rem;
+    line-height: 1.7;
+    color: var(--white);
+}
+
+.cert-page .cert-stats {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2.5rem 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cert-page .cert-stats li {
+    padding: 1.5rem 2.5rem 0 0;
+}
+
+.cert-page .cert-stats li + li {
+    padding-left: 2.5rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cert-page .cert-stat-value {
+    display: block;
+    font-family: var(--font-primary);
+    font-size: clamp(1.8rem, 3vw, 2.3rem);
     font-weight: 700;
+    line-height: 1.1;
+    color: var(--signal-on-dark);
 }
 
-.quiz-meta {
-    display: flex;
-    flex-wrap: wrap;
+.cert-page .cert-stat-label {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 0.98rem;
+    color: var(--muted-on-dark);
+}
+
+/* ---------- Welcome: guide cards ---------- */
+.cert-page .tutorial-selection,
+.cert-page .certification-benefits {
+    padding: var(--polish-section) 0;
+}
+
+.cert-page .tutorial-selection {
+    background: var(--light-gray);
+}
+
+.cert-page .certification-benefits {
+    background: var(--white);
+}
+
+.cert-page .tutorials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.5rem;
-    margin-bottom: 2rem;
 }
 
-.quiz-meta span {
-    background: var(--light-gray);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    color: var(--medium-gray);
-    border: 1px solid var(--border-light);
-    font-size: 0.9rem;
-}
-
-.passing-score {
-    background: var(--error-surface) !important;
-    color: var(--error-text) !important;
-    border-color: var(--error) !important;
-}
-
-/* Progress Bar */
-.quiz-progress {
-    margin-top: 2rem;
-}
-
-.progress-bar {
-    width: 100%;
-    height: 8px;
-    background: var(--border-light);
-    border-radius: 4px;
-    overflow: hidden;
-    margin-bottom: 0.5rem;
-}
-
-.progress-fill {
-    height: 100%;
-    /* Full-width bar scaled horizontally rather than animated on `width`, so
-       each frame is a compositor transform instead of a layout pass. The JS
-       sets --progress (0-100). */
-    width: 100%;
-    transform: scaleX(calc(var(--progress, 0) / 100));
-    transform-origin: left center;
-    background: linear-gradient(90deg, var(--primary-blue) 0%, var(--brand-teal) 100%);
-    border-radius: 4px;
-    transition: transform 0.5s ease;
-    position: relative;
-}
-
-.progress-fill::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    animation: shimmer 2s infinite;
-}
-
-@keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-}
-
-.progress-text {
-    text-align: center;
-    font-size: 0.9rem;
-    color: var(--medium-gray);
-    font-weight: 500;
-}
-
-/* Quiz Content */
-.quiz-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.question-container {
-    margin-bottom: 3rem;
-}
-
-.question-card {
-    background: white;
-    border-radius: 20px;
-    padding: 3rem;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-    border: 1px solid var(--border-light);
-    animation: slideIn 0.5s ease;
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-.question-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid var(--light-gray);
-}
-
-.question-number {
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--brand-teal) 100%);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-weight: 600;
-    font-size: 0.9rem;
-}
-
-.question-type {
-    background: var(--light-gray);
-    color: var(--medium-gray);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    border: 1px solid var(--border-light);
-}
-
-.question-text {
-    font-size: 1.4rem;
-    color: var(--dark-gray);
-    line-height: 1.6;
-    margin-bottom: 2rem;
-    font-weight: 600;
-}
-
-/* Answer Options */
-.answer-options {
+.cert-page .tutorial-cert-card {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    padding: 2rem;
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    box-shadow: var(--cert-card-shadow);
 }
 
-.answer-option {
-    background: var(--light-gray);
-    border: 2px solid var(--border-light);
-    border-radius: 12px;
-    padding: 1.5rem;
+.cert-page .tutorial-cert-card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.3rem;
+    letter-spacing: -0.01em;
+    color: var(--dark-gray);
+}
+
+.cert-page .tutorial-cert-card p {
+    margin: 0 0 1.25rem;
+    line-height: 1.65;
+    color: var(--medium-gray);
+}
+
+.cert-page .tutorial-cert-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0 0 1.75rem;
+    padding: 0;
+    list-style: none;
+}
+
+.cert-page .tutorial-cert-meta li {
+    padding: 0.3rem 0.75rem;
+    border: 1px solid var(--border-light);
+    border-radius: 999px;
+    font-size: 0.88rem;
+    color: var(--medium-gray);
+}
+
+.cert-page .start-cert-btn {
+    align-self: flex-start;
+    margin-top: auto;
+}
+
+/* ---------- Welcome: how it works ---------- */
+.cert-page .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.cert-page .benefit-card {
+    padding: 1.75rem;
+    background: var(--white);
+}
+
+.cert-page .benefit-card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.15rem;
+    color: var(--dark-gray);
+}
+
+.cert-page .benefit-card p {
+    margin: 0;
+    line-height: 1.65;
+    color: var(--medium-gray);
+}
+
+/* ---------- Quiz ---------- */
+.cert-page .quiz-header,
+.cert-page .quiz-content,
+.cert-page .registration-content,
+.cert-page .certificate-content {
+    max-width: 820px;
+    margin: 0 auto;
+}
+
+.cert-page .quiz-header {
+    margin-bottom: 1.5rem;
+}
+
+.cert-page .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0;
+    background: none;
+    border: 0;
+    font-family: var(--font-primary);
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--blue-text);
     cursor: pointer;
-    transition: all 0.3s ease;
+}
+
+.cert-page .back-btn svg,
+.cert-page .action-btn svg,
+.cert-page .share-btn svg,
+.cert-page .next-btn svg {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+}
+
+.cert-page .back-btn:hover {
+    color: var(--dark-blue);
+}
+
+.cert-page .quiz-title {
+    margin: 0.75rem 0 0.75rem;
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--dark-gray);
+}
+
+.cert-page .quiz-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.cert-page .quiz-meta span {
+    padding: 0.3rem 0.75rem;
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 999px;
+    font-size: 0.88rem;
+    color: var(--medium-gray);
+}
+
+.cert-page .quiz-meta .passing-score {
+    background: var(--success-surface);
+    border-color: transparent;
+    color: var(--green-text);
+}
+
+.cert-page .quiz-progress {
+    margin-top: 1.5rem;
+}
+
+.cert-page .progress-bar {
+    height: 6px;
+    overflow: hidden;
+    background: var(--border-light);
+    border-radius: 999px;
+}
+
+.cert-page .progress-fill {
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: 999px;
+    transform-origin: left center;
+    transform: scaleX(calc(var(--progress, 0) / 100));
+    transition: transform var(--transition-fast);
+}
+
+.cert-page .progress-text {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--medium-gray);
+}
+
+.cert-page .question-card {
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    box-shadow: var(--cert-card-shadow);
+}
+
+.cert-page .question-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.cert-page .question-number {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    color: var(--blue-text);
+}
+
+.cert-page .question-type {
+    color: var(--medium-gray);
+}
+
+.cert-page .question-text {
+    margin: 0 0 1.5rem;
+    font-size: clamp(1.2rem, 2.2vw, 1.45rem);
+    line-height: 1.35;
+    color: var(--dark-gray);
+}
+
+.cert-page .answer-options {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.cert-page .answer-option {
     position: relative;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.9rem;
+    min-height: 52px;
+    padding: 0.85rem 1.1rem;
+    background: var(--white);
+    border: 1px solid var(--border-medium);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: border-color var(--transition-fast), background-color var(--transition-fast);
 }
 
-.answer-option:hover {
-    background: var(--light-gray);
-    border-color: var(--border-medium);
-    transform: translateX(5px);
-}
-
-.answer-option.selected {
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+.cert-page .answer-option:hover {
     border-color: var(--primary-blue);
-    transform: translateX(8px);
 }
 
-.answer-option input[type="radio"] {
-    display: none;
+.cert-page .answer-option.selected {
+    background: var(--info-surface);
+    border-color: var(--primary-blue);
 }
 
-.option-indicator {
+/* The radio stays in the accessibility tree and keeps keyboard focus */
+.cert-page .answer-option input[type="radio"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.cert-page .answer-option:has(input:focus-visible) {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+}
+
+.cert-page .option-indicator {
+    position: relative;
+    flex: 0 0 20px;
     width: 20px;
     height: 20px;
     border: 2px solid var(--border-medium);
     border-radius: 50%;
-    transition: all 0.3s ease;
-    flex-shrink: 0;
 }
 
-.answer-option.selected .option-indicator {
-    background: var(--primary-blue);
+.cert-page .answer-option.selected .option-indicator {
     border-color: var(--primary-blue);
-    position: relative;
 }
 
-.answer-option.selected .option-indicator::after {
-    content: '✓';
+.cert-page .answer-option.selected .option-indicator::after {
+    content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 12px;
-    font-weight: bold;
+    inset: 3px;
+    background: var(--primary-blue);
+    border-radius: 50%;
 }
 
-.option-text {
-    font-size: 1.1rem;
-    color: var(--dark-gray);
+.cert-page .option-text {
     line-height: 1.5;
-    flex: 1;
+    color: var(--dark-gray);
 }
 
-/* Quiz Navigation */
-.quiz-navigation {
+.cert-page .quiz-navigation {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     gap: 1rem;
-    margin-top: 3rem;
+    margin-top: 1.5rem;
 }
 
-.nav-btn {
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    min-width: 140px;
+.cert-page .nav-btn[hidden] {
+    display: none;
 }
 
-.nav-btn.primary {
-    background: var(--gradient-primary);
-    color: var(--white);
-}
-
-.nav-btn.secondary {
-    background: var(--white);
-    color: var(--medium-gray);
-    border: 2px solid var(--light-gray);
-}
-
-.nav-btn.success {
-    background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
-    color: var(--white);
-}
-
-.nav-btn:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.nav-btn:disabled {
-    opacity: 0.5;
+.cert-page .nav-btn:disabled {
+    opacity: 0.45;
     cursor: not-allowed;
     transform: none;
     box-shadow: none;
 }
 
-/* ========================================
-   Registration Screen Styles
-   ======================================== */
-
-#registration-screen {
-    background: linear-gradient(135deg, var(--light-gray) 0%, var(--border-light) 100%);
-    min-height: 100vh;
-    padding: 4rem 0;
-}
-
-.registration-content {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.registration-header {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.success-icon {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    animation: celebrationBounce 1s ease;
-}
-
-@keyframes celebrationBounce {
-    0% { transform: scale(0); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
-}
-
-.registration-header h2 {
-    font-size: 2.5rem;
-    color: var(--dark-gray);
-    margin-bottom: 1rem;
-    font-weight: 700;
-}
-
-.success-message {
-    font-size: 1.2rem;
-    color: var(--medium-gray);
-    margin-bottom: 2rem;
-}
-
-.score-display {
-    background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
-    color: white;
-    padding: 1.5rem;
-    border-radius: 16px;
-    display: inline-flex;
-    align-items: center;
-    gap: 1rem;
-    font-size: 1.1rem;
-    box-shadow: 0 4px 20px rgba(72, 187, 120, 0.3);
-}
-
-.score-value {
-    font-size: 2rem;
-    font-weight: 700;
-}
-
-.score-value.excellent {
-    color: var(--green-text);
-}
-
-.score-value.good {
-    color: var(--blue-text);
-}
-
-/* Registration Form */
-.registration-form-container {
-    background: white;
-    border-radius: 20px;
-    padding: 3rem;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-    border: 1px solid var(--border-light);
-}
-
-.registration-form-container h2 {
-    font-size: 1.8rem;
-    color: var(--dark-gray);
-    margin-bottom: 1rem;
-    font-weight: 600;
-}
-
-.registration-form-container > p {
-    color: var(--medium-gray);
-    margin-bottom: 2rem;
-    line-height: 1.6;
-}
-
-.certification-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.form-group label {
-    font-weight: 600;
-    color: var(--dark-gray);
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-}
-
-.form-group input {
-    padding: 1rem;
-    border: 2px solid var(--border-light);
-    border-radius: 12px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    background: var(--light-gray);
-}
-
-.form-group input:focus {
-    outline: none;
-    border-color: var(--primary-blue);
-    background: white;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-}
-
-.form-group input::placeholder {
-    color: #a0aec0;
-}
-
-/* Checkbox Styling */
-.form-consent {
-    margin: 1rem 0;
-}
-
-.checkbox-label {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    cursor: pointer;
-    line-height: 1.6;
-    color: var(--medium-gray);
-}
-
-.checkbox-label input[type="checkbox"] {
+.cert-page .nav-btn:disabled::before {
     display: none;
 }
 
-.checkmark {
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--border-medium);
-    border-radius: 4px;
+/* ---------- Registration ---------- */
+.cert-page .registration-content {
+    max-width: 640px;
+}
+
+.cert-page .registration-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.cert-page .success-icon {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1.25rem;
+    background: var(--success-surface);
+    color: var(--green-text);
+    border-radius: 50%;
+}
+
+.cert-page .success-icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.cert-page .registration-header h2,
+.cert-page .certificate-header h2 {
+    margin: 0 0 0.5rem;
+    font-size: clamp(1.7rem, 3vw, 2.2rem);
+    letter-spacing: -0.02em;
+    color: var(--dark-gray);
+}
+
+.cert-page .success-message,
+.cert-page .certificate-header p {
+    margin: 0;
+    color: var(--medium-gray);
+}
+
+.cert-page .score-display {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin: 1.25rem 0 0;
+    color: var(--medium-gray);
+}
+
+.cert-page .score-value {
+    font-family: var(--font-primary);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--green-text);
+}
+
+.cert-page .registration-form-container {
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    box-shadow: var(--cert-card-shadow);
+}
+
+.cert-page .registration-form-container h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.35rem;
+    color: var(--dark-gray);
+}
+
+.cert-page .registration-form-container > p {
+    margin: 0 0 1.5rem;
+    line-height: 1.6;
+    color: var(--medium-gray);
+}
+
+.cert-page .certification-form {
+    display: grid;
+    gap: 1.1rem;
+}
+
+.cert-page .form-group label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    color: var(--dark-gray);
+}
+
+.cert-page .form-group input {
+    width: 100%;
+    min-height: 48px;
+    padding: 0.7rem 0.9rem;
+    background: var(--white);
+    border: 1px solid var(--border-medium);
+    border-radius: 10px;
+    font: inherit;
+    color: var(--dark-gray);
+}
+
+.cert-page .form-group input::placeholder {
+    color: var(--medium-gray);
+}
+
+.cert-page .form-group input:focus {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 1px;
+    border-color: var(--primary-blue);
+}
+
+.cert-page .generate-cert-btn {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+/* ---------- Certificate ---------- */
+.cert-page .certificate-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.cert-page .certificate-display {
+    padding: clamp(0.75rem, 2vw, 1.25rem);
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    box-shadow: var(--cert-card-shadow);
+}
+
+.cert-page #certificate-canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.cert-page .certificate-actions {
+    margin-top: 2rem;
+}
+
+.cert-page .primary-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.cert-page .action-btn {
+    gap: 0.5rem;
+}
+
+.cert-page .sharing-section,
+.cert-page .next-steps {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-light);
+}
+
+.cert-page .sharing-section h3,
+.cert-page .next-steps h3 {
+    margin: 0 0 1rem;
+    font-size: 1.15rem;
+    color: var(--dark-gray);
+}
+
+.cert-page .share-buttons,
+.cert-page .next-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.cert-page .share-btn,
+.cert-page .next-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0.6rem 1.2rem;
+    background: var(--white);
+    border: 1px solid var(--border-medium);
+    border-radius: 999px;
+    font-family: var(--font-secondary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--dark-gray);
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.cert-page .share-btn:hover,
+.cert-page .next-btn:hover {
+    border-color: var(--primary-blue);
+    color: var(--blue-text);
+}
+
+.cert-page .share-btn:focus-visible,
+.cert-page .next-btn:focus-visible,
+.cert-page .back-btn:focus-visible {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+}
+
+/* ---------- Dialogs built by certification.js ---------- */
+.failure-modal,
+.certificate-fullscreen-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
-    flex-shrink: 0;
-    margin-top: 2px;
+    padding: 20px;
+    background: rgba(10, 26, 38, 0.8);
 }
 
-.checkbox-label input[type="checkbox"]:checked + .checkmark {
-    background: var(--primary-blue);
-    border-color: var(--primary-blue);
-    color: white;
-}
-
-.checkbox-label input[type="checkbox"]:checked + .checkmark::after {
-    content: '✓';
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.generate-cert-btn {
-    background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
-    color: white;
-    border: none;
-    padding: 1.2rem 2rem;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 1rem;
-}
-
-.generate-cert-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(72, 187, 120, 0.4);
-}
-
-/* ========================================
-   Certificate Screen Styles
-   ======================================== */
-
-#certificate-screen {
-    background: linear-gradient(135deg, var(--light-gray) 0%, var(--border-light) 100%);
-    min-height: 100vh;
-    padding: 4rem 0;
-}
-
-.certificate-content {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.certificate-header {
+.failure-content {
+    width: 100%;
+    max-width: 440px;
+    padding: 2.25rem;
+    background: var(--white);
+    border-radius: 16px;
     text-align: center;
-    margin-bottom: 3rem;
 }
 
-.certificate-header h2 {
-    font-size: 2.5rem;
+.failure-content h2 {
+    margin: 0 0 1rem;
+    font-size: 1.5rem;
     color: var(--dark-gray);
-    margin-bottom: 1rem;
-    font-weight: 700;
 }
 
-.certificate-header p {
-    font-size: 1.2rem;
+.failure-content p {
+    margin: 0 0 0.35rem;
     color: var(--medium-gray);
 }
 
-/* Certificate Display */
-.certificate-display {
-    background: white;
-    border-radius: 20px;
-    padding: 2rem;
-    margin-bottom: 3rem;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-    border: 1px solid var(--border-light);
-    text-align: center;
+.failure-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
 }
 
-#certificate-canvas {
+.fullscreen-content {
+    position: relative;
+    max-width: min(1000px, 100%);
+}
+
+.close-fullscreen {
+    position: absolute;
+    top: -52px;
+    right: 0;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    color: var(--white);
+    cursor: pointer;
+}
+
+.close-fullscreen svg {
+    width: 20px;
+    height: 20px;
+}
+
+.close-fullscreen:focus-visible {
+    outline: 2px solid var(--signal-on-dark);
+    outline-offset: 2px;
+}
+
+.fullscreen-certificate {
+    display: block;
     max-width: 100%;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-height: calc(100vh - 120px);
+    border-radius: 8px;
 }
 
-/* Certificate Actions */
-.certificate-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-}
-
-.primary-actions {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.action-btn {
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    min-width: 200px;
-}
-
-.action-btn.primary {
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--brand-teal) 100%);
-    color: white;
-}
-
-.action-btn.secondary {
-    background: white;
-    color: var(--medium-gray);
-    border: 2px solid var(--border-light);
-}
-
-.action-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* Sharing Section */
-.sharing-section {
-    background: white;
-    border-radius: 16px;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    border: 1px solid var(--border-light);
-}
-
-.sharing-section h3 {
-    font-size: 1.5rem;
-    color: var(--dark-gray);
-    margin-bottom: 1.5rem;
-    font-weight: 600;
-}
-
-.share-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.share-btn {
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 12px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
-}
-
-.share-btn.linkedin {
-    background: #0077b5;
-    color: white;
-}
-
-.share-btn.twitter {
-    background: #1da1f2;
-    color: white;
-}
-
-.share-btn.whatsapp {
-    background: #25d366;
-    color: white;
-}
-
-.share-btn.copy {
-    background: var(--light-gray);
-    color: var(--medium-gray);
-    border: 2px solid var(--border-light);
-}
-
-.share-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Next Steps */
-.next-steps {
-    background: white;
-    border-radius: 16px;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    border: 1px solid var(--border-light);
-}
-
-.next-steps h3 {
-    font-size: 1.5rem;
-    color: var(--dark-gray);
-    margin-bottom: 1.5rem;
-    font-weight: 600;
-}
-
-.next-actions {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.next-btn {
-    padding: 1rem 1.5rem;
-    background: var(--light-gray);
-    color: var(--medium-gray);
-    text-decoration: none;
-    border: 2px solid var(--border-light);
-    border-radius: 12px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.next-btn:hover {
-    background: var(--light-gray);
-    border-color: var(--border-medium);
-    transform: translateY(-2px);
-    text-decoration: none;
-    color: var(--dark-gray);
-}
-
-/* ========================================
-   Responsive Design
-   ======================================== */
-
-@media (max-width: 768px) {
-    .cert-hero h1 {
-        font-size: 2.5rem;
+/* ---------- Tablet ---------- */
+@media (max-width: 960px) {
+    .cert-page .benefits-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-    
-    .cert-subtitle {
-        font-size: 1.1rem;
+}
+
+/* ---------- Phone ---------- */
+@media (max-width: 640px) {
+    .cert-page .cert-hero {
+        padding-top: 112px;
     }
-    
-    .tutorials-grid,
-    .benefits-grid {
-        grid-template-columns: 1fr;
+
+    .cert-page .cert-lead {
+        font-size: 1.05rem;
     }
-    
-    .tutorial-selection,
-    .certification-benefits {
-        padding: 2rem;
+
+    .cert-page .cert-stats li {
+        padding-right: 1.25rem;
     }
-    
-    .quiz-header {
+
+    .cert-page .cert-stats li + li {
+        padding-left: 1.25rem;
+    }
+
+    .cert-page .tutorials-grid,
+    .cert-page .benefits-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .cert-page .tutorial-cert-card {
         padding: 1.5rem;
     }
-    
-    .question-card {
-        padding: 2rem;
+
+    .cert-page .start-cert-btn {
+        align-self: stretch;
     }
-    
-    .quiz-navigation {
-        flex-direction: column;
-        gap: 1rem;
+
+    .cert-page .quiz-navigation .btn {
+        flex: 1 1 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
-    
-    .nav-btn {
+
+    .cert-page .primary-actions .btn {
         width: 100%;
     }
-    
-    .registration-form-container {
-        padding: 2rem;
+}
+
+@media (max-width: 420px) {
+    .cert-page .cert-stats li {
+        padding-right: 0.9rem;
     }
-    
-    .primary-actions,
-    .share-buttons,
-    .next-actions {
-        flex-direction: column;
-        align-items: center;
+
+    .cert-page .cert-stats li + li {
+        padding-left: 0.9rem;
     }
-    
-    .action-btn,
-    .share-btn,
-    .next-btn {
-        width: 100%;
-        max-width: 300px;
-    }
-    
-    .quiz-meta {
-        justify-content: center;
+
+    .cert-page .cert-stat-value {
+        font-size: 1.6rem;
     }
 }
 
-@media (max-width: 480px) {
-    .welcome-content,
-    .quiz-content,
-    .registration-content,
-    .certificate-content {
-        padding: 0 1rem;
-    }
-    
-    .cert-hero h1 {
-        font-size: 2rem;
-    }
-    
-    .question-text {
-        font-size: 1.2rem;
-    }
-    
-    .tutorial-cert-card {
-        padding: 1.5rem;
-    }
-    
-    .tutorial-selection,
-    .certification-benefits,
-    .registration-form-container,
-    .sharing-section,
-    .next-steps {
-        padding: 1.5rem;
-    }
-}
-
-/* ========================================
-   Animations and Effects
-   ======================================== */
-
-/* Floating animation for benefit cards */
-.benefit-card:nth-child(odd) {
-    animation: float 3s ease-in-out infinite;
-}
-
-.benefit-card:nth-child(even) {
-    animation: float 3s ease-in-out infinite 1.5s;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-/* Pulse animation for important buttons */
-.generate-cert-btn {
-    animation: gentlePulse 2s ease-in-out infinite;
-}
-
-@keyframes gentlePulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.02); }
-}
-
-/* Celebration confetti effect (optional enhancement) */
-@keyframes confetti {
-    0% { 
-        transform: translateY(-100vh) rotate(0deg);
-        opacity: 1;
-    }
-    100% { 
-        transform: translateY(100vh) rotate(720deg);
-        opacity: 0;
-    }
-}
-
-/* Dark mode support (optional) */
-@media (prefers-color-scheme: dark) {
-    /* Add dark mode styles if needed */
-}
-
-/* ==========================================================================
-   Reduced motion
-   Decorative loops and entrance animations are removed; the loading spinner
-   is kept because it is the only signal that work is in progress, just slowed
-   so it no longer reads as fast rotation. Transitions are shortened rather
-   than killed so hover, focus and answer-selection feedback survives.
-   ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
-    .benefit-card:nth-child(odd),
-    .benefit-card:nth-child(even),
-    .generate-cert-btn {
+    .cert-page .certification-screen.active {
         animation: none;
     }
 
-    .quiz-container,
-    .quiz-result,
-    .certificate-preview {
-        animation: none;
-        opacity: 1;
-        transform: none;
-    }
-
-    [class*="shimmer"],
-    .progress-fill::after {
-        animation-duration: 3s;
-    }
-
-    *,
-    *::before,
-    *::after {
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
+    .cert-page .progress-fill,
+    .cert-page .answer-option {
+        transition: none;
     }
 }

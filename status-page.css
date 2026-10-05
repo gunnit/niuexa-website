@@ -1,0 +1,266 @@
+/* ============================================================
+   Status pages: 404.html and the thank-you pages
+   (thank-you-page.html, thank-you-ai-readiness.html,
+   thank-you-ai-readiness-assessment.html, en/thank-you-page.html).
+   A dark hero with the message, then the next steps and a few
+   useful links. Loaded after polish.css. Tokens from styles.css only.
+   Scoped to body.status-page.
+   ============================================================ */
+
+/* ---------- Hero ---------- */
+.status-page .sp-hero {
+    background: var(--gradient-hero-dark);
+    color: var(--white);
+    padding: clamp(120px, 13vw, 168px) 0 clamp(56px, 7vw, 88px);
+}
+
+.status-page .sp-hero-content {
+    max-width: 760px;
+}
+
+.status-page .sp-icon {
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    color: var(--green-on-dark);
+}
+
+.status-page .sp-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.status-page .sp-code {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-primary);
+    font-size: clamp(4rem, 12vw, 7rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--signal-on-dark);
+}
+
+.status-page .sp-hero h1 {
+    max-width: 20ch;
+    margin: 0 0 1.25rem;
+    font-family: var(--font-primary);
+    font-size: clamp(2.2rem, 4.8vw, 3.4rem);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+    color: var(--white);
+}
+
+.status-page .sp-lead {
+    max-width: 62ch;
+    margin: 0;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--white);
+}
+
+.status-page .sp-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2.25rem;
+}
+
+.status-page .sp-actions .btn {
+    gap: 0.6rem;
+    padding: 14px 28px;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+}
+
+.status-page .btn svg {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+}
+
+.status-page .btn-on-dark {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.status-page .btn-on-dark:hover {
+    background: var(--white);
+    color: var(--blue-text);
+    transform: none;
+}
+
+.status-page .sp-hero .btn:focus-visible {
+    outline: 3px solid var(--signal-on-dark);
+    outline-offset: 3px;
+}
+
+.status-page .sp-hero-note {
+    margin: 1.75rem 0 0;
+    font-size: 0.95rem;
+    color: var(--muted-on-dark);
+}
+
+/* polish.css keeps hero links white; this one sits in a muted line */
+.status-page .sp-hero-note a {
+    color: var(--white);
+}
+
+/* ---------- Next steps + useful links ---------- */
+.status-page .sp-body {
+    padding: var(--polish-section) 0;
+    background: var(--white);
+}
+
+.status-page .sp-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: start;
+}
+
+.status-page .sp-body .section-title {
+    margin-bottom: 1.75rem;
+    font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+}
+
+.status-page .sp-steps {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: sp-step;
+    border-top: 1px solid var(--border-light);
+}
+
+.status-page .sp-steps li {
+    position: relative;
+    padding: 1.1rem 0 1.1rem 3.25rem;
+    border-bottom: 1px solid var(--border-light);
+    line-height: 1.6;
+    color: var(--dark-gray);
+    counter-increment: sp-step;
+}
+
+.status-page .sp-steps li::before {
+    content: counter(sp-step);
+    position: absolute;
+    left: 0;
+    top: 0.95rem;
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--border-medium);
+    border-radius: 50%;
+    font-family: var(--font-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--blue-text);
+}
+
+.status-page .sp-side {
+    padding: 2rem;
+    background: var(--light-gray);
+    border-radius: 16px;
+}
+
+.status-page .sp-side h2 {
+    margin: 0 0 1rem;
+    font-size: 1.2rem;
+    color: var(--dark-gray);
+}
+
+.status-page .sp-links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.status-page .sp-links li + li {
+    border-top: 1px solid var(--border-light);
+}
+
+.status-page main .sp-links li > a.sp-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 44px;
+    padding: 0.85rem 0;
+    font-family: var(--font-primary);
+    font-weight: 600;
+    color: var(--dark-gray);
+    text-decoration: none;
+}
+
+.status-page .sp-links a.sp-link span {
+    display: block;
+}
+
+.status-page .sp-links a.sp-link small {
+    display: block;
+    margin-top: 0.2rem;
+    font-family: var(--font-secondary);
+    font-size: 0.92rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--medium-gray);
+}
+
+.status-page .sp-links a.sp-link svg {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    color: var(--blue-text);
+    transition: transform var(--transition-fast);
+}
+
+.status-page main .sp-links li > a.sp-link:hover {
+    color: var(--blue-text);
+}
+
+.status-page .sp-links a.sp-link:hover svg {
+    transform: translateX(3px);
+}
+
+.status-page .sp-links a.sp-link:focus-visible {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* ---------- Tablet and phone ---------- */
+@media (max-width: 900px) {
+    .status-page .sp-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .status-page .sp-hero {
+        padding-top: 112px;
+    }
+
+    .status-page .sp-lead {
+        font-size: 1.05rem;
+    }
+
+    .status-page .sp-actions .btn {
+        width: 100%;
+    }
+
+    .status-page .sp-side {
+        padding: 1.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .status-page .sp-links a.sp-link svg {
+        transition: none;
+    }
+}

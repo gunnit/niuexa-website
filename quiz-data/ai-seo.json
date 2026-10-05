@@ -6,7 +6,7 @@
     "timeLimit": 20,
     "category": "AI SEO",
     "difficulty": "Intermedio",
-    "description": "Test di certificazione per validare le competenze in AI SEO, AEO e GEO. Dimostra la tua padronanza delle strategie per apparire su ChatGPT, Perplexity, Claude e Google AI Overviews.",
+    "description": "Quiz sulla guida AI SEO, AEO e GEO: le strategie per comparire nelle risposte di ChatGPT, Perplexity, Claude e Google AI Overviews. Superandolo si ottiene un attestato di completamento Niuexa, non una certificazione accreditata.",
     "questions": [
         {
             "id": 1,
@@ -19,7 +19,7 @@
                 "Non c'è differenza, sono la stessa cosa"
             ],
             "correct": 1,
-            "explanation": "Il SEO tradizionale ottimizza per apparire nei risultati di ricerca (ranking), mentre il GEO ottimizza affinché le AI generative come ChatGPT citino i tuoi contenuti nelle loro risposte.",
+            "explanation": "Il SEO tradizionale ottimizza per apparire nei risultati di ricerca (ranking), mentre il GEO ottimizza affinché le AI generative come ChatGPT citino i contenuti di un sito nelle loro risposte.",
             "points": 1
         },
         {
@@ -47,7 +47,7 @@
         {
             "id": 4,
             "type": "multiple-choice",
-            "question": "Quale schema markup è più efficace per far citare le tue FAQ dalle piattaforme AI?",
+            "question": "Quale schema markup è più efficace per far citare le FAQ di un sito dalle piattaforme AI?",
             "options": [
                 "Schema Article",
                 "Schema Product",
@@ -195,9 +195,9 @@
             "points": 1
         }
     ],
-    "passingMessage": "Complimenti! Hai dimostrato una solida comprensione delle strategie AI SEO, AEO e GEO. Sei pronto/a a ottimizzare i contenuti per le piattaforme AI e aumentare la visibilità del tuo brand.",
-    "failingMessage": "Non hai raggiunto il punteggio minimo. Ti consigliamo di rivedere il tutorial, prestando particolare attenzione alle differenze tra SEO, AEO e GEO, all'implementazione dei structured data e alle strategie per aumentare l'autorevolezza.",
-    "certificateTitle": "Specialista AI SEO",
+    "passingMessage": "Quiz superato: le risposte mostrano una buona comprensione delle strategie AI SEO, AEO e GEO.",
+    "failingMessage": "Punteggio minimo non raggiunto. Le consigliamo di rileggere la guida, in particolare le differenze tra SEO, AEO e GEO, i dati strutturati e le strategie per aumentare l'autorevolezza.",
+    "certificateTitle": "Attestato di completamento: AI SEO, AEO e GEO",
     "skills": [
         "Strategie SEO, AEO e GEO",
         "Implementazione structured data",
