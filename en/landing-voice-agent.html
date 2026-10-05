@@ -25,16 +25,16 @@
     <!-- End Google Tag Manager -->
 
     <!-- SEO Meta Tags -->
-    <title>Voice AI Agent | Automate Customer Support 24/7 | Niuexa</title>
-    <meta name="description" content="Revolutionize your customer support with Niuexa's Voice AI Agent. Natural understanding, 15 languages supported, 70% cost reduction. Free 30-day trial.">
+    <title>Voice AI Agent for phone customer service | Niuexa</title>
+    <meta name="description" content="Niuexa's Voice AI Agent answers the phone with Twilio and OpenAI Realtime, collects requests and hands calls outside the agreed rules to an operator. First call free.">
     <meta name="keywords" content="voice AI agent, automated customer support, virtual assistant, AI voice agent, call automation, conversational artificial intelligence">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="author" content="Niuexa">
     <link rel="canonical" href="https://niuexa.ai/en/landing-voice-agent.html">
 
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Voice AI Agent | Automate Customer Support 24/7 | Niuexa">
-    <meta property="og:description" content="Revolutionize your customer support with Niuexa's Voice AI Agent. Natural understanding, 15 languages supported, 70% cost reduction.">
+    <meta property="og:title" content="Voice AI Agent for phone customer service | Niuexa">
+    <meta property="og:description" content="Answers calls in natural language, collects requests and hands calls outside the agreed rules to an operator. The agent proposes, the person decides.">
     <meta property="og:image" content="https://niuexa.ai/img/niuexalogo.png">
     <meta property="og:url" content="https://niuexa.ai/en/landing-voice-agent.html">
     <meta property="og:type" content="website">
@@ -43,8 +43,8 @@
 
     <!-- X (Twitter) Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Voice AI Agent | Automate Customer Support 24/7">
-    <meta name="twitter:description" content="Revolutionize your customer support with Niuexa's Voice AI Agent. Natural understanding, 15 languages supported, 70% cost reduction.">
+    <meta name="twitter:title" content="Voice AI Agent for phone customer service">
+    <meta name="twitter:description" content="Answers calls in natural language, collects requests and hands calls outside the agreed rules to an operator. The agent proposes, the person decides.">
     <meta name="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
 
     <!-- Favicon -->
@@ -57,569 +57,330 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="/styles.css?v=20260807">
-
-    <style>
-        /* Landing page specific styles */
-
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .hero-stats {
-                flex-direction: column;
-                gap: 1rem !important;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                gap: 1rem !important;
-            }
-
-            .benefits-grid,
-            .features-grid {
-                grid-template-columns: 1fr !important;
-            }
-
-            .cta-benefits {
-                flex-direction: column !important;
-                align-items: center !important;
-            }
-
-            .hero-title {
-                font-size: 2.5rem !important;
-            }
-
-            .hero-subtitle {
-                font-size: 1.1rem !important;
-            }
-
-            /* Contact form responsive */
-            .contact-form {
-                padding: 1.5rem !important;
-                margin: 0 1rem !important;
-                max-width: 90% !important;
-            }
-
-            .form-row-2col {
-                grid-template-columns: 1fr !important;
-                gap: 0.5rem !important;
-            }
-        }
-
-        /* Improved placeholder styling for better contrast */
-        .contact-form input::placeholder,
-        .contact-form textarea::placeholder,
-        .contact-form select option[value=""] {
-            color: var(--medium-gray) !important;
-            opacity: 1;
-        }
-
-        .contact-form input::-webkit-input-placeholder,
-        .contact-form textarea::-webkit-input-placeholder {
-            color: var(--medium-gray) !important;
-            opacity: 1;
-        }
-
-        .contact-form input::-moz-placeholder,
-        .contact-form textarea::-moz-placeholder {
-            color: var(--medium-gray) !important;
-            opacity: 1;
-        }
-    </style>
+    <link rel="stylesheet" href="/landing-agent.css?v=20261005">
 </head>
-<body>
+<body class="agent-landing">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9S42S4"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    
-    <!-- Custom Navigation for Landing Page -->
-    <nav class="navbar" style="background: white; padding: 1rem 0; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
-        <div class="nav-container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: center; align-items: center;">
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <nav class="agent-landing__nav" aria-label="Main navigation">
+        <div class="agent-landing__nav-inner">
             <div class="nav-logo">
-                <a href="/en/index.html">
-                    <div class="logo-container" style="display: flex; align-items: center; gap: 1rem;">
-                        <img src="/img/pictogram_blue_transparent.png" alt="Niuexa" class="logo-icon" style="width: 40px; height: 40px;" width="1024" height="1024" decoding="async">
+                <a href="/en/index.html" aria-label="Niuexa, back to home">
+                    <div class="logo-container">
+                        <img src="/img/landing/niuexa-mark.webp" alt="" class="logo-icon" width="40" height="40" decoding="async">
                         <div class="logo-text">
-                            <div class="logo-title" style="font-family: var(--font-primary); font-size: 1.5rem; color: var(--primary-blue); margin: 0;">NIUEXA</div>
-                            <span class="logo-tagline" style="font-size: 0.8rem; color: var(--medium-gray);">From AI to ROI.</span>
+                            <div class="logo-title">NIUEXA</div>
+                            <span class="logo-tagline">AI Solutions</span>
                         </div>
                     </div>
                 </a>
             </div>
+            <a href="#demo" class="agent-landing__nav-cta" data-track-cta="nav_cta">Book a first call</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <main id="main-content">
-    <section class="hero" style="padding: 120px 0 80px;">
-        <div class="hero-background">
-            <div class="hero-particles"></div>
-            <div class="hero-gradient"></div>
-        </div>
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(14, 156, 154, 0.1); border: 1px solid rgba(14, 156, 154, 0.3); padding: 0.5rem 1rem; border-radius: 50px; color: var(--signal-on-dark); font-size: 0.9rem; font-weight: 600; margin-bottom: 1.5rem;">
-                    <span class="badge-icon">🎤</span>
-                    <span>Advanced Voice AI Agent</span>
-                </div>
-                <h1 class="hero-title" style="font-family: var(--font-primary); font-size: 3rem; font-weight: 900;">Transform Your Customer Care with <span class="highlight">Niuexa Voice Agent</span></h1>
-                <p class="hero-subtitle">The first Italian voice AI assistant that understands natural language, handles complex calls, and provides 24/7 customer support in 15 languages. <strong>Reduce costs by 70%</strong> and achieve <strong>95% customer satisfaction</strong>.</p>
-                <div class="hero-stats" style="display: flex; justify-content: center; gap: 2rem; margin: 2rem 0;">
-                    <div class="stat-item">
-                        <span class="stat-number">95%</span>
-                        <span class="stat-label">Natural Understanding</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">70%</span>
-                        <span class="stat-label">Cost Reduction</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">24/7</span>
-                        <span class="stat-label">Operation</span>
+
+    <!-- ================= Hero ================= -->
+    <section class="agent-hero agent-hero--plain" aria-labelledby="hero-title">
+        <div class="agent-hero__inner">
+            <div class="agent-hero__grid">
+                <div class="agent-hero__copy">
+                    <h1 id="hero-title" class="agent-hero__title">Voice AI Agent: it answers the calls, <span class="highlight">sensitive cases go to a person</span></h1>
+
+                    <p class="agent-hero__lede">A phone agent built on Twilio for telephony and OpenAI Realtime for the conversation. It answers in natural language, collects the information needed and transfers the call to an operator when the request falls outside the agreed rules.</p>
+
+                    <div class="agent-hero__actions">
+                        <a href="#demo" class="btn btn-primary" data-track-cta="hero_cta">Show us a process</a>
+                        <a href="#benefits" class="btn btn-secondary" data-track-cta="hero_how">What the agent does</a>
                     </div>
                 </div>
-                <div class="hero-buttons">
-                    <a href="#demo" class="btn btn-primary">
-                        Request Free Demo
-                    </a>
-                    <a href="#benefits" class="btn btn-secondary">
-                        Discover Benefits
-                    </a>
+
+                <div class="agent-hero__card">
+                    <h2 class="agent-hero__card-title">The first call, in practice</h2>
+                    <ol class="agent-hero__steps">
+                        <li>You tell us about the calls you receive: most frequent reasons, hours, what callers need to know.</li>
+                        <li>We tell you whether a voice agent can take that work off your hands, or whether AI is not needed here.</li>
+                        <li>If it makes sense to go ahead, costs come in a written quote after the analysis.</li>
+                    </ol>
+                    <p class="agent-hero__card-note">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                        <span>30 minutes, free and without obligation. We reply within 24 working hours.</span>
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about-section" style="padding: 80px 0; background: white;">
-        <div class="container">
-            <div class="section-header" style="text-align: center; margin-bottom: 4rem;">
-                <h2 class="section-title">About Us</h2>
-            </div>
-            <div class="about-content" style="max-width: 800px; margin: 0 auto; text-align: left; color: var(--medium-gray); line-height: 1.8; font-size: 1.1rem;">
-                <p style="margin-bottom: 1.5rem;">Niuexa is a company specializing in cutting-edge artificial intelligence solutions. Our mission is to create efficiency by transforming the way businesses operate through strategic implementation of innovative AI technologies.</p>
-                <p style="margin-bottom: 1.5rem;">Niuexa was born from the desire to spread artificial intelligence in companies, making advanced technologies accessible that transform processes, creating value and efficiency.</p>
-                <p>Niuexa is controlled by Libera Brand Building Group, active for over 20 years in the digital communication market with an annual revenue exceeding 10M euros.</p>
+    <!-- ================= About ================= -->
+    <section class="voice-section" aria-labelledby="about-title">
+        <div class="voice-section__inner voice-about">
+            <h2 id="about-title" class="section-title">About us</h2>
+            <div class="voice-about__text">
+                <p>Niuexa S.r.l. works with Italian SMEs one process at a time. First we measure how it works today: volumes, times, exceptions, who decides. Then we build the automation on the systems the company already uses, measure again and decide together whether to extend, correct or stop.</p>
+                <p>It was founded in 2026 by Gregor Maric, CEO, who has worked in process automation since 2012, and Roberto Botto, who leads Libera Brand Building Group. Niuexa is controlled by Libera, active in digital communication for more than 20 years, and is a member of AUSED, the association of Italian CIOs.</p>
+                <p><a href="/en/about-us.html">The method and the people</a></p>
             </div>
         </div>
     </section>
 
-    <!-- Partners Section -->
-    <section class="partners-section" style="padding: 80px 0; background: var(--light-gray);">
-        <div class="container">
-            <h2 class="section-title" style="text-align: center; margin-bottom: 4rem;">Our Partners</h2>
-            <div class="partners-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 2rem; align-items: center; justify-items: center;">
-                <figure class="partner-logo" style="text-align: center; margin: 0;">
-                    <img src="/img/logo_footer_libera.webp" alt="Libera Group - Strategic Partner" loading="lazy" style="max-height: 60px; width: auto; filter: grayscale(100%); transition: filter 0.3s ease;" onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(100%)'" / width="230" height="86" decoding="async">
-                    <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--medium-gray);">Libera Group</figcaption>
-                </figure>
-                <figure class="partner-logo" style="text-align: center; margin: 0;">
-                    <img src="/img/logo_footer_bebit.webp" alt="Bebit - Technology Partner" loading="lazy" style="max-height: 60px; width: auto; filter: grayscale(100%); transition: filter 0.3s ease;" onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(100%)'" / width="230" height="86" decoding="async">
-                    <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--medium-gray);">Bebit</figcaption>
-                </figure>
+    <!-- ================= Partners and technologies ================= -->
+    <section class="voice-section voice-section--tint" aria-label="Partners and technologies">
+        <div class="voice-section__inner">
+            <div class="voice-logos">
+                <h2 class="voice-logos__title">Our partners</h2>
+                <ul class="voice-logos__list voice-logos__list--partners">
+                    <li><img src="/img/logo_footer_libera.webp" alt="" width="230" height="86" loading="lazy" decoding="async"><span>Libera Group</span></li>
+                    <li><img src="/img/logo_footer_bebit.webp" alt="" width="230" height="86" loading="lazy" decoding="async"><span>Bebit</span></li>
+                    <li><img src="/img/Automa.png" alt="" width="250" height="100" loading="lazy" decoding="async"><span>Automa</span></li>
+                    <li><img src="/img/landing/logo-aused.webp" alt="" width="168" height="90" loading="lazy" decoding="async"><span>AUSED</span></li>
+                </ul>
             </div>
-            <h2 class="section-title" style="text-align: center; margin-top: 4rem; margin-bottom: 4rem;">Technologies we work with</h2>
-            <div class="partners-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 2rem; align-items: center; justify-items: center;">
-                <figure class="partner-logo" style="text-align: center; margin: 0;">
-                    <img src="/img/microsoft.png" alt="Microsoft - technology we use" loading="lazy" style="max-height: 60px; width: auto; filter: grayscale(100%); transition: filter 0.3s ease;" onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(100%)'" / width="2345" height="1126" decoding="async">
-                    <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--medium-gray);">Microsoft</figcaption>
-                </figure>
-                <figure class="partner-logo" style="text-align: center; margin: 0;">
-                    <img src="/img/OpenAI_Logo.svg.png" alt="OpenAI - technology we use" loading="lazy" style="max-height: 60px; width: auto; filter: grayscale(100%); transition: filter 0.3s ease;" onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(100%)'" / width="2560" height="695" decoding="async">
-                    <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--medium-gray);">OpenAI</figcaption>
-                </figure>
-                <figure class="partner-logo" style="text-align: center; margin: 0;">
-                    <img src="/img/Google_Gemini_logo.svg.png" alt="Google Gemini - technology we use" loading="lazy" style="max-height: 60px; width: auto; filter: grayscale(100%); transition: filter 0.3s ease;" onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(100%)'" / width="2560" height="946" decoding="async">
-                    <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--medium-gray);">Google Gemini</figcaption>
-                </figure>
-                <figure class="partner-logo" style="text-align: center; margin: 0;">
-                    <img src="/img/Anthropic_logo.svg.png" alt="Anthropic - technology we use" loading="lazy" style="max-height: 60px; width: auto; filter: grayscale(100%); transition: filter 0.3s ease;" onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(100%)'" / width="1200" height="135" decoding="async">
-                    <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--medium-gray);">Anthropic</figcaption>
-                </figure>
-                <figure class="partner-logo" style="text-align: center; margin: 0;">
-                    <img src="/img/crewai_plus_logo-1.webp" alt="CrewAI - technology we use" loading="lazy" style="max-height: 60px; width: auto; filter: grayscale(100%); transition: filter 0.3s ease;" onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(100%)'" / width="375" height="141" decoding="async">
-                    <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--medium-gray);">CrewAI</figcaption>
-                </figure>
-                <figure class="partner-logo" style="text-align: center; margin: 0;">
-                    <img src="/img/elevenlabs-logo-black.png" alt="ElevenLabs - technology we use" loading="lazy" style="max-height: 60px; width: auto; filter: grayscale(100%); transition: filter 0.3s ease;" onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(100%)'" / width="2082" height="270" decoding="async">
-                    <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--medium-gray);">ElevenLabs</figcaption>
-                </figure>
+
+            <div class="voice-logos">
+                <h2 class="voice-logos__title">Technologies we use</h2>
+                <p class="voice-logos__intro">We choose them project by project. For the voice agent: Twilio for telephony, OpenAI Realtime for the conversation.</p>
+                <ul class="voice-logos__list">
+                    <li><img src="/img/landing/logo-microsoft.webp" alt="Microsoft" width="179" height="40" loading="lazy" decoding="async"></li>
+                    <li><img src="/img/landing/logo-openai.webp" alt="OpenAI" width="330" height="90" loading="lazy" decoding="async"></li>
+                    <li><img src="/img/landing/logo-gemini.webp" alt="Google Gemini" width="244" height="90" loading="lazy" decoding="async"></li>
+                    <li><img src="/img/landing/logo-anthropic.webp" alt="Anthropic" width="360" height="41" loading="lazy" decoding="async"></li>
+                    <li><img src="/img/landing/logo-crewai.webp" alt="CrewAI" width="239" height="90" loading="lazy" decoding="async"></li>
+                    <li><img src="/img/landing/logo-elevenlabs.webp" alt="ElevenLabs" width="360" height="47" loading="lazy" decoding="async"></li>
+                    <li><img src="/img/landing/logo-langchain.webp" alt="LangChain" width="221" height="38" loading="lazy" decoding="async"></li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- Benefits Section -->
-    <section id="benefits" class="benefits-section" style="padding: 80px 0; background: white;">
-        <div class="container">
-            <div class="section-header" style="text-align: center; margin-bottom: 4rem;">
-                <h2 class="section-title">Why Choose Our Voice AI Agent</h2>
-                <p class="section-subtitle">The most advanced technology for automated customer support, designed specifically for the Italian market</p>
+    <!-- ================= What the agent does ================= -->
+    <section id="benefits" class="voice-section" aria-labelledby="benefits-title">
+        <div class="voice-section__inner">
+            <div class="voice-head">
+                <h2 id="benefits-title" class="section-title">What the voice agent does</h2>
+                <p>It answers the most frequent calls, collects the data needed and leaves anything outside the agreed rules to a person. We configure it on your customer service, not on a generic script.</p>
             </div>
 
-            <div class="benefits-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 2rem; margin-bottom: 4rem;">
-                <div class="benefit-card" style="background: var(--light-gray); padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
-                    <div class="benefit-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-blue), var(--primary-green)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">🧠</div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-gray);">Natural Understanding</h3>
-                    <p style="color: var(--medium-gray); line-height: 1.6;">Advanced NLP technology that understands context, intentions, and customer emotions. Natural conversations like with a human operator.</p>
-                </div>
+            <ul class="voice-cards">
+                <li class="voice-card">
+                    <span class="voice-card__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.9-.9L3 21l1.9-5.1a8.4 8.4 0 0 1-.9-3.9 8.5 8.5 0 0 1 8.5-8.5h.5a8.5 8.5 0 0 1 8 8z"/></svg></span>
+                    <h3>Natural conversation</h3>
+                    <p>Understands questions in the caller's own words, asks for clarification when needed and answers by voice, with no keypad menus. Answers are based on the information you authorise: opening hours, procedures, order status.</p>
+                </li>
+                <li class="voice-card">
+                    <span class="voice-card__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>
+                    <h3>Several languages</h3>
+                    <p>It can answer in Italian and in other languages the model supports. Which languages to enable, and at what quality, is tested on trial calls before going live.</p>
+                </li>
+                <li class="voice-card">
+                    <span class="voice-card__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+                    <h3>Hours and volumes</h3>
+                    <p>It can answer outside office hours and handle several calls at once. Hours covered, volumes and cases are agreed in the project and measured before and after.</p>
+                </li>
+            </ul>
 
-                <div class="benefit-card" style="background: var(--light-gray); padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
-                    <div class="benefit-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-green), var(--primary-blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">🌍</div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-gray);">15 Languages Supported</h3>
-                    <p style="color: var(--medium-gray); line-height: 1.6;">Complete multilingual support with regional accent recognition. Ideal for international companies and multicultural markets.</p>
-                </div>
-
-                <div class="benefit-card" style="background: var(--light-gray); padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
-                    <div class="benefit-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--brand-teal), var(--signal, #0E7A78)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">⚡</div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-gray);">Immediate Cost Reduction</h3>
-                    <p style="color: var(--medium-gray); line-height: 1.6;">Reduce customer support costs by 70% by eliminating wait times and handling multiple calls simultaneously.</p>
-                </div>
-            </div>
-
-            <!-- Key Features -->
-            <div class="features-detailed" style="background: linear-gradient(135deg, var(--primary-blue), var(--primary-green)); padding: 4rem 2rem; border-radius: 24px; color: white; text-align: center;">
-                <h3 style="font-size: 2rem; margin-bottom: 3rem; color: white;">Advanced Features</h3>
-                <div class="features-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: 2rem;">
-                    <div class="feature-item">
-                        <div class="feature-icon" style="font-size: 2.5rem; margin-bottom: 1rem;">🎯</div>
-                        <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: white;">Intelligent Routing</h4>
-                        <p style="color: rgba(255,255,255,0.9); font-size: 0.9rem;">Automatic transfer to human operators when necessary</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon" style="font-size: 2.5rem; margin-bottom: 1rem;">📊</div>
-                        <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: white;">Sentiment Analysis</h4>
-                        <p style="color: rgba(255,255,255,0.9); font-size: 0.9rem;">Real-time emotion detection to improve experience</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon" style="font-size: 2.5rem; margin-bottom: 1rem;">🔗</div>
-                        <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: white;">CRM Integration</h4>
-                        <p style="color: rgba(255,255,255,0.9); font-size: 0.9rem;">Compatible with all major CRM and PBX systems</p>
-                    </div>
-                </div>
+            <div class="voice-features">
+                <h3 class="voice-features__title">The decisions that stay with a person</h3>
+                <p class="voice-features__intro">The agent proposes, the person decides. When a call requires changing customer data, such as an order, an appointment or a customer record, the agent prepares the change and a person confirms it before it enters the CRM or the ERP.</p>
+                <ul class="voice-features__list">
+                    <li class="voice-feature">
+                        <span class="voice-feature__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="m15 3 4 4-4 4M19 7h-6"/><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>
+                        <h4>Transfer to an operator</h4>
+                        <p>If the caller asks, if the request falls outside the rules or if the agent is not sure, the call goes to a person with a summary of what was said.</p>
+                    </li>
+                    <li class="voice-feature">
+                        <span class="voice-feature__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
+                        <h4>Tone of the conversation</h4>
+                        <p>If the caller is unhappy or the conversation gets complicated, the agent flags it and transfers sooner instead of insisting.</p>
+                    </li>
+                    <li class="voice-feature">
+                        <span class="voice-feature__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg></span>
+                        <h4>CRM and phone system</h4>
+                        <p>Connects to the CRM and phone system you already use when they offer an API or call forwarding. We check this in the analysis, before any quote.</p>
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section class="pricing-section" style="padding: 80px 0; background: var(--light-gray);">
-        <div class="container">
-            <div class="section-header" style="text-align: center; margin-bottom: 4rem;">
-                <h2 class="section-title">Customized Solutions for Your Business</h2>
+    <!-- ================= Costs ================= -->
+    <section class="pricing" id="pricing" aria-labelledby="costs-title">
+        <div class="pricing__inner">
+            <div class="pricing__aside">
+                <h2 id="costs-title" class="section-title">What it costs</h2>
+                <p class="pricing__lead">It depends on the scope: call reasons, volumes, hours covered, languages and integrations. We set it after the analysis, in a written quote, so you know in advance what is included.</p>
+                <p class="pricing__setup">The first 30-minute call is free and without obligation. To think about the budget before talking to any vendor you can use the <a href="/ai-outcome-budget.html">AI Outcome Budget</a>, a free worksheet (in Italian).</p>
             </div>
 
-            <div class="pricing-card" style="max-width: 600px; margin: 0 auto; background: white; padding: 3rem; border-radius: 24px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15); border: 3px solid var(--primary-green);">
-                <div class="pricing-badge" style="background: var(--green-text); color: white; padding: 0.5rem 1.5rem; border-radius: 50px; font-size: 0.9rem; font-weight: 600; display: inline-block; margin-bottom: 2rem;">Complete Solution</div>
-
-                <div class="pricing-header" style="text-align: center; margin-bottom: 2.5rem;">
-                    <div class="price" style="font-size: 3rem; font-weight: 700; color: var(--primary-blue); font-family: var(--font-primary);"><span style="font-size: 1.2rem; color: var(--medium-gray);">Starting from </span>€1,250<span style="font-size: 1.2rem; color: var(--medium-gray);"> /month</span></div>
-                </div>
-
-                <div class="pricing-features" style="margin-bottom: 2.5rem;">
-                    <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="padding: 0.8rem 0; color: var(--medium-gray); border-bottom: 1px solid #eee; display: flex; align-items: center;">
-                            <span style="color: var(--green-text); margin-right: 1rem; font-weight: bold; font-size: 1.2rem;">✓</span>
-                            <span><strong>Unlimited calls</strong> with simultaneous handling</span>
-                        </li>
-                        <li style="padding: 0.8rem 0; color: var(--medium-gray); border-bottom: 1px solid #eee; display: flex; align-items: center;">
-                            <span style="color: var(--green-text); margin-right: 1rem; font-weight: bold; font-size: 1.2rem;">✓</span>
-                            <span><strong>15 languages supported</strong> with regional accents</span>
-                        </li>
-                        <li style="padding: 0.8rem 0; color: var(--medium-gray); border-bottom: 1px solid #eee; display: flex; align-items: center;">
-                            <span style="color: var(--green-text); margin-right: 1rem; font-weight: bold; font-size: 1.2rem;">✓</span>
-                            <span><strong>Complete CRM integration</strong> (Salesforce, HubSpot, etc.)</span>
-                        </li>
-                        <li style="padding: 0.8rem 0; color: var(--medium-gray); border-bottom: 1px solid #eee; display: flex; align-items: center;">
-                            <span style="color: var(--green-text); margin-right: 1rem; font-weight: bold; font-size: 1.2rem;">✓</span>
-                            <span><strong>Advanced analytics</strong> and real-time dashboard</span>
-                        </li>
-                        <li style="padding: 0.8rem 0; color: var(--medium-gray); border-bottom: 1px solid #eee; display: flex; align-items: center;">
-                            <span style="color: var(--green-text); margin-right: 1rem; font-weight: bold; font-size: 1.2rem;">✓</span>
-                            <span><strong>24/7 technical support</strong> included</span>
-                        </li>
-                        <li style="padding: 0.8rem 0; color: var(--medium-gray); display: flex; align-items: center;">
-                            <span style="color: var(--green-text); margin-right: 1rem; font-weight: bold; font-size: 1.2rem;">✓</span>
-                            <span><strong>Voice customization</strong> and brand identity</span>
-                        </li>
-                    </ul>
-                </div>
+            <div class="pricing__panel">
+                <h3 class="pricing__panel-title">What we define together in the quote</h3>
+                <ul class="pricing__includes">
+                    <li><span><strong>Call reasons</strong> to cover, with expected volumes and hours</span></li>
+                    <li><span><strong>Authorised information</strong>: procedures, opening hours, order status</span></li>
+                    <li><span><strong>Escalation rules</strong>: when and to whom a call is transferred</span></li>
+                    <li><span><strong>Integration</strong> with your phone system and CRM</span></li>
+                    <li><span><strong>Languages</strong> to enable, tested on trial calls</span></li>
+                    <li><span><strong>Baseline</strong> and the criteria for judging the result</span></li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- Success Story -->
-    <section class="success-section" style="padding: 80px 0; background: white;">
-        <div class="container">
-            <div class="success-story" style="max-width: 800px; margin: 0 auto; text-align: center;">
-                <h2 class="section-title" style="margin-bottom: 2rem;">Real Success Story</h2>
-
-                <div class="story-card" style="background: var(--light-gray); padding: 3rem; border-radius: 20px; margin-bottom: 2rem;">
-                    <div class="company-info" style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
-                        <div class="company-logo" style="width: 60px; height: 60px; background: var(--brand-teal); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.2rem;">FS</div>
-                        <div>
-                            <h3 style="margin: 0; color: var(--dark-gray); font-size: 1.3rem;">Financial Services Company</h3>
-                            <p style="margin: 0; color: var(--medium-gray);">500+ employees • Banking Sector</p>
-                        </div>
-                    </div>
-
-                    <blockquote style="font-size: 1.2rem; font-style: italic; color: var(--medium-gray); margin-bottom: 2rem; line-height: 1.6;">
-                        "Our Voice AI Agent now handles 65% of inbound calls with 90% customer satisfaction. We've reduced support costs by 60% in just 6 months."
-                    </blockquote>
-
-                    <div class="results-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); gap: 1.5rem;">
-                        <div class="result-item" style="text-align: center;">
-                            <div class="result-number" style="font-size: 2.5rem; font-weight: 700; color: var(--signal, #0E7A78); font-family: var(--font-primary);">90%</div>
-                            <div class="result-label" style="color: var(--medium-gray); font-size: 0.9rem;">Customer Satisfaction</div>
-                        </div>
-                        <div class="result-item" style="text-align: center;">
-                            <div class="result-number" style="font-size: 2.5rem; font-weight: 700; color: var(--signal, #0E7A78); font-family: var(--font-primary);">65%</div>
-                            <div class="result-label" style="color: var(--medium-gray); font-size: 0.9rem;">Calls Handled</div>
-                        </div>
-                        <div class="result-item" style="text-align: center;">
-                            <div class="result-number" style="font-size: 2.5rem; font-weight: 700; color: var(--signal, #0E7A78); font-family: var(--font-primary);">-60%</div>
-                            <div class="result-label" style="color: var(--medium-gray); font-size: 0.9rem;">Cost Reduction</div>
-                        </div>
-                        <div class="result-item" style="text-align: center;">
-                            <div class="result-number" style="font-size: 2.5rem; font-weight: 700; color: var(--signal, #0E7A78); font-family: var(--font-primary);">6</div>
-                            <div class="result-label" style="color: var(--medium-gray); font-size: 0.9rem;">Months to ROI</div>
-                        </div>
-                    </div>
-                </div>
+    <!-- ================= Measurement ================= -->
+    <section class="proof" aria-labelledby="measure-title">
+        <div class="proof__inner">
+            <div class="proof__head">
+                <h2 id="measure-title" class="section-title">We measure first, then automate</h2>
+                <p>We do not publish result percentages: they depend on your customer service. Before we start we agree the baseline with you; after the first period we measure again with the same criteria and decide together whether to extend, correct or stop.</p>
             </div>
+
+            <ul class="proof__results">
+                <li>
+                    <span class="proof__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></span>
+                    <h3>Calls handled</h3>
+                    <p>How many requests the agent closes without a transfer, by call reason.</p>
+                </li>
+                <li>
+                    <span class="proof__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+                    <h3>Waiting time</h3>
+                    <p>Seconds before the call is answered, at peak times and outside office hours.</p>
+                </li>
+                <li>
+                    <span class="proof__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="m15 3 4 4-4 4M19 7H9a4 4 0 0 0-4 4v1"/><path d="m9 21-4-4 4-4M5 17h10a4 4 0 0 0 4-4v-1"/></svg></span>
+                    <h3>Transfers</h3>
+                    <p>How many calls go to an operator and why, so the rules can be corrected.</p>
+                </li>
+                <li>
+                    <span class="proof__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></span>
+                    <h3>CRM records</h3>
+                    <p>How many requests reach the CRM complete and correct.</p>
+                </li>
+            </ul>
+
+            <p class="proof__note">The metrics are agreed in writing with the <a href="/ai-metric-contract.html">AI Metric Contract</a>, a free worksheet (in Italian) you can also use with other vendors.</p>
         </div>
     </section>
 
-    <!-- Demo CTA Section -->
-    <section id="demo" class="cta-section">
-        <div class="hero-background">
-            <div class="hero-particles"></div>
-            <div class="hero-gradient"></div>
-        </div>
-        <div class="container" style="text-align: center; padding: 80px 0; position: relative; z-index: 2;">
-            <h2 class="section-title" style="color: white; margin-bottom: 1.5rem; font-size: 2.5rem;">Ready to Revolutionize Your Customer Support?</h2>
-            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Start today with a personalized free demo. Discover how the Voice AI Agent can transform your business.
-            </p>
-
-            <div class="cta-benefits" style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 3rem; flex-wrap: wrap;">
-                <div class="cta-benefit" style="display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.9);">
-                    <span style="color: var(--green-text); font-weight: bold;">✓</span>
-                    <span>Free 30-minute demo</span>
-                </div>
-                <div class="cta-benefit" style="display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.9);">
-                    <span style="color: var(--green-text); font-weight: bold;">✓</span>
-                    <span>Free 30-day trial</span>
-                </div>
-                <div class="cta-benefit" style="display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.9);">
-                    <span style="color: var(--green-text); font-weight: bold;">✓</span>
-                    <span>Response within 24 hours</span>
-                </div>
+    <!-- ================= Closing + form ================= -->
+    <section id="demo" class="closing" aria-labelledby="demo-title">
+        <div class="closing__inner">
+            <div>
+                <h2 id="demo-title" class="closing__title">Show us the calls you receive</h2>
+                <p class="closing__body">In 30 minutes, free and without obligation, we look together at the calls reaching your customer service and tell you whether a voice agent can lighten the work. If AI is not needed, we tell you.</p>
+                <ul class="closing__points">
+                    <li>First 30-minute call, free and without obligation</li>
+                    <li>Reply within 24 working hours</li>
+                    <li>Costs in a written quote, after the analysis</li>
+                </ul>
             </div>
 
             <!-- Contact Form -->
-            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" accept-charset="UTF-8" style="max-width: 600px; margin: 0 auto; background: #FFFFFF; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);">
+            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" accept-charset="UTF-8">
                 <input type="hidden" name="access_key" value="bfacbe48-94e9-4411-94a0-6017dc9791b6">
                 <input type="hidden" name="botcheck" class="hidden" style="display: none;">
-                <h3 style="color: #000000; text-align: left; margin-bottom: 2rem; font-size: 1.8rem; font-weight: 600;">Contact Us</h3>
-                <!-- First and Last Name in 2 columns -->
-                <div class="form-row-2col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+
+                <h3 class="agent-form__title">Book the first call</h3>
+                <p class="agent-form__note">Fields marked with an asterisk are required.</p>
+
+                <div class="agent-form__row">
                     <div>
-                        <label for="firstName" class="landing-form-label">First Name *</label>
-                        <input type="text" id="firstName" name="firstName" required placeholder="John" class="landing-form-input">
+                        <label for="firstName" class="landing-form-label">First name *</label>
+                        <input type="text" id="firstName" name="firstName" required autocomplete="given-name" placeholder="John" class="landing-form-input">
                     </div>
                     <div>
-                        <label for="lastName" class="landing-form-label">Last Name *</label>
-                        <input type="text" id="lastName" name="lastName" required placeholder="Smith" class="landing-form-input">
+                        <label for="lastName" class="landing-form-label">Last name *</label>
+                        <input type="text" id="lastName" name="lastName" required autocomplete="family-name" placeholder="Smith" class="landing-form-input">
                     </div>
                 </div>
 
-                <!-- Email and Phone in 2 columns -->
-                <div class="form-row-2col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div class="agent-form__row">
                     <div>
-                        <label for="email" class="landing-form-label">Business Email *</label>
-                        <input type="email" id="email" name="email" required placeholder="john.smith@company.com" class="landing-form-input">
+                        <label for="email" class="landing-form-label">Work email *</label>
+                        <input type="email" id="email" name="email" required autocomplete="email" inputmode="email" placeholder="john.smith@company.com" class="landing-form-input">
                     </div>
                     <div>
                         <label for="phone" class="landing-form-label">Phone</label>
-                        <input type="tel" id="phone" name="phone" placeholder="+39 02 1234567" class="landing-form-input">
+                        <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="+39 02 1234567" class="landing-form-input">
                     </div>
                 </div>
 
-                <!-- Company and Role in 2 columns -->
-                <div class="form-row-2col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div class="agent-form__row">
                     <div>
                         <label for="company" class="landing-form-label">Company *</label>
-                        <input type="text" id="company" name="company" required placeholder="Company Name Inc." class="landing-form-input">
+                        <input type="text" id="company" name="company" required autocomplete="organization" placeholder="Company name" class="landing-form-input">
                     </div>
                     <div>
                         <label for="role" class="landing-form-label">Role</label>
-                        <input type="text" id="role" name="role" placeholder="CEO, CTO, Manager, etc." class="landing-form-input">
+                        <input type="text" id="role" name="role" autocomplete="organization-title" placeholder="CEO, Customer care" class="landing-form-input">
                     </div>
                 </div>
 
-                <div style="margin-bottom: 1rem;">
-                    <label for="service" class="landing-form-label">Service of Interest *</label>
+                <div class="agent-form__field">
+                    <label for="service" class="landing-form-label">Service of interest *</label>
                     <select id="service" name="service" required class="landing-form-input">
-                        <option value="" style="color: var(--medium-gray);">Select a service</option>
-                        <option value="voice-agent">AI Voice Agent</option>
-                        <option value="consulting">Strategic AI Consulting</option>
-                        <option value="training">AI Training for Teams</option>
-                        <option value="development">Custom AI Solutions Development</option>
-                        <option value="automation">Process Automation</option>
-                        <option value="chatbot">AI Assistants and Chatbots</option>
-                        <option value="analysis">Data Analysis with AI</option>
+                        <option value="">Select a service</option>
+                        <option value="voice-agent" selected>AI Voice Agent</option>
+                        <option value="consulting">Strategic AI consulting</option>
+                        <option value="training">AI training for teams</option>
+                        <option value="development">Custom AI solutions development</option>
+                        <option value="automation">Process automation</option>
+                        <option value="chatbot">AI assistants and chatbots</option>
+                        <option value="analysis">Data analysis with AI</option>
                         <option value="other">Other</option>
                     </select>
                 </div>
 
-                <div style="margin-bottom: 1rem;">
-                    <label for="message" class="landing-form-label">How can we help you? *</label>
-                    <textarea id="message" name="message" rows="3" required placeholder="I would like a demo of the Voice AI Agent..." class="landing-form-input" style="resize: vertical;"></textarea>
+                <div class="agent-form__field">
+                    <label for="message" class="landing-form-label">Which process would you like to show us? *</label>
+                    <textarea id="message" name="message" rows="3" required placeholder="E.g. we get many calls about order status and always answer the same questions" class="landing-form-input"></textarea>
                 </div>
 
-                <div style="margin-bottom: 1rem;">
-                    <label for="budget" class="landing-form-label">Indicative Budget</label>
-                    <select id="budget" name="budget" class="landing-form-input">
-                        <option value="" style="color: var(--medium-gray);">Select a range</option>
-                        <option value="< 10k">Less than €10,000</option>
-                        <option value="10k-25k">€10,000 - €25,000</option>
-                        <option value="25k-50k">€25,000 - €50,000</option>
-                        <option value="50k-100k">€50,000 - €100,000</option>
-                        <option value="> 100k">Over €100,000</option>
-                        <option value="to be defined">To be defined</option>
-                    </select>
-                </div>
-
-                <div style="margin-bottom: 1rem;">
-                    <label class="landing-form-checkbox-label">
-                        <input type="checkbox" name="privacy" required style="width:24px;height:24px;flex:0 0 auto;margin-right: 0.5rem;">
-                        <span>I have read and accept the <a href="/en/privacy-policy.html" target="_blank" class="landing-form-privacy-link" rel="noopener noreferrer">Privacy Policy</a> *</span>
+                <div class="agent-form__consent">
+                    <label>
+                        <input type="checkbox" name="privacy" required>
+                        <span>I have read and accept the <a href="/en/privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a> *</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="newsletter">
+                        <span>I would like to receive updates and content about AI</span>
                     </label>
                 </div>
 
-                <div style="margin-bottom: 1rem;">
-                    <label class="landing-form-checkbox-label">
-                        <input type="checkbox" name="newsletter" style="width:24px;height:24px;flex:0 0 auto;margin-right: 0.5rem;">
-                        <span>I wish to receive updates and exclusive content about AI</span>
-                    </label>
-                </div>
-
-
-                <button type="submit" style="width: 100%; padding: 1rem; font-size: 1rem; font-weight: 600; background: linear-gradient(135deg, var(--primary-blue), var(--primary-green)); color: #FFFFFF; border: none; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 10px;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(35, 125, 166, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                    Send Request
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
-                    </svg>
+                <button type="submit" class="agent-form__submit">
+                    Send request
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
                 </button>
             </form>
-
-            <p style="margin-top: 2rem; font-size: 0.9rem; color: rgba(255,255,255,0.8);">
-                <strong>No commitment required</strong> • Setup included in price • Dedicated support
-            </p>
         </div>
     </section>
 
-    <!-- Footer Placeholder -->
-
-    <!-- Footer Bar -->
     </main>
 
-    <footer class="elevenlabs-footer-bar" style="background: var(--light-gray); border-top: 1px solid #e0e0e0; padding: 12px 0; text-align: center; font-size: 0.9rem; color: var(--medium-gray);">
-        <div class="container">
-            © 2026 Niuexa. All rights reserved.
+    <footer class="agent-footer">
+        <div class="agent-footer__inner">
+            <span>© 2026 Niuexa. All rights reserved.</span>
+            <ul class="agent-footer__links">
+                <li><a href="/en/privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="/en/cookie-policy.html">Cookie Policy</a></li>
+                <li><a href="/en/contact.html">Contact</a></li>
+            </ul>
+            <div class="agent-footer__legal">
+                <p>NIUEXA S.R.L. · VAT and tax ID 13489560014 · REA TO-1366737</p>
+                <p>Registered office: Via Vittorio Andreis 18, 10152 Torino · Office: Via Rutilia 10, 20141 Milano</p>
+            </div>
         </div>
     </footer>
 
     <!-- Scripts -->
-    <script src="/script.js?v=20260428"></script>
+    <script src="/landing-agent.js?v=20261005"></script>
+    <script src="/conversion-tracking.js?v=20260929"></script>
     <script src="/cookie-banner.js?v=20260428"></script>
     <script>
-        // Page-specific scripts
-        document.addEventListener('DOMContentLoaded', function() {
-
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-
-            // Add hover effects to benefit cards
-            const benefitCards = document.querySelectorAll('.benefit-card');
-            benefitCards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-5px)';
-                    this.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.15)';
-                    this.style.borderColor = 'var(--primary-blue)';
-                });
-
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                    this.style.boxShadow = 'none';
-                    this.style.borderColor = 'transparent';
-                });
-            });
-        });
-    </script>
-
-    <!-- Structured Data for Voice Agent -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Product",
-        "name": "Niuexa Voice AI Agent",
-        "description": "Advanced voice AI assistant for automated 24/7 customer support with natural understanding in 15 languages",
-        "image": "https://niuexa.ai/img/niuexalogo.png",
-        "brand": {
-            "@type": "Brand",
-            "name": "Niuexa"
-        },
-        "offers": {
-            "@type": "Offer",
-            "price": "1250",
-            "priceCurrency": "EUR",
-            "priceSpecification": {
-                "@type": "PriceSpecification",
-                "price": "1250",
-                "priceCurrency": "EUR",
-                "billingIncrement": "P1M",
-                "unitText": "monthly"
-            },
-            "availability": "https://schema.org/InStock",
-            "seller": {
-                "@type": "Organization",
-                "name": "Niuexa"
-            }
-        },
-        "features": [
-            "95% natural understanding",
-            "15 languages supported",
-            "70% cost reduction",
-            "24/7 operation",
-            "Complete CRM integration"
-        ]
-    }
-    </script>
-    <!-- Performance and Analytics -->
-    <script>
-        // Enhanced page performance tracking
-        if ('performance' in window && 'PerformanceObserver' in window) {
-            // Track Core Web Vitals
-            const observer = new PerformanceObserver((list) => {
-                for (const entry of list.getEntries()) {
-                    if (entry.entryType === 'measure') {
-                        console.log(`${entry.name}: ${entry.duration}ms`);
-                    }
-                }
-            });
-            observer.observe({entryTypes: ['measure']});
-        }
-
         // Page visibility tracking
         document.addEventListener('visibilitychange', function() {
             if (typeof gtag === 'function') {
@@ -629,6 +390,39 @@
             }
         });
     </script>
-    <script src="../conversion-tracking.js?v=20260929"></script>
+
+    <!-- Structured Data for Voice Agent -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebPage",
+                "@id": "https://niuexa.ai/en/landing-voice-agent.html#webpage",
+                "url": "https://niuexa.ai/en/landing-voice-agent.html",
+                "name": "Voice AI Agent for phone customer service",
+                "inLanguage": "en",
+                "dateModified": "2026-10-05",
+                "isPartOf": { "@id": "https://niuexa.ai/#website" },
+                "about": { "@id": "https://niuexa.ai/en/landing-voice-agent.html#service" }
+            },
+            {
+                "@type": "Service",
+                "@id": "https://niuexa.ai/en/landing-voice-agent.html#service",
+                "name": "Niuexa Voice AI Agent",
+                "serviceType": "Voice AI agent for phone customer service",
+                "description": "Phone agent built on Twilio for telephony and OpenAI Realtime for the conversation. It answers in natural language, collects the information needed and transfers calls outside the agreed rules to an operator. Changes to customer data are confirmed by a person before they enter the CRM. The cost is set in a written quote after the analysis.",
+                "image": "https://niuexa.ai/img/niuexalogo.png",
+                "areaServed": { "@type": "Country", "name": "Italy" },
+                "provider": {
+                    "@type": "Organization",
+                    "@id": "https://niuexa.ai/#organization",
+                    "name": "NIUEXA S.R.L.",
+                    "url": "https://niuexa.ai/"
+                }
+            }
+        ]
+    }
+    </script>
 </body>
 </html>
