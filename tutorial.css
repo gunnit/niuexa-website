@@ -889,13 +889,14 @@ table.data-table {
         grid-template-columns: 1fr;
     }
     
+    /* Left-aligned: centred text left list bullets stranded at the edge */
     .step {
         flex-direction: column;
-        text-align: center;
+        gap: 0.75rem;
     }
-    
+
     .step-number {
-        align-self: center;
+        align-self: flex-start;
     }
     
     .highlight-box,
@@ -1366,6 +1367,8 @@ table.data-table {
     flex-direction: column;
     gap: 0;
     margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .sidebar .related-articles li {
@@ -1491,9 +1494,10 @@ table.data-table {
         grid-template-columns: 1fr;
     }
 
+    /* On phones the sidebar (index, related, CTA box) follows the article
+       instead of pushing three boxes above the first paragraph. */
     .sidebar {
         position: static;
-        order: -1;
     }
 
     .content-section blockquote {
@@ -2173,5 +2177,169 @@ table.comparison-table td {
 
     .content-section {
         break-inside: auto;
+    }
+}
+
+/* ---------- Template fixes, round 3 (visual QA, Oct 2026) ---------- */
+
+/* Closing banner without a .cta-content wrapper: the heading, text and
+   button sat flush against each other at body size. */
+.cta-section > .container > h2 {
+    font-size: clamp(1.6rem, 3vw, 2.25rem);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.cta-section > .container > p {
+    max-width: 46rem;
+    margin: 0 auto 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Stacked tool cards had no wrapper rule: borders touched, and the first
+   card's heading carried the 2rem section margin. */
+.tool-comparison {
+    display: grid;
+    gap: 1rem;
+    margin: 1.5rem 0 2rem;
+}
+
+/* Card titles read as card titles whether the outline needs h3 or h4 */
+.content-section .tool-card > h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.tool-card > :first-child,
+.step-content > :first-child,
+.info-box > :first-child {
+    margin-top: 0;
+}
+
+.tool-card > :last-child {
+    margin-bottom: 0;
+}
+
+/* FAQ items placed straight in a section (no .faq-section wrapper) picked up
+   the homepage card: white, shadowed, no padding, text on the edge. */
+.content-section > .faq-item {
+    background: none;
+    border: 0;
+    border-bottom: 1px solid var(--border-light);
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
+    padding: 1.25rem 0;
+    margin: 0;
+}
+
+.content-section > .faq-item > h3:first-child {
+    margin-top: 0;
+}
+
+/* Tables had no vertical margin, so a following paragraph touched the
+   last row. .data-table keeps its own 2rem. */
+.content-section table:not(.data-table) {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Six or more columns overflowed the 800px column: tighter cells */
+.content-section table:has(tr > :nth-child(6)) {
+    font-size: 0.9rem;
+}
+
+.content-section table:has(tr > :nth-child(6)) :is(th, td) {
+    padding: 0.6rem 0.6rem;
+}
+
+/* Checklists with real checkboxes: one marker, not a bullet and a box */
+.content-section ul.checklist {
+    list-style: none;
+    padding-left: 0;
+}
+
+.content-section ul.checklist label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+}
+
+.content-section ul.checklist input[type="checkbox"] {
+    width: 24px;
+    height: 24px;
+    flex: 0 0 auto;
+    margin: 0;
+    accent-color: var(--primary-blue);
+}
+
+/* Chapter accordion: collapsed items showed a clipped line of the summary
+   (the second child's margin opened a 16px row). */
+.accordion-content:not(.active) > * {
+    margin-top: 0;
+    margin-bottom: 0;
+    overflow: hidden;
+}
+
+/* The arrow circle was empty: draw the chevron */
+.accordion-arrow::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    margin-top: -3px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+}
+
+/* Grid items default to min-width: auto, so a wide table or long word
+   pushed the article column past the screen on phones */
+.content-wrapper.has-sidebar {
+    grid-template-columns: minmax(0, 1fr) 280px;
+}
+
+.content-wrapper.has-sidebar > * {
+    min-width: 0;
+}
+
+@media (max-width: 768px) {
+    .content-wrapper.has-sidebar {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (min-width: 769px) {
+    /* Two or four stat cards in a three-column grid left an orphan */
+    .stats-grid:has(> :nth-child(2):last-child),
+    .stats-grid:has(> :nth-child(4):last-child) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* Three or five related cards in two columns left an orphan */
+    .content-section .related-articles:has(> :nth-child(3):last-child),
+    .content-section .related-articles:has(> :nth-child(5):last-child) {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    /* Four related guides in the closing band: no card alone on a row */
+    .related-grid:has(> :nth-child(4):last-child) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+/* The sidebars run 900 to 1200px tall: sticky on a shorter window hid the
+   CTA box below the fold for the whole article. Sticky only when it fits. */
+@media (min-width: 769px) and (max-height: 1299px) {
+    .content-wrapper.has-sidebar .sidebar {
+        position: static;
+    }
+}
+
+@media (min-width: 1100px) {
+    .related-grid:has(> :nth-child(4):last-child) {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 }
