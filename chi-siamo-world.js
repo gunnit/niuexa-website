@@ -61,7 +61,7 @@
       tags: ['Obiettivi', 'Indicatori', 'Misura'],
       cta: {
         primary: { label: 'Ci mostri un processo', href: 'contatti.html' },
-        secondary: { label: 'Verifichi la visibilità AI', href: 'ai-readiness-tool.html' }
+        secondary: { label: 'Verifichi la visibilità AI', href: 'consulenza-aeo-geo.html' }
       }
     }
   ];

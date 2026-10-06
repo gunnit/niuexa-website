@@ -4,7 +4,7 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
 import { MOVED } from '../build/event-content.mjs';
-import { rulesFor, urlFor } from '../build/package-cloudflare.mjs';
+import { RENAMED, rulesFor, urlFor } from '../build/package-cloudflare.mjs';
 
 const root = resolve(import.meta.dirname, '..');
 const site = join(root, '_site');
@@ -49,6 +49,9 @@ test('the packaged bundle has a route for every page and real redirects for reti
     const target = to.endsWith('/') ? to.slice(1) + 'index.html' : to.slice(1);
     assert.ok(files.has(target) || rules.has(to), `${from} -> ${to} lands nowhere`);
     if (status === '200') assert.ok(files.has(target), `${from} rewrites to missing ${to}`);
+  }
+  for (const [from, to] of RENAMED) {
+    assert.deepEqual(rules.get('/' + from), { to: '/' + to, status: '301' }, from);
   }
   for (const [from, to] of MOVED) {
     assert.deepEqual(rules.get(`/eventi-ai-aziende/${from}/`), { to: `/eventi-ai-aziende/${to}/`, status: '301' }, from);

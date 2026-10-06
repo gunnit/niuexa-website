@@ -46,7 +46,7 @@
 - Hands-on workshops with examples from the participants' own work
 
 ### AI visibility (AEO/GEO)
-- [AI-readiness analysis](https://niuexa.ai/ai-readiness-tool.html): Free check of whether AI platforms can find and cite your website
+- [AI-readiness analysis](https://niuexa.ai/consulenza-aeo-geo.html): Free check of whether AI platforms can find and cite your website
 - [AEO Analyzer Platform](https://aeo.niuexa.ai): Platform for AI visibility monitoring, mention tracking, and optimization
 - Tracks brand mentions across ChatGPT, Perplexity, Google AI Overviews, Claude, Gemini
 

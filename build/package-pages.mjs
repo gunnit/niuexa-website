@@ -1,9 +1,10 @@
 // Build a public static artifact without mutating the checkout.
 // --review is local QA ONLY, never the uploaded _site directory.
-import { readdir, mkdir, copyFile, rm } from 'node:fs/promises';
+import { readdir, mkdir, copyFile, rm, writeFile } from 'node:fs/promises';
 import { resolve, join, extname, relative } from 'node:path';
 
 import { EVENTS, MOVED } from './event-content.mjs';
+import { RENAMED } from './package-cloudflare.mjs';
 const eventPages=new Set(['eventi-ai-aziende/index.html',...EVENTS.map(e=>`eventi-ai-aziende/${e.slug}/index.html`),...MOVED.map(([from])=>`eventi-ai-aziende/${from}/index.html`)]);
 const root=resolve(import.meta.dirname,'..');
 const review=process.argv.includes('--review');
@@ -33,4 +34,9 @@ async function copyTree(dir='') {
  }
 }
 await copyTree();
+// A renamed page keeps its old URL as a redirect stub written into the artifact only.
+for(const [from,to] of RENAMED){
+ const url='/'+to;
+ await writeFile(join(output,from),`<!doctype html><html lang="it"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=${url}"><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://niuexa.ai${url}"><title>Pagina spostata</title></head><body><p>Questa pagina è stata spostata. <a href="${url}">Vai alla nuova pagina</a>.</p></body></html>\n`);count++;
+}
 console.log(`Packaged ${count} public files into ${relative(root,output)}${review?' (LOCAL REVIEW ONLY)':''}.`);
