@@ -4,12 +4,12 @@ type: Article
 title: Fonte unica per assistenti AI
 meta_title: "Fonte Unica per Assistenti AI: Governance Pratica | Niuexa"
 h1: "Fonte unica per assistenti AI: come governare la conoscenza prima del modello"
-description: "Come preparare documenti, owner, scadenze e permessi per assistenti AI affidabili: framework operativo, checklist, KPI e piano in 30 giorni."
+description: "Come preparare documenti, owner, scadenze e permessi per assistenti AI e sistemi RAG affidabili: framework, scelte tecniche, KPI e piano in 30 giorni."
 standfirst: Quando un assistente AI cita la procedura sbagliata, cambiare modello raramente elimina il problema. Prima servono fonti autorevoli, responsabilità, scadenze e permessi che rendano ogni risposta verificabile.
 section: Knowledge Management e AI Governance
 badge: Knowledge Management e AI Governance
 published: 2026-07-29
-modified: 2026-07-29
+modified: 2026-10-06
 author: gregor-maric
 reviewed_by: roberto-botto
 reading_time: 10 minuti di lettura
@@ -46,6 +46,8 @@ keywords:
   - governance conoscenza aziendale
   - knowledge management AI
   - documenti per RAG
+  - RAG aziendale
+  - RAG vs fine-tuning
   - assistente AI aziendale
   - qualità dati AI
 faq_heading: FAQ sulla fonte unica per assistenti AI
@@ -60,6 +62,10 @@ faq:
     a: Il ruolo competente sul contenuto e autorizzato ad approvarlo o ritirarlo; non necessariamente l’amministratore tecnico.
   - q: Come misuro il miglioramento?
     a: Copertura delle fonti governate, citazioni verificabili, conflitti aperti, ricerche senza esito, errori di accesso e tempo di correzione.
+  - q: RAG o fine-tuning per un assistente sui documenti aziendali?
+    a: "Quasi sempre RAG: i documenti si aggiornano o si ritirano senza riaddestrare il modello, ogni risposta può citare la fonte e i permessi si applicano al recupero. Il fine-tuning serve per stile, formato o compiti molto specifici, non per tenere aggiornata la conoscenza."
+  - q: Quale database vettoriale scegliere?
+    a: "Dipende da volumi, infrastruttura esistente e residenza dei dati: pgvector se l’azienda usa già PostgreSQL, Qdrant, Weaviate o Milvus per un’installazione propria, Pinecone come servizio gestito. Conta meno della qualità delle fonti, dei filtri sui metadati e della ricerca ibrida."
 sources_heading: Fonti e perimetro
 sources_intro: Questa guida sviluppa il [post LinkedIn pubblicato da Gregor Maric il 27 luglio 2026](https://www.linkedin.com/feed/update/urn:li:share:7487530780039004160/) sul problema delle fonti discordanti negli assistenti AI aziendali.
 sources_paragraphs:
@@ -73,9 +79,9 @@ sources:
   - title: NIST Generative AI Profile
     url: https://doi.org/10.6028/NIST.AI.600-1
 related:
-  - href: articolo-rag-enterprise.html
-    category: RAG
-    title: Implementare RAG in azienda
+  - href: articolo-tool-agenti-ai.html
+    category: Agenti AI
+    title: Tool e pratiche per agenti AI affidabili
   - href: articolo-human-in-the-loop-ai-pmi.html
     category: Governance
     title: Progettare il controllo umano dell’AI
@@ -84,13 +90,13 @@ related:
     title: Dal pilot al valore misurabile
   - href: ai-readiness-assessment.html
     category: Assessment
-    title: Valuta la tua AI readiness
+    title: Valutare la readiness AI
 cta:
-  heading: Vuoi rendere affidabili le fonti del tuo assistente AI?
-  body: Niuexa aiuta le aziende a mappare conoscenza, owner, permessi e criteri di qualità prima di scalare chatbot, RAG e AI agent.
-  primary_label: Valuta la tua AI readiness
-  primary_href: ai-readiness-assessment.html
-  secondary_label: Scopri la consulenza AI
+  heading: Le fonti del Suo assistente AI hanno un owner?
+  body: "Ci mostri un processo: nella prima chiamata di 30 minuti, gratuita, guardiamo quali documenti guidano le risposte, chi li approva e quando scadono. Prima misuriamo, poi automatizziamo."
+  primary_label: Ci mostri un processo
+  primary_href: index.html#contact
+  secondary_label: Come lavoriamo
   secondary_href: consulting.html
 ---
 
@@ -150,23 +156,49 @@ La bonifica totale dell’archivio prima di ogni pilot è spesso irrealistica. �
 
 Quando due fonti approvate confliggono, il sistema non dovrebbe scegliere in silenzio. La risposta corretta può essere una escalation: mostrare il conflitto, indicare le versioni e inviare il caso all’owner. La capacità di non rispondere è un requisito di affidabilità.
 
+## Dalla fonte all’indice: le scelte tecniche del RAG
+
+Il Retrieval-Augmented Generation lavora in tre passaggi: **recupero** dei frammenti di documento pertinenti alla domanda, **arricchimento** del prompt con quei frammenti, **generazione** della risposta a partire da essi. Ogni passaggio contiene scelte tecniche che decidono se le fonti governate arrivano davvero al modello.
+
+### RAG o fine-tuning?
+
+| Aspetto | RAG | Fine-tuning |
+|---|---|---|
+| Cosa cambia | Il contesto che il modello riceve a ogni domanda | I pesi del modello |
+| Aggiornare un contenuto | Si aggiorna o si ritira il documento e si reindicizza | Serve un nuovo addestramento |
+| Citazioni | Ogni risposta può indicare la fonte e la versione | La provenienza di una risposta non è tracciabile |
+| Permessi | Si applicano al recupero, documento per documento | Ciò che il modello ha appreso è visibile a chiunque lo usi |
+| Quando ha senso | Conoscenza aziendale che cambia: procedure, listini, policy | Stile, formato o compiti ripetitivi molto specifici |
+
+Per un assistente sui documenti aziendali si parte quasi sempre dal RAG. Il fine-tuning, se serve, si aggiunge dopo e per altri scopi.
+
+### Le leve che contano
+
+- **Suddivisione dei documenti (chunking):** frammenti troppo piccoli perdono il contesto, troppo grandi diluiscono la risposta. Conviene seguire la struttura del documento (titoli, articoli, paragrafi) e conservare in ogni frammento i metadati della fonte: ID, versione, stato.
+- **Ricerca ibrida:** la ricerca semantica trova concetti simili, quella per parole chiave trova codici articolo, numeri di norma e sigle. Insieme sbagliano meno di ciascuna da sola.
+- **Riordino dei risultati (re-ranking):** un secondo passaggio riordina i frammenti per pertinenza prima di passarli al modello.
+- **Filtri prima del recupero:** stato, scadenza e riservatezza escludono a monte i documenti ritirati, scaduti o non accessibili all’utente, invece di affidarsi al modello perché li ignori.
+- **Registro delle interrogazioni:** domanda, fonti recuperate, versioni e risposta restano tracciate, così ogni segnalazione si può ricostruire.
+
+La scelta del database vettoriale (pgvector, Qdrant, Weaviate, Milvus, Pinecone, Chroma) conta meno di queste leve: dipende da volumi, infrastruttura esistente e requisiti di residenza dei dati.
+
 ## Un piano operativo in 30 giorni
 
-### Settimana 1 — Scegliere il dominio
+### Settimana 1: scegliere il dominio
 
-Definisci utenti, domande frequenti, decisioni supportate e danno potenziale di una risposta errata. Seleziona un dominio abbastanza stretto da essere governabile e abbastanza frequente da generare apprendimento.
+Definisca utenti, domande frequenti, decisioni supportate e danno potenziale di una risposta errata. Selezioni un dominio abbastanza stretto da essere governabile e abbastanza frequente da generare apprendimento.
 
-### Settimana 2 — Inventariare e assegnare
+### Settimana 2: inventariare e assegnare
 
-Raccogli le fonti candidate, rileva duplicati e assegna owner e stato. Escludi ciò che non ha provenienza chiara. Definisci i permessi usando ruoli esistenti, evitando eccezioni manuali non tracciate.
+Raccolga le fonti candidate, rilevi i duplicati e assegni owner e stato. Escluda ciò che non ha provenienza chiara. Definisca i permessi usando ruoli esistenti, evitando eccezioni manuali non tracciate.
 
-### Settimana 3 — Indicizzare e testare
+### Settimana 3: indicizzare e testare
 
-Configura il recupero usando soltanto fonti ammesse. Prepara domande normali, casi limite, richieste fuori perimetro e conflitti intenzionali. Verifica non solo la risposta, ma anche citazione, versione, accesso e comportamento quando manca una fonte valida.
+Configuri il recupero usando soltanto fonti ammesse. Prepari domande normali, casi limite, richieste fuori perimetro e conflitti intenzionali. Verifichi non solo la risposta, ma anche citazione, versione, accesso e comportamento quando manca una fonte valida.
 
-### Settimana 4 — Chiudere il ciclo di feedback
+### Settimana 4: chiudere il ciclo di feedback
 
-Ogni segnalazione deve diventare un ticket collegato a risposta, fonte e owner. Definisci tempo di correzione, reindicizzazione e retest. Il pilot è pronto a crescere quando l’organizzazione sa correggere il sistema, non quando la prima demo appare convincente.
+Ogni segnalazione deve diventare un ticket collegato a risposta, fonte e owner. Definisca tempo di correzione, reindicizzazione e retest. Il pilot è pronto a crescere quando l’organizzazione sa correggere il sistema, non quando la prima demo appare convincente.
 
 ## KPI per misurare conoscenza e risposte
 
@@ -178,3 +210,16 @@ Ogni segnalazione deve diventare un ticket collegato a risposta, fonte e owner. 
 - **Tempo di correzione:** intervallo tra segnalazione, aggiornamento della fonte e retest.
 
 Un punteggio di gradimento da solo non basta. Una risposta può sembrare chiara e restare sbagliata. I KPI devono collegare esperienza utente, provenienza del contenuto e capacità dell’organizzazione di correggere l’errore.
+
+### Metriche tecniche da affiancare
+
+| Fase | Metrica | Cosa dice |
+|---|---|---|
+| Recupero | Precision@k | Quanti dei primi k frammenti recuperati sono pertinenti |
+| Recupero | Recall@k | Quanta parte dei frammenti pertinenti compare tra i primi k |
+| Recupero | MRR (Mean Reciprocal Rank) | Quanto in alto compare il primo frammento corretto |
+| Risposta | Fedeltà (faithfulness) | Se ogni affermazione è sostenuta dalle fonti recuperate |
+| Risposta | Pertinenza | Se la risposta risponde alla domanda posta |
+| Contesto | Precisione e completezza del contesto | Se il contesto passato al modello contiene ciò che serve, senza rumore |
+
+Si misurano su un insieme di domande reali per cui l’owner ha indicato la fonte corretta: prima di allargare il perimetro e a ogni cambio di modello, di indice o di regole di suddivisione. I valori di riferimento si fissano sulla prima misura, non sulle schede dei fornitori.

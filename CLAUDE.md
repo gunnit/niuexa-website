@@ -35,17 +35,17 @@ npx http-server
 # Workflow: .github/workflows/github-pages.yml packages the public files into _site
 # (build/package-pages.mjs, build/package-cloudflare.mjs) and deploys them to
 # Cloudflare Workers, which serves niuexa.ai, and to GitHub Pages until it is retired
-# niuexa.ai is attached to the Worker in wrangler.jsonc; www redirects via a Cloudflare Redirect Rule
+# niuexa.ai reaches the Worker through a route set in the Cloudflare dashboard (see wrangler.jsonc); www redirects via a Cloudflare Redirect Rule
 ```
 
 ## Architecture
 
 ### Site Structure
 - **Multi-page website** with shared navigation and footer components  
-- **Static HTML pages**: Core pages include `index.html`, `chi-siamo.html`, `consulting.html`, `training.html`, `products.html`, `impara.html`, `research.html`, `eventi.html`, `carriere.html`, `roi-calculator.html`, `login.html`
+- **Static HTML pages**: Core pages include `index.html`, `chi-siamo.html`, `consulting.html`, `training.html`, `products.html`, `research.html` (guides hub), `eventi-ai-aziende/` (events hub), `roi-calculator.html`, `login.html`
 - **Tutorial pages**: Individual tutorial HTML files for AI-related topics
 - **Modular includes**: Navigation and footer loaded dynamically via JavaScript
-- **Quiz system**: JSON-based quiz data in `quiz-data/` directory for certifications
+- **Retired pages**: cut or merged pages are meta-refresh stubs (noindex, canonical to the target); `build/package-cloudflare.mjs` serves them as 301s
 - **Responsive design** with mobile-first approach
 
 ### Key Components
@@ -62,16 +62,13 @@ npx http-server
 - `script.js`: Main functionality (scroll effects, animations, contact forms)
 - `consulting.js`: Consulting page interactive elements
 - `training.js`: Training page functionality  
-- `eventi.js`: Events page functionality
-- `research.js`: Research page functionality
-- `impara.js`: Learning page functionality
+- `eventi.js`: English events page functionality (`en/events.html`)
 - `roi-calculator.js`: ROI calculator logic
 - `tutorial.js`: Tutorial page functionality
-- `certification.js`: Quiz/certification functionality
 
 #### Styling Architecture
 - `styles.css`: Main stylesheet with responsive design and CSS custom properties
-- Page-specific stylesheets: `consulting.css`, `training.css`, `eventi.css`, `research.css`, `impara.css`, `roi-calculator.css`, `tutorial.css`, `certification.css`, `carriere.css`
+- Page-specific stylesheets: `consulting.css`, `training.css`, `eventi.css`, `research.css`, `roi-calculator.css`, `tutorial.css`
 - Component-specific styles embedded within each CSS file
 
 ### Technical Implementation
@@ -95,7 +92,7 @@ npx http-server
   - Triggers on push to main/master branches (plus manual `workflow_dispatch`)
   - Packages only public files into `_site` (`build/package-pages.mjs`; `build/package-cloudflare.mjs` adds `_redirects` and `_headers`)
   - Deploys `_site` to Cloudflare Workers static assets (`wrangler deploy`) and to GitHub Pages, which is kept until it is retired
-- **Custom domain**: `wrangler.jsonc` attaches niuexa.ai to the Worker; DNS is on Cloudflare, where a Redirect Rule sends www.niuexa.ai to niuexa.ai
+- **Custom domain**: niuexa.ai reaches the Worker through the route `niuexa.ai/*` on the proxied apex records, both set in the Cloudflare dashboard (`wrangler.jsonc` explains why they are not in the config); a Redirect Rule sends www.niuexa.ai to niuexa.ai
 - **404 handling**: the Worker serves the root `404.html` for missing URLs (`not_found_handling` in `wrangler.jsonc`)
 
 ## Content Management
@@ -107,7 +104,6 @@ npx http-server
 - **Optimization**: Images sized appropriately with proper alt text for accessibility
 
 ### Content Structure
-- **Quiz data**: JSON files in `quiz-data/` directory containing structured quiz questions for certifications
 - **Tutorial content**: Individual HTML pages for AI-related tutorials with embedded content
 - **Static pages**: Policy pages (`privacy-policy.html`, `cookie-policy.html`, `terms-of-service.html`)
 - **SEO files**: `robots.txt`, `sitemap.xml`, `site.webmanifest` for search engine optimization
@@ -152,12 +148,6 @@ npx http-server
 - **CSS custom properties**: Used for theming and consistent spacing
 - **Component-based**: Each page stylesheet extends base styles from `styles.css`
 - **Loading states**: Placeholder styles for dynamically loaded content
-
-### Quiz/Certification System
-- **JSON structure**: Standardized format in `quiz-data/` with metadata, questions, and scoring
-- **Question types**: Support for multiple-choice, true/false, and other formats
-- **Scoring system**: Configurable passing scores and time limits per quiz
-- **Progressive enhancement**: Quiz functionality built as enhancement over static content
 
 ## Design System and Styling
 
@@ -228,7 +218,7 @@ The repository includes several automated workflows:
 ## Critical Files for Maintenance
 - `STYLESHEET_GUIDE.md`: Comprehensive design system documentation - reference this for all styling decisions
 - `robots.txt`, `sitemap.xml`, `site.webmanifest`: SEO and PWA configuration files
-- `wrangler.jsonc`: Cloudflare Worker configuration, including the niuexa.ai Custom Domain (`CNAME` only matters to GitHub Pages)
+- `wrangler.jsonc`: Cloudflare Worker configuration; the niuexa.ai route is set in the Cloudflare dashboard (`CNAME` only matters to GitHub Pages)
 
 ## Cookie Consent System
 The site implements a cookie consent banner via `cookie-banner.js` for GDPR compliance. This script handles user consent preferences and cookie management across all pages.

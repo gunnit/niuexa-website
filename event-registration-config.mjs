@@ -1,10 +1,10 @@
 // Required fields confirmed by Roberto's 16 September email; dates and venue by his
-// 20 September email (27 Oct and 17 Nov replace 17 Nov and 2 Dec).
+// 20 September email; dates moved by his 6 October email (3, 17 and 24 November).
 // Null means NOT CONFIRMED. Historic event data must not fill these fields.
 export const EVENTS = Object.freeze([
-  ['2026-10-06', '6 ottobre 2026'],
-  ['2026-10-27', '27 ottobre 2026'],
+  ['2026-11-03', '3 novembre 2026'],
   ['2026-11-17', '17 novembre 2026'],
+  ['2026-11-24', '24 novembre 2026'],
 ].map(([date, label]) => Object.freeze({
   id: date, date, label, timezone: 'Europe/Rome',
   // Time supplied by the owner; venue is Libera's Milan office (address from Roberto's signature).

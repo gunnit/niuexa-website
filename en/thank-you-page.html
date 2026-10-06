@@ -22,12 +22,12 @@
     <!-- End Google Tag Manager -->
 
     <!-- SEO Meta Tags -->
-    <title>Thank You for Contacting Us | Niuexa - AI Consulting</title>
-    <meta name="description" content="Thank you for contacting us. The Niuexa team will get back to you within 24 business hours to discuss your artificial intelligence needs.">
+    <title>Request received | Niuexa</title>
+    <meta name="description" content="We have received your request and will reply within 24 business hours to schedule a free 30 minute first call.">
     <meta name="robots" content="noindex, follow">
 
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Thank You for Contacting Us - Niuexa">
+    <meta property="og:title" content="Request received | Niuexa">
     <meta property="og:description" content="We will get back to you within 24 business hours.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://niuexa.ai/en/thank-you-page.html">
@@ -49,140 +49,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles.css?v=20260807">
+    <link rel="stylesheet" href="/polish.css?v=20261005">
+    <link rel="stylesheet" href="/status-page.css?v=20261005">
 
-    <style>
-        .thank-you-hero {
-            /* White copy over --gradient-primary is 2.78:1 at the green stop. */
-            background: var(--gradient-cta);
-            padding: 120px 0 80px;
-            text-align: center;
-            color: var(--white);
-            min-height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .thank-you-content {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .thank-you-icon {
-            font-size: 4rem;
-            margin-bottom: 2rem;
-            animation: scaleIn 0.5s ease-out;
-        }
-
-        @keyframes scaleIn {
-            from {
-                transform: scale(0);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .thank-you-icon {
-                animation: none;
-            }
-        }
-
-        .thank-you-title {
-            font-family: var(--font-primary);
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .thank-you-message {
-            font-family: var(--font-secondary);
-            font-size: 1.25rem;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        .thank-you-details {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 2rem;
-            margin-top: 2rem;
-            backdrop-filter: blur(10px);
-        }
-
-        .thank-you-details h2 {
-            font-family: var(--font-primary);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .thank-you-details ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            text-align: left;
-        }
-
-        .thank-you-details li {
-            font-family: var(--font-secondary);
-            font-size: 1.1rem;
-            padding: 0.75rem 0;
-            padding-left: 2rem;
-            position: relative;
-        }
-
-        .thank-you-details li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-            color: var(--primary-green);
-        }
-
-        .btn-home {
-            display: inline-block;
-            margin-top: 2rem;
-            padding: 1rem 2.5rem;
-            background: var(--white);
-            color: var(--blue-text);
-            font-family: var(--font-secondary);
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-home:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        @media (max-width: 768px) {
-            .thank-you-hero {
-                padding: 100px 0 60px;
-            }
-
-            .thank-you-title {
-                font-size: 2rem;
-            }
-
-            .thank-you-message {
-                font-size: 1.1rem;
-            }
-
-            .thank-you-icon {
-                font-size: 3rem;
-            }
-        }
-    </style>
 </head>
-<body>
+<body class="polished status-page">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9S42S4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
@@ -191,33 +62,41 @@
     <div id="nav-placeholder"></div>
 
     <main id="main-content">
-
-    <!-- Thank You Hero Section -->
-    <section class="thank-you-hero">
+    <section class="sp-hero">
         <div class="container">
-            <div class="thank-you-content">
-                <div class="thank-you-icon" aria-hidden="true">✓</div>
-                <h1 class="thank-you-title">Thank you for contacting us!</h1>
-                <p class="thank-you-message">
-                    Your request has been received. Our AI consultants will review your information and get back to you within 24 business hours.
-                </p>
-
-                <div class="thank-you-details">
-                    <h2>What happens next?</h2>
-                    <ul>
-                        <li>We'll carefully review your request</li>
-                        <li>One of our consultants will contact you within 24 business hours</li>
-                        <li>Together we'll discuss your needs and goals</li>
-                        <li>We'll propose a tailored next step</li>
-                    </ul>
+            <div class="sp-hero-content">
+                <div class="sp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <h1>Thank you, we have received your request</h1>
+                <p class="sp-lead">We will reply within 24 business hours to schedule a free 30 minute first call at a time that suits you.</p>
+                <div class="sp-actions">
+                    <a href="/en/index.html" class="btn btn-primary">Back to home</a>
+                    <a href="/en/learn.html" class="btn btn-on-dark">Read the free guides</a>
                 </div>
-
-                <a href="/en/index.html" class="btn-home">Back to home</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer Placeholder -->
+    <section class="sp-body">
+        <div class="container sp-grid">
+            <div>
+                <h2 class="section-title">What happens next</h2>
+                <ol class="sp-steps">
+                        <li>We read your request and reply within 24 business hours to schedule the call.</li>
+                        <li>In the 30 minute first call we look at one of your processes as it runs today.</li>
+                        <li>We tell you whether AI can lighten it and where to start, or that it is not needed there.</li>
+                        <li>If it makes sense to continue, costs come in a written quote after the analysis.</li>
+                </ol>
+            </div>
+            <aside class="sp-side" aria-labelledby="sp-side-title">
+                <h2 id="sp-side-title">In the meantime</h2>
+                    <ul class="sp-links">
+                        <li><a class="sp-link" href="/en/learn.html"><span>Free guides<small>Guides and articles on AI in business, free to read.</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></li>
+                        <li><a class="sp-link" href="/en/article-first-ai-projects-smb.html"><span>First AI projects in an SMB<small>Where to start and what to measure before you automate.</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></li>
+                        <li><a class="sp-link" href="/en/ai-readiness-tool.html"><span>AI visibility check<small>See how AI assistants describe your company.</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></li>
+                    </ul>
+            </aside>
+        </div>
+    </section>
     </main>
 
     <div id="footer-placeholder"></div>

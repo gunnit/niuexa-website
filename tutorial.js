@@ -3,28 +3,40 @@
 // User-facing strings keyed on document language (same pattern as cookie-banner.js)
 const TUTORIAL_STRINGS = {
     it: {
-        copy: '📋 Copia',
-        copied: '✅ Copiato!',
-        copyError: '❌ Errore',
-        print: '🖨️ Stampa Tutorial',
-        shareTitle: 'Condividi questo tutorial',
-        copyLink: '🔗 Copia Link',
-        linkCopied: '✅ Link copiato!',
-        addBookmark: '🔖 Aggiungi ai Preferiti',
-        bookmarked: '✅ Nei Preferiti'
+        copy: 'Copia',
+        copied: 'Copiato',
+        copyError: 'Copia non riuscita',
+        copyLabel: 'Copia il codice',
+        print: 'Stampa',
+        shareTitle: 'Condivida questa guida',
+        copyLink: 'Copia link',
+        linkCopied: 'Link copiato',
+        backToTop: 'Torna all\'inizio'
     },
     en: {
-        copy: '📋 Copy',
-        copied: '✅ Copied!',
-        copyError: '❌ Error',
-        print: '🖨️ Print Tutorial',
-        shareTitle: 'Share this tutorial',
-        copyLink: '🔗 Copy Link',
-        linkCopied: '✅ Link copied!',
-        addBookmark: '🔖 Add to Bookmarks',
-        bookmarked: '✅ Bookmarked'
+        copy: 'Copy',
+        copied: 'Copied',
+        copyError: 'Copy failed',
+        copyLabel: 'Copy the code',
+        print: 'Print',
+        shareTitle: 'Share this guide',
+        copyLink: 'Copy link',
+        linkCopied: 'Link copied',
+        backToTop: 'Back to top'
     }
 };
+// Drawn icons (Feather style) for the controls this script adds
+const TUTORIAL_ICONS = {
+    print: '<polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/>',
+    linkedin: '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>',
+    whatsapp: '<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>',
+    link: '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>',
+    up: '<line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/>'
+};
+function tutorialIcon(name) {
+    return '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' + TUTORIAL_ICONS[name] + '</svg>';
+}
+
 const tutorialT = TUTORIAL_STRINGS[(document.documentElement.lang || 'it').toLowerCase().startsWith('en') ? 'en' : 'it'];
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -40,21 +52,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Code copying functionality
     initCodeCopying();
-    
-    // Scroll-based animations
-    initScrollAnimations();
-    
+
     // Print functionality
     initPrintFeature();
-    
+
     // Social sharing
     initSocialSharing();
-    
-    // Bookmark functionality
-    initBookmarks();
-    
-    // Initialize all features
-    console.log('Tutorial page initialized');
 });
 
 // Chapter Accordion functionality
@@ -247,133 +250,46 @@ function initCodeCopying() {
         wrapper.appendChild(codeBlock);
         
         const copyButton = document.createElement('button');
+        copyButton.type = 'button';
         copyButton.className = 'copy-code-btn';
-        copyButton.innerHTML = tutorialT.copy;
-        copyButton.style.cssText = `
-            position: absolute;
-            top: 0.5rem;
-            right: 0.5rem;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            border: none;
-            padding: 0.5rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.8rem;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        `;
-        
+        copyButton.textContent = tutorialT.copy;
+        copyButton.setAttribute('aria-label', tutorialT.copyLabel);
+
         wrapper.appendChild(copyButton);
-        
-        // Show/hide copy button on hover
-        wrapper.addEventListener('mouseenter', () => {
-            copyButton.style.opacity = '1';
-        });
-        
-        wrapper.addEventListener('mouseleave', () => {
-            copyButton.style.opacity = '0';
-        });
-        
+
         // Copy functionality
         copyButton.addEventListener('click', async function() {
             const text = codeBlock.textContent;
             
             try {
                 await navigator.clipboard.writeText(text);
-                this.innerHTML = tutorialT.copied;
+                this.textContent = tutorialT.copied;
                 setTimeout(() => {
-                    this.innerHTML = tutorialT.copy;
+                    this.textContent = tutorialT.copy;
                 }, 2000);
             } catch (err) {
                 console.error('Failed to copy text: ', err);
-                this.innerHTML = tutorialT.copyError;
+                this.textContent = tutorialT.copyError;
                 setTimeout(() => {
-                    this.innerHTML = tutorialT.copy;
+                    this.textContent = tutorialT.copy;
                 }, 2000);
             }
         });
     });
 }
 
-// Scroll-based animations
-function initScrollAnimations() {
-    const animatedElements = document.querySelectorAll('.content-section, .highlight-box, .example-box, .concept-card');
-    
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
-            }
-        });
-    }, observerOptions);
-    
-    // Initially hide elements
-    animatedElements.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        observer.observe(element);
-    });
-    
-    // Add animation keyframes
-    const animationStyle = document.createElement('style');
-    animationStyle.textContent = `
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    `;
-    document.head.appendChild(animationStyle);
-}
-
-// Print functionality
+// Print: a quiet control in the article header (it used to float over the text)
 function initPrintFeature() {
+    const tutorialStats = document.querySelector('.tutorial-stats');
+    if (!tutorialStats) return;
     const printButton = document.createElement('button');
-    printButton.className = 'print-tutorial-btn';
-    printButton.innerHTML = tutorialT.print;
-    printButton.style.cssText = `
-        position: fixed;
-        bottom: 2rem;
-        right: 2rem;
-        background: var(--dark-blue);
-        color: var(--white);
-        border: none;
-        padding: 1rem;
-        border-radius: 50px;
-        cursor: pointer;
-        box-shadow: 0 4px 12px rgba(31, 100, 174, 0.3);
-        font-weight: 500;
-        transition: all 0.3s ease;
-        z-index: 100;
-    `;
-    
-    printButton.addEventListener('mouseenter', function() {
-        this.style.transform = 'scale(1.05)';
-        this.style.boxShadow = '0 6px 20px rgba(31, 100, 174, 0.4)';
-    });
-    
-    printButton.addEventListener('mouseleave', function() {
-        this.style.transform = 'scale(1)';
-        this.style.boxShadow = '0 4px 12px rgba(31, 100, 174, 0.3)';
-    });
-    
+    printButton.type = 'button';
+    printButton.className = 'tutorial-action-btn print-tutorial-btn';
+    printButton.innerHTML = tutorialIcon('print') + '<span>' + tutorialT.print + '</span>';
     printButton.addEventListener('click', function() {
         window.print();
     });
-    
-    document.body.appendChild(printButton);
-    
-    // Hide print button on mobile
-    if (window.innerWidth < 768) {
-        printButton.style.display = 'none';
-    }
+    tutorialStats.appendChild(printButton);
 }
 
 // Social sharing functionality
@@ -381,69 +297,15 @@ function initSocialSharing() {
     const shareContainer = document.createElement('div');
     shareContainer.className = 'social-share';
     shareContainer.innerHTML = `
-        <h4>${tutorialT.shareTitle}</h4>
+        <h2 class="social-share-title">${tutorialT.shareTitle}</h2>
         <div class="share-buttons">
-            <button class="share-btn twitter" data-platform="x">X</button>
-            <button class="share-btn linkedin" data-platform="linkedin">💼 LinkedIn</button>
-            <button class="share-btn whatsapp" data-platform="whatsapp">💬 WhatsApp</button>
-            <button class="share-btn copy-link" data-platform="copy">${tutorialT.copyLink}</button>
+            <button type="button" class="share-btn" data-platform="linkedin">${tutorialIcon('linkedin')}<span>LinkedIn</span></button>
+            <button type="button" class="share-btn" data-platform="x"><span>X</span></button>
+            <button type="button" class="share-btn" data-platform="whatsapp">${tutorialIcon('whatsapp')}<span>WhatsApp</span></button>
+            <button type="button" class="share-btn copy-link" data-platform="copy">${tutorialIcon('link')}<span class="share-btn-label">${tutorialT.copyLink}</span></button>
         </div>
     `;
-    
-    // Add styles
-    const shareStyles = `
-        .social-share {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 2rem;
-            margin: 3rem 0;
-            text-align: center;
-        }
-        
-        .social-share h4 {
-            margin: 0 0 1rem 0;
-            color: #2d3748;
-        }
-        
-        .share-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .share-btn {
-            background: white;
-            border: 2px solid #e2e8f0;
-            padding: 0.75rem 1rem;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-        
-        .share-btn:hover {
-            border-color: var(--primary-blue);
-            transform: translateY(-2px);
-        }
-        
-        @media (max-width: 768px) {
-            .share-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .share-btn {
-                width: 200px;
-            }
-        }
-    `;
-    
-    const style = document.createElement('style');
-    style.textContent = shareStyles;
-    document.head.appendChild(style);
-    
+
     // Insert share container after conclusion
     const conclusion = document.querySelector('.conclusion');
     if (conclusion) {
@@ -472,9 +334,10 @@ function initSocialSharing() {
                     break;
                 case 'copy':
                     navigator.clipboard.writeText(window.location.href).then(() => {
-                        this.innerHTML = tutorialT.linkCopied;
+                        const label = this.querySelector('.share-btn-label');
+                        label.textContent = tutorialT.linkCopied;
                         setTimeout(() => {
-                            this.innerHTML = tutorialT.copyLink;
+                            label.textContent = tutorialT.copyLink;
                         }, 2000);
                     });
                     return;
@@ -485,62 +348,6 @@ function initSocialSharing() {
             }
         });
     });
-}
-
-// Bookmark functionality
-function initBookmarks() {
-    const bookmarkButton = document.createElement('button');
-    bookmarkButton.className = 'bookmark-btn';
-    bookmarkButton.innerHTML = tutorialT.addBookmark;
-
-    // Check if already bookmarked
-    const tutorialId = window.location.pathname;
-    const bookmarks = JSON.parse(localStorage.getItem('niuexa_bookmarks') || '[]');
-    const isBookmarked = bookmarks.includes(tutorialId);
-
-    if (isBookmarked) {
-        bookmarkButton.innerHTML = tutorialT.bookmarked;
-        bookmarkButton.classList.add('bookmarked');
-    }
-    
-    bookmarkButton.style.cssText = `
-        background: transparent;
-        border: 2px solid var(--primary-blue);
-        color: var(--blue-text);
-        padding: 0.75rem 1.5rem;
-        min-height: 44px;
-        border-radius: 8px;
-        cursor: pointer;
-        font-weight: 500;
-        transition: all 0.3s ease;
-        margin: 1rem 0;
-    `;
-    
-    bookmarkButton.addEventListener('click', function() {
-        const bookmarks = JSON.parse(localStorage.getItem('niuexa_bookmarks') || '[]');
-        const tutorialId = window.location.pathname;
-        
-        if (bookmarks.includes(tutorialId)) {
-            // Remove bookmark
-            const index = bookmarks.indexOf(tutorialId);
-            bookmarks.splice(index, 1);
-            this.innerHTML = tutorialT.addBookmark;
-            this.classList.remove('bookmarked');
-        } else {
-            // Add bookmark
-            bookmarks.push(tutorialId);
-            this.innerHTML = tutorialT.bookmarked;
-            this.classList.add('bookmarked');
-        }
-        
-        localStorage.setItem('niuexa_bookmarks', JSON.stringify(bookmarks));
-    });
-    
-    // Insert bookmark button in tutorial header
-    const tutorialStats = document.querySelector('.tutorial-stats');
-    if (tutorialStats) {
-        tutorialStats.appendChild(bookmarkButton);
-    }
 }
 
 // Utility function for analytics
@@ -556,62 +363,29 @@ function trackTutorialProgress(sectionId) {
 // Back to top functionality
 function initBackToTop() {
     const backToTopButton = document.createElement('button');
+    backToTopButton.type = 'button';
     backToTopButton.className = 'back-to-top';
-    backToTopButton.innerHTML = '↑';
-    backToTopButton.style.cssText = `
-        position: fixed;
-        bottom: 6rem;
-        right: 2rem;
-        width: 50px;
-        height: 50px;
-        background: var(--dark-blue);
-        color: var(--white);
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        font-size: 1.5rem;
-        opacity: 0;
-        transition: all 0.3s ease;
-        z-index: 99;
-    `;
-    
+    backToTopButton.innerHTML = tutorialIcon('up');
+    backToTopButton.setAttribute('aria-label', tutorialT.backToTop);
     document.body.appendChild(backToTopButton);
-    
-    // Show/hide based on scroll position
+
+    let ticking = false;
     window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-            backToTopButton.style.opacity = '1';
-        } else {
-            backToTopButton.style.opacity = '0';
-        }
-    });
-    
-    // Scroll to top on click
-    backToTopButton.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function() {
+            backToTopButton.classList.toggle('is-visible', window.pageYOffset > 600);
+            ticking = false;
         });
+    }, { passive: true });
+
+    backToTopButton.addEventListener('click', function() {
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
     });
 }
 
 // Initialize back to top
 initBackToTop();
 
-// Add active TOC styling
-const tocStyle = document.createElement('style');
-tocStyle.textContent = `
-    .toc-list a.active {
-        color: var(--blue-text);
-        font-weight: 600;
-        border-left: 3px solid var(--primary-blue);
-        padding-left: 1rem;
-        background: rgba(35, 125, 166, 0.1);
-    }
-
-    .bookmark-btn.bookmarked {
-        background: var(--dark-blue);
-        color: var(--white);
-    }
-`;
-document.head.appendChild(tocStyle);
+// Active TOC entry and the controls above are styled in tutorial.css

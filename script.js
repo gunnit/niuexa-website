@@ -1,3 +1,44 @@
+// Form copy follows the page language (Italian pages address the reader with "Lei")
+const FORM_STRINGS = {
+    it: {
+        sending: 'Invio in corso…',
+        sendError: 'Invio non riuscito. Controlli la connessione e riprovi, oppure ci scriva dalla pagina contatti.',
+        firstName: 'Inserisca il nome (almeno 2 caratteri).',
+        lastName: 'Inserisca il cognome (almeno 2 caratteri).',
+        name: 'Inserisca il nome (almeno 2 caratteri).',
+        minChars: 'Inserisca almeno 2 caratteri.',
+        company: 'Inserisca il nome dell\'azienda.',
+        service: 'Scelga un\'area di interesse.',
+        email: 'Inserisca un indirizzo email valido, per esempio nome@azienda.it.',
+        message: 'Descriva il processo in almeno 10 caratteri.',
+        messageField: 'Inserisca almeno 10 caratteri.',
+        phone: 'Inserisca un numero di telefono valido, per esempio +39 02 1234567.',
+        thankYou: '/thank-you-page.html',
+        signupTitle: 'Grazie',
+        signupText: 'Abbiamo ricevuto la Sua richiesta e Le scriveremo a breve.',
+        signupError: 'Invio non riuscito. Riprovi o ci scriva a info@niuexa.ai.'
+    },
+    en: {
+        sending: 'Sending…',
+        sendError: 'Sending failed. Check your connection and try again, or write to us from the contact page.',
+        firstName: 'Enter your first name (at least 2 characters).',
+        lastName: 'Enter your last name (at least 2 characters).',
+        name: 'Enter your name (at least 2 characters).',
+        minChars: 'Enter at least 2 characters.',
+        company: 'Enter your company name.',
+        service: 'Choose an area of interest.',
+        email: 'Enter a valid email address, for example name@company.com.',
+        message: 'Describe the process in at least 10 characters.',
+        messageField: 'Enter at least 10 characters.',
+        phone: 'Enter a valid phone number, for example +39 02 1234567.',
+        thankYou: '/en/thank-you-page.html',
+        signupTitle: 'Thank you',
+        signupText: 'We have received your request and will be in touch shortly.',
+        signupError: 'Sending failed. Please try again or email us at info@niuexa.ai.'
+    }
+};
+const formT = FORM_STRINGS[(document.documentElement.lang || 'it').toLowerCase().startsWith('en') ? 'en' : 'it'];
+
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all functionality (navigation is now handled in includes.js)
@@ -21,7 +62,7 @@ function initSimpleSignupForms() {
             const originalText = submitBtn ? submitBtn.textContent : '';
             if (submitBtn) {
                 submitBtn.disabled = true;
-                submitBtn.textContent = 'Sending...';
+                submitBtn.textContent = formT.sending;
             }
 
             const formData = new FormData(form);
@@ -63,12 +104,10 @@ function initSimpleSignupForms() {
                         });
                     }
                     const successHtml = form.dataset.successHtml ||
-                        '<h3 style="margin-bottom: 12px;">Thank you!</h3>' +
-                        '<p>We\'ve received your request and will be in touch shortly.</p>';
+                        '<h3>' + formT.signupTitle + '</h3><p>' + formT.signupText + '</p>';
                     const successDiv = document.createElement('div');
                     successDiv.className = 'form-success';
                     successDiv.setAttribute('role', 'status');
-                    successDiv.style.cssText = 'background: var(--light-gray, #F8F9FA); border-left: 4px solid var(--primary-green); padding: 1.5rem; border-radius: 8px; font-family: var(--font-secondary, sans-serif);';
                     successDiv.innerHTML = successHtml;
                     form.parentNode.replaceChild(successDiv, form);
                 } else {
@@ -80,7 +119,7 @@ function initSimpleSignupForms() {
                     submitBtn.disabled = false;
                     submitBtn.textContent = originalText;
                 }
-                showMessage('Something went wrong. Please try again or email us at info@niuexa.ai.', 'error');
+                showMessage(formT.signupError, 'error');
             }
         });
     });
@@ -248,10 +287,11 @@ function initContactForm() {
 
             // Show loading state
             const submitButton = this.querySelector('button[type="submit"]');
-            const originalText = submitButton ? submitButton.textContent : '';
+            // innerHTML, not textContent: the button carries an icon that must come back
+            const originalHTML = submitButton ? submitButton.innerHTML : '';
             if (submitButton) {
                 submitButton.disabled = true;
-                submitButton.textContent = 'Sending...';
+                submitButton.textContent = formT.sending;
                 submitButton.setAttribute('aria-busy', 'true');
             }
 
@@ -278,23 +318,23 @@ function initContactForm() {
                         if (typeof gtag !== 'undefined') {
                             gtag('event', 'form_submit', {
                                 'event_category': 'Contact',
-                                'event_label': 'Homepage Contact Form'
+                                'event_label': 'Contact form ' + window.location.pathname
                             });
                         }
 
                         // Redirect to thank you page
-                        window.location.href = '/thank-you-page.html';
+                        window.location.href = formT.thankYou;
                     } else {
                         throw new Error('Form submission failed');
                     }
                 } catch (error) {
                     console.error('Form submission error:', error);
-                    showMessage('Si è verificato un errore. Per favore riprova.', 'error');
+                    showMessage(formT.sendError, 'error');
 
                     // Reset button
                     if (submitButton) {
                         submitButton.disabled = false;
-                        submitButton.textContent = originalText;
+                        submitButton.innerHTML = originalHTML;
                         submitButton.removeAttribute('aria-busy');
                     }
                 }
@@ -302,7 +342,7 @@ function initContactForm() {
                 // Reset button on validation error
                 if (submitButton) {
                     submitButton.disabled = false;
-                    submitButton.textContent = originalText;
+                    submitButton.innerHTML = originalHTML;
                     submitButton.removeAttribute('aria-busy');
                 }
             }
@@ -329,31 +369,31 @@ function validateForm(data) {
     // Check firstName and lastName (homepage form)
     if (data.firstName !== undefined) {
         if (!data.firstName || data.firstName.trim().length < 2) {
-            errors.push('Per favore inserisci un nome valido');
+            errors.push(formT.firstName);
         }
         if (!data.lastName || data.lastName.trim().length < 2) {
-            errors.push('Per favore inserisci un cognome valido');
+            errors.push(formT.lastName);
         }
         if (!data.company || data.company.trim().length < 2) {
-            errors.push('Per favore inserisci il nome dell\'azienda');
+            errors.push(formT.company);
         }
         if (!data.service) {
-            errors.push('Per favore seleziona un servizio');
+            errors.push(formT.service);
         }
     }
     // Check name field (other forms)
     else if (data.name !== undefined) {
         if (!data.name || data.name.trim().length < 2) {
-            errors.push('Per favore inserisci un nome valido');
+            errors.push(formT.name);
         }
     }
 
     if (!data.email || !isValidEmail(data.email)) {
-        errors.push('Per favore inserisci un indirizzo email valido');
+        errors.push(formT.email);
     }
 
     if (!data.message || data.message.trim().length < 10) {
-        errors.push('Per favore inserisci un messaggio di almeno 10 caratteri');
+        errors.push(formT.message);
     }
 
     if (errors.length > 0) {
@@ -385,37 +425,37 @@ function validateField(field) {
         case 'lastName':
             if (!value || value.length < 2) {
                 isValid = false;
-                errorMessage = 'Per favore inserisci almeno 2 caratteri';
+                errorMessage = formT.minChars;
             }
             break;
         case 'company':
             if (!value || value.length < 2) {
                 isValid = false;
-                errorMessage = 'Per favore inserisci il nome dell\'azienda';
+                errorMessage = formT.company;
             }
             break;
         case 'service':
             if (!value) {
                 isValid = false;
-                errorMessage = 'Per favore seleziona un servizio';
+                errorMessage = formT.service;
             }
             break;
         case 'email':
             if (!value || !isValidEmail(value)) {
                 isValid = false;
-                errorMessage = 'Per favore inserisci un indirizzo email valido';
+                errorMessage = formT.email;
             }
             break;
         case 'message':
             if (!value || value.length < 10) {
                 isValid = false;
-                errorMessage = 'Per favore inserisci almeno 10 caratteri';
+                errorMessage = formT.messageField;
             }
             break;
         case 'phone':
             if (value && !isValidPhone(value)) {
                 isValid = false;
-                errorMessage = 'Per favore inserisci un numero di telefono valido';
+                errorMessage = formT.phone;
             }
             break;
     }

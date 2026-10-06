@@ -23,7 +23,7 @@ Every push to `master`/`main` runs `.github/workflows/github-pages.yml`. It chec
 
 ## Custom Domain
 
-`niuexa.ai` is attached to the Worker as a Custom Domain in `wrangler.jsonc`. DNS is managed in Cloudflare; `www.niuexa.ai` redirects to `niuexa.ai` through a Cloudflare Redirect Rule. Email (MX) and `aeo.niuexa.ai` are separate DNS records.
+`niuexa.ai` reaches the Worker through the route `niuexa.ai/*` on the proxied `niuexa.ai` DNS records, both set in the Cloudflare dashboard (`wrangler.jsonc` explains why they are not in the config). DNS is managed in Cloudflare; `www.niuexa.ai` redirects to `niuexa.ai` through a Cloudflare Redirect Rule. Email (MX) and `aeo.niuexa.ai` are separate DNS records.
 
 ## Monitoring and Analytics
 

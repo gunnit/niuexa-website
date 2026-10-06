@@ -23,7 +23,7 @@
     <meta property="og:image:alt" content="Framework Niuexa delle 4C per gestire il turno operativo di un AI agent">
     <meta property="og:locale" content="it_IT">
     <meta property="article:published_time" content="2026-09-02">
-    <meta property="article:modified_time" content="2026-09-02">
+    <meta property="article:modified_time" content="2026-10-05">
     <meta property="article:author" content="Gregor Maric">
     <meta property="article:section" content="AI Agents e Automazione">
 
@@ -55,7 +55,7 @@
       "author":{"@type":"Person","name":"Gregor Maric","url":"https://niuexa.ai/chi-siamo.html#gregor-maric","jobTitle":"CEO & Co-Fondatore di Niuexa","sameAs":["https://www.linkedin.com/in/maricgregor/"]},
       "publisher":{"@type":"Organization","name":"Niuexa","url":"https://niuexa.ai","logo":{"@type":"ImageObject","url":"https://niuexa.ai/img/niuexalogo.png"}},
       "datePublished":"2026-09-02",
-      "dateModified":"2026-09-02",
+      "dateModified":"2026-10-05",
       "mainEntityOfPage":{"@type":"WebPage","@id":"https://niuexa.ai/articolo-coda-lavoro-ai-agent.html"},
       "image":["https://niuexa.ai/img/articles/coda-lavoro-ai-agent/coda-lavoro-ai-agent-og.png"],
       "articleSection":"AI Agents e Automazione",
@@ -94,7 +94,7 @@
             <div class="tutorial-badge">AI Agents e Automazione</div>
             <h1>AI agent in produzione: progettare la coda di lavoro con il framework 4C</h1>
             <p class="tutorial-description">Una demo mostra una singola esecuzione. Un servizio operativo deve gestire priorità, capacità limitata, interruzioni e prove di completamento. Le 4C rendono questo turno di lavoro esplicito.</p>
-            <div class="tutorial-stats"><span class="stat">11 minuti di lettura</span><span class="stat">Per COO, IT e process owner</span><span class="stat">Framework operativo 4C</span></div>
+            <div class="tutorial-stats"><span class="stat">10 minuti di lettura</span><span class="stat">Per COO, IT e process owner</span><span class="stat">Framework operativo 4C</span></div>
         </div></div></section>
 
         <article class="tutorial-content"><div class="container"><div class="content-wrapper">
@@ -124,10 +124,10 @@
 
             <section class="content-section">
                 <h2 id="framework-4c">Le 4C: Coda, Capacità, Continuità, Consegna</h2>
-                <figure class="article-visual article-diagram article-diagram-scroll"><img src="img/articles/coda-lavoro-ai-agent/framework-4c-turno-operativo.svg" alt="Diagramma delle 4C: Coda, Capacità, Continuità e Consegna per un AI agent operativo" width="1200" height="720" loading="eager" decoding="async"><figcaption>Le quattro discipline descrivono il sistema che circonda il modello. Su mobile, scorri il diagramma in orizzontale.</figcaption></figure>
+                <figure class="article-visual article-diagram article-diagram-scroll"><img src="img/articles/coda-lavoro-ai-agent/framework-4c-turno-operativo.svg" alt="Diagramma delle 4C: Coda, Capacità, Continuità e Consegna per un AI agent operativo" width="1200" height="720" loading="eager" decoding="async"><figcaption>Le quattro discipline descrivono il sistema che circonda il modello. Su mobile, il diagramma scorre in orizzontale.</figcaption></figure>
 
                 <h3>1. Coda: quale lavoro entra e con quale priorità?</h3>
-                <p>Ogni richiesta dovrebbe diventare un’unità riconoscibile con ID, obiettivo, priorità, dati minimi, stato e owner. La priorità deve derivare da regole aziendali — scadenza, rischio, valore, livello di servizio — non dal tono urgente di un messaggio. La coda deve anche rifiutare o sospendere gli ingressi incompleti, invece di costringere il modello a inventare il contesto.</p>
+                <p>Ogni richiesta dovrebbe diventare un’unità riconoscibile con ID, obiettivo, priorità, dati minimi, stato e owner. La priorità deve derivare da regole aziendali (scadenza, rischio, valore, livello di servizio), non dal tono urgente di un messaggio. La coda deve anche rifiutare o sospendere gli ingressi incompleti, invece di costringere il modello a inventare il contesto.</p>
 
                 <h3>2. Capacità: quanto lavoro può sostenere il sistema?</h3>
                 <p>Il software non si stanca, ma API, budget, database e revisori hanno limiti. Il capitolo di Google SRE sulla gestione del sovraccarico osserva che un servizio affidabile deve accettare il carico che può elaborare e degradare o rifiutare il resto in modo controllato. Per un workflow agentico questo significa limiti di concorrenza, quote per tipo di attività, timeout, capacità riservata ai casi prioritari e una regola di pausa quando l’arretrato cresce.</p>
@@ -155,18 +155,18 @@
                 <h2 id="metriche">Metriche: misurare il lavoro chiuso, non l’attività generata</h2>
                 <p>Il numero di chiamate al modello è una misura di consumo, non di valore. Una dashboard operativa dovrebbe mostrare almeno volume in ingresso, arretrato per priorità, età del lavoro più vecchio, tempo di ciclo, quota di casi bloccati, tasso di rilavorazione, saturazione dei revisori e percentuale di attività chiuse con prova.</p>
                 <p>Google SRE definisce il monitoraggio come raccolta e visualizzazione di dati quantitativi sul comportamento del sistema e include la lunghezza delle code tra le informazioni utili in una dashboard. Per una PMI non serve replicare un’architettura SRE: è sufficiente trasformare i segnali in decisioni. Se l’arretrato prioritario cresce, si riduce l’ingresso; se aumentano gli stati incerti, si corregge la riconciliazione; se i revisori sono saturi, non si aumenta l’autonomia per nascondere il problema.</p>
-                <p>Le soglie devono avere owner e risposta. “Tempo medio alto” è informazione; “se il lavoro prioritario supera quattro ore, sospendi le attività non urgenti e avvisa il process owner” è una regola operativa. Le soglie iniziali sono ipotesi da tarare con il pilota, non benchmark universali.</p>
+                <p>Le soglie devono avere owner e risposta. “Tempo medio alto” è informazione; “se il lavoro prioritario supera quattro ore, si sospendono le attività non urgenti e si avvisa il process owner” è una regola operativa. Le soglie iniziali sono ipotesi da tarare con il pilota, non benchmark universali.</p>
             </section>
 
             <section class="content-section">
                 <h2 id="pilota">Un pilota in sei passaggi per una PMI</h2>
                 <ol>
-                    <li><strong>Scegli un solo workflow.</strong> Preferisci volume reale, azioni reversibili, owner disponibile e dati accessibili.</li>
-                    <li><strong>Definisci l’unità di lavoro.</strong> Stabilisci ID, dati minimi, obiettivo, priorità e criterio di rifiuto.</li>
-                    <li><strong>Disegna gli stati.</strong> Usa pochi stati non ambigui: ricevuto, pronto, in lavorazione, in attesa, da riconciliare, verificato, annullato.</li>
-                    <li><strong>Imposta capacità e backpressure.</strong> Limita concorrenza, consumo e carico umano; decidi che cosa rallentare per primo.</li>
-                    <li><strong>Aggiungi checkpoint e prova.</strong> Salva l’ultimo stato certo e definisci l’evidenza esterna necessaria alla chiusura.</li>
-                    <li><strong>Testa il percorso non ideale.</strong> Simula richieste simultanee, dati mancanti, timeout, approvazione assente e risposta provider illeggibile.</li>
+                    <li><strong>Scelga un solo workflow.</strong> Preferisca volume reale, azioni reversibili, owner disponibile e dati accessibili.</li>
+                    <li><strong>Definisca l’unità di lavoro.</strong> Stabilisca ID, dati minimi, obiettivo, priorità e criterio di rifiuto.</li>
+                    <li><strong>Disegni gli stati.</strong> Usi pochi stati non ambigui: ricevuto, pronto, in lavorazione, in attesa, da riconciliare, verificato, annullato.</li>
+                    <li><strong>Imposti capacità e backpressure.</strong> Limiti concorrenza, consumo e carico umano; decida che cosa rallentare per primo.</li>
+                    <li><strong>Aggiunga checkpoint e prova.</strong> Salvi l’ultimo stato certo e definisca l’evidenza esterna necessaria alla chiusura.</li>
+                    <li><strong>Testi il percorso non ideale.</strong> Simuli richieste simultanee, dati mancanti, timeout, approvazione assente e risposta provider illeggibile.</li>
                 </ol>
                 <p>Un esempio semplice è il lead-to-follow-up. Ogni lead entra con ID, fonte e dati minimi; i duplicati vengono bloccati; la capacità rispetta il carico del team commerciale; un checkpoint separa validazione, CRM e messaggio; l’invio non viene ripetuto dopo un timeout ambiguo; il caso si chiude solo dopo la lettura di destinatario, stato e prossimo owner.</p>
                 <p>Se il team non sa rispondere a “quale attività è più vecchia, perché è ferma e che cosa proverà la sua chiusura?”, l’agent è ancora una demo su dati reali. Aggiungere un modello più potente non risolve questo vuoto operativo.</p>
@@ -191,7 +191,7 @@
             </div></section>
         </div></div></article>
 
-        <section class="cta-section"><div class="container"><h2 id="cta">Il tuo AI agent gestisce il lavoro o esegue solo richieste?</h2><p>Niuexa aiuta le PMI a trasformare automazioni isolate in workflow agentici con priorità, controlli, continuità e risultati verificabili.</p><a href="ai-readiness-assessment.html" class="btn btn-primary">Prenota un assessment AI</a><a href="consulting.html" class="btn btn-secondary" style="margin-left:15px;">Scopri la consulenza AI</a></div></section>
+        <section class="cta-section"><div class="container"><h2 id="cta">Il Suo AI agent gestisce il lavoro o esegue solo richieste?</h2><p>Ci mostri un processo: in una prima chiamata di 30 minuti, gratuita, guardiamo come entra il lavoro, dove si ferma e quale prova ne chiude ogni caso. Prima misuriamo, poi automatizziamo.</p><a href="index.html#contact" class="btn btn-primary">Ci mostri un processo</a><a href="consulting.html" class="btn btn-secondary" style="margin-left:15px;">Come lavoriamo</a></div></section>
     </main>
     <div id="footer-placeholder"></div>
     <script src="includes/includes.js?v=20260428"></script>

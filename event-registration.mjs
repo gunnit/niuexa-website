@@ -38,7 +38,7 @@ function updateEvent() {
   $('selected-date').textContent = event?.label || (open.length ? select.selectedOptions[0]?.text || '' : 'Richieste chiuse');
   fields.disabled = !event || completed.has(event.id);
   button.disabled = fields.disabled;
-  button.textContent = !event ? (open.length ? 'Scelga una data valida' : 'Richieste chiuse') : completed.has(event.id) ? 'Richiesta già ricevuta' : 'Invii la richiesta ↗';
+  button.textContent = !event ? (open.length ? 'Scegli una data valida' : 'Richieste chiuse') : completed.has(event.id) ? 'Richiesta già ricevuta' : 'Invia la richiesta ↗';
 }
 // Prevent native form submission; CSP form-action:none is a second layer.
 form.addEventListener('submit', e => { e.preventDefault(); if (!button.disabled) submit(); });
@@ -55,13 +55,13 @@ if (event) select.value = event.id;
 else if (!open.length) {
   showPlaceholder('Nessuna data in calendario');
   select.disabled = true;
-  showStatus('Gli incontri in calendario si sono conclusi. Per informazioni scriva a ai@niuexa.ai.');
+  showStatus('Gli incontri in calendario si sono conclusi. Per informazioni scrivi a ai@niuexa.ai.');
 } else if (requested) {
-  showPlaceholder('Scelga una data');
-  showStatus((requested.date < romeToday() ? 'L’incontro del ' + requested.label + ' si è già svolto.' : 'La data richiesta non è disponibile.') + ' Scelga uno degli appuntamenti in calendario.', 'error');
+  showPlaceholder('Scegli una data');
+  showStatus((requested.date < romeToday() ? 'L’incontro del ' + requested.label + ' si è già svolto.' : 'La data richiesta non è disponibile.') + ' Scegli uno degli appuntamenti in calendario.', 'error');
 } else {
   showPlaceholder('Data non riconosciuta');
-  showStatus('La data richiesta non è disponibile. Scelga uno degli appuntamenti in calendario.', 'error');
+  showStatus('La data richiesta non è disponibile. Scegli uno degli appuntamenti in calendario.', 'error');
 }
 updateEvent();
 
@@ -72,9 +72,9 @@ async function submit() {
     const closed = event;
     event = undefined;
     dropPastDates();
-    showPlaceholder(open.length ? 'Scelga una data' : 'Nessuna data in calendario');
+    showPlaceholder(open.length ? 'Scegli una data' : 'Nessuna data in calendario');
     select.disabled = !open.length;
-    showStatus('L’incontro del ' + closed.label + ' si è già svolto. ' + (open.length ? 'Scelga uno degli appuntamenti in calendario.' : 'Per informazioni scriva a ai@niuexa.ai.'), 'error');
+    showStatus('L’incontro del ' + closed.label + ' si è già svolto. ' + (open.length ? 'Scegli uno degli appuntamenti in calendario.' : 'Per informazioni scrivi a ai@niuexa.ai.'), 'error');
     updateEvent();
     return;
   }
@@ -86,7 +86,7 @@ async function submit() {
     $(key + '-error').textContent = errors[key] || '';
   }
   if (Object.keys(errors).length) {
-    showStatus('Verifichi i campi indicati. Tutti i dati sono obbligatori.', 'error');
+    showStatus('Verifica i campi indicati. Tutti i dati sono obbligatori.', 'error');
     $(Object.keys(errors)[0]).focus();
     return;
   }
@@ -106,7 +106,7 @@ async function submit() {
     status.focus();
   } catch {
     // Timeout/network failure can occur AFTER acceptance: never claim nothing was sent.
-    showStatus('Non possiamo verificare la ricezione della richiesta. Può riprovare o contattarci a ai@niuexa.ai, indicando la data scelta. Non invii nuovamente se ha già ricevuto conferma dal team.', 'error');
+    showStatus('Non possiamo verificare la ricezione della richiesta. Puoi riprovare o contattarci a ai@niuexa.ai, indicando la data scelta. Non inviarla di nuovo se hai già ricevuto conferma dal team.', 'error');
     status.focus();
   } finally {
     busy = false;

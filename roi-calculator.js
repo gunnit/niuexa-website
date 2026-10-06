@@ -1,7 +1,8 @@
 /**
- * ROI Calculator - Live Call Edition
- * Real-time calculation, no submit button needed.
- * Pure math — no AI API required.
+ * ROI Calculator
+ * Real-time estimate from the visitor's own inputs: no submit needed,
+ * pure math in the browser, nothing is sent anywhere.
+ * The output is an estimate, never a promise: copy and labels say so.
  */
 
 // User-facing strings keyed on document language (same pattern as cookie-banner.js)
@@ -11,86 +12,84 @@ const ROI_STRINGS = {
         htmlLang: 'it',
         defaultProcess: 'Processo',
         yearLabel: 'Anno',
-        netValue: 'Valore Netto',
-        cumulativeSavings: 'Risparmi Cumulativi',
-        cumulativeCosts: 'Costi Cumulativi',
-        chartTitle: 'Proiezione ROI a 5 Anni',
+        netValue: 'Valore netto',
+        cumulativeSavings: 'Risparmi cumulati',
+        cumulativeCosts: 'Costi cumulati',
+        chartLabel: 'Grafico: valore netto, risparmi e costi cumulati in 5 anni con i valori inseriti',
         immediate: 'Immediato',
+        never: 'Non recuperato con questi valori',
+        noCosts: 'Nessun costo inserito',
+        notAvailable: 'n/d',
         lessThanMonth: '< 1 mese',
         months: 'mesi',
         oneYear: ' anno',
         years: ' anni',
         and: ' e ',
         hours: ' ore',
-        reportTitle: 'Report ROI',
-        reportHeader: 'Report Analisi ROI Agenti AI',
+        reportTitle: 'Stima ROI',
+        reportHeader: 'Stima ROI di un processo',
         sector: 'Settore',
         notSpecified: 'Non specificato',
         generatedOn: 'Generato il',
-        before: 'Prima (Stato Attuale)',
-        after: 'Dopo (Con AI)',
+        before: 'Oggi',
+        after: 'Con l\'automazione (stima)',
         perYear: '/anno',
-        annualSavings: 'Risparmi Annuali',
-        payback: 'Payback',
-        breakdown: 'Dettaglio',
-        currentAnnualCost: 'Costo Annuale Attuale:',
-        timeSaved: 'Tempo Risparmiato:',
-        errorReduction: 'Riduzione Errori:',
-        implementationCost: 'Costo Implementazione:',
-        annualAICosts: 'Costi Annuali AI:',
-        netAnnualBenefit: 'Beneficio Netto Annuale:',
-        reportFooter1: 'Report generato da Niuexa - Soluzioni AI per il Business',
-        reportFooter2: 'Per implementare questi risultati, contattaci per una consulenza gratuita.',
-        emailModalTitle: 'Ricevi l\'Analisi ROI via Email',
-        emailModalBody: 'Inserisci il tuo indirizzo email per ricevere il report dettagliato.',
-        emailPlaceholder: 'Il tuo indirizzo email',
-        cancel: 'Annulla',
-        sendReport: 'Invia Report',
-        emailSent: (email) => `L'analisi ROI sarà inviata a ${email} a breve!`,
-        emailInvalid: 'Inserisci un indirizzo email valido.'
+        annualSavings: 'Risparmio lordo annuo',
+        roi: 'ROI sul primo anno',
+        payback: 'Recupero del costo iniziale',
+        breakdown: 'Dettaglio del calcolo',
+        currentAnnualCost: 'Costo annuo attuale del processo:',
+        timeSaved: 'Ore risparmiate all\'anno:',
+        errorReduction: 'Valore degli errori evitati:',
+        implementationCost: 'Costo iniziale:',
+        annualAICosts: 'Costi ricorrenti annui:',
+        netAnnualBenefit: 'Beneficio netto annuo:',
+        reportNote: 'Stima calcolata solo dai valori inseriti: non è una previsione né una garanzia di risultato.',
+        reportFooter1: 'Stima generata con il calcolatore ROI di Niuexa',
+        reportFooter2: 'Prima chiamata di 30 minuti gratuita: niuexa.ai/contatti.html',
+        contactUrl: 'contatti.html'
     },
     en: {
         locale: 'en-GB',
         htmlLang: 'en',
         defaultProcess: 'Process',
         yearLabel: 'Year',
-        netValue: 'Net Value',
-        cumulativeSavings: 'Cumulative Savings',
-        cumulativeCosts: 'Cumulative Costs',
-        chartTitle: '5-Year ROI Projection',
+        netValue: 'Net value',
+        cumulativeSavings: 'Cumulative savings',
+        cumulativeCosts: 'Cumulative costs',
+        chartLabel: 'Chart: net value, cumulative savings and cumulative costs over 5 years with the values entered',
         immediate: 'Immediate',
+        never: 'Not recovered with these values',
+        noCosts: 'No costs entered',
+        notAvailable: 'n/a',
         lessThanMonth: '< 1 month',
         months: 'months',
         oneYear: ' year',
         years: ' years',
         and: ' and ',
         hours: ' hours',
-        reportTitle: 'ROI Report',
-        reportHeader: 'AI Agents ROI Analysis Report',
+        reportTitle: 'ROI estimate',
+        reportHeader: 'ROI estimate for one process',
         sector: 'Industry',
         notSpecified: 'Not specified',
         generatedOn: 'Generated on',
-        before: 'Before (Current State)',
-        after: 'After (With AI)',
+        before: 'Today',
+        after: 'With automation (estimate)',
         perYear: '/year',
-        annualSavings: 'Annual Savings',
-        payback: 'Payback',
-        breakdown: 'Breakdown',
-        currentAnnualCost: 'Current Annual Cost:',
-        timeSaved: 'Time Saved:',
-        errorReduction: 'Error Reduction:',
-        implementationCost: 'Implementation Cost:',
-        annualAICosts: 'Annual AI Costs:',
-        netAnnualBenefit: 'Net Annual Benefit:',
-        reportFooter1: 'Report generated by Niuexa - AI Solutions for Business',
-        reportFooter2: 'To implement these results, contact us for a free consultation.',
-        emailModalTitle: 'Receive the ROI Analysis via Email',
-        emailModalBody: 'Enter your email address to receive the detailed report.',
-        emailPlaceholder: 'Your email address',
-        cancel: 'Cancel',
-        sendReport: 'Send Report',
-        emailSent: (email) => `The ROI analysis will be sent to ${email} shortly!`,
-        emailInvalid: 'Please enter a valid email address.'
+        annualSavings: 'Gross annual saving',
+        roi: 'First-year ROI',
+        payback: 'Recovery of the initial cost',
+        breakdown: 'Calculation detail',
+        currentAnnualCost: 'Current annual cost of the process:',
+        timeSaved: 'Hours saved per year:',
+        errorReduction: 'Value of errors avoided:',
+        implementationCost: 'Initial cost:',
+        annualAICosts: 'Annual running costs:',
+        netAnnualBenefit: 'Net annual benefit:',
+        reportNote: 'Estimate calculated only from the values entered: it is neither a forecast nor a guarantee of results.',
+        reportFooter1: 'Estimate generated with the Niuexa ROI calculator',
+        reportFooter2: 'Free 30-minute first call: niuexa.ai/en/contact.html',
+        contactUrl: '/en/contact.html'
     }
 };
 const roiT = ROI_STRINGS[(document.documentElement.lang || 'it').toLowerCase().startsWith('en') ? 'en' : 'it'];
@@ -101,22 +100,11 @@ const ROICalculator = {
     currentResults: null,
 
     CONFIG: {
-        DEFAULT_AUTOMATION_LEVEL: 80,
+        // Example value shown on the slider; the page labels it as a value to replace
+        DEFAULT_AUTOMATION_LEVEL: 50,
         ERROR_REDUCTION_FACTOR: 0.5,
         CHART_HEIGHT: 300,
         DEBOUNCE_DELAY: 200
-    },
-
-    // Industry benchmarks for smart defaults
-    INDUSTRY_BENCHMARKS: {
-        finance:       { implementation: 8000, monthly: 300, errorRate: 4, automation: 85 },
-        healthcare:    { implementation: 6000, monthly: 250, errorRate: 6, automation: 75 },
-        retail:        { implementation: 5000, monthly: 200, errorRate: 5, automation: 80 },
-        manufacturing: { implementation: 10000, monthly: 400, errorRate: 7, automation: 85 },
-        technology:    { implementation: 7000, monthly: 350, errorRate: 3, automation: 90 },
-        consulting:    { implementation: 6000, monthly: 250, errorRate: 4, automation: 80 },
-        marketing:     { implementation: 5500, monthly: 275, errorRate: 5, automation: 80 },
-        other:         { implementation: 5000, monthly: 200, errorRate: 5, automation: 80 }
     },
 
     init() {
@@ -164,14 +152,6 @@ const ROICalculator = {
             });
         }
 
-        // Industry selection → fill smart defaults
-        const industrySelect = document.getElementById('industry');
-        if (industrySelect) {
-            industrySelect.addEventListener('change', (e) => {
-                this.applyIndustryDefaults(e.target.value);
-            });
-        }
-
         // Submit button still works (scrolls to results)
         this.form.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -191,29 +171,6 @@ const ROICalculator = {
 
         // Results actions
         this.initResultsActions();
-    },
-
-    // Apply smart defaults when industry is selected
-    applyIndustryDefaults(industry) {
-        const bench = this.INDUSTRY_BENCHMARKS[industry];
-        if (!bench) return;
-
-        const fields = {
-            implementationCost: bench.implementation,
-            monthlyCost: bench.monthly,
-            errorRate: bench.errorRate,
-            automationLevel: bench.automation
-        };
-
-        Object.entries(fields).forEach(([id, value]) => {
-            const el = document.getElementById(id);
-            if (el && !el.value) {
-                el.value = value;
-                if (id === 'automationLevel' && this.sliderValue) {
-                    this.sliderValue.textContent = value + '%';
-                }
-            }
-        });
     },
 
     // Core: recalculate and show/hide results in real time
@@ -256,6 +213,10 @@ const ROICalculator = {
         return {
             processName: get('processName').trim() || roiT.defaultProcess,
             industry: get('industry'),
+            industryLabel: (() => {
+                const el = document.getElementById('industry');
+                return el && el.value && el.selectedOptions[0] ? el.selectedOptions[0].text : '';
+            })(),
             timePerProcess: num('timePerProcess'),
             frequency: get('frequency'),
             occurrences: num('occurrences'),
@@ -328,6 +289,7 @@ const ROICalculator = {
         return {
             processName: data.processName,
             industry: data.industry,
+            industryLabel: data.industryLabel,
             // Before/After comparison
             currentAnnualHours: totalAnnualHours,
             currentAnnualCost,
@@ -352,7 +314,7 @@ const ROICalculator = {
     displayResults(results) {
         // Summary cards
         this.setElementText('annualSavings', this.formatCurrency(results.totalAnnualSavings));
-        this.setElementText('roiPercentage', this.formatPercentage(results.roiPercentage));
+        this.setElementText('roiPercentage', this.formatROI(results.roiPercentage));
         this.setElementText('paybackPeriod', this.formatMonths(results.paybackMonths));
 
         // Before/After comparison
@@ -389,11 +351,32 @@ const ROICalculator = {
 
     createChart(results) {
         const ctx = document.getElementById('roiChart');
-        if (!ctx) return;
+        if (!ctx || typeof Chart === 'undefined') return;
 
         if (window.roiChartInstance) {
             window.roiChartInstance.destroy();
         }
+
+        // Colours and fonts come from the design tokens in styles.css
+        const rootStyle = getComputedStyle(document.documentElement);
+        const token = (name, fallback) => (rootStyle.getPropertyValue(name) || '').trim() || fallback;
+        const withAlpha = (hex, alpha) => {
+            const m = /^#([0-9a-f]{6})$/i.exec(hex);
+            if (!m) return hex;
+            const n = parseInt(m[1], 16);
+            return `rgba(${(n >> 16) & 255}, ${(n >> 8) & 255}, ${n & 255}, ${alpha})`;
+        };
+        const netColor = token('--blue-text', '#1F6E94');
+        const savingsColor = token('--green-text', '#2C7A45');
+        const costsColor = token('--error-text', '#B02A37');
+        const gridColor = withAlpha(token('--dark-gray', '#14324A'), 0.08);
+        const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (window.Chart && Chart.defaults) {
+            Chart.defaults.font.family = token('--font-secondary', 'system-ui, sans-serif');
+            Chart.defaults.color = token('--medium-gray', '#54697A');
+        }
+        ctx.setAttribute('role', 'img');
+        ctx.setAttribute('aria-label', roiT.chartLabel);
 
         const years = results.fiveYearProjection.map(p => `${roiT.yearLabel} ${p.year}`);
         const netValues = results.fiveYearProjection.map(p => p.netValue);
@@ -408,8 +391,8 @@ const ROICalculator = {
                     {
                         label: roiT.netValue,
                         data: netValues,
-                        borderColor: '#0066CC',
-                        backgroundColor: 'rgba(0, 102, 204, 0.1)',
+                        borderColor: netColor,
+                        backgroundColor: withAlpha(netColor, 0.1),
                         borderWidth: 3,
                         fill: true,
                         tension: 0.4
@@ -417,8 +400,8 @@ const ROICalculator = {
                     {
                         label: roiT.cumulativeSavings,
                         data: savings,
-                        borderColor: '#00CC66',
-                        backgroundColor: 'rgba(0, 204, 102, 0.1)',
+                        borderColor: savingsColor,
+                        backgroundColor: withAlpha(savingsColor, 0.1),
                         borderWidth: 2,
                         borderDash: [5, 5],
                         fill: false,
@@ -427,8 +410,8 @@ const ROICalculator = {
                     {
                         label: roiT.cumulativeCosts,
                         data: costs,
-                        borderColor: '#FF6B6B',
-                        backgroundColor: 'rgba(255, 107, 107, 0.1)',
+                        borderColor: costsColor,
+                        backgroundColor: withAlpha(costsColor, 0.1),
                         borderWidth: 2,
                         borderDash: [10, 5],
                         fill: false,
@@ -440,11 +423,8 @@ const ROICalculator = {
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
-                    title: {
-                        display: true,
-                        text: roiT.chartTitle,
-                        font: { size: 16, weight: 'bold' }
-                    },
+                    // The section heading above the canvas already names the chart
+                    title: { display: false },
                     legend: {
                         position: 'bottom',
                         labels: { usePointStyle: true, padding: 20 }
@@ -458,15 +438,15 @@ const ROICalculator = {
                                 return ROICalculator.formatCurrency(value);
                             }
                         },
-                        grid: { color: 'rgba(0, 0, 0, 0.1)' }
+                        grid: { color: gridColor }
                     },
                     x: {
-                        grid: { color: 'rgba(0, 0, 0, 0.1)' }
+                        grid: { color: gridColor }
                     }
                 },
                 interaction: { intersect: false, mode: 'index' },
                 elements: { point: { radius: 6, hoverRadius: 8 } },
-                animation: { duration: 400, easing: 'easeOutQuart' }
+                animation: reduceMotion ? false : { duration: 400, easing: 'easeOutQuart' }
             }
         });
     },
@@ -484,15 +464,8 @@ const ROICalculator = {
         const consultationBtn = document.getElementById('scheduleConsultation');
         if (consultationBtn) {
             consultationBtn.addEventListener('click', () => {
-                window.location.href = 'index.html#contact';
+                window.location.href = roiT.contactUrl;
                 this.trackAnalytics('consultation_requested');
-            });
-        }
-
-        const emailBtn = document.getElementById('emailResults');
-        if (emailBtn) {
-            emailBtn.addEventListener('click', () => {
-                this.showEmailModal();
             });
         }
     },
@@ -500,12 +473,15 @@ const ROICalculator = {
     generatePDFReport() {
         if (!this.currentResults) return;
         const r = this.currentResults;
+        const esc = (text) => String(text).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        const processName = esc(r.processName);
+        const industry = esc(r.industryLabel || roiT.notSpecified);
 
         const reportContent = `<!DOCTYPE html>
 <html lang="${roiT.htmlLang}">
 <head>
     <meta charset="UTF-8">
-    <title>${roiT.reportTitle} - ${r.processName}</title>
+    <title>${roiT.reportTitle}: ${processName}</title>
     <style>
         body { font-family: 'Hanken Grotesk', system-ui, sans-serif; margin: 20px; line-height: 1.6; color: #14324A; }
         .header { text-align: center; margin-bottom: 40px; padding: 20px; background: linear-gradient(135deg, #1F64AE, #2C7A45); color: white; border-radius: 10px; }
@@ -514,7 +490,7 @@ const ROICalculator = {
         .header p { margin: 5px 0; opacity: 0.8; }
         .comparison { display: flex; gap: 20px; margin: 30px 0; }
         .comparison > div { flex: 1; padding: 20px; border-radius: 10px; text-align: center; }
-        .before { background: #FDEDEE; border: 2px solid #B02A37; }
+        .before { background: #F1F5F8; border: 2px solid #CBD5E0; }
         .after { background: #E6F5EC; border: 2px solid #2C7A45; }
         .comparison h3 { margin-bottom: 10px; }
         .comparison .value { font-size: 1.8rem; font-weight: bold; }
@@ -523,7 +499,8 @@ const ROICalculator = {
         .summary-card h3 { color: #1F6E94; margin-bottom: 10px; }
         .summary-card .value { font-size: 2rem; font-weight: bold; }
         .breakdown { margin: 40px 0; }
-        .breakdown h3 { color: #0066cc; border-bottom: 2px solid #0066cc; padding-bottom: 10px; }
+        .breakdown h3 { color: #1F6E94; border-bottom: 2px solid #1F6E94; padding-bottom: 10px; }
+        .note { margin: 20px 0; padding: 12px 16px; background: #F1F5F8; border-radius: 8px; font-size: 0.95rem; }
         .breakdown-item { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #eee; }
         .footer { margin-top: 50px; text-align: center; padding: 20px; background: #f8f9fa; border-radius: 10px; }
         @media print { body { margin: 0; } .header { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
@@ -532,8 +509,8 @@ const ROICalculator = {
 <body>
     <div class="header">
         <h1>${roiT.reportHeader}</h1>
-        <h2>${r.processName}</h2>
-        <p>${roiT.sector}: ${r.industry || roiT.notSpecified}</p>
+        <h2>${processName}</h2>
+        <p>${roiT.sector}: ${industry}</p>
         <p>${roiT.generatedOn} ${new Date().toLocaleDateString(roiT.locale, { year: 'numeric', month: 'long', day: 'numeric' })}</p>
     </div>
     <div class="comparison">
@@ -550,7 +527,7 @@ const ROICalculator = {
     </div>
     <div class="summary">
         <div class="summary-card"><h3>${roiT.annualSavings}</h3><div class="value">${this.formatCurrency(r.totalAnnualSavings)}</div></div>
-        <div class="summary-card"><h3>ROI</h3><div class="value">${this.formatPercentage(r.roiPercentage)}</div></div>
+        <div class="summary-card"><h3>${roiT.roi}</h3><div class="value">${this.formatROI(r.roiPercentage)}</div></div>
         <div class="summary-card"><h3>${roiT.payback}</h3><div class="value">${this.formatMonths(r.paybackMonths)}</div></div>
     </div>
     <div class="breakdown">
@@ -562,6 +539,7 @@ const ROICalculator = {
         <div class="breakdown-item"><span>${roiT.annualAICosts}</span><strong>${this.formatCurrency(r.annualAICosts)}</strong></div>
         <div class="breakdown-item"><span>${roiT.netAnnualBenefit}</span><strong>${this.formatCurrency(r.netAnnualBenefit)}</strong></div>
     </div>
+    <p class="note">${roiT.reportNote}</p>
     <div class="footer">
         <p><strong>${roiT.reportFooter1}</strong></p>
         <p>${roiT.reportFooter2}</p>
@@ -571,48 +549,10 @@ const ROICalculator = {
 </html>`;
 
         const printWindow = window.open('', '_blank', 'width=800,height=600');
+        if (!printWindow) return; // pop-up blocked: nothing to print into
         printWindow.document.write(reportContent);
         printWindow.document.close();
         printWindow.onload = function() { printWindow.print(); };
-    },
-
-    showEmailModal() {
-        const overlay = document.createElement('div');
-        overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);display:flex;justify-content:center;align-items:center;z-index:1000;';
-
-        const modal = document.createElement('div');
-        modal.style.cssText = 'background:white;padding:2rem;border-radius:15px;max-width:500px;width:90%;box-shadow:0 20px 40px rgba(0,0,0,0.2);';
-        modal.innerHTML = `
-            <h3 style="margin-bottom:1rem;color:var(--blue-text);">${roiT.emailModalTitle}</h3>
-            <p style="margin-bottom:1.5rem;color:var(--medium-gray);">${roiT.emailModalBody}</p>
-            <input type="email" id="emailInput" placeholder="${roiT.emailPlaceholder}" style="width:100%;padding:0.8rem;border:2px solid #e9ecef;border-radius:8px;margin-bottom:1rem;font-size:1rem;box-sizing:border-box;">
-            <div style="display:flex;gap:1rem;justify-content:flex-end;">
-                <button id="cancelEmail" style="padding:0.8rem 1.5rem;border:2px solid var(--medium-gray);background:transparent;color:var(--medium-gray);border-radius:8px;cursor:pointer;">${roiT.cancel}</button>
-                <button id="sendEmail" style="padding:0.8rem 1.5rem;border:none;background:var(--dark-blue);color:var(--white);border-radius:8px;cursor:pointer;">${roiT.sendReport}</button>
-            </div>`;
-
-        overlay.appendChild(modal);
-        document.body.appendChild(overlay);
-        document.getElementById('emailInput').focus();
-
-        const close = () => { if (document.body.contains(overlay)) document.body.removeChild(overlay); };
-
-        document.getElementById('cancelEmail').addEventListener('click', close);
-        overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
-        document.addEventListener('keydown', function handler(e) {
-            if (e.key === 'Escape') { close(); document.removeEventListener('keydown', handler); }
-        });
-
-        document.getElementById('sendEmail').addEventListener('click', () => {
-            const email = document.getElementById('emailInput').value.trim();
-            if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                alert(roiT.emailSent(email));
-                this.trackAnalytics('email_report_requested', { email });
-                close();
-            } else {
-                alert(roiT.emailInvalid);
-            }
-        });
     },
 
     // Form management
@@ -669,15 +609,23 @@ const ROICalculator = {
     },
 
     formatCurrency(amount) {
-        if (!isFinite(amount)) return '—';
+        if (!isFinite(amount)) return roiT.notAvailable;
         return new Intl.NumberFormat(roiT.locale, {
             style: 'currency', currency: 'EUR',
-            minimumFractionDigits: 0, maximumFractionDigits: 0
+            minimumFractionDigits: 0, maximumFractionDigits: 0,
+            // Italian CLDR leaves 4-digit amounts ungrouped (5000 € next to 45.500 €)
+            useGrouping: 'always'
         }).format(Math.round(amount));
     },
 
+    // ROI is infinite only when no cost was entered: say that instead of a symbol
+    formatROI(pct) {
+        if (!isFinite(pct)) return roiT.noCosts;
+        return this.formatPercentage(pct);
+    },
+
     formatPercentage(pct) {
-        if (!isFinite(pct)) return '∞';
+        if (!isFinite(pct)) return roiT.notAvailable;
         return new Intl.NumberFormat(roiT.locale, {
             style: 'percent',
             minimumFractionDigits: 0, maximumFractionDigits: 1
@@ -685,7 +633,9 @@ const ROICalculator = {
     },
 
     formatMonths(months) {
-        if (!isFinite(months) || months <= 0) return roiT.immediate;
+        // Infinity means the net benefit never covers the initial cost
+        if (!isFinite(months)) return roiT.never;
+        if (months <= 0) return roiT.immediate;
         if (months < 1) return roiT.lessThanMonth;
         if (months < 12) return Math.round(months) + ' ' + roiT.months;
         const years = Math.floor(months / 12);
@@ -696,8 +646,8 @@ const ROICalculator = {
     },
 
     formatHours(hours) {
-        if (!isFinite(hours)) return '—';
-        return new Intl.NumberFormat(roiT.locale).format(Math.round(hours)) + roiT.hours;
+        if (!isFinite(hours)) return roiT.notAvailable;
+        return new Intl.NumberFormat(roiT.locale, { useGrouping: 'always' }).format(Math.round(hours)) + roiT.hours;
     }
 };
 

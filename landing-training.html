@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -23,564 +23,423 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-KG9S42S4');</script>
     <!-- End Google Tag Manager -->
-    
+
     <!-- SEO Meta Tags -->
-    <title>Formazione AI Milano | Corsi Intelligenza Artificiale Professionale | Niuexa</title>
-    <meta name="description" content="Trasforma il tuo team con la formazione AI di eccellenza di Niuexa. Corsi certificati in intelligenza artificiale, prompt engineering, agenti AI.">
-    <meta name="keywords" content="formazione AI Milano, corsi intelligenza artificiale aziende, prompt engineering professionale, training AI Italia, certificazioni AI, formazione aziendale Milano">
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <title>Formazione AI a Milano per team aziendali | Niuexa</title>
+    <meta name="description" content="Corsi di formazione AI per team aziendali, in presenza a Milano, online o ibridi: AI generativa, prompt engineering, agenti AI, ChatGPT, Gemini e Copilot.">
+    <meta name="keywords" content="formazione AI Milano, corsi intelligenza artificiale aziende, prompt engineering professionale, training AI Italia, formazione aziendale Milano, corsi ChatGPT aziende">
+    <meta name="robots" content="noindex, follow">
     <meta name="author" content="Niuexa">
     <link rel="canonical" href="https://niuexa.ai/landing-training.html">
-    
+
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Formazione AI Milano | Corsi Intelligenza Artificiale Professionale | Niuexa">
-    <meta property="og:description" content="Trasforma il tuo team con la formazione AI di eccellenza di Niuexa. Corsi certificati in intelligenza artificiale, prompt engineering, agenti AI.">
+    <meta property="og:title" content="Formazione AI a Milano per team aziendali | Niuexa">
+    <meta property="og:description" content="Corsi di formazione AI per team aziendali costruiti su un compito reale del team: AI generativa, prompt engineering, agenti AI, ChatGPT, Gemini e Copilot.">
     <meta property="og:image" content="https://niuexa.ai/img/niuexalogo.png">
     <meta property="og:url" content="https://niuexa.ai/landing-training.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Niuexa">
     <meta property="og:locale" content="it_IT">
-    
+
     <!-- X (Twitter) Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Formazione AI Milano | Corsi Intelligenza Artificiale Professionale">
-    <meta name="twitter:description" content="Trasforma il tuo team con la formazione AI di eccellenza di Niuexa. Corsi certificati in intelligenza artificiale, prompt engineering, agenti AI.">
+    <meta name="twitter:title" content="Formazione AI a Milano per team aziendali | Niuexa">
+    <meta name="twitter:description" content="Corsi di formazione AI per team aziendali costruiti su un compito reale del team: AI generativa, prompt engineering, agenti AI, ChatGPT, Gemini e Copilot.">
     <meta name="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="img/favicon 256.ico">
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
-    <!-- Styles -->
+
+    <!-- Styles: base, shared polish layer, landing components, page -->
     <link rel="stylesheet" href="styles.css?v=20260807">
-    
-    <style>
-        /* Landing page specific styles */
-        
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .hero-stats {
-                flex-direction: column;
-                gap: 1rem !important;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                gap: 1rem !important;
-            }
-            
-            .benefits-grid,
-            .features-grid,
-            .tools-grid {
-                grid-template-columns: 1fr !important;
-            }
-
-            .courses-subheading {
-                font-size: 1.1rem !important;
-            }
-            
-            .cta-benefits {
-                flex-direction: column !important;
-                align-items: center !important;
-            }
-            
-            .hero-title {
-                font-size: 2.5rem !important;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem !important;
-            }
-            
-            /* Contact form responsive */
-            .contact-form {
-                padding: 1.5rem !important;
-                margin: 0 1rem !important;
-                max-width: 90% !important;
-            }
-            
-            .form-row-2col {
-                grid-template-columns: 1fr !important;
-                gap: 0.5rem !important;
-            }
-        }
-        
-        /* Tablet breakpoint */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .benefits-grid,
-            .tools-grid {
-                grid-template-columns: repeat(2, 1fr) !important;
-            }
-        }
-
-        /* Course sub-heading styles */
-        .courses-subheading {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--dark-gray);
-            margin-bottom: 1.5rem;
-            font-family: var(--font-secondary);
-        }
-
-        .courses-subheading::after {
-            content: '';
-            flex: 1;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary-blue), transparent);
-        }
-
-        .courses-divider {
-            margin: 3rem 0 2rem;
-        }
-
-        /* Card equal height */
-        .benefits-grid .benefit-card,
-        .tools-grid .benefit-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .benefits-grid .benefit-card ul,
-        .tools-grid .benefit-card ul {
-            margin-top: auto;
-        }
-
-        /* Improved placeholder styling for better contrast */
-        .contact-form input::placeholder,
-        .contact-form textarea::placeholder,
-        .contact-form select option[value=""] {
-            color: var(--medium-gray) !important;
-            opacity: 1;
-        }
-        
-        .contact-form input::-webkit-input-placeholder,
-        .contact-form textarea::-webkit-input-placeholder {
-            color: var(--medium-gray) !important;
-            opacity: 1;
-        }
-        
-        .contact-form input::-moz-placeholder,
-        .contact-form textarea::-moz-placeholder {
-            color: var(--medium-gray) !important;
-            opacity: 1;
-        }
-    </style>
+    <link rel="stylesheet" href="polish.css?v=20261005">
+    <link rel="stylesheet" href="landing-niuexa.css?v=20260910">
+    <link rel="stylesheet" href="landing-training.css?v=20261005">
+    <link rel="preload" as="image" href="img/landing/hero-flow-1600.webp" media="(min-width: 961px)">
+    <link rel="preload" as="image" href="img/landing/hero-flow-960.webp" media="(max-width: 960px)">
 </head>
-<body>
+<body class="lp-page polished lpx-page">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9S42S4"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    
-    <!-- Custom Navigation for Landing Page -->
-    <nav class="navbar" style="background: white; padding: 1rem 0; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
-        <div class="nav-container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: center; align-items: center;">
-            <div class="nav-logo">
-            <a href="/index.html">
-                <div class="logo-container">
-                    <img src="/img/pictogram_blue_transparent.png" alt="Niuexa" class="logo-icon" width="1024" height="1024" decoding="async">
-                    <div class="logo-text">
-                        <div class="logo-title">NIUEXA</div>
-                        <span class="logo-tagline">AI Solutions</span>
-                    </div>
-                </div>
+
+    <a class="skip-link" href="#main-content">Vai al contenuto</a>
+
+    <!-- Header: brand identity plus the one call to action -->
+    <header class="lp-header">
+        <div class="lp-container lp-header-inner">
+            <a href="index.html" class="lp-brand" aria-label="Niuexa, vai alla home page">
+                <img src="img/landing/niuexa-ai-solutions.webp" alt="Niuexa AI Solutions" width="600" height="139" decoding="async">
             </a>
+            <div class="lp-header-right">
+                <a href="#demo" class="btn btn-primary lp-btn" data-track-cta="header_cta">Prenoti 30 minuti</a>
+            </div>
         </div>
-        </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
     <main id="main-content">
-    <section class="hero" style="padding: 120px 0 80px;">
-        <div class="hero-background">
-            <div class="hero-particles"></div>
-            <div class="hero-gradient"></div>
-        </div>
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(35, 125, 166, 0.1); border: 1px solid rgba(35, 125, 166, 0.3); padding: 0.5rem 1rem; border-radius: 50px; color: var(--signal-on-dark); font-size: 0.9rem; font-weight: 600; margin-bottom: 1.5rem;">
-                    <span class="badge-icon">🎓</span>
-                    <span>Formazione AI di Eccellenza</span>
-                </div>
-                <h1 class="hero-title" style="font-family: var(--font-primary); font-size: 3rem; font-weight: 900; text-align: center;">Trasforma il Tuo Team con<br>la <span class="highlight">Formazione AI Professionale</span></h1>
-                <p class="hero-subtitle">Programmi di formazione completi in intelligenza artificiale generativa, prompt engineering e sviluppo di agenti AI. <strong>Certificazioni riconosciute</strong> e programmi pensati per aumentare la produttività del tuo team.</p>
-                <div class="hero-stats" style="display: flex; justify-content: center; gap: 2rem; margin: 2rem 0;">
-                    <div class="stat-item">
-                        <span class="stat-number">100+</span>
-                        <span class="stat-label">Professionisti Certificati</span>
+    <!-- Hero -->
+    <section id="top" class="lp-hero" aria-labelledby="trn-hero-title">
+        <div class="lp-hero-art" aria-hidden="true"></div>
+        <div class="lp-container">
+            <div class="lp-hero-grid lpx-hero-grid">
+                <div class="lp-hero-copy">
+                    <h1 id="trn-hero-title">Formazione AI per il Suo team, <em>sui compiti di ogni giorno</em></h1>
+                    <p class="lp-hero-sub">Corsi pratici su AI generativa, prompt engineering e agenti AI, in presenza a Milano, online o in formato ibrido. Prima del corso concordiamo un'attività reale del team e cosa osservare; alla fine verifichiamo se quel compito si svolge meglio, con quali controlli e da chi.</p>
+                    <ul class="lp-hero-points">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>
+                            <span>Un compito reale del team come obiettivo del corso</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>
+                            <span>In presenza a Milano o nella Sua sede, online o ibrida</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>
+                            <span>Prima chiamata di 30 minuti, gratuita e senza impegno</span>
+                        </li>
+                    </ul>
+                    <div class="lpx-hero-actions">
+                        <a href="#demo" class="btn btn-primary lp-btn" data-track-cta="hero_primary">Richieda informazioni</a>
+                        <a href="#corsi" class="lpx-btn-ghost" data-track-cta="hero_courses">Veda i corsi</a>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number">98%</span>
-                        <span class="stat-label">Tasso di Soddisfazione</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">40%</span>
-                        <span class="stat-label">Aumento Produttività</span>
-                    </div>
                 </div>
-                <div class="hero-buttons">
-                    <a href="#demo" class="btn btn-primary">
-                        Richiedi Informazioni
-                    </a>
-                    <a href="#corsi" class="btn btn-secondary">
-                        Scopri i Corsi
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Chi Siamo Section -->
-    <section class="about-section" style="padding: 80px 0; background: white;">
-        <div class="container">
-            <div class="section-header" style="text-align: center; margin-bottom: 4rem;">
-                <h2 class="section-title">Chi Siamo</h2>
-            </div>
-            <div class="about-content" style="max-width: 800px; margin: 0 auto; text-align: left; color: var(--medium-gray); line-height: 1.8; font-size: 1.1rem;">
-                <p style="margin-bottom: 1.5rem;">Niuexa è una azienda specializzata in soluzioni di intelligenza artificiale all'avanguardia. La nostra missione è creare efficienza trasformando il modo in cui le aziende operano attraverso l'implementazione strategica di tecnologie AI innovative.</p>
-                <p style="margin-bottom: 1.5rem;">Niuexa è nata dalla volontà di diffondere l'intelligenza artificiale nelle aziende, rendendo accessibili tecnologie avanzate che trasformano i processi creando valore ed efficienza.</p>
-                <p>Niuexa è controllata da Libera Brand Building Group, attivo da oltre 20 anni nel mercato della comunicazione digitale con un fatturato annuale superiore ai 10M di euro.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Partners Section -->
-    <section class="partners-section" style="padding: 80px 0; background: var(--light-gray);">
-        <div class="container">
-            <h2 class="section-title" style="text-align: center; margin-bottom: 4rem;">I Nostri Partner</h2>
-            <div class="partners-grid">
-                <figure class="partner-logo">
-                    <img src="img/logo_footer_libera.webp" alt="Libera Group - Partner strategico" loading="lazy"  width="160" height="80" / decoding="async">
-                    <figcaption>Libera Group</figcaption>
-                </figure>
-                <figure class="partner-logo">
-                    <img src="img/logo_footer_bebit.webp" alt="Bebit - Partner tecnologico" loading="lazy"  width="160" height="80" / decoding="async">
-                    <figcaption>Bebit</figcaption>
-                </figure>
-                <figure class="partner-logo">
-                    <img src="img/Automa.png" alt="Automa - Partner" loading="lazy"  width="160" height="80" / decoding="async">
-                    <figcaption>Automa</figcaption>
+                <figure class="lpx-hero-photo">
+                    <img src="img/landing/niuexa-session-milano-800.webp" srcset="img/landing/niuexa-session-milano-800.webp 800w, img/landing/niuexa-session-milano-1600.webp 1600w" sizes="(max-width: 960px) 92vw, 460px" alt="Incontro di lavoro con partecipanti e relatore negli uffici Niuexa di Milano" width="800" height="450" decoding="async">
+                    <figcaption>Un incontro negli uffici Niuexa di Milano</figcaption>
                 </figure>
             </div>
         </div>
     </section>
 
-    <!-- Technologies Section -->
-    <section class="partners-section" style="padding: 0 0 80px; background: var(--light-gray);">
-        <div class="container">
-            <h2 class="section-title" style="text-align: center; margin-bottom: 4rem;">Tecnologie che usiamo</h2>
-            <div class="partners-grid">
-                <figure class="partner-logo">
-                    <img src="img/microsoft.png" alt="Microsoft - tecnologia utilizzata" loading="lazy"  width="160" height="80" / decoding="async">
-                    <figcaption>Microsoft</figcaption>
-                </figure>
-                <figure class="partner-logo">
-                    <img src="img/OpenAI_Logo.svg.png" alt="OpenAI - tecnologia utilizzata" loading="lazy"  width="160" height="80" / decoding="async">
-                    <figcaption>OpenAI</figcaption>
-                </figure>
-                <figure class="partner-logo">
-                    <img src="img/Google_Gemini_logo.svg.png" alt="Google Gemini - tecnologia utilizzata" loading="lazy"  width="160" height="80" / decoding="async">
-                    <figcaption>Google Gemini</figcaption>
-                </figure>
-                <figure class="partner-logo">
-                    <img src="img/Anthropic_logo.svg.png" alt="Anthropic - tecnologia utilizzata" loading="lazy"  width="160" height="80" / decoding="async">
-                    <figcaption>Anthropic</figcaption>
-                </figure>
-                <figure class="partner-logo">
-                    <img src="img/crewai_plus_logo-1.webp" alt="CrewAI - tecnologia utilizzata" loading="lazy"  width="160" height="80" / decoding="async">
-                    <figcaption>CrewAI</figcaption>
-                </figure>
-                <figure class="partner-logo">
-                    <img src="img/elevenlabs-logo-black.png" alt="ElevenLabs - tecnologia utilizzata" loading="lazy"  width="160" height="80" / decoding="async">
-                    <figcaption>ElevenLabs</figcaption>
-                </figure>
-                <figure class="partner-logo">
-                    <img src="img/LangChain.png" alt="LangChain - tecnologia utilizzata" loading="lazy"  width="160" height="80" / decoding="async">
-                    <figcaption>LangChain</figcaption>
-                </figure>
+    <!-- Chi siamo -->
+    <section class="lp-section" aria-labelledby="trn-about-title">
+        <div class="lp-container lpx-about-grid">
+            <div class="lpx-about-text">
+                <h2 id="trn-about-title" class="lp-h2">Chi siamo</h2>
+                <p>NIUEXA S.R.L. è una società di consulenza AI con sede legale a Torino e un ufficio a Milano. Lavora con le aziende italiane su tre fronti: automazione dei processi con agenti AI, visibilità sugli assistenti AI e formazione pratica.</p>
+                <p>La formazione la guida Gregor Maric, CEO e co-fondatore, che si occupa di automazione dei processi aziendali dal 2012. In aula vale lo stesso principio dei progetti: l'AI propone, la persona decide, e ogni uso si giudica su un compito misurato prima e dopo.</p>
+                <p>Niuexa è controllata da Libera Brand Building Group, attiva da oltre 20 anni nella comunicazione digitale, ed è membro di AUSED.</p>
+            </div>
+            <dl class="lpx-facts">
+                <div>
+                    <dt>Società</dt>
+                    <dd>NIUEXA S.R.L., fondata nel 2026</dd>
+                </div>
+                <div>
+                    <dt>Sedi</dt>
+                    <dd>Sede legale a Torino, ufficio a Milano</dd>
+                </div>
+                <div>
+                    <dt>Gruppo</dt>
+                    <dd>Controllata da Libera Brand Building Group</dd>
+                </div>
+                <div>
+                    <dt>Associazioni</dt>
+                    <dd>Membro di AUSED</dd>
+                </div>
+                <div>
+                    <dt>Fondatori</dt>
+                    <dd>Gregor Maric, CEO, e Roberto Botto</dd>
+                </div>
+            </dl>
+        </div>
+    </section>
+
+    <!-- Partners -->
+    <section class="lp-section lpx-partners-section" aria-labelledby="trn-partners-title">
+        <div class="lp-container">
+            <h2 id="trn-partners-title" class="lp-h2">I nostri partner</h2>
+            <ul class="lpx-partners">
+                <li class="lpx-partner">
+                    <img src="img/logo_footer_libera.webp" alt="Logo Libera Brand Building Group" loading="lazy" width="230" height="86" decoding="async">
+                    <span><strong>Libera Brand Building Group</strong>La società che controlla Niuexa</span>
+                </li>
+                <li class="lpx-partner">
+                    <img src="img/logo_footer_bebit.webp" alt="Logo Bebit" loading="lazy" width="230" height="86" decoding="async">
+                    <span><strong>Bebit</strong>Partner</span>
+                </li>
+                <li class="lpx-partner">
+                    <img src="img/Automa.png" alt="Logo Automa" loading="lazy" width="250" height="100" decoding="async">
+                    <span><strong>Automa</strong>Partner</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Technologies -->
+    <section class="lp-tech lpx-tech" aria-labelledby="trn-tech-title">
+        <div class="lp-container">
+            <div class="lp-tech-inner">
+                <h2 id="trn-tech-title" class="lp-tech-label">Tecnologie che usiamo, scelte in base a ogni progetto</h2>
+                <ul class="lp-tech-logos">
+                    <li><img src="img/landing/logo-microsoft.webp" alt="Logo Microsoft" width="179" height="40" loading="lazy" decoding="async"></li>
+                    <li><img src="img/landing/logo-openai.webp" alt="Logo OpenAI" width="330" height="90" loading="lazy" decoding="async"></li>
+                    <li><img src="img/landing/logo-gemini.webp" alt="Logo Google Gemini" width="244" height="90" loading="lazy" decoding="async"></li>
+                    <li><img src="img/landing/logo-anthropic.webp" alt="Logo Anthropic" width="360" height="41" loading="lazy" decoding="async"></li>
+                    <li><img src="img/landing/logo-crewai.webp" alt="Logo CrewAI" width="239" height="90" loading="lazy" decoding="async"></li>
+                    <li><img src="img/landing/logo-elevenlabs.webp" alt="Logo ElevenLabs" width="360" height="47" loading="lazy" decoding="async"></li>
+                    <li><img src="img/landing/logo-langchain.webp" alt="Logo LangChain" width="221" height="38" loading="lazy" decoding="async"></li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- Training Programs Section -->
-    <section id="corsi" class="benefits-section" style="padding: 80px 0; background: white;">
-        <div class="container">
-            <div class="section-header" style="text-align: center; margin-bottom: 4rem;">
-                <h2 class="section-title">I Nostri Corsi di Formazione AI</h2>
-                <p class="section-subtitle">Scegli il percorso formativo più adatto alle esigenze del tuo team. Ogni corso include certificazione Niuexa e supporto post-corso.</p>
-            </div>
-            
-            <!-- Percorsi Strategici -->
-            <div class="courses-subheading">Percorsi Strategici</div>
-            <div class="benefits-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 0;">
-                <div class="benefit-card" style="background: var(--light-gray); padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
-                    <div class="benefit-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-blue), var(--primary-green)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">🎯</div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-gray);">AI Executive Mastery</h3>
-                    <p style="color: var(--medium-gray); line-height: 1.6; margin-bottom: 1.5rem;">Guida la trasformazione digitale della tua azienda. Perfetto per manager e team leader.</p>
-                    <ul style="text-align: left; color: var(--medium-gray); font-size: 0.9rem; list-style: none; padding: 0;">
-                        <li>✓ 16 ore di formazione (2 giornate)</li>
-                        <li>✓ Max 20 partecipanti</li>
-                        <li>✓ Strategia AI e leadership</li>
-                        <li>✓ Certificato Niuexa</li>
-                        <li>✓ Materiali inclusi</li>
-                    </ul>
-                </div>
-
-                <div class="benefit-card" style="background: var(--light-gray); padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
-                    <div class="benefit-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-green), var(--primary-blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">⚡</div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-gray);">Prompt Engineering Avanzato</h3>
-                    <p style="color: var(--medium-gray); line-height: 1.6; margin-bottom: 1.5rem;">Moltiplica l'efficacia dei tuoi tool AI del 300%. Per sviluppatori e content creator.</p>
-                    <ul style="text-align: left; color: var(--medium-gray); font-size: 0.9rem; list-style: none; padding: 0;">
-                        <li>✓ 24 ore di formazione (3 giornate)</li>
-                        <li>✓ Max 20 partecipanti</li>
-                        <li>✓ Tecniche avanzate di prompting</li>
-                        <li>✓ Certificato Niuexa Avanzato</li>
-                        <li>✓ Materiali inclusi</li>
-                    </ul>
-                </div>
-
-                <div class="benefit-card" style="background: var(--light-gray); padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
-                    <div class="benefit-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--brand-teal), var(--signal, #0E7A78)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">🤖</div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-gray);">AI Agent Developer</h3>
-                    <p style="color: var(--medium-gray); line-height: 1.6; margin-bottom: 1.5rem;">Costruisci sistemi intelligenti che generano ROI. Per architetti software e team tecnici.</p>
-                    <ul style="text-align: left; color: var(--medium-gray); font-size: 0.9rem; list-style: none; padding: 0;">
-                        <li>✓ 32 ore di formazione (4 giornate)</li>
-                        <li>✓ Max 20 partecipanti</li>
-                        <li>✓ Sviluppo agenti autonomi</li>
-                        <li>✓ Certificato Niuexa Professional</li>
-                        <li>✓ Materiali inclusi</li>
-                    </ul>
-                </div>
+    <!-- Training programs -->
+    <section id="corsi" class="lp-section" aria-labelledby="trn-courses-title">
+        <div class="lp-container">
+            <div class="lpx-head">
+                <h2 id="trn-courses-title" class="lp-h2">I nostri corsi di formazione AI</h2>
+                <p class="lp-lead">Scelga il percorso più adatto al Suo team. Ogni corso include materiali, attestato di frequenza e supporto dopo il corso; contenuti ed esercizi si adattano ai compiti che il team svolge davvero.</p>
             </div>
 
-            <!-- Corsi su Strumenti AI -->
-            <div class="courses-divider"></div>
-            <div class="courses-subheading">Corsi su Strumenti AI</div>
-            <div class="tools-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 4rem;">
-                <div class="benefit-card" style="background: var(--light-gray); padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
-                    <div class="benefit-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #10a37f, #1a7f64); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">💬</div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-gray);">ChatGPT for Business</h3>
-                    <p style="color: var(--medium-gray); line-height: 1.6; margin-bottom: 1.5rem;">Sfrutta tutto il potenziale di ChatGPT in azienda: dalla creazione di Custom GPT all'automazione dei flussi di lavoro.</p>
-                    <ul style="text-align: left; color: var(--medium-gray); font-size: 0.9rem; list-style: none; padding: 0;">
-                        <li>✓ 16 ore di formazione (2 giornate)</li>
-                        <li>✓ Custom GPT e GPT Store</li>
-                        <li>✓ Prompt engineering pratico</li>
-                        <li>✓ Automazione workflow con API</li>
-                        <li>✓ Certificato Niuexa</li>
+            <!-- Strategic paths -->
+            <h3 class="lpx-group-title">Percorsi strategici</h3>
+            <div class="lpx-courses">
+                <article class="lpx-course">
+                    <span class="lp-ico lpx-ico-blue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z"/></svg></span>
+                    <h4>AI Executive Mastery</h4>
+                    <p>Per manager e team leader: come scegliere su quali processi usare l'AI, con quali regole e con quali misure.</p>
+                    <ul class="lpx-course-facts">
+                        <li>16 ore di formazione (2 giornate)</li>
+                        <li>Max 20 partecipanti</li>
+                        <li>Strategia AI e scelta dei casi d'uso</li>
+                        <li>Attestato di frequenza</li>
+                        <li>Materiali inclusi</li>
                     </ul>
-                </div>
+                </article>
 
-                <div class="benefit-card" style="background: var(--light-gray); padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
-                    <div class="benefit-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #4285f4, #ea4335); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">✨</div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-gray);">Google Gemini for Enterprise</h3>
-                    <p style="color: var(--medium-gray); line-height: 1.6; margin-bottom: 1.5rem;">Padroneggia l'ecosistema AI di Google: Gemini, Vertex AI e l'integrazione con Google Workspace.</p>
-                    <ul style="text-align: left; color: var(--medium-gray); font-size: 0.9rem; list-style: none; padding: 0;">
-                        <li>✓ 16 ore di formazione (2 giornate)</li>
-                        <li>✓ Gemini in Google Workspace</li>
-                        <li>✓ Capacità multimodali</li>
-                        <li>✓ NotebookLM e ricerca AI</li>
-                        <li>✓ Certificato Niuexa</li>
+                <article class="lpx-course">
+                    <span class="lp-ico lpx-ico-teal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m4 17 6-6-6-6M12 19h8"/></svg></span>
+                    <h4>Prompt Engineering Avanzato</h4>
+                    <p>Per chi scrive, analizza o sviluppa ogni giorno: tecniche di prompting applicate ai flussi di lavoro dell'azienda.</p>
+                    <ul class="lpx-course-facts">
+                        <li>24 ore di formazione (3 giornate)</li>
+                        <li>Max 20 partecipanti</li>
+                        <li>Tecniche avanzate di prompting</li>
+                        <li>Attestato di frequenza</li>
+                        <li>Materiali inclusi</li>
                     </ul>
-                </div>
+                </article>
 
-                <div class="benefit-card" style="background: var(--light-gray); padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid transparent; transition: all 0.3s;">
-                    <div class="benefit-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #0078d4, #50e6ff); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">🚀</div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-gray);">Microsoft Copilot for Productivity</h3>
-                    <p style="color: var(--medium-gray); line-height: 1.6; margin-bottom: 1.5rem;">Trasforma il modo di lavorare con Microsoft 365 Copilot: automazione intelligente in Word, Excel, PowerPoint, Teams e Outlook.</p>
-                    <ul style="text-align: left; color: var(--medium-gray); font-size: 0.9rem; list-style: none; padding: 0;">
-                        <li>✓ 16 ore di formazione (2 giornate)</li>
-                        <li>✓ Copilot in Microsoft 365</li>
-                        <li>✓ Copilot in Teams e Outlook</li>
-                        <li>✓ Copilot Studio per automazioni</li>
-                        <li>✓ Certificato Niuexa</li>
+                <article class="lpx-course">
+                    <span class="lp-ico lpx-ico-green" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg></span>
+                    <h4>AI Agent Developer</h4>
+                    <p>Per architetti software e team tecnici: progettare agenti AI con controlli umani sulle eccezioni.</p>
+                    <ul class="lpx-course-facts">
+                        <li>32 ore di formazione (4 giornate)</li>
+                        <li>Max 20 partecipanti</li>
+                        <li>Agenti AI con controllo umano</li>
+                        <li>Attestato di frequenza</li>
+                        <li>Materiali inclusi</li>
                     </ul>
-                </div>
+                </article>
             </div>
 
-            <!-- Key Features -->
-            <div class="features-detailed" style="background: linear-gradient(135deg, var(--primary-blue), var(--primary-green)); padding: 4rem 2rem; border-radius: 24px; color: white; text-align: center;">
-                <h3 style="font-size: 2rem; margin-bottom: 3rem; color: white;">Modalità di Formazione Flessibili</h3>
-                <div class="features-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: 2rem;">
-                    <div class="feature-item">
-                        <div class="feature-icon" style="font-size: 2.5rem; margin-bottom: 1rem;">🏢</div>
-                        <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: white;">Formazione in Presenza</h4>
-                        <p style="color: rgba(255,255,255,0.9); font-size: 0.9rem;">Presso la vostra sede o nei nostri uffici a Milano</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon" style="font-size: 2.5rem; margin-bottom: 1rem;">💻</div>
-                        <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: white;">Formazione Online Live</h4>
-                        <p style="color: rgba(255,255,255,0.9); font-size: 0.9rem;">Sessioni virtuali interattive con registrazioni disponibili</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon" style="font-size: 2.5rem; margin-bottom: 1rem;">🔄</div>
-                        <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: white;">Formazione Ibrida</h4>
-                        <p style="color: rgba(255,255,255,0.9); font-size: 0.9rem;">Combinazione ottimale di sessioni in presenza e online</p>
-                    </div>
-                </div>
+            <!-- Tool courses -->
+            <h3 class="lpx-group-title">Corsi su strumenti AI</h3>
+            <div class="lpx-courses">
+                <article class="lpx-course">
+                    <span class="lp-ico lpx-ico-blue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+                    <h4>ChatGPT for Business</h4>
+                    <p>Come usare ChatGPT in azienda: dai GPT personalizzati all'automazione dei flussi di lavoro.</p>
+                    <ul class="lpx-course-facts">
+                        <li>16 ore di formazione (2 giornate)</li>
+                        <li>Custom GPT e GPT Store</li>
+                        <li>Prompt engineering pratico</li>
+                        <li>Automazione workflow con API</li>
+                        <li>Attestato di frequenza</li>
+                    </ul>
+                </article>
+
+                <article class="lpx-course">
+                    <span class="lp-ico lpx-ico-teal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></span>
+                    <h4>Google Gemini for Enterprise</h4>
+                    <p>Gemini, Vertex AI e l'integrazione con Google Workspace, applicati ai documenti e ai flussi del team.</p>
+                    <ul class="lpx-course-facts">
+                        <li>16 ore di formazione (2 giornate)</li>
+                        <li>Gemini in Google Workspace</li>
+                        <li>Capacità multimodali</li>
+                        <li>NotebookLM e ricerca AI</li>
+                        <li>Attestato di frequenza</li>
+                    </ul>
+                </article>
+
+                <article class="lpx-course">
+                    <span class="lp-ico lpx-ico-green" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></span>
+                    <h4>Microsoft Copilot for Productivity</h4>
+                    <p>Microsoft 365 Copilot in Word, Excel, PowerPoint, Teams e Outlook, e Copilot Studio per le automazioni.</p>
+                    <ul class="lpx-course-facts">
+                        <li>16 ore di formazione (2 giornate)</li>
+                        <li>Copilot in Microsoft 365</li>
+                        <li>Copilot in Teams e Outlook</li>
+                        <li>Copilot Studio per automazioni</li>
+                        <li>Attestato di frequenza</li>
+                    </ul>
+                </article>
+            </div>
+
+            <!-- Formats -->
+            <div class="lpx-ideal">
+                <h3>Modalità di formazione flessibili</h3>
+                <ul class="lpx-ideal-grid lpx-ideal-grid-3">
+                    <li>
+                        <span class="lp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                        <h4>Formazione in presenza</h4>
+                        <p>Nella Sua sede o nei nostri uffici di Milano</p>
+                    </li>
+                    <li>
+                        <span class="lp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+                        <h4>Formazione online live</h4>
+                        <p>Sessioni virtuali interattive, con registrazioni disponibili</p>
+                    </li>
+                    <li>
+                        <span class="lp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m17 1 4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="m7 23-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></span>
+                        <h4>Formazione ibrida</h4>
+                        <p>Sessioni in presenza e online, alternate secondo le esigenze del team</p>
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
 
-
-    <!-- Demo CTA Section -->
-    <section id="demo" class="cta-section">
-        <div class="hero-background">
-            <div class="hero-particles"></div>
-            <div class="hero-gradient"></div>
-        </div>
-        <div class="container" style="text-align: center; padding: 80px 0; position: relative; z-index: 2;">
-            <h2 class="section-title" style="color: white; margin-bottom: 1.5rem; font-size: 2.5rem;">Inizia il Tuo Percorso di Formazione AI</h2>
-            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Trasforma le competenze del tuo team con i nostri corsi professionali di intelligenza artificiale. Contattaci per una consulenza gratuita.
-            </p>
-            
-            <div class="cta-benefits" style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 3rem; flex-wrap: wrap;">
-                <div class="cta-benefit" style="display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.9);">
-                    <span style="color: var(--primary-green); font-weight: bold;">✓</span>
-                    <span>Consulenza gratuita 30 minuti</span>
-                </div>
-                <div class="cta-benefit" style="display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.9);">
-                    <span style="color: var(--primary-green); font-weight: bold;">✓</span>
-                    <span>Analisi esigenze formative</span>
-                </div>
-                <div class="cta-benefit" style="display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.9);">
-                    <span style="color: var(--primary-green); font-weight: bold;">✓</span>
-                    <span>Preventivo personalizzato</span>
-                </div>
+    <!-- Contact -->
+    <section id="demo" class="lp-section lpx-contact" aria-labelledby="trn-contact-title">
+        <div class="lp-container lpx-contact-grid">
+            <div class="lpx-contact-copy">
+                <h2 id="trn-contact-title" class="lp-h2">Inizi il percorso di formazione AI del Suo team</h2>
+                <p>Ci racconti quali attività vuole migliorare e chi parteciperà. Nella prima chiamata, gratuita, definiamo obiettivo, formato e partecipanti; il costo arriva dopo, in un preventivo scritto.</p>
+                <ul class="lpx-checks">
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span>Prima chiamata gratuita di 30 minuti</span></li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span>Analisi delle esigenze formative</span></li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span>Preventivo scritto e su misura</span></li>
+                </ul>
             </div>
-            
+
             <!-- Contact Form -->
-            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" accept-charset="UTF-8" style="max-width: 600px; margin: 0 auto; background: #FFFFFF; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);">
+            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" accept-charset="UTF-8">
                 <input type="hidden" name="access_key" value="bfacbe48-94e9-4411-94a0-6017dc9791b6">
                 <input type="hidden" name="botcheck" class="hidden" style="display: none;">
-                <h3 style="color: #000000; text-align: left; margin-bottom: 2rem; font-size: 1.8rem; font-weight: 600;">Contattaci</h3>
-                <!-- Nome e Cognome in 2 colonne -->
-                <div class="form-row-2col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
-                    <div>
-                        <label for="firstName" class="landing-form-label">Nome *</label>
-                        <input type="text" id="firstName" name="firstName" required placeholder="Mario" class="landing-form-input">
+                <h3>Ci contatti</h3>
+
+                <div class="lp-form-row">
+                    <div class="lp-field">
+                        <label for="firstName">Nome *</label>
+                        <input type="text" id="firstName" name="firstName" required autocomplete="given-name" placeholder="Mario" class="lp-input">
                     </div>
-                    <div>
-                        <label for="lastName" class="landing-form-label">Cognome *</label>
-                        <input type="text" id="lastName" name="lastName" required placeholder="Rossi" class="landing-form-input">
+                    <div class="lp-field">
+                        <label for="lastName">Cognome *</label>
+                        <input type="text" id="lastName" name="lastName" required autocomplete="family-name" placeholder="Rossi" class="lp-input">
                     </div>
                 </div>
 
-                <!-- Email e Telefono in 2 colonne -->
-                <div class="form-row-2col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
-                    <div>
-                        <label for="email" class="landing-form-label">Email Aziendale *</label>
-                        <input type="email" id="email" name="email" required placeholder="mario.rossi@azienda.com" class="landing-form-input">
+                <div class="lp-form-row">
+                    <div class="lp-field">
+                        <label for="email">Email aziendale *</label>
+                        <input type="email" id="email" name="email" required autocomplete="email" inputmode="email" placeholder="mario.rossi@azienda.com" class="lp-input">
                     </div>
-                    <div>
-                        <label for="phone" class="landing-form-label">Telefono</label>
-                        <input type="tel" id="phone" name="phone" placeholder="+39 02 1234567" class="landing-form-input">
-                    </div>
-                </div>
-
-                <!-- Azienda e Ruolo in 2 colonne -->
-                <div class="form-row-2col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
-                    <div>
-                        <label for="company" class="landing-form-label">Azienda *</label>
-                        <input type="text" id="company" name="company" required placeholder="Nome Azienda S.p.A." class="landing-form-input">
-                    </div>
-                    <div>
-                        <label for="role" class="landing-form-label">Ruolo</label>
-                        <input type="text" id="role" name="role" placeholder="CEO, CTO, Manager, etc." class="landing-form-input">
+                    <div class="lp-field">
+                        <label for="phone">Telefono <small>(facoltativo)</small></label>
+                        <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="+39 02 1234567" class="lp-input">
                     </div>
                 </div>
 
-                <div style="margin-bottom: 1rem;">
-                    <label for="service" class="landing-form-label">Corso di Interesse *</label>
-                    <select id="service" name="service" required class="landing-form-input">
-                        <option value="" style="color: var(--medium-gray);">Seleziona un corso</option>
-                        <option value="ai-executive-mastery">AI Executive Mastery</option>
-                        <option value="prompt-engineering">Prompt Engineering Avanzato</option>
-                        <option value="ai-agent-developer">AI Agent Developer Certification</option>
-                        <option value="chatgpt-for-business">ChatGPT for Business</option>
-                        <option value="google-gemini-enterprise">Google Gemini for Enterprise</option>
-                        <option value="microsoft-copilot-productivity">Microsoft Copilot for Productivity</option>
-                        <option value="formazione-personalizzata">Formazione Personalizzata</option>
-                        <option value="consulenza">Consulenza Formativa</option>
-                        <option value="altro">Altro</option>
+                <div class="lp-form-row">
+                    <div class="lp-field">
+                        <label for="company">Azienda *</label>
+                        <input type="text" id="company" name="company" required autocomplete="organization" placeholder="Nome Azienda S.p.A." class="lp-input">
+                    </div>
+                    <div class="lp-field">
+                        <label for="role">Ruolo <small>(facoltativo)</small></label>
+                        <input type="text" id="role" name="role" autocomplete="organization-title" placeholder="CEO, CTO, Manager, etc." class="lp-input">
+                    </div>
+                </div>
+
+                <div class="lp-form-row">
+                    <div class="lp-field">
+                        <label for="service">Corso di interesse *</label>
+                        <select id="service" name="service" required class="lp-input">
+                            <option value="">Seleziona un corso</option>
+                            <option value="ai-executive-mastery">AI Executive Mastery</option>
+                            <option value="prompt-engineering">Prompt Engineering Avanzato</option>
+                            <option value="ai-agent-developer">AI Agent Developer</option>
+                            <option value="chatgpt-for-business">ChatGPT for Business</option>
+                            <option value="google-gemini-enterprise">Google Gemini for Enterprise</option>
+                            <option value="microsoft-copilot-productivity">Microsoft Copilot for Productivity</option>
+                            <option value="formazione-personalizzata">Formazione personalizzata</option>
+                            <option value="consulenza">Consulenza formativa</option>
+                            <option value="altro">Altro</option>
+                        </select>
+                    </div>
+                    <div class="lp-field">
+                        <label for="participants">Numero partecipanti</label>
+                        <select id="participants" name="participants" class="lp-input">
+                            <option value="">Seleziona</option>
+                            <option value="1-5">1-5 persone</option>
+                            <option value="6-10">6-10 persone</option>
+                            <option value="11-20">11-20 persone</option>
+                            <option value="21-50">21-50 persone</option>
+                            <option value="> 50">Oltre 50 persone</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="lp-field">
+                    <label for="message">Esigenze specifiche del Suo team *</label>
+                    <textarea id="message" name="message" rows="3" required placeholder="Es. il team commerciale prepara a mano offerte e riepiloghi delle chiamate" class="lp-input"></textarea>
+                </div>
+
+                <div class="lp-field">
+                    <label for="budget">Budget per la formazione <small>(facoltativo)</small></label>
+                    <select id="budget" name="budget" class="lp-input">
+                        <option value="">Seleziona</option>
+                        <option value="previsto">Già previsto</option>
+                        <option value="da definire">Da definire dopo la prima chiamata</option>
+                        <option value="non ancora">Non ancora stanziato</option>
                     </select>
                 </div>
 
-                <div style="margin-bottom: 1rem;">
-                    <label for="participants" class="landing-form-label">Numero Partecipanti</label>
-                    <select id="participants" name="participants" class="landing-form-input">
-                        <option value="" style="color: var(--medium-gray);">Seleziona numero partecipanti</option>
-                        <option value="1-5">1-5 persone</option>
-                        <option value="6-10">6-10 persone</option>
-                        <option value="11-20">11-20 persone</option>
-                        <option value="21-50">21-50 persone</option>
-                        <option value="> 50">Oltre 50 persone</option>
-                    </select>
-                </div>
+                <label class="lp-check">
+                    <input type="checkbox" name="privacy" required>
+                    <span>Ho letto la <a href="privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a> e acconsento al trattamento dei dati per rispondere alla mia richiesta. *</span>
+                </label>
+                <label class="lp-check">
+                    <input type="checkbox" name="newsletter">
+                    <span>Desidero ricevere aggiornamenti sui corsi e contenuti pratici sull'AI (facoltativo)</span>
+                </label>
 
-                <div style="margin-bottom: 1rem;">
-                    <label for="message" class="landing-form-label">Esigenze specifiche del tuo team *</label>
-                    <textarea id="message" name="message" rows="3" required placeholder="Descrivi le competenze AI che vuoi sviluppare nel tuo team..." class="landing-form-input" style="resize: vertical;"></textarea>
-                </div>
-
-                <div style="margin-bottom: 1rem;">
-                    <label for="budget" class="landing-form-label">Budget Indicativo per la Formazione</label>
-                    <select id="budget" name="budget" class="landing-form-input">
-                        <option value="" style="color: var(--medium-gray);">Seleziona un range</option>
-                        <option value="< 5k">Meno di €5.000</option>
-                        <option value="5k-15k">€5.000 - €15.000</option>
-                        <option value="15k-30k">€15.000 - €30.000</option>
-                        <option value="30k-50k">€30.000 - €50.000</option>
-                        <option value="> 50k">Oltre €50.000</option>
-                        <option value="da definire">Da definire</option>
-                    </select>
-                </div>
-
-                <div style="margin-bottom: 1rem;">
-                    <label class="landing-form-checkbox-label">
-                        <input type="checkbox" name="privacy" required style="width:24px;height:24px;flex:0 0 auto;margin-right: 0.5rem;">
-                        <span>Ho letto e accetto la <a href="privacy-policy.html" target="_blank" class="landing-form-privacy-link" rel="noopener noreferrer">Privacy Policy</a> *</span>
-                    </label>
-                </div>
-
-                <div style="margin-bottom: 1rem;">
-                    <label class="landing-form-checkbox-label">
-                        <input type="checkbox" name="newsletter" style="width:24px;height:24px;flex:0 0 auto;margin-right: 0.5rem;">
-                        <span>Desidero ricevere aggiornamenti sui corsi e contenuti esclusivi sull'AI</span>
-                    </label>
-                </div>
-
-                <button type="submit" style="width: 100%; padding: 1rem; font-size: 1rem; font-weight: 600; background: linear-gradient(135deg, var(--primary-blue), var(--primary-green)); color: #FFFFFF; border: none; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 10px;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(35, 125, 166, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                    Richiedi Informazioni
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
-                    </svg>
-                </button>
+                <button type="submit" class="btn btn-primary lp-btn lp-form-submit">Richieda informazioni</button>
+                <p class="lp-form-micro">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+                    <span>Risposta entro 24 ore lavorative. Prima chiamata gratuita, preventivo su misura.</span>
+                </p>
             </form>
-            
-            <p style="margin-top: 2rem; font-size: 0.9rem; color: rgba(255,255,255,0.8);">
-                <strong>Risposta entro 24 ore</strong> • Consulenza gratuita • Preventivo personalizzato
-            </p>
         </div>
     </section>
-
-    <!-- Footer Placeholder -->
-
-    <!-- ElevenLabs Footer Bar -->
     </main>
 
-    <footer class="elevenlabs-footer-bar" style="background: var(--light-gray); border-top: 1px solid #e0e0e0; padding: 12px 0; font-size: 0.9rem; color: var(--medium-gray);">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-            <span style="text-align: left;">© 2026 Niuexa. Tutti i diritti riservati.</span>
-            <span style="text-align: right;">NIUEXA S.R.L. · P.IVA e C.F. 13489560014 · REA TO-1366737</span>
+    <footer class="lp-footer">
+        <div class="lp-container lp-footer-inner">
+            <a href="index.html" class="lp-footer-brand" aria-label="Niuexa, vai alla home page">
+                <img src="img/landing/niuexa-ai-solutions.webp" alt="Niuexa AI Solutions" width="600" height="139" loading="lazy" decoding="async">
+            </a>
+            <ul class="lp-footer-links">
+                <li><a href="privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
+                <li><a href="cookie-policy.html" target="_blank" rel="noopener noreferrer">Cookie Policy</a></li>
+            </ul>
+            <div class="lp-footer-legal">
+                <p>© 2026 Niuexa. Tutti i diritti riservati.</p>
+                <p>NIUEXA S.R.L. · P.IVA e C.F. 13489560014 · REA TO-1366737</p>
+                <p>Sede legale: Via Vittorio Andreis 18, 10152 Torino · Unità locale: Via Rutilia 10, 20141 Milano</p>
+            </div>
         </div>
     </footer>
 
@@ -589,51 +448,32 @@
     <script src="conversion-tracking.js?v=20260929"></script>
     <script src="cookie-banner.js?v=20260428"></script>
     <script>
-        // Page-specific scripts
-        document.addEventListener('DOMContentLoaded', function() {
-            
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
+        // Every link to the form lands the visitor in its first field.
+        (function () {
+            'use strict';
+            document.querySelectorAll('a[href="#demo"]').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    var first = document.getElementById('firstName');
+                    if (!first) return;
+                    window.setTimeout(function () {
+                        first.focus({ preventScroll: true });
+                    }, 650);
                 });
             });
-            
-            // Add hover effects to benefit cards
-            const benefitCards = document.querySelectorAll('.benefit-card');
-            benefitCards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-5px)';
-                    this.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.15)';
-                    this.style.borderColor = 'var(--primary-blue)';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                    this.style.boxShadow = 'none';
-                    this.style.borderColor = 'transparent';
-                });
-            });
-        });
+        })();
     </script>
-    
+
     <!-- Structured Data for Training Services -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Formazione AI Professionale Niuexa",
-        "description": "Corsi professionali di intelligenza artificiale per aziende: AI Executive Mastery, Prompt Engineering, AI Agent Developer con certificazioni riconosciute",
+        "name": "Formazione AI per team aziendali Niuexa",
+        "description": "Corsi di intelligenza artificiale per team aziendali, in presenza a Milano, online o ibridi: AI Executive Mastery, Prompt Engineering Avanzato, AI Agent Developer e corsi su ChatGPT, Google Gemini e Microsoft Copilot.",
         "provider": {
             "@type": "Organization",
             "name": "Niuexa",
+            "legalName": "NIUEXA S.R.L.",
             "url": "https://niuexa.ai"
         },
         "areaServed": {
@@ -644,14 +484,14 @@
         "category": "Intelligenza Artificiale",
         "hasOfferCatalog": {
             "@type": "OfferCatalog",
-            "name": "Corsi AI Professionali",
+            "name": "Corsi di formazione AI",
             "itemListElement": [
                 {
                     "@type": "Offer",
                     "itemOffered": {
                         "@type": "Course",
                         "name": "AI Executive Mastery",
-                        "description": "Guida la trasformazione digitale della tua azienda"
+                        "description": "Per manager e team leader: come scegliere su quali processi usare l'AI, con quali regole e con quali misure."
                     }
                 },
                 {
@@ -659,15 +499,15 @@
                     "itemOffered": {
                         "@type": "Course",
                         "name": "Prompt Engineering Avanzato",
-                        "description": "Moltiplica l'efficacia dei tuoi tool AI del 300%"
+                        "description": "Tecniche di prompting applicate ai flussi di lavoro dell'azienda, per chi scrive, analizza o sviluppa ogni giorno."
                     }
                 },
                 {
                     "@type": "Offer",
                     "itemOffered": {
                         "@type": "Course",
-                        "name": "AI Agent Developer Certification",
-                        "description": "Costruisci sistemi intelligenti che generano ROI"
+                        "name": "AI Agent Developer",
+                        "description": "Per architetti software e team tecnici: progettare agenti AI con controlli umani sulle eccezioni."
                     }
                 },
                 {
@@ -675,7 +515,7 @@
                     "itemOffered": {
                         "@type": "Course",
                         "name": "ChatGPT for Business",
-                        "description": "Sfrutta tutto il potenziale di ChatGPT in azienda con Custom GPT e automazione workflow"
+                        "description": "Come usare ChatGPT in azienda: dai GPT personalizzati all'automazione dei flussi di lavoro."
                     }
                 },
                 {
@@ -683,7 +523,7 @@
                     "itemOffered": {
                         "@type": "Course",
                         "name": "Google Gemini for Enterprise",
-                        "description": "Padroneggia l'ecosistema AI di Google con Gemini e Google Workspace"
+                        "description": "Gemini, Vertex AI e l'integrazione con Google Workspace, applicati ai documenti e ai flussi del team."
                     }
                 },
                 {
@@ -691,7 +531,7 @@
                     "itemOffered": {
                         "@type": "Course",
                         "name": "Microsoft Copilot for Productivity",
-                        "description": "Trasforma il modo di lavorare con Microsoft 365 Copilot"
+                        "description": "Microsoft 365 Copilot in Word, Excel, PowerPoint, Teams e Outlook, e Copilot Studio per le automazioni."
                     }
                 }
             ]
@@ -712,7 +552,7 @@
             });
             observer.observe({entryTypes: ['measure']});
         }
-        
+
         // Page visibility tracking
         document.addEventListener('visibilitychange', function() {
             if (typeof gtag === 'function') {

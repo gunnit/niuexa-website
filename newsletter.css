@@ -1,0 +1,363 @@
+/* ============================================================
+   Newsletter (newsletter.html)
+   Loaded after styles.css, polish.css and books.css; scoped to
+   body.newsletter-page. Brings the shared books.css page parts to the
+   homepage language: left-aligned navy headings, hairline cards with
+   drawn SVG icons, a labelled single-column form, no coloured side
+   borders. Tokens from styles.css only.
+   ============================================================ */
+
+/* ---------- Hero ---------- */
+.newsletter-page .book-hero .hero-title {
+    max-width: 20ch;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+}
+
+.newsletter-page .book-hero .hero-title .highlight {
+    -webkit-text-fill-color: currentColor;
+    color: var(--signal-on-dark);
+}
+
+.newsletter-page .book-hero .hero-title .highlight::after {
+    display: none;
+}
+
+.newsletter-page .book-hero .hero-subtitle {
+    max-width: 62ch;
+    font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+}
+
+.newsletter-page .book-hero .hero-buttons {
+    justify-content: flex-start;
+    margin-bottom: 0;
+}
+
+.newsletter-page main .book-breadcrumb li a:not(.btn):not([class*="btn"]),
+.newsletter-page main .book-breadcrumb li a:not(.btn):not([class*="btn"]):hover {
+    color: var(--white);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+/* ---------- Intro with the three facts ---------- */
+.newsletter-page .series-intro {
+    padding: var(--polish-section) 0;
+    background: var(--white);
+}
+
+.newsletter-page .series-intro .container {
+    text-align: left;
+}
+
+.newsletter-page .newsletter-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+    gap: 1.5rem 2rem;
+    margin: 0 0 clamp(2.5rem, 5vw, 3.5rem);
+    padding: 0;
+}
+
+.newsletter-page .newsletter-stat {
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border-medium);
+}
+
+.newsletter-page .newsletter-stat dt {
+    font-family: var(--font-primary);
+    font-size: clamp(2rem, 3.5vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--blue-text);
+}
+
+.newsletter-page .newsletter-stat dd {
+    margin: 0.4rem 0 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--medium-gray);
+}
+
+.newsletter-page .series-intro h2,
+.newsletter-page .section-header h2 {
+    max-width: 24ch;
+    margin: 0 0 1rem;
+    font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    text-align: left;
+    color: var(--dark-gray);
+}
+
+.newsletter-page .series-intro p {
+    max-width: 62ch;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--dark-gray);
+}
+
+/* ---------- Section headers ---------- */
+.newsletter-page .section-header {
+    max-width: none;
+    margin: 0 0 2.5rem;
+    text-align: left;
+}
+
+.newsletter-page .section-header p {
+    max-width: 62ch;
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--medium-gray);
+}
+
+/* ---------- Signup ---------- */
+.newsletter-page .newsletter-signup {
+    padding: var(--polish-section) 0;
+    background: var(--light-gray);
+}
+
+.newsletter-page .signup-container {
+    max-width: 640px;
+    margin: 0;
+    padding: clamp(1.75rem, 4vw, 2.5rem);
+    text-align: left;
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    box-shadow: var(--polish-card-shadow);
+}
+
+.newsletter-page .signup-container .section-header {
+    margin-bottom: 1.75rem;
+}
+
+/* Wide screens: heading on the left, form on the right */
+@media (min-width: 900px) {
+    .newsletter-page .signup-container {
+        display: grid;
+        grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+        gap: clamp(2rem, 5vw, 4rem);
+        align-items: start;
+        max-width: none;
+    }
+
+    .newsletter-page .signup-container .section-header {
+        margin-bottom: 0;
+    }
+}
+
+.newsletter-page .signup-form {
+    gap: 1.1rem;
+    margin-top: 0;
+}
+
+.newsletter-page .signup-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.newsletter-page .signup-field label {
+    font-family: var(--font-primary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--dark-gray);
+}
+
+.newsletter-page .signup-form input[type="email"],
+.newsletter-page .signup-form input[type="text"] {
+    min-height: 48px;
+    padding: 12px 16px;
+    border: 1px solid var(--border-medium);
+    border-radius: 12px;
+    background: var(--white);
+    color: var(--dark-gray);
+}
+
+.newsletter-page .signup-form input:focus {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+    border-color: var(--primary-blue);
+}
+
+.newsletter-page .signup-form input.error,
+.newsletter-page .signup-form input[aria-invalid="true"] {
+    border-color: var(--error);
+}
+
+.newsletter-page .signup-form .btn-primary {
+    margin-top: 0.35rem;
+}
+
+.newsletter-page .signup-note {
+    margin: 0.25rem 0 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--medium-gray);
+}
+
+/* Success message that script.js swaps in for the form */
+.newsletter-page .form-success h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
+    color: var(--dark-gray);
+}
+
+.newsletter-page .form-success p {
+    margin: 0;
+    color: var(--dark-gray);
+}
+
+/* ---------- Topics ---------- */
+.newsletter-page .newsletter-topics {
+    padding: var(--polish-section) 0;
+    background: var(--white);
+}
+
+.newsletter-page .topics-grid {
+    gap: 1.5rem;
+    margin-top: 0;
+}
+
+.newsletter-page .topic-card {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    text-align: left;
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    box-shadow: var(--polish-card-shadow);
+}
+
+.newsletter-page .topic-card h3,
+.newsletter-page .benefit-card h3,
+.newsletter-page .channel-card h3 {
+    margin: 0 0 0.75rem;
+    font-size: 1.2rem;
+    line-height: 1.3;
+    color: var(--dark-gray);
+}
+
+.newsletter-page .topic-card p,
+.newsletter-page .benefit-card p,
+.newsletter-page .channel-card p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--medium-gray);
+}
+
+/* ---------- Issue format ---------- */
+.newsletter-page .issue-format {
+    padding: var(--polish-section) 0;
+    background: var(--light-gray);
+}
+
+.newsletter-page .format-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+    gap: 1.5rem;
+    margin-top: 0;
+}
+
+.newsletter-page .benefit-card {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    text-align: left;
+    background: var(--white);
+}
+
+.newsletter-page .benefit-card:hover {
+    transform: none;
+}
+
+/* ---------- Example topics ---------- */
+.newsletter-page .community-channels {
+    padding: var(--polish-section) 0;
+    background: var(--white);
+}
+
+.newsletter-page .channels-grid {
+    gap: 1.5rem;
+    margin-top: 0;
+}
+
+.newsletter-page .channel-card {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    text-align: left;
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    box-shadow: var(--polish-card-shadow);
+}
+
+.newsletter-page .channel-card:hover {
+    transform: none;
+}
+
+.newsletter-page .channel-card .issue-label {
+    margin: 0 0 0.6rem;
+    font-family: var(--font-primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--blue-text);
+}
+
+/* ---------- Closing CTA ---------- */
+.newsletter-page .book-cta {
+    padding: var(--polish-section) 0;
+}
+
+.newsletter-page .book-cta h2 {
+    font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+    letter-spacing: -0.02em;
+}
+
+.newsletter-page .book-cta p {
+    max-width: 52ch;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+/* ---------- Focus ---------- */
+.newsletter-page main a:focus-visible,
+.newsletter-page main button:focus-visible {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.newsletter-page .book-hero a:focus-visible,
+.newsletter-page .book-cta a:focus-visible {
+    outline-color: var(--white);
+}
+
+@media (max-width: 768px) {
+    .newsletter-page .book-hero .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+/* Phones: a little less inner padding so the copy keeps its width */
+@media (max-width: 560px) {
+    .newsletter-page .topic-card,
+    .newsletter-page .benefit-card,
+    .newsletter-page .channel-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .newsletter-page .btn:hover {
+        transform: none;
+    }
+}

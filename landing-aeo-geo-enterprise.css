@@ -1,0 +1,526 @@
+/* ============================================================
+   Landing "Consulenza AEO e GEO per aziende"
+   Built on the paid-landing components in landing-niuexa.css (.lp-*)
+   and the shared polish layer. This file only adds what the page
+   needs on top: hero step card, company facts, partner tiles, demo
+   video, "ideal for" panel, deliverable cards, a four-step method
+   and the contact block around the existing .contact-form.
+   Tokens from styles.css only. Prefix: .lpx-
+   ============================================================ */
+
+.lpx-page .lp-container {
+    max-width: 1200px;
+}
+
+.lpx-head {
+    margin-bottom: 2.5rem;
+}
+
+.lpx-index {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--blue-text);
+}
+
+/* ---------- Hero ---------- */
+.lpx-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    margin-top: 1.9rem;
+}
+
+.lpx-btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 12px 26px;
+    border: 2px solid color-mix(in srgb, var(--white) 55%, transparent);
+    border-radius: 50px;
+    color: var(--white);
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.lpx-btn-ghost:hover {
+    background: color-mix(in srgb, var(--white) 10%, transparent);
+    border-color: var(--white);
+    color: var(--white);
+}
+
+.lpx-btn-ghost:focus-visible {
+    outline: 3px solid var(--signal-on-dark);
+    outline-offset: 3px;
+}
+
+.lpx-hero-note {
+    margin: 1.75rem 0 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid color-mix(in srgb, var(--white) 14%, transparent);
+    max-width: 60ch;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--muted-on-dark);
+}
+
+.lpx-hero-note a {
+    color: var(--white);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.lpx-hero-card {
+    background: var(--dark-gray);
+    border: 1px solid color-mix(in srgb, var(--white) 14%, transparent);
+    border-radius: 20px;
+    padding: clamp(1.5rem, 3vw, 2rem);
+    box-shadow: 0 24px 60px color-mix(in srgb, var(--black) 40%, transparent);
+}
+
+.lpx-hero-card-title {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-primary);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--white);
+}
+
+.lpx-hero-steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.lpx-hero-steps li {
+    display: grid;
+    grid-template-columns: 2.75rem minmax(0, 1fr);
+    align-items: baseline;
+    padding: 0.95rem 0;
+    border-top: 1px solid color-mix(in srgb, var(--white) 12%, transparent);
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--white);
+}
+
+.lpx-hero-card .lpx-index {
+    color: var(--signal-on-dark);
+}
+
+.lpx-hero-card-foot {
+    margin: 0.5rem 0 0;
+    padding-top: 1rem;
+    border-top: 1px solid color-mix(in srgb, var(--white) 12%, transparent);
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--muted-on-dark);
+}
+
+/* ---------- Chi siamo ---------- */
+.lpx-about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
+}
+
+.lpx-about-text .lp-h2 {
+    margin-bottom: 1.25rem;
+}
+
+.lpx-about-text p {
+    margin: 0 0 1.1rem;
+    max-width: 62ch;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--medium-gray);
+}
+
+.lpx-facts {
+    margin: 0;
+    border-top: 1px solid var(--border-light);
+}
+
+.lpx-facts div {
+    display: grid;
+    grid-template-columns: 8.5rem minmax(0, 1fr);
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.lpx-facts dt {
+    font-weight: 600;
+    color: var(--dark-gray);
+}
+
+.lpx-facts dd {
+    margin: 0;
+    line-height: 1.55;
+    color: var(--medium-gray);
+}
+
+/* ---------- Partner e tecnologie ---------- */
+.lpx-partners-section {
+    background: var(--light-gray);
+}
+
+.lpx-partners {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+    list-style: none;
+    margin: 0 0 3.25rem;
+    padding: 0;
+}
+
+.lpx-partner {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    padding: 1.25rem 1.4rem;
+}
+
+.lpx-partner img {
+    flex: 0 0 auto;
+    width: 112px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.lpx-partner span {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    color: var(--medium-gray);
+}
+
+.lpx-partner strong {
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--dark-gray);
+}
+
+.lpx-subhead {
+    margin: 0 0 1.5rem;
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--dark-gray);
+}
+
+/* ---------- Video demo ---------- */
+.lpx-video {
+    margin: 0;
+    overflow: hidden;
+    border-radius: 20px;
+    border: 1px solid var(--border-light);
+    background: var(--black);
+    box-shadow: var(--polish-card-shadow-hover);
+}
+
+/* The recording carries white letterbox bands (72 of every 720 rows, top
+   and bottom); a 20:9 frame with object-fit: cover trims them. */
+.lpx-video video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 20 / 9;
+    object-fit: cover;
+}
+
+.lpx-video-foot {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    margin-top: 1.5rem;
+}
+
+.lpx-video-foot p {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--dark-gray);
+}
+
+/* ---------- "Pensato per" panel ---------- */
+.lpx-ideal {
+    margin-top: 3rem;
+    padding: clamp(2rem, 4vw, 3rem);
+    border-radius: 24px;
+    background: var(--gradient-hero-dark);
+    color: var(--white);
+}
+
+.lpx-ideal h3 {
+    margin: 0 0 2rem;
+    font-size: clamp(1.4rem, 2.4vw, 1.75rem);
+    letter-spacing: -0.015em;
+    color: var(--white);
+}
+
+.lpx-ideal-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.lpx-ideal .lp-ico {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--white) 8%, transparent);
+    color: var(--signal-on-dark);
+}
+
+.lpx-ideal h4 {
+    margin: 0 0 0.4rem;
+    font-size: 1.08rem;
+    line-height: 1.3;
+    color: var(--white);
+}
+
+.lpx-ideal p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--muted-on-dark);
+}
+
+/* ---------- Deliverable cards ---------- */
+.lpx-cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.lpx-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    padding: 1.6rem 1.5rem;
+    box-shadow: var(--polish-card-shadow);
+}
+
+.lpx-card h3 {
+    margin: 0;
+    font-size: 1.15rem;
+    letter-spacing: -0.01em;
+    color: var(--dark-gray);
+}
+
+.lpx-card p {
+    margin: 0;
+    line-height: 1.6;
+    color: var(--medium-gray);
+}
+
+.lpx-more {
+    margin: 2rem 0 0;
+    line-height: 1.65;
+    color: var(--medium-gray);
+}
+
+/* ---------- Method: four steps on the landing step track ---------- */
+@media (min-width: 1025px) {
+    .lpx-steps-4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 2rem;
+    }
+
+    .lpx-steps-4::before {
+        right: calc((100% - 6rem) / 4 - 23px);
+    }
+}
+
+@media (min-width: 861px) and (max-width: 1024px) {
+    .lpx-steps-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2.5rem 2rem;
+    }
+
+    .lpx-steps-4::before {
+        display: none;
+    }
+}
+
+/* ---------- Contact ---------- */
+.lpx-contact {
+    /* white copy on --gradient-cta clears AA at every stop */
+    background: var(--gradient-cta);
+    color: var(--white);
+}
+
+.lpx-contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 560px);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: start;
+}
+
+.lpx-contact-copy .lp-h2 {
+    color: var(--white);
+    max-width: 18ch;
+}
+
+.lpx-contact-copy p {
+    margin: 0;
+    max-width: 52ch;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--white);
+}
+
+.lpx-checks {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    list-style: none;
+    margin: 1.75rem 0 0;
+    padding: 0;
+}
+
+.lpx-checks li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    font-size: 1.02rem;
+    line-height: 1.5;
+    color: var(--white);
+}
+
+.lpx-checks svg {
+    flex: 0 0 22px;
+    width: 22px;
+    height: 22px;
+    margin-top: 1px;
+    color: var(--white);
+}
+
+.lpx-contact .contact-form {
+    background: var(--white);
+    color: var(--dark-gray);
+    border-radius: 20px;
+    padding: clamp(1.4rem, 2.6vw, 2rem);
+    box-shadow: 0 24px 60px color-mix(in srgb, var(--black) 35%, transparent);
+    scroll-margin-top: 96px;
+}
+
+.lpx-contact .contact-form h3 {
+    margin: 0 0 1.25rem;
+    font-size: 1.45rem;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+    color: var(--dark-gray);
+}
+
+.lpx-contact .lp-input.error {
+    border-color: var(--error);
+}
+
+.lpx-contact .lp-check input {
+    min-width: 20px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+    .lpx-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .lpx-ideal-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 960px) {
+    .lpx-hero-card {
+        max-width: 560px;
+    }
+
+    .lpx-contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .lpx-contact .contact-form {
+        max-width: 560px;
+    }
+
+    .lpx-partners {
+        grid-template-columns: minmax(0, 1fr);
+        max-width: 560px;
+    }
+}
+
+@media (max-width: 860px) {
+    .lpx-about-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .lpx-hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .lpx-hero-actions .lp-btn,
+    .lpx-btn-ghost {
+        width: 100%;
+    }
+
+    .lpx-cards,
+    .lpx-ideal-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .lpx-facts div {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.2rem;
+    }
+
+    .lpx-video-foot .lp-btn {
+        width: 100%;
+        white-space: normal;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .lpx-btn-ghost {
+        transition: none;
+    }
+}
+
+/* No sticky bar on this page: drop the space landing-niuexa.css reserves for it */
+@media (max-width: 560px) {
+    .lpx-page main {
+        padding-bottom: 0;
+    }
+}
+
+/* Footer links reach the 44px tap height */
+.lpx-page .lp-footer-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+}

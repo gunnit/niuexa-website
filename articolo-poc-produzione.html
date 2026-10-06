@@ -25,9 +25,9 @@
     <!-- End Google Tag Manager -->
 
     <!-- SEO Meta Tags -->
-    <title>Dal PoC alla Produzione: Framework Niuexa per Scalare l'AI</title>
-    <meta name="description" content="Come passare da PoC a produzione senza rifare tutto: framework Niuexa in 4 settimane con KPI, architettura, sicurezza, scaling e criteri go/no-go AI.">
-    <meta name="keywords" content="PoC produzione, proof of concept scalabile, PoC AI produzione, framework PoC scaling, go no-go PoC, trasformare PoC progetto, PoC enterprise, industrializzazione PoC, KPI PoC, governance progetto AI">
+    <title>Dal PoC alla produzione: portare l’AI in uso | Niuexa</title>
+    <meta name="description" content="Come preparare e portare un PoC AI in produzione: verifiche su problema e dati, KPI di risultato, criteri go/no-go, architettura, governance e rilascio in quattro fasi.">
+    <meta name="keywords" content="PoC produzione, proof of concept scalabile, PoC AI produzione, framework PoC scaling, go no-go PoC, trasformare PoC progetto, PoC enterprise, industrializzazione PoC, KPI PoC, governance progetto AI, implementazione AI step by step, fattibilità progetto AI, qualità dati AI">
     <meta name="author" content="Niuexa">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="language" content="Italian">
@@ -37,12 +37,12 @@
     <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://niuexa.ai/articolo-poc-produzione.html">
-    <meta property="og:title" content="Dal PoC alla produzione: come trasformare il Proof of Concept in un progetto scalabile (framework Niuexa)">
-    <meta property="og:description" content="Come passare da PoC a produzione senza rifare tutto: framework Niuexa in 4 settimane con KPI, architettura, sicurezza, scaling e criteri go/no-go AI.">
+    <meta property="og:title" content="Dal PoC alla produzione: come trasformare un Proof of Concept in un sistema che si usa davvero">
+    <meta property="og:description" content="Come preparare e portare un PoC AI in produzione: verifiche su problema e dati, KPI di risultato, criteri go/no-go, architettura, governance e rilascio in quattro fasi.">
     <meta property="og:image" content="https://niuexa.ai/img/niuexalogo.png">
     <meta property="og:locale" content="it_IT">
     <meta property="article:published_time" content="2026-03-16">
-    <meta property="article:modified_time" content="2026-03-16">
+    <meta property="article:modified_time" content="2026-10-06">
     <meta property="article:author" content="Niuexa">
     <meta property="article:section" content="Digital Transformation">
     <meta property="article:tag" content="PoC Produzione">
@@ -52,8 +52,8 @@
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://niuexa.ai/articolo-poc-produzione.html">
-    <meta name="twitter:title" content="Dal PoC alla produzione: framework Niuexa in 4 settimane">
-    <meta name="twitter:description" content="Come passare da PoC a produzione senza rifare tutto: framework Niuexa in 4 settimane con KPI, architettura, sicurezza, scaling e criteri go/no-go AI.">
+    <meta name="twitter:title" content="Dal PoC alla produzione: KPI, criteri go/no-go e rilascio controllato">
+    <meta name="twitter:description" content="Come preparare e portare un PoC AI in produzione: verifiche su problema e dati, KPI di risultato, criteri go/no-go, architettura, governance e rilascio in quattro fasi.">
     <meta name="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
 
     <link rel="canonical" href="https://niuexa.ai/articolo-poc-produzione.html">
@@ -79,8 +79,8 @@
     {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": "Dal PoC alla produzione: come trasformare il Proof of Concept in un progetto scalabile (framework Niuexa)",
-        "description": "Come passare da PoC a produzione senza rifare tutto: framework Niuexa in 4 settimane con KPI, architettura, sicurezza, scaling e criteri go/no-go AI.",
+        "headline": "Dal PoC alla produzione: come trasformare un Proof of Concept in un sistema che si usa davvero",
+        "description": "Come preparare e portare un PoC AI in produzione: verifiche su problema e dati, KPI di risultato, criteri go/no-go, architettura, governance e rilascio in quattro fasi.",
         "author": {
             "@type": "Organization",
             "name": "Niuexa",
@@ -95,14 +95,14 @@
             }
         },
         "datePublished": "2026-03-16",
-        "dateModified": "2026-03-16",
+        "dateModified": "2026-10-06",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://niuexa.ai/articolo-poc-produzione.html"
         },
-        "keywords": ["PoC produzione", "proof of concept scalabile", "framework scaling PoC", "go no-go PoC", "industrializzazione PoC", "KPI progetto AI"],
+        "keywords": ["PoC produzione", "proof of concept scalabile", "framework scaling PoC", "go no-go PoC", "industrializzazione PoC", "KPI progetto AI", "implementazione AI step by step", "fattibilità progetto AI"],
         "articleSection": "Digital Transformation",
-        "wordCount": "6500",
+        "wordCount": "4900",
         "inLanguage": "it-IT",
         "speakable": {
             "@type": "SpeakableSpecification",
@@ -122,23 +122,39 @@
                 "name": "Quanto tempo serve per passare da PoC a produzione?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Con un framework strutturato come quello Niuexa, il passaggio da PoC a produzione richiede 4 settimane: settimana 1 per obiettivi e KPI, settimana 2 per hardening tecnico (sicurezza, logging, CI/CD), settimana 3 per integrazioni e test end-to-end, settimana 4 per rollout controllato e monitoring. Senza framework, i tempi medi oscillano tra 3 e 12 mesi, con un tasso di fallimento del 60-80%."
+                    "text": "Dipende dal perimetro: quante integrazioni servono, quanto l’architettura del PoC è lontana dalla produzione, quali requisiti di sicurezza e compliance valgono, quanto tempo possono dedicare le persone coinvolte. Il percorso ha quattro fasi (obiettivi e KPI, irrobustimento tecnico, integrazioni e test, rilascio controllato) e la durata si stima dopo la diagnosi, nel piano di lavoro, insieme ai criteri di go-live."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Qual &egrave; la differenza tra PoC, pilota e MVP?",
+                "name": "Qual è la differenza tra PoC, pilota e MVP?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Il PoC (Proof of Concept) verifica la fattibilit&agrave; tecnica su dati sintetici o campione, senza integrazioni reali. Il pilota testa la soluzione su un perimetro ristretto con dati reali e una integrazione minima. L'MVP (Minimum Viable Product) &egrave; la prima versione utilizzabile in produzione, con architettura scalabile, sicurezza e monitoring. L'errore pi&ugrave; comune &egrave; confondere il PoC con un pilota e provare a mandarlo in produzione senza hardening."
+                    "text": "Il PoC (Proof of Concept) verifica la fattibilità tecnica su dati sintetici o su un campione, senza integrazioni reali. Il pilota prova la soluzione su un perimetro ristretto con dati reali e un’integrazione minima. L’MVP (Minimum Viable Product) è la prima versione utilizzabile in produzione, con architettura scalabile, sicurezza e monitoraggio. L’errore più comune è scambiare il PoC per un pilota e provare a mandarlo in produzione senza irrobustirlo."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Perch&eacute; la maggior parte dei PoC non arriva mai in produzione?",
+                "name": "Perché la maggior parte dei PoC non arriva mai in produzione?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Le cause principali sono: assenza di KPI di outcome misurabili (ci si ferma a metriche di output come l'accuracy del modello), dati del PoC non rappresentativi della realt&agrave; produttiva, nessuna integrazione con i sistemi aziendali (ERP, CRM, API), mancanza di un owner chiaro con budget e autorit&agrave; decisionale, e sottovalutazione dei requisiti di sicurezza, compliance e infrastruttura enterprise."
+                    "text": "Le cause ricorrenti sono: nessun KPI di risultato misurabile (ci si ferma a metriche di output come l’accuracy del modello), dati del PoC non rappresentativi della realtà, nessuna integrazione con i sistemi aziendali (ERP, CRM, API), nessun responsabile con budget e autorità decisionale, requisiti di sicurezza, compliance e infrastruttura sottovalutati."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Cosa verificare prima di avviare un PoC?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Tre cose. Il problema, scritto in una pagina con la misura attuale, i criteri di successo e un responsabile. I dati, controllati su un campione per completezza, accuratezza, coerenza tra sistemi, aggiornamento e utilizzabilità legale. La fattibilità su cinque dimensioni: tecnica, dati, integrazione, organizzazione ed economia, messa in produzione inclusa. Se i dati non ci sono o non si possono usare, il primo progetto è metterli in ordine."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quanto deve durare un PoC?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Settimane, non mesi, con una scadenza fissata all’inizio insieme ai criteri di successo. Un PoC risponde a una domanda precisa, cioè se si può fare. Se alla scadenza la risposta è ancora “dipende”, il perimetro era troppo ampio o l’ipotesi troppo vaga: conviene restringerli invece di prolungare il PoC."
                 }
             },
             {
@@ -146,7 +162,31 @@
                 "name": "Come si definiscono i criteri go/no-go per un PoC?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "I criteri go/no-go si basano su tre scenari: Go (outcome &ge; target e readiness tecnica verde) significa procedere allo scaling; Iterate (outcome 50-99% del target con gap chiaro) significa un piano di recupero in 4 settimane; No-go (outcome &lt; 50% o rischi non mitigabili) significa fermarsi e ripensare l'approccio. I criteri devono essere definiti prima dell'avvio del PoC e condivisi con tutti gli stakeholder."
+                    "text": "Con tre esiti decisi prima di iniziare. Go: risultato pari o superiore al target, readiness tecnica verde e responsabile confermato, quindi si procede con il rilascio. Iterate: risultato tra il 50% e il 99% del target con un gap chiaro, quindi un piano di recupero con scadenze brevi. No-go: risultato sotto il 50% del target o rischi non mitigabili, quindi ci si ferma e si ripensa l’approccio. I criteri si scrivono prima dell’avvio e si condividono con tutte le persone coinvolte."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quali KPI servono come minimo per decidere go o no-go?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Tre famiglie: il risultato sul processo (tempi, errori, costi o conversioni rispetto alla misura di partenza), la qualità tecnica del sistema (per esempio precision e recall per una classificazione) e la sostenibilità operativa (latenza, disponibilità, costo per transazione). Se ne manca una, la decisione è incompleta: un sistema preciso ma troppo costoso, o economico ma inaffidabile, non regge in produzione."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Come si stima il ritorno se il PoC non ha dati storici?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Si misura a mano il processo attuale su un campione di 20-50 casi (tempi, costi, errori), si calcola il costo unitario per pratica, ticket o ordine prima e dopo, e si costruiscono tre scenari (prudente, intermedio, favorevole) con le ipotesi dichiarate. La direzione decide su un intervallo, non su un numero unico."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quando conviene fermare un PoC anche se sembra funzionare?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Quando i risultati sono buoni ma i costi in produzione li annullano, quando il sistema dipende da dati che in produzione non saranno disponibili o non si potranno usare legalmente, quando c’è un lock-in tecnico senza alternative o quando nessuno nel processo è disposto a esserne responsabile. Fermarsi presto e documentare cosa si è imparato costa meno che continuare a investire."
                 }
             },
             {
@@ -154,15 +194,15 @@
                 "name": "Quali sono i costi reali del passaggio da PoC a produzione?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Il costo di industrializzazione &egrave; tipicamente 3-10 volte il costo del PoC. Le voci spesso sottostimate sono: integrazione con sistemi esistenti (ERP, CRM, SSO), sicurezza e compliance (GDPR, audit trail, penetration test), infrastruttura enterprise (CI/CD, monitoring, backup, disaster recovery), MLOps e data pipeline production-grade, change management e formazione utenti, supporto e manutenzione post-go-live."
+                    "text": "Il costo di messa in produzione è spesso un multiplo del costo del PoC, perché il PoC non comprende le voci che la produzione richiede: integrazione con i sistemi esistenti (ERP, CRM, SSO), sicurezza e compliance (GDPR, audit trail, penetration test), infrastruttura (CI/CD, monitoraggio, backup, disaster recovery), pipeline dati, formazione degli utenti, supporto e manutenzione dopo il rilascio. Conviene farsi dare una stima scritta di ciascuna voce prima di decidere."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Quando conviene cambiare partner tecnologico durante la transizione PoC-produzione?",
+                "name": "Quando conviene cambiare fornitore nel passaggio dal PoC alla produzione?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "I red flag che indicano la necessit&agrave; di cambiare partner sono: vendor lock-in su tecnologie proprietarie senza documentazione, impossibilit&agrave; di tracciare metriche di performance e ROI, assenza di documentazione tecnica e architetturale, ritardi sistematici senza piano di recupero strutturato, e resistenza a condividere IP, codice sorgente o dati. Niuexa interviene con un assessment indipendente, un piano di recovery e l'industrializzazione del progetto."
+                    "text": "I segnali d’allarme sono: lock-in su tecnologie proprietarie senza documentazione, metriche di prestazione e di risultato non tracciabili, documentazione tecnica e architetturale assente, ritardi sistematici senza un piano di recupero, resistenza a condividere codice sorgente, proprietà intellettuale o dati. Niuexa può fare un’analisi indipendente del PoC, proporre un piano di recupero e accompagnare la messa in produzione."
                 }
             }
         ]
@@ -184,8 +224,8 @@
             {
                 "@type": "ListItem",
                 "position": 2,
-                "name": "Impara",
-                "item": "https://niuexa.ai/impara.html"
+                "name": "Ricerca",
+                "item": "https://niuexa.ai/research.html"
             },
             {
                 "@type": "ListItem",
@@ -211,16 +251,16 @@
     <section class="tutorial-header">
         <div class="container">
             <nav class="breadcrumb">
-                <a href="impara.html">Impara</a> / <span>Dal PoC alla Produzione</span>
+                <a href="research.html">Ricerca</a> / <span>Dal PoC alla Produzione</span>
             </nav>
             <div class="tutorial-intro">
                 <div class="tutorial-badge">Digital Transformation</div>
-                <h1>Dal PoC alla produzione: come trasformare il Proof of Concept in un progetto scalabile (framework Niuexa)</h1>
-                <p class="tutorial-description">Il rischio pi&ugrave; grande di un PoC non &egrave; che fallisca, ma che resti in PoC: una demo in ambiente protetto, impossibile da scalare. Questa guida presenta il framework Niuexa in 4 settimane per passare da Proof of Concept a produzione enterprise, con KPI di outcome, architettura scalabile, governance, criteri go/no-go e piano di scaling operativo.</p>
+                <h1>Dal PoC alla produzione: come trasformare un Proof of Concept in un sistema che si usa davvero</h1>
+                <p class="tutorial-description">Il rischio più grande di un PoC non è che fallisca, ma che resti un PoC: una demo in ambiente protetto che nessuno usa nel lavoro di ogni giorno. Questa guida spiega come decidere se un PoC merita la produzione e come portarlo lì: KPI di risultato, criteri go/no-go fissati prima, architettura, governance e un rilascio controllato in quattro fasi.</p>
                 <div class="tutorial-stats">
                     <span class="stat">25 minuti di lettura</span>
-                    <span class="stat">Per CTO, Project Manager &amp; Business Owner</span>
-                    <span class="stat">Framework 2026</span>
+                    <span class="stat">Per CTO, project manager e responsabili di processo</span>
+                    <span class="stat">Guide Pratiche</span>
                 </div>
             </div>
         </div>
@@ -233,28 +273,28 @@
                 <!-- Quick Answer for AI Engines -->
                 <section class="content-section quick-answer">
                     <h2>Risposta rapida: come passare da PoC a produzione</h2>
-                    <p>Il rischio pi&ugrave; grande di un PoC non &egrave; che fallisca, ma che resti in PoC: una demo in ambiente protetto, impossibile da scalare. Per passare da PoC a produzione servono: <strong>KPI di outcome</strong> (non vanity metrics), <strong>architettura enterprise</strong> (CI/CD, logging, sicurezza), <strong>governance</strong> (owner, SLA, RACI) e un <strong>piano di scaling in 4 settimane</strong>. Il framework Niuexa copre: obiettivi e KPI/ROI (settimana 1), hardening tecnico (settimana 2), integrazioni e test E2E (settimana 3), rollout controllato (settimana 4).</p>
+                    <p>Il rischio più grande di un PoC non è che fallisca, ma che resti un PoC: una demo in ambiente protetto che non entra nel lavoro di ogni giorno. Per passare alla produzione servono <strong>KPI di risultato</strong> misurati sul processo (non metriche di vetrina), <strong>un’architettura da produzione</strong> (CI/CD, logging, sicurezza), <strong>una governance</strong> (responsabile, SLA, RACI) e <strong>un rilascio controllato in quattro fasi</strong>: obiettivi e KPI, irrobustimento tecnico, integrazioni e test end-to-end, rilascio graduale con monitoraggio. La durata di ogni fase dipende dal perimetro e si scrive nel piano di lavoro.</p>
                 </section>
 
                 <!-- Section 1: Introduzione -->
                 <section class="content-section">
-                    <h2>Introduzione &mdash; Il rischio &egrave; "restare in PoC"</h2>
-                    <p>La frase pi&ugrave; pericolosa in un comitato di direzione non &egrave; "non abbiamo fatto nulla sull'AI", ma <strong>"abbiamo gi&agrave; avviato un PoC con..."</strong>. Quella frase crea l'illusione del progresso: un team ha costruito una demo, i risultati in laboratorio sono promettenti, il vendor mostra slide con accuracy del 95%. Ma tra quella demo e un sistema in produzione c'&egrave; un abisso che l'80% delle organizzazioni non riesce a colmare.</p>
+                    <h2>Introduzione: il rischio è restare nel PoC</h2>
+                    <p>La frase pi&ugrave; pericolosa in un comitato di direzione non &egrave; "non abbiamo fatto nulla sull'AI", ma <strong>"abbiamo gi&agrave; avviato un PoC con..."</strong>. Quella frase crea l'illusione del progresso: un team ha costruito una demo, i risultati in laboratorio sono promettenti, il vendor mostra slide con accuracy del 95%. Ma tra quella demo e un sistema in produzione c’è una distanza che molte organizzazioni non riescono a coprire.</p>
 
-                    <blockquote>
-                        <p>"Un PoC che non diventa produzione non &egrave; un investimento: &egrave; un costo affondato mascherato da innovazione. Il valore si genera solo quando la soluzione tocca i processi reali, con utenti reali, su dati reali."</p>
-                    </blockquote>
+                    <p>Un PoC che non diventa produzione non è un investimento ma un costo senza ritorno: il valore nasce solo quando la soluzione entra nei processi reali, con utenti reali e dati reali. Un PoC valida l’idea; la produzione valida l’organizzazione.</p>
+
+                    <p>Il fenomeno è documentato: secondo <a href="https://www.gartner.com/en/newsroom/press-releases/2024-07-29-gartner-predicts-30-percent-of-generative-ai-projects-will-be-abandoned-after-proof-of-concept-by-end-of-2025" target="_blank" rel="noopener">Gartner</a> (comunicato del 29 luglio 2024) almeno il 30% dei progetti di AI generativa sarebbe stato abbandonato dopo la proof of concept entro la fine del 2025, per dati di scarsa qualità, controlli del rischio inadeguati, costi crescenti o valore poco chiaro.</p>
 
                     <p>I motivi per cui i PoC restano PoC sono ricorrenti e prevedibili:</p>
                     <ul>
                         <li><strong>KPI assenti o sbagliati:</strong> si misura l'accuracy del modello, non l'impatto sul processo di business (tempo risparmiato, costi ridotti, revenue generata)</li>
                         <li><strong>Dati non rappresentativi:</strong> il PoC usa dataset puliti e limitati; la produzione affronta dati sporchi, incompleti, con drift continuo</li>
                         <li><strong>Zero integrazioni:</strong> la demo funziona in isolamento; in produzione deve dialogare con ERP, CRM, data lake, SSO, API di terze parti</li>
-                        <li><strong>Nessun owner:</strong> il PoC &egrave; "di tutti e di nessuno" &mdash; manca un responsabile con budget, autorit&agrave; e accountability sul go-live</li>
+                        <li><strong>Nessun responsabile:</strong> il PoC è “di tutti e di nessuno”, manca una persona con budget, autorità e responsabilità sul go-live</li>
                         <li><strong>Sicurezza e compliance ignorate:</strong> nel PoC non servono audit trail, GDPR, penetration test, backup. In produzione sono prerequisiti</li>
                     </ul>
 
-                    <p>Questa guida presenta il <strong>framework Niuexa</strong> per attraversare quel gap in modo strutturato: dalla diagnosi del PoC esistente alla definizione dei KPI, dall'hardening tecnico al rollout controllato, in <strong>4 settimane</strong>. Non &egrave; un framework teorico: &egrave; il metodo che applichiamo con i nostri clienti per trasformare PoC bloccati in sistemi production-grade.</p>
+                    <p>Questa guida descrive il percorso che usiamo in Niuexa per coprire quella distanza: verifiche prima di avviare un PoC, diagnosi del PoC esistente e misura del processo com’è, definizione dei KPI, irrobustimento tecnico, rilascio controllato. Prima si misura, poi si automatizza, e alla fine si decide insieme se estendere, correggere o fermarsi.</p>
 
                     <div class="case-study-intro">
                         <h3>A chi si rivolge questa guida</h3>
@@ -262,18 +302,123 @@
                             <li><strong>CTO e VP Engineering</strong> che devono portare un PoC AI/data in produzione con architettura enterprise</li>
                             <li><strong>Project Manager</strong> che gestiscono la transizione da fase sperimentale a fase operativa</li>
                             <li><strong>Business Owner e C-level</strong> che devono decidere go/no-go su un PoC con criteri oggettivi</li>
-                            <li><strong>Team di innovazione</strong> che vogliono evitare il "cimitero dei PoC"</li>
+                            <li><strong>Team di innovazione</strong> che vogliono evitare il “cimitero dei PoC”</li>
                             <li><strong>IT Manager</strong> che devono integrare la soluzione con l'infrastruttura esistente</li>
                         </ul>
                     </div>
                 </section>
 
+                <!-- Section 1b: Prima di avviare un PoC -->
+                <section class="content-section">
+                    <h2>Prima di avviare un PoC: problema, dati e fattibilit&agrave;</h2>
+                    <p>Molti PoC si bloccano per ragioni che si potevano vedere prima di cominciare. Se il PoC non &egrave; ancora partito, tre verifiche brevi evitano di costruire una demo su un problema vago o su dati che non ci sono. Se il PoC &egrave; gi&agrave; in corso, le stesse domande servono per la diagnosi descritta nella sezione successiva.</p>
+
+                    <h3>1. Il problema in una pagina</h3>
+                    <p>Non &ldquo;vogliamo usare l&rsquo;AI&rdquo;, ma un problema di processo con una misura. Basta una pagina, se contiene:</p>
+                    <ul>
+                        <li><strong>Problema:</strong> cosa non funziona oggi, in quale processo e per chi</li>
+                        <li><strong>Misura attuale:</strong> tempi, volumi, errori o costi rilevati sul processo com&rsquo;&egrave;</li>
+                        <li><strong>Ipotesi di soluzione:</strong> cosa farebbe il sistema e perch&eacute; serve l&rsquo;AI invece di una regola nel gestionale o di un modulo fatto meglio</li>
+                        <li><strong>Criteri di successo:</strong> KPI, target e data in cui si misura</li>
+                        <li><strong>Responsabile:</strong> chi decide, con quale budget, e chi user&agrave; la soluzione</li>
+                        <li><strong>Vincoli:</strong> dati personali, sistemi che non si possono toccare, tempi</li>
+                    </ul>
+
+                    <h3>2. I dati: esistono, si possono usare, bastano?</h3>
+                    <p>Prima del modello si guarda ai dati: inventario delle fonti, accessi e permessi, vincoli GDPR e un controllo di qualit&agrave; su un campione.</p>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Dimensione</th>
+                                <th>Cosa misura</th>
+                                <th>Come si legge</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Completezza</strong></td>
+                                <td>Quota di campi valorizzati nei record che servono</td>
+                                <td>I campi vuoti proprio dove il sistema deve decidere pesano pi&ugrave; degli altri</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Accuratezza</strong></td>
+                                <td>Quota di valori corretti, verificata a mano su un campione</td>
+                                <td>Un errore sistematico, come un codice sempre sbagliato, va corretto alla fonte</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Coerenza</strong></td>
+                                <td>Se lo stesso dato coincide tra sistemi diversi (gestionale, CRM, fogli di calcolo)</td>
+                                <td>Fonti in disaccordo vanno riconciliate prima di automatizzare</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Aggiornamento</strong></td>
+                                <td>Et&agrave; dei dati rispetto al momento della decisione</td>
+                                <td>Dipende dal processo: un listino vecchio di un mese pu&ograve; gi&agrave; essere inutile</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Volume e variet&agrave;</strong></td>
+                                <td>Esempi sufficienti per ogni caso, eccezioni comprese</td>
+                                <td>Le eccezioni rare sono quelle che un PoC tende a non vedere</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="pro-tips">
+                        <h4>Quando fermarsi prima di cominciare</h4>
+                        <p>Se i dati necessari non esistono, non sono accessibili o non si possono usare legalmente, il primo progetto non &egrave; l&rsquo;AI ma mettere in ordine i dati. Un modello costruito su dati di scarsa qualit&agrave; produce risultati inaffidabili, e lo si scopre solo dopo averlo pagato.</p>
+                    </div>
+
+                    <h3>3. Fattibilit&agrave; su cinque dimensioni</h3>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Dimensione</th>
+                                <th>Domanda chiave</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Tecnica</strong></td>
+                                <td>Esiste un approccio adatto, e la precisione raggiungibile basta per il processo?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Dati</strong></td>
+                                <td>I dati sono sufficienti, di qualit&agrave; adeguata e utilizzabili legalmente?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Integrazione</strong></td>
+                                <td>Con quali sistemi deve dialogare la soluzione, e quanto &egrave; complesso collegarli?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Organizzativa</strong></td>
+                                <td>C&rsquo;&egrave; un responsabile, le persone hanno tempo e chi user&agrave; la soluzione &egrave; coinvolto?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Economica</strong></td>
+                                <td>Il costo attuale del problema giustifica il costo completo, messa in produzione inclusa?</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Sviluppare, comprare o combinare</h3>
+                    <ul>
+                        <li><strong>Comprare</strong> una soluzione esistente quando il caso d&rsquo;uso &egrave; standard, i tempi contano e le competenze interne sono limitate</li>
+                        <li><strong>Sviluppare</strong> quando il processo &egrave; specifico dell&rsquo;azienda, i requisiti sono particolari o serve pieno controllo su dati e logica</li>
+                        <li><strong>Combinare</strong> una piattaforma esistente con uno sviluppo mirato: &egrave; la scelta pi&ugrave; frequente, e richiede di chiarire prima chi possiede cosa</li>
+                    </ul>
+
+                    <div class="pro-tips">
+                        <h4>Un PoC con una scadenza</h4>
+                        <p>Un PoC risponde a una domanda precisa: si pu&ograve; fare? La scadenza si fissa all&rsquo;inizio, in settimane e non in mesi, insieme ai criteri di successo. Se alla scadenza la risposta &egrave; ancora &ldquo;dipende&rdquo;, il perimetro era troppo ampio o l&rsquo;ipotesi troppo vaga: meglio restringerli che prolungare.</p>
+                    </div>
+                </section>
+
                 <!-- Section 2: Diagnosi rapida -->
                 <section class="content-section">
-                    <h2>Diagnosi rapida &mdash; Che tipo di PoC avete?</h2>
-                    <p>Prima di pianificare il passaggio a produzione, serve una diagnosi onesta: non tutti i PoC sono uguali, e non tutti meritano di essere scalati. Il primo passo &egrave; capire in quale stadio si trova il vostro progetto.</p>
+                    <h2>Diagnosi rapida: a che punto è il Suo PoC?</h2>
+                    <p>Prima di pianificare il passaggio a produzione, serve una diagnosi onesta: non tutti i PoC sono uguali, e non tutti meritano di essere scalati. Il primo passo è capire in quale stadio si trova il progetto.</p>
 
-                    <h3>PoC vs Pilota vs MVP: la matrice di maturit&agrave;</h3>
+                    <h3>PoC vs pilota vs MVP: la matrice di maturit&agrave;</h3>
                     <table class="comparison-table">
                         <thead>
                             <tr>
@@ -324,7 +469,7 @@
                     </ul>
 
                     <h3>Le 5 domande diagnostiche Niuexa</h3>
-                    <p>Prima di ogni intervento, poniamo queste cinque domande. Se la risposta &egrave; "no" a due o pi&ugrave;, il PoC non &egrave; pronto per la produzione senza un intervento strutturato.</p>
+                    <p>Prima di ogni intervento poniamo queste cinque domande. Se la risposta è “no” a due o più, il PoC non &egrave; pronto per la produzione senza un intervento strutturato.</p>
                     <ol>
                         <li><strong>Esiste un KPI di outcome</strong> (non output) collegato a un obiettivo di business misurabile?</li>
                         <li><strong>I dati del PoC sono rappresentativi</strong> della realt&agrave; produttiva (volume, qualit&agrave;, variabilit&agrave;, drift)?</li>
@@ -339,7 +484,7 @@
                     <h2>KPI, metriche e criteri di successo</h2>
                     <p>Il fallimento pi&ugrave; insidioso di un PoC non &egrave; tecnico: &egrave; misurare le cose sbagliate. La distinzione fondamentale &egrave; tra <strong>KPI di output</strong> (cosa fa il sistema) e <strong>KPI di outcome</strong> (quale impatto genera sul business).</p>
 
-                    <h3>Output KPI vs Outcome KPI</h3>
+                    <h3>Output KPI vs outcome KPI</h3>
                     <table class="comparison-table">
                         <thead>
                             <tr>
@@ -354,35 +499,33 @@
                                 <td><strong>Output</strong></td>
                                 <td>Accuracy modello ML: 94%</td>
                                 <td>Non dice se riduce i costi o accelera il processo</td>
-                                <td>Riduzione del 30% dei falsi positivi nella QA &rarr; -18% costi di rilavorazione</td>
+                                <td>Falsi positivi nel controllo qualità e costo delle rilavorazioni, confrontati con la misura di partenza</td>
                             </tr>
                             <tr>
                                 <td><strong>Output</strong></td>
                                 <td>Tempo di risposta API: 120ms</td>
                                 <td>Non dice se gli utenti lo usano o se genera valore</td>
-                                <td>Tasso di adozione &gt; 80% + riduzione del 25% del tempo di gestione ticket</td>
+                                <td>Quante persone lo usano davvero e quanto si riduce il tempo di gestione dei ticket rispetto a prima</td>
                             </tr>
                             <tr>
                                 <td><strong>Output</strong></td>
                                 <td>Pipeline dati: 50k record/giorno</td>
                                 <td>Non dice se i dati sono utili o se migliorano le decisioni</td>
-                                <td>Riduzione del 40% dei ritardi di approvvigionamento grazie a previsioni accurate</td>
+                                <td>Ritardi di approvvigionamento prima e dopo l’uso delle previsioni</td>
                             </tr>
                             <tr>
                                 <td><strong>Output</strong></td>
                                 <td>Chatbot: 1.200 conversazioni/mese</td>
                                 <td>Non dice se risolve i problemi degli utenti</td>
-                                <td>Tasso di risoluzione autonoma &gt; 65% + NPS &gt; 40</td>
+                                <td>Quota di richieste risolte senza intervento umano e soddisfazione di chi le ha poste</td>
                             </tr>
                         </tbody>
                     </table>
 
-                    <blockquote>
-                        <p>"Un modello con accuracy del 99% che nessuno usa ha ROI zero. Un modello con accuracy dell'85% integrato nel processo che fa risparmiare 200k euro/anno ha ROI infinito rispetto al costo del PoC."</p>
-                    </blockquote>
+                    <p>Un modello molto accurato che nessuno usa non produce valore. Un modello meno accurato ma integrato nel processo, con una persona che decide sulle eccezioni, può produrne. Per questo il KPI va misurato sul processo, non sul modello.</p>
 
-                    <h3>Framework Go/No-Go Niuexa</h3>
-                    <p>Alla fine del PoC (o del pilota), serve una decisione strutturata. Non "ci piace / non ci piace", ma criteri oggettivi condivisi prima dell'avvio.</p>
+                    <h3>Criteri go/no-go</h3>
+                    <p>Alla fine del PoC (o del pilota), serve una decisione strutturata. Non “ci piace o non ci piace”, ma criteri oggettivi condivisi prima dell’avvio.</p>
 
                     <table class="comparison-table">
                         <thead>
@@ -396,12 +539,12 @@
                             <tr>
                                 <td><strong>Go</strong></td>
                                 <td>Outcome &ge; target + readiness tecnica verde + owner confermato</td>
-                                <td>Avviare il piano di scaling a 4 settimane</td>
+                                <td>Avviare il rilascio in quattro fasi</td>
                             </tr>
                             <tr>
                                 <td><strong>Iterate</strong></td>
                                 <td>Outcome 50-99% del target con gap chiaro e mitigabile</td>
-                                <td>Piano di recupero in 4 settimane con milestone settimanali</td>
+                                <td>Piano di recupero con scadenze brevi e verifiche intermedie</td>
                             </tr>
                             <tr>
                                 <td><strong>No-Go</strong></td>
@@ -412,7 +555,7 @@
                     </table>
 
                     <div class="pro-tips">
-                        <h4>Regola Niuexa sui criteri go/no-go</h4>
+                        <h4>Quando fissare i criteri</h4>
                         <p>I criteri vanno definiti <strong>prima</strong> dell'avvio del PoC, non dopo aver visto i risultati. Definirli a posteriori introduce bias di conferma: si spostano i paletti per giustificare la decisione gi&agrave; presa.</p>
                     </div>
 
@@ -424,18 +567,61 @@
                         <li><strong>Infrastruttura MLOps:</strong> CI/CD, model registry, feature store, monitoring, alerting</li>
                         <li><strong>Change management:</strong> formazione utenti, comunicazione interna, supporto al cambiamento</li>
                         <li><strong>Supporto post-go-live:</strong> SLA, team di supporto, bug fixing, evoluzione funzionale</li>
+                        <li><strong>Manutenzione annuale:</strong> un budget ricorrente per monitoraggio, aggiornamenti e riaddestramento; senza, le prestazioni tendono a degradare nel tempo</li>
                     </ul>
 
                     <div class="pro-tips">
-                        <h4>Regola empirica</h4>
-                        <p>Il costo di industrializzazione &egrave; tipicamente <strong>3-10 volte il costo del PoC</strong>. Se il PoC &egrave; costato 30.000 &euro;, il budget per la produzione deve prevedere 90.000-300.000 &euro;. Chi non prevede questo moltiplicatore sottostima sistematicamente il budget e si ritrova con un PoC "quasi in produzione" che non arriva mai al go-live.</p>
+                        <h4>Il PoC non è il budget</h4>
+                        <p>Il costo di messa in produzione è spesso <strong>un multiplo del costo del PoC</strong>, perché il PoC non comprende integrazioni, sicurezza, monitoraggio e supporto. Prima di decidere, chieda una stima scritta di queste voci. Chi non le prevede sottostima il budget e si ritrova con un PoC “quasi in produzione” che non arriva mai al go-live.</p>
                     </div>
+
+                    <h3>Come stimare il ritorno senza dati storici</h3>
+                    <p>Se il processo non ha dati storici affidabili, il ritorno si stima in tre passaggi:</p>
+                    <ol>
+                        <li><strong>Misura manuale di partenza su 20-50 casi:</strong> tempi, costi ed errori del processo attuale, rilevati su un campione rappresentativo</li>
+                        <li><strong>Costo unitario:</strong> costo per pratica, per ticket o per ordine, prima e dopo, cos&igrave; il beneficio si legge per unit&agrave; e non in astratto</li>
+                        <li><strong>Tre scenari:</strong> prudente, intermedio e favorevole, con le ipotesi dichiarate, per dare alla direzione un intervallo su cui decidere invece di un numero unico</li>
+                    </ol>
+
+                    <h3>Le tre famiglie di KPI per il go/no-go</h3>
+                    <p>Una decisione completa guarda a tre famiglie di indicatori: il <strong>risultato</strong> sul processo (tempi, errori, costi, conversioni), la <strong>qualit&agrave; tecnica</strong> del sistema e la <strong>sostenibilit&agrave; operativa</strong> (latenza, disponibilit&agrave;, costo per transazione). Per la qualit&agrave; tecnica la metrica giusta dipende dal tipo di problema:</p>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Tipo di problema</th>
+                                <th>Metriche tecniche comuni</th>
+                                <th>Domanda da porsi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Classificazione</strong> (smistare documenti, riconoscere difetti)</td>
+                                <td>Precision, recall, F1</td>
+                                <td>Costa di pi&ugrave; un falso allarme o un caso perso?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Previsione di valori</strong> (domanda, tempi)</td>
+                                <td>Errore medio assoluto (MAE), errore percentuale medio (MAPE)</td>
+                                <td>L&rsquo;errore &egrave; accettabile rispetto a quello della stima manuale di oggi?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ricerca e ordinamento</strong> (documenti, risposte)</td>
+                                <td>Precision@k, MRR, NDCG</td>
+                                <td>Il risultato giusto compare tra i primi?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Generazione di testo</strong> (risposte, bozze)</td>
+                                <td>Valutazione con una rubrica, fedelt&agrave; alle fonti</td>
+                                <td>Una persona esperta firmerebbe la risposta cos&igrave; com&rsquo;&egrave;?</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </section>
 
                 <!-- Section 4: Dalla demo all'enterprise -->
                 <section class="content-section">
-                    <h2>Dalla demo all'enterprise &mdash; Architettura, dati, integrazioni</h2>
-                    <p>Un PoC pu&ograve; girare su un notebook Jupyter. Un sistema in produzione richiede un'architettura enterprise che garantisca affidabilit&agrave;, scalabilit&agrave;, sicurezza e manutenibilit&agrave;. Ecco la checklist tecnica Niuexa per il passaggio.</p>
+                    <h2>Dalla demo alla produzione: architettura, dati, integrazioni</h2>
+                    <p>Un PoC pu&ograve; girare su un notebook Jupyter. Un sistema in produzione richiede un’architettura che assicuri affidabilità, scalabilità, sicurezza e manutenibilità. Ecco la checklist tecnica che usiamo per il passaggio.</p>
 
                     <h3>Checklist architetturale: dal notebook alla produzione</h3>
                     <table class="comparison-table">
@@ -470,7 +656,7 @@
                             <tr>
                                 <td><strong>SLO / SLA</strong></td>
                                 <td>Non definiti</td>
-                                <td>Uptime &ge; 99.5%, latenza p95 &lt; 500ms, RPO/RTO definiti</td>
+                                <td>Obiettivi scritti di disponibilità e latenza (per esempio p95), RPO e RTO definiti</td>
                             </tr>
                             <tr>
                                 <td><strong>Secrets</strong></td>
@@ -502,7 +688,7 @@
 
                     <div class="pro-tips">
                         <h4>Pattern di integrazione consigliato</h4>
-                        <p>Non integrare tutto in una volta. Adottare un approccio a <strong>cerchi concentrici</strong>: prima l'integrazione core (il sistema da cui dipende il valore principale), poi le integrazioni secondarie (reporting, notifiche), infine le integrazioni di arricchimento (analytics avanzate, dashboard executive). Ogni cerchio viene validato con test E2E prima di passare al successivo.</p>
+                        <p>Meglio non integrare tutto in una volta, ma adottare un approccio a <strong>cerchi concentrici</strong>: prima l'integrazione core (il sistema da cui dipende il valore principale), poi le integrazioni secondarie (reporting, notifiche), infine le integrazioni di arricchimento (analytics avanzate, dashboard executive). Ogni cerchio viene validato con test E2E prima di passare al successivo.</p>
                     </div>
 
                     <h3>Security by design: non &egrave; un'aggiunta, &egrave; un prerequisito</h3>
@@ -512,7 +698,8 @@
                         <li><strong>Least privilege:</strong> ogni componente accede solo alle risorse strettamente necessarie</li>
                         <li><strong>Audit trail:</strong> ogni azione (utente e sistema) tracciata, immutabile, con timestamp</li>
                         <li><strong>Encryption:</strong> dati at rest (AES-256) e in transit (TLS 1.3) senza eccezioni</li>
-                        <li><strong>Penetration test:</strong> prima del go-live, non dopo. Incluso nel piano di settimana 2</li>
+                        <li><strong>Penetration test:</strong> prima del go-live, non dopo. Fa parte della fase 2</li>
+                        <li><strong>Gestione delle vulnerabilit&agrave;:</strong> scansione automatica delle dipendenze, regole di aggiornamento e monitoraggio delle vulnerabilit&agrave; note (CVE)</li>
                     </ul>
                 </section>
 
@@ -521,7 +708,7 @@
                     <h2>Governance, rischio e compliance</h2>
                     <p>La governance &egrave; il tessuto connettivo che tiene insieme tecnologia, persone e processi. Senza governance, un sistema in produzione diventa un rischio operativo non gestito.</p>
 
-                    <h3>Checklist GDPR / Privacy pre-go-live</h3>
+                    <h3>Checklist GDPR / privacy pre-go-live</h3>
                     <p>Per ogni progetto che tratta dati personali, la checklist Niuexa prevede:</p>
                     <ul>
                         <li><strong>DPIA (Data Protection Impact Assessment):</strong> completata e approvata dal DPO</li>
@@ -530,6 +717,7 @@
                         <li><strong>Data minimization:</strong> verificato che si raccolgano solo i dati strettamente necessari</li>
                         <li><strong>Diritti degli interessati:</strong> processi operativi per accesso, rettifica, cancellazione, portabilit&agrave;</li>
                         <li><strong>Data retention:</strong> policy definita con cancellazione automatizzata</li>
+                        <li><strong>Responsabili del trattamento:</strong> elenco aggiornato dei fornitori che trattano dati per conto dell&rsquo;azienda, con accordi (DPA) firmati</li>
                     </ul>
 
                     <h3>Data governance: ownership e controllo</h3>
@@ -567,6 +755,11 @@
                                 <td>Da dove vengono i dati e come vengono trasformati?</td>
                                 <td>Data lineage documentato e tracciabile end-to-end</td>
                             </tr>
+                            <tr>
+                                <td><strong>Qualit&agrave;</strong></td>
+                                <td>Come misuriamo la qualit&agrave; dei dati in produzione?</td>
+                                <td>Controlli automatici con soglie di allarme e un responsabile che interviene</td>
+                            </tr>
                         </tbody>
                     </table>
 
@@ -580,48 +773,49 @@
                     </ul>
 
                     <div class="pro-tips">
-                        <h4>SLO consigliati per sistemi AI/data in produzione</h4>
+                        <h4>SLO di partenza da adattare al processo</h4>
                         <ul>
-                            <li><strong>Disponibilit&agrave;:</strong> &ge; 99.5% (equivale a max 3,6 ore di downtime/mese)</li>
+                            <li><strong>Disponibilità:</strong> per esempio 99,5%, cioè al massimo circa 3,6 ore di fermo al mese</li>
                             <li><strong>Latenza:</strong> p95 &lt; 500ms, p99 &lt; 2s per API sincrone</li>
                             <li><strong>Freshness:</strong> dati aggiornati entro 15 minuti per pipeline near-real-time</li>
                             <li><strong>Error rate:</strong> &lt; 0.1% per endpoint critici</li>
+                            <li><strong>Costo per transazione:</strong> monitorato rispetto a una soglia concordata, per evitare sorprese in fattura</li>
                         </ul>
                     </div>
 
                     <h3>Monitoring continuo: 4 dimensioni</h3>
                     <p>Un sistema in produzione senza monitoring &egrave; un sistema che sta fallendo senza che nessuno lo sappia. Le quattro dimensioni da monitorare:</p>
                     <ol>
-                        <li><strong>Model drift:</strong> degradazione delle performance del modello nel tempo &mdash; retraining trigger automatico</li>
+                        <li><strong>Model drift:</strong> degradazione delle prestazioni del modello nel tempo, con una soglia che fa partire la revisione o il riaddestramento</li>
                         <li><strong>Bias detection:</strong> monitoraggio continuo di fairness metrics per evitare discriminazioni sistematiche</li>
-                        <li><strong>Cost monitoring:</strong> tracking dei costi cloud/API per evitare bill shock e ottimizzare il spend</li>
+                        <li><strong>Cost monitoring:</strong> tracciamento dei costi cloud e API per evitare sorprese in fattura e ottimizzare la spesa</li>
                         <li><strong>Data quality:</strong> controlli automatizzati su completezza, consistenza, freshness e anomalie</li>
                     </ol>
                 </section>
 
-                <!-- Section 6: Piano di scaling in 4 settimane -->
+                <!-- Section 6: Rilascio in quattro fasi -->
                 <section class="content-section">
-                    <h2>Piano di scaling in 4 settimane (framework Niuexa)</h2>
-                    <p>Questo &egrave; il cuore operativo della guida: un piano settimana per settimana per portare un PoC validato (decisione "Go" dal framework precedente) in produzione enterprise. Ogni settimana ha obiettivi, deliverable e criteri di completamento.</p>
+                    <h2>Il rilascio in quattro fasi</h2>
+                    <p>Questo è il cuore operativo della guida: un piano fase per fase per portare in produzione un PoC che ha superato la decisione “Go”. Ogni fase ha obiettivi, deliverable e criteri di completamento. La durata di ciascuna dipende dal perimetro e si fissa nel piano di lavoro, non prima.</p>
 
-                    <h3>Settimana 1: Obiettivi, KPI/ROI, perimetro e criteri go-live</h3>
-                    <p>La prima settimana &egrave; interamente dedicata all'allineamento strategico. Non si scrive una riga di codice.</p>
+                    <h3>Fase 1: obiettivi, KPI, perimetro e criteri di go-live</h3>
+                    <p>La prima fase serve ad allinearsi su cosa si misura e cosa si rilascia. Non si scrive una riga di codice.</p>
                     <ul>
-                        <li><strong>Definizione obiettivi di outcome:</strong> tradurre il "funziona" del PoC in metriche di business misurabili</li>
+                        <li><strong>Obiettivi di risultato:</strong> tradurre il “funziona” del PoC in metriche misurabili sul processo</li>
                         <li><strong>KPI e target:</strong> massimo 3-5 KPI di outcome con target numerico e timeline</li>
-                        <li><strong>Calcolo ROI completo:</strong> includere tutti i costi di industrializzazione (vedi sezione precedente)</li>
+                        <li><strong>Calcolo del ritorno:</strong> includere tutti i costi di messa in produzione (si veda la sezione precedente)</li>
                         <li><strong>Perimetro di go-live:</strong> definire esattamente cosa entra nella V1 e cosa resta nel backlog</li>
                         <li><strong>Criteri di go-live:</strong> checklist oggettiva che deve essere 100% verde per procedere al rollout</li>
                         <li><strong>RACI completo:</strong> nome e cognome per ogni ruolo, non funzioni aziendali generiche</li>
                     </ul>
 
                     <div class="pro-tips">
-                        <h4>Deliverable settimana 1</h4>
-                        <p>Documento di progetto con: obiettivi, KPI/target, ROI atteso, perimetro V1, criteri go-live, RACI, timeline 4 settimane, risk register con mitigazioni. Approvato da business owner e CTO.</p>
+                        <h4>Deliverable della fase 1</h4>
+                        <p>Documento di progetto con obiettivi, KPI e target, ritorno atteso, perimetro della V1, criteri di go-live, RACI, calendario delle fasi, registro dei rischi con mitigazioni. Approvato dal responsabile di processo e dal CTO.</p>
                     </div>
 
-                    <h3>Settimana 2: Hardening tecnico (IAM, logging, secrets, backup, DR)</h3>
-                    <p>La seconda settimana trasforma l'architettura PoC in architettura production-grade.</p>
+                    <h3>Fase 2: irrobustimento tecnico (IAM, logging, secrets, backup, DR)</h3>
+                    <p>La seconda fase porta l’architettura del PoC al livello richiesto dalla produzione.</p>
                     <ul>
                         <li><strong>IAM (Identity &amp; Access Management):</strong> SSO, MFA, RBAC, provisioning/deprovisioning automatizzato</li>
                         <li><strong>Logging e observability:</strong> logging strutturato centralizzato, distributed tracing, metriche applicative</li>
@@ -632,80 +826,78 @@
                     </ul>
 
                     <div class="pro-tips">
-                        <h4>Deliverable settimana 2</h4>
+                        <h4>Deliverable della fase 2</h4>
                         <p>Infrastruttura production-ready con: pipeline CI/CD operativa, IAM configurato, logging centralizzato attivo, backup testato, penetration test report con zero finding critici aperti.</p>
                     </div>
 
-                    <h3>Settimana 3: Integrazioni, test E2E e training</h3>
-                    <p>La terza settimana connette il sistema all'ecosistema aziendale e lo valida end-to-end.</p>
+                    <h3>Fase 3: integrazioni, test end-to-end e formazione</h3>
+                    <p>La terza fase collega il sistema ai sistemi aziendali e lo verifica dall’inizio alla fine.</p>
                     <ul>
                         <li><strong>Integrazioni core:</strong> completare le connessioni con ERP, CRM, identity provider, data sources</li>
                         <li><strong>Test end-to-end:</strong> scenari completi dal trigger iniziale all'output finale, inclusi edge case e failure modes</li>
                         <li><strong>Performance testing:</strong> load test al 150% del carico previsto per verificare la scalabilit&agrave;</li>
-                        <li><strong>UAT (User Acceptance Testing):</strong> test con utenti reali sul perimetro definito in settimana 1</li>
+                        <li><strong>UAT (User Acceptance Testing):</strong> test con utenti reali sul perimetro definito nella fase 1</li>
                         <li><strong>Training:</strong> formazione degli utenti finali, dei team di supporto e degli amministratori</li>
                         <li><strong>Documentazione:</strong> runbook operativo, guida utente, FAQ, procedure di escalation</li>
                     </ul>
 
                     <div class="pro-tips">
-                        <h4>Deliverable settimana 3</h4>
-                        <p>Sistema integrato e testato con: report test E2E (100% pass), report load test (SLO rispettati al 150% del carico), UAT sign-off dal business owner, team di supporto formato e operativo.</p>
+                        <h4>Deliverable della fase 3</h4>
+                        <p>Sistema integrato e testato con report dei test end-to-end superati, report del load test (SLO rispettati al 150% del carico previsto), approvazione UAT del responsabile di processo, team di supporto formato e operativo.</p>
                     </div>
 
-                    <h3>Settimana 4: Rollout controllato, monitoring e retrospettiva</h3>
-                    <p>L'ultima settimana &egrave; dedicata al go-live controllato e alla definizione del percorso post-lancio.</p>
+                    <h3>Fase 4: rilascio controllato, monitoraggio e retrospettiva</h3>
+                    <p>L’ultima fase è dedicata al go-live controllato e al percorso dopo il lancio.</p>
                     <ul>
                         <li><strong>Rollout controllato:</strong> canary deployment o blue/green al 10% &rarr; 25% &rarr; 50% &rarr; 100% degli utenti</li>
                         <li><strong>Monitoring dashboard:</strong> dashboard operativa con KPI tecnici e di business, visibile a tutti gli stakeholder</li>
                         <li><strong>War room (giorni 1-3):</strong> team dedicato per gestire issue in tempo reale nelle prime 72 ore</li>
-                        <li><strong>Retrospettiva:</strong> sessione strutturata su cosa ha funzionato, cosa migliorare, cosa eliminare</li>
+                        <li><strong>Retrospettiva e nuova misura:</strong> si rimisura il processo con gli stessi criteri della fase 1 e si decide se estendere, correggere o fermarsi</li>
                         <li><strong>Roadmap 90 giorni:</strong> piano per le feature V2, ottimizzazioni, scaling orizzontale e nuovi use case</li>
                         <li><strong>Handover:</strong> trasferimento formale al team di operations con documentazione completa</li>
                     </ul>
 
                     <div class="pro-tips">
-                        <h4>Deliverable settimana 4</h4>
+                        <h4>Deliverable della fase 4</h4>
                         <p>Sistema in produzione con: rollout al 100%, dashboard di monitoring operativa, retrospettiva documentata, roadmap 90 giorni approvata, handover completato al team operations.</p>
                     </div>
 
                     <div class="stats-grid">
                         <div class="stat-card">
-                            <span class="stat-number">Settimana 1</span>
-                            <span class="stat-label">Obiettivi, KPI, ROI, RACI</span>
+                            <span class="stat-number">Fase 1</span>
+                            <span class="stat-label">Obiettivi, KPI, perimetro, RACI</span>
                         </div>
                         <div class="stat-card">
-                            <span class="stat-number">Settimana 2</span>
-                            <span class="stat-label">Hardening tecnico e sicurezza</span>
+                            <span class="stat-number">Fase 2</span>
+                            <span class="stat-label">Irrobustimento tecnico e sicurezza</span>
                         </div>
                         <div class="stat-card">
-                            <span class="stat-number">Settimana 3</span>
-                            <span class="stat-label">Integrazioni, test E2E, training</span>
+                            <span class="stat-number">Fase 3</span>
+                            <span class="stat-label">Integrazioni, test end-to-end, formazione</span>
                         </div>
                         <div class="stat-card">
-                            <span class="stat-number">Settimana 4</span>
-                            <span class="stat-label">Rollout, monitoring, roadmap</span>
+                            <span class="stat-number">Fase 4</span>
+                            <span class="stat-label">Rilascio, monitoraggio, nuova misura</span>
                         </div>
                     </div>
                 </section>
 
-                <!-- Section 7: Quando cambiare partner -->
+                <!-- Section 7: Quando cambiare fornitore -->
                 <section class="content-section">
-                    <h2>Quando cambiare partner &mdash; Red flags e leve pratiche</h2>
-                    <p>Non tutti i PoC bloccati sono un problema di metodo. A volte il problema &egrave; il partner tecnologico. Ecco come riconoscere i segnali di allarme e come intervenire.</p>
+                    <h2>Quando cambiare fornitore: segnali d’allarme e leve pratiche</h2>
+                    <p>Non tutti i PoC bloccati sono un problema di metodo. A volte il problema è il fornitore. Ecco come riconoscere i segnali d’allarme e come intervenire.</p>
 
-                    <h3>Red flags: quando il partner &egrave; il problema</h3>
+                    <h3>Segnali d’allarme: quando il problema è il fornitore</h3>
                     <ul>
                         <li><strong>Vendor lock-in:</strong> tecnologie proprietarie senza standard aperti, dati non esportabili, codice non accessibile</li>
                         <li><strong>Documentazione assente:</strong> nessuna documentazione architetturale, nessun runbook, nessun knowledge transfer</li>
-                        <li><strong>Metriche non tracciabili:</strong> il partner non riesce a dimostrare le performance del sistema con dati oggettivi</li>
+                        <li><strong>Metriche non tracciabili:</strong> il fornitore non riesce a dimostrare le performance del sistema con dati oggettivi</li>
                         <li><strong>Ritardi sistematici:</strong> deadline spostate ripetutamente senza piano di recupero strutturato e root cause analysis</li>
                         <li><strong>Resistenza alla trasparenza:</strong> rifiuto di condividere codice sorgente, architettura, o accesso diretto ai sistemi</li>
                         <li><strong>Costi in crescita senza valore:</strong> budget che aumenta senza corrispondente avanzamento verso la produzione</li>
                     </ul>
 
-                    <blockquote>
-                        <p>"Se dopo 6 mesi di PoC il partner non riesce a mostrare un percorso chiaro verso la produzione con timeline, costi e criteri di successo, il problema non &egrave; la complessit&agrave; del progetto: &egrave; il partner."</p>
-                    </blockquote>
+                    <p>Se dopo mesi di PoC il fornitore non riesce a mostrare un percorso chiaro verso la produzione, con tempi, costi e criteri di successo, il problema di solito non è la complessità del progetto.</p>
 
                     <h3>Leve contrattuali: proteggersi prima di iniziare</h3>
                     <p>Le tutele vanno inserite nel contratto <strong>prima</strong> dell'avvio, non quando il rapporto si deteriora:</p>
@@ -715,14 +907,15 @@
                         <li><strong>Portabilit&agrave; dei dati:</strong> clausola di export in formato standard (CSV, JSON, API) senza costi aggiuntivi</li>
                         <li><strong>Cap sui costi:</strong> tetto massimo per fase con approvazione esplicita per ogni sforamento</li>
                         <li><strong>Exit clause:</strong> diritto di uscita con periodo di transizione e knowledge transfer obbligatorio</li>
+                        <li><strong>Governance congiunta:</strong> un comitato di avanzamento a cadenza fissa, con KPI condivisi e un registro delle decisioni</li>
                     </ul>
 
-                    <h3>Come interviene Niuexa: assessment, recovery, industrializzazione</h3>
-                    <p>Quando un'organizzazione si rivolge a noi con un PoC bloccato o un rapporto con il partner in crisi, il nostro intervento segue tre fasi:</p>
+                    <h3>Come interviene Niuexa: analisi, recupero, messa in produzione</h3>
+                    <p>Quando un’azienda ci porta un PoC bloccato o un rapporto difficile con il fornitore, il lavoro segue tre passi. La durata si definisce dopo l’analisi, nel preventivo scritto.</p>
                     <ol>
-                        <li><strong>Assessment indipendente (1 settimana):</strong> audit tecnico del PoC esistente, gap analysis rispetto alla produzione, valutazione del vendor lock-in, stima dei costi di recovery vs restart</li>
-                        <li><strong>Piano di recovery (1 settimana):</strong> definizione del percorso minimo per raggiungere la produzione, rinegoziazione con il partner attuale o piano di transizione verso un nuovo partner</li>
-                        <li><strong>Industrializzazione (4 settimane):</strong> applicazione del framework Niuexa a 4 settimane per portare il PoC in produzione, con il team Niuexa come partner tecnico o come supervisore indipendente</li>
+                        <li><strong>Analisi indipendente:</strong> verifica tecnica del PoC esistente e del processo che deve servire, distanza dalla produzione, valutazione del lock-in, confronto tra recuperare e ripartire. Se l’AI non serve, lo diciamo</li>
+                        <li><strong>Piano di recupero:</strong> il percorso minimo per arrivare alla produzione, con il fornitore attuale o con un piano di passaggio a un altro</li>
+                        <li><strong>Messa in produzione:</strong> il rilascio in quattro fasi descritto sopra, con Niuexa come esecutore tecnico o come supervisore indipendente</li>
                     </ol>
                 </section>
 
@@ -732,76 +925,99 @@
 
                     <div class="faq-item">
                         <h3>Quanto tempo serve per passare da PoC a produzione?</h3>
-                        <p>Con un framework strutturato come quello Niuexa, il passaggio da PoC a produzione richiede 4 settimane: settimana 1 per obiettivi e KPI, settimana 2 per hardening tecnico (sicurezza, logging, CI/CD), settimana 3 per integrazioni e test end-to-end, settimana 4 per rollout controllato e monitoring. Senza framework, i tempi medi oscillano tra 3 e 12 mesi, con un tasso di fallimento del 60-80%.</p>
+                        <p>Dipende dal perimetro: quante integrazioni servono, quanto l’architettura del PoC è lontana dalla produzione, quali requisiti di sicurezza e compliance valgono, quanto tempo possono dedicare le persone coinvolte. Il percorso ha quattro fasi (obiettivi e KPI, irrobustimento tecnico, integrazioni e test, rilascio controllato) e la durata si stima dopo la diagnosi, nel piano di lavoro, insieme ai criteri di go-live.</p>
                     </div>
 
                     <div class="faq-item">
-                        <h3>Qual &egrave; la differenza tra PoC, pilota e MVP?</h3>
-                        <p>Il PoC (Proof of Concept) verifica la fattibilit&agrave; tecnica su dati sintetici o campione, senza integrazioni reali. Il pilota testa la soluzione su un perimetro ristretto con dati reali e una integrazione minima. L'MVP (Minimum Viable Product) &egrave; la prima versione utilizzabile in produzione, con architettura scalabile, sicurezza e monitoring. L'errore pi&ugrave; comune &egrave; confondere il PoC con un pilota e provare a mandarlo in produzione senza hardening.</p>
+                        <h3>Qual è la differenza tra PoC, pilota e MVP?</h3>
+                        <p>Il PoC (Proof of Concept) verifica la fattibilità tecnica su dati sintetici o su un campione, senza integrazioni reali. Il pilota prova la soluzione su un perimetro ristretto con dati reali e un’integrazione minima. L’MVP (Minimum Viable Product) è la prima versione utilizzabile in produzione, con architettura scalabile, sicurezza e monitoraggio. L’errore più comune è scambiare il PoC per un pilota e provare a mandarlo in produzione senza irrobustirlo.</p>
                     </div>
 
                     <div class="faq-item">
-                        <h3>Perch&eacute; la maggior parte dei PoC non arriva mai in produzione?</h3>
-                        <p>Le cause principali sono: assenza di KPI di outcome misurabili (ci si ferma a metriche di output come l'accuracy del modello), dati del PoC non rappresentativi della realt&agrave; produttiva, nessuna integrazione con i sistemi aziendali (ERP, CRM, API), mancanza di un owner chiaro con budget e autorit&agrave; decisionale, e sottovalutazione dei requisiti di sicurezza, compliance e infrastruttura enterprise.</p>
+                        <h3>Perché la maggior parte dei PoC non arriva mai in produzione?</h3>
+                        <p>Le cause ricorrenti sono: nessun KPI di risultato misurabile (ci si ferma a metriche di output come l’accuracy del modello), dati del PoC non rappresentativi della realtà, nessuna integrazione con i sistemi aziendali (ERP, CRM, API), nessun responsabile con budget e autorità decisionale, requisiti di sicurezza, compliance e infrastruttura sottovalutati.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Cosa verificare prima di avviare un PoC?</h3>
+                        <p>Tre cose. Il problema, scritto in una pagina con la misura attuale, i criteri di successo e un responsabile. I dati, controllati su un campione per completezza, accuratezza, coerenza tra sistemi, aggiornamento e utilizzabilità legale. La fattibilità su cinque dimensioni: tecnica, dati, integrazione, organizzazione ed economia, messa in produzione inclusa. Se i dati non ci sono o non si possono usare, il primo progetto è metterli in ordine.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Quanto deve durare un PoC?</h3>
+                        <p>Settimane, non mesi, con una scadenza fissata all’inizio insieme ai criteri di successo. Un PoC risponde a una domanda precisa, cioè se si può fare. Se alla scadenza la risposta è ancora “dipende”, il perimetro era troppo ampio o l’ipotesi troppo vaga: conviene restringerli invece di prolungare il PoC.</p>
                     </div>
 
                     <div class="faq-item">
                         <h3>Come si definiscono i criteri go/no-go per un PoC?</h3>
-                        <p>I criteri go/no-go si basano su tre scenari: Go (outcome &ge; target e readiness tecnica verde) significa procedere allo scaling; Iterate (outcome 50-99% del target con gap chiaro) significa un piano di recupero in 4 settimane; No-go (outcome &lt; 50% o rischi non mitigabili) significa fermarsi e ripensare l'approccio. I criteri devono essere definiti prima dell'avvio del PoC e condivisi con tutti gli stakeholder.</p>
+                        <p>Con tre esiti decisi prima di iniziare. Go: risultato pari o superiore al target, readiness tecnica verde e responsabile confermato, quindi si procede con il rilascio. Iterate: risultato tra il 50% e il 99% del target con un gap chiaro, quindi un piano di recupero con scadenze brevi. No-go: risultato sotto il 50% del target o rischi non mitigabili, quindi ci si ferma e si ripensa l’approccio. I criteri si scrivono prima dell’avvio e si condividono con tutte le persone coinvolte.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Quali KPI servono come minimo per decidere go o no-go?</h3>
+                        <p>Tre famiglie: il risultato sul processo (tempi, errori, costi o conversioni rispetto alla misura di partenza), la qualità tecnica del sistema (per esempio precision e recall per una classificazione) e la sostenibilità operativa (latenza, disponibilità, costo per transazione). Se ne manca una, la decisione è incompleta: un sistema preciso ma troppo costoso, o economico ma inaffidabile, non regge in produzione.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Come si stima il ritorno se il PoC non ha dati storici?</h3>
+                        <p>Si misura a mano il processo attuale su un campione di 20-50 casi (tempi, costi, errori), si calcola il costo unitario per pratica, ticket o ordine prima e dopo, e si costruiscono tre scenari (prudente, intermedio, favorevole) con le ipotesi dichiarate. La direzione decide su un intervallo, non su un numero unico.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Quando conviene fermare un PoC anche se sembra funzionare?</h3>
+                        <p>Quando i risultati sono buoni ma i costi in produzione li annullano, quando il sistema dipende da dati che in produzione non saranno disponibili o non si potranno usare legalmente, quando c’è un lock-in tecnico senza alternative o quando nessuno nel processo è disposto a esserne responsabile. Fermarsi presto e documentare cosa si è imparato costa meno che continuare a investire.</p>
                     </div>
 
                     <div class="faq-item">
                         <h3>Quali sono i costi reali del passaggio da PoC a produzione?</h3>
-                        <p>Il costo di industrializzazione &egrave; tipicamente 3-10 volte il costo del PoC. Le voci spesso sottostimate sono: integrazione con sistemi esistenti (ERP, CRM, SSO), sicurezza e compliance (GDPR, audit trail, penetration test), infrastruttura enterprise (CI/CD, monitoring, backup, disaster recovery), MLOps e data pipeline production-grade, change management e formazione utenti, supporto e manutenzione post-go-live.</p>
+                        <p>Il costo di messa in produzione è spesso un multiplo del costo del PoC, perché il PoC non comprende le voci che la produzione richiede: integrazione con i sistemi esistenti (ERP, CRM, SSO), sicurezza e compliance (GDPR, audit trail, penetration test), infrastruttura (CI/CD, monitoraggio, backup, disaster recovery), pipeline dati, formazione degli utenti, supporto e manutenzione dopo il rilascio. Conviene farsi dare una stima scritta di ciascuna voce prima di decidere.</p>
                     </div>
 
                     <div class="faq-item">
-                        <h3>Quando conviene cambiare partner tecnologico durante la transizione PoC-produzione?</h3>
-                        <p>I red flag che indicano la necessit&agrave; di cambiare partner sono: vendor lock-in su tecnologie proprietarie senza documentazione, impossibilit&agrave; di tracciare metriche di performance e ROI, assenza di documentazione tecnica e architetturale, ritardi sistematici senza piano di recupero strutturato, e resistenza a condividere IP, codice sorgente o dati. Niuexa interviene con un assessment indipendente, un piano di recovery e l'industrializzazione del progetto.</p>
+                        <h3>Quando conviene cambiare fornitore nel passaggio dal PoC alla produzione?</h3>
+                        <p>I segnali d’allarme sono: lock-in su tecnologie proprietarie senza documentazione, metriche di prestazione e di risultato non tracciabili, documentazione tecnica e architetturale assente, ritardi sistematici senza un piano di recupero, resistenza a condividere codice sorgente, proprietà intellettuale o dati. Niuexa può fare un’analisi indipendente del PoC, proporre un piano di recupero e accompagnare la messa in produzione.</p>
                     </div>
                 </section>
 
                 <!-- Section 9: Conclusione -->
                 <section class="content-section">
-                    <h2>Conclusione &mdash; 7 decisioni operative per passare da PoC a produzione</h2>
+                    <h2>Conclusione: 7 decisioni per passare dal PoC alla produzione</h2>
                     <p>Trasformare un PoC in un sistema production-grade non &egrave; un problema tecnico: &egrave; un problema di decisioni. Ecco le 7 decisioni che ogni organizzazione deve prendere, in ordine, per attraversare il gap.</p>
 
                     <ol>
-                        <li><strong>Obiettivo:</strong> definire l'outcome di business atteso (non "implementare l'AI", ma "ridurre del 30% i tempi di approvazione credito")</li>
-                        <li><strong>KPI / ROI:</strong> scegliere massimo 3-5 KPI di outcome con target numerico e calcolare il ROI includendo tutti i costi di industrializzazione</li>
-                        <li><strong>Owner:</strong> nominare un responsabile con budget, autorit&agrave; e accountability &mdash; non un comitato, una persona</li>
-                        <li><strong>Dati:</strong> validare che i dati di produzione siano rappresentativi, accessibili e con qualit&agrave; sufficiente &mdash; non fidarsi del dataset del PoC</li>
-                        <li><strong>Architettura:</strong> progettare per la produzione (CI/CD, logging, multi-ambiente, SLO) &mdash; non adattare l'architettura del PoC</li>
-                        <li><strong>Sicurezza:</strong> implementare security by design (SSO, MFA, encryption, audit trail, penetration test) &mdash; non aggiungerla dopo</li>
-                        <li><strong>Scaling:</strong> pianificare il rollout controllato con criteri go-live oggettivi, monitoring e roadmap 90 giorni</li>
+                        <li><strong>Obiettivo:</strong> definire il risultato atteso sul processo (non “implementare l’AI”, ma “ridurre i tempi di approvazione del credito rispetto alla misura di partenza”)</li>
+                        <li><strong>KPI e ritorno:</strong> scegliere al massimo 3-5 KPI di risultato con un target numerico e calcolare il ritorno includendo tutti i costi di messa in produzione</li>
+                        <li><strong>Responsabile:</strong> nominare una persona con budget, autorità e responsabilità sul risultato, non un comitato</li>
+                        <li><strong>Dati:</strong> verificare che i dati di produzione siano rappresentativi, accessibili e di qualità sufficiente, senza fidarsi del dataset del PoC</li>
+                        <li><strong>Architettura:</strong> progettare per la produzione (CI/CD, logging, più ambienti, SLO) invece di adattare l’architettura del PoC</li>
+                        <li><strong>Sicurezza:</strong> progettarla dall’inizio (SSO, MFA, cifratura, audit trail, penetration test) invece di aggiungerla dopo</li>
+                        <li><strong>Rilascio:</strong> pianificare un rilascio controllato con criteri di go-live oggettivi, monitoraggio e una nuova misura del processo</li>
                     </ol>
 
-                    <blockquote>
-                        <p>"Il passaggio da PoC a produzione non fallisce per mancanza di tecnologia. Fallisce per mancanza di decisioni. Ogni settimana senza una decisione &egrave; una settimana in cui il PoC invecchia e il valore si erode."</p>
-                    </blockquote>
+                    <p>Il passaggio dal PoC alla produzione si blocca più spesso per decisioni rimandate che per limiti della tecnologia: ogni mese senza una decisione è un mese in cui il PoC invecchia.</p>
 
                     <div class="info-box">
-                        <h3>PoC-to-Production Assessment Niuexa</h3>
-                        <p>Hai un PoC che non riesce ad arrivare in produzione? Il team Niuexa esegue un assessment indipendente in 5 giorni: audit tecnico, gap analysis, stima costi di industrializzazione e piano operativo a 4 settimane. Il risultato &egrave; un documento decisionale con raccomandazione go/iterate/no-go e roadmap dettagliata.</p>
-                        <a href="contatti.html" class="btn btn-primary">Richiedi il PoC-to-Production Assessment</a>
+                        <h3>Ci mostri il Suo PoC</h3>
+                        <p>In una prima chiamata di 30 minuti, gratuita, guardiamo insieme il PoC e il processo che deve servire e Le diciamo se conviene portarlo in produzione, correggerlo o fermarsi. Il costo di un eventuale intervento si definisce in un preventivo scritto, dopo l’analisi.</p>
+                        <a href="index.html#contact" class="btn btn-primary">Prenoti la prima chiamata</a>
                     </div>
                 </section>
 
                 <!-- Related Articles -->
                 <section class="content-section">
-                    <h2>Articoli Correlati</h2>
+                    <h2>Articoli correlati</h2>
                     <div class="related-articles">
-                        <a href="articolo-costo-automazione.html" class="related-card">
+                        <a href="articolo-costi-automazione-guida.html" class="related-card">
                             <span class="related-category">Automazione</span>
-                            <h3>Quanto Costa un Progetto di Automazione? Guida a Budget, Voci di Costo e ROI</h3>
+                            <h3>Quanto costa un progetto di automazione? Le voci di costo e come leggere un preventivo</h3>
                         </a>
-                        <a href="articolo-ai-manifatturiero-industria40.html" class="related-card">
-                            <span class="related-category">Industria 4.0</span>
-                            <h3>AI e Industria 4.0: La Trasformazione del Manifatturiero Italiano</h3>
+                        <a href="articolo-tool-agenti-ai.html" class="related-card">
+                            <span class="related-category">AI Engineering</span>
+                            <h3>Tool e pratiche per creare agenti AI affidabili</h3>
                         </a>
-                        <a href="articolo-faq-consulenza-ai-italia.html" class="related-card">
-                            <span class="related-category">Consulenza AI</span>
-                            <h3>FAQ Consulenza AI Italia: 15 Domande Essenziali</h3>
+                        <a href="articolo-due-diligence-fornitori-ai-pmi.html" class="related-card">
+                            <span class="related-category">Fornitori AI</span>
+                            <h3>12 domande da fare prima di firmare con un fornitore AI</h3>
                         </a>
                     </div>
                 </section>
@@ -813,9 +1029,9 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <h2>Il Tuo PoC &Egrave; Bloccato? Trasformalo in Produzione in 4 Settimane</h2>
-            <p>I consulenti Niuexa eseguono un assessment indipendente del tuo PoC, definiscono il piano di industrializzazione e ti accompagnano fino al go-live con il framework a 4 settimane.</p>
-            <a href="contatti.html" class="btn btn-primary">Richiedi il PoC-to-Production Assessment</a>
+            <h2>Un PoC fermo? Ci mostri il processo</h2>
+            <p>La prima chiamata di 30 minuti è gratuita e senza impegno: guardiamo il PoC e il processo che deve servire e Le diciamo con franchezza se conviene portarlo in produzione, correggerlo o fermarsi.</p>
+            <a href="index.html#contact" class="btn btn-primary">Ci mostri un processo</a>
         </div>
     </section>
 

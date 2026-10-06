@@ -1,0 +1,137 @@
+/* ============================================================
+   Client access (login.html, en/login.html)
+   Not a login form: the page points clients to the AEO platform
+   and to the email address while the client area is prepared.
+   A quiet card on the dark field, no navigation bar.
+   Tokens from styles.css only. Scoped to body.login-page.
+   ============================================================ */
+
+.login-page .login-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 96px 20px 64px;
+    background: var(--gradient-hero-dark);
+}
+
+.login-page .back-home {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0.6rem 1.1rem;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    font-weight: 600;
+    color: var(--white);
+    text-decoration: none;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.login-page .back-home svg,
+.login-page .login-btn svg,
+.login-page .login-notice svg {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+}
+
+.login-page .back-home:hover {
+    background: var(--white);
+    color: var(--blue-text);
+}
+
+.login-page .back-home:focus-visible {
+    outline: 3px solid var(--signal-on-dark);
+    outline-offset: 3px;
+}
+
+.login-page .login-card {
+    width: 100%;
+    max-width: 460px;
+    padding: clamp(2rem, 5vw, 3rem);
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+}
+
+.login-page .login-brand {
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+
+.login-page .login-brand img {
+    display: block;
+    width: auto;
+    height: 40px;
+}
+
+.login-page .login-card h1 {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-primary);
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--dark-gray);
+}
+
+.login-page .login-subtitle {
+    margin: 0 0 1.5rem;
+    color: var(--medium-gray);
+}
+
+.login-page .login-notice {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.75rem;
+    padding: 1rem 1.1rem;
+    background: var(--info-surface);
+    border-radius: 12px;
+    line-height: 1.6;
+    color: var(--dark-gray);
+}
+
+.login-page .login-notice svg {
+    margin-top: 0.2rem;
+    color: var(--blue-text);
+}
+
+.login-page .login-notice p {
+    margin: 0;
+}
+
+.login-page .login-notice a,
+.login-page .login-alt a {
+    color: var(--blue-text);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.login-page .login-btn {
+    gap: 0.6rem;
+    width: 100%;
+    padding: 14px 28px;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+}
+
+.login-page .login-alt {
+    margin: 1.25rem 0 0;
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--medium-gray);
+}
+
+@media (max-width: 640px) {
+    .login-page .back-home {
+        top: 1rem;
+        left: 1rem;
+    }
+}

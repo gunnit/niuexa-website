@@ -4,7 +4,7 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
 import { MOVED } from '../build/event-content.mjs';
-import { rulesFor, urlFor } from '../build/package-cloudflare.mjs';
+import { RENAMED, rulesFor, urlFor } from '../build/package-cloudflare.mjs';
 
 const root = resolve(import.meta.dirname, '..');
 const site = join(root, '_site');
@@ -17,9 +17,11 @@ test('Cloudflare config serves exact paths from the packaged _site', () => {
   assert.equal(config.assets.html_handling, 'none');
   assert.equal(config.assets.not_found_handling, '404-page');
   assert.equal(config.main, undefined, 'assets-only: no Worker script');
-  // Production: the apex is the Worker's only Custom Domain (www redirects in a Cloudflare rule).
-  // wrangler treats a non-empty list as the complete set, so an edit here changes the live site.
-  assert.deepEqual(config.routes, [{ pattern: 'niuexa.ai', custom_domain: true }]);
+  // Production routing lives in the Cloudflare dashboard (route niuexa.ai/* on the proxied
+  // apex records). A route here would replace it on deploy, and a Custom Domain fails while
+  // niuexa.ai has DNS records.
+  assert.equal(config.routes, undefined);
+  assert.equal(config.route, undefined);
 });
 
 test('rules cover every URL shape GitHub Pages resolved', () => {
@@ -47,6 +49,9 @@ test('the packaged bundle has a route for every page and real redirects for reti
     const target = to.endsWith('/') ? to.slice(1) + 'index.html' : to.slice(1);
     assert.ok(files.has(target) || rules.has(to), `${from} -> ${to} lands nowhere`);
     if (status === '200') assert.ok(files.has(target), `${from} rewrites to missing ${to}`);
+  }
+  for (const [from, to] of RENAMED) {
+    assert.deepEqual(rules.get('/' + from), { to: '/' + to, status: '301' }, from);
   }
   for (const [from, to] of MOVED) {
     assert.deepEqual(rules.get(`/eventi-ai-aziende/${from}/`), { to: `/eventi-ai-aziende/${to}/`, status: '301' }, from);

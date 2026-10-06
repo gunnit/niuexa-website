@@ -31,16 +31,15 @@ assets:
 breadcrumbs:
   Home: ""
   Ricerca: research.html
-  Impara: impara.html
   Consulenza: consulting.html
 
 defaults:
   reading_time_wpm: 180   # Italian technical prose; articles may override reading_time
   robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
   cta:
-    heading: Vuoi applicare l'AI ai tuoi processi con criteri verificabili?
-    body: Niuexa affianca le PMI italiane dalla valutazione iniziale alla messa in produzione di workflow e AI agent.
-    primary_label: Prenota un assessment AI
-    primary_href: ai-readiness-assessment.html
-    secondary_label: Scopri la consulenza AI
+    heading: Ci mostri un processo
+    body: In 30 minuti, gratuiti e senza impegno, guardiamo insieme un processo della Sua azienda e Le diciamo se l'AI può alleggerirlo. Prima misuriamo, poi automatizziamo.
+    primary_label: Prenoti la prima chiamata
+    primary_href: index.html#contact
+    secondary_label: Come lavoriamo
     secondary_href: consulting.html

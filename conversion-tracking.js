@@ -136,13 +136,13 @@
   }
 
   // Two offers share the word "readiness": the AI Readiness Assessment (consulting) and the
-  // AEO Analyzer sold on ai-readiness-tool.html. Match exact paths and label prefixes, never a
+  // AEO Analyzer sold on consulenza-aeo-geo.html. Match exact paths and label prefixes, never a
   // substring, so neither offer's forms or thank-you page are counted as the other's.
   var OFFERS = [
     {
       campaign: 'aeo_analyzer_2026', formName: 'AEO Analyzer',
       thankYou: 'https://niuexa.ai/thank-you-ai-readiness.html',
-      paths: ['/ai-readiness-tool.html', '/en/ai-readiness-tool.html', '/thank-you-ai-readiness.html'],
+      paths: ['/consulenza-aeo-geo.html', '/en/ai-readiness-tool.html', '/thank-you-ai-readiness.html'],
       labels: ['aeo analyzer', 'ai readiness tool']
     },
     {

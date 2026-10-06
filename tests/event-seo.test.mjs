@@ -12,8 +12,8 @@ test('canonical, title, indexability, clean URL and static direct answers are co
  assert.match(html,/<link rel="canonical" href="https:\/\/niuexa.ai\/eventi-ai-aziende\/">/);
  assert.match(html,/<meta property="og:url" content="https:\/\/niuexa.ai\/eventi-ai-aziende\/">/);
  assert.ok(!/noindex|demo|anteprima locale|iscrizioni non ancora aperte/i.test(html));
- for(const date of ['2026-10-06','2026-10-27','2026-11-17']) assert.ok(html.includes(date));
- assert.ok(!html.includes('2026-12-02'),'retired 2 December date');
+ for(const date of ['2026-11-03','2026-11-17','2026-11-24']) assert.ok(html.includes(date));
+ for(const date of ['2026-12-02','2026-10-06','2026-10-27']) assert.ok(!html.includes(date),`retired date ${date}`);
  const schema=JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
  assert.ok(!schema['@graph'].some(n=>n['@type']==='Event'));
  assert.deepEqual(schema['@graph'].map(n=>n['@type']),['Organization','WebPage','FAQPage']);
@@ -30,7 +30,10 @@ test('approved logistics and chosen series topics are visible for all dates',()=
  assert.match(html,/Ufficio Libera/);
  assert.match(html,/Via Rutilia 10\/8, 20141 Milano/);
  assert.ok(!/Bebit/.test(html),'stale venue');
- assert.match(html,/SIGNALS – Decifrare il futuro/);
+ // Roberto's 6 October 2026 email dropped the SIGNALS name ("confonde") and the marketing paragraph.
+ assert.match(html,/Decifrare il futuro/);
+ assert.ok(!/SIGNALS/i.test(html.replace(/signal-dot/g,'')),'SIGNALS series name');
+ assert.ok(!/Nessuna adesione al marketing/.test(html));
  assert.match(html,/Europe\/Rome/);
  const rows=[...html.matchAll(/class="calendar-date">([\s\S]*?)<\/a>/g)];
  assert.equal(rows.length,3);

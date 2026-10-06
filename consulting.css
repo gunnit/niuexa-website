@@ -1,1116 +1,911 @@
-/* Consulting Page Specific Styles */
+/* ============================================================
+   Consulting page (consulting.html + en/consulting.html)
+   Loaded after polish.css; everything is scoped to
+   body.consulting-page. Same language as the homepage and the paid
+   landing: dark left-aligned hero, navy left-aligned headings,
+   hairline lists, quiet cards with aligned footers, drawn SVG icons.
+   Tokens from styles.css only.
+   ============================================================ */
 
-/* Consulting Hero Section */
-.consulting-hero {
-    padding: 120px 0 80px;
-    background: var(--gradient-cta);
-    color: var(--white);
-    text-align: center;
+.consulting-page {
+    --cp-section: clamp(64px, 8vw, 104px);
+    --cp-hairline-dark: color-mix(in srgb, var(--white) 16%, transparent);
+}
+
+/* ---------- Hero ---------- */
+.consulting-page .consulting-hero {
     position: relative;
+    isolation: isolate;
     overflow: hidden;
-}
-
-.consulting-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 30% 40%, rgba(35, 125, 166, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 70% 60%, rgba(67, 174, 104, 0.1) 0%, transparent 50%);
-    animation: particleFloat 20s ease-in-out infinite;
-}
-
-.consulting-hero .hero-content {
-    position: relative;
-    z-index: 1;
-}
-
-.consulting-hero .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: rgba(35, 125, 166, 0.1);
-    border: 1px solid rgba(35, 125, 166, 0.3);
-    padding: 0.5rem 1rem;
-    border-radius: 50px;
-    color: var(--blue-text);
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    animation: fadeInUp 1s ease;
-}
-
-.consulting-hero .badge-icon {
-    font-size: 1.2rem;
-}
-
-.consulting-hero .hero-title {
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
+    padding: clamp(120px, 13vw, 160px) 0 clamp(64px, 8vw, 96px);
+    background: var(--gradient-hero-dark);
     color: var(--white);
-    line-height: 1.1;
-    animation: fadeInUp 1s ease 0.2s both;
-}
-
-/* AA fix, matching .training-hero: the shared gradient-clipped .highlight
-   renders --gradient-primary over the mid-tone --gradient-secondary hero, and
-   every stop pairing lands between 1.06:1 and 2.15:1 where large text needs
-   3:1. White text with the gradient moved to an underline keeps the brand
-   accent and makes the word legible. */
-.consulting-hero .hero-title .highlight {
-    background: none;
-    -webkit-background-clip: initial;
-    background-clip: initial;
-    -webkit-text-fill-color: var(--white);
-    color: var(--white);
-    position: relative;
-}
-
-.consulting-hero .hero-title .highlight::after {
-    content: '';
-    position: absolute;
-    bottom: -6px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: var(--gradient-primary);
-    border-radius: 2px;
-}
-
-.consulting-hero .hero-subtitle {
-    font-size: 1.3rem;
-    color: var(--white);
-    margin-bottom: 2.5rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    animation: fadeInUp 1s ease 0.4s both;
-}
-
-.consulting-hero .hero-stats {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    margin-bottom: 2.5rem;
-    animation: fadeInUp 1s ease 0.6s both;
-}
-
-.consulting-hero .stat-item {
-    text-align: center;
-}
-
-.consulting-hero .stat-number {
-    display: block;
-    font-size: 2.5rem;
-    font-weight: 700;
-    /* AA fix, matching .training-hero: --primary-green reads 1.55:1 on the
-       mid-tone --gradient-secondary hero and needs 3:1 as large text. */
-    color: var(--white);
-    font-family: var(--font-primary);
-}
-
-.consulting-hero .stat-label {
-    font-size: 1rem;
-    color: var(--white);
-    margin-top: 0.5rem;
-}
-
-.consulting-hero .hero-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    animation: fadeInUp 1s ease 0.8s both;
-}
-
-
-/* Services Section */
-.services-section {
-    padding: var(--section-padding);
-    background: var(--white);
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    margin-top: 3rem;
-    overflow: hidden;
-}
-
-@media (max-width: 1024px) {
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-.service-card {
-    background: var(--white);
-    padding: 2.5rem;
-    border-radius: 20px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-    transition: all var(--transition-fast);
-    position: relative;
-    border: 2px solid transparent;
-}
-
-.service-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--primary-blue);
-    box-shadow: 0 25px 50px rgba(35, 125, 166, 0.15);
-}
-
-.service-icon {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 1.5rem;
-    position: relative;
-}
-
-.icon-strategy,
-.icon-automation,
-.icon-integration,
-.icon-optimization {
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-}
-
-.icon-strategy {
-    background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
-}
-
-.icon-automation {
-    background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
-}
-
-.icon-integration {
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
-}
-
-.icon-optimization {
-    background: linear-gradient(135deg, var(--dark-blue), var(--dark-green));
-}
-
-.icon-strategy::after { content: '🎯'; }
-.icon-automation::after { content: '⚡'; }
-.icon-integration::after { content: '🔗'; }
-.icon-optimization::after { content: '📈'; }
-
-.service-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--dark-gray);
-}
-
-.service-card p {
-    color: var(--medium-gray);
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-}
-
-.service-features {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.service-features li {
-    padding: 0.5rem 0;
-    color: var(--medium-gray);
-    position: relative;
-    padding-left: 1.5rem;
-}
-
-.service-features li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--primary-green);
-    font-weight: bold;
-}
-
-/* Quote-to-order operational checklist */
-.quote-order-section {
-    padding: var(--section-padding);
-    background: var(--light-gray);
-}
-
-.quote-order-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 3rem;
-    align-items: center;
-}
-
-.quote-order-intro .section-title {
-    margin: 0.75rem 0 1rem;
     text-align: left;
 }
 
-.quote-order-intro > p {
-    max-width: 680px;
-    color: var(--medium-gray);
+/* A still spectrum glow on the right edge; the shared particle drift is off */
+.consulting-page .consulting-hero::before {
+    z-index: -1;
+    background:
+        radial-gradient(55% 75% at 92% 15%, color-mix(in srgb, var(--brand-teal) 22%, transparent), transparent 70%),
+        radial-gradient(45% 60% at 100% 100%, color-mix(in srgb, var(--primary-green) 14%, transparent), transparent 70%);
+    animation: none;
+}
+
+/* Hero copy is visible without JS: styles.css hides it until script.js
+   adds body.loaded, and the English pages do not load script.js */
+.consulting-page .consulting-hero .hero-title,
+.consulting-page .consulting-hero .hero-subtitle,
+.consulting-page .consulting-hero .hero-buttons {
+    opacity: 1;
+    transform: none;
+    animation: none;
+}
+
+.consulting-page .consulting-hero .hero-content {
+    max-width: 780px;
+}
+
+.consulting-page .consulting-hero .hero-title {
+    max-width: 20ch;
+    margin: 0 0 1.5rem;
+    font-size: clamp(2.3rem, 5vw, 3.6rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+    color: var(--white);
+    animation: none;
+}
+
+.consulting-page .consulting-hero .hero-title .highlight {
+    position: static;
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    color: var(--signal-on-dark);
+}
+
+.consulting-page .consulting-hero .hero-title .highlight::after {
+    display: none;
+}
+
+.consulting-page .consulting-hero .hero-subtitle {
+    max-width: 60ch;
+    margin: 0 0 2.25rem;
+    font-size: clamp(1.05rem, 1.5vw, 1.2rem);
     line-height: 1.7;
+    padding: 0;
+    color: var(--white);
+    animation: none;
 }
 
-.quote-order-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 1.75rem;
-}
-
-.quote-order-checks {
+/* Three steps as a hairline row, not big numbers */
+.consulting-page .consulting-hero .hero-stats {
     display: grid;
-    gap: 0.85rem;
-    margin: 0;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    max-width: 720px;
+    margin: 0 0 2.25rem;
     padding: 0;
     list-style: none;
+    border-top: 1px solid var(--cp-hairline-dark);
+    animation: none;
 }
 
-.quote-order-checks li {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    gap: 1rem;
-    align-items: center;
-    padding: 1rem 1.15rem;
-    border: 1px solid var(--primary-blue);
-    border-radius: 14px;
+.consulting-page .consulting-hero .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1rem 1.25rem 0 0;
+    text-align: left;
+}
+
+.consulting-page .consulting-hero .stat-number {
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--signal-on-dark);
+}
+
+.consulting-page .consulting-hero .stat-label {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--white);
+}
+
+.consulting-page .consulting-hero .hero-buttons {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    margin: 0;
+    animation: none;
+}
+
+.consulting-page .consulting-hero .hero-note {
+    margin: 1.25rem 0 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--muted-on-dark);
+}
+
+/* ---------- Shared section rhythm ---------- */
+.consulting-page .services-section,
+.consulting-page .industry-section,
+.consulting-page .quote-order-section,
+.consulting-page .vendor-checklist-section,
+.consulting-page .process-section,
+.consulting-page .consulting-faq,
+.consulting-page .faq-section {
+    padding: var(--cp-section) 0;
+}
+
+/* Drawn check used by every bullet list on the page */
+.consulting-page .service-features li::before,
+.consulting-page .step-content li::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 0.95rem;
+    width: 10px;
+    height: 5px;
+    border-left: 2px solid var(--green-text);
+    border-bottom: 2px solid var(--green-text);
+    transform: rotate(-45deg);
+}
+
+/* ---------- Services ---------- */
+.consulting-page .services-section {
     background: var(--white);
 }
 
-.quote-order-checks span {
-    color: var(--blue-text);
-    font-family: var(--font-primary);
-    font-weight: 700;
+.consulting-page .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin: 0;
+    overflow: visible;
 }
 
-.quote-order-checks strong,
-.quote-order-checks small {
+.consulting-page .service-card {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background: var(--white);
+    transform: none;
+}
+
+.consulting-page main .service-card:hover {
+    transform: none;
+    border-color: var(--border-light);
+    box-shadow: var(--polish-card-shadow);
+}
+
+.consulting-page .service-card h3 {
+    margin: 0 0 0.75rem;
+    font-size: 1.3rem;
+    line-height: 1.3;
+    color: var(--dark-gray);
+}
+
+.consulting-page .service-card > p {
+    margin: 0 0 1.25rem;
+    line-height: 1.65;
+    color: var(--medium-gray);
+}
+
+.consulting-page .service-features {
+    margin: auto 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--border-light);
+}
+
+.consulting-page .service-features li {
+    position: relative;
+    padding: 0.6rem 0 0.6rem 1.6rem;
+    border-bottom: 1px solid var(--border-light);
+    line-height: 1.5;
+    color: var(--dark-gray);
+}
+
+.consulting-page .service-features li:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.consulting-page .service-features li::before {
+    top: 0.95rem;
+}
+
+/* ---------- Industry tabs ---------- */
+.consulting-page .industry-section {
+    background: var(--light-gray);
+}
+
+.consulting-page .industry-tabs {
+    margin: 0;
+}
+
+.consulting-page .tab-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    margin: 0 0 1.5rem;
+}
+
+.consulting-page .tab-btn {
+    width: auto;
+    min-height: 44px;
+    padding: 0.55rem 1.2rem;
+    border: 1px solid var(--border-medium);
+    border-radius: 50px;
+    background: var(--white);
+    color: var(--dark-gray);
+    font-family: var(--font-secondary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transform: none;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.consulting-page .tab-btn:hover {
+    transform: none;
+    background: var(--white);
+    border-color: var(--primary-blue);
+    color: var(--blue-text);
+}
+
+.consulting-page .tab-btn.active,
+.consulting-page .tab-btn[aria-selected="true"] {
+    background: var(--dark-gray);
+    border-color: var(--dark-gray);
+    color: var(--white);
+}
+
+.consulting-page .tab-btn:focus-visible {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 3px;
+}
+
+.consulting-page .tab-content {
+    display: none;
+    animation: none;
+}
+
+.consulting-page .tab-content.active {
     display: block;
 }
 
-.quote-order-checks strong {
+.consulting-page .tab-content:focus-visible {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 4px;
+    border-radius: 16px;
+}
+
+.consulting-page .industry-content {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    box-shadow: var(--polish-card-shadow);
+}
+
+.consulting-page .industry-info h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.5rem;
+    line-height: 1.25;
     color: var(--dark-gray);
-    font-family: var(--font-primary);
 }
 
-.quote-order-checks small {
-    margin-top: 0.2rem;
+.consulting-page .industry-info > p {
+    margin: 0 0 1.5rem;
+    font-size: 1.05rem;
+    line-height: 1.65;
     color: var(--medium-gray);
-    line-height: 1.4;
 }
 
-@media (max-width: 900px) {
-    .quote-order-layout {
-        grid-template-columns: 1fr;
-    }
+.consulting-page .use-cases {
+    display: block;
+    border-top: 1px solid var(--border-light);
 }
 
-@media (max-width: 560px) {
-    .quote-order-actions .btn {
-        width: 100%;
-        justify-content: center;
-    }
+.consulting-page .use-case {
+    padding: 1.1rem 0;
+    background: none;
+    border: 0;
+    border-bottom: 1px solid var(--border-light);
+    border-radius: 0;
 }
 
-/* Vendor due-diligence lead magnet */
-.vendor-checklist-section {
-    padding: var(--section-padding);
+.consulting-page .use-case:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.consulting-page .use-case h4 {
+    margin: 0 0 0.3rem;
+    font-size: 1.05rem;
+    color: var(--dark-gray);
+}
+
+.consulting-page .use-case p {
+    margin: 0;
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: var(--medium-gray);
+}
+
+.consulting-page .industry-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.consulting-page main .stat-card {
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 1.1rem 1.25rem;
+    text-align: left;
+    color: var(--dark-gray);
+    background: var(--light-gray);
+    border: 0;
+    border-radius: 12px;
+    box-shadow: none;
+}
+
+.consulting-page main .stat-card:hover {
+    box-shadow: none;
+}
+
+.consulting-page .stat-card h4 {
+    margin: 0 0 0.35rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 1;
+    color: var(--signal);
+}
+
+.consulting-page .decision-value {
+    display: block;
+    margin: 0 0 0.15rem;
+    font-family: var(--font-primary);
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--dark-gray);
+}
+
+.consulting-page .stat-period {
+    font-size: 0.92rem;
+    line-height: 1.45;
+    opacity: 1;
+    color: var(--medium-gray);
+}
+
+/* ---------- Checklist sections (quote to order, KPI, outcome budget) ---------- */
+.consulting-page .quote-order-section {
+    background: var(--light-gray);
+}
+
+.consulting-page .quote-order-section--white {
+    background: var(--white);
+}
+
+.consulting-page .quote-order-layout,
+.consulting-page .vendor-checklist-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: start;
+}
+
+.consulting-page .quote-order-intro .section-title,
+.consulting-page .vendor-checklist-intro .section-title {
+    margin: 0 0 1.25rem;
+    max-width: 20ch;
+    text-align: left;
+}
+
+.consulting-page .quote-order-intro > p {
+    max-width: 56ch;
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--medium-gray);
+}
+
+.consulting-page .quote-order-actions,
+.consulting-page .vendor-checklist-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+}
+
+.consulting-page .vendor-checklist-note {
+    margin: 1rem 0 0;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--medium-gray);
+}
+
+.consulting-page .quote-order-checks {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--border-light);
+}
+
+.consulting-page .quote-order-checks li {
+    display: grid;
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    gap: 1rem;
+    align-items: baseline;
+    padding: 1.1rem 0;
+    background: none;
+    border: 0;
+    border-bottom: 1px solid var(--border-light);
+    border-radius: 0;
+}
+
+.consulting-page .quote-order-checks span {
+    font-family: var(--font-primary);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--signal);
+}
+
+.consulting-page .quote-order-checks strong,
+.consulting-page .quote-order-checks small {
+    display: block;
+}
+
+.consulting-page .quote-order-checks strong {
+    font-family: var(--font-primary);
+    font-size: 1.05rem;
+    color: var(--dark-gray);
+}
+
+.consulting-page .quote-order-checks small {
+    margin-top: 0.2rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--medium-gray);
+}
+
+/* ---------- Vendor checklist (dark) ---------- */
+.consulting-page .vendor-checklist-section {
     background: var(--dark-gray);
     color: var(--white);
 }
 
-.vendor-checklist-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-    gap: 3rem;
-    align-items: center;
-}
-
-.vendor-checklist-intro .section-kicker {
+.consulting-page main .vendor-checklist-intro .section-title {
     color: var(--white);
-    border-color: var(--brand-teal);
 }
 
-.vendor-checklist-intro .section-title {
-    color: var(--white);
-    text-align: left;
-    margin: 1rem 0;
-}
-
-.vendor-checklist-intro > p {
-    color: var(--light-gray);
-    max-width: 680px;
+.consulting-page .vendor-checklist-intro > p {
+    max-width: 56ch;
+    margin: 0;
+    font-size: 1.05rem;
     line-height: 1.7;
+    color: var(--white);
 }
 
-.vendor-checklist-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 1.75rem;
+.consulting-page .vendor-checklist-section .vendor-checklist-note {
+    color: var(--muted-on-dark);
 }
 
-.vendor-checklist-actions .btn-secondary {
+.consulting-page .vendor-checklist-section .btn-primary {
+    background: var(--white);
+    color: var(--blue-text);
+    box-shadow: none;
+}
+
+.consulting-page .vendor-checklist-section .btn-primary:hover {
+    color: var(--dark-blue);
+}
+
+.consulting-page .vendor-checklist-section .btn-secondary {
     color: var(--white);
     border-color: var(--white);
 }
 
-.vendor-checklist-note {
-    margin-top: 1rem;
-    font-size: 0.92rem;
+.consulting-page .vendor-checklist-section .btn-secondary:hover {
+    background: var(--white);
+    color: var(--blue-text);
 }
 
-.vendor-gates {
+.consulting-page .vendor-gates {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.85rem;
-    list-style: none;
+    column-gap: 2rem;
+    margin: 0;
     padding: 0;
-    margin: 0;
+    list-style: none;
 }
 
-.vendor-gates li {
+.consulting-page .vendor-gates li {
     display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.15rem 0.75rem;
-    align-items: center;
-    padding: 1rem;
-    border: 1px solid var(--brand-teal);
-    border-radius: 14px;
-    background: var(--black);
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    gap: 0.2rem 0.75rem;
+    align-items: baseline;
+    padding: 1.1rem 0;
+    background: none;
+    border: 0;
+    border-top: 1px solid var(--cp-hairline-dark);
+    border-radius: 0;
 }
 
-.vendor-gates span {
+.consulting-page .vendor-gates span {
     grid-row: 1 / 3;
-    color: var(--primary-green);
     font-family: var(--font-primary);
+    font-size: 0.95rem;
     font-weight: 700;
+    color: var(--green-on-dark);
 }
 
-.vendor-gates strong {
-    color: var(--white);
+.consulting-page .vendor-gates strong {
     font-family: var(--font-primary);
-}
-
-.vendor-gates small {
-    color: var(--light-gray);
-    line-height: 1.35;
-}
-
-@media (max-width: 900px) {
-    .vendor-checklist-layout {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 560px) {
-    .vendor-gates {
-        grid-template-columns: 1fr;
-    }
-
-    .vendor-checklist-actions .btn {
-        width: 100%;
-        justify-content: center;
-    }
-}
-
-/* Industry Section */
-.industry-section {
-    padding: var(--section-padding);
-    background: var(--light-gray);
-}
-
-.industry-tabs {
-    margin-top: 3rem;
-}
-
-.tab-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
-}
-
-.tab-btn {
-    padding: 1rem 2rem;
-    border: 2px solid var(--primary-blue);
-    background: transparent;
-    color: var(--blue-text);
-    border-radius: 50px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all var(--transition-fast);
-    font-family: var(--font-secondary);
-}
-
-.tab-btn:hover,
-.tab-btn.active {
-    background: var(--primary-blue);
+    font-size: 1.05rem;
     color: var(--white);
-    transform: translateY(-2px);
 }
 
-.tab-content {
-    display: none;
-    animation: fadeInUp 0.5s ease;
+.consulting-page .vendor-gates small {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--muted-on-dark);
 }
 
-.tab-content.active {
-    display: block;
-}
-
-.industry-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 3rem;
+/* ---------- Method ---------- */
+.consulting-page .process-section {
     background: var(--white);
-    padding: 3rem;
-    border-radius: 20px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
 }
 
-.industry-info h3 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: var(--dark-gray);
-}
-
-.industry-info p {
-    font-size: 1.1rem;
-    color: var(--medium-gray);
-    margin-bottom: 2rem;
-    line-height: 1.6;
-}
-
-.use-cases {
+.consulting-page .process-timeline {
     display: grid;
-    gap: 1.5rem;
-}
-
-.use-case {
-    padding: 1.5rem;
-    background: var(--light-gray);
-    border-radius: 15px;
-    border-left: 3px solid var(--primary-blue);
-}
-
-.use-case h4 {
-    color: var(--dark-gray);
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
-}
-
-.use-case p {
-    color: var(--medium-gray);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.25rem;
     margin: 0;
-    font-size: 1rem;
+    padding: 0;
+    list-style: none;
 }
 
-.industry-stats {
+.consulting-page .process-step {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-}
-
-.stat-card {
-    background: var(--gradient-primary);
-    color: var(--white);
-    padding: 2rem;
-    border-radius: 15px;
-    text-align: center;
-}
-
-.stat-card h4 {
-    margin-bottom: 1rem;
-    opacity: 0.9;
-    font-size: 1rem;
-}
-
-.stat-value {
-    display: block;
-    font-size: 2.5rem;
-    font-weight: 700;
-    font-family: var(--font-primary);
-    margin-bottom: 0.5rem;
-}
-
-.stat-period {
-    font-size: 0.9rem;
-    opacity: 0.8;
-}
-
-.decision-value {
-    display: block;
-    font-family: var(--font-primary);
-    font-size: 1.25rem;
-    font-weight: 700;
-    line-height: 1.25;
-    margin-bottom: 0.5rem;
-}
-
-/* Process Section */
-.process-section {
-    padding: var(--section-padding);
+    padding: 1.75rem;
     background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    box-shadow: var(--polish-card-shadow);
+    transform: none;
 }
 
-.process-timeline {
+.consulting-page .process-step:hover {
+    transform: none;
+    box-shadow: var(--polish-card-shadow);
+}
+
+.consulting-page .step-number {
+    position: static;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.process-step {
-    position: relative;
-    background: var(--light-gray);
-    padding: 2rem;
-    border-radius: 20px;
-    transition: all var(--transition-fast);
-}
-
-.process-step:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-}
-
-.step-number {
-    position: absolute;
-    top: -15px;
-    left: 2rem;
+    place-items: center;
     width: 40px;
     height: 40px;
-    background: var(--gradient-primary);
-    color: var(--white);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-family: var(--font-primary);
-    font-size: 1.2rem;
-}
-
-.step-content h3 {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    color: var(--dark-gray);
-    font-size: 1.3rem;
-}
-
-.step-content p {
-    color: var(--medium-gray);
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-}
-
-.step-content ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.step-content li {
-    padding: 0.3rem 0;
-    color: var(--medium-gray);
-    position: relative;
-    padding-left: 1.5rem;
-}
-
-.step-content li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
+    margin: 0 0 1.25rem;
+    border-radius: 12px;
+    background: var(--light-blue);
     color: var(--blue-text);
-    font-weight: bold;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: 700;
 }
 
-/* Consulting FAQ and conversion section */
-.consulting-faq {
-    padding: var(--section-padding);
+.consulting-page .step-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.consulting-page .step-content h3 {
+    margin: 0 0 0.75rem;
+    font-size: 1.2rem;
+    line-height: 1.3;
+    color: var(--dark-gray);
+}
+
+.consulting-page .step-content p {
+    margin: 0 0 1.25rem;
+    line-height: 1.6;
+    color: var(--medium-gray);
+}
+
+.consulting-page .step-content ul {
+    margin: auto 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--border-light);
+}
+
+.consulting-page .step-content li {
+    position: relative;
+    padding: 0.55rem 0 0.55rem 1.6rem;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 0.95rem;
+    line-height: 1.45;
+    color: var(--dark-gray);
+}
+
+.consulting-page .step-content li:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.consulting-page .step-content li::before {
+    top: 0.85rem;
+}
+
+/* ---------- FAQ: title column + hairline list ---------- */
+.consulting-page .consulting-faq,
+.consulting-page .faq-section {
     background: var(--light-gray);
 }
 
-.faq-intro {
-    max-width: 760px;
-    margin: 0 auto 3rem;
-    text-align: center;
-}
-
-.section-kicker {
-    display: inline-block;
-    margin-bottom: 0.75rem;
-    color: var(--signal);
-    font-family: var(--font-primary);
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
-
-.faq-intro p,
-.faq-card p,
-.faq-cta p {
-    color: var(--medium-gray);
-    line-height: 1.7;
-}
-
-.faq-grid {
+.consulting-page .faq-layout,
+.consulting-page .faq-container {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    column-gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
+    max-width: var(--polish-container);
 }
 
-.faq-card,
-.faq-cta {
-    padding: 2rem;
-    border: 1px solid var(--primary-blue);
-    border-radius: 20px;
-    background: var(--white);
+.consulting-page .faq-intro {
+    max-width: none;
+    margin: 0;
+    text-align: left;
 }
 
-.faq-card h3,
-.faq-cta h3 {
-    margin-bottom: 0.75rem;
+.consulting-page .faq-intro .section-title,
+.consulting-page .faq-container .section-title {
+    margin: 0 0 1rem;
+}
+
+.consulting-page .faq-intro > p,
+.consulting-page .faq-container .author-attribution {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: left;
+    color: var(--medium-gray);
+}
+
+.consulting-page .faq-list {
+    display: block;
+    border-top: 1px solid var(--border-light);
+}
+
+.consulting-page .faq-list details.faq-item summary h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.35;
     color: var(--dark-gray);
-    font-size: 1.25rem;
+    transition: color var(--transition-fast);
 }
 
-.faq-cta {
+.consulting-page .faq-list details.faq-item summary:hover h3 {
+    color: var(--blue-text);
+}
+
+.consulting-page .faq-list details.faq-item p {
+    max-width: 68ch;
+    margin: 0 0 0.75rem;
+    padding: 0;
+    line-height: 1.7;
+    color: var(--medium-gray);
+}
+
+.consulting-page .faq-list details.faq-item p:last-child {
+    margin-bottom: 1.5rem;
+    padding-bottom: 0;
+}
+
+.consulting-page .faq-list details.faq-item .direct-answer {
+    font-weight: 500;
+    color: var(--dark-gray);
+}
+
+.consulting-page .faq-cta {
+    margin-top: 2rem;
+    padding: 1.75rem;
     background: var(--dark-gray);
-}
-
-.faq-cta h3,
-.faq-cta p {
+    border: 0;
+    border-radius: 16px;
     color: var(--white);
 }
 
-/* The light-surface teal drops to 2.57:1 on this navy card; use the
-   dark-surface variant. */
-.faq-cta .section-kicker {
+.consulting-page .faq-cta h3 {
+    margin: 0 0 0.6rem;
+    font-size: 1.25rem;
+    color: var(--white);
+}
+
+.consulting-page .faq-cta p {
+    margin: 0 0 1.25rem;
+    line-height: 1.65;
+    color: var(--muted-on-dark);
+}
+
+.consulting-page .faq-cta .btn {
+    margin: 0;
+}
+
+.consulting-page .faq-secondary-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 44px;
+    margin-top: 0.5rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--white);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.consulting-page .faq-secondary-link svg {
+    flex: 0 0 16px;
+    width: 16px;
+    height: 16px;
+}
+
+.consulting-page .faq-secondary-link:hover,
+.consulting-page .faq-secondary-link:focus-visible {
     color: var(--signal-on-dark);
 }
 
-.faq-cta .btn {
-    margin-top: 0.75rem;
+/* Shared focus ring for buttons on this page */
+.consulting-page .btn:focus-visible {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 3px;
 }
 
-.faq-secondary-link {
-    display: block;
-    margin-top: 1rem;
-    color: var(--white);
-    font-weight: 600;
+.consulting-page .consulting-hero .btn:focus-visible,
+.consulting-page .vendor-checklist-section .btn:focus-visible,
+.consulting-page .faq-cta .btn:focus-visible,
+.consulting-page .faq-secondary-link:focus-visible {
+    outline-color: var(--white);
 }
 
-.faq-secondary-link:hover,
-.faq-secondary-link:focus-visible {
-    color: var(--primary-green);
-}
-
-/* Case Studies Section */
-.case-studies-section {
-    padding: var(--section-padding);
-    background: var(--gradient-light);
-}
-
-.case-studies-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-    overflow: hidden;
-}
-
-.case-study {
-    background: var(--white);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-    transition: all var(--transition-fast);
-}
-
-.case-study:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-}
-
-.case-study-header {
-    padding: 2rem 2rem 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1rem;
-}
-
-.case-study-header h3 {
-    color: var(--dark-gray);
-    margin: 0;
-    font-size: 1.3rem;
-    line-height: 1.3;
-}
-
-.industry-tag {
-    background: var(--gradient-primary);
-    color: var(--white);
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    white-space: nowrap;
-}
-
-.case-study-content {
-    padding: 0 2rem 2rem;
-}
-
-.case-study-content p {
-    color: var(--medium-gray);
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-}
-
-.case-study-metrics {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-}
-
-.metric {
-    text-align: center;
-    padding: 1rem;
-    background: var(--light-gray);
-    border-radius: 10px;
-}
-
-.metric-value {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--blue-text);
-    font-family: var(--font-primary);
-    margin-bottom: 0.25rem;
-}
-
-.metric-label {
-    font-size: 0.8rem;
-    color: var(--medium-gray);
-    font-weight: 500;
-}
-
-/* Consultation Section */
-.consultation-section {
-    padding: var(--section-padding);
-    background: var(--gradient-cta);
-    color: var(--white);
-}
-
-.consultation-content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.consultation-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.consultation-content > p {
-    font-size: 1.2rem;
-    margin-bottom: 2.5rem;
-    opacity: 0.9;
-}
-
-.consultation-benefits {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin-bottom: 3rem;
-}
-
-.benefit {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    font-weight: 500;
-}
-
-.benefit-icon {
-    color: var(--primary-green);
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-.consultation-form {
-    background: var(--white);
-    padding: 2.5rem;
-    border-radius: 20px;
-    color: var(--dark-gray);
-}
-
-.consultation-form .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.consultation-form .form-group {
-    margin-bottom: 1rem;
-}
-
-.consultation-form input,
-.consultation-form select,
-.consultation-form textarea {
-    width: 100%;
-    padding: 1rem;
-    border: 2px solid var(--border-light);
-    border-radius: 10px;
-    font-family: var(--font-secondary);
-    font-size: 1rem;
-    transition: border-color var(--transition-fast);
-}
-
-.consultation-form input:focus,
-.consultation-form select:focus,
-.consultation-form textarea:focus {
-    outline: none;
-    border-color: var(--primary-blue);
-}
-
-.consultation-form .btn {
-    width: 100%;
-    padding: 1.2rem;
-    font-size: 1.1rem;
-    margin-top: 1rem;
-}
-
-/* Active Navigation Link */
-.nav-link.active {
-    color: var(--blue-text);
-}
-
-.nav-link.active::after {
-    width: 100%;
-}
-
-/* Responsive Design */
-@media (max-width: 1200px) {
-    .industry-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+    .consulting-page .process-timeline {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-    
-    .industry-stats {
-        flex-direction: row;
-        justify-content: space-around;
+}
+
+@media (max-width: 960px) {
+    .consulting-page .quote-order-layout,
+    .consulting-page .vendor-checklist-layout,
+    .consulting-page .faq-layout,
+    .consulting-page .faq-container {
+        grid-template-columns: minmax(0, 1fr);
     }
-    
-    .stat-card {
-        flex: 1;
-        margin: 0 0.5rem;
+
+    .consulting-page .faq-intro,
+    .consulting-page .faq-container .author-attribution {
+        margin-bottom: 2rem;
+    }
+
+    .consulting-page .industry-content {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .consulting-page .industry-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
     }
 }
 
 @media (max-width: 768px) {
-    .consulting-hero .hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .consulting-hero .hero-stats {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-    
-    .consulting-hero .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-    
-    .consulting-hero .btn {
-        width: 250px;
-    }
-    
-    .tab-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .tab-btn {
-        width: 200px;
-    }
-    
-    .industry-content {
-        padding: 2rem;
-    }
-    
-    .process-timeline {
-        grid-template-columns: 1fr;
-    }
-    
-    .case-studies-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .case-study-metrics {
-        grid-template-columns: 1fr;
-    }
-    
-    .consultation-form .form-row {
-        grid-template-columns: 1fr;
-    }
-    
-    .consultation-benefits {
-        grid-template-columns: 1fr;
-    }
-    
-    .industry-stats {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .stat-card {
-        margin: 0;
+    .consulting-page .services-grid {
+        grid-template-columns: minmax(0, 1fr);
     }
 
-    .faq-grid {
-        grid-template-columns: 1fr;
+    .consulting-page .consulting-hero .hero-stats {
+        grid-template-columns: minmax(0, 1fr);
+        border-top: 0;
+    }
+
+    .consulting-page .consulting-hero .stat-item {
+        flex-direction: row;
+        align-items: baseline;
+        gap: 0.9rem;
+        padding: 0.75rem 0;
+        border-top: 1px solid var(--cp-hairline-dark);
+    }
+
+    .consulting-page .consulting-hero .hero-buttons {
+        flex-direction: row;
+        align-items: stretch;
+        padding: 0;
+    }
+
+    .consulting-page .tab-buttons {
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .consulting-page .tab-btn {
+        width: auto;
     }
 }
 
-@media (max-width: 480px) {
-    .consulting-hero {
-        padding: 100px 0 60px;
+@media (max-width: 640px) {
+    .consulting-page .process-timeline,
+    .consulting-page .vendor-gates {
+        grid-template-columns: minmax(0, 1fr);
     }
-    
-    .consulting-hero .hero-title {
-        font-size: 2rem;
+
+    .consulting-page .consulting-hero .hero-buttons .btn,
+    .consulting-page .quote-order-actions .btn,
+    .consulting-page .vendor-checklist-actions .btn,
+    .consulting-page .faq-cta .btn {
+        width: 100%;
+        max-width: none;
     }
-    
-    .consulting-hero .hero-subtitle {
-        font-size: 1.1rem;
-    }
-    
-    .consulting-hero .stat-number {
-        font-size: 2rem;
-    }
-    
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .service-card {
-        padding: 2rem;
-    }
-    
-    .consultation-content h2 {
-        font-size: 2rem;
-    }
-    
-    .consultation-form {
+
+    .consulting-page .service-card,
+    .consulting-page .process-step {
         padding: 1.5rem;
     }
-}
 
-/* Loading and Animation States */
-.fade-in {
-    animation: fadeInUp 0.6s ease;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .consulting-page .industry-content {
+        padding: 1.25rem;
     }
 }
 
-/* Hover Effects */
-.service-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--gradient-primary);
-    transform: scaleX(0);
-    transition: transform var(--transition-fast);
-}
-
-.service-card:hover::before {
-    transform: scaleX(1);
-}
-
-/* Print Styles */
+/* ---------- Print ---------- */
 @media print {
-    .navbar,
-    .consultation-section,
-    .footer {
-        display: none;
-    }
-    
-    .consulting-hero {
+    .consulting-page .consulting-hero {
+        padding: 2rem 0;
         background: none;
         color: var(--dark-gray);
-        padding: 2rem 0;
     }
-    
-    .service-card,
-    .case-study {
+
+    .consulting-page .consulting-hero .hero-title,
+    .consulting-page .consulting-hero .hero-subtitle,
+    .consulting-page .consulting-hero .stat-label {
+        color: var(--dark-gray);
+    }
+
+    .consulting-page .service-card,
+    .consulting-page .process-step {
         box-shadow: none;
-        border: 1px solid #ddd;
         break-inside: avoid;
+    }
+
+    .consulting-page .tab-content {
+        display: block;
     }
 }
 
-/* ==========================================================================
-   Reduced motion
-   The hero particle drift and the staggered hero entrance are removed, and
-   every element they animated is pinned to its finished state so nothing is
-   left invisible. Hover and focus transitions are shortened, not removed.
-   ========================================================================== */
+/* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
-    .consulting-hero::before,
-    .consulting-hero .hero-badge,
-    .consulting-hero .hero-title,
-    .consulting-hero .hero-subtitle,
-    .consulting-hero .hero-stats,
-    .consulting-hero .hero-buttons,
-    .service-detail,
-    .process-step {
-        animation: none;
-        opacity: 1;
-        transform: none;
-    }
-
-    *,
-    *::before,
-    *::after {
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
+    .consulting-page .tab-btn,
+    .consulting-page .faq-list details.faq-item summary h3 {
+        transition: none;
     }
 }

@@ -24,7 +24,7 @@ const navigationHTML = `
                 <a href="/chi-siamo.html" class="nav-link" data-page="chi-siamo">Chi Siamo</a>
             </li>
             <li class="nav-item dropdown">
-                <button type="button" class="nav-link dropdown-toggle" data-page="soluzioni" aria-expanded="false" aria-haspopup="true" aria-controls="dropdown-soluzioni">Soluzioni <span class="dropdown-arrow" aria-hidden="true">▼</span></button>
+                <button type="button" class="nav-link dropdown-toggle" data-page="soluzioni" aria-expanded="false" aria-haspopup="true" aria-controls="dropdown-soluzioni">Soluzioni <svg class="dropdown-arrow" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg></button>
                 <ul class="dropdown-menu" id="dropdown-soluzioni">
                     <li><a href="/consulting.html" class="dropdown-link" data-page="consulting">Consulenza</a></li>
                     <li><a href="/training.html" class="dropdown-link" data-page="training">Formazione</a></li>
@@ -32,23 +32,23 @@ const navigationHTML = `
                 </ul>
             </li>
             <li class="nav-item dropdown">
-                <button type="button" class="nav-link dropdown-toggle" data-page="risorse" aria-expanded="false" aria-haspopup="true" aria-controls="dropdown-risorse">Risorse <span class="dropdown-arrow" aria-hidden="true">▼</span></button>
+                <button type="button" class="nav-link dropdown-toggle" data-page="risorse" aria-expanded="false" aria-haspopup="true" aria-controls="dropdown-risorse">Risorse <svg class="dropdown-arrow" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg></button>
                 <ul class="dropdown-menu" id="dropdown-risorse">
-                    <li><a href="/impara.html" class="dropdown-link" data-page="impara">Impara</a></li>
-                    <li><a href="/research.html" class="dropdown-link" data-page="research">Ricerca</a></li>
+                    <li><a href="/research.html" class="dropdown-link" data-page="research">Guide e articoli</a></li>
+                    <li><a href="/ai-metric-contract.html" class="dropdown-link" data-page="ai-metric-contract">AI Metric Contract</a></li>
+                    <li><a href="/ai-outcome-budget.html" class="dropdown-link" data-page="ai-outcome-budget">AI Outcome Budget</a></li>
                     <li><a href="/roi-calculator.html" class="dropdown-link" data-page="roi-calculator">Calcolatore ROI</a></li>
-                    <li><a href="/eventi.html" class="dropdown-link" data-page="eventi">Eventi</a></li>
-                    <li><a href="/resources.html" class="dropdown-link" data-page="resources">Risorse Gratuite</a></li>
+                    <li><a href="/eventi-ai-aziende/" class="dropdown-link" data-page="eventi">Eventi</a></li>
                 </ul>
             </li>
             <li class="nav-item">
                 <a href="/contatti.html" class="nav-link" data-page="contatti">Contatti</a>
             </li>
             <li class="nav-item">
-                <a href="https://aeo.niuexa.ai" class="nav-link login-link" target="_blank" rel="noopener noreferrer">🔐 Login</a>
+                <a href="https://aeo.niuexa.ai" class="nav-link login-link" target="_blank" rel="noopener noreferrer"><svg class="login-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Login</a>
             </li>
             <li class="nav-item language-switcher">
-                <a href="/en/index.html" class="nav-link" title="Switch to English">🇬🇧 EN</a>
+                <a href="/en/index.html" class="nav-link" hreflang="en" lang="en" title="English version">EN</a>
             </li>
         </ul>
         <button type="button" class="hamburger" aria-label="Apri menu di navigazione" aria-expanded="false" aria-controls="nav-menu">
@@ -68,7 +68,7 @@ const footerHTML = `
         <div class="footer-content">
             <div class="footer-brand">
                 <h2>NIUEXA</h2>
-                <p>Soluzioni AI Avanzate per il tuo Business.</p>
+                <p>Consulenza AI per le PMI italiane. Prima misuriamo il processo, poi lo automatizziamo.</p>
             </div>
             <div class="footer-links">
                 <div class="footer-column">
@@ -77,33 +77,30 @@ const footerHTML = `
                         <li><a href="/consulting.html">Consulenza AI</a></li>
                         <li><a href="/training.html">Formazione AI</a></li>
                         <li><a href="/products.html">Prodotti AI</a></li>
-                        <li><a href="/roi-calculator.html">ROI Calculator</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Risorse</h3>
                     <ul>
-                        <li><a href="/impara.html">Impara</a></li>
-                        <li><a href="/research.html">Ricerca</a></li>
+                        <li><a href="/research.html">Guide e articoli</a></li>
+                        <li><a href="/ai-metric-contract.html">AI Metric Contract</a></li>
+                        <li><a href="/ai-outcome-budget.html">AI Outcome Budget</a></li>
                         <li><a href="/roi-calculator.html">Calcolatore ROI</a></li>
-                        <li><a href="/eventi.html">Eventi</a></li>
-                        <li><a href="/resources.html">Risorse Gratuite</a></li>
+                        <li><a href="/eventi-ai-aziende/">Eventi</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Azienda</h3>
                     <ul>
                         <li><a href="/chi-siamo.html">Chi Siamo</a></li>
-                        <li><a href="/carriere.html">Carriere</a></li>
                         <li><a href="/contatti.html">Contatti</a></li>
-                        <li><a href="/#contact">Parla con Noi</a></li>
+                        <li><a href="/#contact">Ci mostri un processo</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Social</h3>
                     <ul>
                         <li><a href="https://linkedin.com/company/niuexa" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                        <li><a href="https://discord.gg/vyKckeS3" target="_blank" rel="noopener noreferrer">Discord Community</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -119,7 +116,7 @@ const footerHTML = `
         <div class="footer-bottom">
             <div class="footer-bottom-content">
                 <p class="footer-copyright">&copy; 2024-2026 Niuexa. Tutti i diritti riservati.</p>
-                <p class="footer-company">NIUEXA S.R.L. · P.IVA e C.F. 13489560014 · REA TO-1366737</p>
+                <p class="footer-company">NIUEXA S.R.L. · P.IVA e C.F. 13489560014 · REA TO-1366737<br>Sede legale: Via Vittorio Andreis 18, 10152 Torino · Ufficio: Via Rutilia 10, 20141 Milano</p>
             </div>
         </div>
     </div>
@@ -350,6 +347,10 @@ function getCurrentPage() {
     const page = path.split('/').pop();
 
 
+    if (path.startsWith('/eventi-ai-aziende/')) {
+        return 'eventi';
+    }
+
     if (page === 'index.html' || page === '') {
         return 'home';
     } else if (page === 'chi-siamo.html') {
@@ -360,18 +361,14 @@ function getCurrentPage() {
         return 'training';
     } else if (page === 'products.html') {
         return 'products';
-    } else if (page === 'impara.html') {
-        return 'impara';
     } else if (page === 'research.html') {
         return 'research';
+    } else if (page === 'ai-metric-contract.html') {
+        return 'ai-metric-contract';
+    } else if (page === 'ai-outcome-budget.html') {
+        return 'ai-outcome-budget';
     } else if (page === 'roi-calculator.html') {
         return 'roi-calculator';
-    } else if (page === 'eventi.html') {
-        return 'eventi';
-    } else if (page === 'resources.html') {
-        return 'resources';
-    } else if (page === 'carriere.html') {
-        return 'carriere';
     } else if (page === 'login.html') {
         return 'login';
     }

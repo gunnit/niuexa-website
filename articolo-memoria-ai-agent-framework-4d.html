@@ -23,7 +23,7 @@
     <meta property="og:image:alt" content="Framework Niuexa 4D per governare la memoria degli AI agent">
     <meta property="og:locale" content="it_IT">
     <meta property="article:published_time" content="2026-09-09">
-    <meta property="article:modified_time" content="2026-09-09">
+    <meta property="article:modified_time" content="2026-10-05">
     <meta property="article:author" content="Gregor Maric">
     <meta property="article:section" content="AI Agents e Governance">
 
@@ -55,7 +55,7 @@
       "author":{"@type":"Person","name":"Gregor Maric","url":"https://niuexa.ai/chi-siamo.html#gregor-maric","jobTitle":"CEO & Co-Fondatore di Niuexa","sameAs":["https://www.linkedin.com/in/maricgregor/"]},
       "publisher":{"@type":"Organization","name":"Niuexa","url":"https://niuexa.ai","logo":{"@type":"ImageObject","url":"https://niuexa.ai/img/niuexalogo.png"}},
       "datePublished":"2026-09-09",
-      "dateModified":"2026-09-09",
+      "dateModified":"2026-10-05",
       "mainEntityOfPage":{"@type":"WebPage","@id":"https://niuexa.ai/articolo-memoria-ai-agent-framework-4d.html"},
       "image":["https://niuexa.ai/img/articles/memoria-ai-agent-framework-4d/memoria-ai-agent-framework-4d-og.png"],
       "articleSection":"AI Agents e Governance",
@@ -71,15 +71,50 @@
     </script>
     <script type="application/ld+json">
     {
-      "@context":"https://schema.org",
-      "@type":"FAQPage",
-      "mainEntity":[
-        {"@type":"Question","name":"Che cosa significa memoria per un AI agent?","acceptedAnswer":{"@type":"Answer","text":"È l’insieme di informazioni che il sistema può recuperare e usare oltre il singolo passaggio, dalla sessione corrente fino a dati di caso, relazione e conoscenza organizzativa."}},
-        {"@type":"Question","name":"Quali sono le 4D della memoria operativa?","acceptedAnswer":{"@type":"Answer","text":"Dato, Destinazione, Durata e Diritto di revisione. Le quattro dimensioni chiariscono che cosa conservare, dove usarlo, quando disattivarlo e chi può correggerlo o cancellarlo."}},
-        {"@type":"Question","name":"Perché un AI agent non dovrebbe ricordare tutto?","acceptedAnswer":{"@type":"Answer","text":"Perché informazioni non verificate, fuori contesto o scadute possono influenzare nuove azioni. Più memoria senza regole aumenta rumore, conflitti, esposizione e difficoltà di audit."}},
-        {"@type":"Question","name":"Come si gestisce la scadenza di una memoria?","acceptedAnswer":{"@type":"Answer","text":"Con una data di scadenza oppure un evento di chiusura, come la fine di un ticket, l’aggiornamento di un contratto o la revisione di una policy. Conservare un dato non significa mantenerlo attivo per sempre."}},
-        {"@type":"Question","name":"Da dove può partire una PMI?","acceptedAnswer":{"@type":"Answer","text":"Da un solo workflow, un registro minimo delle memorie e test su errore, scadenza, conflitto e correzione prima di consentire azioni automatiche."}}
-      ]
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Che cosa significa memoria per un AI agent?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "È l’insieme di informazioni che il sistema può recuperare e usare oltre il singolo passaggio, dalla sessione corrente fino a dati di caso, relazione e conoscenza organizzativa."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quali sono le 4D della memoria operativa?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Dato, Destinazione, Durata e Diritto di revisione. Le quattro dimensioni chiariscono che cosa conservare, dove usarlo, quando disattivarlo e chi può correggerlo o cancellarlo."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Perché un AI agent non dovrebbe ricordare tutto?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Perché informazioni non verificate, fuori contesto o scadute possono influenzare nuove azioni. Più memoria senza regole aumenta rumore, conflitti, esposizione e difficoltà di audit."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Come si gestisce la scadenza di una memoria?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Con una data di scadenza oppure un evento di chiusura, come la fine di un ticket, l’aggiornamento di un contratto o la revisione di una policy. Conservare un dato non significa mantenerlo attivo per sempre."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Da dove può partire una PMI?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Da un solo workflow, un registro minimo delle memorie e test su errore, scadenza, conflitto e correzione prima di consentire azioni automatiche."
+                }
+            }
+        ]
     }
     </script>
     <script type="application/ld+json">
@@ -94,7 +129,7 @@
             <div class="tutorial-badge">AI Agents e Governance</div>
             <h1>Memoria degli AI agent: progettare dati, durata e revisione con il framework 4D</h1>
             <p class="tutorial-description">La memoria utile non è accumulo. È un contratto operativo che stabilisce quale informazione può influenzare una decisione, in quale workflow, per quanto tempo e sotto la responsabilità di chi.</p>
-            <div class="tutorial-stats"><span class="stat">11 minuti di lettura</span><span class="stat">Per COO, IT e process owner</span><span class="stat">Framework operativo 4D</span></div>
+            <div class="tutorial-stats"><span class="stat">10 minuti di lettura</span><span class="stat">Per COO, IT e process owner</span><span class="stat">Framework operativo 4D</span></div>
         </div></div></section>
 
         <article class="tutorial-content"><div class="container"><div class="content-wrapper">
@@ -137,7 +172,7 @@
 
             <section class="content-section">
                 <h2 id="framework-4d">Le 4D: Dato, Destinazione, Durata, Diritto di revisione</h2>
-                <figure class="article-visual article-diagram article-diagram-scroll"><img src="img/articles/memoria-ai-agent-framework-4d/framework-4d-memoria-operativa.svg" alt="Diagramma delle 4D: Dato, Destinazione, Durata e Diritto di revisione" width="1200" height="720" loading="eager" decoding="async"><figcaption>Le 4D trasformano un frammento di contesto in una memoria governabile. Su mobile, scorri il diagramma in orizzontale.</figcaption></figure>
+                <figure class="article-visual article-diagram article-diagram-scroll"><img src="img/articles/memoria-ai-agent-framework-4d/framework-4d-memoria-operativa.svg" alt="Diagramma delle 4D: Dato, Destinazione, Durata e Diritto di revisione" width="1200" height="720" loading="eager" decoding="async"><figcaption>Le 4D trasformano un frammento di contesto in una memoria governabile. Su mobile, il diagramma scorre in orizzontale.</figcaption></figure>
 
                 <h3>1. Dato: che cosa può diventare memoria?</h3>
                 <p>Una preferenza esplicita non equivale a un’ipotesi del commerciale. Un indirizzo confermato non equivale a quello estratto da una firma. Una policy approvata non equivale alla bozza discussa in chat. Il dato deve portare con sé fonte, timestamp, livello di affidabilità e, quando utile, collegamento all’evidenza originale.</p>
@@ -176,14 +211,14 @@
             <section class="content-section">
                 <h2 id="pilota">Un pilota in sei passaggi e quattro test obbligatori</h2>
                 <ol>
-                    <li><strong>Scegli una decisione.</strong> Non partire dalla memoria disponibile, ma dall’azione che deve migliorare.</li>
-                    <li><strong>Separa le quattro categorie.</strong> Sessione, caso, relazione e organizzazione non condividono automaticamente regole.</li>
-                    <li><strong>Compila il registro 4D.</strong> Nessun campo critico deve restare implicito.</li>
-                    <li><strong>Implementa i filtri.</strong> Il recupero deve rispettare stato, destinazione, validità e permessi prima del ranking semantico.</li>
-                    <li><strong>Mostra le fonti.</strong> Chi revisiona l’output deve poter vedere quali memorie hanno influenzato la proposta.</li>
-                    <li><strong>Misura gli errori.</strong> Registra memoria scaduta usata, conflitti, correzioni non propagate e azioni bloccate.</li>
+                    <li><strong>Scelga una decisione.</strong> Non parta dalla memoria disponibile, ma dall’azione che deve migliorare.</li>
+                    <li><strong>Separi le quattro categorie.</strong> Sessione, caso, relazione e organizzazione non condividono automaticamente regole.</li>
+                    <li><strong>Compili il registro 4D.</strong> Nessun campo critico deve restare implicito.</li>
+                    <li><strong>Implementi i filtri.</strong> Il recupero deve rispettare stato, destinazione, validità e permessi prima del ranking semantico.</li>
+                    <li><strong>Mostri le fonti.</strong> Chi revisiona l’output deve poter vedere quali memorie hanno influenzato la proposta.</li>
+                    <li><strong>Misuri gli errori.</strong> Registri memoria scaduta usata, conflitti, correzioni non propagate e azioni bloccate.</li>
                 </ol>
-                <p>Prima dell’automazione, esegui almeno quattro prove: un dato sbagliato, un dato scaduto, due fonti in conflitto e una richiesta di correzione. Il sistema deve sospendere o chiedere conferma, non scegliere silenziosamente il frammento più simile.</p>
+                <p>Prima dell’automazione, esegua almeno quattro prove: un dato sbagliato, un dato scaduto, due fonti in conflitto e una richiesta di correzione. Il sistema deve sospendere o chiedere conferma, non scegliere silenziosamente il frammento più simile.</p>
                 <p>Le metriche utili sono operative: percentuale di output con fonti tracciate, memorie scadute intercettate, tempo di propagazione delle correzioni, conflitti aperti, azioni bloccate per dati insufficienti e rilavorazione attribuibile a contesto errato. Le soglie vanno definite sul workflow reale: non esiste un benchmark universale che garantisca affidabilità.</p>
             </section>
 
@@ -206,7 +241,7 @@
             </div></section>
         </div></div></article>
 
-        <section class="cta-section"><div class="container"><h2 id="cta">Il tuo AI agent usa contesto o applica regole di memoria?</h2><p>Niuexa aiuta le PMI a progettare workflow agentici con fonti, validità, permessi e responsabilità verificabili.</p><a href="ai-readiness-assessment.html" class="btn btn-primary">Prenota un assessment AI</a><a href="consulting.html" class="btn btn-secondary" style="margin-left:15px;">Scopri la consulenza AI</a></div></section>
+        <section class="cta-section"><div class="container"><h2 id="cta">Il Suo AI agent usa contesto o applica regole di memoria?</h2><p>Ci mostri un processo: nella prima chiamata di 30 minuti, gratuita, guardiamo quali informazioni guidano le decisioni, da quale fonte arrivano e chi può correggerle.</p><a href="index.html#contact" class="btn btn-primary">Ci mostri un processo</a><a href="consulting.html" class="btn btn-secondary" style="margin-left:15px;">Come lavoriamo</a></div></section>
     </main>
     <div id="footer-placeholder"></div>
     <script src="includes/includes.js?v=20260428"></script>

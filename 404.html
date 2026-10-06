@@ -25,84 +25,58 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-KG9S42S4');</script>
     <!-- End Google Tag Manager -->
-
-    <title>Pagina non trovata - Niuexa</title>
+    <title>Pagina non trovata | Niuexa</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles.css?v=20260807">
+    <link rel="stylesheet" href="/polish.css?v=20261005">
+    <link rel="stylesheet" href="/status-page.css?v=20261005">
     <link rel="icon" type="image/x-icon" href="/img/favicon 256.ico">
-    <style>
-        .error-hero {
-            padding: 160px 0 100px;
-            background: var(--gradient-cta);
-            color: var(--white);
-            text-align: center;
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-        }
-        .error-hero .container {
-            width: 100%;
-        }
-        .error-code {
-            font-family: var(--font-primary);
-            font-size: clamp(5rem, 14vw, 8rem);
-            font-weight: 700;
-            line-height: 1;
-            color: var(--white);
-            opacity: 0.35;
-        }
-        .error-hero h1 {
-            font-family: var(--font-primary);
-            font-size: clamp(2rem, 5vw, 3rem);
-            margin: 16px 0 20px;
-            color: var(--white);
-        }
-        .error-hero p {
-            font-family: var(--font-secondary);
-            font-size: 1.125rem;
-            line-height: 1.6;
-            max-width: 560px;
-            margin: 0 auto 36px;
-            opacity: 0.9;
-        }
-        .error-actions {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .error-hero .btn-secondary {
-            color: var(--white);
-            border-color: var(--white);
-        }
-        .error-hero .btn-secondary:hover {
-            background: var(--white);
-            color: var(--dark-blue);
-        }
-    </style>
 </head>
-<body>
+<body class="polished status-page">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9S42S4"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-
     <div id="navigation-placeholder"></div>
 
     <main id="main-content">
-        <section class="error-hero">
-            <div class="container">
-                <div class="error-code">404</div>
+    <section class="sp-hero">
+        <div class="container">
+            <div class="sp-hero-content">
+                <p class="sp-code" aria-hidden="true">404</p>
                 <h1>Pagina non trovata</h1>
-                <p>La pagina che stai cercando non esiste o è stata spostata. Torna alla home oppure esplora le nostre risorse gratuite sull'intelligenza artificiale.</p>
-                <div class="error-actions">
+                <p class="sp-lead">La pagina che cerca non esiste più o è stata spostata. Da qui può tornare alla home, leggere le guide gratuite o scriverci.</p>
+                <div class="sp-actions">
                     <a href="/" class="btn btn-primary">Torna alla home</a>
-                    <a href="/impara.html" class="btn btn-secondary">Esplora le risorse</a>
+                    <a href="/research.html" class="btn btn-on-dark">Esplori le guide</a>
                 </div>
+                <p class="sp-hero-note" lang="en">Looking for the English site? <a href="/en/">Go to the English homepage</a>.</p>
             </div>
-        </section>
+        </div>
+    </section>
+
+    <section class="sp-body">
+        <div class="container sp-grid">
+            <div>
+                <h2 class="section-title">Pagine utili</h2>
+                <ul class="sp-links">
+                        <li><a class="sp-link" href="/consulting.html"><span>Consulenza AI<small>Prima misuriamo il processo, poi lo automatizziamo.</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></li>
+                        <li><a class="sp-link" href="/research.html"><span>Guide e risorse<small>Guide gratuite sull'AI in azienda.</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></li>
+                        <li><a class="sp-link" href="/eventi-ai-aziende/"><span>Incontri NIUEXA<small>Le serate sull'AI in azienda nell'ufficio di Milano.</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></li>
+                        <li><a class="sp-link" href="/chi-siamo.html"><span>Chi siamo<small>Chi è Niuexa e come lavora.</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></li>
+                </ul>
+            </div>
+            <aside class="sp-side" aria-labelledby="sp-side-title">
+                <h2 id="sp-side-title">Cercava qualcosa di preciso?</h2>
+                <ul class="sp-links">
+                        <li><a class="sp-link" href="/contatti.html"><span>Ci scriva<small>Le rispondiamo entro 24 ore lavorative.</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></li>
+                        <li><a class="sp-link" href="/consulenza-aeo-geo.html"><span>Verifichi la visibilità AI<small>Come gli assistenti AI descrivono la Sua azienda.</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></li>
+                </ul>
+            </aside>
+        </div>
+    </section>
     </main>
 
     <div id="footer-placeholder"></div>

@@ -1,25 +1,30 @@
 /* ==========================================================================
    landing-agent.css
    Shared design system for the AI agent landing pages:
-   landing-sales-agent.html, landing-marketing-agent.html and their en/ twins.
+   landing-marketing-agent.html, landing-sales-agent.html,
+   landing-voice-agent.html and their en/ twins.
 
-   Extends styles.css. All colour/typography values resolve to :root tokens
-   defined there. Scoped under .agent-landing so nothing leaks to other pages.
+   Extends styles.css. Every colour resolves to a :root token defined there;
+   tints and hairlines are mixed from those tokens with color-mix(), so no
+   hex or rgb value lives in this file. Scoped under .agent-landing so nothing
+   leaks to other pages. Visual reference: landing-niuexa.css (navy split
+   hero, hairline lists, quiet cards, pill buttons).
    ========================================================================== */
 
 .agent-landing {
-    /* Ink ramp for dark sections. Both verified against --black (var(--black)):
-       --ink-on-dark 16.4:1, --muted-on-dark 8.1:1. */
-    --ink-on-dark: #E8F0F5;
-    --muted-on-dark: #9FB3C2;
-    --hairline-on-dark: rgba(232, 240, 245, 0.14);
-    --surface-on-dark: rgba(232, 240, 245, 0.05);
+    /* Dark-surface ramp, built from the sitewide tokens. */
+    --ink-on-dark: var(--white);
+    --hairline-on-dark: color-mix(in srgb, var(--white) 14%, transparent);
+    --surface-on-dark: color-mix(in srgb, var(--white) 5%, transparent);
+    --hairline: var(--border-light);
 
     /* Fluid rhythm. Sections vary deliberately; this is the baseline step. */
-    --band-gap: clamp(4.5rem, 9vw, 8rem);
+    --band-gap: clamp(4.5rem, 9vw, 7.5rem);
     --measure: 68ch;
+    --container: 1200px;
+    --gutter: clamp(1.25rem, 4vw, 2rem);
 
-    /* Semantic z-index scale. No arbitrary 999s. */
+    /* Semantic z-index scale. */
     --z-base: 1;
     --z-raised: 10;
     --z-sticky: 100;
@@ -27,45 +32,53 @@
 
     /* ease-out-quint */
     --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-
-    /* White text on --gradient-primary falls to 2.80:1 where the ramp reaches
-       --primary-green (var(--primary-green)), well under the 4.5:1 AA floor. This ramp uses
-       the AA-safe ends of the same three brand hues, so white clears 5.1:1 at
-       every stop: var(--dark-blue) 6.02:1, var(--signal) 5.16:1, var(--green-text) 5.27:1.
-       Scoped to these pages; the sitewide token is untouched. */
-    --gradient-cta: linear-gradient(115deg, var(--dark-blue) 0%, var(--signal) 52%, var(--green-text) 100%);
 }
 
+/* White text sits on --gradient-cta (AA at every stop), never on
+   --gradient-primary. */
 .agent-landing .btn-primary,
 .agent-landing .agent-form__submit {
     background: var(--gradient-cta);
+    color: var(--white);
 }
 
 /* --------------------------------------------------------------------------
    Sitewide overrides, scoped to these pages only.
 
-   styles.css sets gradient text on .section-title and .hero-title .highlight.
-   Gradient text is decorative rather than meaningful and degrades badly when
-   background-clip is unsupported, so these pages use solid ink instead.
+   styles.css gives .section-title gradient text, a fixed 70px height and a
+   flex row; the nav wordmark is gradient text as well. These pages use solid
+   ink and normal block flow instead.
    -------------------------------------------------------------------------- */
 
 .agent-landing .section-title {
+    display: block;
+    height: auto;
+    text-align: left;
     background: none;
     -webkit-background-clip: border-box;
     background-clip: border-box;
     -webkit-text-fill-color: currentColor;
     color: var(--dark-gray);
-    font-size: clamp(2rem, 4.4vw, 3rem);
+    font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+    line-height: 1.12;
     letter-spacing: -0.02em;
-    margin-bottom: 0;
+    text-wrap: balance;
+    margin: 0;
 }
 
-/* The hero heading deliberately does NOT reuse .hero-title from styles.css.
-   That class is hidden by `body:not(.loaded) .hero-title { opacity: 0 }` and
-   only revealed once script.js adds .loaded, which these pages do not load.
-   Owning the class keeps the heading visible no matter what runs. */
-.agent-hero__title .highlight {
-    color: var(--primary-green);
+.agent-landing a:focus-visible,
+.agent-landing button:focus-visible,
+.agent-landing summary:focus-visible {
+    outline: 3px solid var(--primary-blue);
+    outline-offset: 3px;
+}
+
+.agent-landing__nav a:focus-visible,
+.agent-hero a:focus-visible,
+.closing__inner > div a:focus-visible,
+.voice-features a:focus-visible,
+.agent-footer a:focus-visible {
+    outline-color: var(--signal-on-dark);
 }
 
 /* --------------------------------------------------------------------------
@@ -74,6 +87,7 @@
 
 body.agent-landing {
     background: var(--white);
+    color: var(--dark-gray);
     /* styles.css sets `overflow-x: hidden` on body. Per spec, `hidden` on one
        axis computes the other from `visible` to `auto`, which turns body into a
        scroll container. A view() timeline then resolves its scroll container to
@@ -85,14 +99,28 @@ body.agent-landing {
     overflow-y: visible;
 }
 
+/* styles.css parks the skip link at -40px, but its 44px min-height left a
+   4px sliver showing at the top of the page. */
+.agent-landing .skip-link {
+    top: -80px;
+}
+
+.agent-landing .skip-link:focus {
+    top: 6px;
+}
+
+html:has(body.agent-landing) {
+    scroll-padding-top: 88px;
+}
+
 .agent-landing__nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: var(--z-nav);
-    padding: 0.9rem 0;
-    background: rgba(10, 26, 38, 0.72);
+    padding: 0.75rem 0;
+    background: color-mix(in srgb, var(--black) 80%, transparent);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--hairline-on-dark);
@@ -101,22 +129,33 @@ body.agent-landing {
 
 /* Past the dark hero the bar switches to light so the logo stays legible. */
 .agent-landing__nav[data-past-hero="true"] {
-    background: rgba(255, 255, 255, 0.9);
-    border-bottom-color: rgba(20, 50, 74, 0.12);
+    background: color-mix(in srgb, var(--white) 94%, transparent);
+    border-bottom-color: var(--hairline);
 }
 
 .agent-landing__nav-inner {
-    max-width: 1200px;
+    max-width: var(--container);
     margin: 0 auto;
-    padding: 0 clamp(1.25rem, 4vw, 2rem);
+    padding: 0 var(--gutter);
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
 }
 
+.agent-landing__nav .logo-icon {
+    width: 40px;
+    height: 40px;
+}
+
+/* Solid wordmark: the sitewide one is gradient text. */
 .agent-landing__nav .logo-title {
+    background: none;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    -webkit-text-fill-color: currentColor;
     color: var(--ink-on-dark);
+    font-size: 1.6rem;
     transition: color 0.4s var(--ease-out);
 }
 
@@ -134,14 +173,17 @@ body.agent-landing {
 }
 
 .agent-landing__nav-cta {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
     font-family: var(--font-secondary);
     font-size: 0.95rem;
     font-weight: 600;
     text-decoration: none;
-    padding: 0.6rem 1.4rem;
+    padding: 0.55rem 1.35rem;
     border-radius: 50px;
     color: var(--ink-on-dark);
-    border: 1px solid var(--hairline-on-dark);
+    border: 1px solid color-mix(in srgb, var(--white) 32%, transparent);
     white-space: nowrap;
     transition: background 0.3s var(--ease-out), color 0.3s var(--ease-out),
                 border-color 0.3s var(--ease-out);
@@ -149,14 +191,14 @@ body.agent-landing {
 
 .agent-landing__nav-cta:hover,
 .agent-landing__nav-cta:focus-visible {
-    background: var(--ink-on-dark);
+    background: var(--white);
     color: var(--black);
-    border-color: var(--ink-on-dark);
+    border-color: var(--white);
 }
 
 .agent-landing__nav[data-past-hero="true"] .agent-landing__nav-cta {
     color: var(--dark-gray);
-    border-color: rgba(20, 50, 74, 0.28);
+    border-color: var(--border-medium);
 }
 
 .agent-landing__nav[data-past-hero="true"] .agent-landing__nav-cta:hover,
@@ -176,7 +218,7 @@ body.agent-landing {
 }
 
 /* --------------------------------------------------------------------------
-   Hero
+   Hero: navy, split. Copy on the left, the first call in practice on the right.
    -------------------------------------------------------------------------- */
 
 .agent-hero {
@@ -184,7 +226,7 @@ body.agent-landing {
     isolation: isolate;
     background: var(--gradient-hero-dark);
     color: var(--ink-on-dark);
-    padding: clamp(9rem, 16vh, 12rem) 0 clamp(4.5rem, 9vw, 7rem);
+    padding: clamp(8rem, 15vh, 10.5rem) 0 clamp(4rem, 8vw, 6rem);
     overflow: hidden;
 }
 
@@ -210,57 +252,54 @@ body.agent-landing {
     inset: 0;
     z-index: -1;
     background:
-        radial-gradient(120% 90% at 15% 10%, rgba(10, 26, 38, 0.35) 0%, rgba(10, 26, 38, 0.9) 65%),
-        linear-gradient(180deg, rgba(10, 26, 38, 0.75) 0%, rgba(10, 26, 38, 0.82) 60%, var(--black) 100%);
+        radial-gradient(120% 90% at 15% 10%, color-mix(in srgb, var(--black) 35%, transparent) 0%, color-mix(in srgb, var(--black) 90%, transparent) 65%),
+        linear-gradient(180deg, color-mix(in srgb, var(--black) 75%, transparent) 0%, color-mix(in srgb, var(--black) 82%, transparent) 60%, var(--black) 100%);
+}
+
+/* Hero without footage: a quiet teal glow instead of the scrim. */
+.agent-hero--plain::after {
+    background: radial-gradient(70% 80% at 88% 18%, color-mix(in srgb, var(--brand-teal) 20%, transparent) 0%, transparent 62%);
 }
 
 .agent-hero__inner {
-    max-width: 1200px;
+    max-width: var(--container);
     margin: 0 auto;
-    padding: 0 clamp(1.25rem, 4vw, 2rem);
+    padding: 0 var(--gutter);
 }
 
-.agent-hero__label {
-    display: inline-flex;
+.agent-hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 420px);
+    gap: clamp(2rem, 5vw, 4.5rem);
     align-items: center;
-    gap: 0.6rem;
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted-on-dark);
-    margin-bottom: clamp(1.25rem, 3vw, 2rem);
-}
-
-.agent-hero__label::before {
-    content: '';
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--primary-green);
-    box-shadow: 0 0 0 4px rgba(67, 174, 104, 0.18);
 }
 
 .agent-hero__title {
-    /* Ceiling stays under the 6rem shout threshold; -0.03em keeps letters apart. */
+    /* Not .hero-title from styles.css: that class stays at opacity 0 until
+       script.js adds .loaded, and these pages do not load script.js. */
     font-family: var(--font-primary);
-    font-size: clamp(2.4rem, 5.4vw, 4.2rem);
+    font-size: clamp(2.2rem, 4.4vw, 3.4rem);
     font-weight: 700;
-    line-height: 1.06;
-    letter-spacing: -0.03em;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
     color: var(--ink-on-dark);
-    max-width: 18ch;
-    margin: 0 0 clamp(1.25rem, 2.5vw, 1.75rem);
+    max-width: 22ch;
+    margin: 0 0 clamp(1.25rem, 2.5vw, 1.6rem);
     text-wrap: balance;
 }
 
+.agent-hero__title .highlight {
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    color: var(--green-on-dark);
+}
+
 .agent-hero__lede {
-    font-size: clamp(1.05rem, 1.9vw, 1.3rem);
-    line-height: 1.65;
+    font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+    line-height: 1.7;
     color: var(--muted-on-dark);
     max-width: 56ch;
-    margin: 0 0 clamp(2rem, 4vw, 2.75rem);
+    margin: 0 0 clamp(1.75rem, 3.5vw, 2.25rem);
     text-wrap: pretty;
 }
 
@@ -272,48 +311,115 @@ body.agent-landing {
 .agent-hero__actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.85rem;
     align-items: center;
+}
+
+.agent-hero .btn {
+    padding: 13px 28px;
 }
 
 .agent-hero .btn-secondary {
     color: var(--ink-on-dark);
-    border-color: var(--hairline-on-dark);
+    border: 1px solid color-mix(in srgb, var(--white) 32%, transparent);
 }
 
 .agent-hero .btn-secondary:hover {
-    background: var(--ink-on-dark);
+    background: var(--white);
     color: var(--black);
-    border-color: var(--ink-on-dark);
+    border-color: var(--white);
 }
 
-.agent-hero__terms {
-    margin: clamp(1.75rem, 3.5vw, 2.5rem) 0 0;
-    font-size: 0.9rem;
-    line-height: 1.7;
+/* The first call, in practice: a quiet card on the dark field. */
+.agent-hero__card {
+    background: var(--surface-on-dark);
+    border: 1px solid var(--hairline-on-dark);
+    border-radius: 18px;
+    padding: clamp(1.4rem, 2.6vw, 1.9rem);
+}
+
+.agent-hero__card-title {
+    font-family: var(--font-primary);
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    color: var(--ink-on-dark);
+    margin: 0 0 1.1rem;
+}
+
+.agent-hero__steps {
+    list-style: none;
+    counter-reset: first-call;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+}
+
+.agent-hero__steps li {
+    counter-increment: first-call;
+    display: grid;
+    grid-template-columns: 28px minmax(0, 1fr);
+    gap: 0.85rem;
+    align-items: start;
+    font-size: 0.97rem;
+    line-height: 1.6;
     color: var(--muted-on-dark);
 }
 
-.agent-hero__terms span + span::before {
-    content: '·';
-    margin: 0 0.6rem;
-    color: var(--hairline-on-dark);
+.agent-hero__steps li::before {
+    content: counter(first-call);
+    width: 28px;
+    height: 28px;
+    margin-top: 0.05rem;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    border: 1.5px solid var(--brand-teal);
+    color: var(--signal-on-dark);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.agent-hero__card-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+    margin: 1.25rem 0 0;
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--hairline-on-dark);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--ink-on-dark);
+}
+
+.agent-hero__card-note svg {
+    flex: 0 0 18px;
+    width: 18px;
+    height: 18px;
+    margin-top: 0.1rem;
+    color: var(--green-on-dark);
+}
+
+@media (max-width: 960px) {
+    .agent-hero__grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .agent-hero__card {
+        max-width: 560px;
+    }
 }
 
 @media (max-width: 620px) {
     .agent-hero__actions .btn {
         width: 100%;
     }
-    .agent-hero__terms span {
-        display: block;
-    }
-    .agent-hero__terms span + span::before {
-        display: none;
-    }
 }
 
 /* --------------------------------------------------------------------------
-   Pipeline stage — the scroll-driven sliced reveal
+   Pipeline stage: the scroll-driven sliced reveal
    --------------------------------------------------------------------------
    Structure: one image painted four times, each copy clipped to a quarter-height
    horizontal band. At rest the four bands reconstruct the image exactly. When
@@ -336,20 +442,25 @@ body.agent-landing {
     overflow-x: clip;
 }
 
+/* The hero fades into the same black, so one gap is enough. */
+.agent-hero + .pipeline {
+    padding-top: clamp(2.5rem, 5vw, 4rem);
+}
+
 .pipeline__inner {
-    max-width: 1200px;
+    max-width: var(--container);
     margin: 0 auto;
-    padding: 0 clamp(1.25rem, 4vw, 2rem);
+    padding: 0 var(--gutter);
 }
 
 .pipeline__head {
     max-width: var(--measure);
-    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
 }
 
 .pipeline__title {
     font-family: var(--font-primary);
-    font-size: clamp(1.9rem, 4vw, 2.85rem);
+    font-size: clamp(1.9rem, 3.4vw, 2.6rem);
     font-weight: 700;
     line-height: 1.12;
     letter-spacing: -0.02em;
@@ -359,7 +470,7 @@ body.agent-landing {
 }
 
 .pipeline__intro {
-    font-size: clamp(1rem, 1.6vw, 1.15rem);
+    font-size: clamp(1rem, 1.6vw, 1.12rem);
     line-height: 1.7;
     color: var(--muted-on-dark);
     margin: 0;
@@ -386,21 +497,31 @@ body.agent-landing {
     /* `clip-path`, deliberately, NOT `overflow: hidden`. Overflow would make the
        figure a scroll container, and the view timeline declared on the subject
        inside it would then be measured against the figure instead of the
-       viewport. The subject exactly fills the figure, so it would read as
-       permanently fully-visible and the animation would sit pinned at its end
-       state. clip-path gives the same rounded clipping with no scroll box. */
+       viewport. clip-path gives the same rounded clipping with no scroll box. */
     clip-path: inset(0 round 14px);
-    background: #060F17;
+    background: var(--black);
     border: 1px solid var(--hairline-on-dark);
     margin: 0;
     isolation: isolate;
 }
 
+/* One image per agent. url() resolves against this stylesheet, so the same
+   rule serves the Italian pages and the /en/ twins. */
+.pipeline__figure--marketing {
+    --pipeline-image-sm: url('img/agents/marketing-manifold-880.webp');
+    --pipeline-image-lg: url('img/agents/marketing-manifold-1760.webp');
+}
+
+.pipeline__figure--sales {
+    --pipeline-image-sm: url('img/agents/sales-pipeline-880.webp');
+    --pipeline-image-lg: url('img/agents/sales-pipeline-1760.webp');
+}
+
 .pipeline__band {
     position: absolute;
     inset: 0;
-    /* Each page sets the two URLs inline; the figure is ~92vw on small screens
-       and ~55% of a 1200px container above that, so this is the right split. */
+    /* The figure is ~92vw on small screens and ~55% of a 1200px container
+       above that, hence the two sizes. */
     background-image: var(--pipeline-image-sm);
     background-size: cover;
     background-position: center;
@@ -408,6 +529,11 @@ body.agent-landing {
     clip-path: inset(calc(var(--band) * 25%) 0 calc(75% - var(--band) * 25%) 0);
     will-change: transform, opacity, filter;
 }
+
+.pipeline__band:nth-child(1) { --band: 0; }
+.pipeline__band:nth-child(2) { --band: 1; }
+.pipeline__band:nth-child(3) { --band: 2; }
+.pipeline__band:nth-child(4) { --band: 3; }
 
 /* A faint seam between bands so the slicing reads as deliberate at rest. */
 .pipeline__band::after {
@@ -417,12 +543,11 @@ body.agent-landing {
     right: 0;
     top: calc(var(--band) * 25%);
     height: 1px;
-    background: rgba(10, 26, 38, 0.55);
+    background: color-mix(in srgb, var(--black) 55%, transparent);
     opacity: 0.7;
 }
 
-.pipeline__band[style*="--band: 0"]::after,
-.pipeline__band[style*="--band:0"]::after {
+.pipeline__band:nth-child(1)::after {
     display: none;
 }
 
@@ -434,8 +559,8 @@ body.agent-landing {
     z-index: var(--z-raised);
     pointer-events: none;
     background:
-        linear-gradient(115deg, rgba(35, 125, 166, 0.18) 0%, rgba(14, 156, 154, 0.08) 50%, rgba(67, 174, 104, 0.16) 100%),
-        radial-gradient(120% 100% at 50% 50%, transparent 40%, rgba(6, 15, 23, 0.6) 100%);
+        linear-gradient(115deg, color-mix(in srgb, var(--primary-blue) 18%, transparent) 0%, color-mix(in srgb, var(--brand-teal) 8%, transparent) 50%, color-mix(in srgb, var(--primary-green) 16%, transparent) 100%),
+        radial-gradient(120% 100% at 50% 50%, transparent 40%, color-mix(in srgb, var(--black) 60%, transparent) 100%);
     mix-blend-mode: screen;
     opacity: 0.55;
 }
@@ -510,24 +635,29 @@ body.agent-landing {
     text-wrap: pretty;
 }
 
+/* Who does what at this stage: the agent proposes, a person decides. */
 .pipeline__stage-metric {
     display: inline-flex;
+    flex-wrap: wrap;
     align-items: baseline;
-    gap: 0.5rem;
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: 0.82rem;
-    letter-spacing: 0.02em;
+    gap: 0.45rem;
+    margin: 0;
+    font-size: 0.86rem;
+    line-height: 1.45;
     color: var(--ink-on-dark);
     background: var(--surface-on-dark);
     border: 1px solid var(--hairline-on-dark);
-    border-radius: 6px;
-    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    padding: 0.35rem 0.85rem;
 }
 
 .pipeline__stage-metric b {
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--primary-green);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--green-on-dark);
 }
 
 @media (min-width: 901px) {
@@ -580,14 +710,11 @@ body.agent-landing {
     /* Preferred path: CSS scroll-driven timelines. No JS, no jank. */
     @supports (animation-timeline: view()) {
 
-        /* One timeline measured on the figure. Bands are its descendants and
-           the stage list is a following sibling; both can read the name. This
+        /* The bands are descendants of the figure and see the timeline name
+           directly. The stage list is only a sibling of the figure, so the
+           shared parent widens the name's scope to cover both branches. This
            only resolves because nothing between the figure and the viewport is
-           a scroll container. See the clip-path note on .pipeline__figure. */
-        /* The bands are descendants of the figure and see the name directly.
-           The stage list is only a *sibling* of the figure, and a named timeline
-           does not reach siblings on its own, so the shared parent widens the
-           name's scope to cover both branches. */
+           a scroll container (see the clip-path note on .pipeline__figure). */
         .pipeline__layout {
             timeline-scope: --pipeline-figure;
         }
@@ -630,9 +757,9 @@ body.agent-landing {
         .pipeline__stage:nth-child(4) { animation-range: entry 54% entry 81%; }
     }
 
-    /* Fallback for Firefox and anything else without view() timelines.
-       JS adds .is-armed only when it has confirmed the effect can run, so the
-       offset state is never applied to a browser that cannot undo it. */
+    /* Fallback for browsers without view() timelines. JS adds .is-armed only
+       when it has confirmed the effect can run, so the offset state is never
+       applied to a browser that cannot undo it. */
     .pipeline.is-armed .pipeline__band {
         transform: translate3d(-9%, 0, 0);
         opacity: 0;
@@ -681,7 +808,7 @@ body.agent-landing {
 }
 
 /* --------------------------------------------------------------------------
-   Capability — replaces the three identical icon cards
+   Capability: sticky heading on the left, hairline list on the right
    -------------------------------------------------------------------------- */
 
 .capability {
@@ -690,9 +817,9 @@ body.agent-landing {
 }
 
 .capability__inner {
-    max-width: 1200px;
+    max-width: var(--container);
     margin: 0 auto;
-    padding: 0 clamp(1.25rem, 4vw, 2rem);
+    padding: 0 var(--gutter);
     display: grid;
     grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
     gap: clamp(2rem, 6vw, 5rem);
@@ -702,10 +829,6 @@ body.agent-landing {
 .capability__aside {
     position: sticky;
     top: 7rem;
-}
-
-.capability__aside .section-title {
-    text-align: left;
 }
 
 .capability__aside p {
@@ -721,30 +844,26 @@ body.agent-landing {
     list-style: none;
     margin: 0;
     padding: 0;
+    border-top: 1px solid var(--hairline);
 }
 
 .capability__item {
-    padding: clamp(1.75rem, 3vw, 2.25rem) 0;
-    border-top: 1px solid rgba(20, 50, 74, 0.14);
-}
-
-.capability__item:first-child {
-    border-top: 0;
-    padding-top: 0;
+    padding: clamp(1.4rem, 2.6vw, 1.85rem) 0;
+    border-bottom: 1px solid var(--hairline);
 }
 
 .capability__item h3 {
-    font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+    font-size: clamp(1.15rem, 1.8vw, 1.35rem);
     font-weight: 600;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.012em;
     color: var(--dark-gray);
-    margin: 0 0 0.75rem;
+    margin: 0 0 0.5rem;
 }
 
 .capability__item p {
     margin: 0;
-    font-size: 1.02rem;
-    line-height: 1.72;
+    font-size: 1rem;
+    line-height: 1.7;
     color: var(--medium-gray);
     max-width: var(--measure);
     text-wrap: pretty;
@@ -764,28 +883,25 @@ body.agent-landing {
    -------------------------------------------------------------------------- */
 
 .integrations {
-    padding: clamp(2.5rem, 5vw, 3.5rem) 0;
+    padding: clamp(2.25rem, 4.5vw, 3rem) 0;
     background: var(--light-gray);
-    border-top: 1px solid rgba(20, 50, 74, 0.1);
-    border-bottom: 1px solid rgba(20, 50, 74, 0.1);
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
 }
 
 .integrations__inner {
-    max-width: 1200px;
+    max-width: var(--container);
     margin: 0 auto;
-    padding: 0 clamp(1.25rem, 4vw, 2rem);
+    padding: 0 var(--gutter);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: clamp(1rem, 3vw, 2.5rem);
+    gap: 0.75rem clamp(1rem, 3vw, 2.5rem);
 }
 
 .integrations__label {
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: 0.74rem;
-    font-weight: 500;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
+    font-size: 0.92rem;
+    font-weight: 600;
     color: var(--medium-gray);
     margin: 0;
     flex: 0 0 auto;
@@ -795,7 +911,7 @@ body.agent-landing {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.6rem 1.5rem;
+    gap: 0.6rem 1.75rem;
     margin: 0;
     padding: 0;
 }
@@ -808,7 +924,7 @@ body.agent-landing {
 }
 
 /* --------------------------------------------------------------------------
-   Proof
+   Proof: what is measured before and after. No invented figures.
    -------------------------------------------------------------------------- */
 
 .proof {
@@ -817,53 +933,23 @@ body.agent-landing {
 }
 
 .proof__inner {
-    max-width: 1200px;
+    max-width: var(--container);
     margin: 0 auto;
-    padding: 0 clamp(1.25rem, 4vw, 2rem);
+    padding: 0 var(--gutter);
 }
 
-.proof__quote {
-    margin: 0 0 clamp(2.5rem, 5vw, 3.5rem);
-    max-width: 24ch;
-    font-family: var(--font-primary);
-    font-size: clamp(1.6rem, 3.6vw, 2.6rem);
-    font-weight: 600;
-    line-height: 1.24;
-    letter-spacing: -0.022em;
-    color: var(--dark-gray);
-    text-wrap: balance;
+.proof__head {
+    max-width: var(--measure);
+    margin-bottom: clamp(2.25rem, 4.5vw, 3rem);
 }
 
-.proof__quote p {
-    margin: 0;
-}
-
-.proof__attribution {
-    display: flex;
-    align-items: center;
-    gap: 0.85rem;
-    margin-top: clamp(1.5rem, 3vw, 2rem);
-    font-family: var(--font-secondary);
-    font-size: 0.95rem;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: 1.5;
+.proof__head p {
+    margin: 1.25rem 0 0;
+    font-size: 1.08rem;
+    line-height: 1.7;
     color: var(--medium-gray);
-}
-
-.proof__mark {
-    flex: 0 0 auto;
-    width: 42px;
-    height: 42px;
-    border-radius: 10px;
-    display: grid;
-    place-items: center;
-    background: var(--dark-gray);
-    color: var(--white);
-    font-family: var(--font-primary);
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
+    max-width: 60ch;
+    text-wrap: pretty;
 }
 
 .proof__results {
@@ -871,38 +957,91 @@ body.agent-landing {
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr));
-    gap: 1px;
-    background: rgba(20, 50, 74, 0.14);
-    border: 1px solid rgba(20, 50, 74, 0.14);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem;
+}
+
+.proof__results li {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--hairline);
+}
+
+.proof__ico {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 1rem;
     border-radius: 12px;
-    overflow: hidden;
-}
-
-.proof__results > div {
-    background: var(--white);
-    padding: clamp(1.4rem, 3vw, 1.9rem);
-}
-
-.proof__results dt {
-    font-size: 0.88rem;
-    line-height: 1.5;
-    color: var(--medium-gray);
-    margin: 0 0 0.5rem;
-}
-
-.proof__results dd {
-    margin: 0;
-    font-family: var(--font-primary);
-    font-size: clamp(1.8rem, 3.4vw, 2.4rem);
-    font-weight: 700;
-    letter-spacing: -0.03em;
+    background: var(--success-surface);
     color: var(--green-text);
-    line-height: 1;
+}
+
+.proof__ico svg {
+    width: 22px;
+    height: 22px;
+}
+
+.proof__results h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--dark-gray);
+    margin: 0 0 0.45rem;
+}
+
+.proof__results p {
+    margin: 0;
+    font-size: 0.97rem;
+    line-height: 1.6;
+    color: var(--medium-gray);
+}
+
+.proof__note {
+    margin: clamp(2rem, 4vw, 2.75rem) 0 0;
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: var(--medium-gray);
+    max-width: 72ch;
+}
+
+/* Inline links on light surfaces. */
+.proof__note a,
+.pricing__lead a,
+.pricing__setup a,
+.voice-about__text a,
+.voice-head a {
+    color: var(--blue-text);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.proof__note a:hover,
+.pricing__lead a:hover,
+.pricing__setup a:hover,
+.voice-about__text a:hover,
+.voice-head a:hover {
+    color: var(--dark-blue);
+}
+
+@media (max-width: 1000px) {
+    .proof__results {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 560px) {
+    .proof__results {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.5rem;
+    }
 }
 
 /* --------------------------------------------------------------------------
-   Pricing
+   Costs: how a quote is set. No figures.
    -------------------------------------------------------------------------- */
 
 .pricing {
@@ -911,80 +1050,60 @@ body.agent-landing {
 }
 
 .pricing__inner {
-    max-width: 1200px;
+    max-width: var(--container);
     margin: 0 auto;
-    padding: 0 clamp(1.25rem, 4vw, 2rem);
+    padding: 0 var(--gutter);
     display: grid;
     grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
     gap: clamp(2rem, 5vw, 4rem);
     align-items: start;
 }
 
-.pricing__aside .section-title {
-    text-align: left;
-}
-
-.pricing__amount {
-    margin: clamp(1.5rem, 3vw, 2rem) 0 0.5rem;
-    font-family: var(--font-primary);
-    font-size: clamp(2.6rem, 6vw, 3.6rem);
-    font-weight: 700;
-    letter-spacing: -0.035em;
-    line-height: 1;
+.pricing__lead {
+    margin: 1.25rem 0 0;
+    font-size: 1.08rem;
+    line-height: 1.7;
     color: var(--dark-gray);
-}
-
-.pricing__amount span {
-    display: block;
-    font-family: var(--font-secondary);
-    font-size: 0.95rem;
-    font-weight: 500;
-    letter-spacing: 0;
-    color: var(--medium-gray);
-    margin-top: 0.6rem;
+    max-width: 44ch;
 }
 
 .pricing__setup {
-    margin: 1.25rem 0 0;
-    font-size: 0.95rem;
+    margin: 1rem 0 0;
+    font-size: 0.98rem;
     line-height: 1.7;
     color: var(--medium-gray);
-    max-width: 40ch;
+    max-width: 44ch;
 }
 
-.pricing__guarantee {
-    margin: clamp(1.5rem, 3vw, 2rem) 0 0;
-    padding: 1.1rem 1.25rem;
-    background: var(--light-green);
-    border: 1px solid rgba(44, 122, 69, 0.22);
-    border-radius: 10px;
-    font-size: 0.95rem;
-    line-height: 1.6;
+.pricing__panel {
+    background: var(--white);
+    border: 1px solid var(--hairline);
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.pricing__panel-title {
+    font-size: 1.05rem;
+    font-weight: 600;
     color: var(--dark-gray);
-    max-width: 40ch;
-}
-
-.pricing__guarantee b {
-    color: var(--green-text);
+    margin: 0;
+    padding: clamp(1.1rem, 2.2vw, 1.4rem) clamp(1.1rem, 2.5vw, 1.75rem);
+    border-bottom: 1px solid var(--hairline);
 }
 
 .pricing__includes {
     list-style: none;
     margin: 0;
     padding: 0;
-    background: var(--white);
-    border: 1px solid rgba(20, 50, 74, 0.12);
-    border-radius: 14px;
-    overflow: hidden;
 }
 
 .pricing__includes li {
     display: grid;
-    grid-template-columns: 1.25rem 1fr;
+    grid-template-columns: 1.25rem minmax(0, 1fr);
     gap: 0.9rem;
     align-items: start;
-    padding: clamp(1rem, 2vw, 1.25rem) clamp(1.1rem, 2.5vw, 1.75rem);
-    border-top: 1px solid rgba(20, 50, 74, 0.09);
+    padding: clamp(0.95rem, 1.8vw, 1.15rem) clamp(1.1rem, 2.5vw, 1.75rem);
+    border-top: 1px solid var(--hairline);
     font-size: 1rem;
     line-height: 1.6;
     color: var(--medium-gray);
@@ -994,16 +1113,16 @@ body.agent-landing {
     border-top: 0;
 }
 
-.pricing__includes li::before {
+/* Check mark drawn with a mask so its colour is a token, not baked in. */
+.pricing__includes li::before,
+.closing__points li::before {
     content: '';
     width: 1.25rem;
     height: 1.25rem;
     margin-top: 0.15rem;
-    border-radius: 50%;
-    background: var(--light-green);
-    /* Inline check mark, so no icon font and no emoji. */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%232C7A45' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.5 8.5l3 3 6-6'/%3E%3C/svg%3E");
-    background-size: 100% 100%;
+    background-color: var(--green-text);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='m8.5 12 2.5 2.5 4.5-5'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='m8.5 12 2.5 2.5 4.5-5'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 .pricing__includes strong {
@@ -1035,13 +1154,13 @@ body.agent-landing {
     position: absolute;
     inset: 0;
     z-index: -1;
-    background: radial-gradient(90% 70% at 80% 0%, rgba(14, 156, 154, 0.22) 0%, transparent 60%);
+    background: radial-gradient(90% 70% at 80% 0%, color-mix(in srgb, var(--brand-teal) 22%, transparent) 0%, transparent 60%);
 }
 
 .closing__inner {
-    max-width: 1200px;
+    max-width: var(--container);
     margin: 0 auto;
-    padding: 0 clamp(1.25rem, 4vw, 2rem);
+    padding: 0 var(--gutter);
     display: grid;
     grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
     gap: clamp(2.5rem, 6vw, 4.5rem);
@@ -1050,10 +1169,10 @@ body.agent-landing {
 
 .closing__title {
     font-family: var(--font-primary);
-    font-size: clamp(1.9rem, 4.2vw, 2.9rem);
+    font-size: clamp(1.9rem, 3.6vw, 2.6rem);
     font-weight: 700;
     line-height: 1.12;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.02em;
     color: var(--ink-on-dark);
     margin: 0 0 1.25rem;
     text-wrap: balance;
@@ -1078,7 +1197,7 @@ body.agent-landing {
 
 .closing__points li {
     display: grid;
-    grid-template-columns: 1.1rem 1fr;
+    grid-template-columns: 1.25rem minmax(0, 1fr);
     gap: 0.75rem;
     align-items: start;
     font-size: 0.98rem;
@@ -1087,103 +1206,145 @@ body.agent-landing {
 }
 
 .closing__points li::before {
-    content: '';
-    width: 1.1rem;
-    height: 1.1rem;
-    margin-top: 0.2rem;
-    border-radius: 50%;
-    border: 1px solid rgba(67, 174, 104, 0.5);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%2343AE68' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.5 8.5l3 3 6-6'/%3E%3C/svg%3E");
-    background-size: 100% 100%;
+    background-color: var(--green-on-dark);
+    margin-top: 0.12rem;
 }
 
-/* Form ---------------------------------------------------------------------- */
+.closing__inner > div a {
+    color: var(--signal-on-dark);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
 
-.agent-form {
+.closing__inner > div a:hover {
+    color: var(--white);
+}
+
+/* Form ----------------------------------------------------------------------
+   .agent-form on the marketing and sales pages; the voice pages keep their
+   original .contact-form class because conversion-tracking.js reports the
+   form by class name. */
+
+.agent-form,
+.agent-landing .contact-form {
     background: var(--white);
-    padding: clamp(1.5rem, 3.5vw, 2.5rem);
-    border-radius: 16px;
-    box-shadow: 0 24px 60px rgba(6, 15, 23, 0.35);
+    color: var(--dark-gray);
+    padding: clamp(1.4rem, 3.2vw, 2.25rem);
+    border-radius: 20px;
+    box-shadow: 0 24px 60px color-mix(in srgb, var(--black) 35%, transparent);
+    scroll-margin-top: 96px;
 }
 
 .agent-form__title {
-    font-size: 1.4rem;
+    font-size: 1.45rem;
     font-weight: 600;
     letter-spacing: -0.015em;
+    line-height: 1.2;
     color: var(--dark-gray);
     margin: 0 0 0.4rem;
 }
 
 .agent-form__note {
-    font-size: 0.9rem;
-    line-height: 1.6;
+    font-size: 0.92rem;
+    line-height: 1.55;
     color: var(--medium-gray);
-    margin: 0 0 1.75rem;
+    margin: 0 0 1.4rem;
 }
 
 .agent-form__row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 0.9rem;
 }
 
+.agent-form__row > div,
 .agent-form__field {
     margin-bottom: 1rem;
+    min-width: 0;
 }
 
-.agent-form .landing-form-label {
+.agent-landing .landing-form-label {
     display: block;
     margin-bottom: 0.4rem;
     font-size: 0.88rem;
     font-weight: 600;
     color: var(--dark-gray);
+    text-align: left;
+}
+
+.agent-landing .landing-form-input {
+    width: 100%;
+    min-height: 46px;
+    padding: 0.7rem 0.9rem;
+    border: 1.5px solid var(--border-medium);
+    border-radius: 10px;
+    background: var(--white);
+    color: var(--black);
+    font-family: var(--font-secondary);
+    font-size: 0.97rem;
+    line-height: 1.4;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.agent-landing textarea.landing-form-input {
+    min-height: 96px;
+    resize: vertical;
+}
+
+.agent-landing .landing-form-input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary-blue) 22%, transparent);
+}
+
+.agent-landing .landing-form-input:user-invalid {
+    border-color: var(--error);
 }
 
 /* Placeholders must clear 4.5:1 like any other body text. */
-.agent-form input::placeholder,
-.agent-form textarea::placeholder {
+.agent-landing .landing-form-input::placeholder {
     color: var(--medium-gray);
     opacity: 1;
 }
 
 .agent-form__consent {
     display: grid;
-    gap: 0.75rem;
-    margin: 1.25rem 0 1.5rem;
+    gap: 0.7rem;
+    margin: 0.5rem 0 1.4rem;
 }
 
 .agent-form__consent label {
     display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.6rem;
+    grid-template-columns: 20px minmax(0, 1fr);
+    gap: 0.65rem;
     align-items: start;
     font-size: 0.9rem;
-    line-height: 1.55;
-    color: var(--medium-gray);
+    line-height: 1.5;
+    color: var(--dark-gray);
     cursor: pointer;
 }
 
 .agent-form__consent input[type="checkbox"] {
-    margin-top: 0.22rem;
-    width: 1rem;
-    height: 1rem;
-    accent-color: var(--primary-green);
+    width: 20px;
+    height: 20px;
+    margin: 0.05rem 0 0;
+    accent-color: var(--primary-blue);
+    cursor: pointer;
 }
 
 .agent-form__consent a {
-    color: var(--signal);
+    color: var(--blue-text);
+    text-decoration: underline;
     text-underline-offset: 2px;
 }
 
 .agent-form__submit {
     width: 100%;
+    min-height: 54px;
     padding: 0.95rem 1.5rem;
-    font-family: var(--font-secondary);
-    font-size: 1rem;
+    font-family: var(--font-primary);
+    font-size: 1.05rem;
     font-weight: 600;
-    color: var(--white);
-    background: var(--gradient-primary);
     border: none;
     border-radius: 50px;
     cursor: pointer;
@@ -1191,17 +1352,38 @@ body.agent-landing {
     align-items: center;
     justify-content: center;
     gap: 0.6rem;
+    box-shadow: 0 6px 18px color-mix(in srgb, var(--dark-blue) 28%, transparent);
     transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+}
+
+.agent-form__submit svg {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
 }
 
 .agent-form__submit:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 28px rgba(35, 125, 166, 0.4);
+    box-shadow: 0 10px 28px color-mix(in srgb, var(--dark-blue) 38%, transparent);
 }
 
-.agent-form__submit:focus-visible {
-    outline: 3px solid var(--primary-green);
-    outline-offset: 3px;
+.agent-form__micro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 0.9rem 0 0;
+    font-size: 0.86rem;
+    line-height: 1.45;
+    color: var(--medium-gray);
+    text-align: center;
+}
+
+.agent-form__micro svg {
+    flex: 0 0 15px;
+    width: 15px;
+    height: 15px;
+    color: var(--green-text);
 }
 
 @media (max-width: 900px) {
@@ -1212,12 +1394,7 @@ body.agent-landing {
 
 @media (max-width: 560px) {
     .agent-form__row {
-        grid-template-columns: 1fr;
-        gap: 0;
-        margin-bottom: 0;
-    }
-    .agent-form__row > div {
-        margin-bottom: 1rem;
+        grid-template-columns: minmax(0, 1fr);
     }
 }
 
@@ -1228,28 +1405,319 @@ body.agent-landing {
 .agent-footer {
     background: var(--black);
     border-top: 1px solid var(--hairline-on-dark);
-    padding: 1.25rem 0;
+    padding: 1.75rem 0;
 }
 
 .agent-footer__inner {
-    max-width: 1200px;
+    max-width: var(--container);
     margin: 0 auto;
-    padding: 0 clamp(1.25rem, 4vw, 2rem);
+    padding: 0 var(--gutter);
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     justify-content: space-between;
     gap: 0.75rem 1.5rem;
     font-size: 0.88rem;
+    line-height: 1.55;
     color: var(--muted-on-dark);
 }
 
-.agent-footer__inner a {
-    color: var(--muted-on-dark);
+.agent-footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.agent-footer__links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--white);
+    text-decoration: none;
+}
+
+.agent-footer__links a:hover {
+    text-decoration: underline;
     text-underline-offset: 2px;
 }
 
-.agent-footer__inner a:hover {
-    color: var(--ink-on-dark);
+.agent-footer__legal {
+    flex-basis: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--hairline-on-dark);
+}
+
+.agent-footer__legal p {
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Voice agent sections: about, partner and technology logos, capabilities.
+   -------------------------------------------------------------------------- */
+
+.voice-section {
+    padding: var(--band-gap) 0;
+    background: var(--white);
+}
+
+/* Two white bands in a row: one gap between them, not two. */
+.voice-section + .proof {
+    padding-top: 0;
+}
+
+.voice-section--tint {
+    background: var(--light-gray);
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+}
+
+.voice-section__inner {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+}
+
+/* About: heading left, text right. */
+.voice-about {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: start;
+}
+
+.voice-about__text p {
+    margin: 0 0 1.25rem;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--medium-gray);
+    max-width: var(--measure);
+}
+
+.voice-about__text p:last-child {
+    margin-bottom: 0;
+}
+
+/* Partner and technology logos: quiet, greyscale, not links. */
+.voice-logos + .voice-logos {
+    margin-top: clamp(2.5rem, 5vw, 3.5rem);
+    padding-top: clamp(2.5rem, 5vw, 3.5rem);
+    border-top: 1px solid var(--hairline);
+}
+
+.voice-logos__title {
+    font-size: clamp(1.35rem, 2.4vw, 1.7rem);
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: var(--dark-gray);
+    margin: 0 0 0.5rem;
+}
+
+.voice-logos__intro {
+    margin: 0 0 1.75rem;
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: var(--medium-gray);
+    max-width: 64ch;
+}
+
+.voice-logos__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem 2.75rem;
+}
+
+.voice-logos__list li {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.voice-logos__list img {
+    display: block;
+    height: 32px;
+    width: auto;
+    max-width: 140px;
+    object-fit: contain;
+    filter: grayscale(1);
+    opacity: 0.75;
+}
+
+.voice-logos__list--partners img {
+    height: 44px;
+    max-width: 150px;
+}
+
+.voice-logos__list span {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--medium-gray);
+}
+
+/* Capabilities: three quiet cards, equal height. */
+.voice-head {
+    max-width: var(--measure);
+    margin-bottom: clamp(2.25rem, 4.5vw, 3rem);
+}
+
+.voice-head p {
+    margin: 1.25rem 0 0;
+    font-size: 1.08rem;
+    line-height: 1.7;
+    color: var(--medium-gray);
+    max-width: 60ch;
+}
+
+.voice-cards {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.voice-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    background: var(--white);
+    border: 1px solid var(--hairline);
+    border-radius: 18px;
+    padding: clamp(1.5rem, 2.6vw, 2rem) clamp(1.35rem, 2.4vw, 1.75rem);
+}
+
+.voice-card__ico,
+.voice-feature__ico {
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+}
+
+.voice-card__ico {
+    background: var(--info-surface);
+    color: var(--blue-text);
+}
+
+.voice-card__ico svg,
+.voice-feature__ico svg {
+    width: 24px;
+    height: 24px;
+}
+
+.voice-card h3 {
+    font-size: 1.22rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--dark-gray);
+    margin: 0.25rem 0 0;
+}
+
+.voice-card p {
+    margin: 0;
+    line-height: 1.65;
+    color: var(--medium-gray);
+}
+
+/* Features: one navy panel, white type on --gradient-hero-dark. */
+.voice-features {
+    margin-top: clamp(2rem, 4vw, 2.75rem);
+    padding: clamp(1.75rem, 4vw, 2.75rem);
+    border-radius: 22px;
+    background: var(--gradient-hero-dark);
+    color: var(--white);
+}
+
+.voice-features__title {
+    font-size: clamp(1.35rem, 2.4vw, 1.7rem);
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: var(--white);
+    margin: 0 0 0.6rem;
+}
+
+.voice-features__intro {
+    margin: 0 0 clamp(1.5rem, 3vw, 2rem);
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--muted-on-dark);
+    max-width: 64ch;
+}
+
+.voice-features__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.75rem;
+}
+
+.voice-feature {
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--hairline-on-dark);
+}
+
+.voice-feature__ico {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 0.9rem;
+    background: var(--surface-on-dark);
+    border: 1px solid var(--hairline-on-dark);
+    color: var(--signal-on-dark);
+}
+
+.voice-feature h4 {
+    font-size: 1.08rem;
+    font-weight: 600;
+    color: var(--white);
+    margin: 0 0 0.4rem;
+}
+
+.voice-feature p {
+    margin: 0;
+    font-size: 0.96rem;
+    line-height: 1.6;
+    color: var(--muted-on-dark);
+}
+
+@media (max-width: 960px) {
+    .voice-cards,
+    .voice-features__list {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .voice-about {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 560px) {
+    .voice-logos__list {
+        gap: 1.25rem 1.75rem;
+    }
+    .voice-logos__list img {
+        height: 26px;
+        max-width: 112px;
+    }
+    .voice-logos__list--partners img {
+        height: 36px;
+    }
 }
 
 /* --------------------------------------------------------------------------
@@ -1279,5 +1747,10 @@ body.agent-landing {
 
     .pipeline__stages::after {
         transform: scaleY(1) !important;
+    }
+
+    .agent-form__submit:hover,
+    .agent-landing .btn:hover {
+        transform: none;
     }
 }

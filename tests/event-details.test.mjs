@@ -5,8 +5,8 @@ import {createHash} from 'node:crypto';
 import {resolve} from 'node:path';
 const root=resolve(import.meta.dirname,'..');
 const read=p=>readFileSync(resolve(root,p),'utf8');
-// 27 Oct is after the 25 Oct 2026 switch to CET, hence +01:00.
-const cases=[['seo-in-pensione-aeo-geo','2026-10-06','La SEO va in pensione, benvenuta AEO/GEO','+02:00'],['ai-agent-processi-aziendali','2026-10-27','AI Agent – Come rendere efficienti i processi aziendali','+01:00'],['ai-marketing-agent','2026-11-17','AI Marketing Agent – Come semplificare ed efficientare i processi di marketing','+01:00']];
+// All three dates fall after the 25 Oct 2026 switch to CET, hence +01:00.
+const cases=[['seo-in-pensione-aeo-geo','2026-11-03','La SEO va in pensione, benvenuta AEO/GEO','+01:00'],['ai-agent-processi-aziendali','2026-11-17','AI Agent – Come rendere efficienti i processi aziendali','+01:00'],['ai-marketing-agent','2026-11-24','AI Marketing Agent – Come semplificare ed efficientare i processi di marketing','+01:00']];
 const moved=[['farsi-trovare-era-ai','seo-in-pensione-aeo-geo'],['dall-ai-ai-risultati','ai-agent-processi-aziendali'],['agenti-ai-in-azienda','ai-marketing-agent']];
 test('three crawlable topic pages lead to the sole signup with correct event metadata',()=>{
  const titles=new Set(), descriptions=new Set(), hub=read('eventi-ai-aziende/index.html');
@@ -62,14 +62,17 @@ test('retired topic URLs redirect to their renamed pages and leave the sitemap a
 test('existing registration transport, config, styling and five-field form remain byte-identical',()=>{
  const hashes={
   // Re-pinned when the form started dropping dates that have passed in Milan, and again when
-  // it stopped offering dates the served page has closed and re-checked the date on submit.
-  'event-registration.mjs':'a20334630c76b52a8821f07060e399801483b208cb45758b75493dadba9484ec',
-  'event-registration-core.mjs':'c1fd9773f202aa683afcc2e7d9982e260eae834d4ba07a3f3151258c0e2d0ae0',
-  // Re-pinned for the dates/venue in Roberto's 20 September email.
-  'event-registration-config.mjs':'6e4047ba273d8fd16e97e2b4fd3d2bbf9159db7e1615fce037db4c3042ee233e',
+  // it stopped offering dates the served page has closed and re-checked the date on submit,
+  // and again when Roberto's 6 October 2026 email moved its messages from Lei to tu.
+  'event-registration.mjs':'df3c7294ccd07884b95e0a0e0a13706cda9ee1b9978175fc590596c7556c201c',
+  // Re-pinned for the tu validation messages (6 October 2026 email).
+  'event-registration-core.mjs':'9994d6057a2dd8c987dd3d56897088afce199915297f34673bf60c7b0c9a1a3f',
+  // Re-pinned for the venue in Roberto's 20 September email and the dates in his 6 October one.
+  'event-registration-config.mjs':'6f2d89dd9786f22dc224bae2d862531774df7e5e6ae737f390e359e196e97e50',
   'event-registration.css':'37079e0499c716739fd967723409c511b7180af7a40ad5b1870d4fb145766a7e'
  };
  const hash=s=>createHash('sha256').update(s).digest('hex');
  for(const [file,expected] of Object.entries(hashes)) assert.equal(hash(read(file)),expected,file);
- assert.equal(hash(read('eventi-ai-aziende/index.html').match(/<form[\s\S]*?<\/form>/)[0]),'807b1c426af42a518a27764addcf1b6c380cb9d0e42cd4ed8fe2c8974da5a5ae');
+ // Re-pinned for the tu copy and the dropped marketing line in the privacy note (6 October 2026 email).
+ assert.equal(hash(read('eventi-ai-aziende/index.html').match(/<form[\s\S]*?<\/form>/)[0]),'bc309b1e5e32d0459cbaf563917a738f1e228330ce05cfe62bc9a99a24e38d38');
 });

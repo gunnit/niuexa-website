@@ -889,13 +889,14 @@ table.data-table {
         grid-template-columns: 1fr;
     }
     
+    /* Left-aligned: centred text left list bullets stranded at the edge */
     .step {
         flex-direction: column;
-        text-align: center;
+        gap: 0.75rem;
     }
-    
+
     .step-number {
-        align-self: center;
+        align-self: flex-start;
     }
     
     .highlight-box,
@@ -1366,6 +1367,8 @@ table.data-table {
     flex-direction: column;
     gap: 0;
     margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .sidebar .related-articles li {
@@ -1491,9 +1494,10 @@ table.data-table {
         grid-template-columns: 1fr;
     }
 
+    /* On phones the sidebar (index, related, CTA box) follows the article
+       instead of pushing three boxes above the first paragraph. */
     .sidebar {
         position: static;
-        order: -1;
     }
 
     .content-section blockquote {
@@ -1720,5 +1724,622 @@ table.data-table {
     *::after {
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+    }
+}
+
+/* ========================================
+   Polish pass (Oct 2026): one quiet language across every guide.
+   Overrides earlier rules in this file; tokens from styles.css only.
+   ======================================== */
+
+/* Reading: navy ink for running text, hairline section rules */
+.content-section h2 {
+    font-size: clamp(1.6rem, 2.6vw, 2rem);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 0.75rem;
+}
+
+.content-section h3,
+.content-section h4,
+.content-section h5 {
+    color: var(--dark-gray);
+}
+
+.content-section p,
+.content-section li {
+    color: var(--dark-gray);
+}
+
+.content-section p a:not(.btn),
+.content-section li a:not(.btn),
+.content-section td a {
+    color: var(--blue-text);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.content-section p a:not(.btn):hover,
+.content-section li a:not(.btn):hover,
+.content-section td a:hover {
+    color: var(--dark-blue);
+}
+
+/* Callouts: tinted surface and a hairline, no thick coloured left rule */
+.page-meta.author-bio,
+.article-toc,
+.highlight-box,
+.pattern-list,
+.before,
+.after,
+.technique-box,
+.warning-box,
+.tip-box,
+.next-steps,
+.info-box {
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+}
+
+.info-box.highlight,
+.highlight-box {
+    border-color: var(--light-blue);
+}
+
+.info-box.warning,
+.warning-box {
+    border-color: var(--warning-surface);
+}
+
+.info-box.case-study,
+.info-box.tip,
+.tip-box,
+.after {
+    border-color: var(--border-light);
+}
+
+.content-section blockquote {
+    background: none;
+    border-left: 2px solid var(--border-medium);
+    border-radius: 0;
+    padding: 0.25rem 0 0.25rem 1.5rem;
+    font-style: normal;
+}
+
+.content-section blockquote p {
+    font-family: var(--font-primary);
+    font-weight: 500;
+    font-size: 1.15rem;
+}
+
+/* FAQ inside guides: hairline list instead of hover cards */
+.faq-section .faq-item,
+.faq-container .faq-item {
+    background: none;
+    border: 0;
+    border-bottom: 1px solid var(--border-light);
+    border-radius: 0;
+    padding: 1.25rem 0;
+    margin: 0;
+}
+
+.faq-section .faq-item:hover,
+.faq-container .faq-item:hover {
+    border-color: var(--border-light);
+    box-shadow: none;
+}
+
+.faq-section .faq-item p,
+.faq-container .faq-item p {
+    color: var(--dark-gray);
+}
+
+/* Related guides: quiet link cards */
+.content-section .related-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(10, 26, 38, 0.04);
+}
+
+.content-section .related-card:hover {
+    border-color: var(--border-medium);
+    box-shadow: 0 8px 24px rgba(10, 26, 38, 0.08);
+}
+
+.related-category {
+    align-self: flex-start;
+}
+
+/* Header controls (print) added by tutorial.js */
+.tutorial-stats {
+    align-items: center;
+}
+
+.tutorial-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0.5rem 1.1rem;
+    background: transparent;
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 50px;
+    font-family: var(--font-secondary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.tutorial-action-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--white);
+}
+
+.tutorial-action-btn:focus-visible {
+    outline: 2px solid var(--white);
+    outline-offset: 3px;
+}
+
+/* Code copy button: always visible, also on touch and keyboard */
+.code-wrapper {
+    position: relative;
+}
+
+.copy-code-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    min-height: 32px;
+    padding: 0.3rem 0.75rem;
+    background: var(--dark-gray);
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.copy-code-btn:focus-visible {
+    outline: 2px solid var(--signal-on-dark);
+    outline-offset: 2px;
+}
+
+/* Share block added after the conclusion */
+.social-share {
+    margin: 3rem 0;
+    padding: 1.75rem 2rem;
+    background: var(--light-gray);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+}
+
+.social-share-title {
+    margin: 0 0 1rem;
+    font-size: 1.1rem;
+    color: var(--dark-gray);
+    border: 0;
+    padding: 0;
+}
+
+.share-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 44px;
+    padding: 0.5rem 1rem;
+    background: var(--white);
+    color: var(--dark-gray);
+    border: 1px solid var(--border-medium);
+    border-radius: 50px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.share-btn:hover {
+    border-color: var(--primary-blue);
+    color: var(--blue-text);
+}
+
+.share-btn:focus-visible {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+}
+
+/* Back to top */
+.back-to-top {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    z-index: 99;
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    background: var(--dark-gray);
+    color: var(--white);
+    border: 0;
+    border-radius: 50%;
+    box-shadow: 0 6px 18px rgba(10, 26, 38, 0.2);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-fast), visibility var(--transition-fast);
+}
+
+.back-to-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:focus-visible {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 3px;
+}
+
+/* Active entry in a guide's table of contents */
+.toc-list a.active {
+    color: var(--blue-text);
+    font-weight: 600;
+    background: var(--light-blue);
+    border-radius: 6px;
+}
+
+/* Closing banner: the gradient overlay from styles.css sat above the
+   content, so the heading and button were barely visible. White text
+   needs --gradient-cta on every stop. */
+.cta-section::before {
+    background: var(--gradient-cta);
+    opacity: 1;
+}
+
+.cta-section > .container {
+    position: relative;
+    z-index: 2;
+}
+
+.cta-section h2,
+.cta-section p {
+    color: var(--white);
+}
+
+.cta-section .btn-primary {
+    background: var(--white);
+    color: var(--blue-text);
+}
+
+.cta-section .btn-secondary {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+@media (max-width: 768px) {
+    .tutorial-action-btn {
+        display: none;
+    }
+
+    .social-share {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .cta-section .btn + .btn {
+        margin-left: 0 !important;
+        margin-top: 0.75rem;
+    }
+}
+
+/* ---------- Template fixes, round 2 ---------- */
+
+/* styles.css's homepage FAQ band (80px padding, grey background, 2rem
+   answer indent, card shadow) leaked into every article FAQ */
+.content-section.faq-section {
+    padding: 0;
+    background: none;
+}
+
+.content-section.faq-section .faq-item {
+    box-shadow: none;
+    overflow: visible;
+}
+
+.content-section.faq-section .faq-item p {
+    padding: 0;
+}
+
+.content-section.faq-section .faq-item p + p {
+    margin-top: 0.75rem;
+}
+
+/* Comparison tables had no cell padding or rules */
+.content-section table th,
+.content-section table td,
+table.comparison-table th,
+table.comparison-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border-light);
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.5;
+}
+
+.content-section table th,
+table.comparison-table th {
+    background: var(--light-gray);
+    color: var(--dark-gray);
+    font-weight: 600;
+}
+
+.content-section table td,
+table.comparison-table td {
+    color: var(--dark-gray);
+}
+
+/* Conclusion box: room around its content */
+.conclusion {
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    border: 1px solid var(--border-light);
+}
+
+.conclusion > :first-child {
+    margin-top: 0;
+}
+
+.conclusion > :last-child {
+    margin-bottom: 0;
+}
+
+/* Chapter accordions: with more than one child the extra children took
+   implicit auto rows and stayed visible while collapsed */
+.accordion-content {
+    grid-auto-rows: 0fr;
+}
+
+.accordion-content.active {
+    grid-auto-rows: auto;
+}
+
+/* Closing banner buttons side by side on desktop */
+.cta-section .cta-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Quiz box: no glass, and an AA-safe button */
+.certification-cta {
+    /* sits on the --gradient-cta header: keep its white copy, drop the blur */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.cert-final-btn {
+    /* white text needs --gradient-cta; the green-to-green gradient was ~3:1 */
+    background: var(--gradient-cta);
+    border-radius: 50px;
+    box-shadow: 0 6px 18px rgba(10, 26, 38, 0.18);
+}
+
+.cert-final-btn:hover {
+    box-shadow: 0 10px 26px rgba(10, 26, 38, 0.24);
+}
+
+@media (max-width: 768px) {
+    .cta-section .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media print {
+    .navbar,
+    #nav-placeholder,
+    #navigation-placeholder,
+    #footer-placeholder,
+    .footer,
+    .reading-progress,
+    .back-to-top,
+    .tutorial-action-btn,
+    .social-share,
+    .cta-section,
+    #cookie-banner {
+        display: none !important;
+    }
+
+    .tutorial-header {
+        background: none;
+        color: var(--black);
+        padding: 0 0 1rem;
+    }
+
+    .tutorial-header h1,
+    .tutorial-description,
+    .tutorial-stats,
+    .breadcrumb a {
+        color: var(--black);
+    }
+
+    .content-section {
+        break-inside: auto;
+    }
+}
+
+/* ---------- Template fixes, round 3 (visual QA, Oct 2026) ---------- */
+
+/* Closing banner without a .cta-content wrapper: the heading, text and
+   button sat flush against each other at body size. */
+.cta-section > .container > h2 {
+    font-size: clamp(1.6rem, 3vw, 2.25rem);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.cta-section > .container > p {
+    max-width: 46rem;
+    margin: 0 auto 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Stacked tool cards had no wrapper rule: borders touched, and the first
+   card's heading carried the 2rem section margin. */
+.tool-comparison {
+    display: grid;
+    gap: 1rem;
+    margin: 1.5rem 0 2rem;
+}
+
+/* Card titles read as card titles whether the outline needs h3 or h4 */
+.content-section .tool-card > h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.tool-card > :first-child,
+.step-content > :first-child,
+.info-box > :first-child {
+    margin-top: 0;
+}
+
+.tool-card > :last-child {
+    margin-bottom: 0;
+}
+
+/* FAQ items placed straight in a section (no .faq-section wrapper) picked up
+   the homepage card: white, shadowed, no padding, text on the edge. */
+.content-section > .faq-item {
+    background: none;
+    border: 0;
+    border-bottom: 1px solid var(--border-light);
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
+    padding: 1.25rem 0;
+    margin: 0;
+}
+
+.content-section > .faq-item > h3:first-child {
+    margin-top: 0;
+}
+
+/* Tables had no vertical margin, so a following paragraph touched the
+   last row. .data-table keeps its own 2rem. */
+.content-section table:not(.data-table) {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Six or more columns overflowed the 800px column: tighter cells */
+.content-section table:has(tr > :nth-child(6)) {
+    font-size: 0.9rem;
+}
+
+.content-section table:has(tr > :nth-child(6)) :is(th, td) {
+    padding: 0.6rem 0.6rem;
+}
+
+/* Checklists with real checkboxes: one marker, not a bullet and a box */
+.content-section ul.checklist {
+    list-style: none;
+    padding-left: 0;
+}
+
+.content-section ul.checklist label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+}
+
+.content-section ul.checklist input[type="checkbox"] {
+    width: 24px;
+    height: 24px;
+    flex: 0 0 auto;
+    margin: 0;
+    accent-color: var(--primary-blue);
+}
+
+/* Chapter accordion: collapsed items showed a clipped line of the summary
+   (the second child's margin opened a 16px row). */
+.accordion-content:not(.active) > * {
+    margin-top: 0;
+    margin-bottom: 0;
+    overflow: hidden;
+}
+
+/* The arrow circle was empty: draw the chevron */
+.accordion-arrow::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    margin-top: -3px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+}
+
+/* Grid items default to min-width: auto, so a wide table or long word
+   pushed the article column past the screen on phones */
+.content-wrapper.has-sidebar {
+    grid-template-columns: minmax(0, 1fr) 280px;
+}
+
+.content-wrapper.has-sidebar > * {
+    min-width: 0;
+}
+
+@media (max-width: 768px) {
+    .content-wrapper.has-sidebar {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (min-width: 769px) {
+    /* Two or four stat cards in a three-column grid left an orphan */
+    .stats-grid:has(> :nth-child(2):last-child),
+    .stats-grid:has(> :nth-child(4):last-child) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* Three or five related cards in two columns left an orphan */
+    .content-section .related-articles:has(> :nth-child(3):last-child),
+    .content-section .related-articles:has(> :nth-child(5):last-child) {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    /* Four related guides in the closing band: no card alone on a row */
+    .related-grid:has(> :nth-child(4):last-child) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+/* The sidebars run 900 to 1200px tall: sticky on a shorter window hid the
+   CTA box below the fold for the whole article. Sticky only when it fits. */
+@media (min-width: 769px) and (max-height: 1299px) {
+    .content-wrapper.has-sidebar .sidebar {
+        position: static;
+    }
+}
+
+@media (min-width: 1100px) {
+    .related-grid:has(> :nth-child(4):last-child) {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 }

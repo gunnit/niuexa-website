@@ -16,6 +16,12 @@ import { pathToFileURL } from 'node:url';
 // page is removed, so its old URL keeps its links and citations.
 export const MANUAL_REDIRECTS = [];
 
+// Pages renamed in git, as [old file, new file]. package-pages.mjs writes a
+// redirect stub at the old path into the artifact only (served as a 301 below),
+// so in git the rename stays a pure rename and open branches that edit the old
+// file still merge into the new one.
+export const RENAMED = [['ai-readiness-tool.html', 'consulenza-aeo-geo.html']];
+
 // Cloudflare's hard limits for a _redirects file.
 const MAX_STATIC_RULES = 2000;
 const MAX_RULE_LENGTH = 1000;

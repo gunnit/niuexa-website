@@ -19,7 +19,7 @@
       id: 'nascita', label: 'Fondazione', accent: '#237DA6',
       still: 'img/storia/nascita.webp', clip: 'img/storia/vid/nascita.mp4',
       scroll: 1.5, linger: 0.4,
-      eyebrow: '2024 — La fondazione',
+      eyebrow: 'La fondazione',
       title: 'Due città, una tesi.',
       body: 'Niuexa nasce tra Milano e Torino con un’idea precisa: l’intelligenza artificiale serve a creare efficienza misurabile, non rumore.',
       tags: ['Milano', 'Torino']
@@ -49,7 +49,7 @@
       eyebrow: 'La formazione',
       title: 'Ve la lasciamo in mano.',
       body: 'Formiamo i vostri team perché l’AI resti in azienda e continui a produrre valore anche quando noi non ci siamo più.',
-      tags: ['Academy', 'Workshop', 'Certificazioni']
+      tags: ['Workshop', 'Team', 'In presenza o online']
     },
     {
       id: 'impatto', label: 'Impatto', accent: '#43AE68',
@@ -60,8 +60,8 @@
       body: 'Ogni progetto si misura su obiettivi concordati prima di iniziare: tempo restituito ai team, qualità e costi, confrontati con il punto di partenza.',
       tags: ['Obiettivi', 'Indicatori', 'Misura'],
       cta: {
-        primary: { label: 'Parliamone', href: 'contatti.html' },
-        secondary: { label: 'Calcola il tuo ROI', href: 'roi-calculator.html' }
+        primary: { label: 'Ci mostri un processo', href: 'contatti.html' },
+        secondary: { label: 'Verifichi la visibilità AI', href: 'consulenza-aeo-geo.html' }
       }
     }
   ];
