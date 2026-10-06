@@ -1,11 +1,12 @@
 // Editorial source for static event pages and hub excerpts. Never shipped as a public asset.
-// Titles, dates and venue per Roberto's 20 September 2026 email (series SIGNALS – Decifrare il futuro).
+// Titles and venue per Roberto's 20 September 2026 email; dates per his 6 October 2026 email,
+// which also dropped the SIGNALS series name and moved the copy from Lei to tu.
 export const EVENTS = [
  {
-  slug:'seo-in-pensione-aeo-geo', date:'2026-10-06', label:'6 ottobre 2026', month:'OTT', day:'06', offset:'+02:00',
+  slug:'seo-in-pensione-aeo-geo', date:'2026-11-03', label:'3 novembre 2026', month:'NOV', day:'03', offset:'+01:00',
   title:'La SEO va in pensione, benvenuta AEO/GEO', category:'VISIBILITÀ · SEO / AEO / GEO',
-  subtitle:'Dai motori di ricerca alle risposte AI: come rendere riconoscibile la Sua azienda.',
-  description:'SEO, AEO e GEO per la visibilità aziendale: incontro NIUEXA il 6 ottobre 2026 alle 18:30, Ufficio Libera, Milano.',
+  subtitle:'Dai motori di ricerca alle risposte AI: come rendere riconoscibile la tua azienda.',
+  description:'SEO, AEO e GEO per la visibilità aziendale: incontro NIUEXA il 3 novembre 2026 alle 18:30, Ufficio Libera, Milano.',
   excerpt:'Come cambia la ricerca quando i clienti chiedono risposte all’AI. Contenuti, fonti e misurazione per una presenza aziendale riconoscibile.',
   abstract:[
    'Quando un potenziale cliente cerca un brand, non incontra più soltanto un elenco di link: può ricevere una risposta costruita da un assistente AI. Come cambia, allora, il lavoro di chi deve rendere visibile e credibile un’azienda? L’incontro mette in relazione SEO, ottimizzazione per i motori di risposta (AEO) e per la ricerca generativa (GEO), chiarendo cosa hanno in comune e dove richiedono scelte diverse.',
@@ -16,10 +17,10 @@ export const EVENTS = [
   reading:'/articolo-seo-aeo-geo-guida-completa.html', readingLabel:'SEO, AEO e GEO: la guida NIUEXA'
  },
  {
-  slug:'ai-agent-processi-aziendali', date:'2026-10-27', label:'27 ottobre 2026', month:'OTT', day:'27', offset:'+01:00',
+  slug:'ai-agent-processi-aziendali', date:'2026-11-17', label:'17 novembre 2026', month:'NOV', day:'17', offset:'+01:00',
   title:'AI Agent – Come rendere efficienti i processi aziendali', category:'AGENTI AI · PROCESSI · VALORE',
   subtitle:'Scegliere cosa affidare a un agente, prima di scegliere lo strumento.',
-  description:'Agenti AI per processi aziendali più efficienti: incontro NIUEXA il 27 ottobre 2026 alle 18:30, Ufficio Libera, Milano.',
+  description:'Agenti AI per processi aziendali più efficienti: incontro NIUEXA il 17 novembre 2026 alle 18:30, Ufficio Libera, Milano.',
   excerpt:'Da quale processo conviene partire? Priorità, dati, permessi e indicatori per affidare a un agente AI un primo compito circoscritto e misurarne il valore.',
   abstract:[
    'Un agente AI non si limita a rispondere: può usare strumenti ed eseguire passaggi di un processo. Un progetto, però, non comincia dalla scelta di un modello, ma da un’attività che vale la pena migliorare. Passaggi manuali, informazioni disperse, verifiche ripetitive: quali problemi meritano un agente, quali un’automazione più semplice e quali richiedono prima di ripensare il processo? L’incontro propone un modo concreto di affrontare questa scelta, mettendo insieme esigenze operative, qualità dei dati, persone coinvolte e vincoli di integrazione.',
@@ -30,10 +31,10 @@ export const EVENTS = [
   reading:'/articolo-processo-prima-ai-agent.html', readingLabel:'Perché il processo viene prima dell’agente AI'
  },
  {
-  slug:'ai-marketing-agent', date:'2026-11-17', label:'17 novembre 2026', month:'NOV', day:'17', offset:'+01:00',
+  slug:'ai-marketing-agent', date:'2026-11-24', label:'24 novembre 2026', month:'NOV', day:'24', offset:'+01:00',
   title:'AI Marketing Agent – Come semplificare ed efficientare i processi di marketing', category:'MARKETING · AGENTI AI · CONTROLLO',
   subtitle:'Dal brief ai contenuti e ai contatti: dove un agente può alleggerire il lavoro del team.',
-  description:'Agenti AI per semplificare i processi di marketing: incontro NIUEXA il 17 novembre 2026 alle 18:30, Ufficio Libera, Milano.',
+  description:'Agenti AI per semplificare i processi di marketing: incontro NIUEXA il 24 novembre 2026 alle 18:30, Ufficio Libera, Milano.',
   excerpt:'Brief, contenuti per più canali, contatti da seguire: quali attività di marketing affidare a un agente AI mantenendo il controllo su messaggi, dati e approvazioni.',
   abstract:[
    'Nel marketing molte attività si ripetono a ogni campagna: adattare un brief a più canali, preparare varianti dei contenuti, riprendere il contatto con chi visita il sito senza completare una richiesta, raccogliere i dati per il reporting. Un agente AI può occuparsi di una parte di questi passaggi, ma solo se il processo è chiaro: chi fornisce le informazioni, chi approva, dove finiscono i risultati. L’incontro parte dal lavoro quotidiano di un team marketing per capire dove un agente semplifica davvero e dove aggiunge soltanto un passaggio.',

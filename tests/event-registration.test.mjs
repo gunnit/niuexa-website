@@ -25,21 +25,21 @@ test('provider failures never succeed; errors release lock for a deliberate retr
     return scenario==='missing'?{}:{success:scenario==='string'?'true':scenario==='http'};
    }};
   }});
-  await assert.rejects(flow.submit('2026-10-06',valid));
-  assert.equal((await flow.submit('2026-10-06',valid)).status,'received');
+  await assert.rejects(flow.submit('2026-11-03',valid));
+  assert.equal((await flow.submit('2026-11-03',valid)).status,'received');
  }
 });
 test('invalid event, invalid data and spam do not call provider; concurrent and repeat submits blocked',async()=>{
  let calls=0,release;
  const flow=createRegistration({fetchImpl:()=>{calls++;return new Promise(r=>release=()=>r({ok:true,json:async()=>({success:true})}));}});
  await assert.rejects(flow.submit('2026-10-07',valid),/EVENT/);
- await assert.rejects(flow.submit('2026-10-06',{}),/VALIDATION/);
- await assert.rejects(flow.submit('2026-10-06',{...valid,botcheck:'bot'}),/SPAM/);
+ await assert.rejects(flow.submit('2026-11-03',{}),/VALIDATION/);
+ await assert.rejects(flow.submit('2026-11-03',{...valid,botcheck:'bot'}),/SPAM/);
  assert.equal(calls,0);
- const pending=flow.submit('2026-10-06',valid);
- await assert.rejects(flow.submit('2026-10-06',valid),/BUSY/);
+ const pending=flow.submit('2026-11-03',valid);
+ await assert.rejects(flow.submit('2026-11-03',valid),/BUSY/);
  release();await pending;
- await assert.rejects(flow.submit('2026-10-06',valid),/DUPLICATE/);
+ await assert.rejects(flow.submit('2026-11-03',valid),/DUPLICATE/);
  assert.equal(calls,1);
 });
 test('request timeout aborts transport without false receipt or automatic retry',async()=>{
@@ -47,13 +47,13 @@ test('request timeout aborts transport without false receipt or automatic retry'
  const flow=createRegistration({timeoutMs:5,fetchImpl:async(url,{signal})=>{
   calls++;return new Promise((resolve,reject)=>signal.addEventListener('abort',()=>reject(Error('timeout'))));
  }});
- await assert.rejects(flow.submit('2026-10-06',valid),/timeout/);
+ await assert.rejects(flow.submit('2026-11-03',valid),/timeout/);
  assert.equal(calls,1);
- await assert.rejects(flow.submit('2026-10-06',valid),/timeout/);
+ await assert.rejects(flow.submit('2026-11-03',valid),/timeout/);
  assert.equal(calls,2);
 });
 test('approved dates share 18:30 Europe/Rome and the Libera Milano venue; no invented speakers or prices',()=>{
- assert.deepEqual(EVENTS.map(e=>e.date),['2026-10-06','2026-10-27','2026-11-17']);
+ assert.deepEqual(EVENTS.map(e=>e.date),['2026-11-03','2026-11-17','2026-11-24']);
  for(const e of EVENTS) {
   assert.equal(e.time,'18:30');
   assert.equal(e.timezone,'Europe/Rome');

@@ -43,11 +43,11 @@ export function validate(input = {}) {
   const data = {}, errors = {};
   for (const [field, max] of Object.entries(FIELDS)) {
     data[field] = typeof input[field] === 'string' ? input[field].trim() : '';
-    if (!data[field]) errors[field] = 'Compili questo campo.';
-    else if (data[field].length > max) errors[field] = `Utilizzi al massimo ${max} caratteri.`;
+    if (!data[field]) errors[field] = 'Compila questo campo.';
+    else if (data[field].length > max) errors[field] = `Usa al massimo ${max} caratteri.`;
   }
-  if (data.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) errors.email = 'Inserisca un indirizzo email valido.';
+  if (data.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) errors.email = 'Inserisci un indirizzo email valido.';
   const digits = data.mobile.replace(/\D/g, '');
-  if (data.mobile && (!/^\+?[\d\s().-]+$/.test(data.mobile) || digits.length < 7 || digits.length > 15)) errors.mobile = 'Inserisca un numero valido, con prefisso internazionale.';
+  if (data.mobile && (!/^\+?[\d\s().-]+$/.test(data.mobile) || digits.length < 7 || digits.length > 15)) errors.mobile = 'Inserisci un numero valido, con prefisso internazionale.';
   return { data, errors };
 }

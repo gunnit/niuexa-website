@@ -25,11 +25,11 @@ const faqParity=html=>{
 };
 // [today, dates still open]: an event stays open for the whole of its day in Milan.
 const states=[
- ['2026-09-29',['2026-10-06','2026-10-27','2026-11-17']],
- ['2026-10-06',['2026-10-06','2026-10-27','2026-11-17']],
- ['2026-10-07',['2026-10-27','2026-11-17']],
- ['2026-10-28',['2026-11-17']],
- ['2026-11-18',[]],
+ ['2026-09-29',['2026-11-03','2026-11-17','2026-11-24']],
+ ['2026-11-03',['2026-11-03','2026-11-17','2026-11-24']],
+ ['2026-11-04',['2026-11-17','2026-11-24']],
+ ['2026-11-18',['2026-11-24']],
+ ['2026-11-25',[]],
 ];
 for(const [today,openDates] of states) test(`as of ${today} the pages offer exactly ${openDates.join(', ')||'no dates'}`,()=>{
  const r=renderAs(today);
@@ -42,7 +42,7 @@ for(const [today,openDates] of states) test(`as of ${today} the pages offer exac
   assert.ok(r.hub.includes(`<span id="selected-date">${next?next.label:'Richieste chiuse'}</span>`));
   assert.equal(r.hub.includes('Gli incontri d’autunno<br>si sono conclusi.'),!next);
   // Once no date is open, nothing on the hub or in llms.txt may still invite a request.
-  for(const invite of ['Invii la Sua richiesta di partecipazione.','Richieda la partecipazione.','Nel modulo di questa pagina può scegliere','Scelga una data e inserisca','PRIMA DI INCONTRARCI','Dove si svolgono gli incontri','La Sua partecipazione','LA SUA PARTECIPAZIONE','Vai al modulo','Questa pagina raccoglie richieste'])
+  for(const invite of ['Invia la tua richiesta di partecipazione.','Richiedi la partecipazione.','Nel modulo di questa pagina puoi scegliere','Scegli una data e inserisci','PRIMA DI INCONTRARCI','Dove si svolgono gli incontri','La tua partecipazione','LA TUA PARTECIPAZIONE','Vai al modulo','Questa pagina raccoglie richieste'])
    assert.equal(r.hub.includes(invite),Boolean(next),invite);
   assert.equal(r.read('llms.txt').includes('modulo unico per richiedere la partecipazione'),Boolean(next));
   assert.equal(r.hub.includes('Dove si sono svolti gli incontri e a che ora?'),!next);

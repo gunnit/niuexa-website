@@ -1,5 +1,5 @@
 // Eventi page (eventi.html, en/events.html)
-// The SIGNALS dates and the archive are static HTML, so the page reads the
+// The meeting dates and the archive are static HTML, so the page reads the
 // same with or without JavaScript. This script only marks a date as held once
 // it has passed (Milan time) and hides its registration link, so the page
 // never invites requests for a meeting that has already taken place.
