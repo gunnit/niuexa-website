@@ -1,11 +1,11 @@
 /* ============================================================
-   Research hub: research.html and en/research.html
+   Hubs: research.html (Italian articles and practical guides) and
+   en/learn.html (English guides and tutorial).
    Builds on styles.css and polish.css (body.polished): navy hero,
    a jump list of the areas, left-aligned group headings and quiet
    article cards whose title is the link (category and date on top,
-   reading time and a "read" cue pinned to the bottom).
-   en/research.html also uses the closing CTA and newsletter rules.
-   Tokens from styles.css only.
+   reading time and a "read" cue pinned to the bottom), then a
+   closing CTA. Tokens from styles.css only.
    ============================================================ */
 
 /* ---------- Hero ---------- */
@@ -289,7 +289,7 @@
     transform: translateX(3px);
 }
 
-/* Pointer to the Italian archive (en/research.html) */
+/* Pointer to the Italian archive (en/learn.html) */
 .polished .research-more {
     margin: 2.5rem 0 0;
     max-width: 62ch;
@@ -298,7 +298,7 @@
     color: var(--medium-gray);
 }
 
-/* ---------- Closing CTA (en/research.html) ---------- */
+/* ---------- Closing CTA ---------- */
 .polished .research-cta {
     padding: var(--polish-section) 0;
     background: var(--gradient-cta);
@@ -364,67 +364,6 @@
     outline-offset: 3px;
 }
 
-/* ---------- Newsletter (en/research.html) ---------- */
-.polished .newsletter-section {
-    padding: clamp(56px, 7vw, 80px) 0;
-    background: var(--white);
-}
-
-.polished .newsletter-content {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 1.5rem clamp(2rem, 5vw, 4rem);
-    align-items: center;
-}
-
-.polished .newsletter-header h2 {
-    margin: 0 0 0.5rem;
-    font-size: clamp(1.5rem, 2.4vw, 1.9rem);
-    line-height: 1.2;
-    letter-spacing: -0.015em;
-    color: var(--dark-gray);
-}
-
-.polished .newsletter-header p {
-    margin: 0;
-    line-height: 1.6;
-    color: var(--medium-gray);
-}
-
-.polished .newsletter-form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-}
-
-.polished .newsletter-form input[type="email"] {
-    flex: 1 1 240px;
-    min-height: 48px;
-    padding: 0 1rem;
-    font: inherit;
-    color: var(--dark-gray);
-    background: var(--white);
-    border: 1px solid var(--border-medium);
-    border-radius: 999px;
-}
-
-.polished .newsletter-form input[type="email"]:focus-visible {
-    outline: 2px solid var(--primary-blue);
-    outline-offset: 2px;
-    border-color: var(--primary-blue);
-}
-
-.polished .newsletter-form .btn {
-    min-height: 48px;
-}
-
-.polished .newsletter-privacy {
-    grid-column: 2;
-    margin: -0.75rem 0 0;
-    font-size: 0.88rem;
-    color: var(--medium-gray);
-}
-
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
     .polished .consulting-hero {
@@ -467,15 +406,6 @@
     .polished .research-cta .cta-buttons .btn {
         width: 100%;
         max-width: 360px;
-    }
-
-    .polished .newsletter-content {
-        grid-template-columns: minmax(0, 1fr);
-    }
-
-    .polished .newsletter-privacy {
-        grid-column: 1;
-        margin: 0;
     }
 }
 

@@ -26,8 +26,8 @@
 
     <!-- SEO Meta Tags -->
     <title>Dal PoC alla produzione: portare l’AI in uso | Niuexa</title>
-    <meta name="description" content="Come portare un PoC AI in produzione: KPI di risultato, criteri go/no-go decisi prima, architettura, sicurezza, governance e rilascio in quattro fasi.">
-    <meta name="keywords" content="PoC produzione, proof of concept scalabile, PoC AI produzione, framework PoC scaling, go no-go PoC, trasformare PoC progetto, PoC enterprise, industrializzazione PoC, KPI PoC, governance progetto AI">
+    <meta name="description" content="Come preparare e portare un PoC AI in produzione: verifiche su problema e dati, KPI di risultato, criteri go/no-go, architettura, governance e rilascio in quattro fasi.">
+    <meta name="keywords" content="PoC produzione, proof of concept scalabile, PoC AI produzione, framework PoC scaling, go no-go PoC, trasformare PoC progetto, PoC enterprise, industrializzazione PoC, KPI PoC, governance progetto AI, implementazione AI step by step, fattibilità progetto AI, qualità dati AI">
     <meta name="author" content="Niuexa">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="language" content="Italian">
@@ -38,11 +38,11 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://niuexa.ai/articolo-poc-produzione.html">
     <meta property="og:title" content="Dal PoC alla produzione: come trasformare un Proof of Concept in un sistema che si usa davvero">
-    <meta property="og:description" content="Come portare un PoC AI in produzione: KPI di risultato, criteri go/no-go decisi prima, architettura, sicurezza, governance e rilascio in quattro fasi.">
+    <meta property="og:description" content="Come preparare e portare un PoC AI in produzione: verifiche su problema e dati, KPI di risultato, criteri go/no-go, architettura, governance e rilascio in quattro fasi.">
     <meta property="og:image" content="https://niuexa.ai/img/niuexalogo.png">
     <meta property="og:locale" content="it_IT">
     <meta property="article:published_time" content="2026-03-16">
-    <meta property="article:modified_time" content="2026-10-05">
+    <meta property="article:modified_time" content="2026-10-06">
     <meta property="article:author" content="Niuexa">
     <meta property="article:section" content="Digital Transformation">
     <meta property="article:tag" content="PoC Produzione">
@@ -53,7 +53,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://niuexa.ai/articolo-poc-produzione.html">
     <meta name="twitter:title" content="Dal PoC alla produzione: KPI, criteri go/no-go e rilascio controllato">
-    <meta name="twitter:description" content="Come portare un PoC AI in produzione: KPI di risultato, criteri go/no-go decisi prima, architettura, sicurezza, governance e rilascio in quattro fasi.">
+    <meta name="twitter:description" content="Come preparare e portare un PoC AI in produzione: verifiche su problema e dati, KPI di risultato, criteri go/no-go, architettura, governance e rilascio in quattro fasi.">
     <meta name="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
 
     <link rel="canonical" href="https://niuexa.ai/articolo-poc-produzione.html">
@@ -80,7 +80,7 @@
         "@context": "https://schema.org",
         "@type": "Article",
         "headline": "Dal PoC alla produzione: come trasformare un Proof of Concept in un sistema che si usa davvero",
-        "description": "Come portare un PoC AI in produzione: KPI di risultato, criteri go/no-go decisi prima, architettura, sicurezza, governance e rilascio in quattro fasi.",
+        "description": "Come preparare e portare un PoC AI in produzione: verifiche su problema e dati, KPI di risultato, criteri go/no-go, architettura, governance e rilascio in quattro fasi.",
         "author": {
             "@type": "Organization",
             "name": "Niuexa",
@@ -95,14 +95,14 @@
             }
         },
         "datePublished": "2026-03-16",
-        "dateModified": "2026-10-05",
+        "dateModified": "2026-10-06",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://niuexa.ai/articolo-poc-produzione.html"
         },
-        "keywords": ["PoC produzione", "proof of concept scalabile", "framework scaling PoC", "go no-go PoC", "industrializzazione PoC", "KPI progetto AI"],
+        "keywords": ["PoC produzione", "proof of concept scalabile", "framework scaling PoC", "go no-go PoC", "industrializzazione PoC", "KPI progetto AI", "implementazione AI step by step", "fattibilità progetto AI"],
         "articleSection": "Digital Transformation",
-        "wordCount": "3600",
+        "wordCount": "4900",
         "inLanguage": "it-IT",
         "speakable": {
             "@type": "SpeakableSpecification",
@@ -143,10 +143,50 @@
             },
             {
                 "@type": "Question",
+                "name": "Cosa verificare prima di avviare un PoC?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Tre cose. Il problema, scritto in una pagina con la misura attuale, i criteri di successo e un responsabile. I dati, controllati su un campione per completezza, accuratezza, coerenza tra sistemi, aggiornamento e utilizzabilità legale. La fattibilità su cinque dimensioni: tecnica, dati, integrazione, organizzazione ed economia, messa in produzione inclusa. Se i dati non ci sono o non si possono usare, il primo progetto è metterli in ordine."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quanto deve durare un PoC?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Settimane, non mesi, con una scadenza fissata all’inizio insieme ai criteri di successo. Un PoC risponde a una domanda precisa, cioè se si può fare. Se alla scadenza la risposta è ancora “dipende”, il perimetro era troppo ampio o l’ipotesi troppo vaga: conviene restringerli invece di prolungare il PoC."
+                }
+            },
+            {
+                "@type": "Question",
                 "name": "Come si definiscono i criteri go/no-go per un PoC?",
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "Con tre esiti decisi prima di iniziare. Go: risultato pari o superiore al target, readiness tecnica verde e responsabile confermato, quindi si procede con il rilascio. Iterate: risultato tra il 50% e il 99% del target con un gap chiaro, quindi un piano di recupero con scadenze brevi. No-go: risultato sotto il 50% del target o rischi non mitigabili, quindi ci si ferma e si ripensa l’approccio. I criteri si scrivono prima dell’avvio e si condividono con tutte le persone coinvolte."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quali KPI servono come minimo per decidere go o no-go?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Tre famiglie: il risultato sul processo (tempi, errori, costi o conversioni rispetto alla misura di partenza), la qualità tecnica del sistema (per esempio precision e recall per una classificazione) e la sostenibilità operativa (latenza, disponibilità, costo per transazione). Se ne manca una, la decisione è incompleta: un sistema preciso ma troppo costoso, o economico ma inaffidabile, non regge in produzione."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Come si stima il ritorno se il PoC non ha dati storici?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Si misura a mano il processo attuale su un campione di 20-50 casi (tempi, costi, errori), si calcola il costo unitario per pratica, ticket o ordine prima e dopo, e si costruiscono tre scenari (prudente, intermedio, favorevole) con le ipotesi dichiarate. La direzione decide su un intervallo, non su un numero unico."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quando conviene fermare un PoC anche se sembra funzionare?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Quando i risultati sono buoni ma i costi in produzione li annullano, quando il sistema dipende da dati che in produzione non saranno disponibili o non si potranno usare legalmente, quando c’è un lock-in tecnico senza alternative o quando nessuno nel processo è disposto a esserne responsabile. Fermarsi presto e documentare cosa si è imparato costa meno che continuare a investire."
                 }
             },
             {
@@ -184,8 +224,8 @@
             {
                 "@type": "ListItem",
                 "position": 2,
-                "name": "Impara",
-                "item": "https://niuexa.ai/impara.html"
+                "name": "Ricerca",
+                "item": "https://niuexa.ai/research.html"
             },
             {
                 "@type": "ListItem",
@@ -211,14 +251,14 @@
     <section class="tutorial-header">
         <div class="container">
             <nav class="breadcrumb">
-                <a href="impara.html">Impara</a> / <span>Dal PoC alla Produzione</span>
+                <a href="research.html">Ricerca</a> / <span>Dal PoC alla Produzione</span>
             </nav>
             <div class="tutorial-intro">
                 <div class="tutorial-badge">Digital Transformation</div>
                 <h1>Dal PoC alla produzione: come trasformare un Proof of Concept in un sistema che si usa davvero</h1>
                 <p class="tutorial-description">Il rischio più grande di un PoC non è che fallisca, ma che resti un PoC: una demo in ambiente protetto che nessuno usa nel lavoro di ogni giorno. Questa guida spiega come decidere se un PoC merita la produzione e come portarlo lì: KPI di risultato, criteri go/no-go fissati prima, architettura, governance e un rilascio controllato in quattro fasi.</p>
                 <div class="tutorial-stats">
-                    <span class="stat">20 minuti di lettura</span>
+                    <span class="stat">25 minuti di lettura</span>
                     <span class="stat">Per CTO, project manager e responsabili di processo</span>
                     <span class="stat">Guide Pratiche</span>
                 </div>
@@ -241,7 +281,9 @@
                     <h2>Introduzione: il rischio è restare nel PoC</h2>
                     <p>La frase pi&ugrave; pericolosa in un comitato di direzione non &egrave; "non abbiamo fatto nulla sull'AI", ma <strong>"abbiamo gi&agrave; avviato un PoC con..."</strong>. Quella frase crea l'illusione del progresso: un team ha costruito una demo, i risultati in laboratorio sono promettenti, il vendor mostra slide con accuracy del 95%. Ma tra quella demo e un sistema in produzione c’è una distanza che molte organizzazioni non riescono a coprire.</p>
 
-                    <p>Un PoC che non diventa produzione non è un investimento ma un costo senza ritorno: il valore nasce solo quando la soluzione entra nei processi reali, con utenti reali e dati reali.</p>
+                    <p>Un PoC che non diventa produzione non è un investimento ma un costo senza ritorno: il valore nasce solo quando la soluzione entra nei processi reali, con utenti reali e dati reali. Un PoC valida l’idea; la produzione valida l’organizzazione.</p>
+
+                    <p>Il fenomeno è documentato: secondo <a href="https://www.gartner.com/en/newsroom/press-releases/2024-07-29-gartner-predicts-30-percent-of-generative-ai-projects-will-be-abandoned-after-proof-of-concept-by-end-of-2025" target="_blank" rel="noopener">Gartner</a> (comunicato del 29 luglio 2024) almeno il 30% dei progetti di AI generativa sarebbe stato abbandonato dopo la proof of concept entro la fine del 2025, per dati di scarsa qualità, controlli del rischio inadeguati, costi crescenti o valore poco chiaro.</p>
 
                     <p>I motivi per cui i PoC restano PoC sono ricorrenti e prevedibili:</p>
                     <ul>
@@ -252,7 +294,7 @@
                         <li><strong>Sicurezza e compliance ignorate:</strong> nel PoC non servono audit trail, GDPR, penetration test, backup. In produzione sono prerequisiti</li>
                     </ul>
 
-                    <p>Questa guida descrive il percorso che usiamo in Niuexa per coprire quella distanza: diagnosi del PoC esistente e misura del processo com’è, definizione dei KPI, irrobustimento tecnico, rilascio controllato. Prima si misura, poi si automatizza, e alla fine si decide insieme se estendere, correggere o fermarsi.</p>
+                    <p>Questa guida descrive il percorso che usiamo in Niuexa per coprire quella distanza: verifiche prima di avviare un PoC, diagnosi del PoC esistente e misura del processo com’è, definizione dei KPI, irrobustimento tecnico, rilascio controllato. Prima si misura, poi si automatizza, e alla fine si decide insieme se estendere, correggere o fermarsi.</p>
 
                     <div class="case-study-intro">
                         <h3>A chi si rivolge questa guida</h3>
@@ -263,6 +305,111 @@
                             <li><strong>Team di innovazione</strong> che vogliono evitare il “cimitero dei PoC”</li>
                             <li><strong>IT Manager</strong> che devono integrare la soluzione con l'infrastruttura esistente</li>
                         </ul>
+                    </div>
+                </section>
+
+                <!-- Section 1b: Prima di avviare un PoC -->
+                <section class="content-section">
+                    <h2>Prima di avviare un PoC: problema, dati e fattibilit&agrave;</h2>
+                    <p>Molti PoC si bloccano per ragioni che si potevano vedere prima di cominciare. Se il PoC non &egrave; ancora partito, tre verifiche brevi evitano di costruire una demo su un problema vago o su dati che non ci sono. Se il PoC &egrave; gi&agrave; in corso, le stesse domande servono per la diagnosi descritta nella sezione successiva.</p>
+
+                    <h3>1. Il problema in una pagina</h3>
+                    <p>Non &ldquo;vogliamo usare l&rsquo;AI&rdquo;, ma un problema di processo con una misura. Basta una pagina, se contiene:</p>
+                    <ul>
+                        <li><strong>Problema:</strong> cosa non funziona oggi, in quale processo e per chi</li>
+                        <li><strong>Misura attuale:</strong> tempi, volumi, errori o costi rilevati sul processo com&rsquo;&egrave;</li>
+                        <li><strong>Ipotesi di soluzione:</strong> cosa farebbe il sistema e perch&eacute; serve l&rsquo;AI invece di una regola nel gestionale o di un modulo fatto meglio</li>
+                        <li><strong>Criteri di successo:</strong> KPI, target e data in cui si misura</li>
+                        <li><strong>Responsabile:</strong> chi decide, con quale budget, e chi user&agrave; la soluzione</li>
+                        <li><strong>Vincoli:</strong> dati personali, sistemi che non si possono toccare, tempi</li>
+                    </ul>
+
+                    <h3>2. I dati: esistono, si possono usare, bastano?</h3>
+                    <p>Prima del modello si guarda ai dati: inventario delle fonti, accessi e permessi, vincoli GDPR e un controllo di qualit&agrave; su un campione.</p>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Dimensione</th>
+                                <th>Cosa misura</th>
+                                <th>Come si legge</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Completezza</strong></td>
+                                <td>Quota di campi valorizzati nei record che servono</td>
+                                <td>I campi vuoti proprio dove il sistema deve decidere pesano pi&ugrave; degli altri</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Accuratezza</strong></td>
+                                <td>Quota di valori corretti, verificata a mano su un campione</td>
+                                <td>Un errore sistematico, come un codice sempre sbagliato, va corretto alla fonte</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Coerenza</strong></td>
+                                <td>Se lo stesso dato coincide tra sistemi diversi (gestionale, CRM, fogli di calcolo)</td>
+                                <td>Fonti in disaccordo vanno riconciliate prima di automatizzare</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Aggiornamento</strong></td>
+                                <td>Et&agrave; dei dati rispetto al momento della decisione</td>
+                                <td>Dipende dal processo: un listino vecchio di un mese pu&ograve; gi&agrave; essere inutile</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Volume e variet&agrave;</strong></td>
+                                <td>Esempi sufficienti per ogni caso, eccezioni comprese</td>
+                                <td>Le eccezioni rare sono quelle che un PoC tende a non vedere</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="pro-tips">
+                        <h4>Quando fermarsi prima di cominciare</h4>
+                        <p>Se i dati necessari non esistono, non sono accessibili o non si possono usare legalmente, il primo progetto non &egrave; l&rsquo;AI ma mettere in ordine i dati. Un modello costruito su dati di scarsa qualit&agrave; produce risultati inaffidabili, e lo si scopre solo dopo averlo pagato.</p>
+                    </div>
+
+                    <h3>3. Fattibilit&agrave; su cinque dimensioni</h3>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Dimensione</th>
+                                <th>Domanda chiave</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Tecnica</strong></td>
+                                <td>Esiste un approccio adatto, e la precisione raggiungibile basta per il processo?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Dati</strong></td>
+                                <td>I dati sono sufficienti, di qualit&agrave; adeguata e utilizzabili legalmente?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Integrazione</strong></td>
+                                <td>Con quali sistemi deve dialogare la soluzione, e quanto &egrave; complesso collegarli?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Organizzativa</strong></td>
+                                <td>C&rsquo;&egrave; un responsabile, le persone hanno tempo e chi user&agrave; la soluzione &egrave; coinvolto?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Economica</strong></td>
+                                <td>Il costo attuale del problema giustifica il costo completo, messa in produzione inclusa?</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Sviluppare, comprare o combinare</h3>
+                    <ul>
+                        <li><strong>Comprare</strong> una soluzione esistente quando il caso d&rsquo;uso &egrave; standard, i tempi contano e le competenze interne sono limitate</li>
+                        <li><strong>Sviluppare</strong> quando il processo &egrave; specifico dell&rsquo;azienda, i requisiti sono particolari o serve pieno controllo su dati e logica</li>
+                        <li><strong>Combinare</strong> una piattaforma esistente con uno sviluppo mirato: &egrave; la scelta pi&ugrave; frequente, e richiede di chiarire prima chi possiede cosa</li>
+                    </ul>
+
+                    <div class="pro-tips">
+                        <h4>Un PoC con una scadenza</h4>
+                        <p>Un PoC risponde a una domanda precisa: si pu&ograve; fare? La scadenza si fissa all&rsquo;inizio, in settimane e non in mesi, insieme ai criteri di successo. Se alla scadenza la risposta &egrave; ancora &ldquo;dipende&rdquo;, il perimetro era troppo ampio o l&rsquo;ipotesi troppo vaga: meglio restringerli che prolungare.</p>
                     </div>
                 </section>
 
@@ -420,12 +567,55 @@
                         <li><strong>Infrastruttura MLOps:</strong> CI/CD, model registry, feature store, monitoring, alerting</li>
                         <li><strong>Change management:</strong> formazione utenti, comunicazione interna, supporto al cambiamento</li>
                         <li><strong>Supporto post-go-live:</strong> SLA, team di supporto, bug fixing, evoluzione funzionale</li>
+                        <li><strong>Manutenzione annuale:</strong> un budget ricorrente per monitoraggio, aggiornamenti e riaddestramento; senza, le prestazioni tendono a degradare nel tempo</li>
                     </ul>
 
                     <div class="pro-tips">
                         <h4>Il PoC non è il budget</h4>
                         <p>Il costo di messa in produzione è spesso <strong>un multiplo del costo del PoC</strong>, perché il PoC non comprende integrazioni, sicurezza, monitoraggio e supporto. Prima di decidere, chieda una stima scritta di queste voci. Chi non le prevede sottostima il budget e si ritrova con un PoC “quasi in produzione” che non arriva mai al go-live.</p>
                     </div>
+
+                    <h3>Come stimare il ritorno senza dati storici</h3>
+                    <p>Se il processo non ha dati storici affidabili, il ritorno si stima in tre passaggi:</p>
+                    <ol>
+                        <li><strong>Misura manuale di partenza su 20-50 casi:</strong> tempi, costi ed errori del processo attuale, rilevati su un campione rappresentativo</li>
+                        <li><strong>Costo unitario:</strong> costo per pratica, per ticket o per ordine, prima e dopo, cos&igrave; il beneficio si legge per unit&agrave; e non in astratto</li>
+                        <li><strong>Tre scenari:</strong> prudente, intermedio e favorevole, con le ipotesi dichiarate, per dare alla direzione un intervallo su cui decidere invece di un numero unico</li>
+                    </ol>
+
+                    <h3>Le tre famiglie di KPI per il go/no-go</h3>
+                    <p>Una decisione completa guarda a tre famiglie di indicatori: il <strong>risultato</strong> sul processo (tempi, errori, costi, conversioni), la <strong>qualit&agrave; tecnica</strong> del sistema e la <strong>sostenibilit&agrave; operativa</strong> (latenza, disponibilit&agrave;, costo per transazione). Per la qualit&agrave; tecnica la metrica giusta dipende dal tipo di problema:</p>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Tipo di problema</th>
+                                <th>Metriche tecniche comuni</th>
+                                <th>Domanda da porsi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Classificazione</strong> (smistare documenti, riconoscere difetti)</td>
+                                <td>Precision, recall, F1</td>
+                                <td>Costa di pi&ugrave; un falso allarme o un caso perso?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Previsione di valori</strong> (domanda, tempi)</td>
+                                <td>Errore medio assoluto (MAE), errore percentuale medio (MAPE)</td>
+                                <td>L&rsquo;errore &egrave; accettabile rispetto a quello della stima manuale di oggi?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ricerca e ordinamento</strong> (documenti, risposte)</td>
+                                <td>Precision@k, MRR, NDCG</td>
+                                <td>Il risultato giusto compare tra i primi?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Generazione di testo</strong> (risposte, bozze)</td>
+                                <td>Valutazione con una rubrica, fedelt&agrave; alle fonti</td>
+                                <td>Una persona esperta firmerebbe la risposta cos&igrave; com&rsquo;&egrave;?</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </section>
 
                 <!-- Section 4: Dalla demo all'enterprise -->
@@ -509,6 +699,7 @@
                         <li><strong>Audit trail:</strong> ogni azione (utente e sistema) tracciata, immutabile, con timestamp</li>
                         <li><strong>Encryption:</strong> dati at rest (AES-256) e in transit (TLS 1.3) senza eccezioni</li>
                         <li><strong>Penetration test:</strong> prima del go-live, non dopo. Fa parte della fase 2</li>
+                        <li><strong>Gestione delle vulnerabilit&agrave;:</strong> scansione automatica delle dipendenze, regole di aggiornamento e monitoraggio delle vulnerabilit&agrave; note (CVE)</li>
                     </ul>
                 </section>
 
@@ -526,6 +717,7 @@
                         <li><strong>Data minimization:</strong> verificato che si raccolgano solo i dati strettamente necessari</li>
                         <li><strong>Diritti degli interessati:</strong> processi operativi per accesso, rettifica, cancellazione, portabilit&agrave;</li>
                         <li><strong>Data retention:</strong> policy definita con cancellazione automatizzata</li>
+                        <li><strong>Responsabili del trattamento:</strong> elenco aggiornato dei fornitori che trattano dati per conto dell&rsquo;azienda, con accordi (DPA) firmati</li>
                     </ul>
 
                     <h3>Data governance: ownership e controllo</h3>
@@ -563,6 +755,11 @@
                                 <td>Da dove vengono i dati e come vengono trasformati?</td>
                                 <td>Data lineage documentato e tracciabile end-to-end</td>
                             </tr>
+                            <tr>
+                                <td><strong>Qualit&agrave;</strong></td>
+                                <td>Come misuriamo la qualit&agrave; dei dati in produzione?</td>
+                                <td>Controlli automatici con soglie di allarme e un responsabile che interviene</td>
+                            </tr>
                         </tbody>
                     </table>
 
@@ -582,6 +779,7 @@
                             <li><strong>Latenza:</strong> p95 &lt; 500ms, p99 &lt; 2s per API sincrone</li>
                             <li><strong>Freshness:</strong> dati aggiornati entro 15 minuti per pipeline near-real-time</li>
                             <li><strong>Error rate:</strong> &lt; 0.1% per endpoint critici</li>
+                            <li><strong>Costo per transazione:</strong> monitorato rispetto a una soglia concordata, per evitare sorprese in fattura</li>
                         </ul>
                     </div>
 
@@ -709,6 +907,7 @@
                         <li><strong>Portabilit&agrave; dei dati:</strong> clausola di export in formato standard (CSV, JSON, API) senza costi aggiuntivi</li>
                         <li><strong>Cap sui costi:</strong> tetto massimo per fase con approvazione esplicita per ogni sforamento</li>
                         <li><strong>Exit clause:</strong> diritto di uscita con periodo di transizione e knowledge transfer obbligatorio</li>
+                        <li><strong>Governance congiunta:</strong> un comitato di avanzamento a cadenza fissa, con KPI condivisi e un registro delle decisioni</li>
                     </ul>
 
                     <h3>Come interviene Niuexa: analisi, recupero, messa in produzione</h3>
@@ -740,8 +939,33 @@
                     </div>
 
                     <div class="faq-item">
+                        <h3>Cosa verificare prima di avviare un PoC?</h3>
+                        <p>Tre cose. Il problema, scritto in una pagina con la misura attuale, i criteri di successo e un responsabile. I dati, controllati su un campione per completezza, accuratezza, coerenza tra sistemi, aggiornamento e utilizzabilità legale. La fattibilità su cinque dimensioni: tecnica, dati, integrazione, organizzazione ed economia, messa in produzione inclusa. Se i dati non ci sono o non si possono usare, il primo progetto è metterli in ordine.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Quanto deve durare un PoC?</h3>
+                        <p>Settimane, non mesi, con una scadenza fissata all’inizio insieme ai criteri di successo. Un PoC risponde a una domanda precisa, cioè se si può fare. Se alla scadenza la risposta è ancora “dipende”, il perimetro era troppo ampio o l’ipotesi troppo vaga: conviene restringerli invece di prolungare il PoC.</p>
+                    </div>
+
+                    <div class="faq-item">
                         <h3>Come si definiscono i criteri go/no-go per un PoC?</h3>
                         <p>Con tre esiti decisi prima di iniziare. Go: risultato pari o superiore al target, readiness tecnica verde e responsabile confermato, quindi si procede con il rilascio. Iterate: risultato tra il 50% e il 99% del target con un gap chiaro, quindi un piano di recupero con scadenze brevi. No-go: risultato sotto il 50% del target o rischi non mitigabili, quindi ci si ferma e si ripensa l’approccio. I criteri si scrivono prima dell’avvio e si condividono con tutte le persone coinvolte.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Quali KPI servono come minimo per decidere go o no-go?</h3>
+                        <p>Tre famiglie: il risultato sul processo (tempi, errori, costi o conversioni rispetto alla misura di partenza), la qualità tecnica del sistema (per esempio precision e recall per una classificazione) e la sostenibilità operativa (latenza, disponibilità, costo per transazione). Se ne manca una, la decisione è incompleta: un sistema preciso ma troppo costoso, o economico ma inaffidabile, non regge in produzione.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Come si stima il ritorno se il PoC non ha dati storici?</h3>
+                        <p>Si misura a mano il processo attuale su un campione di 20-50 casi (tempi, costi, errori), si calcola il costo unitario per pratica, ticket o ordine prima e dopo, e si costruiscono tre scenari (prudente, intermedio, favorevole) con le ipotesi dichiarate. La direzione decide su un intervallo, non su un numero unico.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Quando conviene fermare un PoC anche se sembra funzionare?</h3>
+                        <p>Quando i risultati sono buoni ma i costi in produzione li annullano, quando il sistema dipende da dati che in produzione non saranno disponibili o non si potranno usare legalmente, quando c’è un lock-in tecnico senza alternative o quando nessuno nel processo è disposto a esserne responsabile. Fermarsi presto e documentare cosa si è imparato costa meno che continuare a investire.</p>
                     </div>
 
                     <div class="faq-item">

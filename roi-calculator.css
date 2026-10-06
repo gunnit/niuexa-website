@@ -591,6 +591,51 @@
     color: var(--medium-gray);
 }
 
+/* ---------- How to read the result (tinted band, list cards) ---------- */
+.calculator-page .reading-section {
+    background: var(--light-gray);
+}
+
+.calculator-page .reading-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.calculator-page .reading-list li {
+    position: relative;
+    padding: 0.65rem 0 0.65rem 1.3rem;
+    line-height: 1.6;
+    color: var(--medium-gray);
+}
+
+.calculator-page .reading-list li + li {
+    border-top: 1px solid var(--border-light);
+}
+
+.calculator-page .reading-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 1.3rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--brand-teal);
+}
+
+.calculator-page .reading-list strong {
+    color: var(--dark-gray);
+}
+
+.calculator-page .benchmark-card .reading-note {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-light);
+    font-size: 0.95rem;
+    color: var(--dark-gray);
+}
+
 /* ---------- Closing CTA ---------- */
 .calculator-page .cta-section {
     padding: var(--calc-section) 0;

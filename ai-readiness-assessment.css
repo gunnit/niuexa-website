@@ -116,6 +116,101 @@
   line-height: 1.6;
 }
 
+/* ---------- After the assessment: next-step table + preparation signals ---------- */
+.ara-next-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+
+.ara-next-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.ara-next-table th,
+.ara-next-table td {
+  padding: 1rem 1.25rem 1rem 0;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: top;
+  line-height: 1.55;
+}
+
+.ara-next-table thead th {
+  padding-top: 0;
+  border-bottom: 2px solid var(--border-medium);
+  font-family: var(--font-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--medium-gray);
+}
+
+.ara-next-table tbody th {
+  width: 48%;
+  font-weight: 600;
+  color: var(--dark-gray);
+}
+
+.ara-next-table td {
+  color: var(--medium-gray);
+}
+
+.ara-next-table a,
+.ara-baseline-note a {
+  color: var(--blue-text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.ara-signals .ara-signals-note {
+  margin: 0.9rem 0 0;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--border-medium);
+  line-height: 1.6;
+  color: var(--dark-gray);
+}
+
+/* ---------- Baseline measurement steps (inside the x-ray band) ---------- */
+.ara-baseline {
+  margin-top: clamp(2.2rem, 4vw, 3.2rem);
+}
+
+.ara-baseline-title {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  line-height: 1.25;
+  color: var(--dark-gray);
+}
+
+.ara-baseline-lead {
+  max-width: 64ch;
+  margin: 0.6rem 0 0;
+  line-height: 1.65;
+  color: var(--medium-gray);
+}
+
+.ara-baseline .ara-steps {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.ara-step h4 {
+  margin-bottom: 0.45rem;
+  font-size: 1.08rem;
+  color: var(--dark-gray);
+}
+
+.ara-baseline-note {
+  max-width: 72ch;
+  margin: clamp(1.6rem, 3vw, 2.2rem) 0 0;
+  line-height: 1.65;
+  color: var(--dark-gray);
+}
+
 /* ---------- Responsive ---------- */
 /* five cards: one row on desktop, then three over two with no orphan gap */
 @media (max-width: 1100px) {
@@ -133,6 +228,12 @@
 
   .ara-audience {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 880px) {
+  .ara-next-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 

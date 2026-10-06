@@ -37,7 +37,7 @@
     <link rel="stylesheet" href="styles.css?v=20260807">
     <link rel="stylesheet" href="polish.css?v=20261005">
     <link rel="stylesheet" href="ai-readiness-assessment-lp.css?v=20261005">
-    <link rel="stylesheet" href="ai-readiness-assessment.css?v=20261005">
+    <link rel="stylesheet" href="ai-readiness-assessment.css?v=20261006">
     <script type="application/ld+json">
     {
       "@context":"https://schema.org",
@@ -102,6 +102,38 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "No. Parte della valutazione è capire quali dati esistono, quali mancano e quali casi d'uso sono realistici nel breve periodo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quando un processo è pronto per un AI agent?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Quando è documentato, input e output sono chiari, i dati sono accessibili e affidabili e sono definiti responsabili, controlli e metriche di successo. Se manca uno di questi elementi, conviene prepararlo prima di automatizzare."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Come si trova il collo di bottiglia di un processo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Si ricostruisce il percorso di alcune pratiche reali dalla richiesta alla chiusura; per ogni passaggio si separano tempo di lavorazione e tempo di attesa e si contano i passaggi di mano. Il collo di bottiglia è dove si accumula lavoro e si moltiplicano le eccezioni."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Serve formazione prima di automatizzare?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Spesso sì, perché l'AI diventi parte del lavoro quotidiano e non uno strumento in più: il team deve sapere quando usarla, quando verificare e quali dati non inserire. La formazione Niuexa parte da un workflow reale del team."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Si può usare la checklist senza un consulente?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sì. Basta un incontro di 60 minuti con la direzione, il responsabile operativo e chi conosce il processo: si scelgono uno o due processi candidati, si mappano input, output ed eccezioni, si verifica dove sono i dati e chi ne è responsabile, si fissano KPI e misura di partenza, si stabiliscono permessi e controlli e si decide il prossimo passo."
           }
         }
       ]
@@ -186,6 +218,41 @@
       </div>
     </section>
 
+    <section class="ara-section" aria-labelledby="ara-next-title">
+      <div class="container">
+        <div class="ara-head">
+          <h2 id="ara-next-title" class="ara-h2">Dopo l'assessment, il prossimo passo dipende da cosa troviamo</h2>
+          <p class="ara-lead">Per ogni caso d'uso il risultato è una decisione: automatizzare ora, preparare meglio il processo oppure scartarlo perché non è prioritario.</p>
+        </div>
+        <div class="ara-next-grid">
+          <table class="ara-next-table">
+            <caption class="sr-only">Situazioni tipiche dopo l'assessment e prossimo passo consigliato</caption>
+            <thead>
+              <tr><th scope="col">Cosa troviamo</th><th scope="col">Prossimo passo</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Processo chiaro, dati disponibili, KPI definiti</th><td>Un pilot su quel processo, con misura prima e dopo</td></tr>
+              <tr><th scope="row">Processo utile ma poco documentato</th><td>Mappatura del processo e requisiti scritti</td></tr>
+              <tr><th scope="row">Dati dispersi o poco affidabili</th><td>Pulizia e collegamento delle fonti che servono</td></tr>
+              <tr><th scope="row">Team interessato ma non formato</th><td><a href="training.html">Formazione</a> su un workflow reale del team</td></tr>
+              <tr><th scope="row">AI già in uso ma senza regole</th><td>Regole d'uso, ruoli, controlli e inventario dei casi d'uso</td></tr>
+            </tbody>
+          </table>
+          <div class="ara-signals">
+            <h3>Segnali che conviene preparare il processo prima di automatizzarlo</h3>
+            <ul>
+              <li>Nessuno descrive il processo nello stesso modo.</li>
+              <li>I dati sono in sistemi non accessibili o non aggiornati.</li>
+              <li>Nessuno è responsabile degli output.</li>
+              <li>Non esiste una metrica per capire se funziona.</li>
+              <li>Il caso dipende da decisioni ad alto rischio senza supervisione.</li>
+            </ul>
+            <p class="ara-signals-note">In questi casi l'AI non va esclusa: va preparata, con documentazione, dati puliti, formazione e regole minime.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="ara-section ara-xray ara-section-muted" aria-labelledby="ara-xray-title">
       <div class="container">
         <div class="ara-head">
@@ -196,6 +263,17 @@
           <div class="ara-xray-item"><strong>Baseline</strong><p>Quanto tempo, quante eccezioni e quali errori genera oggi il processo?</p></div>
           <div class="ara-xray-item"><strong>Automabilità</strong><p>Quali passaggi sono ripetitivi, documentati e verificabili da una persona?</p></div>
           <div class="ara-xray-item"><strong>Governance</strong><p>Dove servono controllo umano, privacy, escalation e metriche di qualità?</p></div>
+        </div>
+        <div class="ara-baseline">
+          <h3 class="ara-baseline-title">Come misuriamo la baseline</h3>
+          <p class="ara-baseline-lead">Su casi reali, non su stime: prendiamo da 10 a 20 pratiche recenti e ne ricostruiamo il percorso, dalla richiesta alla chiusura.</p>
+          <ol class="ara-steps">
+            <li class="ara-step"><h4>Lavoro e attesa</h4><p>Per ogni passaggio separiamo il tempo di lavorazione dal tempo di attesa: approvazioni, code, informazioni cercate tra più strumenti.</p></li>
+            <li class="ara-step"><h4>Passaggi di mano</h4><p>Contiamo quante volte la pratica cambia persona o strumento e dove gli stessi dati vengono inseriti due volte.</p></li>
+            <li class="ara-step"><h4>Due indicatori</h4><p>Lead time dalla richiesta alla chiusura e tasso di rilavorazione: ore di rifacimento sulle ore totali della pratica.</p></li>
+            <li class="ara-step"><h4>Il collo di bottiglia</h4><p>È il passaggio dove si accumula lavoro e si moltiplicano le eccezioni. Lì si valuta per prima cosa se serve l'AI o se basta una regola.</p></li>
+          </ol>
+          <p class="ara-baseline-note">Ogni indicatore ha formula, fonte, frequenza e responsabile, fissati prima di intervenire. Per scriverli può usare l'<a href="ai-metric-contract.html">AI Metric Contract</a>, scheda gratuita.</p>
         </div>
         <div class="ara-related">
           <p>Approfondimento collegato: come portare l'AI dai chatbot isolati ai workflow operativi governati.</p>
@@ -303,6 +381,22 @@
           <details class="ara-faq-item">
             <summary>Serve già avere dati perfetti? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></summary>
             <p>No. Parte della valutazione è capire quali dati esistono, quali mancano e quali casi d'uso sono realistici nel breve periodo.</p>
+          </details>
+          <details class="ara-faq-item">
+            <summary>Quando un processo è pronto per un AI agent? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></summary>
+            <p>Quando è documentato, input e output sono chiari, i dati sono accessibili e affidabili e sono definiti responsabili, controlli e metriche di successo. Se manca uno di questi elementi, conviene prepararlo prima di automatizzare.</p>
+          </details>
+          <details class="ara-faq-item">
+            <summary>Come si trova il collo di bottiglia di un processo? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></summary>
+            <p>Si ricostruisce il percorso di alcune pratiche reali dalla richiesta alla chiusura; per ogni passaggio si separano tempo di lavorazione e tempo di attesa e si contano i passaggi di mano. Il collo di bottiglia è dove si accumula lavoro e si moltiplicano le eccezioni.</p>
+          </details>
+          <details class="ara-faq-item">
+            <summary>Serve formazione prima di automatizzare? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></summary>
+            <p>Spesso sì, perché l'AI diventi parte del lavoro quotidiano e non uno strumento in più: il team deve sapere quando usarla, quando verificare e quali dati non inserire. La <a href="training.html">formazione Niuexa</a> parte da un workflow reale del team.</p>
+          </details>
+          <details class="ara-faq-item">
+            <summary>Si può usare la checklist senza un consulente? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></summary>
+            <p>Sì. Basta un incontro di 60 minuti con la direzione, il responsabile operativo e chi conosce il processo: si scelgono uno o due processi candidati, si mappano input, output ed eccezioni, si verifica dove sono i dati e chi ne è responsabile, si fissano KPI e misura di partenza, si stabiliscono permessi e controlli e si decide il prossimo passo.</p>
           </details>
         </div>
       </div>

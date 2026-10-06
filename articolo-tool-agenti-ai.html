@@ -26,8 +26,8 @@
 
     <!-- SEO Meta Tags -->
     <title>Tool e pratiche per creare agenti AI affidabili | Niuexa</title>
-    <meta name="description" content="Tool e pratiche per agenti AI affidabili: stack tecnologico, un percorso in 10 passi, test, guardrail e tre architetture di riferimento per la produzione.">
-    <meta name="keywords" content="agenti AI, tool agenti AI, creare agenti AI, AI agent framework, LangChain, LlamaIndex, RAG, guardrail AI, testing agenti AI, AI in produzione, workflow agenti AI, blueprint AI agent">
+    <meta name="description" content="Tool e pratiche per agenti AI affidabili: stack, piattaforme, orchestrazione multi-agente, un percorso in 10 passi, test, guardrail e tre architetture di riferimento.">
+    <meta name="keywords" content="agenti AI, agentic AI, tool agenti AI, creare agenti AI, AI agent framework, sistemi multi-agente, orchestrazione agenti AI, MCP, LangChain, LlamaIndex, RAG, guardrail AI, testing agenti AI, AI in produzione, workflow agenti AI, blueprint AI agent">
     <meta name="author" content="Niuexa">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="language" content="Italian">
@@ -38,11 +38,11 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://niuexa.ai/articolo-tool-agenti-ai.html">
     <meta property="og:title" content="Tool e pratiche per creare agenti AI: come progettarli, testarli e metterli in produzione">
-    <meta property="og:description" content="Tool e pratiche per agenti AI affidabili: stack tecnologico, un percorso in 10 passi, test, guardrail e tre architetture di riferimento per la produzione.">
+    <meta property="og:description" content="Tool e pratiche per agenti AI affidabili: stack, piattaforme, orchestrazione multi-agente, un percorso in 10 passi, test, guardrail e tre architetture di riferimento.">
     <meta property="og:image" content="https://niuexa.ai/img/niuexalogo.png">
     <meta property="og:locale" content="it_IT">
     <meta property="article:published_time" content="2026-03-16">
-    <meta property="article:modified_time" content="2026-10-05">
+    <meta property="article:modified_time" content="2026-10-06">
     <meta property="article:author" content="Niuexa">
     <meta property="article:section" content="AI Engineering">
     <meta property="article:tag" content="Agenti AI">
@@ -53,7 +53,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://niuexa.ai/articolo-tool-agenti-ai.html">
     <meta name="twitter:title" content="Tool e pratiche per creare agenti AI affidabili">
-    <meta name="twitter:description" content="Tool e pratiche per agenti AI affidabili: stack tecnologico, un percorso in 10 passi, test, guardrail e tre architetture di riferimento per la produzione.">
+    <meta name="twitter:description" content="Tool e pratiche per agenti AI affidabili: stack, piattaforme, orchestrazione multi-agente, un percorso in 10 passi, test, guardrail e tre architetture di riferimento.">
     <meta name="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
 
     <link rel="canonical" href="https://niuexa.ai/articolo-tool-agenti-ai.html">
@@ -80,7 +80,7 @@
         "@context": "https://schema.org",
         "@type": "Article",
         "headline": "Tool e pratiche per creare agenti AI: come progettarli, testarli e metterli in produzione",
-        "description": "Tool e pratiche per agenti AI affidabili: stack tecnologico, un percorso in 10 passi, test, guardrail e tre architetture di riferimento per la produzione.",
+        "description": "Tool e pratiche per agenti AI affidabili: stack, piattaforme, orchestrazione multi-agente, un percorso in 10 passi, test, guardrail e tre architetture di riferimento.",
         "author": {
             "@type": "Organization",
             "name": "Niuexa",
@@ -95,14 +95,14 @@
             }
         },
         "datePublished": "2026-03-16",
-        "dateModified": "2026-10-05",
+        "dateModified": "2026-10-06",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://niuexa.ai/articolo-tool-agenti-ai.html"
         },
-        "keywords": ["agenti AI", "tool agenti AI", "AI agent framework", "LangChain", "LlamaIndex", "RAG", "guardrail AI", "testing agenti AI", "AI in produzione"],
+        "keywords": ["agenti AI", "agentic AI", "tool agenti AI", "AI agent framework", "sistemi multi-agente", "MCP", "LangChain", "LlamaIndex", "RAG", "guardrail AI", "testing agenti AI", "AI in produzione"],
         "articleSection": "AI Engineering",
-        "wordCount": "4000",
+        "wordCount": "5300",
         "inLanguage": "it-IT",
         "speakable": {
             "@type": "SpeakableSpecification",
@@ -131,6 +131,30 @@
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "LangChain è più adatto all’orchestrazione di catene multi-step e di agenti con tool calling complesso: offre molta flessibilità, con una curva di apprendimento più ripida. LlamaIndex è pensato per pipeline RAG e agenti che lavorano soprattutto sul retrieval, con un’API più semplice per i casi d’uso incentrati sulla knowledge base. Per agenti che interrogano dati aziendali LlamaIndex è spesso più rapido da prototipare; per workflow complessi con molti tool LangChain dà più controllo."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Che differenza c’è tra AI generativa e agentic AI?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "L’AI generativa produce un contenuto (testo, codice, immagini) in risposta a una richiesta, e una persona decide cosa farne. L’agentic AI riceve un obiettivo, pianifica i passi, usa tool come API, database ed email per eseguirli e gestisce gli errori lungo il percorso. Per questo un agente richiede controlli che un assistente generativo non richiede: permessi minimi sui sistemi, evals, tracciamento di ogni azione e approvazione di una persona per le azioni irreversibili."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Cosa sono i sistemi multi-agente e quando servono?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sono architetture in cui più agenti specializzati collaborano, coordinati da un orchestratore o in sequenza, per completare un processo. Servono quando un agente unico dovrebbe gestire troppi tool o competenze diverse e le evals mostrano che sbaglia per questo. Negli altri casi un agente solo è più semplice da testare, costa meno ed è più facile da controllare."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Conviene usare la piattaforma per agenti del proprio fornitore?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Spesso sì, se l’azienda lavora già in quell’ecosistema: Microsoft Copilot Studio per Microsoft 365, Salesforce Agentforce per il CRM, le piattaforme di Google Cloud e AWS per chi ha lì l’infrastruttura. Si parte più in fretta e si ereditano permessi e sicurezza. Prima di scegliere conviene verificare se prompt, configurazioni e log si possono esportare, se si possono eseguire le proprie evals e come si calcola il costo per conversazione."
                 }
             },
             {
@@ -184,8 +208,8 @@
             {
                 "@type": "ListItem",
                 "position": 2,
-                "name": "Impara",
-                "item": "https://niuexa.ai/impara.html"
+                "name": "Ricerca",
+                "item": "https://niuexa.ai/research.html"
             },
             {
                 "@type": "ListItem",
@@ -210,14 +234,14 @@
     <section class="tutorial-header">
         <div class="container">
             <nav class="breadcrumb">
-                <a href="impara.html">Impara</a> / <span>Tool Agenti AI</span>
+                <a href="research.html">Ricerca</a> / <span>Tool Agenti AI</span>
             </nav>
             <div class="tutorial-intro">
                 <div class="tutorial-badge">AI Engineering</div>
                 <h1>Tool e pratiche per creare agenti AI: come progettarli, testarli e metterli in produzione</h1>
                 <p class="tutorial-description">Quali tool servono e quali pratiche rendono affidabile un agente AI: stack tecnologico, un percorso in 10 passi, test, guardrail e tre architetture di riferimento per la produzione.</p>
                 <div class="tutorial-stats">
-                    <span class="stat">20 minuti di lettura</span>
+                    <span class="stat">25 minuti di lettura</span>
                     <span class="stat">Per CTO, AI engineer e tech lead</span>
                     <span class="stat">Guide Pratiche</span>
                 </div>
@@ -241,6 +265,8 @@
                     <p>Escono di continuo nuovi framework per costruire agenti AI. La demo funziona in pochi minuti, poi qualcuno prova a metterla in produzione e arrivano allucinazioni, costi fuori controllo e passaggi manuali che annullano il valore dell’automazione. Per questo nella <a href="/consulting.html">consulenza AI di Niuexa</a> seguiamo un percorso in 10 passi, dai failure modes al rilascio controllato.</p>
 
                     <p>Un agente AI che funziona in demo e fallisce in produzione di solito non ha un problema di modello, ma di ingegneria: mancano i test, i guardrail, le metriche e il processo che rendono affidabile un prototipo.</p>
+
+                    <p>Gli agenti arriveranno comunque, spesso dentro software che l’azienda usa già: secondo <a href="https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025" target="_blank" rel="noopener">Gartner</a> (comunicato del 26 agosto 2025) entro la fine del 2026 il 40% delle applicazioni aziendali integrerà agenti dedicati a compiti specifici, contro meno del 5% nel 2025. Lo stesso <a href="https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027" target="_blank" rel="noopener">Gartner</a> (25 giugno 2025) prevede che oltre il 40% dei progetti di agentic AI sarà cancellato entro la fine del 2027, per costi crescenti, valore poco chiaro o controlli del rischio inadeguati. La differenza la fanno le pratiche descritte in questa guida.</p>
 
                     <h3>Demo vs produzione: cosa si rompe e perch&eacute;</h3>
                     <p>In una demo, l'agente riceve input puliti, opera in un contesto controllato e non ha vincoli di costo o latenza. In produzione, affronta: input ambigui o maliziosi, dati incompleti, tool che falliscono, utenti che escono dal flusso previsto, picchi di traffico, e budget per token che si esaurisce. <strong>Il gap tra demo e produzione non si colma con un modello migliore, ma con engineering practices rigorose.</strong></p>
@@ -281,6 +307,7 @@
                         <li><strong>Latenza P95:</strong> non la latenza media, ma il 95&deg; percentile. Un agente che risponde in 2s nel 90% dei casi e in 15s nel restante 10% genera frustrazione</li>
                         <li><strong>Context window:</strong> per agenti con conversazioni lunghe o documenti da analizzare, la finestra di contesto limita o abilita interi casi d'uso</li>
                         <li><strong>Affidabilit&agrave; del tool calling:</strong> percentuale di chiamate a tool con schema valido e parametri corretti (testare empiricamente, non fidarsi dei benchmark)</li>
+                        <li><strong>Dove gira il modello:</strong> API in cloud oppure un modello più piccolo, specializzato sul compito, su infrastruttura propria. Il secondo costa meno per chiamata e tiene i dati in casa, ma va mantenuto e rende bene solo su compiti stretti e ripetitivi</li>
                     </ul>
 
                     <h3>Framework di orchestrazione a confronto</h3>
@@ -322,6 +349,54 @@
                         <p>Conviene partire con un SDK minimale (per esempio quello del fornitore del modello, con un’orchestrazione essenziale) e passare a LangChain o LlamaIndex solo quando la complessità del workflow lo giustifica. Il framework aggiunge valore quando ci sono più di 5 tool, branching condizionale e stato da conservare tra le sessioni.</p>
                     </div>
 
+                    <h3>Piattaforme dei fornitori o stack proprio</h3>
+                    <p>Accanto ai framework open source, i grandi fornitori offrono piattaforme per costruire e gestire agenti dentro il proprio ecosistema. Sono tecnologie da valutare come le altre, e il criterio più utile è partire da dove l’azienda lavora già: lì ci sono i dati, i permessi e le persone che useranno l’agente.</p>
+
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Piattaforma</th>
+                                <th>Punto di forza</th>
+                                <th>Ha senso se</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Microsoft Copilot Studio</strong></td>
+                                <td>Agenti dentro Microsoft 365 e Teams, orchestrazione di più agenti, connettori verso i dati aziendali</td>
+                                <td>L’azienda lavora su Microsoft 365 e i dati stanno in SharePoint, Outlook o Dynamics</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Salesforce Agentforce</strong></td>
+                                <td>Agenti nativi nel CRM, con accesso diretto a clienti, casi e opportunità</td>
+                                <td>Vendite e assistenza vivono in Salesforce</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Google Cloud (Vertex AI Agent Builder)</strong></td>
+                                <td>Integrazione con Workspace e con i dati in Google Cloud, supporto al protocollo A2A</td>
+                                <td>L’azienda usa Google Workspace o Google Cloud</td>
+                            </tr>
+                            <tr>
+                                <td><strong>AWS (Amazon Bedrock AgentCore)</strong></td>
+                                <td>Servizi per eseguire, proteggere e monitorare agenti costruiti con qualsiasi framework e modello</td>
+                                <td>L’infrastruttura è su AWS e il team sviluppa in proprio</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="pro-tips">
+                        <h4>Piattaforma o stack proprio</h4>
+                        <p>La piattaforma accorcia i tempi e porta con sé permessi e sicurezza dell’ecosistema; in cambio lega l’agente a quel fornitore e lascia meno controllo su test, costi e scelta del modello. Prima di decidere conviene verificare tre cose: se prompt, configurazioni e log si possono esportare, se si possono eseguire le proprie evals sul proprio golden set e come si calcola il costo per conversazione.</p>
+                    </div>
+
+                    <h3>Standard di interoperabilità: MCP e A2A</h3>
+                    <p>Due protocolli aperti stanno diventando il modo comune di collegare agenti, tool e dati:</p>
+                    <ul>
+                        <li><strong>MCP (Model Context Protocol):</strong> introdotto da Anthropic a fine 2024, standardizza il modo in cui un agente si collega a tool e fonti di dati. Un connettore MCP scritto una volta, per esempio verso il gestionale, può essere usato da modelli e client diversi</li>
+                        <li><strong>A2A (Agent2Agent):</strong> proposto da Google nel 2025 e oggi gestito dalla Linux Foundation, definisce come agenti di fornitori diversi si scambiano compiti e risultati</li>
+                    </ul>
+                    <p>La conseguenza pratica è una: chiedere che le integrazioni siano costruite su standard aperti, così da poter cambiare modello o fornitore senza riscriverle. Un server MCP resta comunque un tool come gli altri: va registrato nel tool registry, limitato con allowlist e permessi minimi, e testato.</p>
+
                     <h3>Memoria, contesto e pipeline RAG</h3>
                     <p>Un agente senza memoria &egrave; stateless e riparte da zero a ogni interazione. Un agente con troppa memoria consuma token inutilmente e introduce rumore. Il design della memoria richiede tre decisioni:</p>
                     <ul>
@@ -346,6 +421,20 @@
                 <section class="content-section">
                     <h2>Pratiche fondamentali: progettare prima di codificare</h2>
                     <p>I tool migliori non compensano un design scadente. Le pratiche che seguono sono il fondamento su cui costruire un agente che funziona in produzione, non solo in demo.</p>
+
+                    <h3>Scegliere il primo processo da affidare a un agente</h3>
+                    <p>Prima del design viene la scelta del caso. I processi da cui conviene partire hanno tre caratteristiche:</p>
+                    <ul>
+                        <li><strong>Volume alto:</strong> lo stesso compito si ripete molte volte al mese, quindi il tempo risparmiato si vede e si misura</li>
+                        <li><strong>Regole documentabili:</strong> chi lo fa oggi sa spiegare come decide, e quelle regole si possono scrivere</li>
+                        <li><strong>Errori correggibili:</strong> uno sbaglio si intercetta e si corregge prima che arrivi al cliente o nel gestionale</li>
+                    </ul>
+                    <p>Esempi tipici: richieste di primo livello dei clienti (stato ordini, domande ricorrenti), lettura e smistamento dei documenti in arrivo, abbinamento tra fatture e ordini, preparazione di report ricorrenti, gestione degli appuntamenti.</p>
+
+                    <div class="pro-tips">
+                        <h4>Riprogettare, non sovrapporre</h4>
+                        <p>Un agente appoggiato sopra un processo pensato per le persone eredita passaggi che esistono solo perché a farli era una persona: copie tra sistemi, approvazioni ripetute, controlli doppi. Prima di automatizzare conviene misurare il processo com’è e chiedersi quali passaggi servono davvero. Spesso alcuni si eliminano senza AI, e l’agente lavora su un flusso più corto.</p>
+                    </div>
 
                     <h3>Task decomposition: da obiettivo a sotto-task</h3>
                     <p>Il primo passo &egrave; scomporre l'obiettivo dell'agente in una mappa di sotto-task, ciascuno con tool associati e criteri di uscita espliciti. Questa mappa diventa il contratto tra il team di sviluppo e gli stakeholder.</p>
@@ -386,6 +475,56 @@
                         <li><strong>Review post-azione:</strong> l'agente esegue e un umano rivede un campione (5-20%) per qualit&agrave;</li>
                         <li><strong>Escalation su incertezza:</strong> quando la confidence scende sotto la soglia, l'agente trasferisce il caso a un operatore con il contesto completo</li>
                     </ul>
+                </section>
+
+                <!-- Section 3b: orchestrazione multi-agente -->
+                <section class="content-section">
+                    <h2>Un agente o più agenti: pattern di orchestrazione</h2>
+                    <p>Un sistema multi-agente divide il lavoro tra più agenti specializzati, ciascuno con i propri tool e le proprie istruzioni, coordinati da un orchestratore o da regole di passaggio. Ha senso quando un unico agente dovrebbe gestire troppi tool o competenze molto diverse. Ogni agente in più, però, aggiunge chiamate al modello, costo, latenza e punti in cui qualcosa può rompersi.</p>
+
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Pattern</th>
+                                <th>Come funziona</th>
+                                <th>Adatto a</th>
+                                <th>Rischio principale</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Orchestratore e specialisti</strong></td>
+                                <td>Un agente centrale riceve il compito, lo assegna agli specialisti e compone il risultato</td>
+                                <td>Assistenza clienti con richieste di natura diversa, elaborazione di documenti</td>
+                                <td>L’orchestratore diventa collo di bottiglia e punto unico di errore</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pipeline</strong></td>
+                                <td>Gli agenti lavorano in sequenza: l’output di uno è l’input del successivo</td>
+                                <td>Documenti che passano per estrazione, controllo e registrazione</td>
+                                <td>Un errore a monte si propaga fino alla fine</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Collaborativo</strong></td>
+                                <td>Agenti alla pari che si scambiano proposte e critiche</td>
+                                <td>Analisi e ricerca, revisione di testi</td>
+                                <td>Conversazioni lunghe, costi difficili da prevedere, risultati poco ripetibili</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Gerarchico</strong></td>
+                                <td>Supervisori che coordinano gruppi di agenti esecutori, su più livelli</td>
+                                <td>Automazioni ampie che toccano molti processi</td>
+                                <td>Complessità alta: ricostruire chi ha deciso cosa diventa difficile</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>Framework come LangGraph, AutoGen (Microsoft) e CrewAI offrono questi pattern già pronti, e le piattaforme dei fornitori descritte sopra includono un’orchestrazione multi-agente nativa.</p>
+
+                    <div class="pro-tips">
+                        <h4>Regola pratica</h4>
+                        <p>Partire con un solo agente e pochi tool. Dividerlo in più agenti solo quando le evals mostrano che l’agente unico sbaglia perché ha troppe istruzioni o troppi tool, non prima. In un sistema multi-agente il tracing end-to-end e un budget massimo per conversazione diventano obbligatori: ogni passaggio tra agenti va registrato, e ogni scambio tra due agenti deve avere un numero massimo di turni.</p>
+                    </div>
                 </section>
 
                 <!-- Section 4: Workflow Niuexa in 10 passi -->
@@ -633,6 +772,21 @@
                     <div class="faq-item">
                         <h3>Qual è la differenza tra LangChain e LlamaIndex per agenti AI?</h3>
                         <p>LangChain è più adatto all’orchestrazione di catene multi-step e di agenti con tool calling complesso: offre molta flessibilità, con una curva di apprendimento più ripida. LlamaIndex è pensato per pipeline RAG e agenti che lavorano soprattutto sul retrieval, con un’API più semplice per i casi d’uso incentrati sulla knowledge base. Per agenti che interrogano dati aziendali LlamaIndex è spesso più rapido da prototipare; per workflow complessi con molti tool LangChain dà più controllo.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Che differenza c’è tra AI generativa e agentic AI?</h3>
+                        <p>L’AI generativa produce un contenuto (testo, codice, immagini) in risposta a una richiesta, e una persona decide cosa farne. L’agentic AI riceve un obiettivo, pianifica i passi, usa tool come API, database ed email per eseguirli e gestisce gli errori lungo il percorso. Per questo un agente richiede controlli che un assistente generativo non richiede: permessi minimi sui sistemi, evals, tracciamento di ogni azione e approvazione di una persona per le azioni irreversibili.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Cosa sono i sistemi multi-agente e quando servono?</h3>
+                        <p>Sono architetture in cui più agenti specializzati collaborano, coordinati da un orchestratore o in sequenza, per completare un processo. Servono quando un agente unico dovrebbe gestire troppi tool o competenze diverse e le evals mostrano che sbaglia per questo. Negli altri casi un agente solo è più semplice da testare, costa meno ed è più facile da controllare.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Conviene usare la piattaforma per agenti del proprio fornitore?</h3>
+                        <p>Spesso sì, se l’azienda lavora già in quell’ecosistema: Microsoft Copilot Studio per Microsoft 365, Salesforce Agentforce per il CRM, le piattaforme di Google Cloud e AWS per chi ha lì l’infrastruttura. Si parte più in fretta e si ereditano permessi e sicurezza. Prima di scegliere conviene verificare se prompt, configurazioni e log si possono esportare, se si possono eseguire le proprie evals e come si calcola il costo per conversazione.</p>
                     </div>
 
                     <div class="faq-item">

@@ -64,7 +64,7 @@
         "operatingSystem": "All",
         "inLanguage": "en",
         "isAccessibleForFree": true,
-        "dateModified": "2026-10-05",
+        "dateModified": "2026-10-06",
         "provider": {"@id": "https://niuexa.ai/#organization"}
     }
     </script>
@@ -83,7 +83,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="/styles.css?v=20260807">
     <link rel="stylesheet" href="/polish.css?v=20261005">
-    <link rel="stylesheet" href="/roi-calculator.css?v=20261005">
+    <link rel="stylesheet" href="/roi-calculator.css?v=20261006">
 </head>
 <body class="polished calculator-page">
     <!-- Google Tag Manager (noscript) -->
@@ -331,6 +331,41 @@
                     <div class="icon-tile icon-tile--green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
                     <h3>Compare it with costs in writing</h3>
                     <p>The initial cost and the running costs depend on the process and the systems in use. Niuexa puts them in writing in a quote after the analysis; with the <a href="/ai-outcome-budget.html">AI Outcome Budget</a> (in Italian) you can compare them with the expected value.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What to put in costs and benefits, and how far the result holds -->
+    <section class="benchmarks-section reading-section" aria-labelledby="reading-title">
+        <div class="container">
+            <h2 id="reading-title" class="section-title">How to read the result</h2>
+            <p class="section-intro">The estimate is only as good as the numbers behind it. Before you use it to decide, check what went into the costs, what the benefits leave out and how well the result holds up.</p>
+            <div class="benchmarks-grid">
+                <div class="benchmark-card">
+                    <h3>What to include in the costs</h3>
+                    <ul class="reading-list">
+                        <li><strong>Initial cost:</strong> development or configuration, licences, integration with the systems in use and data preparation, the item most often underestimated.</li>
+                        <li><strong>Running costs:</strong> APIs, cloud and licences at real volumes, because a cost that is low in a trial can grow in production.</li>
+                        <li><strong>Maintenance and oversight:</strong> monitoring, updates, fixes and the time of the people who review exceptions.</li>
+                    </ul>
+                    <p class="reading-note">What you pay once goes into the initial build cost; what repeats goes into the running costs per month.</p>
+                </div>
+                <div class="benchmark-card">
+                    <h3>What counts as a benefit</h3>
+                    <ul class="reading-list">
+                        <li>The calculator counts two benefits: the working time saved and part of the cost of errors.</li>
+                        <li>Hours saved become an economic benefit only if the time freed goes to other useful work.</li>
+                        <li>Extra revenue, faster replies, fewer returns or complaints stay outside the estimate: measure them separately, before and after, and do not add them if you cannot measure them.</li>
+                    </ul>
+                </div>
+                <div class="benchmark-card">
+                    <h3>How well the result holds up</h3>
+                    <ul class="reading-list">
+                        <li>First-year ROI and the recovery of the initial cost depend mainly on the initial cost and the share that can be automated.</li>
+                        <li>Try a cautious scenario, with a lower share and higher running costs. If the net benefit stays positive, it is worth measuring the real process; if it turns negative, rethink the case or prepare the process first.</li>
+                        <li>The 5-year projection repeats the same values every year: it does not account for changes in volumes, prices or one-off maintenance.</li>
+                    </ul>
                 </div>
             </div>
         </div>

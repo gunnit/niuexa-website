@@ -40,7 +40,7 @@
     <meta property="og:image" content="https://niuexa.ai/img/niuexalogo.png">
     <meta property="og:locale" content="en_US">
     <meta property="article:published_time" content="2026-03-28">
-    <meta property="article:modified_time" content="2026-10-05">
+    <meta property="article:modified_time" content="2026-10-06">
     <meta property="article:author" content="Niuexa">
     <meta property="article:section" content="Document Automation">
     <meta property="article:tag" content="AI Document Automation">
@@ -107,14 +107,14 @@
             ]
         },
         "datePublished": "2026-03-28",
-        "dateModified": "2026-10-05",
+        "dateModified": "2026-10-06",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://niuexa.ai/en/article-ai-email-pdf-crm-automation.html"
         },
         "keywords": ["AI document automation", "PDF data extraction", "email to CRM", "AI email triage", "CRM integration", "document processing AI", "Niuexa"],
         "articleSection": "Document Automation",
-        "wordCount": "3900",
+        "wordCount": "4400",
         "inLanguage": "en",
         "speakable": {
             "@type": "SpeakableSpecification",
@@ -175,6 +175,14 @@
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "There is no typical figure that applies to your company. The return depends on how many documents you process, how long each takes today, how many errors reach the CRM and what the pipeline costs to run. Measure those numbers before you start, test on a sample and calculate the payback period as setup cost divided by monthly saving minus running costs."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why do AI automation projects fail?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Often because of how they are set up rather than the technology. In S&P Global Market Intelligence's 2025 survey, the share of companies abandoning most of their AI initiatives before production rose from 17% to 42% in a year. Three patterns recur: trying to automate everything at once, having no measurable definition of success and choosing the tool before understanding the process. Start with one flow, measure it, run it in parallel with the manual work and decide on the numbers."
                 }
             }
         ]
@@ -525,6 +533,52 @@
                     <p>After launch, the pipeline needs maintenance: monitoring, updates when suppliers change formats and new document types. Ask how this support is priced before you sign; at Niuexa it is part of the written quote.</p>
                 </section>
 
+                <!-- Section: Why projects stall -->
+                <section id="why-projects-stall" class="content-section">
+                    <h2>Why Automation Projects Stall, and How to Avoid It</h2>
+                    <p>In a 2025 survey of more than a thousand professionals in North America and Europe, <a href="https://www.spglobal.com/market-intelligence/en/news-insights/research/ai-experiences-rapid-adoption-but-with-mixed-outcomes-highlights-from-vote-ai-machine-learning" rel="noopener" target="_blank">S&amp;P Global Market Intelligence</a> found that the share of companies abandoning most of their AI initiatives before production rose from 17% to 42% in one year. The causes are not only technical. Three patterns in how projects are set up come up again and again, and each has a simple fix:</p>
+
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Pattern</th>
+                                <th>Typical starting point</th>
+                                <th>Better starting point</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Automating everything at once</strong></td>
+                                <td>&ldquo;Let's automate all incoming documents&rdquo;</td>
+                                <td>&ldquo;Let's automate supplier invoices from the accounts inbox&rdquo;</td>
+                            </tr>
+                            <tr>
+                                <td><strong>No measurable definition of success</strong></td>
+                                <td>&ldquo;We want to be more efficient&rdquo;</td>
+                                <td>&ldquo;Bring the time from document arrival to CRM entry from [current value] to [target]&rdquo;</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Choosing the tool before the problem</strong></td>
+                                <td>&ldquo;Let's use Zapier because everyone does&rdquo;</td>
+                                <td>&ldquo;Which tool fits this document flow, its formats and its exceptions?&rdquo;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Fix the Process, Then Automate It</h3>
+                    <p>Automating a confused process makes the confusion permanent. Before choosing tools, map the current flow with real times, find where documents wait and where work is done twice, standardise the exceptions you can and write the rules down. Then choose the tools that support that design, not the other way round.</p>
+
+                    <h3>Your First Workflow, Step by Step</h3>
+                    <ol>
+                        <li><strong>Pick one flow</strong> with a clear start (a new email in a dedicated inbox) and a clear end (a record in the CRM).</li>
+                        <li><strong>Map today's steps</strong> and the systems they touch: those systems are your integration points.</li>
+                        <li><strong>Build the simplest version on test data,</strong> for example on the free or trial plan of an integration platform such as Make, Zapier or n8n, before anything writes to live systems.</li>
+                        <li><strong>Run it in parallel</strong> with the manual process for an agreed period and compare the results document by document.</li>
+                        <li><strong>Review weekly at first:</strong> fix what the parallel run shows, and drop what does not work.</li>
+                        <li><strong>Measure again</strong> with the same criteria as the baseline, then decide whether to extend the pattern to similar flows, correct it or stop.</li>
+                    </ol>
+                </section>
+
                 <!-- Section 7: How Niuexa Handles Italian Documents -->
                 <section class="content-section">
                     <h2>Italian Document Processing: Why It Needs Special Attention</h2>
@@ -593,6 +647,11 @@
                         <h3>What is the typical ROI of document automation?</h3>
                         <p>There is no typical figure that applies to your company. The return depends on how many documents you process, how long each takes today, how many errors reach the CRM and what the pipeline costs to run. Measure those numbers before you start, test on a sample and calculate the payback period as setup cost divided by monthly saving minus running costs.</p>
                     </div>
+
+                    <div class="faq-item">
+                        <h3>Why do AI automation projects fail?</h3>
+                        <p>Often because of how they are set up rather than the technology. In S&amp;P Global Market Intelligence's 2025 survey, the share of companies abandoning most of their AI initiatives before production rose from 17% to 42% in a year. Three patterns recur: trying to automate everything at once, having no measurable definition of success and choosing the tool before understanding the process. Start with one flow, measure it, run it in parallel with the manual work and decide on the numbers.</p>
+                    </div>
                 </section>
 
                 <!-- Conclusion -->
@@ -623,9 +682,9 @@
                             <span class="related-category">Products</span>
                             <h3>Niuexa AI Agents for Specific Departments</h3>
                         </a>
-                        <a href="/en/tutorial-ai-workflow-automation.html" class="related-card">
-                            <span class="related-category">Tutorial</span>
-                            <h3>AI Workflow Automation: a Practical Tutorial</h3>
+                        <a href="/en/article-first-ai-projects-smb.html" class="related-card">
+                            <span class="related-category">First Projects</span>
+                            <h3>10 Realistic First AI Projects for Small Businesses</h3>
                         </a>
                     </div>
                 </section>
@@ -648,7 +707,7 @@
     <div class="page-meta author-bio">
         <h3>Author</h3>
         <p><strong>Gregor Maric</strong>, CEO and co-founder of Niuexa, has worked in business process automation since 2012.</p>
-        <p>Last updated: <time datetime="2026-10-05">October 2026</time></p>
+        <p>Last updated: <time datetime="2026-10-06">October 2026</time></p>
     </div>
 
     </main>

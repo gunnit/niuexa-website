@@ -63,7 +63,7 @@
         "operatingSystem": "All",
         "inLanguage": "it-IT",
         "isAccessibleForFree": true,
-        "dateModified": "2026-10-05",
+        "dateModified": "2026-10-06",
         "provider": {"@id": "https://niuexa.ai/#organization"}
     }
     </script>
@@ -82,7 +82,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css?v=20260807">
     <link rel="stylesheet" href="polish.css?v=20261005">
-    <link rel="stylesheet" href="roi-calculator.css?v=20261005">
+    <link rel="stylesheet" href="roi-calculator.css?v=20261006">
 </head>
 <body class="polished calculator-page">
     <!-- Google Tag Manager (noscript) -->
@@ -330,6 +330,41 @@
                     <div class="icon-tile icon-tile--green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
                     <h3>Confronti la stima con costi scritti</h3>
                     <p>Costo iniziale e costi ricorrenti dipendono dal processo e dai sistemi in uso. Niuexa li mette per iscritto in un preventivo dopo l'analisi; con l'<a href="ai-outcome-budget.html">AI Outcome Budget</a> può confrontarli con il valore atteso.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What to put in costs and benefits, and how far the result holds -->
+    <section class="benchmarks-section reading-section" aria-labelledby="reading-title">
+        <div class="container">
+            <h2 id="reading-title" class="section-title">Come leggere il risultato</h2>
+            <p class="section-intro">La stima vale quanto i numeri che la alimentano. Prima di usarla per decidere, controlli cosa ha messo nei costi, cosa resta fuori dai benefici e quanto regge il risultato.</p>
+            <div class="benchmarks-grid">
+                <div class="benchmark-card">
+                    <h3>Cosa includere nei costi</h3>
+                    <ul class="reading-list">
+                        <li><strong>Costo iniziale:</strong> sviluppo o configurazione, licenze, integrazione con i sistemi in uso e preparazione dei dati, la voce più spesso sottostimata.</li>
+                        <li><strong>Costi ricorrenti:</strong> API, cloud e licenze calcolati sui volumi reali, perché un costo basso in prova può crescere in produzione.</li>
+                        <li><strong>Manutenzione e controllo:</strong> monitoraggio, aggiornamenti, correzioni e il tempo delle persone che rivedono le eccezioni.</li>
+                    </ul>
+                    <p class="reading-note">Quello che si paga una volta va nel costo iniziale; quello che si ripete, nei costi ricorrenti al mese.</p>
+                </div>
+                <div class="benchmark-card">
+                    <h3>Cosa conta come beneficio</h3>
+                    <ul class="reading-list">
+                        <li>Il calcolatore conta due benefici: il tempo di lavoro risparmiato e una parte del costo degli errori.</li>
+                        <li>Le ore risparmiate diventano un beneficio economico solo se il tempo liberato va su altro lavoro utile.</li>
+                        <li>Ricavi aggiuntivi, risposte più rapide, meno resi o reclami restano fuori dalla stima: li misuri a parte, prima e dopo, e non li sommi se non sa come misurarli.</li>
+                    </ul>
+                </div>
+                <div class="benchmark-card">
+                    <h3>Quanto regge il risultato</h3>
+                    <ul class="reading-list">
+                        <li>ROI sul primo anno e recupero del costo iniziale dipendono soprattutto dal costo iniziale e dalla quota automatizzabile.</li>
+                        <li>Provi uno scenario prudente, con quota più bassa e costi ricorrenti più alti. Se il beneficio netto resta positivo, vale la pena misurare il processo reale; se diventa negativo, il caso va ripensato o il processo preparato prima.</li>
+                        <li>La proiezione a 5 anni ripete gli stessi valori ogni anno: non considera cambi di volumi, prezzi o manutenzione straordinaria.</li>
+                    </ul>
                 </div>
             </div>
         </div>
