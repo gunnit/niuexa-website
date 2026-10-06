@@ -327,6 +327,10 @@ def load_articles() -> list[Article]:
     articles = []
     for path in sorted(ROOT.glob("articolo-*.html")):
         raw = path.read_text(encoding="utf-8", errors="ignore")
+        # A retired article is a redirect stub (build/package-cloudflare.mjs
+        # serves it as a 301), not part of the corpus.
+        if re.search(r'<meta\s+http-equiv=["\']refresh["\']', raw, re.I):
+            continue
         parser = ArticleParser()
         parser.feed(raw)
         parser.close()

@@ -34,11 +34,9 @@ const navigationHTML = `
             <li class="nav-item dropdown">
                 <button type="button" class="nav-link dropdown-toggle" data-page="resources" aria-expanded="false" aria-haspopup="true" aria-controls="dropdown-resources">Resources <svg class="dropdown-arrow" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg></button>
                 <ul class="dropdown-menu" id="dropdown-resources">
-                    <li><a href="/en/learn.html" class="dropdown-link" data-page="learn">Learn</a></li>
-                    <li><a href="/en/research.html" class="dropdown-link" data-page="research">Research</a></li>
+                    <li><a href="/en/learn.html" class="dropdown-link" data-page="learn">Guides</a></li>
                     <li><a href="/en/roi-calculator.html" class="dropdown-link" data-page="roi-calculator">ROI Calculator</a></li>
                     <li><a href="/en/events.html" class="dropdown-link" data-page="events">Events</a></li>
-                    <li><a href="/resources.html" class="dropdown-link" data-page="free-resources">Free Resources</a></li>
                 </ul>
             </li>
             <li class="nav-item">
@@ -82,18 +80,15 @@ const footerHTML = `
                 <div class="footer-column">
                     <h3>Resources</h3>
                     <ul>
-                        <li><a href="/en/learn.html">Learn</a></li>
-                        <li><a href="/en/research.html">Research</a></li>
+                        <li><a href="/en/learn.html">Guides</a></li>
                         <li><a href="/en/roi-calculator.html">ROI Calculator</a></li>
                         <li><a href="/en/events.html">Events</a></li>
-                        <li><a href="/resources.html">Free Resources</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Company</h3>
                     <ul>
                         <li><a href="/en/about-us.html">About Us</a></li>
-                        <li><a href="/en/careers.html">Careers</a></li>
                         <li><a href="/en/contact.html">Contact</a></li>
                         <li><a href="/en/index.html#contact">Show us a process</a></li>
                     </ul>
@@ -359,14 +354,10 @@ function getCurrentPage() {
         return 'products';
     } else if (page === 'learn.html') {
         return 'learn';
-    } else if (page === 'research.html') {
-        return 'research';
     } else if (page === 'roi-calculator.html') {
         return 'roi-calculator';
     } else if (page === 'events.html') {
         return 'events';
-    } else if (page === 'careers.html') {
-        return 'careers';
     } else if (page === 'contact.html') {
         return 'contact';
     } else if (page === 'login.html') {

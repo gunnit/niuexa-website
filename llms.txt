@@ -55,8 +55,6 @@
 - [About Us (English)](https://niuexa.ai/en/about-us.html): English version
 - [Contact](https://niuexa.ai/contatti.html): Book the free 30-minute first call ("Ci mostri un processo") or write to Niuexa
 - [Contact (English)](https://niuexa.ai/en/contact.html): English contact page
-- [Events](https://niuexa.ai/eventi.html): SIGNALS evenings on AI in business, at the Libera office in Milan
-- [Careers](https://niuexa.ai/carriere.html): No open positions at the moment; how to send a spontaneous application
 
 ## Articles: AI Consulting & Business Strategy (Italian)
 - [Consulenza AI in Italia: Come Scegliere il Partner Giusto](https://niuexa.ai/articolo-consulenza-ai-italia.html): Guide to choosing an AI consulting partner in Italy, comparing Big 4 firms, system integrators and boutique specialists
@@ -66,45 +64,18 @@
 - [Automazione Processi Manuali con AI](https://niuexa.ai/articolo-automazione-processi-manuali.html): When and how to automate manual processes: signals, first candidates, how to measure
 - [Quanto costa un progetto di automazione? Le voci di costo e come leggere un preventivo](https://niuexa.ai/articolo-costi-automazione-guida.html): The 10 cost items of an industrial automation quote, what moves the price, hidden costs and how to calculate payback on your own data
 - [Dal PoC alla produzione](https://niuexa.ai/articolo-poc-produzione.html): How to move an AI project from proof-of-concept to production, in four phases with go/no-go criteria agreed up front
-- [Roadmap Trasformazione AI](https://niuexa.ai/articolo-roadmap-trasformazione.html): Building an AI transformation roadmap: phases, milestones, success metrics
 - [Tool e Practice per Creare Agenti AI](https://niuexa.ai/articolo-tool-agenti-ai.html): Tools and practices for building reliable AI agents, in a 10-step workflow
-- [Formazione AI per Manager](https://niuexa.ai/articolo-formazione-ai-manager.html): AI training programs for managers and executives
-- [Scegliere il Partner per la Trasformazione Digitale](https://niuexa.ai/articolo-scegliere-partner-trasformazione-digitale.html): How to choose a digital transformation partner
-- [Il Metodo Niuexa: Analisi Aziendale](https://niuexa.ai/articolo-metodo-niuexa-analisi-aziendale.html): How Niuexa reads data, processes and people before proposing any automation
-- [FAQ Consulenza AI Italia](https://niuexa.ai/articolo-faq-consulenza-ai-italia.html): Frequently asked questions about AI consulting in Italy
 
 ## Articles: AEO, GEO & AI Search Optimization (Italian)
 - [SEO vs AEO vs GEO: Guida Completa](https://niuexa.ai/articolo-seo-aeo-geo-guida-completa.html): Comprehensive guide comparing traditional SEO, Answer Engine Optimization, and Generative Engine Optimization
 - [Visibilità su ChatGPT, Perplexity e Claude](https://niuexa.ai/articolo-visibilita-chatgpt-perplexity-claude.html): Strategies for appearing in AI platform responses
-- [Content Strategy per AI Search](https://niuexa.ai/articolo-content-strategy-ai-search.html): Content strategies optimized for AI search citation
-- [Structured Data per AI SEO](https://niuexa.ai/articolo-structured-data-ai-seo.html): Technical guide to schema markup for AI engines
 - [Monitoraggio Visibilità AI](https://niuexa.ai/articolo-monitoraggio-visibilita-ai.html): How to monitor your brand's AI visibility
 - [Migliori Strumenti AI SEO](https://niuexa.ai/articolo-migliori-strumenti-ai-seo.html): Best AI SEO tools comparison
-- [Strumenti GEO: Content Optimization](https://niuexa.ai/articolo-strumenti-geo-content-optimization.html): GEO tools for content optimization
-- [Misurare il ROI dell'AI SEO](https://niuexa.ai/articolo-misurare-roi-ai-seo.html): How to measure ROI of AI SEO investments
 - [AI SEO per E-commerce](https://niuexa.ai/articolo-ai-seo-ecommerce.html): AI SEO strategies for e-commerce businesses
 
 ## Articles: AI Industry Research (Italian)
-- [Agentic AI 2026](https://niuexa.ai/articolo-agentic-ai-2026.html): The rise of agentic AI and what it means for business
-- [AI Agent Orchestration](https://niuexa.ai/articolo-ai-agent-orchestration.html): How to orchestrate multiple AI agents
-- [RAG Enterprise](https://niuexa.ai/articolo-rag-enterprise.html): Enterprise RAG implementation guide
-- [AI Code Generation](https://niuexa.ai/articolo-ai-code-generation.html): AI-powered code generation tools and practices
 - [AI nel Manifatturiero e Industria 4.0](https://niuexa.ai/articolo-ai-manifatturiero-industria40.html): AI in manufacturing and Industry 4.0
 - [AI nel Retail in Italia](https://niuexa.ai/articolo-ai-retail-italia.html): AI in Italian retail sector
-- [AI nel Fintech in Italia](https://niuexa.ai/articolo-ai-fintech-italia.html): AI in Italian fintech
-- [AI nella Cybersecurity in Italia](https://niuexa.ai/articolo-ai-cybersecurity-italia.html): AI in Italian cybersecurity
-- [AI nel Real Estate in Italia](https://niuexa.ai/articolo-ai-real-estate-italia.html): AI in Italian real estate
-- [AI nel Fashion Tech](https://niuexa.ai/articolo-ai-fashion-tech.html): AI in fashion technology
-- [AI nelle Smart Cities](https://niuexa.ai/articolo-ai-smart-cities-italia.html): AI in smart cities
-- [AI nell'Agritech](https://niuexa.ai/articolo-ai-agritech-italia.html): AI in Italian agritech
-- [AI nell'Automotive](https://niuexa.ai/articolo-ai-automotive-italia.html): AI in Italian automotive
-- [AI nell'Energia](https://niuexa.ai/articolo-ai-energia-transizione.html): AI in energy transition
-- [AI e il Made in Italy](https://niuexa.ai/articolo-ai-made-in-italy.html): AI and Made in Italy brands
-- [AI Startup in Italia](https://niuexa.ai/articolo-ai-startup-italia.html): Italian AI startup ecosystem
-- [AI ed Etica in Italia](https://niuexa.ai/articolo-ai-etica-italia.html): AI ethics in Italy
-- [AI e il Futuro dell'Italia 2030](https://niuexa.ai/articolo-ai-futuro-italia-2030.html): AI and Italy's future to 2030
-- [AI e il Lavoro in Italia](https://niuexa.ai/articolo-ai-lavoro-italia.html): AI and employment in Italy
-- [AI e la Lingua Italiana](https://niuexa.ai/articolo-ai-lingua-italiana.html): AI and the Italian language (NLP)
 
 ## Articles: English
 - [AI Consulting in Milan: How to Choose the Right Partner](https://niuexa.ai/en/article-ai-consulting-milan.html): Guide to selecting an AI consulting firm in Milan or Turin
@@ -114,19 +85,10 @@
 - [Why AI Platforms Don't Mention Your Company](https://niuexa.ai/en/article-why-ai-doesnt-mention-your-company.html): Guide to AEO: why ChatGPT and Perplexity ignore your brand and how to fix it
 
 ## Tutorials (Italian)
-- [Tutorial AI SEO](https://niuexa.ai/tutorial-ai-seo.html): Practical guide to AI-optimized SEO
-- [Automazione Workflow AI](https://niuexa.ai/tutorial-automazione-workflow-ai.html): AI workflow automation tutorial
-- [Generazione Immagini AI](https://niuexa.ai/tutorial-generazione-immagini-ai.html): AI image generation tutorial
-- [Generazione Video AI](https://niuexa.ai/tutorial-generazione-video-ai.html): AI video generation tutorial
 - [Lead Generation AI](https://niuexa.ai/tutorial-lead-generation-ai.html): AI lead generation tutorial
-- [Umanizzare Testi AI](https://niuexa.ai/tutorial-umanizzare-testi-ai.html): How to humanize AI-generated text
-- [Voice e Audio AI](https://niuexa.ai/tutorial-voice-audio-ai.html): AI voice and audio generation tutorial
 
 ## Tutorials (English)
 - [AI Tutorials Hub](https://niuexa.ai/en/learn.html): The English AI tutorials (the video and voice tutorials are in Italian only)
-- [AI Image Generation](https://niuexa.ai/en/tutorial-ai-image-generation.html): AI image generation guide
-- [AI Workflow Automation](https://niuexa.ai/en/tutorial-ai-workflow-automation.html): AI workflow automation guide
-- [Humanize AI Text](https://niuexa.ai/en/tutorial-humanize-ai-text.html): How to humanize AI text
 - [Lead Generation AI](https://niuexa.ai/en/tutorial-lead-generation-ai.html): AI lead generation guide
 
 # Attribution / Citazione

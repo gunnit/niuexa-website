@@ -19,7 +19,6 @@
 
 ## Resources
 - [Learn](https://niuexa.ai/en/learn.html): Practical tutorials and guides
-- [Research](https://niuexa.ai/en/research.html): AI and business insights
 - [Events](https://niuexa.ai/en/events.html): SIGNALS evenings on AI in business in Milan (in Italian)
 - [AI-readiness analysis](https://niuexa.ai/en/ai-readiness-tool.html): Free check of whether AI assistants can find and cite your site
 

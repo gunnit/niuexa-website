@@ -34,11 +34,11 @@ const navigationHTML = `
             <li class="nav-item dropdown">
                 <button type="button" class="nav-link dropdown-toggle" data-page="risorse" aria-expanded="false" aria-haspopup="true" aria-controls="dropdown-risorse">Risorse <svg class="dropdown-arrow" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg></button>
                 <ul class="dropdown-menu" id="dropdown-risorse">
-                    <li><a href="/impara.html" class="dropdown-link" data-page="impara">Impara</a></li>
-                    <li><a href="/research.html" class="dropdown-link" data-page="research">Ricerca</a></li>
+                    <li><a href="/research.html" class="dropdown-link" data-page="research">Guide e articoli</a></li>
+                    <li><a href="/ai-metric-contract.html" class="dropdown-link" data-page="ai-metric-contract">AI Metric Contract</a></li>
+                    <li><a href="/ai-outcome-budget.html" class="dropdown-link" data-page="ai-outcome-budget">AI Outcome Budget</a></li>
                     <li><a href="/roi-calculator.html" class="dropdown-link" data-page="roi-calculator">Calcolatore ROI</a></li>
-                    <li><a href="/eventi.html" class="dropdown-link" data-page="eventi">Eventi</a></li>
-                    <li><a href="/resources.html" class="dropdown-link" data-page="resources">Risorse Gratuite</a></li>
+                    <li><a href="/eventi-ai-aziende/" class="dropdown-link" data-page="eventi">Eventi</a></li>
                 </ul>
             </li>
             <li class="nav-item">
@@ -82,18 +82,17 @@ const footerHTML = `
                 <div class="footer-column">
                     <h3>Risorse</h3>
                     <ul>
-                        <li><a href="/impara.html">Impara</a></li>
-                        <li><a href="/research.html">Ricerca</a></li>
+                        <li><a href="/research.html">Guide e articoli</a></li>
+                        <li><a href="/ai-metric-contract.html">AI Metric Contract</a></li>
+                        <li><a href="/ai-outcome-budget.html">AI Outcome Budget</a></li>
                         <li><a href="/roi-calculator.html">Calcolatore ROI</a></li>
-                        <li><a href="/eventi.html">Eventi</a></li>
-                        <li><a href="/resources.html">Risorse Gratuite</a></li>
+                        <li><a href="/eventi-ai-aziende/">Eventi</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Azienda</h3>
                     <ul>
                         <li><a href="/chi-siamo.html">Chi Siamo</a></li>
-                        <li><a href="/carriere.html">Carriere</a></li>
                         <li><a href="/contatti.html">Contatti</a></li>
                         <li><a href="/#contact">Ci mostri un processo</a></li>
                     </ul>
@@ -348,6 +347,10 @@ function getCurrentPage() {
     const page = path.split('/').pop();
 
 
+    if (path.startsWith('/eventi-ai-aziende/')) {
+        return 'eventi';
+    }
+
     if (page === 'index.html' || page === '') {
         return 'home';
     } else if (page === 'chi-siamo.html') {
@@ -358,18 +361,14 @@ function getCurrentPage() {
         return 'training';
     } else if (page === 'products.html') {
         return 'products';
-    } else if (page === 'impara.html') {
-        return 'impara';
     } else if (page === 'research.html') {
         return 'research';
+    } else if (page === 'ai-metric-contract.html') {
+        return 'ai-metric-contract';
+    } else if (page === 'ai-outcome-budget.html') {
+        return 'ai-outcome-budget';
     } else if (page === 'roi-calculator.html') {
         return 'roi-calculator';
-    } else if (page === 'eventi.html') {
-        return 'eventi';
-    } else if (page === 'resources.html') {
-        return 'resources';
-    } else if (page === 'carriere.html') {
-        return 'carriere';
     } else if (page === 'login.html') {
         return 'login';
     }

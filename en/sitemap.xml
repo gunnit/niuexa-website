@@ -65,13 +65,6 @@
     </url>
 
     <url>
-        <loc>https://niuexa.ai/en/research.html</loc>
-        <lastmod>2026-10-05</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
         <loc>https://niuexa.ai/en/events.html</loc>
         <lastmod>2026-10-05</lastmod>
         <changefreq>weekly</changefreq>
@@ -79,12 +72,6 @@
     </url>
 
     <!-- Career & Interactive Pages -->
-    <url>
-        <loc>https://niuexa.ai/en/careers.html</loc>
-        <lastmod>2026-10-05</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
 
     <url>
         <loc>https://niuexa.ai/en/roi-calculator.html</loc>
@@ -93,36 +80,9 @@
         <priority>0.7</priority>
     </url>
 
-    <url>
-        <loc>https://niuexa.ai/en/certification.html</loc>
-        <lastmod>2026-10-05</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
     <!-- Landing Pages -->
 
     <!-- Tutorial Pages -->
-    <url>
-        <loc>https://niuexa.ai/en/tutorial-ai-image-generation.html</loc>
-        <lastmod>2026-10-05</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-
-    <url>
-        <loc>https://niuexa.ai/en/tutorial-ai-workflow-automation.html</loc>
-        <lastmod>2026-10-05</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-
-    <url>
-        <loc>https://niuexa.ai/en/tutorial-humanize-ai-text.html</loc>
-        <lastmod>2026-10-05</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
 
     <url>
         <loc>https://niuexa.ai/en/tutorial-lead-generation-ai.html</loc>

@@ -31,7 +31,6 @@ assets:
 breadcrumbs:
   Home: ""
   Ricerca: research.html
-  Impara: impara.html
   Consulenza: consulting.html
 
 defaults:
