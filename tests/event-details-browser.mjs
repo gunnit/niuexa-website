@@ -26,7 +26,7 @@ const serve=route=>{
 };
 const day=new Date('2026-09-29T10:00:00+02:00');
 const browser=await chromium.launch({headless:true});
-const errors=[], external=[], failed=[];
+const errors=[], external=[], failed=[], tags=[];
 try{
  const context=await browser.newContext();
  await context.clock.setFixedTime(day);
@@ -34,6 +34,8 @@ try{
   const req=route.request();
   if(serve(route)) return;
   if(req.url().startsWith(base+'/')) return route.continue();
+  // GTM is expected: it is recorded and answered with an empty script, so no tag fires.
+  if(new URL(req.url()).hostname==='www.googletagmanager.com'){tags.push(req.url());return route.fulfill({contentType:'text/javascript',body:''});}
   external.push(req.url());return route.abort();
  });
  const page=await context.newPage();
@@ -81,5 +83,6 @@ try{
  // Retired URLs must land on the renamed page even without JavaScript (meta refresh).
  for(const [from,to] of MOVED){await staticPage.goto(`${base}/eventi-ai-aziende/${from}/`);await staticPage.waitForURL(`${base}/eventi-ai-aziende/${to}/`);assert.equal(await staticPage.locator('h1').innerText(),EVENTS.find(e=>e.slug===to).title);}
  assert.deepEqual(errors,[]);assert.deepEqual(external,[]);assert.deepEqual(failed,[]);
+ assert.ok(tags.some(url=>url.startsWith('https://www.googletagmanager.com/gtm.js?id=GTM-KG9S42S4')),'GTM loads');
  console.log('PASS 3 hub-to-detail journeys, all 6 detail CTAs and 3 hub register actions preselect correct date; 4 widths each, 6 axe checks, no-JS abstracts, 3 retired-URL redirects, 6 screenshots; 0 external requests, 0 submissions, 0 browser errors.');
 }finally{await browser.close();rmSync(rendered,{recursive:true,force:true});}

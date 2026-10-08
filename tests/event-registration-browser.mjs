@@ -19,7 +19,7 @@ const hubAsOf=today=>{
  } finally {rmSync(dir,{recursive:true,force:true});}
 };
 const fullCalendar=hubAsOf('2026-09-29');
-const errors=[], external=[]; let sent=[], response={success:true}, httpStatus=200, delay=0;
+const errors=[], external=[], tags=[]; let sent=[], response={success:true}, httpStatus=200, delay=0;
 // Intercept every remote request. A regression cannot submit real PII.
 const guard=hub=>async route=>{
  const req=route.request();
@@ -30,8 +30,11 @@ const guard=hub=>async route=>{
   await new Promise(r=>setTimeout(r,delay));
   return route.fulfill({status:httpStatus,contentType:'application/json',body:JSON.stringify(response)});
  }
+ // GTM is expected: it is recorded and answered with an empty script, so no tag fires.
+ if(new URL(req.url()).hostname==='www.googletagmanager.com') {tags.push(req.url()); return route.fulfill({contentType:'text/javascript',body:''});}
  external.push(req.url()); return route.abort();
 };
+const registrations=p=>p.evaluate(()=>(window.dataLayer||[]).filter(x=>x&&x.event==='event_registration').map(x=>x.event_date));
 const browser=await chromium.launch({headless:true});
 // Which dates are open also depends on today's date in Milan, so every page pins its clock.
 const at=async(when,hub=fullCalendar,options={})=>{const p=await browser.newPage(options);p.on('pageerror',e=>errors.push(e.message));await p.clock.setFixedTime(new Date(when));await p.route('**/*',guard(hub));return p;};
@@ -54,6 +57,7 @@ try {
  assert.equal(await page.locator('#registration-form').getAttribute('aria-busy'),'true');
  await page.waitForFunction(()=>document.querySelector('#form-status').textContent.includes('Richiesta ricevuta'));
  assert.equal(sent.length,1); assert.equal(sent[0].event_date,'2026-11-03');
+ assert.deepEqual(await registrations(page),['2026-11-03']);
  assert.equal(await page.locator('#firstName').inputValue(),'');
  assert.match(await page.locator('#form-status').innerText(),/non conferma/);
  assert.equal(await page.locator('#submit-registration').isDisabled(),true);
@@ -64,10 +68,12 @@ try {
  await page.waitForFunction(()=>document.querySelector('#form-status').classList.contains('error'));
  assert.equal(await page.locator('#firstName').inputValue(),'Ada');
  assert.equal(await page.locator('#submit-registration').isDisabled(),false);
+ assert.deepEqual(await registrations(page),['2026-11-03'],'an unverified request is not reported');
  response={success:true};
  await page.locator('#submit-registration').click();
  await page.waitForFunction(()=>document.querySelector('#form-status').classList.contains('success'));
  assert.equal(sent.at(-1).event_date,'2026-11-24');
+ assert.deepEqual(await registrations(page),['2026-11-03','2026-11-24']);
  await page.goto(base+'/eventi-ai-aziende/?event=2026-11-17');
  assert.equal(await page.locator('#event-date').inputValue(),'2026-11-17');
  await fill(); await page.locator('#botcheck').evaluate(el=>el.value='spam');
@@ -75,6 +81,7 @@ try {
  await page.locator('#submit-registration').click();
  await page.waitForFunction(()=>document.querySelector('#form-status').classList.contains('error'));
  assert.equal(sent.length,before);
+ assert.deepEqual(await registrations(page),[],'a honeypot rejection is not reported');
  await page.goto(base+'/eventi-ai-aziende/?event=unknown');
  assert.equal(await page.locator('#submit-registration').isDisabled(),true);
  await page.locator('#event-date').selectOption('2026-11-17');
@@ -155,5 +162,6 @@ try {
  await broken.goto(base+'/eventi-ai-aziende/');
  assert.equal(await broken.locator('#submit-registration').isDisabled(),true);
  assert.deepEqual(errors,[]); assert.deepEqual(external,[]);
- console.log('PASS mocked production form: validation, loading, strict success, duplicate guard, false-success retry, honeypot, date payload/deep links, invalid date, past dates dropped at Milan midnight, late device clock, tab left open past midnight, closed series, 4 widths, no-JS/module safety; no external network, 0 page errors.');
+ assert.ok(tags.some(url=>url.startsWith('https://www.googletagmanager.com/gtm.js?id=GTM-KG9S42S4')),'GTM loads');
+ console.log('PASS mocked production form: validation, loading, strict success, duplicate guard, false-success retry, honeypot, event_registration only for received requests, GTM requested, date payload/deep links, invalid date, past dates dropped at Milan midnight, late device clock, tab left open past midnight, closed series, 4 widths, no-JS/module safety; no external network, 0 page errors.');
 } finally {await browser.close();}

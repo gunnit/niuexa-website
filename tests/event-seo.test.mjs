@@ -51,14 +51,28 @@ test('approved logistics and chosen series topics are visible for all dates',()=
  assert.match(html,/accesso.*rettifica.*cancellazione/);
  assert.ok(!/legalApproved|approvat[ao] dal legale/i.test(html));
 });
-test('same existing public key, CSP restricts network and every local asset/link resolves',()=>{
+test('same existing public key, CSP blocks native submission and every local asset/link resolves',()=>{
  const old=read('landing-niuexa.html').match(/name="access_key" value="([^"]+)"/)[1];
  assert.ok(REGISTRATION.accessKey===old,'Existing public key parity (values redacted)');
- assert.match(html,/connect-src https:\/\/api.web3forms.com; form-action 'none'/);
+ // GTM loads Google, HubSpot and Apollo scripts, so the CSP no longer restricts fetches.
+ assert.match(html,/<meta http-equiv="Content-Security-Policy" content="form-action 'none'; object-src 'none'; base-uri 'none'">/);
  for(const [,url] of html.matchAll(/(?:src|href)="([^"]+)"/g)) {
   if(!url.startsWith('/')) continue;
   const target=decodeURIComponent(url.split('#')[0].split('?')[0]);
   assert.ok(existsSync(resolve(root,'.'+target+(target.endsWith('/')?'index.html':''))),target);
  }
  assert.ok(!/google-analytics|googletagmanager|localStorage|sessionStorage/.test(read('event-registration.mjs')));
+});
+test('hub and topic pages load GTM after the consent defaults, with the cookie banner',()=>{
+ const pages=['eventi-ai-aziende/index.html',...['seo-in-pensione-aeo-geo','ai-agent-processi-aziendali','ai-marketing-agent'].map(slug=>`eventi-ai-aziende/${slug}/index.html`)];
+ for(const page of pages){
+  const text=read(page);
+  const consent=text.search(/gtag\('consent', 'default'/), loader=text.indexOf("'https://www.googletagmanager.com/gtm.js?id='");
+  assert.ok(consent!==-1&&loader!==-1&&consent<loader,`${page}: consent defaults must come before gtm.js`);
+  assert.match(text,/\}\)\(window,document,'script','dataLayer','GTM-KG9S42S4'\);<\/script>/,page);
+  assert.match(text,/<body[^>]*>\n<!-- Google Tag Manager \(noscript\) -->\n<noscript><iframe src="https:\/\/www.googletagmanager.com\/ns.html\?id=GTM-KG9S42S4"/,page);
+  assert.match(text,/<script src="\/cookie-banner.js\?v=\d+"><\/script>\n<\/body>/,page);
+ }
+ // The request is reported only once the provider has accepted it.
+ assert.match(read('event-registration.mjs'),/if \(receipt.status !== 'received'\) throw new Error\('PROVIDER'\);\s*completed.add\(event.id\);\s*trackRequest\(event\);/);
 });
