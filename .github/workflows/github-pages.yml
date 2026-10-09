@@ -81,6 +81,8 @@ jobs:
   cloudflare:
     runs-on: ubuntu-latest
     needs: build
+    outputs:
+      deployed: ${{ steps.production.outcome == 'success' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -109,6 +111,7 @@ jobs:
       # Only master reaches production, like the github-pages environment's branch
       # policy: a manual run on another branch must not replace the live site.
       - name: Deploy to Cloudflare
+        id: production
         if: steps.credentials.outputs.ready == 'true' && github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -125,11 +128,12 @@ jobs:
           npx --yes "$WRANGLER" versions upload --preview-alias "pr-$PR_NUMBER" --message "PR #$PR_NUMBER ${GITHUB_SHA::7}" | tee upload.log
           { echo "### Cloudflare preview"; grep -oE 'https://[^ ]+\.workers\.dev' upload.log | sort -u; } >> "$GITHUB_STEP_SUMMARY"
 
-  # Tell IndexNow (Bing, Copilot, ChatGPT search) which pages this push changed.
+  # Notify IndexNow only after the host serving niuexa.ai actually deployed.
+  # A successful Cloudflare job can still have skipped its production step.
   indexnow:
-    if: github.event_name == 'push'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master' && needs.cloudflare.outputs.deployed == 'true'
     runs-on: ubuntu-latest
-    needs: deploy
+    needs: cloudflare
     continue-on-error: true
     steps:
       - name: Checkout
