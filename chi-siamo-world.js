@@ -1,7 +1,9 @@
 /* Scroll-world configuration for chi-siamo.html — "La nostra storia".
-   The camera is one continuous forward take across six clay-diorama scenes
-   (architecture A), so there are no connector clips: each section's clip is a
-   leg of the same flight, chained frame-to-frame at render time. */
+   Six clay-diorama scenes, no connector clips: scene changes are dissolves.
+   Every leg after the first was rendered as a "fly-through" that opens on the
+   desk shot the first leg ends on, pushes through the monitor and only then
+   flies to its own scene — so each of those legs is trimmed to start after that
+   opening, and its still poster is the first scrubbed frame. */
 (function () {
   'use strict';
 
@@ -18,6 +20,7 @@
     {
       id: 'nascita', label: 'Fondazione', accent: '#237DA6',
       still: 'img/storia/nascita.webp', clip: 'img/storia/vid/nascita.mp4',
+      trim: 1.917,
       scroll: 1.5, linger: 0.4,
       eyebrow: 'La fondazione',
       title: 'Due città, una tesi.',
@@ -27,6 +30,7 @@
     {
       id: 'persone', label: 'Persone', accent: '#06B6D4',
       still: 'img/storia/persone.webp', clip: 'img/storia/vid/persone.mp4',
+      trim: 1.333,
       scroll: 1.5, linger: 0.4,
       eyebrow: 'Le persone',
       title: 'Chi c’è dietro il lavoro.',
@@ -36,6 +40,7 @@
     {
       id: 'metodo', label: 'Metodo', accent: '#0E9C9A',
       still: 'img/storia/metodo.webp', clip: 'img/storia/vid/metodo.mp4',
+      trim: 1.25,
       scroll: 1.4, linger: 0.35,
       eyebrow: 'Il metodo',
       title: 'Assessment, pilota, scala.',
@@ -45,6 +50,7 @@
     {
       id: 'aula', label: 'Formazione', accent: '#2C8A4C',
       still: 'img/storia/aula.webp', clip: 'img/storia/vid/aula.mp4',
+      trim: 1.083,
       scroll: 1.4, linger: 0.35,
       eyebrow: 'La formazione',
       title: 'Ve la lasciamo in mano.',
@@ -54,6 +60,7 @@
     {
       id: 'impatto', label: 'Impatto', accent: '#43AE68',
       still: 'img/storia/impatto.webp', clip: 'img/storia/vid/impatto.mp4',
+      trim: 1.125,
       scroll: 1.9, linger: 0.45,
       eyebrow: 'L’impatto',
       title: 'Conta il risultato, non la demo.',

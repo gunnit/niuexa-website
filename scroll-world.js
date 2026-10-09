@@ -21,10 +21,17 @@
            linger: 0.5,   // optional 0..1 — remaps time so the camera settles mid-scene
                           // (exactly where the copy peaks) and moves quicker at the
                           // edges. 0 = linear (default). Keep ≤ 0.6; 1 = full pause.
+           trim: 1.2,     // optional seconds to skip at the head of the clip — a cold
+                          // open (e.g. the render's start frame) you never want shown.
+                          // The section scrubs [trim, duration]; make `still` match.
            eyebrow, title, body, tags:[…],
            cta:{ primary:{label,href}, secondary:{label,href} } }, // last section only
          …
        ],
+       crossfade: 0.35,   // dissolve width at each seam, in viewport-heights of scroll:
+                          // the incoming scene fades in over the outgoing one, centred
+                          // on the seam, and both keep moving through it
+       fps: 24,           // clip frame rate (seeks land on frame centres)
        connectors: [clipUrl, …],          // length = sections.length - 1 (nulls allowed)
        connectorsMobile: [clipUrl, …],    // optional lighter connectors for phones (same length)
 
@@ -77,6 +84,7 @@ function mountScrollWorld(container, config) {
   const DIVE_W = config.diveScroll || 1.3;
   const CONN_W = config.connScroll || 0.9;
   const CROSSFADE = (config.crossfade != null) ? config.crossfade : 0.12;  // seam dissolve width (vh)
+  const FPS = config.fps || 24;   // clip frame rate: seeks land on frame centres
   const N = SECTIONS.length;
   if (!N) return;
 
@@ -87,7 +95,7 @@ function mountScrollWorld(container, config) {
   const SEGMENTS = [];
   SECTIONS.forEach((s, i) => {
     const dive = { kind: 'dive', si: i, clip: s.clip, clipM: s.clipMobile, still: s.still, stillM: s.stillMobile,
-                   accent: s.accent, w: s.scroll || DIVE_W, linger: s.linger || 0 };
+                   accent: s.accent, w: s.scroll || DIVE_W, linger: s.linger || 0, trim: s.trim || 0 };
     SEGMENTS.push(dive);
     s._seg = dive;
     // A connector is optional: if connectors[i] is falsy, the two dives simply
@@ -143,7 +151,7 @@ function mountScrollWorld(container, config) {
     if (poster) img.src = poster;
     scene.appendChild(img); stage.appendChild(scene);
     s.el = scene; s.img = img; s.video = null; s.hasClip = false;
-    s.loading = false; s.ready = false; s.cur = 0; s.target = 0; s.visible = false;
+    s.loading = false; s.ready = false; s.cur = 0; s.target = 0; s.visible = false; s.frame = -1;
   });
 
   // per-section copy / route / nav
@@ -176,13 +184,12 @@ function mountScrollWorld(container, config) {
   // (where the copy peaks) and moves quicker near the seams. L=0 linear, L=1 full
   // mid-scene pause. f(0)=0, f(1)=1 always, so seam frames are untouched.
   const lingerEase = (x, L) => { L = clamp(L); const c = x - 0.5; return (1 - L) * x + L * (4 * c * c * c + 0.5); };
-  let vh = window.innerHeight, stageX = 0, totalW = 0, activeIndex = -1, ticking = false;
+  let vh = window.innerHeight, totalW = 0, activeIndex = -1, ticking = false;
   let laidOutW = window.innerWidth;   // width the current layout was computed at (see onResize)
 
   function layout() {
     vh = window.innerHeight;
     laidOutW = window.innerWidth;
-    stageX = window.innerWidth > 860 ? 4 : 0;
     let off = 0;
     SEGMENTS.forEach(s => { s.start = off * vh; off += s.w; s.end = off * vh; });
     totalW = off;
@@ -209,7 +216,12 @@ function mountScrollWorld(container, config) {
         v.muted = true; v.playsInline = true; v.preload = 'auto';
         v.setAttribute('muted', ''); v.setAttribute('playsinline', '');
         v.src = URL.createObjectURL(blob);
-        v.addEventListener('loadedmetadata', () => { s.ready = true; read(); });
+        v.addEventListener('loadedmetadata', () => {
+          // Park a trimmed clip on its first scrubbed frame straight away: a fresh
+          // <video> paints frame 0 before any seek, and that is the frame we skip.
+          if (s.trim) { try { v.currentTime = Math.min(s.trim, v.duration || s.trim); } catch (e) {} }
+          s.ready = true; read();
+        });
         // Reveal the video (hide the still poster) only once a real frame has
         // painted — on iOS a seeked-but-never-played muted video stays blank, so
         // hiding the still on metadata alone would flash an empty scene.
@@ -221,23 +233,37 @@ function mountScrollWorld(container, config) {
 
   function read() {
     const y = window.scrollY || window.pageYOffset;
-    const fade = CROSSFADE * vh;
+    const fade = Math.max(1, CROSSFADE * vh), half = fade / 2;
     let ci = 0;
     for (let i = 0; i < NSEG; i++) if (y >= SEGMENTS[i].start) ci = i;
 
     for (let i = 0; i < NSEG; i++) {
       const s = SEGMENTS[i];
       if (y > s.start - 1.6 * vh && y < s.end + 1.6 * vh) loadClip(s);
-      const local = clamp((y - s.start) / (s.end - s.start), 0, 1);
+      // Time window: a leg starts moving as it begins to fade in and keeps moving
+      // until it is covered, so both shots are alive mid-dissolve (a dissolve
+      // between two frozen frames reads as a slide show).
+      const t0 = i === 0 ? s.start : s.start - half;
+      const t1 = i === NSEG - 1 ? s.end : s.end + half;
+      const local = clamp((y - t0) / (t1 - t0), 0, 1);
       s.target = s.linger ? lingerEase(local, s.linger) : local;
-      let outside = 0;
-      if (y < s.start) outside = s.start - y; else if (y > s.end) outside = y - s.end;
-      const op = smooth(1 - outside / fade);
+      // Dissolve. Each scene fades IN on top of the one before it, across a window
+      // centred on its seam, and the scene beneath stays fully opaque until it is
+      // covered. Fading both at once would let the background bleed through mid-
+      // dissolve; fading the incoming scene *under* an opaque outgoing one (what a
+      // z-index flip at the seam does) never shows the fade at all — it reads as
+      // a hard cut to the incoming clip's first frame.
+      const fadeIn = i === 0 ? 1 : smooth((y - (s.start - half)) / fade);
+      const next = SEGMENTS[i + 1];
+      const covered = !!next && y >= next.start + half;
+      const op = covered ? 0 : fadeIn;
       s.el.style.opacity = op; s.visible = op > 0.001;
-      s.el.style.zIndex = (i === ci) ? '120' : String(100 + Math.round(op * 10));
+      s.el.style.zIndex = String(100 + i);   // DOM order: later scenes stack on top
       if (!s.hasClip || !s.ready) {
-        const sc = reduce ? 1 : 1.03 + local * 0.14;
-        s.img.style.transform = `translateX(${stageX - 2}vw) scale(${sc.toFixed(3)})`;
+        // Poster stand-in for the flight while the clip loads. Starts at identity
+        // so the hand-off to the video (which is never transformed) doesn't pop.
+        const sc = reduce ? 1 : 1 + local * 0.14;
+        s.img.style.transform = `scale(${sc.toFixed(3)})`;
       }
     }
 
@@ -271,7 +297,6 @@ function mountScrollWorld(container, config) {
   }
 
   function raf() {
-    const eps = isMobile() ? 0.02 : 0.008;   // coarser seek step on phones = fewer decodes
     for (let i = 0; i < NSEG; i++) {
       const s = SEGMENTS[i];
       if (!s.hasClip || !s.ready || !s.video) continue;
@@ -281,9 +306,17 @@ function mountScrollWorld(container, config) {
       if (s.video.seeking) continue;
       if (!s.visible && Math.abs(s.cur - s.target) < 0.002) continue;
       s.cur += (s.target - s.cur) * (reduce ? 1 : 0.18);
-      const dur = s.video.duration || 1;
-      const t = clamp(s.cur, 0, 0.999) * dur;
-      if (Math.abs(s.video.currentTime - t) > eps) { try { s.video.currentTime = t; } catch (e) {} }
+      const dur = s.video.duration || 1, t0 = Math.min(s.trim || 0, dur);
+      const t = t0 + clamp(s.cur, 0, 0.999) * (dur - t0);
+      // Seek to the centre of the content frame the target falls in, and only when
+      // that frame changes. A seek is a decode from the last keyframe, so seeking
+      // every rAF for sub-frame moves queues decodes that show nothing new: at
+      // reading speed that was 3-4x the seeks for exactly the same frames shown.
+      const f = Math.floor(t * FPS);
+      if (f !== s.frame) {
+        s.frame = f;
+        try { s.video.currentTime = Math.min((f + 0.5) / FPS, dur - 0.001); } catch (e) {}
+      }
     }
     requestAnimationFrame(raf);
   }
