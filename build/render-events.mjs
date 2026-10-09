@@ -101,7 +101,7 @@ ${gtmHead}
 <meta name="twitter:title" content="${esc(title)}">
 <meta name="twitter:description" content="${esc(e.description)}">
 <meta name="twitter:image" content="https://niuexa.ai/img/landing/niuexa-session-milano-800.webp">
-<link rel="icon" href="/img/favicon%20256.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/niuexa-icon-192.png">
 <link rel="stylesheet" href="/event-registration.css">
 <link rel="stylesheet" href="/event-details.css">
 <script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@graph':graph},null,2)}</script>

@@ -209,7 +209,7 @@ function renderHeadLinks(article, ctx) {
     `${INDENT}<link rel="alternate" hreflang="it" href="${url}">`,
     `${INDENT}<link rel="alternate" hreflang="it-it" href="${url}">`,
     `${INDENT}<link rel="alternate" hreflang="x-default" href="${url}">`,
-    `${INDENT}<link rel="icon" type="image/x-icon" href="img/favicon 256.ico">`,
+    `${INDENT}<link rel="icon" type="image/png" sizes="192x192" href="/img/niuexa-icon-192.png">`,
     `${INDENT}<link rel="manifest" href="site.webmanifest">`,
     `${INDENT}<link rel="preconnect" href="https://fonts.googleapis.com">`,
     `${INDENT}<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>`,
