@@ -1258,3 +1258,15 @@
         scroll-behavior: auto !important;
     }
 }
+
+/* Keep the restored toolkit breadcrumb readable over its coloured hero. */
+.no-code-toolkit-page .book-hero .book-breadcrumb a,
+.no-code-toolkit-page .book-hero .book-breadcrumb .current,
+.no-code-toolkit-page .book-hero .book-breadcrumb li + li::before {
+    color: var(--white);
+}
+.no-code-toolkit-page .book-hero .book-breadcrumb a:hover,
+.no-code-toolkit-page .book-hero .book-breadcrumb a:focus-visible {
+    color: var(--white);
+    text-decoration: underline;
+}

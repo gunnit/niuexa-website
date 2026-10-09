@@ -30,6 +30,7 @@ function initContactForm() {
     // Guard against double binding (script.js also targets .contact-form)
     if (form.dataset.bound) return;
     form.dataset.bound = '1';
+    form.dataset.niuexaAsyncForm = '1';
 
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
@@ -54,6 +55,7 @@ function initContactForm() {
         try {
             // Submit form data to Web3Forms
             const formData = new FormData(form);
+            formData.delete('redirect');
             const response = await fetch(form.action, {
                 method: 'POST',
                 body: formData,
@@ -63,12 +65,12 @@ function initContactForm() {
                 // Content-Type auto-set by browser for FormData
             });
 
-            if (response.ok) {
-                // Track conversion event
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'form_submit', {
-                        'event_category': 'Contact',
-                        'event_label': 'Contact Form'
+            const result = await response.json();
+            if (response.ok && result && result.success === true) {
+                if (window.NiuexaTracking && typeof window.NiuexaTracking.confirmSubmission === 'function') {
+                    window.NiuexaTracking.confirmSubmission(form, {
+                        event_category: 'Contact',
+                        event_label: 'Contact Form'
                     });
                 }
 

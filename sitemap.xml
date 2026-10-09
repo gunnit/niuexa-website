@@ -22,7 +22,7 @@
   </url>
   <url>
     <loc>https://niuexa.ai/consulenza-aeo-geo.html</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -212,7 +212,7 @@
   </url>
   <url>
     <loc>https://niuexa.ai/books/no-code-ai-bible/resources.html</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
@@ -357,7 +357,7 @@
   </url>
   <url>
     <loc>https://niuexa.ai/en/training.html</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -377,7 +377,7 @@
   </url>
   <url>
     <loc>https://niuexa.ai/products.html</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -397,7 +397,7 @@
   </url>
   <url>
     <loc>https://niuexa.ai/training.html</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -446,4 +446,9 @@
   <url><loc>https://niuexa.ai/eventi-ai-aziende/seo-in-pensione-aeo-geo/</loc></url>
   <url><loc>https://niuexa.ai/eventi-ai-aziende/ai-agent-processi-aziendali/</loc></url>
   <url><loc>https://niuexa.ai/eventi-ai-aziende/ai-marketing-agent/</loc></url>
+  <url>
+    <loc>https://niuexa.ai/nocode-toolkit.html</loc>
+    <lastmod>2026-10-09</lastmod>
+    <priority>0.7</priority>
+  </url>
 </urlset>

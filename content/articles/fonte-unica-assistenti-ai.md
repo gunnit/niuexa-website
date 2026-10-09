@@ -95,7 +95,7 @@ cta:
   heading: Le fonti del Suo assistente AI hanno un owner?
   body: "Ci mostri un processo: nella prima chiamata di 30 minuti, gratuita, guardiamo quali documenti guidano le risposte, chi li approva e quando scadono. Prima misuriamo, poi automatizziamo."
   primary_label: Ci mostri un processo
-  primary_href: index.html#contact
+  primary_href: /#contact
   secondary_label: Come lavoriamo
   secondary_href: consulting.html
 ---

@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function initSimpleSignupForms() {
     const forms = document.querySelectorAll('form.simple-signup-form');
     forms.forEach(function(form) {
+        form.dataset.niuexaAsyncForm = '1';
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
 
@@ -66,6 +67,8 @@ function initSimpleSignupForms() {
             }
 
             const formData = new FormData(form);
+            // The provider's redirect field is for native POSTs; AJAX needs JSON.
+            formData.delete('redirect');
             const emailField = form.querySelector('input[type="email"]');
             const email = emailField ? emailField.value.trim() : '';
             if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -88,19 +91,12 @@ function initSimpleSignupForms() {
                     headers: { 'Accept': 'application/json' }
                 });
 
-                if (response.ok) {
-                    if (typeof gtag !== 'undefined') {
-                        gtag('event', 'form_submit', {
-                            'event_category': 'Lead Capture',
-                            'event_label': form.dataset.formLabel || form.id || 'simple-signup'
-                        });
-                    }
-                    if (window.NiuexaTracking && typeof window.NiuexaTracking.track === 'function') {
-                        window.NiuexaTracking.track('generate_lead', {
-                            form_name: form.dataset.formLabel || form.id || 'simple-signup',
-                            campaign: new FormData(form).get('campaign') || new FormData(form).get('utm_campaign') || 'book_lead_magnet_2026',
-                            lead_source: new FormData(form).get('utm_source') || 'website',
-                            lead_medium: new FormData(form).get('utm_medium') || 'organic'
+                const result = await response.json();
+                if (response.ok && result && result.success === true) {
+                    if (window.NiuexaTracking && typeof window.NiuexaTracking.confirmSubmission === 'function') {
+                        window.NiuexaTracking.confirmSubmission(form, {
+                            event_category: 'Lead Capture',
+                            event_label: form.dataset.formLabel || form.id || 'simple-signup'
                         });
                     }
                     const successHtml = form.dataset.successHtml ||
@@ -281,6 +277,7 @@ function initContactForm() {
         // Guard against double binding (contatti.js also targets .contact-form)
         if (contactForm.dataset.bound) return;
         contactForm.dataset.bound = '1';
+        contactForm.dataset.niuexaAsyncForm = '1';
 
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -297,6 +294,7 @@ function initContactForm() {
 
             // Get form data
             const formData = new FormData(this);
+            formData.delete('redirect');
             const formObject = {};
             formData.forEach((value, key) => {
                 formObject[key] = value;
@@ -313,12 +311,12 @@ function initContactForm() {
                         }
                     });
 
-                    if (response.ok) {
-                        // Track conversion event
-                        if (typeof gtag !== 'undefined') {
-                            gtag('event', 'form_submit', {
-                                'event_category': 'Contact',
-                                'event_label': 'Contact form ' + window.location.pathname
+                    const result = await response.json();
+                    if (response.ok && result && result.success === true) {
+                        if (window.NiuexaTracking && typeof window.NiuexaTracking.confirmSubmission === 'function') {
+                            window.NiuexaTracking.confirmSubmission(this, {
+                                event_category: 'Contact',
+                                event_label: 'Contact form ' + window.location.pathname
                             });
                         }
 

@@ -6,7 +6,7 @@ const navigationHTML = `
 <nav class="navbar" aria-label="Main navigation">
     <div class="nav-container">
         <div class="nav-logo">
-            <a href="/en/index.html">
+            <a href="/en/">
                 <div class="logo-container">
                     <img src="/img/pictogram_blue_transparent.png" alt="Niuexa" class="logo-icon" width="40" height="40" loading="eager">
                     <div class="logo-text">
@@ -18,7 +18,7 @@ const navigationHTML = `
         </div>
         <ul class="nav-menu" id="nav-menu">
             <li class="nav-item">
-                <a href="/en/index.html" class="nav-link" data-page="home">Home</a>
+                <a href="/en/" class="nav-link" data-page="home">Home</a>
             </li>
             <li class="nav-item">
                 <a href="/en/about-us.html" class="nav-link" data-page="about-us">About Us</a>
@@ -46,7 +46,7 @@ const navigationHTML = `
                 <a href="/en/login.html" class="nav-link login-link" data-page="login"><svg class="login-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Login</a>
             </li>
             <li class="nav-item language-switcher">
-                <a href="/index.html" class="nav-link" hreflang="it" lang="it" title="Versione italiana">IT</a>
+                <a href="/" class="nav-link" hreflang="it" lang="it" title="Versione italiana">IT</a>
             </li>
         </ul>
         <button type="button" class="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-menu">
@@ -90,7 +90,7 @@ const footerHTML = `
                     <ul>
                         <li><a href="/en/about-us.html">About Us</a></li>
                         <li><a href="/en/contact.html">Contact</a></li>
-                        <li><a href="/en/index.html#contact">Show us a process</a></li>
+                        <li><a href="/en/#contact">Show us a process</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">

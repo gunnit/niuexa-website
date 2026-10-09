@@ -1,7 +1,7 @@
 // Niuexa conversion tracking and UTM standardization
 // - Captures UTM parameters into Web3Forms hidden fields
-// - Emits normalized GA4/GTM events: form_start, form_submit, generate_lead, cta_click
-// - Persists attribution for redirects and thank-you pages
+// - Separates form_submit_attempt from acknowledged form_submit / generate_lead
+// - Correlates native provider redirects with one recent, single-use submission
 (function () {
   'use strict';
 
@@ -10,6 +10,10 @@
   var ATTRIBUTION_KEYS = UTM_KEYS.concat(CLICK_ID_KEYS);
   var DEFAULT_CAMPAIGN = 'niuexa_website_conversion';
   var STORAGE_KEY = 'niuexa_attribution_v1';
+  var PENDING_LEAD_KEY = 'niuexa_pending_lead_v1';
+  var CALLBACK_PARAM = 'niuexa_submission';
+  var CALLBACK_MAX_AGE = 30 * 60 * 1000;
+  var submissions = new WeakMap();
 
   function nowIso() {
     return new Date().toISOString();
@@ -20,14 +24,15 @@
   }
 
   function getStoredAttribution() {
-    return safeJsonParse(window.localStorage ? localStorage.getItem(STORAGE_KEY) : '{}');
+    try { return safeJsonParse(window.localStorage.getItem(STORAGE_KEY)); } catch (e) { return {}; }
   }
 
   function saveAttribution(data) {
-    if (!window.localStorage) return;
     var current = getStoredAttribution();
     var merged = Object.assign({}, current, data, { updated_at: nowIso() });
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
+    try { window.localStorage.setItem(STORAGE_KEY, JSON.stringify(merged)); } catch (e) {
+      // Attribution storage must not disable the form or its transport.
+    }
   }
 
   function captureAttribution() {
@@ -149,12 +154,78 @@
       page_path: window.location.pathname,
       page_location: window.location.href
     }, props);
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push(data);
-    if (typeof window.gtag === 'function') {
-      var gtagProps = Object.assign({}, data);
-      delete gtagProps.event;
-      window.gtag('event', eventName, gtagProps);
+    try {
+      // Preserve both existing interfaces: the deployed GTM container decides which
+      // tags consume each. Consent defaults/updates remain owned by the consent code.
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(data);
+      if (typeof window.gtag === 'function') {
+        var gtagProps = Object.assign({}, data);
+        delete gtagProps.event;
+        window.gtag('event', eventName, gtagProps);
+      }
+    } catch (e) {
+      // An analytics failure must never turn a received request into a form error.
+    }
+  }
+
+  function newSubmission(form) {
+    var data = attribution();
+    return {
+      submission_id: window.crypto && typeof window.crypto.randomUUID === 'function'
+        ? window.crypto.randomUUID() : Date.now().toString(36) + '-' + Math.random().toString(36).slice(2),
+      created_at: Date.now(),
+      form_name: formName(form),
+      campaign: data.utm_campaign || inferCampaign(form),
+      lead_source: data.utm_source || 'website',
+      lead_medium: data.utm_medium || 'organic'
+    };
+  }
+
+  function emitSuccess(submission, method, details) {
+    if (submission.confirmed) return;
+    submission.confirmed = true;
+    var props = {
+      submission_id: submission.submission_id,
+      form_name: submission.form_name,
+      campaign: submission.campaign,
+      lead_source: submission.lead_source,
+      lead_medium: submission.lead_medium,
+      submission_status: 'success',
+      confirmation_method: method
+    };
+    if (details) {
+      props.event_category = details.event_category;
+      props.event_label = details.event_label;
+    }
+    track('form_submit', props);
+    track('generate_lead', props);
+  }
+
+  // Call only after the form handler has checked HTTP success and JSON success:true.
+  // AJAX forms report here, before their existing redirect or inline success UI.
+  function confirmSubmission(form, details) {
+    var submission = submissions.get(form) || newSubmission(form);
+    submissions.set(form, submission);
+    emitSuccess(submission, 'provider_response', details);
+  }
+
+  function prepareNativeRedirect(form, submission) {
+    if (form.dataset.niuexaAsyncForm === '1') return;
+    var field = form.querySelector('[name="redirect"]');
+    if (!field) return;
+    try {
+      var target = new URL(field.value, window.location.href);
+      var provider = new URL(form.action, window.location.href);
+      if (provider.origin !== 'https://api.web3forms.com' || provider.pathname !== '/submit') return;
+      if (target.origin !== window.location.origin || !/^\/(en\/)?thank-you[^/]*\.html$/.test(target.pathname)) return;
+      submission.redirect_path = target.pathname;
+      // No contact fields enter this functional, tab-scoped correlation record.
+      window.sessionStorage.setItem(PENDING_LEAD_KEY, JSON.stringify(submission));
+      target.searchParams.set(CALLBACK_PARAM, submission.submission_id);
+      field.value = target.href;
+    } catch (e) {
+      // Native POST still works without storage; its uncorrelated return is not a lead.
     }
   }
 
@@ -175,12 +246,15 @@
     });
     form.addEventListener('submit', function () {
       populateForm(form);
-      track('form_submit', { form_name: formName(form), campaign: inferCampaign(form) });
-      saveAttribution(Object.assign({}, attribution(), {
-        last_form_name: formName(form),
-        last_campaign: inferCampaign(form),
-        last_submit_at: nowIso()
-      }));
+      var submission = newSubmission(form);
+      submissions.set(form, submission);
+      track('form_submit_attempt', {
+        form_name: submission.form_name,
+        campaign: submission.campaign,
+        submission_id: submission.submission_id,
+        submission_status: 'attempt'
+      });
+      prepareNativeRedirect(form, submission);
     }, true);
   }
 
@@ -206,35 +280,41 @@
 
   function trackThankYouPage() {
     var path = window.location.pathname;
-    if (!/thank-you/i.test(path)) return;
-    var data = getStoredAttribution();
-    var dedupeKey = 'niuexa_lead_event_' + path + '_' + (data.last_submit_at || 'direct');
+    if (!/^\/(en\/)?thank-you[^/]*\.html$/.test(path)) return;
+    var callback = new URL(window.location.href);
+    var id = callback.searchParams.get(CALLBACK_PARAM);
+    if (!id) return;
+    callback.searchParams.delete(CALLBACK_PARAM);
     try {
-      if (window.sessionStorage && sessionStorage.getItem(dedupeKey)) return;
-      if (window.sessionStorage) sessionStorage.setItem(dedupeKey, nowIso());
+      window.history.replaceState(null, '', callback.href);
     } catch (e) {
-      // Tracking must continue when storage is unavailable or blocked.
+      // Removing the non-sensitive correlation ID is only URL hygiene.
     }
-    var offer = offerFor('');
-    track('generate_lead', {
-      form_name: data.last_form_name || (offer ? offer.formName : 'Website contact form'),
-      campaign: data.last_campaign || data.utm_campaign || (offer ? offer.campaign : DEFAULT_CAMPAIGN),
-      lead_source: data.utm_source || 'website',
-      lead_medium: data.utm_medium || 'organic'
-    });
+    try {
+      var pending = safeJsonParse(window.sessionStorage.getItem(PENDING_LEAD_KEY));
+      var age = Date.now() - pending.created_at;
+      if (pending.submission_id !== id || pending.redirect_path !== path || !(age >= 0 && age <= CALLBACK_MAX_AGE)) return;
+      // Consume before emitting; direct visits, reloads, old tokens and other tabs
+      // cannot reuse this callback. It is a client correlation, not a signed receipt.
+      window.sessionStorage.removeItem(PENDING_LEAD_KEY);
+      emitSuccess(pending, 'provider_redirect');
+    } catch (e) {
+      // Fail closed if the callback cannot be consumed safely.
+    }
   }
 
   function init() {
+    trackThankYouPage();
     captureAttribution();
     document.querySelectorAll('form[action*="api.web3forms.com/submit"], form.contact-form, form.simple-signup-form, form.ai-readiness-form, form.phase-form').forEach(bindFormTracking);
     bindCtaTracking();
-    trackThankYouPage();
   }
 
   window.NiuexaTracking = {
     init: init,
     track: track,
     populateForm: populateForm,
+    confirmSubmission: confirmSubmission,
     attribution: attribution
   };
 

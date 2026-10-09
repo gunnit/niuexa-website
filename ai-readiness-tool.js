@@ -10,6 +10,7 @@ function initAIReadinessForm() {
     const form = document.querySelector('.ai-readiness-form');
 
     if (!form) return;
+    form.dataset.niuexaAsyncForm = '1';
 
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
@@ -33,8 +34,9 @@ function initAIReadinessForm() {
         `;
 
         try {
-            // Submit form data to Formcarry
+            // Submit form data to Web3Forms
             const formData = new FormData(form);
+            formData.delete('redirect');
 
 
             const response = await fetch(form.action, {
@@ -47,15 +49,15 @@ function initAIReadinessForm() {
             });
 
 
-            if (response.ok) {
-
-                // form_submit is sent once by conversion-tracking.js; generate_lead by the thank-you page.
+            const result = await response.json();
+            if (response.ok && result && result.success === true) {
+                if (window.NiuexaTracking && typeof window.NiuexaTracking.confirmSubmission === 'function') {
+                    window.NiuexaTracking.confirmSubmission(form);
+                }
 
                 // Redirect to AI Readiness thank you page
                 window.location.href = 'thank-you-ai-readiness.html';
             } else {
-                const errorData = await response.text();
-                console.error('AI Readiness Form - Formcarry response error:', errorData);
                 throw new Error('Errore nell\'invio del modulo');
             }
         } catch (error) {

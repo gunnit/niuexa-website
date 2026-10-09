@@ -562,6 +562,27 @@ export function syncSitemap(articles, site, { check = false } = {}) {
   return drifted;
 }
 
+/** Derive the English sitemap from the same public URL inventory as the root map. */
+export function syncEnglishSitemap(site, { check = false } = {}) {
+  const source = readFileSync(join(ROOT, 'sitemap.xml'), 'utf8');
+  const entries = [...source.matchAll(/<url>[\s\S]*?<\/url>/g)]
+    .map(([entry]) => ({ entry, loc: entry.match(/<loc>([^<]+)<\/loc>/)?.[1] }))
+    .filter(({ loc }) => loc?.startsWith(`${site.site.url}/en/`));
+  if (!entries.length) throw new Error('sitemap.xml contains no English URLs');
+  if (new Set(entries.map(({ loc }) => loc)).size !== entries.length) {
+    throw new Error('sitemap.xml contains duplicate English URLs');
+  }
+  const updated = '<?xml version="1.0" encoding="UTF-8"?>\n' +
+    '<!-- Generated from sitemap.xml by build/build.mjs. -->\n' +
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+    entries.map(({ entry }) => `  ${entry}`).join('\n') + '\n</urlset>\n';
+  const path = join(ROOT, 'en', 'sitemap.xml');
+  const original = existsSync(path) ? readFileSync(path, 'utf8') : null;
+  const drifted = updated !== original;
+  if (drifted && !check) writeFileSync(path, updated, 'utf8');
+  return drifted;
+}
+
 export function build({ slugs = null, check = false } = {}) {
   const site = loadSite();
   const authors = loadAuthors();
@@ -578,7 +599,9 @@ export function build({ slugs = null, check = false } = {}) {
     if (!check) writeFileSync(out, html, 'utf8');
   }
 
-  const sitemapDrifted = syncSitemap(allArticles, site, { check });
+  const mainSitemapDrifted = syncSitemap(allArticles, site, { check });
+  const englishSitemapDrifted = syncEnglishSitemap(site, { check });
+  const sitemapDrifted = mainSitemapDrifted || englishSitemapDrifted;
   return { rendered: targets.map((a) => a.slug), changed, sitemapDrifted };
 }
 
@@ -594,11 +617,11 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
         console.error(
           (changed.length
             ? `Generated HTML is out of date for ${changed.length} article(s)${detail}`
-            : 'sitemap.xml is out of date.') + '\nRun: node build/build.mjs',
+            : 'A generated sitemap is out of date.') + '\nRun: node build/build.mjs',
         );
         process.exit(1);
       }
-      console.log(`${rendered.length} article(s) and sitemap.xml match their sources.`);
+      console.log(`${rendered.length} article(s) and both sitemaps match their sources.`);
     } else {
       console.log(
         `Rendered ${rendered.length} article(s); ${changed.length} written` +
