@@ -481,8 +481,8 @@
 
     <!-- CTA Section -->
     <section class="cta-section">
-        <video class="cta-background-video" autoplay muted loop playsinline aria-hidden="true">
-            <source src="/img/office.webm" type="video/webm">
+        <video data-deferred-video preload="none" poster="/img/Sede-Bebit-Milano.webp" width="1340" height="684" class="cta-background-video" muted loop playsinline aria-hidden="true">
+            <source data-src="/img/office.webm" type="video/webm">
         </video>
         <div class="ai-video-banner">
             <span class="ai-badge">AI</span>
@@ -509,6 +509,7 @@
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
 
+    <script src="/deferred-video.js?v=20261009" defer></script>
     <script src="/script.js?v=20261009"></script>
     <script src="/en/includes/navigation-en.js?v=20261009"></script>
     <script src="/cookie-banner.js?v=20260428"></script>

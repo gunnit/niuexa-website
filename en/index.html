@@ -443,8 +443,8 @@
                 </div>
                 <div class="company-visual">
                     <div class="team-image">
-                        <video playsinline autoplay muted loop aria-hidden="true" class="team-photo">
-                            <source src="/img/gregor_speach_webm.webm" type="video/webm">
+                        <video data-deferred-video preload="none" poster="/img/founder-maric-480.webp" width="1664" height="1248" playsinline muted loop aria-hidden="true" class="team-photo">
+                            <source data-src="/img/gregor_speach_webm.webm" type="video/webm">
                         </video>
                         <div class="ceo-banner">
                             <span class="ceo-text">Gregor Maric CEO Niuexa</span>
@@ -724,8 +724,8 @@
 
     <!-- Events Hero Section -->
     <section class="events-hero-section">
-        <video autoplay muted loop playsinline aria-hidden="true" class="events-background-video">
-            <source src="/img/video_niexatemmeberspeaking.webm" type="video/webm">
+        <video data-deferred-video preload="none" poster="/img/landing/niuexa-session-milano-800.webp" width="1280" height="720" muted loop playsinline aria-hidden="true" class="events-background-video">
+            <source data-src="/img/video_niexatemmeberspeaking.webm" type="video/webm">
         </video>
         <div class="ai-video-banner">
             <span class="ai-badge">AI</span>
@@ -923,6 +923,7 @@
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
 
+    <script src="/deferred-video.js?v=20261009" defer></script>
     <script src="/script.js?v=20261009"></script>
     <script src="/en/includes/navigation-en.js?v=20261009"></script>
     <script src="/conversion-tracking.js?v=20261009"></script>
