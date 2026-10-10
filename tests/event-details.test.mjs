@@ -64,8 +64,9 @@ test('existing registration transport, config, styling and five-field form remai
   // Re-pinned when the form started dropping dates that have passed in Milan, and again when
   // it stopped offering dates the served page has closed and re-checked the date on submit,
   // and again when Roberto's 6 October 2026 email moved its messages from Lei to tu,
-  // and again when a received request started reporting event_registration to GTM.
-  'event-registration.mjs':'c80d707a562dd3d9810f60be3d3cc2fb86f6385ae77314e68d6b8e78fa165753',
+  // and again when a received request started reporting event_registration to GTM,
+  // and for the privacy fix removing URL queries/fragments from that event (10 October 2026).
+  'event-registration.mjs':'ad102ee9017d412b05edab8283342d232d5b8a55f594ee78e73bbf7d4ae15c9e',
   // Re-pinned for the tu validation messages (6 October 2026 email).
   'event-registration-core.mjs':'9994d6057a2dd8c987dd3d56897088afce199915297f34673bf60c7b0c9a1a3f',
   // Re-pinned for the venue in Roberto's 20 September email and the dates in his 6 October one.

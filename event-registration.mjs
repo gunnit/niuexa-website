@@ -35,7 +35,9 @@ function trackRequest(item) {
       event_date: item.date,
       campaign: params.get('utm_campaign') || 'eventi_ai_aziende_2026',
       page_path: location.pathname,
-      page_location: location.href,
+      // Event date and campaign are separate fields. Never forward arbitrary URL
+      // query values or fragments, including when marketing consent is granted.
+      page_location: location.origin + location.pathname,
     };
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push(data);
