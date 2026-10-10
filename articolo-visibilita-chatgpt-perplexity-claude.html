@@ -38,7 +38,7 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="language" content="Italian">
     <meta property="article:published_time" content="2025-01-15T00:00:00+01:00">
-    <meta property="article:modified_time" content="2026-10-06T00:00:00+02:00">
+    <meta property="article:modified_time" content="2026-10-10T00:00:00+02:00">
     <meta property="article:author" content="Roberto Botto">
     <meta property="article:section" content="AI SEO">
 
@@ -90,7 +90,7 @@
             }
         },
         "datePublished": "2025-01-15",
-        "dateModified": "2026-10-06",
+        "dateModified": "2026-10-10",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://niuexa.ai/articolo-visibilita-chatgpt-perplexity-claude.html"
@@ -174,7 +174,7 @@
                 "name": "Quali crawler AI devo permettere nel robots.txt?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Per comparire nelle risposte vanno lasciati passare i crawler di ricerca: OAI-SearchBot e ChatGPT-User (ChatGPT), Claude-SearchBot (Claude), PerplexityBot (Perplexity) e Googlebot (Google, AI Overviews compresi). GPTBot, ClaudeBot, Google-Extended e CCBot servono invece all’addestramento dei modelli: bloccarli è una scelta separata e non esclude il sito dalle risposte di ricerca."
+                    "text": "Per l’accesso alla ricerca, verifichi OAI-SearchBot, Claude-SearchBot, PerplexityBot e Googlebot. ChatGPT-User serve a visite richieste dall’utente e non controlla l’inclusione nella ricerca. GPTBot e ClaudeBot riguardano l’addestramento; Google-Extended controlla addestramento e grounding di Gemini, senza incidere su Google Search. Queste scelte vanno gestite separatamente e nessun permesso garantisce una citazione."
                 }
             },
             {
@@ -264,7 +264,7 @@
                     <address class="author-info">
                         Di <a rel="author" href="chi-siamo.html">Roberto Botto</a>, co-fondatore di <a href="https://niuexa.ai">Niuexa</a>
                     </address>
-                    <time datetime="2025-01-15">15 gennaio 2025</time> · Aggiornato: <time datetime="2026-10-06">6 ottobre 2026</time>
+                    <time datetime="2025-01-15">15 gennaio 2025</time> · Aggiornato: <time datetime="2026-10-10">10 ottobre 2026</time>
                 </div>
             </div>
         </div>
@@ -432,7 +432,7 @@
 
                 <section id="robots" class="content-section">
                     <h2>3. L’errore più facile da correggere: bloccare i crawler di ricerca AI</h2>
-                    <p>Molti siti bloccano senza volerlo i crawler AI nel robots.txt. Bisogna però distinguere due famiglie: i crawler di ricerca decidono se il sito può comparire nelle risposte, quelli di addestramento raccolgono contenuti per i modelli. Bloccare i secondi non esclude il sito dalle risposte; bloccare i primi sì.</p>
+                    <p>Un blocco nel robots.txt o nel firewall può limitare l’accesso dei crawler di ricerca AI. Vanno distinti dai crawler di addestramento e dagli agenti che visitano una pagina su richiesta di un utente: hanno ruoli e controlli diversi. Il permesso di scansione va verificato insieme alla risposta effettiva del server e non garantisce indicizzazione o citazioni.</p>
 
                     <h3>I principali crawler AI e a cosa servono</h3>
                     <table class="comparison-table">
@@ -452,7 +452,7 @@
                             <tr>
                                 <td>ChatGPT-User</td>
                                 <td>OpenAI (ChatGPT)</td>
-                                <td>Visite avviate da un utente durante una conversazione</td>
+                                <td>Visite su richiesta dell’utente; non determina l’inclusione nella ricerca di ChatGPT</td>
                             </tr>
                             <tr>
                                 <td>GPTBot</td>
@@ -482,7 +482,7 @@
                             <tr>
                                 <td>Google-Extended</td>
                                 <td>Google</td>
-                                <td>Uso dei contenuti per Gemini; non incide su Google Search</td>
+                                <td>Controllo per addestramento e grounding di Gemini; non incide sull’inclusione o sul ranking in Google Search</td>
                             </tr>
                             <tr>
                                 <td>CCBot</td>
@@ -491,6 +491,8 @@
                             </tr>
                         </tbody>
                     </table>
+
+                    <p>Fonti ufficiali: <a href="https://developers.openai.com/api/docs/bots" target="_blank" rel="noopener noreferrer">OpenAI</a>, <a href="https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler" target="_blank" rel="noopener noreferrer">Anthropic</a>, <a href="https://docs.perplexity.ai/docs/resources/perplexity-crawlers" target="_blank" rel="noopener noreferrer">Perplexity</a> e <a href="https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers#google-extended" target="_blank" rel="noopener noreferrer">Google</a>. Google-Extended comprende anche l’uso di contenuti per fondare le risposte su fonti, chiamato <em>grounding</em>, nelle funzioni Gemini indicate da Google.</p>
 
                     <h3>Come verificare e correggere il robots.txt</h3>
                     <div class="pro-tips">
@@ -507,11 +509,9 @@ User-agent: PerplexityBot
 Disallow: /</code></pre>
 
                         <h4>Una configurazione possibile</h4>
+                        <p>L’esempio riguarda pagine pubbliche. Prima di usarlo, conservi le esclusioni intenzionali del sito e controlli tutti i gruppi applicabili: un gruppo per uno specifico crawler non eredita automaticamente le esclusioni del gruppo con <code>User-agent: *</code>.</p>
                         <pre><code># Crawler di ricerca: permessi
 User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: ChatGPT-User
 Allow: /
 
 User-agent: Claude-SearchBot
@@ -520,25 +520,26 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-# Addestramento dei modelli: una scelta separata.
-# Questo esempio lo blocca; bloccarlo non esclude
-# il sito dalle risposte di ricerca.
+# Addestramento dei modelli: una scelta separata
+# dall’accesso ai crawler di ricerca sopra elencati.
 User-agent: GPTBot
 Disallow: /
 
 User-agent: ClaudeBot
 Disallow: /
 
-User-agent: Google-Extended
+User-agent: CCBot
 Disallow: /
 
-User-agent: CCBot
+# Controllo separato: addestramento e grounding Gemini.
+# Non regola l’inclusione o il ranking in Google Search.
+User-agent: Google-Extended
 Disallow: /</code></pre>
                     </div>
 
                     <div class="case-study-intro">
                         <h3>Bloccare o permettere: due scelte separate</h3>
-                        <p>Alcuni editori bloccano i crawler AI per ragioni di copyright o per non concedere i propri contenuti all’addestramento. È una scelta legittima, e oggi si può fare in modo selettivo: bloccare GPTBot o ClaudeBot riguarda l’addestramento, mentre bloccare OAI-SearchBot, Claude-SearchBot o PerplexityBot toglie il sito dalle risposte di ricerca di quelle piattaforme. Conviene decidere le due cose separatamente.</p>
+                        <p>Bloccare GPTBot o ClaudeBot riguarda l’addestramento e va deciso separatamente dall’accesso per la ricerca. Bloccare i crawler di ricerca può limitare la presenza dei contenuti nelle relative funzioni, secondo le regole di ciascuna piattaforma. OpenAI, per esempio, distingue le risposte di ricerca dai link di navigazione, che possono ancora comparire. ChatGPT-User riguarda invece visite richieste dall’utente: non controlla l’inclusione nella ricerca e le regole robots.txt potrebbero non applicarsi.</p>
                     </div>
 
                     <h3>Altri controlli tecnici</h3>
@@ -1009,7 +1010,7 @@ compone di tre pilastri principali...&lt;/p&gt;</code></pre>
 
                     <div class="faq-item">
                         <h3>Quali crawler AI devo permettere nel robots.txt?</h3>
-                        <p>Per comparire nelle risposte vanno lasciati passare i crawler di ricerca: OAI-SearchBot e ChatGPT-User (ChatGPT), Claude-SearchBot (Claude), PerplexityBot (Perplexity) e Googlebot (Google, AI Overviews compresi). GPTBot, ClaudeBot, Google-Extended e CCBot servono invece all’addestramento dei modelli: bloccarli è una scelta separata e non esclude il sito dalle risposte di ricerca.</p>
+                        <p>Per l’accesso alla ricerca, verifichi OAI-SearchBot, Claude-SearchBot, PerplexityBot e Googlebot. ChatGPT-User serve a visite richieste dall’utente e non controlla l’inclusione nella ricerca. GPTBot e ClaudeBot riguardano l’addestramento; Google-Extended controlla addestramento e grounding di Gemini, senza incidere su Google Search. Queste scelte vanno gestite separatamente e nessun permesso garantisce una citazione.</p>
                     </div>
 
                     <div class="faq-item">
@@ -1094,7 +1095,7 @@ compone di tre pilastri principali...&lt;/p&gt;</code></pre>
     <div class="page-meta author-bio" itemscope itemtype="https://schema.org/Person">
         <h3>Autore</h3>
         <p><strong itemprop="name">Roberto Botto</strong>, <span itemprop="jobTitle">co-fondatore</span> di <a href="https://niuexa.ai" itemprop="worksFor">Niuexa</a>, fondatore e CEO di Libera Brand Building Group. Lavora da oltre 25 anni nella comunicazione digitale e nel marketing. <a href="chi-siamo.html" rel="author">Profilo completo</a> · <a href="https://www.linkedin.com/company/niuexa" rel="noopener" target="_blank">LinkedIn</a></p>
-        <p>Ultimo aggiornamento: <time datetime="2026-10-06">6 ottobre 2026</time></p>
+        <p>Ultimo aggiornamento: <time datetime="2026-10-10">10 ottobre 2026</time></p>
     </div>
 
     <!-- CTA Section -->
