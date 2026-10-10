@@ -3038,6 +3038,17 @@ button[aria-busy="true"]::after {
     }
 }
 
+/* Keep the desktop navigation on one line between phone and tablet widths. */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .nav-menu {
+        gap: 1rem;
+    }
+
+    .nav-menu > .nav-item > .nav-link {
+        white-space: nowrap;
+    }
+}
+
 @media (max-width: 960px) {
     .footer-links {
         grid-template-columns: repeat(3, minmax(0, 1fr));
