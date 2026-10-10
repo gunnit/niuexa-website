@@ -73,6 +73,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css?v=20260807">
     <link rel="stylesheet" href="tutorial.css?v=20260812">
+    <style>
+        .content-section .pro-tips > h3.outline-tip {
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem;
+        }
+    </style>
 
     <!-- Schema.org Article Markup -->
     <script type="application/ld+json">
@@ -556,7 +562,7 @@
                     <p>Framework come LangGraph, AutoGen (Microsoft) e CrewAI offrono questi pattern già pronti, e le piattaforme dei fornitori descritte sopra includono un’orchestrazione multi-agente nativa.</p>
 
                     <div class="pro-tips">
-                        <h4>Regola pratica</h4>
+                        <h3 class="outline-tip">Regola pratica</h3>
                         <p>Partire con un solo agente e pochi tool. Dividerlo in più agenti solo quando le evals mostrano che l’agente unico sbaglia perché ha troppe istruzioni o troppi tool, non prima. In un sistema multi-agente il tracing end-to-end e un budget massimo per conversazione diventano obbligatori: ogni passaggio tra agenti va registrato, e ogni scambio tra due agenti deve avere un numero massimo di turni.</p>
                     </div>
                 </section>
