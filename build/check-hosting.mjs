@@ -85,6 +85,10 @@ async function land(origin, path) {
   return { status: 'loop', path: current, hash: null, hops };
 }
 
+// Must match ASSET_CACHE_CONTROL in build/package-cloudflare.mjs; the test copies
+// this file alone into a temp dir, so it cannot be imported.
+const ASSET_CACHE_CONTROL = 'public, max-age=3600, stale-while-revalidate=86400';
+
 const failures = [];
 const fail = (what, detail) => failures.push(`${what}: ${detail}`);
 
@@ -124,7 +128,7 @@ await pool(files.filter(f => !ruleFor.has('/' + f)), 8, async file => {
   const type = res.headers.get('content-type') || '';
   if (html && !type.startsWith('text/html')) fail(path, `content-type ${type}`);
   if (/\.(html|txt|css|js|mjs)$/.test(file) && !/charset=utf-8/i.test(type)) fail(path, `content-type "${type}" has no charset=utf-8`);
-  if (/\.(css|js|mjs)$/.test(file) && res.headers.get('cache-control') !== 'public, max-age=600') fail(path, `cache-control ${res.headers.get('cache-control')}`);
+  if (/\.(css|js|mjs)$/.test(file) && res.headers.get('cache-control') !== ASSET_CACHE_CONTROL) fail(path, `cache-control ${res.headers.get('cache-control')}`);
   const robots = res.headers.get('x-robots-tag') || '';
   if (isPreviewHost !== robots.includes('noindex')) fail(path, `x-robots-tag "${robots}" on ${isPreviewHost ? 'a preview' : 'the production'} host`);
   if (res.headers.get('x-content-type-options') !== 'nosniff') fail(path, 'missing X-Content-Type-Options');
