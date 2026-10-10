@@ -64,7 +64,7 @@ const gtmBody=`<!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9S42S4"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->`;
-const cookieBanner='<script src="/cookie-banner.js?v=20260428"></script>';
+const cookieBanner='<script src="/cookie-banner.js?v=2026101001"></script>';
 for(const [i,e] of EVENTS.entries()){
  const past=isPast(e);
  const url='https://niuexa.ai'+path(e);

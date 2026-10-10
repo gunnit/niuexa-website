@@ -237,3 +237,82 @@ readinessToolStyle.textContent = `
     }
 `;
 document.head.appendChild(readinessToolStyle);
+
+// Consent-gated demo video. The page ships only a placeholder, so nothing is requested from
+// YouTube until the visitor presses play or has accepted "Cookie Marketing" (cookie-banner.js
+// stores the choice in niuexa_cookie_consent and dispatches 'niuexa:consent'). The player then
+// comes from youtube-nocookie.com, as section 2.10 of the privacy policy says.
+(function () {
+    'use strict';
+
+    const activePlayers = new Map();
+    const boundFacades = new WeakSet();
+
+    function hasMarketingConsent() {
+        try {
+            const consent = JSON.parse(localStorage.getItem('niuexa_cookie_consent') || 'null');
+            return Boolean(consent && typeof consent.analytics === 'boolean' && consent.marketing === true);
+        } catch (e) {
+            return false;
+        }
+    }
+
+    // A click starts playback and moves focus into the player, so keyboard users keep their
+    // place; a consent-triggered load leaves focus where it is.
+    function loadVideo(facade, startPlaying) {
+        if (!facade.isConnected) return;
+        bindPlay(facade);
+        const player = document.createElement('iframe');
+        player.className = 'video-facade-player';
+        player.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(facade.dataset.videoId) +
+            (startPlaying ? '?autoplay=1' : '');
+        player.title = facade.dataset.videoTitle || 'Video';
+        player.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        player.allowFullscreen = true;
+        player.referrerPolicy = 'strict-origin-when-cross-origin';
+        activePlayers.set(player, facade);
+        facade.replaceWith(player);
+        if (startPlaying) player.focus();
+    }
+
+    function bindPlay(facade) {
+        if (boundFacades.has(facade)) return;
+        const play = facade.querySelector('.video-facade-play');
+        if (play) play.addEventListener('click', function () { loadVideo(facade, true); });
+        boundFacades.add(facade);
+    }
+
+    function unloadAllVideos() {
+        activePlayers.forEach(function (facade, player) {
+            // Removing the browsing context stops playback and further YouTube requests.
+            // Keep the original button so a later explicit activation works again.
+            player.replaceWith(facade);
+        });
+        activePlayers.clear();
+    }
+
+    function loadAllVideos() {
+        document.querySelectorAll('.video-facade[data-video-id]').forEach(function (facade) {
+            loadVideo(facade, false);
+        });
+    }
+
+    function initVideoFacades() {
+        if (hasMarketingConsent()) {
+            loadAllVideos();
+            return;
+        }
+        document.querySelectorAll('.video-facade[data-video-id]').forEach(bindPlay);
+    }
+
+    window.addEventListener('niuexa:consent', function (event) {
+        if (event.detail && event.detail.marketing === true) loadAllVideos();
+        else unloadAllVideos();
+    });
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initVideoFacades);
+    } else {
+        initVideoFacades();
+    }
+})();

@@ -32,6 +32,8 @@ const guard=hub=>async route=>{
  }
  // GTM is expected: it is recorded and answered with an empty script, so no tag fires.
  if(new URL(req.url()).hostname==='www.googletagmanager.com') {tags.push(req.url()); return route.fulfill({contentType:'text/javascript',body:''});}
+ // Stored marketing consent can request LinkedIn; never execute its remote script.
+ if(req.url()==='https://snap.licdn.com/li.lms-analytics/insight.min.js') {tags.push(req.url()); return route.abort();}
  external.push(req.url()); return route.abort();
 };
 const registrations=p=>p.evaluate(()=>(window.dataLayer||[]).filter(x=>x&&x.event==='event_registration').map(x=>x.event_date));
@@ -86,6 +88,36 @@ try {
  assert.equal(await page.locator('#submit-registration').isDisabled(),true);
  await page.locator('#event-date').selectOption('2026-11-17');
  assert.equal(await page.locator('#submit-registration').isDisabled(),false);
+ // Query parameters and fragments may contain contact data or secrets. Marketing consent
+ // never authorizes forwarding arbitrary URL contents in either analytics interface.
+ for (const [choice, consent] of [
+  ['no choice', null], ['necessary only', {analytics:false,marketing:false}],
+  ['analytics only', {analytics:true,marketing:false}], ['marketing', {analytics:true,marketing:true}],
+ ]) {
+  const scoped=await at('2026-09-29T10:00:00+02:00');
+  if(consent) await scoped.addInitScript(value=>localStorage.setItem('niuexa_cookie_consent',JSON.stringify(value)),consent);
+  const query='?event=2026-11-17&utm_campaign=events_october&gclid=ad_click_probe&gbraid=braid_probe&wbraid=web_probe&email=url-probe%40example.test&token=query_secret#fragment_secret';
+  await scoped.goto(base+'/eventi-ai-aziende/'+query);
+  assert.equal(await scoped.locator('#event-date').inputValue(),'2026-11-17');
+  await fill(scoped);
+  await scoped.locator('#submit-registration').click();
+  await scoped.waitForFunction(()=>document.querySelector('#form-status').classList.contains('success'));
+  const emitted=await scoped.evaluate(()=>({
+   layer:window.dataLayer.filter(item=>item?.event==='event_registration'),
+   google:window.dataLayer.filter(item=>item?.[0]==='event'&&item?.[1]==='event_registration').map(item=>item[2]),
+  }));
+  for(const interfaceName of ['layer','google']) {
+   assert.equal(emitted[interfaceName].length,1,choice+': one acknowledged registration');
+   const payload=emitted[interfaceName][0];
+   assert.equal(payload.page_location,base+'/eventi-ai-aziende/',choice+': sanitized '+interfaceName);
+   assert.equal(payload.page_path,'/eventi-ai-aziende/');
+   assert.equal(payload.event_date,'2026-11-17');
+   assert.equal(payload.campaign,'events_october');
+   assert.doesNotMatch(JSON.stringify(payload),/url-probe|query_secret|fragment_secret|ad_click_probe|braid_probe|web_probe/);
+  }
+  assert.equal(new URL(scoped.url()).hash,'#fragment_secret','minimization must not rewrite the visitor address');
+  await scoped.close();
+ }
  // The served page may predate today's render: the form must still drop dates that have passed.
  const eve=await at('2026-11-03T22:30:00Z'); // 23:30 in Milan: the 3 November date is still open
  await eve.goto(base+'/eventi-ai-aziende/');
@@ -158,10 +190,10 @@ try {
  await nojs.goto(base+'/eventi-ai-aziende/');
  assert.equal(await nojs.locator('#submit-registration').isDisabled(),true);
  // Registered after the guard, so it runs first for the module (Playwright runs the latest route first).
- const broken=await at('2026-09-29T10:00:00+02:00'); await broken.route('**/event-registration.mjs',r=>r.abort());
+ const broken=await at('2026-09-29T10:00:00+02:00'); await broken.route('**/event-registration.mjs*',r=>r.abort());
  await broken.goto(base+'/eventi-ai-aziende/');
  assert.equal(await broken.locator('#submit-registration').isDisabled(),true);
  assert.deepEqual(errors,[]); assert.deepEqual(external,[]);
  assert.ok(tags.some(url=>url.startsWith('https://www.googletagmanager.com/gtm.js?id=GTM-KG9S42S4')),'GTM loads');
- console.log('PASS mocked production form: validation, loading, strict success, duplicate guard, false-success retry, honeypot, event_registration only for received requests, GTM requested, date payload/deep links, invalid date, past dates dropped at Milan midnight, late device clock, tab left open past midnight, closed series, 4 widths, no-JS/module safety; no external network, 0 page errors.');
+ console.log('PASS mocked production form: validation, loading, strict success, duplicate guard, false-success retry, honeypot, event_registration only for received requests, minimized analytics URLs across 4 consent states, GTM requested, date payload/deep links, invalid date, past dates dropped at Milan midnight, late device clock, tab left open past midnight, closed series, 4 widths, no-JS/module safety; no external network, 0 page errors.');
 } finally {await browser.close();}

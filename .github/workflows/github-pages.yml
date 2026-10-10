@@ -57,7 +57,7 @@ jobs:
       # Package only public files; never upload the working tree. Two of these
       # tests rebuild _site, so the files run one at a time.
       - name: Test event transport, metadata and packaging (no live submissions)
-        run: node --test --test-concurrency=1 tests/event-registration.test.mjs tests/event-package.test.mjs tests/event-seo.test.mjs tests/event-details.test.mjs tests/event-dates.test.mjs tests/cloudflare-package.test.mjs tests/indexnow.test.mjs tests/check-hosting.test.mjs tests/conversion-tracking.test.mjs tests/deferred-video.test.mjs tests/contact-intent.test.mjs
+        run: node --test --test-concurrency=1 tests/event-registration.test.mjs tests/event-package.test.mjs tests/event-seo.test.mjs tests/event-details.test.mjs tests/event-dates.test.mjs tests/cloudflare-package.test.mjs tests/indexnow.test.mjs tests/check-hosting.test.mjs tests/conversion-tracking.test.mjs tests/deferred-video.test.mjs tests/contact-intent.test.mjs tests/cookie-consent.test.mjs tests/privacy-video.test.mjs
       - name: Package public site
         run: node build/package-pages.mjs
       - name: Setup Pages

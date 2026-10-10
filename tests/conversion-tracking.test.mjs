@@ -30,7 +30,8 @@ function element(name = '', value = '') {
     replaceChild(child, old) { this.children = this.children.map(el => el === old ? child : el); child.parentNode = this; },
     querySelector(selector) { return selector === 'span' ? (this.span ||= element()) : null; },
     querySelectorAll() { return []; },
-    matches() { return false; }, focus() {}, scrollIntoView() {}, remove() {},
+    matches() { return false; }, focus() {}, scrollIntoView() {},
+    remove() { if (this.parentNode) this.parentNode.children = this.parentNode.children.filter(child => child !== this); },
   };
 }
 
@@ -63,20 +64,24 @@ function form(className = 'phase-form', redirect = 'https://niuexa.ai/thank-you-
 
 function storage(values = new Map(), blocked = false) {
   return {
+    get length() { return values.size; },
+    key(index) { return [...values.keys()][index] ?? null; },
     getItem(key) { if (blocked) throw Error('Storage blocked'); return values.get(key) ?? null; },
     setItem(key, value) { if (blocked) throw Error('Storage blocked'); values.set(key, value); },
     removeItem(key) { if (blocked) throw Error('Storage blocked'); values.delete(key); },
   };
 }
 
-function browser({ path = '/contatti.html', forms = [], session = new Map(), blocked = false, fetchImpl } = {}) {
+function browser({ path = '/contatti.html', forms = [], session = new Map(), local = new Map(), blocked = false, fetchImpl } = {}) {
   const callbacks = [];
+  const listeners = new Map();
   const doc = {
     readyState: 'loading', referrer: '', documentElement: { lang: 'it' }, head: element(), body: element(),
     addEventListener(type, callback) { if (type === 'DOMContentLoaded') callbacks.push(callback); },
     createElement() { return element(); },
     querySelectorAll(selector) {
       if (selector.startsWith('form[action')) return forms;
+      if (selector === 'form[data-niuexa-tracking-bound="1"]') return forms.filter(f => f.dataset.niuexaTrackingBound === '1');
       if (selector === 'form.simple-signup-form') return forms.filter(f => f.className === 'simple-signup-form');
       return [];
     },
@@ -97,9 +102,11 @@ function browser({ path = '/contatti.html', forms = [], session = new Map(), blo
   };
   const ctx = vm.createContext({
     document: doc, location,
-    localStorage: storage(new Map(), blocked), sessionStorage: storage(session, blocked),
+    localStorage: storage(local, blocked), sessionStorage: storage(session, blocked),
     URL, URLSearchParams, crypto: { randomUUID }, console: { error() {}, log() {} },
-    setTimeout() {}, addEventListener() {},
+    setTimeout() {},
+    addEventListener(type, callback) { if (!listeners.has(type)) listeners.set(type, []); listeners.get(type).push(callback); },
+    dispatchEvent(event) { for (const callback of listeners.get(event.type) || []) callback(event); },
     IntersectionObserver: class { observe() {} },
     FormData: class {
       constructor(f) { this.fields = new Map(f.children.map(el => [el.name, el.value])); }
@@ -141,34 +148,36 @@ test('submission starts an attempt, never a successful submission or lead', asyn
 
 test('native provider callback requires its own recent token and path; reloads cannot recount it', async () => {
   const session = new Map();
+  const local = new Map([['niuexa_cookie_consent', JSON.stringify({ analytics: true, marketing: false })]]);
   const f = form();
-  const page = browser({ forms: [f], session });
+  const page = browser({ forms: [f], session, local });
   await f.fire('submit');
   const redirect = f.querySelector('[name="redirect"]').value;
   assert.ok(new URL(redirect).searchParams.get('niuexa_submission'));
   const wrongPath = new URL(redirect); wrongPath.pathname = '/thank-you-ai-readiness.html';
-  assert.equal(browser({ path: wrongPath.href, session }).events('generate_lead').length, 0);
-  assert.equal(browser({ path: '/thank-you-page.html?niuexa_submission=wrong', session }).events('generate_lead').length, 0);
-  const success = browser({ path: redirect, session });
+  assert.equal(browser({ path: wrongPath.href, session, local }).events('generate_lead').length, 0);
+  assert.equal(browser({ path: '/thank-you-page.html?niuexa_submission=wrong', session, local }).events('generate_lead').length, 0);
+  const success = browser({ path: redirect, session, local });
   assert.equal(success.events('form_submit').length, 1);
   assert.equal(success.events('generate_lead').length, 1);
   assert.equal(success.events('generate_lead')[0].confirmation_method, 'provider_redirect');
   assert.equal(success.ctx.location.search, '', 'one-use callback token is removed from the address');
   success.ctx.NiuexaTracking.init();
   assert.equal(success.events('generate_lead').length, 1);
-  assert.equal(browser({ path: redirect, session }).events('generate_lead').length, 0);
+  assert.equal(browser({ path: redirect, session, local }).events('generate_lead').length, 0);
 });
 
 test('expired native callback fails closed and storage denial never prevents form submission', async () => {
   const session = new Map();
+  const local = new Map([['niuexa_cookie_consent', JSON.stringify({ analytics: true, marketing: false })]]);
   const f = form();
-  const page = browser({ forms: [f], session });
+  const page = browser({ forms: [f], session, local });
   await f.fire('submit');
   for (const [key, value] of session) {
     const entry = JSON.parse(value); entry.created_at = Date.now() - 31 * 60 * 1000;
     session.set(key, JSON.stringify(entry));
   }
-  assert.equal(browser({ path: f.querySelector('[name="redirect"]').value, session }).events('generate_lead').length, 0);
+  assert.equal(browser({ path: f.querySelector('[name="redirect"]').value, session, local }).events('generate_lead').length, 0);
   const deniedForm = form();
   const denied = browser({ forms: [deniedForm], blocked: true });
   assert.equal((await deniedForm.fire('submit')).defaultPrevented, false);
@@ -249,3 +258,89 @@ for (const kind of ['simple-signup-form', 'contact-form', 'ai-readiness-form', '
     });
   }
 }
+
+// Consent regressions exercise the real field values, storage and emitted payloads.
+test('without analytics consent native forms send normally without a measurement token', async () => {
+  const f = form();
+  const session = new Map();
+  const page = browser({ forms: [f], session });
+  assert.equal((await f.fire('submit')).defaultPrevented, false);
+  assert.equal(session.size, 0);
+  assert.equal(f.querySelector('[name="redirect"]').value, 'https://niuexa.ai/thank-you-page.html');
+});
+
+test('no consent removes legacy storage and strips click IDs from forms and event URLs', () => {
+  const f = form();
+  const local = new Map([['niuexa_attribution_v1', JSON.stringify({gclid: 'old'})]]);
+  const session = new Map([['niuexa_pending_lead_v1', '{}'], ['niuexa_lead_event_old', 'old'], ['unrelated', 'keep']]);
+  const page = browser({ path: '/contatti.html?gclid=secret&gbraid=secret2&wbraid=secret3&utm_source=current', forms: [f], local, session });
+  assert.equal(local.has('niuexa_attribution_v1'), false);
+  assert.deepEqual([...session], [['unrelated', 'keep']]);
+  for (const key of ['gclid', 'gbraid', 'wbraid']) assert.equal(f.querySelector('[name="' + key + '"]'), null);
+  assert.equal(f.querySelector('[name="current_page"]').value, 'https://niuexa.ai/contatti.html?utm_source=current');
+  page.ctx.NiuexaTracking.track('cta_click', { cta_url: '/offer?gclid=secret#details' });
+  const event = page.events('cta_click')[0];
+  assert.equal(event.page_location, 'https://niuexa.ai/contatti.html?utm_source=current');
+  assert.equal(event.cta_url, 'https://niuexa.ai/offer#details');
+  assert.equal(JSON.stringify(page.ctx.dataLayer).includes('secret'), false);
+});
+
+test('revoking marketing consent clears stale hidden attribution and identifiers immediately', () => {
+  const f = form();
+  const local = new Map([
+    ['niuexa_cookie_consent', JSON.stringify({ analytics: true, marketing: true })],
+    ['niuexa_attribution_v1', JSON.stringify({ utm_source: 'old-source', referrer: 'https://old.example/?gclid=old', gclid: 'old', landing_page: 'https://niuexa.ai/?gclid=old', updated_at: new Date().toISOString() })]
+  ]);
+  const page = browser({ forms: [f], local });
+  assert.equal(f.querySelector('[name="utm_source"]').value, 'old-source');
+  assert.equal(f.querySelector('[name="gclid"]').value, 'old');
+  local.set('niuexa_cookie_consent', JSON.stringify({ analytics: true, marketing: false }));
+  page.ctx.dispatchEvent({ type: 'niuexa:consent', detail: { analytics: true, marketing: false } });
+  assert.equal(f.querySelector('[name="utm_source"]').value, '');
+  assert.equal(f.querySelector('[name="referrer"]').value, '');
+  assert.equal(f.querySelector('[name="gclid"]'), null);
+  assert.equal(local.has('niuexa_attribution_v1'), false);
+});
+
+test('analytics revocation removes pending callbacks and legacy measurement markers', async () => {
+  const local = new Map([['niuexa_cookie_consent', JSON.stringify({ analytics: true, marketing: false })]]);
+  const session = new Map([['niuexa_lead_event_old', 'old']]);
+  const f = form();
+  const page = browser({ forms: [f], local, session });
+  await f.fire('submit');
+  assert.ok(session.has('niuexa_pending_lead_v1'));
+  local.set('niuexa_cookie_consent', JSON.stringify({ analytics: false, marketing: false }));
+  page.ctx.dispatchEvent({ type: 'niuexa:consent', detail: { analytics: false, marketing: false } });
+  assert.equal(session.size, 0);
+});
+
+for (const ageDays of [89, 91, -1]) {
+  test('attribution age ' + ageDays + ' days is used only inside the 90-day window', () => {
+    const local = new Map([
+      ['niuexa_cookie_consent', JSON.stringify({ analytics: false, marketing: true })],
+      ['niuexa_attribution_v1', JSON.stringify({ utm_source: 'stored-source', landing_page: 'https://niuexa.ai/old', updated_at: new Date(Date.now() - ageDays * 86400000).toISOString() })]
+    ]);
+    const page = browser({ local });
+    assert.equal(page.ctx.NiuexaTracking.attribution().utm_source, ageDays === 89 ? 'stored-source' : undefined);
+  });
+}
+
+test('malformed consent cannot allow attribution when the banner would reject the saved choice', () => {
+  const local = new Map([['niuexa_cookie_consent', JSON.stringify({ analytics: 'yes', marketing: true })]]);
+  const f = form();
+  browser({ path: '/contatti.html?gclid=secret', forms: [f], local });
+  assert.equal(local.has('niuexa_attribution_v1'), false);
+  assert.equal(f.querySelector('[name="gclid"]'), null);
+});
+
+test('submitting again after analytics withdrawal strips the previous native callback token', async () => {
+  const local = new Map([['niuexa_cookie_consent', JSON.stringify({ analytics: true, marketing: false })]]);
+  const f = form();
+  const page = browser({ forms: [f], local });
+  await f.fire('submit');
+  assert.ok(new URL(f.querySelector('[name="redirect"]').value).searchParams.has('niuexa_submission'));
+  local.set('niuexa_cookie_consent', JSON.stringify({ analytics: false, marketing: false }));
+  page.ctx.dispatchEvent({ type: 'niuexa:consent', detail: { analytics: false, marketing: false } });
+  await f.fire('submit');
+  assert.equal(f.querySelector('[name="redirect"]').value, 'https://niuexa.ai/thank-you-page.html');
+});
