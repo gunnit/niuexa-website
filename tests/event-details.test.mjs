@@ -63,13 +63,15 @@ test('existing registration transport, config, styling and five-field form remai
  const hashes={
   // Re-pinned when the form started dropping dates that have passed in Milan, and again when
   // it stopped offering dates the served page has closed and re-checked the date on submit,
-  // and again when Roberto's 6 October 2026 email moved its messages from Lei to tu.
-  'event-registration.mjs':'df3c7294ccd07884b95e0a0e0a13706cda9ee1b9978175fc590596c7556c201c',
+  // and again when Roberto's 6 October 2026 email moved its messages from Lei to tu,
+  // and again when a received request started reporting event_registration to GTM.
+  'event-registration.mjs':'c80d707a562dd3d9810f60be3d3cc2fb86f6385ae77314e68d6b8e78fa165753',
   // Re-pinned for the tu validation messages (6 October 2026 email).
   'event-registration-core.mjs':'9994d6057a2dd8c987dd3d56897088afce199915297f34673bf60c7b0c9a1a3f',
   // Re-pinned for the venue in Roberto's 20 September email and the dates in his 6 October one.
   'event-registration-config.mjs':'6f2d89dd9786f22dc224bae2d862531774df7e5e6ae737f390e359e196e97e50',
-  'event-registration.css':'37079e0499c716739fd967723409c511b7180af7a40ad5b1870d4fb145766a7e'
+  // Re-pinned for the styles.css tokens the shared cookie banner needs.
+  'event-registration.css':'e504d60a2ef0a185ab00433509faa896c0511d8172c241d609f0e1b1acf87b9a'
  };
  const hash=s=>createHash('sha256').update(s).digest('hex');
  for(const [file,expected] of Object.entries(hashes)) assert.equal(hash(read(file)),expected,file);

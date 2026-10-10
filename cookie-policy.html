@@ -47,7 +47,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css?v=20260807">
-    <link rel="icon" type="image/x-icon" href="img/favicon 256.ico">
+    <link rel="icon" type="image/png" sizes="192x192" href="/img/niuexa-icon-192.png">
     <link rel="canonical" href="https://niuexa.ai/cookie-policy.html">
 </head>
 <body>
@@ -62,12 +62,12 @@
         <div class="container">
             <div class="legal-content">
                 <h1>Cookie Policy</h1>
-                <p><strong>Ultimo aggiornamento: 30 settembre 2026</strong></p>
+                <p><strong>Ultimo aggiornamento: 10 ottobre 2026</strong></p>
                 <p>Questa pagina elenca i cookie e gli strumenti simili usati su niuexa.ai: chi li usa, a cosa servono, a quale categoria del banner appartengono e quanto durano. Il titolare del trattamento è NIUEXA S.R.L.; come trattiamo i dati personali è spiegato nella <a href="privacy-policy.html">Privacy Policy</a>.</p>
 
                 <h2>1. Cosa sono i cookie e gli strumenti simili</h2>
                 <p>I cookie sono piccoli file di testo che un sito salva nel tuo browser. Funzionano in modo simile la memoria locale del browser (localStorage), che conserva i dati finché non vengono cancellati, e la memoria di sessione (sessionStorage), che si svuota quando chiudi la scheda.</p>
-                <p>Come previsto dalle Linee guida del Garante per la protezione dei dati personali del 10 giugno 2021, gli strumenti tecnici, necessari al funzionamento del sito o a una funzione che chiedi tu, non richiedono il consenso; gli strumenti di statistica e di marketing si attivano solo con il tuo consenso.</p>
+                <p>Come previsto dalle Linee guida del Garante per la protezione dei dati personali del 10 giugno 2021, gli strumenti tecnici, necessari al funzionamento del sito o a una funzione che chiedi tu, non richiedono il consenso; i cookie e la memorizzazione nel browser per statistica e marketing si attivano solo con il tuo consenso. I segnali di Google senza cookie sono descritti nella sezione 2.</p>
 
                 <h2>2. Come gestiamo il consenso</h2>
                 <p>Alla prima visita un banner ti chiede di scegliere: «Accetta Tutti», «Solo Necessari» oppure «Personalizza», per decidere separatamente sulle categorie «Cookie Analitici» e «Cookie Marketing». Finché non scegli, e se rifiuti, nel tuo browser vengono salvati solo gli strumenti tecnici, a meno che tu non avvii il video di YouTube della pagina <a href="consulenza-aeo-geo.html">Consulenza AEO e GEO</a> (sezione 5). La scelta viene applicata anche ai tag di Google tramite Google Consent Mode: senza consenso i tag di Google restano caricati ma non usano cookie (vedi la sezione 2.8 della <a href="privacy-policy.html">Privacy Policy</a>).</p>
@@ -77,9 +77,9 @@
                 <p>Servono al funzionamento del sito o a funzioni che usi tu, e sono salvati solo nel tuo browser.</p>
                 <ul>
                     <li><strong>niuexa_cookie_consent</strong> (localStorage, Niuexa): memorizza le tue scelte sui cookie. Durata: finché non le cambi o cancelli i dati del browser.</li>
-                    <li><strong>niuexa_certifications</strong> (localStorage, Niuexa): conserva i certificati che generi nella pagina Certificazione (nome, email, azienda, profilo LinkedIn, tutorial, punteggio e data). Durata: finché non cancelli i dati del browser.</li>
+                    <li><strong>niuexa_certifications</strong> (localStorage, Niuexa): può conservare i certificati generati in passato con la precedente funzione Certificazione (nome, email, azienda, profilo LinkedIn, tutorial, punteggio e data). Durata: finché non cancelli i dati del browser.</li>
                     <li><strong>roiCalculatorData</strong> (localStorage, Niuexa): ricorda i valori inseriti nel calcolatore ROI. Durata: finché non azzeri il calcolatore o cancelli i dati del browser.</li>
-                    <li><strong>niuexa_bookmarks</strong> (localStorage, Niuexa): ricorda i tutorial che salvi tra i preferiti. Durata: finché non li rimuovi o cancelli i dati del browser.</li>
+                    <li><strong>niuexa_bookmarks</strong> (localStorage, Niuexa): può conservare i tutorial salvati in passato tra i preferiti. Durata: finché non cancelli i dati del browser.</li>
                 </ul>
                 <p><em>Base giuridica:</em> nessun consenso richiesto (art. 122, comma 1, Codice Privacy); il trattamento si basa sulla tua richiesta o sul nostro legittimo interesse (art. 6, par. 1, lett. b e f GDPR).</p>
 
@@ -87,25 +87,26 @@
                 <ul>
                     <li><strong>_ga</strong> (cookie, Google Analytics 4, Google Ireland Limited): distingue i visitatori. Durata: 2 anni.</li>
                     <li><strong>_ga_8JW0S3PJKM</strong> (cookie, Google Analytics 4, Google Ireland Limited): conserva lo stato della sessione. Durata: 2 anni.</li>
-                    <li><strong>niuexa_lead_event_…</strong> (sessionStorage, Niuexa): nella pagina di ringraziamento evita che la stessa richiesta venga contata due volte se ricarichi la pagina. Durata: fino alla chiusura della scheda.</li>
+                    <li><strong>niuexa_pending_lead_v1</strong> (sessionStorage, Niuexa): collega il ritorno dal servizio moduli al relativo invio, per misurare una sola conversione. Contiene un identificativo casuale, orario, nome del modulo e dati della campagna, senza i dati di contatto inseriti. È valido per 30 minuti e viene rimosso dopo il ritorno valido, alla revoca del consenso o alla chiusura della scheda; un record scaduto viene eliminato quando viene letto.</li>
                 </ul>
                 <p><em>Base giuridica:</em> consenso (art. 6, par. 1, lett. a GDPR e art. 122 Codice Privacy).</p>
 
                 <h2>5. Marketing (solo con il consenso «Cookie Marketing»)</h2>
                 <ul>
-                    <li><strong>niuexa_attribution_v1</strong> (localStorage, Niuexa): parametri UTM, identificativi di clic di Google Ads (gclid, gbraid, wbraid), pagina di arrivo e di provenienza e ultimo modulo inviato, per collegare le richieste alle campagne. Durata: al massimo 90 giorni dall'ultimo aggiornamento; viene cancellato quando neghi o revochi il consenso.</li>
+                    <li><strong>niuexa_attribution_v1</strong> (localStorage, Niuexa): parametri UTM, identificativi di clic di Google Ads (gclid, gbraid, wbraid), pagina di arrivo e di provenienza, per collegare le richieste alle campagne. Durata: al massimo 90 giorni dall'ultimo aggiornamento; viene cancellato quando neghi o revochi il consenso.</li>
                     <li><strong>_gcl_au</strong> (cookie, Google Ads, Google Ireland Limited): misura le conversioni degli annunci. Durata: 90 giorni.</li>
                     <li><strong>_gcl_aw</strong> e <strong>_gcl_gb</strong> (cookie, Google Ads, Google Ireland Limited): conservano l'identificativo del clic sull'annuncio, per attribuirgli la conversione. Durata: 90 giorni.</li>
                     <li><strong>Cookie di LinkedIn</strong>, per esempio li_fat_id, bcookie, lidc, UserMatchHistory e AnalyticsSyncHistory (LinkedIn Insight Tag, LinkedIn Ireland Unlimited Company): misurano le conversioni delle campagne LinkedIn e forniscono statistiche aggregate sul pubblico del sito. Durata: da 1 giorno a 1 anno; l'elenco aggiornato è nella <a href="https://www.linkedin.com/legal/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy di LinkedIn</a>.</li>
                     <li><strong>apolloAnonId</strong> e <strong>69b932d7754554002177ec54_eventQueue</strong> (localStorage, Apollo.io, ZenLeads, Inc.): identificativo casuale del browser e coda delle visite da inviare ad Apollo. Durata: finché non cancelli i dati del browser.</li>
-                    <li><strong>69b932d7754554002177ec54_canTrack</strong> e <strong>liveIntentData</strong> (localStorage, Apollo.io, ZenLeads, Inc.): esito del controllo sul servizio e codici email cifrati (hash) ricevuti da LiveIntent. Durata: 24 ore.</li>
+                    <li><strong>69b932d7754554002177ec54_canTrack</strong> e <strong>liveIntentData</strong> (localStorage, Apollo.io, ZenLeads, Inc.): esito del controllo sul servizio e valori hash degli indirizzi email ricevuti da LiveIntent. Durata: 24 ore.</li>
                     <li><strong>Strumenti di LiveIntent</strong> (LiveIntent): lo script di LiveIntent caricato da Apollo può usare cookie e identificativi propri, secondo la sua informativa.</li>
+                    <li><strong>Cookie di HubSpot</strong> (HubSpot): secondo le funzioni abilitate e il consenso possono essere usati __hstc e hubspotutk (6 mesi), __hssc (30 minuti) e __hssrc (sessione), per statistiche sulle visite e sulle sessioni. L'elenco e le condizioni d'uso sono nella <a href="https://knowledge.hubspot.com/privacy-and-consent/what-cookies-does-hubspot-set-in-a-visitor-s-browser" target="_blank" rel="noopener noreferrer">documentazione di HubSpot</a>.</li>
                     <li><strong>Cookie di YouTube</strong> (Google Ireland Limited): il video della pagina Consulenza AEO e GEO viene caricato da youtube-nocookie.com solo se hai accettato i «Cookie Marketing» o se premi play sul riquadro del video; da quel momento YouTube può usare cookie e altri strumenti di memorizzazione propri, secondo la sua informativa.</li>
                 </ul>
                 <p><em>Base giuridica:</em> consenso (art. 6, par. 1, lett. a GDPR e art. 122 Codice Privacy).</p>
 
                 <h2>6. Servizi che ricevono dati senza installare cookie</h2>
-                <p>Quando apri alcune pagine, il browser scarica file dai server di questi fornitori, che ricevono il tuo indirizzo IP e i dati tecnici della richiesta ma non installano cookie: Google Fonts (la maggior parte delle pagine), Google Tag Manager (tutte le pagine tranne quelle di iscrizione agli eventi), jsDelivr (calcolatore ROI) e il nostro servizio AEO Analyzer su Render (home page in italiano). I dettagli sono nella <a href="privacy-policy.html">Privacy Policy</a>.</p>
+                <p>Quando apri alcune pagine, il browser scarica file dai server di questi fornitori, che ricevono il tuo indirizzo IP e i dati tecnici della richiesta ma non installano cookie: Google Fonts (la maggior parte delle pagine), Google Tag Manager (comprese le pagine degli eventi), jsDelivr (calcolatore ROI) e il nostro servizio AEO Analyzer su Render (home page in italiano). I dettagli sono nella <a href="privacy-policy.html">Privacy Policy</a>.</p>
 
                 <h2>7. Cosa succede se rifiuti</h2>
                 <p>Il sito e i moduli funzionano normalmente. Se rifiuti i «Cookie Marketing» non possiamo collegare la tua richiesta a una campagna da cui sei arrivato in una visita precedente; se rifiuti i «Cookie Analitici» le nostre statistiche sull'uso del sito sono meno precise.</p>
@@ -133,7 +134,7 @@
     
     <div id="footer-placeholder"></div>
     
-    <script src="includes/includes.js?v=20260428"></script>
+    <script src="includes/includes.js?v=20261009"></script>
     <script>
         function manageCookies() {
             // Revoca il consenso salvato e ricarica la pagina: il banner cookie riappare
@@ -147,6 +148,6 @@
             }
         }
     </script>
-    <script src="/cookie-banner.js?v=20260428"></script>
+    <script src="/cookie-banner.js?v=2026101001"></script>
 </body>
 </html>

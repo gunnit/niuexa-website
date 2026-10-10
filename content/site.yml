@@ -24,8 +24,8 @@ assets:
   styles_css: 20260807
   tutorial_css: 20260812
   article_visuals_css: 20260812
-  includes_js: 20260428
-  cookie_banner_js: 20260428
+  includes_js: 20261009
+  cookie_banner_js: 2026101001
 
 # Breadcrumb labels resolved to URLs for the BreadcrumbList schema.
 breadcrumbs:
@@ -40,6 +40,6 @@ defaults:
     heading: Ci mostri un processo
     body: In 30 minuti, gratuiti e senza impegno, guardiamo insieme un processo della Sua azienda e Le diciamo se l'AI può alleggerirlo. Prima misuriamo, poi automatizziamo.
     primary_label: Prenoti la prima chiamata
-    primary_href: index.html#contact
+    primary_href: /#contact
     secondary_label: Come lavoriamo
     secondary_href: consulting.html

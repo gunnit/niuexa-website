@@ -11,6 +11,16 @@ on:
       - main
   pull_request:
   workflow_dispatch:
+    inputs:
+      indexnow_mode:
+        description: 'IndexNow after verified production deploy: skip, changed-URL retry, or full public backfill'
+        type: choice
+        options: [skip, changed, all]
+        default: skip
+      indexnow_before:
+        description: 'Starting commit for a changed-URL retry (required when mode is changed)'
+        type: string
+        default: ''
 
 permissions:
   contents: read
@@ -47,7 +57,7 @@ jobs:
       # Package only public files; never upload the working tree. Two of these
       # tests rebuild _site, so the files run one at a time.
       - name: Test event transport, metadata and packaging (no live submissions)
-        run: node --test --test-concurrency=1 tests/event-registration.test.mjs tests/event-package.test.mjs tests/event-seo.test.mjs tests/event-details.test.mjs tests/event-dates.test.mjs tests/cloudflare-package.test.mjs
+        run: node --test --test-concurrency=1 tests/event-registration.test.mjs tests/event-package.test.mjs tests/event-seo.test.mjs tests/event-details.test.mjs tests/event-dates.test.mjs tests/cloudflare-package.test.mjs tests/indexnow.test.mjs tests/check-hosting.test.mjs tests/conversion-tracking.test.mjs tests/deferred-video.test.mjs tests/contact-intent.test.mjs tests/cookie-consent.test.mjs tests/privacy-video.test.mjs
       - name: Package public site
         run: node build/package-pages.mjs
       - name: Setup Pages
@@ -81,6 +91,8 @@ jobs:
   cloudflare:
     runs-on: ubuntu-latest
     needs: build
+    outputs:
+      deployed: ${{ steps.production.outcome == 'success' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -109,6 +121,7 @@ jobs:
       # Only master reaches production, like the github-pages environment's branch
       # policy: a manual run on another branch must not replace the live site.
       - name: Deploy to Cloudflare
+        id: production
         if: steps.credentials.outputs.ready == 'true' && github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -125,11 +138,13 @@ jobs:
           npx --yes "$WRANGLER" versions upload --preview-alias "pr-$PR_NUMBER" --message "PR #$PR_NUMBER ${GITHUB_SHA::7}" | tee upload.log
           { echo "### Cloudflare preview"; grep -oE 'https://[^ ]+\.workers\.dev' upload.log | sort -u; } >> "$GITHUB_STEP_SUMMARY"
 
-  # Tell IndexNow (Bing, Copilot, ChatGPT search) which pages this push changed.
+  # Notify IndexNow only after both production deployments and public delivery pass.
+  # A successful Cloudflare job can still have skipped its production step.
   indexnow:
-    if: github.event_name == 'push'
+    if: github.ref == 'refs/heads/master' && needs.deploy.result == 'success' && needs.cloudflare.result == 'success' && needs.cloudflare.outputs.deployed == 'true' && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.indexnow_mode != 'skip'))
     runs-on: ubuntu-latest
-    needs: deploy
+    needs: [deploy, cloudflare]
+    timeout-minutes: 15
     continue-on-error: true
     steps:
       - name: Checkout
@@ -140,7 +155,25 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Submit changed pages
+      - name: Package the expected production bundle
+        run: node build/package-pages.mjs && node build/package-cloudflare.mjs
+      - name: Verify public delivery before notifying search engines
+        timeout-minutes: 10
+        run: |
+          for attempt in 1 2 3; do
+            timeout 180s node build/check-hosting.mjs https://niuexa.ai && exit 0
+            if [ "$attempt" -lt 3 ]; then sleep 10; fi
+          done
+          echo "::error::Public delivery did not match this deployment; IndexNow was not notified."
+          exit 1
+      - name: Submit verified public URL changes
         env:
-          BEFORE: ${{ github.event.before }}
-        run: node build/package-pages.mjs && node build/indexnow.mjs "$BEFORE" "$GITHUB_SHA"
+          MODE: ${{ inputs.indexnow_mode || 'changed' }}
+          BEFORE: ${{ github.event_name == 'push' && github.event.before || inputs.indexnow_before }}
+        run: |
+          if [ "$MODE" = 'all' ]; then
+            node build/indexnow.mjs --all
+          else
+            test -n "$BEFORE" || { echo "::error::indexnow_before is required for a changed-URL retry."; exit 1; }
+            node build/indexnow.mjs "$BEFORE" "$GITHUB_SHA"
+          fi

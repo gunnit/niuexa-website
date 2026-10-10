@@ -52,11 +52,16 @@ async function pool(items, size, fn) {
 async function get(origin, path, method = 'GET') {
   for (let attempt = 0; ; attempt++) {
     try {
-      const res = await fetch(origin + path, { method, redirect: 'manual' });
+      const res = await fetch(origin + path, { method, redirect: 'manual', signal: AbortSignal.timeout(15000) });
       const body = method === 'GET' ? Buffer.from(await res.arrayBuffer()) : null;
+      if ((res.status === 429 || res.status >= 500) && attempt < 2) {
+        await new Promise(done => setTimeout(done, 500 * (attempt + 1)));
+        continue;
+      }
       return { status: res.status, headers: res.headers, body };
     } catch (err) {
       if (attempt >= 2) return { status: 0, headers: new Headers(), body: null, error: String(err) };
+      await new Promise(done => setTimeout(done, 500 * (attempt + 1)));
     }
   }
 }
@@ -97,8 +102,13 @@ await pool(rules, 8, async rule => {
   const res = await get(base, rule.from);
   if (res.status !== rule.status) return fail(rule.from, `expected ${rule.status}, got ${res.status}`);
   if (rule.status === 301) {
-    const location = new URL(res.headers.get('location') || '', base + rule.from);
-    if (location.pathname !== rule.to) fail(rule.from, `redirects to ${location.pathname}, expected ${rule.to}`);
+    const value = res.headers.get('location');
+    if (!value) return fail(rule.from, 'missing redirect Location');
+    const location = new URL(value, base + rule.from);
+    const expected = new URL(rule.to, base);
+    if (location.origin !== new URL(base).origin || location.href !== expected.href) {
+      fail(rule.from, `redirects to ${location.href}, expected ${expected.href}`);
+    }
   } else if (sha(res.body) !== hashes.get(fileForPath(rule.to))) {
     fail(rule.from, `body differs from ${rule.to}`);
   }

@@ -10,13 +10,17 @@ const FORM_STRINGS = {
         company: 'Inserisca il nome dell\'azienda.',
         service: 'Scelga un\'area di interesse.',
         email: 'Inserisca un indirizzo email valido, per esempio nome@azienda.it.',
-        message: 'Descriva il processo in almeno 10 caratteri.',
+        message: 'Descriva la Sua richiesta in almeno 10 caratteri.',
         messageField: 'Inserisca almeno 10 caratteri.',
         phone: 'Inserisca un numero di telefono valido, per esempio +39 02 1234567.',
         thankYou: '/thank-you-page.html',
         signupTitle: 'Grazie',
         signupText: 'Abbiamo ricevuto la Sua richiesta e Le scriveremo a breve.',
-        signupError: 'Invio non riuscito. Riprovi o ci scriva a info@niuexa.ai.'
+        signupError: 'Invio non riuscito. Riprovi o ci scriva a info@niuexa.ai.',
+        trainingTitle: 'Parliamo della formazione per il Suo team',
+        trainingSubtitle: 'Ci racconti gli obiettivi e le competenze del Suo team. Le proporremo il percorso di formazione AI più adatto.',
+        trainingMessageLabel: 'Quali sono i Suoi obiettivi di formazione? *',
+        trainingMessagePlaceholder: 'Es. aiutare il team commerciale a usare l’AI nel lavoro quotidiano, partendo dalle competenze attuali'
     },
     en: {
         sending: 'Sending…',
@@ -28,13 +32,17 @@ const FORM_STRINGS = {
         company: 'Enter your company name.',
         service: 'Choose an area of interest.',
         email: 'Enter a valid email address, for example name@company.com.',
-        message: 'Describe the process in at least 10 characters.',
+        message: 'Describe your request in at least 10 characters.',
         messageField: 'Enter at least 10 characters.',
         phone: 'Enter a valid phone number, for example +39 02 1234567.',
         thankYou: '/en/thank-you-page.html',
         signupTitle: 'Thank you',
         signupText: 'We have received your request and will be in touch shortly.',
-        signupError: 'Sending failed. Please try again or email us at info@niuexa.ai.'
+        signupError: 'Sending failed. Please try again or email us at info@niuexa.ai.',
+        trainingTitle: 'Let’s plan your team’s AI training',
+        trainingSubtitle: 'Tell us about your team’s goals and current skills. We’ll suggest a suitable AI training programme.',
+        trainingMessageLabel: 'What are your training goals? *',
+        trainingMessagePlaceholder: 'E.g. help the sales team use AI in their daily work, building on their current skills'
     }
 };
 const formT = FORM_STRINGS[(document.documentElement.lang || 'it').toLowerCase().startsWith('en') ? 'en' : 'it'];
@@ -44,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize all functionality (navigation is now handled in includes.js)
     initScrollEffects();
     initAnimations();
+    initContactIntent();
     initContactForm();
     initSimpleSignupForms();
     hideElevenLabsBranding();
@@ -55,6 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function initSimpleSignupForms() {
     const forms = document.querySelectorAll('form.simple-signup-form');
     forms.forEach(function(form) {
+        form.dataset.niuexaAsyncForm = '1';
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
 
@@ -66,6 +76,8 @@ function initSimpleSignupForms() {
             }
 
             const formData = new FormData(form);
+            // The provider's redirect field is for native POSTs; AJAX needs JSON.
+            formData.delete('redirect');
             const emailField = form.querySelector('input[type="email"]');
             const email = emailField ? emailField.value.trim() : '';
             if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -88,19 +100,12 @@ function initSimpleSignupForms() {
                     headers: { 'Accept': 'application/json' }
                 });
 
-                if (response.ok) {
-                    if (typeof gtag !== 'undefined') {
-                        gtag('event', 'form_submit', {
-                            'event_category': 'Lead Capture',
-                            'event_label': form.dataset.formLabel || form.id || 'simple-signup'
-                        });
-                    }
-                    if (window.NiuexaTracking && typeof window.NiuexaTracking.track === 'function') {
-                        window.NiuexaTracking.track('generate_lead', {
-                            form_name: form.dataset.formLabel || form.id || 'simple-signup',
-                            campaign: new FormData(form).get('campaign') || new FormData(form).get('utm_campaign') || 'book_lead_magnet_2026',
-                            lead_source: new FormData(form).get('utm_source') || 'website',
-                            lead_medium: new FormData(form).get('utm_medium') || 'organic'
+                const result = await response.json();
+                if (response.ok && result && result.success === true) {
+                    if (window.NiuexaTracking && typeof window.NiuexaTracking.confirmSubmission === 'function') {
+                        window.NiuexaTracking.confirmSubmission(form, {
+                            event_category: 'Lead Capture',
+                            event_label: form.dataset.formLabel || form.id || 'simple-signup'
                         });
                     }
                     const successHtml = form.dataset.successHtml ||
@@ -273,6 +278,55 @@ function animateCounter(element) {
     }, 16);
 }
 
+// Training links can select a course without replacing a visitor's existing edits.
+function initContactIntent() {
+    const form = document.querySelector('.contact-form[data-contact-intent]');
+    if (!form || form.dataset.contactIntentBound) return;
+    const service = form.querySelector('[name="service"]');
+    const course = form.querySelector('[name="course"]');
+    const trainingFields = form.querySelector('[data-training-fields]');
+    if (!service || !course || !trainingFields) return;
+    form.dataset.contactIntentBound = '1';
+
+    const section = form.closest('section');
+    const title = section && section.querySelector('[data-contact-title]');
+    const subtitle = section && section.querySelector('[data-contact-subtitle]');
+    const message = form.querySelector('[name="message"]');
+    const label = form.querySelector('label[for="message"]');
+    const originals = {
+        title: title && title.textContent,
+        subtitle: subtitle && subtitle.textContent,
+        label: label && label.textContent,
+        placeholder: message && message.placeholder
+    };
+    const fields = trainingFields.querySelectorAll('input, select');
+    const params = new URLSearchParams(window.location.search);
+    const requestedCourse = params.get('course');
+    const validCourse = ['executive-mastery', 'prompt-engineering', 'ai-agent-developer'].includes(requestedCourse);
+    const unambiguous = params.getAll('service').length <= 1 && params.getAll('course').length <= 1;
+    const trainingIntent = unambiguous && (params.has('service') ? params.get('service') === 'formazione' : validCourse);
+    if (trainingIntent) {
+        if (!service.value) service.value = 'formazione';
+        if (service.value === 'formazione' && validCourse && !course.value) course.value = requestedCourse;
+    }
+
+    function syncTrainingFields() {
+        const training = service.value === 'formazione';
+        trainingFields.hidden = !training;
+        fields.forEach(field => { field.disabled = !training; });
+        if (title) title.textContent = training ? formT.trainingTitle : originals.title;
+        if (subtitle) subtitle.textContent = training ? formT.trainingSubtitle : originals.subtitle;
+        if (label) label.textContent = training ? formT.trainingMessageLabel : originals.label;
+        if (message) message.placeholder = training ? formT.trainingMessagePlaceholder : originals.placeholder;
+    }
+    service.addEventListener('change', syncTrainingFields);
+    // Disabled controls stay out of FormData, including after restoration or reset.
+    form.addEventListener('submit', syncTrainingFields, true);
+    form.addEventListener('reset', function() { setTimeout(syncTrainingFields, 0); });
+    window.addEventListener('pageshow', syncTrainingFields);
+    syncTrainingFields();
+}
+
 // Contact form functionality
 function initContactForm() {
     const contactForm = document.querySelector('.contact-form');
@@ -281,6 +335,7 @@ function initContactForm() {
         // Guard against double binding (contatti.js also targets .contact-form)
         if (contactForm.dataset.bound) return;
         contactForm.dataset.bound = '1';
+        contactForm.dataset.niuexaAsyncForm = '1';
 
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -297,6 +352,7 @@ function initContactForm() {
 
             // Get form data
             const formData = new FormData(this);
+            formData.delete('redirect');
             const formObject = {};
             formData.forEach((value, key) => {
                 formObject[key] = value;
@@ -313,12 +369,12 @@ function initContactForm() {
                         }
                     });
 
-                    if (response.ok) {
-                        // Track conversion event
-                        if (typeof gtag !== 'undefined') {
-                            gtag('event', 'form_submit', {
-                                'event_category': 'Contact',
-                                'event_label': 'Contact form ' + window.location.pathname
+                    const result = await response.json();
+                    if (response.ok && result && result.success === true) {
+                        if (window.NiuexaTracking && typeof window.NiuexaTracking.confirmSubmission === 'function') {
+                            window.NiuexaTracking.confirmSubmission(this, {
+                                event_category: 'Contact',
+                                event_label: 'Contact form ' + window.location.pathname
                             });
                         }
 

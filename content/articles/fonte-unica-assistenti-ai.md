@@ -9,7 +9,7 @@ standfirst: Quando un assistente AI cita la procedura sbagliata, cambiare modell
 section: Knowledge Management e AI Governance
 badge: Knowledge Management e AI Governance
 published: 2026-07-29
-modified: 2026-10-06
+modified: 2026-10-10
 author: gregor-maric
 reviewed_by: roberto-botto
 reading_time: 10 minuti di lettura
@@ -63,13 +63,14 @@ faq:
   - q: Come misuro il miglioramento?
     a: Copertura delle fonti governate, citazioni verificabili, conflitti aperti, ricerche senza esito, errori di accesso e tempo di correzione.
   - q: RAG o fine-tuning per un assistente sui documenti aziendali?
-    a: "Quasi sempre RAG: i documenti si aggiornano o si ritirano senza riaddestrare il modello, ogni risposta può citare la fonte e i permessi si applicano al recupero. Il fine-tuning serve per stile, formato o compiti molto specifici, non per tenere aggiornata la conoscenza."
+    a: "Per fonti che cambiano, il RAG permette di aggiornare il contesto senza riaddestrare il modello e di collegare le risposte ai documenti recuperati. Citazioni e permessi vanno implementati e verificati. Il fine-tuning modifica comportamento o prestazioni su compiti specifici e può affiancare il recupero; la scelta richiede una valutazione sul caso d’uso."
   - q: Quale database vettoriale scegliere?
     a: "Dipende da volumi, infrastruttura esistente e residenza dei dati: pgvector se l’azienda usa già PostgreSQL, Qdrant, Weaviate o Milvus per un’installazione propria, Pinecone come servizio gestito. Conta meno della qualità delle fonti, dei filtri sui metadati e della ricerca ibrida."
 sources_heading: Fonti e perimetro
 sources_intro: Questa guida sviluppa il [post LinkedIn pubblicato da Gregor Maric il 27 luglio 2026](https://www.linkedin.com/feed/update/urn:li:share:7487530780039004160/) sul problema delle fonti discordanti negli assistenti AI aziendali.
 sources_paragraphs:
   - Il framework Fonte, Proprietario, Scadenza e Permessi è una guida operativa Niuexa. È coerente con il [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework), che tratta governance, documentazione, responsabilità e gestione continua del rischio, e con il [NIST Generative AI Profile](https://doi.org/10.6028/NIST.AI.600-1), che include tra i rischi la confabulazione e l’integrità delle informazioni.
+  - Per le scelte tecniche si vedano la [guida Microsoft a RAG, fine-tuning e controlli di accesso](https://learn.microsoft.com/en-us/azure/foundry/concepts/retrieval-augmented-generation) e la [documentazione sulla ricerca ibrida](https://learn.microsoft.com/en-us/azure/search/hybrid-search-overview).
 sources_disclaimer: La configurazione concreta deve essere adattata a settore, dati, sistemi, obblighi normativi e impatto delle decisioni. Questa guida non sostituisce valutazioni legali, privacy o cybersecurity.
 sources:
   - title: post LinkedIn pubblicato da Gregor Maric il 27 luglio 2026
@@ -78,6 +79,10 @@ sources:
     url: https://www.nist.gov/itl/ai-risk-management-framework
   - title: NIST Generative AI Profile
     url: https://doi.org/10.6028/NIST.AI.600-1
+  - title: Microsoft Foundry — RAG e indici
+    url: https://learn.microsoft.com/en-us/azure/foundry/concepts/retrieval-augmented-generation
+  - title: Azure AI Search — Ricerca ibrida
+    url: https://learn.microsoft.com/en-us/azure/search/hybrid-search-overview
 related:
   - href: articolo-tool-agenti-ai.html
     category: Agenti AI
@@ -95,7 +100,7 @@ cta:
   heading: Le fonti del Suo assistente AI hanno un owner?
   body: "Ci mostri un processo: nella prima chiamata di 30 minuti, gratuita, guardiamo quali documenti guidano le risposte, chi li approva e quando scadono. Prima misuriamo, poi automatizziamo."
   primary_label: Ci mostri un processo
-  primary_href: index.html#contact
+  primary_href: /#contact
   secondary_label: Come lavoriamo
   secondary_href: consulting.html
 ---
@@ -165,17 +170,17 @@ Il Retrieval-Augmented Generation lavora in tre passaggi: **recupero** dei framm
 | Aspetto | RAG | Fine-tuning |
 |---|---|---|
 | Cosa cambia | Il contesto che il modello riceve a ogni domanda | I pesi del modello |
-| Aggiornare un contenuto | Si aggiorna o si ritira il documento e si reindicizza | Serve un nuovo addestramento |
-| Citazioni | Ogni risposta può indicare la fonte e la versione | La provenienza di una risposta non è tracciabile |
-| Permessi | Si applicano al recupero, documento per documento | Ciò che il modello ha appreso è visibile a chiunque lo usi |
+| Aggiornare un contenuto | Si aggiorna o si ritira la fonte e si sincronizza l’indice | Cambiare ciò che è appreso nei pesi richiede un nuovo addestramento; il contesto esterno può aggiornarsi separatamente |
+| Citazioni | Il sistema può collegare la risposta alla fonte e alla versione recuperate | Da solo non fornisce la provenienza documentale di ogni risposta; può essere combinato con recupero e citazioni |
+| Permessi | Vanno applicati e verificati al recupero, documento per documento | Non applica automaticamente i permessi dei documenti; accesso al modello, dati di training e controlli applicativi vanno governati |
 | Quando ha senso | Conoscenza aziendale che cambia: procedure, listini, policy | Stile, formato o compiti ripetitivi molto specifici |
 
-Per un assistente sui documenti aziendali si parte quasi sempre dal RAG. Il fine-tuning, se serve, si aggiunge dopo e per altri scopi.
+Per documenti aziendali che cambiano, il RAG è una scelta da valutare perché aggiorna il contesto senza riaddestrare il modello. Il fine-tuning modifica comportamento o prestazioni su compiti specifici; può affiancare il recupero. La scelta va verificata sulle domande e sui vincoli del caso d’uso.
 
 ### Le leve che contano
 
 - **Suddivisione dei documenti (chunking):** frammenti troppo piccoli perdono il contesto, troppo grandi diluiscono la risposta. Conviene seguire la struttura del documento (titoli, articoli, paragrafi) e conservare in ogni frammento i metadati della fonte: ID, versione, stato.
-- **Ricerca ibrida:** la ricerca semantica trova concetti simili, quella per parole chiave trova codici articolo, numeri di norma e sigle. Insieme sbagliano meno di ciascuna da sola.
+- **Ricerca ibrida:** la ricerca semantica trova concetti simili, quella per parole chiave trova codici articolo, numeri di norma e sigle. Combinare i due segnali può migliorare la pertinenza: confronti ricerca testuale, vettoriale e ibrida sulle stesse domande con fonti attese, misurando qualità, costo e latenza.
 - **Riordino dei risultati (re-ranking):** un secondo passaggio riordina i frammenti per pertinenza prima di passarli al modello.
 - **Filtri prima del recupero:** stato, scadenza e riservatezza escludono a monte i documenti ritirati, scaduti o non accessibili all’utente, invece di affidarsi al modello perché li ignori.
 - **Registro delle interrogazioni:** domanda, fonti recuperate, versioni e risposta restano tracciate, così ogni segnalazione si può ricostruire.

@@ -35,6 +35,36 @@ const cta=e=>`<a class="event-cta" href="${signup(e)}">Richiedi la partecipazion
 // Where a page that has gone past its date sends people instead.
 const onward=next?`<a class="event-cta" href="${path(next)}">Il prossimo incontro: ${next.label} <span aria-hidden="true">↗</span></a>`:`<a class="event-cta" href="${hub}">Tutti gli incontri <span aria-hidden="true">↗</span></a>`;
 const logo='<img src="/img/landing/niuexa-ai-solutions.webp" width="600" height="139" alt="Niuexa AI Solutions">';
+// The same tag setup as every other page: Consent Mode defaults (all denied) before GTM,
+// the noscript fallback first in <body>, and the shared cookie banner that updates consent.
+// The CSP keeps form-action, object-src and base-uri locked; fetch directives would block
+// whatever the GTM container loads (Google, HubSpot, Apollo), so it leaves those open.
+const csp=`<meta http-equiv="Content-Security-Policy" content="form-action 'none'; object-src 'none'; base-uri 'none'">`;
+const gtmHead=`<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('consent', 'default', {
+  analytics_storage: 'denied',
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  wait_for_update: 500
+});
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KG9S42S4');</script>
+<!-- End Google Tag Manager -->`;
+const gtmBody=`<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9S42S4"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->`;
+const cookieBanner='<script src="/cookie-banner.js?v=2026101001"></script>';
 for(const [i,e] of EVENTS.entries()){
  const past=isPast(e);
  const url='https://niuexa.ai'+path(e);
@@ -53,7 +83,8 @@ for(const [i,e] of EVENTS.entries()){
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; form-action 'none'; object-src 'none'; base-uri 'none'">
+${csp}
+${gtmHead}
 <meta name="robots" content="index, follow, max-image-preview:large">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(e.description)}">
@@ -70,12 +101,13 @@ for(const [i,e] of EVENTS.entries()){
 <meta name="twitter:title" content="${esc(title)}">
 <meta name="twitter:description" content="${esc(e.description)}">
 <meta name="twitter:image" content="https://niuexa.ai/img/landing/niuexa-session-milano-800.webp">
-<link rel="icon" href="/img/favicon%20256.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/niuexa-icon-192.png">
 <link rel="stylesheet" href="/event-registration.css">
 <link rel="stylesheet" href="/event-details.css">
 <script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@graph':graph},null,2)}</script>
 </head>
 <body class="event-detail">
+${gtmBody}
 <a class="skip" href="#abstract">Vai al contenuto</a>
 <header class="header"><a href="/" aria-label="NIUEXA, consulenza AI">${logo}</a><span class="header-edition">${series}</span><a class="header-link" href="${hub}">Tutti gli incontri <span aria-hidden="true">↗</span></a></header>
 <main>
@@ -91,6 +123,7 @@ for(const [i,e] of EVENTS.entries()){
 <nav class="other-events" aria-label="Gli altri incontri"><h2>Continua il percorso.</h2>${EVENTS.filter(other=>other!==e).map(other=>`<a href="${path(other)}"><span>${other.label}${isPast(other)?' · concluso':''}</span><strong>${other.title}</strong><span aria-hidden="true">↗</span></a>`).join('')}</nav>
 </main>
 <footer>${logo}<p>Intelligenza artificiale.<br>Con un punto di vista umano.</p><span>NIUEXA S.R.L. · P.IVA 13489560014<br><a href="${hub}">Tutti gli incontri</a> · <a href="${hub}#dati-personali">Dati e privacy</a></span></footer>
+${cookieBanner}
 </body>
 </html>
 `;

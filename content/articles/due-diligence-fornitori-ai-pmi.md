@@ -93,7 +93,7 @@ cta:
   heading: Deve valutare una soluzione o un fornitore AI?
   body: "Ci mostri il processo che la soluzione dovrebbe alleggerire: nella prima chiamata di 30 minuti, gratuita, guardiamo dati, rischi e metriche da chiedere prima di firmare. Se l’AI non serve, glielo diciamo."
   primary_label: Ci mostri un processo
-  primary_href: index.html#contact
+  primary_href: /#contact
   secondary_label: Come lavoriamo
   secondary_href: consulting.html
 ---

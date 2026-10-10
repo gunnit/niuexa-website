@@ -24,6 +24,29 @@ let event = open.find(item => item.id === (params.get('event') || open[0]?.id));
 let busy = false;
 const completed = new Set();
 
+// Event requests have no thank-you page, so the success state reports the request to
+// Google Tag Manager the way conversion-tracking.js reports the site's other forms:
+// a dataLayer event for GTM triggers and a gtag event for GA4. No personal data is sent.
+function trackRequest(item) {
+  try {
+    const data = {
+      event: 'event_registration',
+      form_name: 'Eventi AI per aziende',
+      event_date: item.date,
+      campaign: params.get('utm_campaign') || 'eventi_ai_aziende_2026',
+      page_path: location.pathname,
+      page_location: location.href,
+    };
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(data);
+    if (typeof window.gtag === 'function') {
+      const { event: name, ...props } = data;
+      window.gtag('event', name, props);
+    }
+  } catch {
+    // Tracking must never turn a received request into an error message.
+  }
+}
 function showStatus(message, kind = '') {
   status.textContent = message;
   status.className = 'form-status ' + kind;
@@ -101,6 +124,7 @@ async function submit() {
     const receipt = await flow.submit(event.id, input);
     if (receipt.status !== 'received') throw new Error('PROVIDER');
     completed.add(event.id);
+    trackRequest(event);
     form.reset();
     showStatus('Richiesta ricevuta per il ' + event.label + '. Questo messaggio non conferma il posto né la consegna di un’email.', 'success');
     status.focus();

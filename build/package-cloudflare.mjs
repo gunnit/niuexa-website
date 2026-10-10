@@ -14,7 +14,10 @@ import { pathToFileURL } from 'node:url';
 
 // Pages merged or retired by hand, as [from, to] URL paths. Add one whenever a
 // page is removed, so its old URL keeps its links and citations.
-export const MANUAL_REDIRECTS = [];
+export const MANUAL_REDIRECTS = [
+  ['/ai-consulting/', '/consulting.html'],
+  ['/ai-consulting/privacy-policy.html', '/privacy-policy.html']
+];
 
 // Pages renamed in git, as [old file, new file]. package-pages.mjs writes a
 // redirect stub at the old path into the artifact only (served as a 301 below),

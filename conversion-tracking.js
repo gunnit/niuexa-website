@@ -1,6 +1,7 @@
 // Niuexa conversion tracking and UTM standardization
 // - Captures UTM parameters into Web3Forms hidden fields
-// - Emits normalized GA4/GTM events: form_start, form_submit, generate_lead, cta_click
+// - Separates form_submit_attempt from acknowledged form_submit / generate_lead
+// - Correlates native provider redirects with one recent, single-use submission
 // - Persists attribution for redirects and thank-you pages, only with marketing consent
 //
 // Consent is the choice cookie-banner.js saves in localStorage (niuexa_cookie_consent)
@@ -10,8 +11,8 @@
 //   (gclid, gbraid, wbraid) never enter form fields, and UTMs and the referrer are used only
 //   in memory for the current page;
 // - with marketing consent, attribution is stored for at most 90 days after its last update;
-// - the sessionStorage marker that stops a reloaded thank-you page from counting a lead
-//   twice is written only with analytics consent.
+// - native thank-you correlation is kept for at most 30 minutes in sessionStorage,
+//   only with analytics consent; old dedupe markers are removed on rejection.
 (function () {
   'use strict';
 
@@ -22,6 +23,10 @@
   var STORAGE_KEY = 'niuexa_attribution_v1';
   var CONSENT_KEY = 'niuexa_cookie_consent';
   var MAX_AGE_MS = 90 * 24 * 60 * 60 * 1000;
+  var PENDING_LEAD_KEY = 'niuexa_pending_lead_v1';
+  var CALLBACK_PARAM = 'niuexa_submission';
+  var CALLBACK_MAX_AGE = 30 * 60 * 1000;
+  var submissions = new WeakMap();
 
   function nowIso() {
     return new Date().toISOString();
@@ -34,7 +39,8 @@
   // No saved choice, or storage that cannot be read, means no consent.
   function hasConsent(purpose) {
     try {
-      return safeJsonParse(localStorage.getItem(CONSENT_KEY))[purpose] === true;
+      var consent = safeJsonParse(localStorage.getItem(CONSENT_KEY));
+      return typeof consent.analytics === 'boolean' && typeof consent.marketing === 'boolean' && consent[purpose] === true;
     } catch (e) {
       return false;
     }
@@ -51,7 +57,8 @@
     var data;
     try { data = safeJsonParse(localStorage.getItem(STORAGE_KEY)); } catch (e) { return {}; }
     var updated = Date.parse(data.updated_at);
-    if (updated && Date.now() - updated < MAX_AGE_MS) return data;
+    var age = Date.now() - updated;
+    if (Number.isFinite(updated) && age >= 0 && age < MAX_AGE_MS) return data;
     forgetAttribution();
     return {};
   }
@@ -127,7 +134,7 @@
       field.name = name;
       form.appendChild(field);
     }
-    if (value !== undefined && value !== null && String(value) !== '') field.value = String(value);
+    field.value = value === undefined || value === null ? '' : String(value);
     return field;
   }
 
@@ -214,12 +221,89 @@
       page_path: window.location.pathname,
       page_location: window.location.href
     }, props);
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push(data);
-    if (typeof window.gtag === 'function') {
-      var gtagProps = Object.assign({}, data);
-      delete gtagProps.event;
-      window.gtag('event', eventName, gtagProps);
+    if (!hasConsent('marketing')) {
+      CLICK_ID_KEYS.forEach(function (key) { delete data[key]; });
+      ['page_location', 'page_referrer', 'cta_url', 'landing_page', 'current_page', 'referrer'].forEach(function (key) {
+        if (data[key]) data[key] = withoutClickIds(data[key]);
+      });
+    }
+    try {
+      // Preserve both existing interfaces: the deployed GTM container decides which
+      // tags consume each. Consent defaults/updates remain owned by the consent code.
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(data);
+      if (typeof window.gtag === 'function') {
+        var gtagProps = Object.assign({}, data);
+        delete gtagProps.event;
+        window.gtag('event', eventName, gtagProps);
+      }
+    } catch (e) {
+      // An analytics failure must never turn a received request into a form error.
+    }
+  }
+
+  function newSubmission(form) {
+    var data = attribution();
+    return {
+      submission_id: window.crypto && typeof window.crypto.randomUUID === 'function'
+        ? window.crypto.randomUUID() : Date.now().toString(36) + '-' + Math.random().toString(36).slice(2),
+      created_at: Date.now(),
+      form_name: formName(form),
+      campaign: data.utm_campaign || inferCampaign(form),
+      lead_source: data.utm_source || 'website',
+      lead_medium: data.utm_medium || 'organic'
+    };
+  }
+
+  function emitSuccess(submission, method, details) {
+    if (submission.confirmed) return;
+    submission.confirmed = true;
+    var props = {
+      submission_id: submission.submission_id,
+      form_name: submission.form_name,
+      campaign: submission.campaign,
+      lead_source: submission.lead_source,
+      lead_medium: submission.lead_medium,
+      submission_status: 'success',
+      confirmation_method: method
+    };
+    if (details) {
+      props.event_category = details.event_category;
+      props.event_label = details.event_label;
+    }
+    track('form_submit', props);
+    track('generate_lead', props);
+  }
+
+  // Call only after the form handler has checked HTTP success and JSON success:true.
+  // AJAX forms report here, before their existing redirect or inline success UI.
+  function confirmSubmission(form, details) {
+    var submission = submissions.get(form) || newSubmission(form);
+    submissions.set(form, submission);
+    emitSuccess(submission, 'provider_response', details);
+  }
+
+  function prepareNativeRedirect(form, submission) {
+    if (form.dataset.niuexaAsyncForm === '1') return;
+    var field = form.querySelector('[name="redirect"]');
+    if (!field) return;
+    try {
+      var target = new URL(field.value, window.location.href);
+      if (!hasConsent('analytics')) {
+        target.searchParams.delete(CALLBACK_PARAM);
+        field.value = target.href;
+        return;
+      }
+      var provider = new URL(form.action, window.location.href);
+      if (provider.origin !== 'https://api.web3forms.com' || provider.pathname !== '/submit') return;
+      if (target.origin !== window.location.origin || !/^\/(en\/)?thank-you[^/]*\.html$/.test(target.pathname)) return;
+      submission.redirect_path = target.pathname;
+      // Analytics-only, tab-scoped correlation: no contact fields enter this record.
+      window.sessionStorage.setItem(PENDING_LEAD_KEY, JSON.stringify(submission));
+      target.searchParams.set(CALLBACK_PARAM, submission.submission_id);
+      field.value = target.href;
+    } catch (e) {
+      // Native POST still works without storage; its uncorrelated return is not a lead.
     }
   }
 
@@ -240,12 +324,15 @@
     });
     form.addEventListener('submit', function () {
       populateForm(form);
-      track('form_submit', { form_name: formName(form), campaign: inferCampaign(form) });
-      saveAttribution(Object.assign({}, attribution(), {
-        last_form_name: formName(form),
-        last_campaign: inferCampaign(form),
-        last_submit_at: nowIso()
-      }));
+      var submission = newSubmission(form);
+      submissions.set(form, submission);
+      track('form_submit_attempt', {
+        form_name: submission.form_name,
+        campaign: submission.campaign,
+        submission_id: submission.submission_id,
+        submission_status: 'attempt'
+      });
+      prepareNativeRedirect(form, submission);
     }, true);
   }
 
@@ -271,38 +358,57 @@
 
   function trackThankYouPage() {
     var path = window.location.pathname;
-    if (!/thank-you/i.test(path)) return;
-    var data = getStoredAttribution();
-    var dedupeKey = 'niuexa_lead_event_' + path + '_' + (data.last_submit_at || 'direct');
-    // The marker is a measurement aid, so it needs analytics consent. Without it a reload
-    // of the thank-you page can count the lead again.
-    if (hasConsent('analytics')) {
-      try {
-        if (sessionStorage.getItem(dedupeKey)) return;
-        sessionStorage.setItem(dedupeKey, nowIso());
-      } catch (e) {
-        // Tracking must continue when storage is unavailable or blocked.
-      }
+    if (!/^\/(en\/)?thank-you[^/]*\.html$/.test(path)) return;
+    var callback = new URL(window.location.href);
+    var id = callback.searchParams.get(CALLBACK_PARAM);
+    if (!id) return;
+    callback.searchParams.delete(CALLBACK_PARAM);
+    try {
+      window.history.replaceState(null, '', callback.href);
+    } catch (e) {
+      // Removing the non-sensitive correlation ID is only URL hygiene.
     }
-    var offer = offerFor('');
-    track('generate_lead', {
-      form_name: data.last_form_name || (offer ? offer.formName : 'Website contact form'),
-      campaign: data.last_campaign || data.utm_campaign || (offer ? offer.campaign : DEFAULT_CAMPAIGN),
-      lead_source: data.utm_source || 'website',
-      lead_medium: data.utm_medium || 'organic'
-    });
+    if (!hasConsent('analytics')) return;
+    try {
+      var pending = safeJsonParse(window.sessionStorage.getItem(PENDING_LEAD_KEY));
+      var age = Date.now() - pending.created_at;
+      if (!(age >= 0 && age <= CALLBACK_MAX_AGE)) {
+        window.sessionStorage.removeItem(PENDING_LEAD_KEY);
+        return;
+      }
+      if (pending.submission_id !== id || pending.redirect_path !== path) return;
+      // Consume before emitting; direct visits, reloads, old tokens and other tabs
+      // cannot reuse this callback. It is a client correlation, not a signed receipt.
+      window.sessionStorage.removeItem(PENDING_LEAD_KEY);
+      emitSuccess(pending, 'provider_redirect');
+    } catch (e) {
+      // Fail closed if the callback cannot be consumed safely.
+    }
+  }
+
+  function clearUnconsentedMeasurement() {
+    if (hasConsent('analytics')) return;
+    try {
+      window.sessionStorage.removeItem(PENDING_LEAD_KEY);
+      for (var i = window.sessionStorage.length - 1; i >= 0; i--) {
+        var key = window.sessionStorage.key(i);
+        if (key && key.indexOf('niuexa_lead_event_') === 0) window.sessionStorage.removeItem(key);
+      }
+    } catch (e) { /* storage unavailable */ }
   }
 
   function init() {
+    clearUnconsentedMeasurement();
+    trackThankYouPage();
     captureAttribution();
     document.querySelectorAll('form[action*="api.web3forms.com/submit"], form.contact-form, form.simple-signup-form, form.ai-readiness-form, form.phase-form').forEach(bindFormTracking);
     bindCtaTracking();
-    trackThankYouPage();
   }
 
   // A choice made in the banner applies at once: consent stores what this page captured and
   // adds the click IDs to the forms; a refusal deletes stored attribution and removes them.
   window.addEventListener('niuexa:consent', function () {
+    clearUnconsentedMeasurement();
     captureAttribution();
     document.querySelectorAll('form[data-niuexa-tracking-bound="1"]').forEach(populateForm);
   });
@@ -311,6 +417,7 @@
     init: init,
     track: track,
     populateForm: populateForm,
+    confirmSubmission: confirmSubmission,
     attribution: attribution
   };
 

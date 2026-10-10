@@ -48,11 +48,5 @@ class TrackingStaticTests(unittest.TestCase):
                 offenders.append(rel)
         self.assertEqual([], offenders)
 
-    def test_thank_you_lead_event_has_session_deduplication(self):
-        script = (ROOT / "conversion-tracking.js").read_text(encoding="utf-8")
-        self.assertIn("sessionStorage", script)
-        self.assertIn("niuexa_lead_event_", script)
-
-
 if __name__ == "__main__":
     unittest.main()

@@ -3,7 +3,7 @@ const COOKIE_BANNER_STRINGS = {
     it: {
         privacyHref: '/privacy-policy.html',
         title: '🍪 Utilizziamo i Cookie',
-        intro: 'Questo sito utilizza cookie tecnici e di analytics per migliorare la tua esperienza di navigazione. I dati sono trattati in conformità al',
+        intro: 'Questo sito utilizza cookie tecnici, analitici e di marketing per migliorare la tua esperienza di navigazione. I dati sono trattati in conformità al',
         privacyLink: 'GDPR',
         acceptAll: 'Accetta Tutti',
         rejectAll: 'Solo Necessari',
@@ -12,7 +12,7 @@ const COOKIE_BANNER_STRINGS = {
         necessaryLabel: 'Cookie Necessari (Obbligatori)',
         necessaryDesc: 'Questi cookie sono essenziali per il funzionamento del sito web e non possono essere disabilitati.',
         analyticsLabel: 'Cookie Analitici',
-        analyticsDesc: 'Ci aiutano a capire come i visitatori interagiscono con il sito raccogliendo informazioni anonime.',
+        analyticsDesc: 'Ci aiutano a capire come i visitatori interagiscono con il sito raccogliendo informazioni sulle visite e sulle azioni, associate a identificativi pseudonimi.',
         marketingLabel: 'Cookie Marketing',
         marketingDesc: 'Consentono di misurare campagne e conversioni LinkedIn e pubblicitarie. Si attivano solo con il tuo consenso.',
         save: 'Salva Preferenze',
@@ -21,7 +21,7 @@ const COOKIE_BANNER_STRINGS = {
     en: {
         privacyHref: '/en/privacy-policy.html',
         title: '🍪 We Use Cookies',
-        intro: 'This site uses technical and analytics cookies to improve your browsing experience. Data is processed in compliance with',
+        intro: 'This site uses technical, analytics and marketing cookies to improve your browsing experience. Data is processed in compliance with',
         privacyLink: 'GDPR',
         acceptAll: 'Accept All',
         rejectAll: 'Only Necessary',
@@ -30,7 +30,7 @@ const COOKIE_BANNER_STRINGS = {
         necessaryLabel: 'Necessary Cookies (Required)',
         necessaryDesc: 'These cookies are essential for the website to function and cannot be disabled.',
         analyticsLabel: 'Analytics Cookies',
-        analyticsDesc: 'These help us understand how visitors interact with the site by collecting anonymous information.',
+        analyticsDesc: 'These help us understand how visitors interact with the site by collecting visits and actions associated with pseudonymous identifiers.',
         marketingLabel: 'Marketing Cookies',
         marketingDesc: 'These measure LinkedIn and advertising campaigns and conversions. They activate only with your consent.',
         save: 'Save Preferences',
@@ -48,12 +48,9 @@ class CookieBanner {
     }
 
     init() {
-        // Check if consent already given
-        if (!this.consentData) {
-            this.showBanner();
-        } else {
-            this.loadAcceptedCookies();
-        }
+        // Apply denied defaults or the saved choice before notifying tag consumers.
+        this.loadAcceptedCookies();
+        if (!this.consentData) this.showBanner();
     }
 
     showBanner() {
@@ -196,24 +193,55 @@ class CookieBanner {
     }
 
     saveConsent(consent) {
-        localStorage.setItem(this.cookieName, JSON.stringify(consent));
+        try {
+            localStorage.setItem(this.cookieName, JSON.stringify(consent));
+        } catch (e) {
+            // The choice still applies to this page when browser storage is unavailable.
+        }
         this.consentData = consent;
-        // Lets scripts that store data only with consent (conversion-tracking.js)
-        // apply the new choice on this page, without waiting for a reload.
-        window.dispatchEvent(new CustomEvent('niuexa:consent', {
-            detail: { analytics: consent.analytics, marketing: consent.marketing }
-        }));
     }
 
     getConsentData() {
-        const consent = localStorage.getItem(this.cookieName);
-        return consent ? JSON.parse(consent) : null;
+        try {
+            const consent = JSON.parse(localStorage.getItem(this.cookieName) || 'null');
+            if (!consent || typeof consent.analytics !== 'boolean' || typeof consent.marketing !== 'boolean') return null;
+            return consent;
+        } catch (e) {
+            return null;
+        }
+    }
+
+    clearUnconsentedStorage(analyticsGranted, marketingGranted) {
+        if (!marketingGranted) {
+            try { localStorage.removeItem('niuexa_attribution_v1'); } catch (e) { /* storage unavailable */ }
+        }
+        if (!analyticsGranted) {
+            try {
+                sessionStorage.removeItem('niuexa_pending_lead_v1');
+                for (let i = sessionStorage.length - 1; i >= 0; i--) {
+                    const key = sessionStorage.key(i);
+                    if (key && key.startsWith('niuexa_lead_event_')) sessionStorage.removeItem(key);
+                }
+            } catch (e) { /* storage unavailable */ }
+        }
     }
 
     loadAcceptedCookies() {
-        const analyticsGranted = Boolean(this.consentData && this.consentData.analytics);
-        const marketingGranted = Boolean(this.consentData && this.consentData.marketing);
+        const analyticsGranted = Boolean(this.consentData && this.consentData.analytics === true);
+        const marketingGranted = Boolean(this.consentData && this.consentData.marketing === true);
+        this.clearUnconsentedStorage(analyticsGranted, marketingGranted);
         this.updateConsentMode(analyticsGranted, marketingGranted);
+        // A GTM Custom Event trigger must also require marketing_consent === true
+        // for marketing tags. The explicit booleans avoid relying on gtag queue timing.
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            event: 'niuexa_consent_update',
+            analytics_consent: analyticsGranted,
+            marketing_consent: marketingGranted
+        });
+        window.dispatchEvent(new CustomEvent('niuexa:consent', {
+            detail: { analytics: analyticsGranted, marketing: marketingGranted }
+        }));
         if (marketingGranted) this.loadLinkedInInsightTag();
     }
 
@@ -254,10 +282,11 @@ class CookieBanner {
 
     // Public method to revoke consent
     revokeConsent() {
-        this.updateConsentMode(false, false);
-        localStorage.removeItem(this.cookieName);
+        try { localStorage.removeItem(this.cookieName); } catch (e) { /* storage unavailable */ }
         this.consentData = null;
-        // Reload page to remove tracking cookies
+        this.loadAcceptedCookies();
+        // Unload previously started third-party scripts; existing cookies can be
+        // removed through browser settings, as explained in the cookie policy.
         window.location.reload();
     }
 }

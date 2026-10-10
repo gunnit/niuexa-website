@@ -550,6 +550,7 @@
 .home-page .talk-with-us-section .contact-form input[type="text"],
 .home-page .talk-with-us-section .contact-form input[type="email"],
 .home-page .talk-with-us-section .contact-form input[type="tel"],
+.home-page .talk-with-us-section .contact-form input[type="number"],
 .home-page .talk-with-us-section .contact-form select,
 .home-page .talk-with-us-section .contact-form textarea {
     min-height: 46px;

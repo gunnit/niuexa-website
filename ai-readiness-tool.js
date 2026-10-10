@@ -10,6 +10,7 @@ function initAIReadinessForm() {
     const form = document.querySelector('.ai-readiness-form');
 
     if (!form) return;
+    form.dataset.niuexaAsyncForm = '1';
 
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
@@ -33,8 +34,9 @@ function initAIReadinessForm() {
         `;
 
         try {
-            // Submit form data to Formcarry
+            // Submit form data to Web3Forms
             const formData = new FormData(form);
+            formData.delete('redirect');
 
 
             const response = await fetch(form.action, {
@@ -47,15 +49,15 @@ function initAIReadinessForm() {
             });
 
 
-            if (response.ok) {
-
-                // form_submit is sent once by conversion-tracking.js; generate_lead by the thank-you page.
+            const result = await response.json();
+            if (response.ok && result && result.success === true) {
+                if (window.NiuexaTracking && typeof window.NiuexaTracking.confirmSubmission === 'function') {
+                    window.NiuexaTracking.confirmSubmission(form);
+                }
 
                 // Redirect to AI Readiness thank you page
                 window.location.href = 'thank-you-ai-readiness.html';
             } else {
-                const errorData = await response.text();
-                console.error('AI Readiness Form - Formcarry response error:', errorData);
                 throw new Error('Errore nell\'invio del modulo');
             }
         } catch (error) {
@@ -243,10 +245,13 @@ document.head.appendChild(readinessToolStyle);
 (function () {
     'use strict';
 
+    const activePlayers = new Map();
+    const boundFacades = new WeakSet();
+
     function hasMarketingConsent() {
         try {
             const consent = JSON.parse(localStorage.getItem('niuexa_cookie_consent') || 'null');
-            return Boolean(consent && consent.marketing === true);
+            return Boolean(consent && typeof consent.analytics === 'boolean' && consent.marketing === true);
         } catch (e) {
             return false;
         }
@@ -255,6 +260,8 @@ document.head.appendChild(readinessToolStyle);
     // A click starts playback and moves focus into the player, so keyboard users keep their
     // place; a consent-triggered load leaves focus where it is.
     function loadVideo(facade, startPlaying) {
+        if (!facade.isConnected) return;
+        bindPlay(facade);
         const player = document.createElement('iframe');
         player.className = 'video-facade-player';
         player.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(facade.dataset.videoId) +
@@ -263,8 +270,25 @@ document.head.appendChild(readinessToolStyle);
         player.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
         player.allowFullscreen = true;
         player.referrerPolicy = 'strict-origin-when-cross-origin';
+        activePlayers.set(player, facade);
         facade.replaceWith(player);
         if (startPlaying) player.focus();
+    }
+
+    function bindPlay(facade) {
+        if (boundFacades.has(facade)) return;
+        const play = facade.querySelector('.video-facade-play');
+        if (play) play.addEventListener('click', function () { loadVideo(facade, true); });
+        boundFacades.add(facade);
+    }
+
+    function unloadAllVideos() {
+        activePlayers.forEach(function (facade, player) {
+            // Removing the browsing context stops playback and further YouTube requests.
+            // Keep the original button so a later explicit activation works again.
+            player.replaceWith(facade);
+        });
+        activePlayers.clear();
     }
 
     function loadAllVideos() {
@@ -278,14 +302,12 @@ document.head.appendChild(readinessToolStyle);
             loadAllVideos();
             return;
         }
-        document.querySelectorAll('.video-facade[data-video-id]').forEach(function (facade) {
-            const play = facade.querySelector('.video-facade-play');
-            if (play) play.addEventListener('click', function () { loadVideo(facade, true); });
-        });
+        document.querySelectorAll('.video-facade[data-video-id]').forEach(bindPlay);
     }
 
     window.addEventListener('niuexa:consent', function (event) {
         if (event.detail && event.detail.marketing === true) loadAllVideos();
+        else unloadAllVideos();
     });
 
     if (document.readyState === 'loading') {
