@@ -8,7 +8,7 @@ const navigationHTML = `
         <div class="nav-logo">
             <a href="/">
                 <div class="logo-container">
-                    <img src="/img/pictogram_blue_transparent.png" alt="Niuexa - AI Solutions" class="logo-icon" width="40" height="40" loading="eager">
+                    <img src="/img/pictogram-blue.webp" alt="Niuexa - AI Solutions" class="logo-icon" width="40" height="40" loading="eager">
                     <div class="logo-text">
                         <div class="logo-title">NIUEXA</div>
                         <span class="logo-tagline">AI Solutions</span>

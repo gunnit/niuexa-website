@@ -235,7 +235,7 @@ function initAnimations() {
     }, observerOptions);
 
     // Observe elements for animation
-    const animateElements = document.querySelectorAll('.service-card, .program-card, .product-card, .use-case, .stat');
+    const animateElements = document.querySelectorAll('.service-card, .program-card, .product-card, .use-case, .stat:not(.tutorial-stats .stat)');
     animateElements.forEach(el => {
         observer.observe(el);
     });

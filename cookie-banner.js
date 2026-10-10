@@ -213,7 +213,16 @@ class CookieBanner {
     }
 
     // Sync Google Consent Mode with separate analytics and marketing choices.
+    // The same choice is pushed to the dataLayer as niuexa_consent_update so
+    // that non-Google tags in GTM (HubSpot tracking) fire only on a trigger
+    // bound to that event with analytics === true, never on page load.
     updateConsentMode(analyticsGranted, marketingGranted) {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            event: 'niuexa_consent_update',
+            consent_analytics: analyticsGranted,
+            consent_marketing: marketingGranted
+        });
         if (typeof gtag === 'function') {
             const analyticsState = analyticsGranted ? 'granted' : 'denied';
             const marketingState = marketingGranted ? 'granted' : 'denied';

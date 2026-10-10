@@ -296,6 +296,15 @@ function renderSchema(article, ctx) {
   return blocks.join('\n');
 }
 
+const ITALIAN_MONTHS = ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'];
+
+/** "2026-10-05" -> "5 ottobre 2026"; anything that is not an ISO date is returned as is. */
+export function formatItalianDate(iso) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(iso));
+  if (!m) return String(iso);
+  return `${Number(m[3])} ${ITALIAN_MONTHS[Number(m[2]) - 1]} ${m[1]}`;
+}
+
 function renderHeader(article, ctx) {
   const pad = ' '.repeat(8);
   const trail = ctx.trail;
@@ -310,12 +319,18 @@ function renderHeader(article, ctx) {
     .filter(Boolean)
     .map((s) => `<span class="stat">${escapeHtml(s)}</span>`)
     .join('');
+  // The visible date mirrors dateModified in the schema, so a reader and an
+  // answer engine see the same freshness signal.
+  const modified = article.modified ?? article.published;
+  const dateStat = modified
+    ? `<span class="stat">Aggiornato il <time datetime="${attr(modified)}">${escapeHtml(formatItalianDate(modified))}</time></span>`
+    : '';
   return [
     `${pad}<section class="tutorial-header"><div class="container"><nav class="breadcrumb" aria-label="Breadcrumb">${crumbs}</nav><div class="tutorial-intro">`,
     `${pad}${INDENT}<div class="tutorial-badge">${escapeHtml(article.badge ?? article.section)}</div>`,
     `${pad}${INDENT}<h1>${renderInline(article.h1 ?? article.title)}</h1>`,
     `${pad}${INDENT}<p class="tutorial-description">${renderInline(article.standfirst ?? article.description)}</p>`,
-    `${pad}${INDENT}<div class="tutorial-stats">${stats}</div>`,
+    `${pad}${INDENT}<div class="tutorial-stats">${stats}${dateStat}</div>`,
     `${pad}</div></div></section>`,
   ].join('\n');
 }

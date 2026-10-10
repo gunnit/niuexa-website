@@ -64,6 +64,9 @@
 .stat {
     display: flex;
     align-items: center;
+    /* Flex drops the whitespace text node between "Aggiornato il" and <time>;
+       the gap keeps the space. */
+    gap: 0.3em;
     font-size: 0.95rem;
     opacity: 0.9;
 }

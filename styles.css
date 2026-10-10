@@ -6172,7 +6172,7 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
     html.js-animations .program-card:not(.animate-in),
     html.js-animations .product-card:not(.animate-in),
     html.js-animations .use-case:not(.animate-in),
-    html.js-animations .stat:not(.animate-in) {
+    html.js-animations .stat:not(.animate-in):not(.tutorial-stats .stat) {
         opacity: 0;
         transform: translateY(30px);
     }

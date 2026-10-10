@@ -75,7 +75,7 @@ sources:
     publisher: NIST
     note: per la gestione continua e contestuale del rischio AI.
   - title: NIST AI 600-1, Generative AI Profile
-    url: https://doi.org/10.6028/NIST.AI.600-1
+    url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf
     publisher: NIST
     note: per policy d'uso, inventario, monitoraggio e configurazioni human-AI.
   - title: Commissione europea, quadro dell'AI Act
