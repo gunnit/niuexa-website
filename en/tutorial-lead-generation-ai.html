@@ -33,6 +33,7 @@
     <meta property="og:title" content="AI Lead Generation: A Practical Guide to Automating Your Sales Funnel">
     <meta property="og:description" content="A practical guide to AI lead generation: capture leads with a chatbot, qualify them automatically, draft personalised emails with AI for a salesperson to review, and measure the result.">
     <meta property="og:image" content="https://niuexa.ai/img/niuexalogo.png">
+    <meta property="article:modified_time" content="2026-10-10T00:00:00+02:00">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://niuexa.ai/en/tutorial-lead-generation-ai.html">
@@ -74,7 +75,7 @@
             }
         },
         "datePublished": "2025-06-01",
-        "dateModified": "2026-10-05",
+        "dateModified": "2026-10-10",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://niuexa.ai/en/tutorial-lead-generation-ai.html"
@@ -105,7 +106,8 @@
                 <div class="tutorial-stats">
                     <span class="stat">10 minute read</span>
                     <span class="stat">For Sales &amp; Marketing</span>
-                    <span class="stat">Ready-to-use workflows</span>
+                    <span class="stat">Workflow to adapt</span>
+                    <span class="stat">Updated: <time datetime="2026-10-10">October 10, 2026</time></span>
                 </div>
             </div>
         </div>
@@ -119,7 +121,7 @@
                     <h2>1. The Hidden Cost of Manual Lead Generation (and How AI Reduces It)</h2>
                     <p>Lead generation is the beating heart of every business. But what does it really cost you? Not just the software subscriptions: the biggest cost is your team's time.</p>
                     <div class="case-study-intro">
-                        <p><strong>Before AI, measure:</strong> how many hours a week your team spends searching for contacts on LinkedIn, copying data into the CRM and writing cold emails. Multiply those hours by the fully loaded hourly cost of the people involved: that is the monthly cost of the manual process.</p>
+                        <p><strong>Before AI, measure:</strong> how many hours in the month your team spends researching contacts, copying data into the CRM and writing first emails. Multiply those hours by the fully loaded hourly cost of the people involved: that is the monthly labour cost of the manual process.</p>
                         <p><strong>After AI, measure again:</strong> the hours still needed to supervise the workflow and review drafts, plus the monthly cost of the software. The difference between the two figures is your saving, and the hours freed are time for calls and meetings. Section 5 shows the full calculation.</p>
                     </div>
                     <p>AI does not replace the sales team; it changes which parts of the work need a person. Three things it does well:</p>
@@ -190,15 +192,17 @@
                     <p>Let's imagine using Make.com to build this workflow. Here's how it works:</p>
                     <ol>
                         <li><strong>Trigger: new lead from the chatbot.</strong> The workflow starts every time the chatbot saves a new contact in a Google Sheet or your CRM.</li>
-                        <li><strong>Data enrichment with Hunter.io:</strong> pass the lead's email to the Hunter.io API, which can return data such as the contact's role, industry and company size.</li>
-                        <li><strong>Scoring logic (Router):</strong> use a "Router" to create logical branches and assign points:
+                        <li><strong>Optional enrichment and mapping:</strong> Hunter's Combined Enrichment endpoint can return person and company data from a professional email address. In the documented response, the job title is <code>data.person.employment.title</code>, the employee count is <code>data.company.metrics.employeesCount</code>, and the industry is <code>data.company.category.industry</code>. The <code>employees</code> field is a range such as <code>11-50</code>; do not compare it directly with a number. Check the actual response and the intended use against your privacy notice. If required data is missing, route the contact for review without inventing it.</li>
+                        <li><strong>Calculate the score before the Router:</strong> normalize the data into three true-or-false conditions and use <code>Tools &gt; Set variable</code> to calculate <code>total_score</code>. In this example:
                             <ul>
-                                <li><strong>Filter 1:</strong> if `company.employees > 50`, add 20 points.</li>
-                                <li><strong>Filter 2:</strong> if `contact.role` contains "Manager", "Director", "CEO" or "Founder", add 30 points.</li>
-                                <li><strong>Filter 3:</strong> if `company.industry` is "Software" or "Technology", add 15 points.</li>
+                                <li><code>size_match</code>: a verified employee count greater than 50, add 20 points.</li>
+                                <li><code>role_match</code>: the role belongs to a list agreed with the sales team, add 30 points.</li>
+                                <li><code>industry_match</code>: the industry maps to an agreed target category, add 15 points.</li>
                             </ul>
+                            <p>Configure this formula in Make, replacing the names with mapped Boolean fields:</p>
+                            <pre><code>sum(if(size_match; 20; 0); if(role_match; 30; 0); if(industry_match; 15; 0))</code></pre>
                         </li>
-                        <li><strong>Final action (filter + action):</strong> at the end of the workflow, a final filter checks the total score. If `total_score > 50`:
+                        <li><strong>Route and act:</strong> the Router separates paths; it does not calculate the total. On the qualified-lead route, a filter checks <code>total_score &gt; 50</code>. Only after that check:
                             <ul>
                                 <li>Create a new "Deal" in HubSpot.</li>
                                 <li>Assign the deal to a specific salesperson.</li>
@@ -206,7 +210,8 @@
                             </ul>
                         </li>
                     </ol>
-                    <p>The points and thresholds above are an example: set your own with the sales team and adjust them after looking at which leads actually became customers.</p>
+                    <p>The points and thresholds above are an example: set your own with the sales team and adjust them after looking at which leads actually became customers. All three matches total 65; the first two total 50 and do not pass <code>&gt; 50</code>. Provide a separate path for leads below the threshold and those needing review.</p>
+                    <p>Technical references: <a href="https://hunter.io/api-documentation/v2#combined-enrichment" target="_blank" rel="noopener noreferrer">Hunter Combined Enrichment</a>, <a href="https://help.make.com/router" target="_blank" rel="noopener noreferrer">Make Router</a>, <a href="https://help.make.com/general-functions" target="_blank" rel="noopener noreferrer">if function</a> and <a href="https://help.make.com/math-functions" target="_blank" rel="noopener noreferrer">sum function</a>. Checked October 10, 2026.</p>
                     <div class="pro-tips">
                         <h4>Pro Tips for Lead Scoring</h4>
                         <ul>
@@ -249,13 +254,13 @@ Don't use phrases like "I hope this email finds you well". Be direct and respect
                     <ol start="5">
                         <li><strong>OpenAI module:</strong> after the Slack notification, add an OpenAI module. Insert the effective prompt and fill the `[Name]`, `[Company]`, `[Role]` and `[Problem]` fields with the collected data.</li>
                         <li><strong>Gmail/Outlook module:</strong> use the AI-generated text as the body of a draft email. The subject could be "Question about [Company]" or "Idea for [Problem]".</li>
-                        <li><strong>CRM update:</strong> as a final step, update the contact in HubSpot, recording that the email was prepared or sent and saving the text in a note, so the sales team has all the context.</li>
+                        <li><strong>CRM update:</strong> record that a draft was prepared and save its text in a HubSpot note. Mark it as sent only after the email provider confirms an actual send.</li>
                     </ol>
 
                     <div class="pro-tips">
                         <h4>Pro Tips for AI Outreach</h4>
                         <ul>
-                            <li><strong>Keep a person on the send button:</strong> at least at the start, save AI emails as drafts and let a salesperson review them before sending, especially for your most valuable leads. The AI proposes, the person decides.</li>
+                            <li><strong>Keep a person on the send button:</strong> save AI emails as drafts and let a salesperson review and approve each one before sending. The AI proposes, the person decides.</li>
                             <li><strong>Check the legal basis:</strong> in the EU, contacting a lead by email must respect the GDPR and the rules on unsolicited communications. Ask your privacy adviser which contacts you may write to, and always offer an easy way to opt out.</li>
                             <li><strong>A/B test prompts:</strong> try different versions, one more formal and one more direct, and measure which gets more replies.</li>
                             <li><strong>Delay sending:</strong> don't send the email one second after the lead registers. A short delay makes it more natural.</li>
@@ -271,16 +276,16 @@ Don't use phrases like "I hope this email finds you well". Be direct and respect
                     <ul>
                         <li><strong>Chatbot conversion rate:</strong> site visitors &rarr; captured leads.</li>
                         <li><strong>Qualification rate:</strong> captured leads &rarr; qualified leads (MQL).</li>
-                        <li><strong>Cost per MQL:</strong> (total software cost + management time) &divide; number of MQLs.</li>
+                        <li><strong>Cost per MQL:</strong> (software cost + management and review hours &times; hourly cost) &divide; MQLs in the same period. With zero MQLs, the ratio cannot be calculated.</li>
                         <li><strong>AI email response rate:</strong> how many leads reply to the first email.</li>
                         <li><strong>Sales cycle length:</strong> the time from lead creation to customer. Check whether it gets shorter.</li>
                     </ul>
 
                     <h3>Calculate Your Potential ROI</h3>
-                    <p>Use this simple model with your own numbers.</p>
+                    <p>Compare the same period and a comparable lead volume, checking quality too. This model compares operating costs and does not attribute unmeasured revenue or margin to AI.</p>
                     <div class="roi-calculator">
                         <div class="roi-input">
-                            <label>Manual hours per week:</label>
+                            <label>Manual hours in the month:</label>
                             <span>H</span>
                         </div>
                         <div class="roi-input">
@@ -288,7 +293,7 @@ Don't use phrases like "I hope this email finds you well". Be direct and respect
                             <span>C</span>
                         </div>
                         <div class="roi-calculation">
-                            <p><strong>Monthly manual cost:</strong> H &times; C &times; 4.3 weeks</p>
+                            <p><strong>Monthly manual cost:</strong> H &times; C</p>
                         </div>
                         <hr>
                         <div class="roi-input">
@@ -296,19 +301,19 @@ Don't use phrases like "I hope this email finds you well". Be direct and respect
                             <span>S</span>
                         </div>
                         <div class="roi-input">
-                            <label>Supervision and review hours per week:</label>
+                            <label>Remaining management, supervision and review hours in the month:</label>
                             <span>R</span>
                         </div>
                         <div class="roi-calculation">
-                            <p><strong>Monthly AI cost:</strong> S + (R &times; C &times; 4.3 weeks)</p>
+                            <p><strong>Monthly AI cost:</strong> S + (R &times; C)</p>
                         </div>
                         <hr>
                         <div class="roi-result">
                             <p><strong>Net monthly saving:</strong> monthly manual cost &minus; monthly AI cost</p>
-                            <p><strong>Return on the monthly AI cost:</strong> net monthly saving &divide; monthly AI cost</p>
+                            <p><strong>Saving relative to monthly AI operating cost:</strong> net monthly saving &divide; monthly AI cost &times; 100, only if monthly AI cost is greater than zero; excludes setup cost.</p>
                         </div>
                     </div>
-                    <p>Add any setup cost (your team's time or an external partner) and divide it by the net monthly saving to get the payback period. Count extra revenue only if you can measure it.</p>
+                    <p>Divide setup cost by net monthly saving to estimate payback in months, only if that saving is positive and sustained. With zero or negative saving there is no payback based on these savings. Include your team's setup time and any external partner's cost. Count extra revenue only if you can measure it.</p>
                 </section>
 
                 <section class="content-section conclusion">
@@ -318,7 +323,7 @@ Don't use phrases like "I hope this email finds you well". Be direct and respect
                     <ol>
                         <li><strong>Start small (this week):</strong> you don't have to build everything at once. Start with the chatbot: pick a tool, try its free plan and create your first conversation flow.</li>
                         <li><strong>Build the scoring workflow (next week):</strong> open a Make.com account, connect your chatbot to a Google Sheet and build the qualification workflow.</li>
-                        <li><strong>Launch AI outreach (in two weeks):</strong> add the OpenAI module, test prompts and keep the first emails as drafts for a salesperson to review.</li>
+                        <li><strong>Launch AI outreach (in two weeks):</strong> add the OpenAI module, test prompts and keep each email as a draft until a salesperson reviews and approves it.</li>
                     </ol>
                     <p>Measure the baseline before you start and the same metrics after a few weeks. The comparison tells you whether to extend the workflow, correct it or stop.</p>
                 </section>
@@ -343,14 +348,14 @@ Don't use phrases like "I hope this email finds you well". Be direct and respect
             <h2>Related Tutorials</h2>
             <div class="related-grid">
                 <div class="related-card">
-                    <h3>AI Workflow Automation: a Practical Tutorial</h3>
-                    <p>How to automate business processes with Zapier, Make, n8n and LangChain.</p>
-                    <a href="/en/article-ai-email-pdf-crm-automation.html" class="related-link">Read Tutorial</a>
+                    <h3>Email and PDF to CRM Automation</h3>
+                    <p>How to extract document data, review exceptions and route it to the CRM.</p>
+                    <a href="/en/article-ai-email-pdf-crm-automation.html" class="related-link">Read Guide</a>
                 </div>
                 <div class="related-card">
-                    <h3>AI Image Generation</h3>
-                    <p>Image generation tools such as Recraft, FLUX, Midjourney and Ideogram, and how to use them in your workflow.</p>
-                    <a href="/en/learn.html" class="related-link">Read Tutorial</a>
+                    <h3>10 Realistic First AI Projects for Small Businesses</h3>
+                    <p>Where to start with a manageable process and what to measure before expanding.</p>
+                    <a href="/en/article-first-ai-projects-smb.html" class="related-link">Read Guide</a>
                 </div>
             </div>
         </div>

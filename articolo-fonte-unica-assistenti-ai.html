@@ -23,7 +23,7 @@
     <meta property="og:image:alt" content="Framework Niuexa: fonte, proprietario, scadenza e permessi per assistenti AI affidabili">
     <meta property="og:locale" content="it_IT">
     <meta property="article:published_time" content="2026-07-29">
-    <meta property="article:modified_time" content="2026-10-06">
+    <meta property="article:modified_time" content="2026-10-10">
     <meta property="article:author" content="Gregor Maric">
     <meta property="article:section" content="Knowledge Management e AI Governance">
 
@@ -76,7 +76,7 @@
         }
       },
       "datePublished": "2026-07-29",
-      "dateModified": "2026-10-06",
+      "dateModified": "2026-10-10",
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://niuexa.ai/articolo-fonte-unica-assistenti-ai.html"
@@ -125,6 +125,16 @@
           "@type": "CreativeWork",
           "name": "NIST Generative AI Profile",
           "url": "https://doi.org/10.6028/NIST.AI.600-1"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Microsoft Foundry — RAG e indici",
+          "url": "https://learn.microsoft.com/en-us/azure/foundry/concepts/retrieval-augmented-generation"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Azure AI Search — Ricerca ibrida",
+          "url": "https://learn.microsoft.com/en-us/azure/search/hybrid-search-overview"
         }
       ],
       "speakable": {
@@ -187,7 +197,7 @@
           "name": "RAG o fine-tuning per un assistente sui documenti aziendali?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Quasi sempre RAG: i documenti si aggiornano o si ritirano senza riaddestrare il modello, ogni risposta può citare la fonte e i permessi si applicano al recupero. Il fine-tuning serve per stile, formato o compiti molto specifici, non per tenere aggiornata la conoscenza."
+            "text": "Per fonti che cambiano, il RAG permette di aggiornare il contesto senza riaddestrare il modello e di collegare le risposte ai documenti recuperati. Citazioni e permessi vanno implementati e verificati. Il fine-tuning modifica comportamento o prestazioni su compiti specifici e può affiancare il recupero; la scelta richiede una valutazione sul caso d’uso."
           }
         },
         {
@@ -323,18 +333,18 @@
                     <thead><tr><th>Aspetto</th><th>RAG</th><th>Fine-tuning</th></tr></thead>
                     <tbody>
                         <tr><td>Cosa cambia</td><td>Il contesto che il modello riceve a ogni domanda</td><td>I pesi del modello</td></tr>
-                        <tr><td>Aggiornare un contenuto</td><td>Si aggiorna o si ritira il documento e si reindicizza</td><td>Serve un nuovo addestramento</td></tr>
-                        <tr><td>Citazioni</td><td>Ogni risposta può indicare la fonte e la versione</td><td>La provenienza di una risposta non è tracciabile</td></tr>
-                        <tr><td>Permessi</td><td>Si applicano al recupero, documento per documento</td><td>Ciò che il modello ha appreso è visibile a chiunque lo usi</td></tr>
+                        <tr><td>Aggiornare un contenuto</td><td>Si aggiorna o si ritira la fonte e si sincronizza l’indice</td><td>Cambiare ciò che è appreso nei pesi richiede un nuovo addestramento; il contesto esterno può aggiornarsi separatamente</td></tr>
+                        <tr><td>Citazioni</td><td>Il sistema può collegare la risposta alla fonte e alla versione recuperate</td><td>Da solo non fornisce la provenienza documentale di ogni risposta; può essere combinato con recupero e citazioni</td></tr>
+                        <tr><td>Permessi</td><td>Vanno applicati e verificati al recupero, documento per documento</td><td>Non applica automaticamente i permessi dei documenti; accesso al modello, dati di training e controlli applicativi vanno governati</td></tr>
                         <tr><td>Quando ha senso</td><td>Conoscenza aziendale che cambia: procedure, listini, policy</td><td>Stile, formato o compiti ripetitivi molto specifici</td></tr>
                     </tbody>
                 </table>
-                <p>Per un assistente sui documenti aziendali si parte quasi sempre dal RAG. Il fine-tuning, se serve, si aggiunge dopo e per altri scopi.</p>
+                <p>Per documenti aziendali che cambiano, il RAG è una scelta da valutare perché aggiorna il contesto senza riaddestrare il modello. Il fine-tuning modifica comportamento o prestazioni su compiti specifici; può affiancare il recupero. La scelta va verificata sulle domande e sui vincoli del caso d’uso.</p>
 
                 <h3>Le leve che contano</h3>
                 <ul>
                     <li><strong>Suddivisione dei documenti (chunking):</strong> frammenti troppo piccoli perdono il contesto, troppo grandi diluiscono la risposta. Conviene seguire la struttura del documento (titoli, articoli, paragrafi) e conservare in ogni frammento i metadati della fonte: ID, versione, stato.</li>
-                    <li><strong>Ricerca ibrida:</strong> la ricerca semantica trova concetti simili, quella per parole chiave trova codici articolo, numeri di norma e sigle. Insieme sbagliano meno di ciascuna da sola.</li>
+                    <li><strong>Ricerca ibrida:</strong> la ricerca semantica trova concetti simili, quella per parole chiave trova codici articolo, numeri di norma e sigle. Combinare i due segnali può migliorare la pertinenza: confronti ricerca testuale, vettoriale e ibrida sulle stesse domande con fonti attese, misurando qualità, costo e latenza.</li>
                     <li><strong>Riordino dei risultati (re-ranking):</strong> un secondo passaggio riordina i frammenti per pertinenza prima di passarli al modello.</li>
                     <li><strong>Filtri prima del recupero:</strong> stato, scadenza e riservatezza escludono a monte i documenti ritirati, scaduti o non accessibili all’utente, invece di affidarsi al modello perché li ignori.</li>
                     <li><strong>Registro delle interrogazioni:</strong> domanda, fonti recuperate, versioni e risposta restano tracciate, così ogni segnalazione si può ricostruire.</li>
@@ -388,6 +398,7 @@
                 <h2 id="fonti">Fonti e perimetro</h2>
                 <p>Questa guida sviluppa il <a href="https://www.linkedin.com/feed/update/urn:li:share:7487530780039004160/" target="_blank" rel="noopener">post LinkedIn pubblicato da Gregor Maric il 27 luglio 2026</a> sul problema delle fonti discordanti negli assistenti AI aziendali.</p>
                 <p>Il framework Fonte, Proprietario, Scadenza e Permessi è una guida operativa Niuexa. È coerente con il <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener">NIST AI Risk Management Framework</a>, che tratta governance, documentazione, responsabilità e gestione continua del rischio, e con il <a href="https://doi.org/10.6028/NIST.AI.600-1" target="_blank" rel="noopener">NIST Generative AI Profile</a>, che include tra i rischi la confabulazione e l’integrità delle informazioni.</p>
+                <p>Per le scelte tecniche si vedano la <a href="https://learn.microsoft.com/en-us/azure/foundry/concepts/retrieval-augmented-generation" target="_blank" rel="noopener">guida Microsoft a RAG, fine-tuning e controlli di accesso</a> e la <a href="https://learn.microsoft.com/en-us/azure/search/hybrid-search-overview" target="_blank" rel="noopener">documentazione sulla ricerca ibrida</a>.</p>
                 <p>La configurazione concreta deve essere adattata a settore, dati, sistemi, obblighi normativi e impatto delle decisioni. Questa guida non sostituisce valutazioni legali, privacy o cybersecurity.</p>
             </section>
 
@@ -398,7 +409,7 @@
                 <div class="faq-item"><h3>Quali metadati sono indispensabili?</h3><p>ID, ambito, owner, approvazione, revisione, stato, riservatezza e riferimento al sistema autorevole.</p></div>
                 <div class="faq-item"><h3>Chi deve possedere la fonte?</h3><p>Il ruolo competente sul contenuto e autorizzato ad approvarlo o ritirarlo; non necessariamente l’amministratore tecnico.</p></div>
                 <div class="faq-item"><h3>Come misuro il miglioramento?</h3><p>Copertura delle fonti governate, citazioni verificabili, conflitti aperti, ricerche senza esito, errori di accesso e tempo di correzione.</p></div>
-                <div class="faq-item"><h3>RAG o fine-tuning per un assistente sui documenti aziendali?</h3><p>Quasi sempre RAG: i documenti si aggiornano o si ritirano senza riaddestrare il modello, ogni risposta può citare la fonte e i permessi si applicano al recupero. Il fine-tuning serve per stile, formato o compiti molto specifici, non per tenere aggiornata la conoscenza.</p></div>
+                <div class="faq-item"><h3>RAG o fine-tuning per un assistente sui documenti aziendali?</h3><p>Per fonti che cambiano, il RAG permette di aggiornare il contesto senza riaddestrare il modello e di collegare le risposte ai documenti recuperati. Citazioni e permessi vanno implementati e verificati. Il fine-tuning modifica comportamento o prestazioni su compiti specifici e può affiancare il recupero; la scelta richiede una valutazione sul caso d’uso.</p></div>
                 <div class="faq-item"><h3>Quale database vettoriale scegliere?</h3><p>Dipende da volumi, infrastruttura esistente e residenza dei dati: pgvector se l’azienda usa già PostgreSQL, Qdrant, Weaviate o Milvus per un’installazione propria, Pinecone come servizio gestito. Conta meno della qualità delle fonti, dei filtri sui metadati e della ricerca ibrida.</p></div>
             </section>
 
