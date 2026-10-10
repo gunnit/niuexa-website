@@ -84,7 +84,7 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/styles.css?v=20260807">
-    <link rel="stylesheet" href="/home.css?v=20261005b">
+    <link rel="stylesheet" href="/home.css?v=20261010">
 
     <!-- HubSpot Form Script -->
     <script src="https://js-eu1.hsforms.net/forms/embed/146568969.js" defer></script>
@@ -805,11 +805,11 @@
     <!-- Talk with Us Section -->
     <section id="contact" class="talk-with-us-section">
         <div class="container">
-            <h2 class="section-title">Show us a process</h2>
-            <p class="section-subtitle">In 30 minutes, free and without obligation, we look at one of your company's processes together and tell you whether AI can lighten it. We reply within 24 working hours.</p>
+            <h2 class="section-title" data-contact-title>Show us a process</h2>
+            <p class="section-subtitle" data-contact-subtitle>In 30 minutes, free and without obligation, we look at one of your company's processes together and tell you whether AI can lighten it. We reply within 24 working hours.</p>
 
             <!-- Contact Form -->
-            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" accept-charset="UTF-8">
+            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" accept-charset="UTF-8" data-contact-intent>
                 <input type="hidden" name="access_key" value="bfacbe48-94e9-4411-94a0-6017dc9791b6">
                 <input type="hidden" name="botcheck" class="hidden" style="display: none;">
                 <div class="form-row-2col">
@@ -851,6 +851,34 @@
                             <option value="aeo">Visibility in AI assistants (AEO)</option>
                             <option value="altro">Other</option>
                         </select>
+                    </div>
+                </div>
+
+                <div data-training-fields hidden>
+                    <div class="form-group">
+                        <label for="course">Course of interest (optional)</label>
+                        <select id="course" name="course" disabled>
+                            <option value="">Help me choose</option>
+                            <option value="executive-mastery">AI Executive Mastery</option>
+                            <option value="prompt-engineering">Prompt Engineering for business workflows</option>
+                            <option value="ai-agent-developer">AI Agent Developer</option>
+                        </select>
+                    </div>
+                    <div class="form-row-2col">
+                        <div class="form-group">
+                            <label for="participants">Number of participants (optional)</label>
+                            <input type="number" id="participants" name="participants" min="1" step="1" placeholder="E.g. 8" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="delivery-format">Preferred format (optional)</label>
+                            <select id="delivery-format" name="delivery_format" disabled>
+                                <option value="">Select a format</option>
+                                <option value="online">Live online</option>
+                                <option value="in-person">In person</option>
+                                <option value="hybrid">Hybrid</option>
+                                <option value="to-discuss">Let's discuss</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
 
@@ -924,7 +952,7 @@
     <div id="footer-placeholder"></div>
 
     <script src="/deferred-video.js?v=20261009" defer></script>
-    <script src="/script.js?v=20261009"></script>
+    <script src="/script.js?v=20261010"></script>
     <script src="/en/includes/navigation-en.js?v=20261009"></script>
     <script src="/conversion-tracking.js?v=20261009"></script>
     <script src="/cookie-banner.js?v=20260428"></script>
