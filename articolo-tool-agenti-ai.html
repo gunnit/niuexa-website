@@ -42,7 +42,7 @@
     <meta property="og:image" content="https://niuexa.ai/img/niuexalogo.png">
     <meta property="og:locale" content="it_IT">
     <meta property="article:published_time" content="2026-03-16">
-    <meta property="article:modified_time" content="2026-10-06">
+    <meta property="article:modified_time" content="2026-10-10">
     <meta property="article:author" content="Niuexa">
     <meta property="article:section" content="AI Engineering">
     <meta property="article:tag" content="Agenti AI">
@@ -95,7 +95,7 @@
             }
         },
         "datePublished": "2026-03-16",
-        "dateModified": "2026-10-06",
+        "dateModified": "2026-10-10",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://niuexa.ai/articolo-tool-agenti-ai.html"
@@ -122,7 +122,7 @@
                 "name": "Quali tool servono per creare un agente AI in produzione?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Per un agente AI in produzione servono almeno cinque categorie di tool: un LLM con supporto nativo al tool calling (per esempio OpenAI GPT-5 o Anthropic Claude), un framework di orchestrazione (LangChain, LlamaIndex o un SDK custom), una pipeline RAG con vector database (Pinecone, Weaviate, Qdrant), una piattaforma di osservabilità (LangSmith, Arize, Helicone) e un sistema di guardrail per applicare le policy e validare gli output."
+                    "text": "Servono un modello, istruzioni, tool autorizzati e un controllo dell’esecuzione adatto al processo. RAG e database vettoriali sono opzioni per recuperare informazioni, non requisiti universali: possono bastare API o query sul sistema di riferimento. In produzione vanno previsti validazione, permessi, test, osservabilità, limiti di costo e gestione degli errori; framework e piattaforme si scelgono in base alla complessità e alle competenze del team."
                 }
             },
             {
@@ -162,7 +162,7 @@
                 "name": "Come si testa un agente AI prima di andare in produzione?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Su più livelli: 1) unit test sui singoli tool con input e output deterministici; 2) un golden set di 50-200 casi reali con risposte attese; 3) metriche automatiche (Task Success Rate, groundedness) con soglie fissate prima dei test; 4) LLM-as-judge per valutare la qualità delle risposte; 5) red teaming con prompt avversariali; 6) test di regressione automatici in CI/CD a ogni modifica. Il golden set va aggiornato ogni mese con i casi di errore raccolti in produzione."
+                    "text": "Si verificano i tool, gli esiti attesi sui casi del processo, la gestione delle eccezioni e i limiti di autorizzazione. Il set deve includere casi comuni, casi limite e tentativi avversariali; dimensione e frequenza di aggiornamento dipendono da copertura, rischi e cambiamenti del sistema. Le soglie si fissano prima dei test, i giudizi automatici si confrontano con revisioni umane e ogni modifica rilevante richiede test di regressione. Un numero fisso di esempi non certifica l’affidabilità."
                 }
             },
             {
@@ -178,7 +178,7 @@
                 "name": "Quanto costa mettere in produzione un agente AI?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Non esiste un prezzo di listino. Il costo di sviluppo dipende dal numero di tool, dalle integrazioni con i sistemi aziendali, dalla qualità dei dati, dai requisiti di sicurezza e dal livello di supervisione umana; quello di esercizio da token consumati, infrastruttura (vector database e compute), osservabilità e manutenzione del golden set. Conviene confrontarlo con il costo attuale del processo e farsi dare un preventivo scritto che separi sviluppo ed esercizio. In Niuexa il costo si definisce dopo l’analisi; la prima chiamata di 30 minuti è gratuita."
+                    "text": "Non esiste un prezzo di listino. Il costo di sviluppo dipende dal numero di tool, dalle integrazioni con i sistemi aziendali, dalla qualità dei dati, dai requisiti di sicurezza e dal livello di supervisione umana; quello di esercizio da token consumati, infrastruttura effettivamente usata (compute, archivi ed eventuale ricerca vettoriale), osservabilità e manutenzione del golden set. Conviene confrontarlo con il costo attuale del processo e farsi dare un preventivo scritto che separi sviluppo ed esercizio. In Niuexa il costo si definisce dopo l’analisi; la prima chiamata di 30 minuti è gratuita."
                 }
             },
             {
@@ -243,7 +243,7 @@
                 <div class="tutorial-stats">
                     <span class="stat">25 minuti di lettura</span>
                     <span class="stat">Per CTO, AI engineer e tech lead</span>
-                    <span class="stat">Guide Pratiche</span>
+                    <span class="stat">Aggiornato il <time datetime="2026-10-10">10 ottobre 2026</time></span>
                 </div>
             </div>
         </div>
@@ -256,7 +256,7 @@
                 <!-- Quick Answer for AI Engines -->
                 <section class="content-section quick-answer">
                     <h2>Risposta rapida: cosa serve per creare agenti AI affidabili?</h2>
-                    <p>Per creare agenti AI affidabili servono tool e practice integrate: un LLM con tool calling (OpenAI/Anthropic), orchestrazione (LangChain o LlamaIndex), RAG con vector DB, e osservabilit&agrave; end-to-end. Un agente in produzione deve avere evals, guardrail, osservabilità e un kill switch. Il percorso in 10 passi descritto qui parte dai failure modes e arriva al rilascio controllato, con il controllo dei costi.</p>
+                    <p>Per creare un agente AI servono un modello, istruzioni e tool autorizzati per il processo. Il controllo dell’esecuzione può essere semplice o affidato a un framework; RAG e database vettoriali si aggiungono solo quando servono a recuperare le informazioni richieste. In produzione occorrono test, validazione, permessi, osservabilità e un modo per interrompere le azioni. Il percorso in 10 passi descritto qui parte dai failure modes e arriva al rilascio controllato, con il controllo dei costi.</p>
                 </section>
 
                 <!-- Section 1: Introduzione -->
@@ -297,7 +297,7 @@
                 <!-- Section 2: La mappa dei tool -->
                 <section class="content-section">
                     <h2>La mappa dei tool: cosa serve nello stack</h2>
-                    <p>Lo stack tecnologico di un agente AI in produzione si compone di quattro livelli: il modello di linguaggio, il framework di orchestrazione, il pipeline RAG e i tool di produzione. Scegliere il componente sbagliato in uno qualsiasi di questi livelli compromette l'intero sistema.</p>
+                    <p>Lo stack va scelto in base al processo: modello, istruzioni e tool, controllo dell’esecuzione, accesso alle informazioni necessarie e controlli operativi. Un’API del gestionale o una query autorizzata possono fornire il contesto senza RAG o database vettoriali. Un framework dedicato serve quando aiuta a gestire la complessità; non è un requisito per ogni agente.</p>
 
                     <h3>LLM + API: criteri di selezione</h3>
                     <p>La scelta del modello non &egrave; solo una questione di benchmark. I criteri che contano in produzione sono:</p>
@@ -346,7 +346,7 @@
 
                     <div class="pro-tips">
                         <h4>Regola pratica</h4>
-                        <p>Conviene partire con un SDK minimale (per esempio quello del fornitore del modello, con un’orchestrazione essenziale) e passare a LangChain o LlamaIndex solo quando la complessità del workflow lo giustifica. Il framework aggiunge valore quando ci sono più di 5 tool, branching condizionale e stato da conservare tra le sessioni.</p>
+                        <p>Conviene partire con un SDK minimale (per esempio quello del fornitore del modello, con un’orchestrazione essenziale) e passare a LangChain o LlamaIndex solo quando la complessità del workflow lo giustifica. Il framework può aggiungere valore quando ramificazioni, gestione dello stato o interazioni tra tool diventano difficili da mantenere e testare; il numero dei tool, da solo, non decide la scelta.</p>
                     </div>
 
                     <h3>Piattaforme dei fornitori o stack proprio</h3>
@@ -401,10 +401,11 @@
                     <p>Un agente senza memoria &egrave; stateless e riparte da zero a ogni interazione. Un agente con troppa memoria consuma token inutilmente e introduce rumore. Il design della memoria richiede tre decisioni:</p>
                     <ul>
                         <li><strong>Short-term memory:</strong> la conversazione corrente, gestita nel context window del modello. Limitata dalla dimensione della finestra</li>
-                        <li><strong>Long-term memory:</strong> conoscenza persistente tra sessioni, tipicamente un vector DB (Pinecone, Weaviate, Qdrant, pgvector) con embedding del contenuto aziendale</li>
+                        <li><strong>Long-term memory:</strong> informazioni conservate tra sessioni in un archivio adatto al contenuto e ai permessi; un database vettoriale è una delle opzioni, non una scelta obbligatoria</li>
                         <li><strong>Working memory:</strong> lo stato intermedio dell’esecuzione corrente: quali tool sono stati chiamati, quali risultati ottenuti, quali sotto-task completati</li>
                     </ul>
-                    <p>Il pipeline RAG (Retrieval-Augmented Generation) collega il modello alla conoscenza aziendale. I componenti critici sono: chunking strategy (dimensione e overlap dei frammenti), embedding model (trade-off qualit&agrave;/costo), retrieval strategy (similarity search, hybrid search, re-ranking), e prompt di contesto che integra i risultati del retrieval nell'istruzione al modello.</p>
+                    <p>Quando serve recuperare documenti per fondare una risposta, una pipeline RAG (Retrieval-Augmented Generation) può collegare il modello alla conoscenza aziendale. La ricerca può usare parole chiave, vettori o entrambi: suddivisione dei documenti, metodo di recupero e fonti fornite al modello vanno verificati sui casi del processo. Per dati strutturati come un prezzo o lo stato di un ordine, può bastare una lettura autorizzata dal sistema di riferimento.</p>
+                    <p>Per decidere cosa conservare e chi può correggerlo, usi il <a href="articolo-memoria-ai-agent-framework-4d.html">framework 4D: dato, destinazione, durata e diritto di revisione</a>.</p>
 
                     <h3>Tool di produzione: osservabilit&agrave;, logging, rate limiting</h3>
                     <p>Un agente in produzione senza osservabilit&agrave; &egrave; una scatola nera. I tool di produzione essenziali sono:</p>
@@ -467,6 +468,39 @@
                         <li><strong>Determinismo:</strong> a parit&agrave; di input, il tool restituisce lo stesso output (escluso il componente LLM). Questo rende il testing possibile</li>
                         <li><strong>I/O validato:</strong> input e output definiti con JSON Schema. L'agente non pu&ograve; chiamare un tool con parametri malformati, e il tool non pu&ograve; restituire strutture inattese</li>
                     </ul>
+
+                    <div class="pro-tips" id="esempio-bozza-ordine">
+                        <h3>Esempio illustrativo: da un’email a una bozza d’ordine</h3>
+                        <p><strong>Dati e scenario sono interamente fittizi:</strong> mostrano come definire il comportamento atteso, non un progetto cliente o risultati di test. L’email di esempio chiede: “Cliente C-DEMO-01, 3 pezzi di SKU-DEMO-42”, con identificativo univoco <code>REQ-DEMO-001</code>.</p>
+                        <p>L’agente può leggere anagrafica, listino corrente e stato della richiesta attraverso tool autorizzati: <code>get_customer_record</code>, <code>get_price_record</code> e <code>get_request_status</code>. I tool non inviano email e non creano ordini. L’applicazione prepara una bozza associata alla richiesta; il commerciale controlla dati e condizioni prima di approvare un eventuale passaggio al gestionale.</p>
+                        <h4>Bozza attesa con dati dimostrativi</h4>
+                        <pre><code>{
+  "request_id": "REQ-DEMO-001",
+  "customer_id": "C-DEMO-01",
+  "sku": "SKU-DEMO-42",
+  "quantity": 3,
+  "unit_price": 12.50,
+  "currency": "EUR",
+  "source_versions": {
+    "customer_record": "C-DEMO-01:v3",
+    "price_record": "LISTINO-DEMO:v7"
+  },
+  "approval_status": "awaiting_review"
+}</code></pre>
+                        <p>Il prezzo dimostrativo arriva dal record di listino, non dalla memoria del modello. Versioni delle fonti, esito dei controlli e identificativo della richiesta permettono di ricostruire la bozza. Una bozza pronta non prova che il gestionale abbia accettato un ordine: quell’esito richiede una conferma distinta dopo il passaggio approvato.</p>
+                        <h4>Cinque errori da includere nei test</h4>
+                        <table class="comparison-table">
+                            <thead><tr><th scope="col">Caso di prova</th><th scope="col">Comportamento atteso</th><th scope="col">Evidenza da controllare</th></tr></thead>
+                            <tbody>
+                                <tr><td>Cliente non trovato</td><td>Fermare la bozza e chiedere il codice corretto</td><td>Nessuna anagrafica inventata o sostituita con quella di un altro cliente</td></tr>
+                                <tr><td>SKU sconosciuto</td><td>Chiedere chiarimento sulla riga interessata</td><td>Nessun prodotto alternativo scelto senza approvazione</td></tr>
+                                <tr><td>Listino scaduto o versione superata</td><td>Recuperare il record valido; se manca, sospendere la bozza</td><td>Prezzo e versione corrispondono alla fonte corrente autorizzata</td></tr>
+                                <tr><td>Richiesta duplicata o ripetuta dopo un errore</td><td>Verificare <code>request_id</code> e recuperare lo stato esistente</td><td>Una sola bozza attiva per la richiesta e nessun secondo ordine a valle</td></tr>
+                                <tr><td>Conferma del gestionale non ricevuta dopo un passaggio approvato</td><td>Lasciare l’esito in sospeso e leggere lo stato prima di un nuovo tentativo; se non è verificabile, passare a una persona</td><td>Nessun invio ripetuto alla cieca e nessuna dichiarazione di ordine completato senza conferma</td></tr>
+                            </tbody>
+                        </table>
+                        <p>Questi sono esiti attesi da verificare, non prove già superate. Per formalizzare input, controlli e prova di completamento usi il <a href="articolo-contratto-qualita-workflow-ai.html">contratto di qualità del workflow</a>; per decidere se rilasciare, colleghi queste evidenze ai <a href="articolo-poc-produzione.html#scheda-decisione-bozza-ordine">criteri go/no-go del PoC</a>.</p>
+                    </div>
 
                     <h3>Human-in-the-loop: quando e come</h3>
                     <p>Non tutte le decisioni devono essere automatiche. Il pattern human-in-the-loop prevede tre livelli di intervento umano:</p>
@@ -538,8 +572,8 @@
                             <p>Definire l’obiettivo dell’agente in termini misurabili (per esempio la quota di ticket L1 risolti entro un tempo massimo, confrontata con la misura di partenza). Mappare i failure modes: cosa succede se l’agente ha un’allucinazione? Se il tool fallisce? Se il costo per conversazione supera il budget? Ogni failure mode deve avere una contromisura progettata prima di scrivere una riga di codice.</p>
                         </li>
                         <li>
-                            <strong>Dataset di casi reali (50-200)</strong>
-                            <p>Raccogliere 50-200 esempi reali dal dominio: input utente, output atteso, edge case, casi di errore. Questo dataset diventa il golden set per le evals. Senza dati reali, si costruisce sull'intuizione invece che sull'evidenza.</p>
+                            <strong>Dataset di casi rappresentativi</strong>
+                            <p>Raccogliere esempi del dominio con input, output atteso, casi limite ed errori. Per un primo perimetro ristretto, 50-200 esempi possono essere un’ipotesi di lavoro, non una soglia che certifica l’affidabilità. La copertura va verificata rispetto a frequenza e impatto degli errori, con casi validati da chi conosce il processo.</p>
                         </li>
                         <li>
                             <strong>RAG evaluation</strong>
@@ -551,7 +585,7 @@
                         </li>
                         <li>
                             <strong>Evals automatiche</strong>
-                            <p>Implementare una suite di test automatici che valuta l'agente sul golden set ad ogni modifica del prompt, del modello o dei tool. Le metriche minime sono: Task Success Rate, Groundedness, Cost per Resolution, Escalation Rate.</p>
+                            <p>Implementare una suite di test automatici che valuta l'agente sul golden set ad ogni modifica del prompt, del modello o dei tool. Scegliere metriche pertinenti al compito: completamento corretto, costo per esito accettato, escalation e, quando la risposta usa fonti, fedeltà a quelle fonti.</p>
                         </li>
                         <li>
                             <strong>Red teaming</strong>
@@ -567,7 +601,7 @@
                         </li>
                         <li>
                             <strong>Retraining / iterazione</strong>
-                            <p>Analizzare settimanalmente i casi di errore e aggiornare: il golden set (aggiungendo i nuovi edge case), il prompt (raffinando le istruzioni), i tool (correggendo bug o migliorando le validazioni), il retrieval (aggiungendo o aggiornando documenti nel vector DB).</p>
+                            <p>Analizzare i casi di errore con una frequenza adeguata al rischio e ai cambiamenti del sistema e aggiornare il golden set, le istruzioni e le validazioni dei tool. Se è presente una pipeline di recupero delle informazioni, verificare anche le fonti e gli indici effettivamente usati.</p>
                         </li>
                         <li>
                             <strong>Cost governance</strong>
@@ -603,7 +637,7 @@
                             </tr>
                             <tr>
                                 <td><strong>Groundedness</strong></td>
-                                <td>Percentuale di affermazioni nell'output supportate da fonti recuperate via RAG</td>
+                                <td>Per le risposte basate su fonti, percentuale di affermazioni supportate dai documenti o dai record consultati</td>
                                 <td>Molto alta per le risposte ai clienti: ogni affermazione deve avere una fonte</td>
                             </tr>
                             <tr>
@@ -629,13 +663,13 @@
                         </tbody>
                     </table>
 
-                    <h3>Costruzione del golden set (50-200 esempi)</h3>
-                    <p>Il golden set &egrave; il cuore del sistema di evals. Per costruirlo efficacemente:</p>
+                    <h3>Costruzione del golden set: copertura prima del numero</h3>
+                    <p>Il golden set raccoglie casi con esiti attesi verificabili. Dimensione e composizione dipendono dal processo e dai rischi: un piccolo campione può aiutare a trovare problemi, ma non dimostra da solo l’affidabilità in produzione. Per costruirlo:</p>
                     <ul>
                         <li><strong>Fonti:</strong> ticket reali, chat log, email dei clienti, casi risolti dagli operatori</li>
-                        <li><strong>Distribuzione:</strong> 60% casi tipici, 20% edge case, 20% casi di errore o adversariali</li>
+                        <li><strong>Distribuzione:</strong> rappresentare il lavoro reale e includere prove separate per errori rari ma gravi. Una ripartizione 60/20/20 tra casi tipici, limite e avversariali è solo un esempio di piano di test, non la distribuzione da assumere in produzione</li>
                         <li><strong>Formato:</strong> per ogni esempio: input utente, contesto disponibile, output atteso, tool call attese, criteri di valutazione</li>
-                        <li><strong>Aggiornamento:</strong> aggiungere 10-20 nuovi esempi al mese dai casi di errore in produzione</li>
+                        <li><strong>Aggiornamento:</strong> aggiungere i nuovi errori osservati e riesaminare il set quando cambiano processo, dati, prompt, modello o tool. Una quota mensile fissa non garantisce copertura</li>
                         <li><strong>Validazione:</strong> ogni esempio deve essere validato da un esperto di dominio (non solo dal team tech)</li>
                     </ul>
 
@@ -645,8 +679,10 @@
                         <li><strong>Criteri espliciti:</strong> fornire al giudice una rubrica con criteri binari o su scala 1-5, non valutazioni soggettive</li>
                         <li><strong>Riferimento al ground truth:</strong> quando disponibile, il giudice confronta l'output con la risposta attesa, non con la propria "opinione"</li>
                         <li><strong>Modello diverso:</strong> usare un modello diverso da quello dell'agente come giudice per evitare auto-valutazione favorevole</li>
-                        <li><strong>Calibrazione:</strong> validare il giudice su un campione con valutazioni umane e misurare l'accordo (Cohen's kappa &gt; 0.7)</li>
+                        <li><strong>Calibrazione:</strong> confrontare il giudice con valutazioni umane, esaminare i disaccordi e scegliere la soglia di accettazione in base al rischio del compito, prima di usarlo per decidere sui rilasci</li>
                     </ul>
+
+                    <p>Per approfondire: la <a href="https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf" target="_blank" rel="noopener">guida pratica OpenAI agli agenti</a> descrive modello, tool e istruzioni; le <a href="https://developers.openai.com/api/docs/guides/evaluation-best-practices" target="_blank" rel="noopener">indicazioni OpenAI sulle valutazioni</a> spiegano come scegliere casi pertinenti al compito e calibrare i giudizi automatici con revisioni umane.</p>
 
                     <h3>Test di regressione in CI/CD</h3>
                     <p>Ogni modifica al prompt, al modello o ai tool deve triggerare automaticamente la suite di evals sul golden set. Se una metrica regredisce oltre la soglia, il deploy viene bloccato. Questo richiede:</p>
@@ -766,7 +802,7 @@
 
                     <div class="faq-item">
                         <h3>Quali tool servono per creare un agente AI in produzione?</h3>
-                        <p>Per un agente AI in produzione servono almeno cinque categorie di tool: un LLM con supporto nativo al tool calling (per esempio OpenAI GPT-5 o Anthropic Claude), un framework di orchestrazione (LangChain, LlamaIndex o un SDK custom), una pipeline RAG con vector database (Pinecone, Weaviate, Qdrant), una piattaforma di osservabilità (LangSmith, Arize, Helicone) e un sistema di guardrail per applicare le policy e validare gli output.</p>
+                        <p>Servono un modello, istruzioni, tool autorizzati e un controllo dell’esecuzione adatto al processo. RAG e database vettoriali sono opzioni per recuperare informazioni, non requisiti universali: possono bastare API o query sul sistema di riferimento. In produzione vanno previsti validazione, permessi, test, osservabilità, limiti di costo e gestione degli errori; framework e piattaforme si scelgono in base alla complessità e alle competenze del team.</p>
                     </div>
 
                     <div class="faq-item">
@@ -791,7 +827,7 @@
 
                     <div class="faq-item">
                         <h3>Come si testa un agente AI prima di andare in produzione?</h3>
-                        <p>Su più livelli: 1) unit test sui singoli tool con input e output deterministici; 2) un golden set di 50-200 casi reali con risposte attese; 3) metriche automatiche (Task Success Rate, groundedness) con soglie fissate prima dei test; 4) LLM-as-judge per valutare la qualità delle risposte; 5) red teaming con prompt avversariali; 6) test di regressione automatici in CI/CD a ogni modifica. Il golden set va aggiornato ogni mese con i casi di errore raccolti in produzione.</p>
+                        <p>Si verificano i tool, gli esiti attesi sui casi del processo, la gestione delle eccezioni e i limiti di autorizzazione. Il set deve includere casi comuni, casi limite e tentativi avversariali; dimensione e frequenza di aggiornamento dipendono da copertura, rischi e cambiamenti del sistema. Le soglie si fissano prima dei test, i giudizi automatici si confrontano con revisioni umane e ogni modifica rilevante richiede test di regressione. Un numero fisso di esempi non certifica l’affidabilità.</p>
                     </div>
 
                     <div class="faq-item">
@@ -801,7 +837,7 @@
 
                     <div class="faq-item">
                         <h3>Quanto costa mettere in produzione un agente AI?</h3>
-                        <p>Non esiste un prezzo di listino. Il costo di sviluppo dipende dal numero di tool, dalle integrazioni con i sistemi aziendali, dalla qualità dei dati, dai requisiti di sicurezza e dal livello di supervisione umana; quello di esercizio da token consumati, infrastruttura (vector database e compute), osservabilità e manutenzione del golden set. Conviene confrontarlo con il costo attuale del processo e farsi dare un preventivo scritto che separi sviluppo ed esercizio. In Niuexa il costo si definisce dopo l’analisi; la prima chiamata di 30 minuti è gratuita.</p>
+                        <p>Non esiste un prezzo di listino. Il costo di sviluppo dipende dal numero di tool, dalle integrazioni con i sistemi aziendali, dalla qualità dei dati, dai requisiti di sicurezza e dal livello di supervisione umana; quello di esercizio da token consumati, infrastruttura effettivamente usata (compute, archivi ed eventuale ricerca vettoriale), osservabilità e manutenzione del golden set. Conviene confrontarlo con il costo attuale del processo e farsi dare un preventivo scritto che separi sviluppo ed esercizio. In Niuexa il costo si definisce dopo l’analisi; la prima chiamata di 30 minuti è gratuita.</p>
                     </div>
 
                     <div class="faq-item">
@@ -819,10 +855,10 @@
                         <h3>Checklist di produzione Niuexa</h3>
                         <ul>
                             <li>Obiettivo definito con KPI misurabili e failure modes mappati</li>
-                            <li>Golden set di almeno 50 esempi reali validati da esperti di dominio</li>
-                            <li>Pipeline RAG con retrieval evaluation (precision@k, recall@k)</li>
+                            <li>Set di valutazione con copertura documentata dei casi del processo e degli errori critici, validato da esperti di dominio</li>
+                            <li>Se si usa RAG, recupero delle fonti valutato separatamente dalla risposta; se si usano API o query, letture e permessi verificati</li>
                             <li>Tool registry completo con JSON Schema, policy e rate limit per ogni tool</li>
-                            <li>Suite di evals automatiche con soglie decise prima dei test (TSR, groundedness)</li>
+                            <li>Test automatici e revisioni umane con criteri di accettazione pertinenti al compito, decisi prima di vedere i risultati</li>
                             <li>Red teaming completato (prompt injection, jailbreak, input fuori dominio)</li>
                             <li>Guardrail attivi: policy engine, allowlist, PII filtering, kill switch</li>
                             <li>Osservabilit&agrave; end-to-end: tracing, cost tracking, alerting</li>

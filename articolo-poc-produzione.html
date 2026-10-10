@@ -42,7 +42,7 @@
     <meta property="og:image" content="https://niuexa.ai/img/niuexalogo.png">
     <meta property="og:locale" content="it_IT">
     <meta property="article:published_time" content="2026-03-16">
-    <meta property="article:modified_time" content="2026-10-06">
+    <meta property="article:modified_time" content="2026-10-10">
     <meta property="article:author" content="Niuexa">
     <meta property="article:section" content="Digital Transformation">
     <meta property="article:tag" content="PoC Produzione">
@@ -95,14 +95,14 @@
             }
         },
         "datePublished": "2026-03-16",
-        "dateModified": "2026-10-06",
+        "dateModified": "2026-10-10",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://niuexa.ai/articolo-poc-produzione.html"
         },
         "keywords": ["PoC produzione", "proof of concept scalabile", "framework scaling PoC", "go no-go PoC", "industrializzazione PoC", "KPI progetto AI", "implementazione AI step by step", "fattibilità progetto AI"],
         "articleSection": "Digital Transformation",
-        "wordCount": "4900",
+        "wordCount": "5779",
         "inLanguage": "it-IT",
         "speakable": {
             "@type": "SpeakableSpecification",
@@ -162,7 +162,7 @@
                 "name": "Come si definiscono i criteri go/no-go per un PoC?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Con tre esiti decisi prima di iniziare. Go: risultato pari o superiore al target, readiness tecnica verde e responsabile confermato, quindi si procede con il rilascio. Iterate: risultato tra il 50% e il 99% del target con un gap chiaro, quindi un piano di recupero con scadenze brevi. No-go: risultato sotto il 50% del target o rischi non mitigabili, quindi ci si ferma e si ripensa l’approccio. I criteri si scrivono prima dell’avvio e si condividono con tutte le persone coinvolte."
+                    "text": "Prima dell’avvio, per ogni metrica si concordano definizione, denominatore, baseline, direzione del miglioramento, soglia di accettazione, evidenze necessarie e responsabile. Per tempi e costi più basso è meglio; per altre metriche può valere il contrario. Go: criteri obbligatori soddisfatti con evidenze sufficienti, verifiche tecniche superate, nessun rischio bloccante aperto e responsabile confermato. Iterate: scostamento recuperabile con un intervento preciso e una nuova verifica prima del rilascio. No-go: rischio non mitigabile o recupero non sostenibile. Se mancano misure o prove sufficienti, la decisione resta in sospeso: non è un successo né un rifiuto automatico. Un miglioramento della velocità non compensa un rischio bloccante, come la creazione di ordini duplicati."
                 }
             },
             {
@@ -258,9 +258,10 @@
                 <h1>Dal PoC alla produzione: come trasformare un Proof of Concept in un sistema che si usa davvero</h1>
                 <p class="tutorial-description">Il rischio più grande di un PoC non è che fallisca, ma che resti un PoC: una demo in ambiente protetto che nessuno usa nel lavoro di ogni giorno. Questa guida spiega come decidere se un PoC merita la produzione e come portarlo lì: KPI di risultato, criteri go/no-go fissati prima, architettura, governance e un rilascio controllato in quattro fasi.</p>
                 <div class="tutorial-stats">
-                    <span class="stat">25 minuti di lettura</span>
+                    <span class="stat">29 minuti di lettura</span>
                     <span class="stat">Per CTO, project manager e responsabili di processo</span>
                     <span class="stat">Guide Pratiche</span>
+                    <span class="stat">Aggiornato il <time datetime="2026-10-10">10 ottobre 2026</time></span>
                 </div>
             </div>
         </div>
@@ -525,7 +526,8 @@
                     <p>Un modello molto accurato che nessuno usa non produce valore. Un modello meno accurato ma integrato nel processo, con una persona che decide sulle eccezioni, può produrne. Per questo il KPI va misurato sul processo, non sul modello.</p>
 
                     <h3>Criteri go/no-go</h3>
-                    <p>Alla fine del PoC (o del pilota), serve una decisione strutturata. Non “ci piace o non ci piace”, ma criteri oggettivi condivisi prima dell’avvio.</p>
+                    <p>Alla fine del PoC (o del pilota), serve una decisione strutturata, con criteri condivisi prima dell’avvio. Per ogni metrica si scrivono <strong>definizione, denominatore, baseline, direzione del miglioramento e soglia di accettazione</strong>. Per tempi, costi ed errori più basso è meglio; per una quota di richieste risolte può valere il contrario. Non si può quindi applicare a tutti i KPI la stessa percentuale di raggiungimento del target.</p>
+                    <p>Si concordano anche il periodo e i casi da osservare, le prove necessarie, il responsabile della valutazione e i rischi che impediscono il rilascio. Un dato medio favorevole non compensa un errore bloccante. Un campione senza i casi critici previsti non basta a dimostrare che quei rischi siano gestiti.</p>
 
                     <table class="comparison-table">
                         <thead>
@@ -538,18 +540,23 @@
                         <tbody>
                             <tr>
                                 <td><strong>Go</strong></td>
-                                <td>Outcome &ge; target + readiness tecnica verde + owner confermato</td>
+                                <td>Criteri obbligatori soddisfatti nella direzione concordata, evidenze sufficienti, verifiche tecniche superate, nessun rischio bloccante aperto e responsabile confermato</td>
                                 <td>Avviare il rilascio in quattro fasi</td>
                             </tr>
                             <tr>
                                 <td><strong>Iterate</strong></td>
-                                <td>Outcome 50-99% del target con gap chiaro e mitigabile</td>
-                                <td>Piano di recupero con scadenze brevi e verifiche intermedie</td>
+                                <td>Scostamento recuperabile con un intervento preciso, sostenibile e verificabile</td>
+                                <td>Correggere e ripetere le verifiche entro una scadenza concordata; il rilascio resta fermo</td>
                             </tr>
                             <tr>
                                 <td><strong>No-Go</strong></td>
-                                <td>Outcome &lt; 50% del target oppure rischi non mitigabili</td>
-                                <td>Stop. Documentare i learning. Rivalutare approccio o use case</td>
+                                <td>Rischio non mitigabile oppure recupero non sostenibile rispetto all’obiettivo e al budget</td>
+                                <td>Fermare il percorso attuale, documentare quanto appreso e rivalutare approccio o caso d’uso</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Decisione in sospeso</strong></td>
+                                <td>Baseline, misure, copertura dei casi critici o altre prove necessarie mancanti o insufficienti</td>
+                                <td>Assegnare la raccolta delle evidenze e una data di riesame; non dichiarare né successo né rifiuto automatico</td>
                             </tr>
                         </tbody>
                     </table>
@@ -558,6 +565,52 @@
                         <h4>Quando fissare i criteri</h4>
                         <p>I criteri vanno definiti <strong>prima</strong> dell'avvio del PoC, non dopo aver visto i risultati. Definirli a posteriori introduce bias di conferma: si spostano i paletti per giustificare la decisione gi&agrave; presa.</p>
                     </div>
+
+                    <h3 id="scheda-decisione-bozza-ordine">Scheda da compilare: dalla richiesta a una bozza d’ordine</h3>
+                    <p><strong>Scenario illustrativo, senza risultati di clienti:</strong> una email fittizia contiene cliente, SKU e quantità. Il sistema legge anagrafiche e prezzo aggiornato e prepara una bozza per il revisore. Non invia automaticamente ordini. L’eventuale passaggio al sistema destinatario richiede un’approvazione separata: una bozza preparata non è un ordine accettato. I controlli di input e le risposte alle eccezioni sono nell’<a href="articolo-tool-agenti-ai.html#esempio-bozza-ordine">esempio della guida agli agenti AI</a>.</p>
+                    <p>Copi la scheda nel documento del pilota. Prima della prova, concordi casi inclusi, periodo, numeratore e denominatore; usi lo stesso perimetro per la baseline manuale e il pilota. Gli spazi sono da compilare, non valori consigliati o misure già ottenute.</p>
+
+                    <table class="comparison-table">
+                        <caption>Metriche e criteri da concordare prima della prova</caption>
+                        <thead>
+                            <tr><th scope="col">Metrica</th><th scope="col">Definizione, baseline e criterio</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">M1 · Tempo di gestione</th>
+                                <td>Minuti di lavoro umano attivo, comprese revisione e correzioni, divisi per richieste uniche elaborate nel campione, anche se respinte o da chiarire.<br><strong>Baseline:</strong> ___ min/richiesta, periodo e campione ___.<br><strong>Direzione:</strong> più basso è meglio. <strong>Soglia concordata:</strong> massimo ___ min/richiesta.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">M2 · Costo totale per bozza accettata</th>
+                                <td>Costi API, piattaforma, quota di infrastruttura e lavoro umano del campione, inclusi errori e retry, divisi per bozze accettate dal revisore. Dichiarare periodo, voci e quote di costo; se le bozze accettate sono zero, il rapporto non è valutabile.<br><strong>Baseline:</strong> ___ €/bozza; voci e periodo ___.<br><strong>Direzione:</strong> più basso è meglio. <strong>Soglia concordata:</strong> massimo ___ €/bozza.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">M3 · Bozze invalide arrivate in approvazione</th>
+                                <td>Bozze con cliente, SKU, quantità o prezzo non validi inviate alla coda di approvazione, divise per tutte le bozze inviate alla stessa coda. Registrare anche i tipi di errore; un denominatore nullo non equivale a zero errori.<br><strong>Baseline:</strong> ___ / ___ bozze, periodo ___.<br><strong>Direzione:</strong> più basso è meglio. <strong>Soglia concordata:</strong> massimo ___%; errori critici che bloccano il rilascio ___.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">M4 · Scritture duplicate a destinazione</th>
+                                <td>Scritture aggiuntive oltre quella autorizzata per lo stesso <code>request_id</code>, divise per richieste uniche affidate al destinatario dopo approvazione. Controllare i registri del destinatario, compresi retry e risposte non confermate.<br><strong>Baseline:</strong> ___ duplicazioni / ___ richieste.<br><strong>Direzione:</strong> più basso è meglio. <strong>Criterio bloccante di questo scenario:</strong> nessuna duplicazione; responsabile che lo approva ___.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="comparison-table">
+                        <caption>Registro della decisione: compilare una riga per ciascuna metrica</caption>
+                        <thead>
+                            <tr><th scope="col">Metrica</th><th scope="col">Risultato, prova e responsabilità</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><th scope="row">M1 · Tempo</th><td><strong>Risultato osservato:</strong> ___ min / ___ richieste = ___. <strong>Evidenza:</strong> registro tempi, campione e versione ___. <strong>Responsabile:</strong> ___. <strong>Decisione e motivazione:</strong> ___.</td></tr>
+                            <tr><th scope="row">M2 · Costo</th><td><strong>Risultato osservato:</strong> ___ € / ___ bozze accettate = ___. <strong>Evidenza:</strong> dettaglio costi e accettazioni ___. <strong>Responsabile:</strong> ___. <strong>Decisione e motivazione:</strong> ___.</td></tr>
+                            <tr><th scope="row">M3 · Validità</th><td><strong>Risultato osservato:</strong> ___ bozze invalide / ___ in approvazione = ___. <strong>Evidenza:</strong> controlli sui campi e tipi di errore ___. <strong>Responsabile:</strong> ___. <strong>Decisione e motivazione:</strong> ___.</td></tr>
+                            <tr><th scope="row">M4 · Duplicazioni</th><td><strong>Risultato osservato:</strong> ___ scritture duplicate / ___ richieste affidate = ___. <strong>Evidenza:</strong> <code>request_id</code>, stato e registri del destinatario, casi di retry provati ___. <strong>Responsabile:</strong> ___. <strong>Decisione e motivazione:</strong> ___.</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p><strong>Decisione complessiva:</strong> Go / Iterate / No-go / in sospeso ___. Responsabile del rilascio ___; motivazione e rischi aperti ___; prossima verifica ___. Se mancano dati, denominatori utilizzabili o copertura delle eccezioni, lasci la decisione in sospeso e indichi chi deve produrre la prova.</p>
+                    <p><strong>Come leggere un esito:</strong> anche se M1 mostra un tempo inferiore alla soglia, un retry che può creare un secondo ordine impedisce il Go. Serve correggere il comportamento e riprovare; se la risposta del destinatario non è confermata, prima si verifica il suo stato, senza reinviare alla cieca. Zero duplicazioni in richieste prive di retry non dimostra che il caso critico sia gestito.</p>
+                    <p>Per formalizzare le definizioni usi l’<a href="ai-metric-contract.html">AI Metric Contract</a>; per concordare limiti di costo, tempo, errore e autonomia, l’<a href="ai-outcome-budget.html">AI Outcome Budget</a>. Sono schede esistenti da compilare, non risultati del pilota.</p>
 
                     <h3>Calcolo del ROI: includere i costi reali</h3>
                     <p>Il ROI di un progetto che passa da PoC a produzione non pu&ograve; basarsi solo sul costo del PoC. Deve includere tutte le voci di industrializzazione:</p>
@@ -950,7 +1003,7 @@
 
                     <div class="faq-item">
                         <h3>Come si definiscono i criteri go/no-go per un PoC?</h3>
-                        <p>Con tre esiti decisi prima di iniziare. Go: risultato pari o superiore al target, readiness tecnica verde e responsabile confermato, quindi si procede con il rilascio. Iterate: risultato tra il 50% e il 99% del target con un gap chiaro, quindi un piano di recupero con scadenze brevi. No-go: risultato sotto il 50% del target o rischi non mitigabili, quindi ci si ferma e si ripensa l’approccio. I criteri si scrivono prima dell’avvio e si condividono con tutte le persone coinvolte.</p>
+                        <p>Prima dell’avvio, per ogni metrica si concordano definizione, denominatore, baseline, direzione del miglioramento, soglia di accettazione, evidenze necessarie e responsabile. Per tempi e costi più basso è meglio; per altre metriche può valere il contrario. Go: criteri obbligatori soddisfatti con evidenze sufficienti, verifiche tecniche superate, nessun rischio bloccante aperto e responsabile confermato. Iterate: scostamento recuperabile con un intervento preciso e una nuova verifica prima del rilascio. No-go: rischio non mitigabile o recupero non sostenibile. Se mancano misure o prove sufficienti, la decisione resta in sospeso: non è un successo né un rifiuto automatico. Un miglioramento della velocità non compensa un rischio bloccante, come la creazione di ordini duplicati.</p>
                     </div>
 
                     <div class="faq-item">
