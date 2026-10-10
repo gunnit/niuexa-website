@@ -2,9 +2,10 @@
 
 > Niuexa (NIUEXA S.R.L., VAT IT13489560014) is an AI consultancy for Italian SMEs,
 > with its registered office in Turin (Via Vittorio Andreis 18) and an office in
-> Milan (Via Rutilia 10). Founded in 2026 by Gregor Maric (CEO, in business process
-> automation since 2012) and Roberto Botto, it is controlled by Libera Brand
-> Building Group and is a member of AUSED, the association of Italian CIOs.
+> Milan (Via Rutilia 10). Started as a project in 2024 and incorporated as an S.r.l.
+> in 2026, it is led by Gregor Maric (CEO, in business process automation since
+> 2012) and Roberto Botto; it is controlled by Libera Brand Building Group and is
+> a member of AUSED, the association of Italian CIOs.
 > Niuexa works on three fronts: process automation with AI agents built on the
 > systems a company already uses, visibility in AI assistants (AEO/GEO), and
 > practical AI training.
@@ -27,7 +28,7 @@
 
 ### AI Consulting and process automation
 - [AI Consulting Services](https://niuexa.ai/consulting.html): Process analysis and measurement, use cases ranked by priority and feasibility, roadmap, and implementation on the client's existing systems
-- [AI Consulting Services (English)](https://niuexa.ai/en/consulting.html): Same services page in English
+- [AI Consulting Services (English)](https://niuexa.ai/en/consulting.html): Shorter English services page (the Italian page adds the pre-order checks, vendor checks, KPI definition and budget sections)
 - Typical clients: Italian SMEs with repetitive work in one office (administration, sales, marketing, technical and quality, management)
 - Project length depends on scope, data quality, integrations and testing; it is set after the analysis, together with the work plan
 
@@ -36,7 +37,7 @@
 - [AI Products (English)](https://niuexa.ai/en/products.html): Products page in English
 - Sales Agent: automation of steps in the sales funnel, with a person approving critical actions
 - Marketing Agent: drafting content for several channels and supporting campaigns, with human approval of messages
-- Voice Agent: AI phone agent for customer service (Twilio + OpenAI Realtime)
+- Voice Agent: AI phone agent for well-defined customer-service requests; languages, telephony and hours covered depend on the configuration and are tested on representative calls before go-live
 - [ChatAziendale](https://niuexa.ai/chat-aziendale.html): No-code AI chatbot trained on your business documents and website. Answers grounded in your content, with sources cited; encrypted data. Free / €29 Pro / €149 Business. Live product at chataziendale.it
 - [Keel](https://niuexa.ai/keel.html): MCP layer connecting Amazon Seller Central, Vendor Central, SP-API, Ads API and Brand Analytics to AI agents like Claude and ChatGPT. Multi-account, multi-marketplace natural-language queries. Live product at keelai.it
 
@@ -46,15 +47,22 @@
 - Hands-on workshops with examples from the participants' own work
 
 ### AI visibility (AEO/GEO)
-- [AI-readiness analysis](https://niuexa.ai/consulenza-aeo-geo.html): Free check of whether AI platforms can find and cite your website
-- [AEO Analyzer Platform](https://aeo.niuexa.ai): Platform for AI visibility monitoring, mention tracking, and optimization
-- Tracks brand mentions across ChatGPT, Perplexity, Google AI Overviews, Claude, Gemini
+- [AEO/GEO consulting and free homepage audit](https://niuexa.ai/consulenza-aeo-geo.html): Free audit of the homepage's technical and editorial readiness for AI assistants, with fixes in order of impact. Whether ChatGPT, Claude or Perplexity actually cite the company is a separate check of their answers, with documented questions, platforms and dates; it is not part of the free audit
+- [AEO/GEO consulting (English)](https://niuexa.ai/en/ai-readiness-tool.html): English version of the audit page
+- [AEO Analyzer Platform](https://aeo.niuexa.ai): Niuexa's tool for the AEO/GEO site audit (scores on five dimensions, corrections by priority); the Business plan adds a monthly audit of up to 25 agreed pages
+- [AI Readiness Assessment](https://niuexa.ai/ai-readiness-assessment.html): Assessment of processes, data, skills and governance that ranks the AI use cases worth starting from
 
 ## Company Information
+- [Home](https://niuexa.ai/) and [Home (English)](https://niuexa.ai/en/)
 - [About Us / Chi Siamo](https://niuexa.ai/chi-siamo.html): Team, founders, mission
 - [About Us (English)](https://niuexa.ai/en/about-us.html): English version
+- [Gregor Maric](https://niuexa.ai/gregor-maric.html) / [English](https://niuexa.ai/en/gregor-maric.html): CEO and co-founder, in business process automation since 2012; author of The AI Operator Series
 - [Contact](https://niuexa.ai/contatti.html): Book the free 30-minute first call ("Ci mostri un processo") or write to Niuexa
 - [Contact (English)](https://niuexa.ai/en/contact.html): English contact page
+- [Events (English)](https://niuexa.ai/en/events.html): The Milan meeting series described in English (talks are in Italian) and the archive of past events
+- [Free online lab, 22 October 2026](https://niuexa.ai/code-week-ai-2026.html): "AI e controllo umano", one hour online with Gregor Maric on sources, permissions and human control in AI flows
+- [ROI calculator](https://niuexa.ai/roi-calculator.html) / [English](https://niuexa.ai/en/roi-calculator.html): Estimates what a repetitive process costs today and what part of it automation would change; uses only the values entered, not a promise of savings
+- [Research hub](https://niuexa.ai/research.html): All Italian guides, frameworks and the tutorial, free and without registration
 
 ## Articles: AI Consulting & Business Strategy (Italian)
 - [Consulenza AI in Italia: Come Scegliere il Partner Giusto](https://niuexa.ai/articolo-consulenza-ai-italia.html): Guide to choosing an AI consulting partner in Italy, comparing Big 4 firms, system integrators and boutique specialists
@@ -62,9 +70,27 @@
 - [Il Management Chiede 'Mettiamo GenAI?': Framework Niuexa](https://niuexa.ai/articolo-management-genai-framework.html): Framework for responding to management requests for GenAI: value estimate, governance, triage
 - [Rischi AI in Azienda: i 7 Rischi Principali](https://niuexa.ai/articolo-rischi-ai-azienda.html): The 7 key risks of AI adoption and Niuexa's Risk Canvas mitigation framework
 - [Automazione Processi Manuali con AI](https://niuexa.ai/articolo-automazione-processi-manuali.html): When and how to automate manual processes: signals, first candidates, how to measure
-- [Quanto costa un progetto di automazione? Le voci di costo e come leggere un preventivo](https://niuexa.ai/articolo-costi-automazione-guida.html): The 10 cost items of an industrial automation quote, what moves the price, hidden costs and how to calculate payback on your own data
+- [Quanto costa automatizzare un processo con l'AI?](https://niuexa.ai/articolo-costi-automazione-guida.html): The 10 cost items of a quote for automating an office process with AI and agents, what moves the price, hidden costs and how to calculate payback on your own data
+- [Prima il processo, poi l'AI agent](https://niuexa.ai/articolo-processo-prima-ai-agent.html): When an AI agent makes sense: map the process, data, KPIs, human control and adoption before choosing a tool or model
+- [AI nei workflow operativi: dai pilot al valore misurabile](https://niuexa.ai/articolo-ai-workflow-operativi-enterprise.html): Framework to map processes, data, roles, governance and training before scaling automations and AI agents
+- [Strategia AI aziendale: la roadmap dai processi](https://niuexa.ai/ai-consulting/strategia-ai-aziendale.html): How to build an AI strategy: assess data and processes, rank use cases, plan roadmap, governance, budget and metrics
+- [Esempi di AI per settore: 12 scenari illustrativi](https://niuexa.ai/ai-consulting/casi-studio-ai.html): 12 illustrative (not real) scenarios by sector with the typical problem, the solution and what to measure before and after
+- [Niuexa entra in AUSED](https://niuexa.ai/articolo-aused-partnership.html): Why Niuexa joined AUSED, the association of Italian CIOs active since 1976
 - [Dal PoC alla produzione](https://niuexa.ai/articolo-poc-produzione.html): How to move an AI project from proof-of-concept to production, in four phases with go/no-go criteria agreed up front
 - [Tool e Practice per Creare Agenti AI](https://niuexa.ai/articolo-tool-agenti-ai.html): Tools and practices for building reliable AI agents, in a 10-step workflow
+
+## Articles: AI governance and operations for SMEs (Italian)
+- [Human-in-the-Loop per PMI](https://niuexa.ai/articolo-human-in-the-loop-ai-pmi.html): Decision matrix, escalation thresholds, roles and KPIs for human control of AI workflows and agents
+- [Due diligence fornitori AI: 12 domande](https://niuexa.ai/articolo-due-diligence-fornitori-ai-pmi.html): Checklist to evaluate an AI vendor before signing: data, quality, security, costs, continuity, AI Act, exit clauses
+- [Contratto di qualità per workflow AI](https://niuexa.ai/articolo-contratto-qualita-workflow-ai.html): Defining inputs, outputs, controls and acceptance criteria for a reliable AI workflow
+- [Change management AI per PMI](https://niuexa.ai/articolo-change-management-ai-pmi.html): Classify, test, approve and monitor changes to models, prompts, data and workflows
+- [Incident response AI per PMI](https://niuexa.ai/articolo-incident-response-ai-pmi.html): Runbook for AI incidents: severity, containment, evidence, recovery, communication, post-mortem
+- [Inventario AI per PMI](https://niuexa.ai/articolo-inventario-ai-pmi.html): Building an inventory of AI uses: find shadow AI, assign owners, classify risks, govern workflows
+- [Fonte unica per assistenti AI](https://niuexa.ai/articolo-fonte-unica-assistenti-ai.html): Documents, owners, deadlines and permissions for reliable AI assistants and RAG systems, with a 30-day plan
+- [Memoria degli AI agent: framework 4D](https://niuexa.ai/articolo-memoria-ai-agent-framework-4d.html): Classify what an agent remembers by data, use, duration and review rights
+- [Coda di lavoro per AI agent: framework 4C](https://niuexa.ai/articolo-coda-lavoro-ai-agent.html): Taking an agent to production: queue, capacity, continuity and verifiable delivery
+- [Process mining per PMI](https://niuexa.ai/articolo-process-mining-ai-pmi.html): Reconstruct the real flow, find variants and bottlenecks, choose where to apply AI
+- [Reporting AI: dal report al decision brief](https://niuexa.ai/articolo-reporting-ai-decision-brief.html): Automating reporting with authorised sources, consistent KPIs, controls, exceptions and a measurable pilot
 
 ## Articles: AEO, GEO & AI Search Optimization (Italian)
 - [SEO vs AEO vs GEO: Guida Completa](https://niuexa.ai/articolo-seo-aeo-geo-guida-completa.html): Comprehensive guide comparing traditional SEO, Answer Engine Optimization, and Generative Engine Optimization
@@ -88,7 +114,7 @@
 - [Lead Generation AI](https://niuexa.ai/tutorial-lead-generation-ai.html): AI lead generation tutorial
 
 ## Tutorials (English)
-- [AI Tutorials Hub](https://niuexa.ai/en/learn.html): The English AI tutorials (the video and voice tutorials are in Italian only)
+- [English guides hub](https://niuexa.ai/en/learn.html): The English guides and the lead-generation tutorial; the wider article library is in Italian
 - [Lead Generation AI](https://niuexa.ai/en/tutorial-lead-generation-ai.html): AI lead generation guide
 
 # Attribution / Citazione

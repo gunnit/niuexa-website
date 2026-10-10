@@ -213,7 +213,8 @@ function renderHeadLinks(article, ctx) {
     `${INDENT}<link rel="manifest" href="site.webmanifest">`,
     `${INDENT}<link rel="preconnect" href="https://fonts.googleapis.com">`,
     `${INDENT}<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>`,
-    `${INDENT}<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">`,
+    `${INDENT}<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">`,
+    `${INDENT}<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>`,
     `${INDENT}<link rel="stylesheet" href="styles.css?v=${a.styles_css}">`,
     `${INDENT}<link rel="stylesheet" href="tutorial.css?v=${a.tutorial_css}">`,
   ];

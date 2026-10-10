@@ -45,7 +45,7 @@ const navigationHTML = `
                 <a href="/contatti.html" class="nav-link" data-page="contatti">Contatti</a>
             </li>
             <li class="nav-item">
-                <a href="https://aeo.niuexa.ai" class="nav-link login-link" target="_blank" rel="noopener noreferrer"><svg class="login-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Login</a>
+                <a href="https://aeo.niuexa.ai" class="nav-link platform-link" target="_blank" rel="noopener noreferrer">Piattaforma AEO</a>
             </li>
             <li class="nav-item language-switcher">
                 <a href="/en/" class="nav-link" hreflang="en" lang="en" title="English version">EN</a>
