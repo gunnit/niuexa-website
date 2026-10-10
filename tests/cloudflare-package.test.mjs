@@ -56,12 +56,48 @@ test('the packaged bundle has a route for every page and real redirects for reti
   for (const [from, to] of MOVED) {
     assert.deepEqual(rules.get(`/eventi-ai-aziende/${from}/`), { to: `/eventi-ai-aziende/${to}/`, status: '301' }, from);
   }
+  for (const [from, to] of [
+    ['/ai-consulting/', '/consulting.html'],
+    ['/ai-consulting/privacy-policy.html', '/privacy-policy.html']
+  ]) {
+    assert.deepEqual(rules.get(from), { to, status: '301' }, `${from} preserves its historical destination`);
+    assert.ok(files.has(to.slice(1)), `${from} lands on a published page`);
+    assert.equal(rules.has(to), false, `${from} redirects directly without a chain`);
+  }
+  assert.ok(![...rules.keys()].some(from => from.startsWith('/ai-consulting/') && from.includes('*')), 'historical fixes must not redirect the entire article directory');
+  for (const article of ['casi-studio-ai', 'strategia-ai-aziendale']) {
+    const path = `/ai-consulting/${article}.html`;
+    assert.ok(files.has(path.slice(1)), `${path} remains published`);
+    assert.equal(rules.has(path), false, `${path} remains a page rather than a redirect`);
+  }
   const headers = readFileSync(join(site, '_headers'), 'utf8');
   assert.match(headers, /^https:\/\/:worker\.:account\.workers\.dev\/\*\n {2}X-Robots-Tag: noindex$/m);
   for (const pattern of ['/*.html', '/*.txt', '/', '/en/']) {
     assert.ok(headers.includes(`${pattern}\n`) && new RegExp(`^${pattern.replace(/[*.\/]/g, '\\$&')}\\n(?: {2}.+\\n)*? {2}Content-Type: [^\\n]*charset=utf-8`, 'm').test(headers), `${pattern} declares charset=utf-8`);
   }
   assert.ok(!existsSync(join(site, 'wrangler.jsonc')));
+});
+
+test('Keel describes the quote-based information page without unsupported product rich-result data', () => {
+  const html = readFileSync(join(root, 'keel.html'), 'utf8');
+  const schemas = [...html.matchAll(/<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1]));
+  const nodes = [];
+  function visit(value) {
+    if (!value || typeof value !== 'object') return;
+    nodes.push(value);
+    Object.values(value).forEach(visit);
+  }
+  schemas.forEach(visit);
+  assert.ok(!nodes.some(node => ['Product', 'SoftwareApplication', 'Offer', 'AggregateRating', 'Review'].includes(node['@type'])), 'do not invent price or review eligibility for a quote-only page');
+  const page = schemas.find(node => node['@type'] === 'WebPage');
+  assert.ok(page, 'keep ordinary WebPage metadata');
+  assert.equal(page.url, html.match(/<link rel="canonical" href="([^"]+)"/)[1]);
+  assert.equal(page.name, html.match(/<title>([^<]+)<\/title>/)[1]);
+  assert.equal(page.description, html.match(/<meta name="description" content="([^"]+)"/)[1]);
+  assert.deepEqual(page.about, { '@type': 'Thing', name: 'Keel', sameAs: 'https://keelai.it/' });
+  assert.ok(schemas.some(node => node['@type'] === 'BreadcrumbList'));
+  const faq = schemas.find(node => node['@type'] === 'FAQPage');
+  assert.ok(faq?.mainEntity.some(question => question.name === 'Quanto costa Keel?' && question.acceptedAnswer.text.includes('su richiesta')), 'preserve the visible quote-based pricing FAQ');
 });
 
 test('the deploy workflow gates Cloudflare on the same checks as Pages', () => {
