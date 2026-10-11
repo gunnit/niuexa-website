@@ -2,24 +2,28 @@
 //
 //   node build/check-hosting.mjs <base-url>
 //   node build/check-hosting.mjs <base-url> --compare https://niuexa.ai
+//   node build/check-hosting.mjs https://niuexa.ai --cloudflare-fonts
 //
 // Without --compare it verifies every file, every _redirects rule, the 404 page
 // and the headers against the local _site (run the two package scripts first).
 // With --compare it also fetches every URL from a reference host (GitHub Pages
 // before cutover) and fails if any URL that worked there now ends somewhere with
 // different content. Byte-level comparison also catches edge features that
-// rewrite HTML, such as Cloudflare's email obfuscation.
+// rewrite HTML, such as Cloudflare's email obfuscation. --cloudflare-fonts allows
+// only validated font-link replacements; all other content remains exact.
 import { createHash } from 'node:crypto';
 import { readFile, readdir } from 'node:fs/promises';
 import { join, relative, resolve } from 'node:path';
+import { compareHostedContent } from './hosting-content.mjs';
 
 const root = resolve(import.meta.dirname, '..');
 const site = join(root, '_site');
 const args = process.argv.slice(2);
 const base = args[0]?.replace(/\/$/, '');
 const reference = args.includes('--compare') ? args[args.indexOf('--compare') + 1]?.replace(/\/$/, '') : null;
+const cloudflareFonts = args.includes('--cloudflare-fonts');
 if (!base || (args.includes('--compare') && !reference)) {
-  console.error('usage: node build/check-hosting.mjs <base-url> [--compare <reference-url>]');
+  console.error('usage: node build/check-hosting.mjs <base-url> [--compare <reference-url>] [--cloudflare-fonts]');
   process.exit(2);
 }
 const isPreviewHost = new URL(base).hostname.endsWith('.workers.dev');
@@ -85,8 +89,7 @@ async function land(origin, path) {
   return { status: 'loop', path: current, hash: null, hops };
 }
 
-// Must match ASSET_CACHE_CONTROL in build/package-cloudflare.mjs; the test copies
-// this file alone into a temp dir, so it cannot be imported.
+// Must match ASSET_CACHE_CONTROL in build/package-cloudflare.mjs.
 const ASSET_CACHE_CONTROL = 'public, max-age=3600, stale-while-revalidate=86400';
 
 const failures = [];
@@ -97,8 +100,14 @@ const rules = (await readFile(join(site, '_redirects'), 'utf8')).split('\n')
   .filter(line => line.trim() && !line.startsWith('#'))
   .map(line => { const [from, to, status] = line.trim().split(/\s+/); return { from, to, status: Number(status) }; });
 const ruleFor = new Map(rules.map(r => [r.from, r]));
-const hashes = new Map();
-for (const f of files) hashes.set(f, sha(await readFile(join(site, f))));
+const contents = new Map();
+for (const f of files) contents.set(f, await readFile(join(site, f)));
+const fonts = new Set();
+function matchesContent(expected, actual) {
+  const result = compareHostedContent(expected, actual, cloudflareFonts);
+  if (result.matches) for (const path of result.fontPaths) fonts.add(path);
+  return result.matches;
+}
 const fileForPath = path => decodeURIComponent(path.replace(/^\//, '')) || 'index.html';
 
 // 1. Every redirect and rewrite rule.
@@ -113,7 +122,7 @@ await pool(rules, 8, async rule => {
     if (location.origin !== new URL(base).origin || location.href !== expected.href) {
       fail(rule.from, `redirects to ${location.href}, expected ${expected.href}`);
     }
-  } else if (sha(res.body) !== hashes.get(fileForPath(rule.to))) {
+  } else if (!matchesContent(contents.get(fileForPath(rule.to)), res.body)) {
     fail(rule.from, `body differs from ${rule.to}`);
   }
 });
@@ -124,7 +133,7 @@ await pool(files.filter(f => !ruleFor.has('/' + f)), 8, async file => {
   const html = file.endsWith('.html');
   const res = await get(base, path, html ? 'GET' : 'HEAD');
   if (res.status !== 200) return fail(path, `expected 200, got ${res.status}`);
-  if (html && sha(res.body) !== hashes.get(file)) fail(path, 'body differs from _site');
+  if (html && !matchesContent(contents.get(file), res.body)) fail(path, 'body differs from _site');
   const type = res.headers.get('content-type') || '';
   if (html && !type.startsWith('text/html')) fail(path, `content-type ${type}`);
   if (/\.(html|txt|css|js|mjs)$/.test(file) && !/charset=utf-8/i.test(type)) fail(path, `content-type "${type}" has no charset=utf-8`);
@@ -138,7 +147,7 @@ await pool(files.filter(f => !ruleFor.has('/' + f)), 8, async file => {
 {
   const res = await get(base, '/__hosting-check-missing__');
   if (res.status !== 404) fail('404', `expected 404, got ${res.status}`);
-  else if (sha(res.body) !== hashes.get('404.html')) fail('404', 'body is not 404.html');
+  else if (!matchesContent(contents.get('404.html'), res.body)) fail('404', 'body is not 404.html');
 }
 
 // 4. Parity with the reference host for every URL either host could be asked for.
@@ -162,14 +171,29 @@ if (reference) {
     // A reference page that only meta-refreshes is matched by a real redirect to its target.
     const refresh = theirs.body?.toString('utf8').match(REFRESH);
     if (refresh && new URL(refresh[1], reference + theirs.path).pathname === ours.path) return;
-    if (ours.hash !== theirs.hash) fail(path, `content differs from reference (${ours.hops.join(' -> ')} vs ${theirs.hops.join(' -> ')})`);
+    if (ours.hash !== theirs.hash) {
+      const target = ruleFor.get(ours.path)?.to || (ours.path.endsWith('/') ? ours.path + 'index.html' : ours.path);
+      const file = fileForPath(target);
+      const expected = contents.get(file);
+      if (!cloudflareFonts || !file.endsWith('.html') || !matchesContent(expected, ours.body) || !matchesContent(expected, theirs.body)) {
+        fail(path, `content differs from reference (${ours.hops.join(' -> ')} vs ${theirs.hops.join(' -> ')})`);
+      }
+    }
   });
 }
 
 if (reference && !compared) fail('--compare', `no URL could be compared with ${reference}`);
+// Validate every distinct rewritten font path, not just the surrounding HTML.
+await pool([...fonts], 8, async path => {
+  // Cloudflare Fonts handles GET; HEAD falls through to the site's 404 route.
+  const res = await get(base, path);
+  if (res.status !== 200) fail(path, `font expected 200, got ${res.status}`);
+  else if (!res.body?.length || !/^font\/woff2(?:;|$)/i.test(res.headers.get('content-type') || '')) fail(path, 'font response is not a nonempty font/woff2');
+});
 console.log(`Checked ${rules.length} rules and ${files.length} files on ${base}${reference ? `; compared ${compared} URLs with ${reference}` : ''}.`);
 if (failures.length) {
   console.error(`${failures.length} problem(s):\n  ${failures.slice(0, 200).join('\n  ')}`);
   process.exit(1);
 }
+if (fonts.size) console.log(`Verified ${fonts.size} Cloudflare font assets; other HTML content matched exactly.`);
 console.log('All hosting checks passed.');
