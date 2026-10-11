@@ -161,7 +161,7 @@ jobs:
         timeout-minutes: 10
         run: |
           for attempt in 1 2 3; do
-            timeout 180s node build/check-hosting.mjs https://niuexa.ai && exit 0
+            timeout 180s node build/check-hosting.mjs https://niuexa.ai --cloudflare-fonts && exit 0
             if [ "$attempt" -lt 3 ]; then sleep 10; fi
           done
           echo "::error::Public delivery did not match this deployment; IndexNow was not notified."
