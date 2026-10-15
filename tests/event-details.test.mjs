@@ -6,7 +6,7 @@ import {resolve} from 'node:path';
 const root=resolve(import.meta.dirname,'..');
 const read=p=>readFileSync(resolve(root,p),'utf8');
 // All three dates fall after the 25 Oct 2026 switch to CET, hence +01:00.
-const cases=[['seo-in-pensione-aeo-geo','2026-11-03','La SEO va in pensione, benvenuta AEO/GEO','+01:00'],['ai-agent-processi-aziendali','2026-11-17','AI Agent – Come rendere efficienti i processi aziendali','+01:00'],['ai-marketing-agent','2026-11-24','AI Marketing Agent – Come semplificare ed efficientare i processi di marketing','+01:00']];
+const cases=[['seo-in-pensione-aeo-geo','2026-11-03','La SEO va in pensione, benvenuta AEO/GEO','+01:00'],['ai-agent-processi-aziendali','2026-11-17','AI Agent – Come rendere efficienti i processi aziendali','+01:00'],['ai-marketing-agent','2026-11-25','AI Marketing Agent – Come semplificare ed efficientare i processi di marketing','+01:00']];
 const moved=[['farsi-trovare-era-ai','seo-in-pensione-aeo-geo'],['dall-ai-ai-risultati','ai-agent-processi-aziendali'],['agenti-ai-in-azienda','ai-marketing-agent']];
 test('three crawlable topic pages lead to the sole signup with correct event metadata',()=>{
  const titles=new Set(), descriptions=new Set(), hub=read('eventi-ai-aziende/index.html');

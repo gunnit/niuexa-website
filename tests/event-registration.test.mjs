@@ -53,7 +53,7 @@ test('request timeout aborts transport without false receipt or automatic retry'
  assert.equal(calls,2);
 });
 test('approved dates share 18:30 Europe/Rome and the Libera Milano venue; no invented speakers or prices',()=>{
- assert.deepEqual(EVENTS.map(e=>e.date),['2026-11-03','2026-11-17','2026-11-24']);
+ assert.deepEqual(EVENTS.map(e=>e.date),['2026-11-03','2026-11-17','2026-11-25']);
  for(const e of EVENTS) {
   assert.equal(e.time,'18:30');
   assert.equal(e.timezone,'Europe/Rome');

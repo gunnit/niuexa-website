@@ -31,10 +31,10 @@ export const EVENTS = [
   reading:'/articolo-processo-prima-ai-agent.html', readingLabel:'Perché il processo viene prima dell’agente AI'
  },
  {
-  slug:'ai-marketing-agent', date:'2026-11-24', label:'24 novembre 2026', month:'NOV', day:'24', offset:'+01:00',
+  slug:'ai-marketing-agent', date:'2026-11-25', label:'25 novembre 2026', month:'NOV', day:'25', offset:'+01:00',
   title:'AI Marketing Agent – Come semplificare ed efficientare i processi di marketing', category:'MARKETING · AGENTI AI · CONTROLLO',
   subtitle:'Dal brief ai contenuti e ai contatti: dove un agente può alleggerire il lavoro del team.',
-  description:'Agenti AI per semplificare i processi di marketing: incontro NIUEXA il 24 novembre 2026 alle 18:30, Ufficio Libera, Milano.',
+  description:'Agenti AI per semplificare i processi di marketing: incontro NIUEXA il 25 novembre 2026 alle 18:30, Ufficio Libera, Milano.',
   excerpt:'Brief, contenuti per più canali, contatti da seguire: quali attività di marketing affidare a un agente AI mantenendo il controllo su messaggi, dati e approvazioni.',
   abstract:[
    'Nel marketing molte attività si ripetono a ogni campagna: adattare un brief a più canali, preparare varianti dei contenuti, riprendere il contatto con chi visita il sito senza completare una richiesta, raccogliere i dati per il reporting. Un agente AI può occuparsi di una parte di questi passaggi, ma solo se il processo è chiaro: chi fornisce le informazioni, chi approva, dove finiscono i risultati. L’incontro parte dal lavoro quotidiano di un team marketing per capire dove un agente semplifica davvero e dove aggiunge soltanto un passaggio.',
