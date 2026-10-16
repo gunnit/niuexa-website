@@ -14,6 +14,7 @@ function initAIReadinessForm() {
 
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
+        if (form.dataset.niuexaSubmitting === '1') return;
 
         const submitButton = form.querySelector('.btn-submit');
         const originalButtonText = submitButton.innerHTML;
@@ -24,6 +25,8 @@ function initAIReadinessForm() {
         }
 
         // Show loading state
+        form.dataset.niuexaSubmitting = '1';
+        submitButton.disabled = true;
         submitButton.style.opacity = '0.7';
         submitButton.style.cursor = 'not-allowed';
         submitButton.innerHTML = `
@@ -51,8 +54,14 @@ function initAIReadinessForm() {
 
             const result = await response.json();
             if (response.ok && result && result.success === true) {
-                if (window.NiuexaTracking && typeof window.NiuexaTracking.confirmSubmission === 'function') {
-                    window.NiuexaTracking.confirmSubmission(form);
+                try {
+                    if (window.NiuexaTracking && typeof window.NiuexaTracking.confirmSubmission === 'function') {
+                        // The AEO route resolves after dispatch or a short deadline;
+                        // older cached tracking APIs return undefined, which is safe.
+                        await window.NiuexaTracking.confirmSubmission(form);
+                    }
+                } catch (trackingError) {
+                    // Analytics must never turn a received enquiry into a form error.
                 }
 
                 // Redirect to AI Readiness thank you page
@@ -66,6 +75,8 @@ function initAIReadinessForm() {
             console.error('Form submission error:', error);
 
             // Reset button state
+            form.dataset.niuexaSubmitting = '0';
+            submitButton.disabled = false;
             submitButton.style.opacity = '1';
             submitButton.style.cursor = 'pointer';
             submitButton.innerHTML = originalButtonText;

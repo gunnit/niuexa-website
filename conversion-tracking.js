@@ -13,6 +13,8 @@
   var PENDING_LEAD_KEY = 'niuexa_pending_lead_v1';
   var CALLBACK_PARAM = 'niuexa_submission';
   var CALLBACK_MAX_AGE = 30 * 60 * 1000;
+  var AEO_MEASUREMENT_ID = 'G-8JW0S3PJKM';
+  var AEO_DELIVERY_TIMEOUT = 1500;
   var submissions = new WeakMap();
 
   function nowIso() {
@@ -171,7 +173,7 @@
 
   function newSubmission(form) {
     var data = attribution();
-    return {
+    var submission = {
       submission_id: window.crypto && typeof window.crypto.randomUUID === 'function'
         ? window.crypto.randomUUID() : Date.now().toString(36) + '-' + Math.random().toString(36).slice(2),
       created_at: Date.now(),
@@ -180,10 +182,62 @@
       lead_source: data.utm_source || 'website',
       lead_medium: data.utm_medium || 'organic'
     };
+    // Only this AJAX offer needs the original address for its GA4 rule. Do not add
+    // page URLs to the native forms' persisted callback-correlation records.
+    if (form.dataset.niuexaAsyncForm === '1' && submission.form_name === 'AEO Analyzer' &&
+        window.location.pathname === '/consulenza-aeo-geo.html') {
+      submission.page_location = window.location.href;
+      submission.page_path = window.location.pathname;
+    }
+    return submission;
+  }
+
+  function aeoAnalyticsConsent() {
+    try {
+      var consent = JSON.parse(window.localStorage.getItem('niuexa_cookie_consent') || 'null');
+      return consent && consent.analytics === true && typeof consent.marketing === 'boolean' ? consent : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  // The AEO campaign derives its enquiry key event from this exact provider-confirmed
+  // event. Own its delivery here, without a second GTM custom-event forwarding path.
+  // Never configure another Google tag/pageview or replay a lead after later consent.
+  function deliverAeoLead(props) {
+    var consent = aeoAnalyticsConsent();
+    if (!consent || typeof window.gtag !== 'function') return Promise.resolve();
+    if (!consent.marketing) {
+      var page = new URL(props.page_location);
+      CLICK_ID_KEYS.forEach(function (key) { page.searchParams.delete(key); });
+      props.page_location = page.href;
+    }
+    return new Promise(function (resolve) {
+      var finished = false;
+      var timer;
+      function finish() {
+        if (finished) return;
+        finished = true;
+        window.clearTimeout(timer);
+        resolve();
+      }
+      // Independent of Google's event_timeout, so blocked analytics never traps a
+      // visitor after their enquiry has already been accepted by the provider.
+      timer = window.setTimeout(finish, AEO_DELIVERY_TIMEOUT);
+      try {
+        window.gtag('event', 'generate_lead', Object.assign({}, props, {
+          send_to: AEO_MEASUREMENT_ID,
+          event_callback: finish,
+          event_timeout: AEO_DELIVERY_TIMEOUT
+        }));
+      } catch (e) {
+        finish();
+      }
+    });
   }
 
   function emitSuccess(submission, method, details) {
-    if (submission.confirmed) return;
+    if (submission.confirmed) return submission.delivery;
     submission.confirmed = true;
     var props = {
       submission_id: submission.submission_id,
@@ -194,6 +248,13 @@
       submission_status: 'success',
       confirmation_method: method
     };
+    if (method === 'provider_response' && submission.form_name === 'AEO Analyzer' &&
+        submission.page_path === '/consulenza-aeo-geo.html') {
+      props.page_location = submission.page_location;
+      props.page_path = submission.page_path;
+      submission.delivery = deliverAeoLead(props);
+      return submission.delivery;
+    }
     if (details) {
       props.event_category = details.event_category;
       props.event_label = details.event_label;
@@ -207,7 +268,7 @@
   function confirmSubmission(form, details) {
     var submission = submissions.get(form) || newSubmission(form);
     submissions.set(form, submission);
-    emitSuccess(submission, 'provider_response', details);
+    return emitSuccess(submission, 'provider_response', details);
   }
 
   function prepareNativeRedirect(form, submission) {
@@ -245,6 +306,9 @@
       el.addEventListener('input', startHandler, { once: true });
     });
     form.addEventListener('submit', function () {
+      // The async handler owns this lock. Ignore repeated clicks while its provider
+      // request is pending, preserving the first attempt's correlation token.
+      if (form.dataset.niuexaSubmitting === '1') return;
       populateForm(form);
       var submission = newSubmission(form);
       submissions.set(form, submission);
