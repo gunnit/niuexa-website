@@ -68,8 +68,8 @@ test('existing registration transport, config, styling and five-field form remai
   'event-registration.mjs':'c80d707a562dd3d9810f60be3d3cc2fb86f6385ae77314e68d6b8e78fa165753',
   // Re-pinned for the tu validation messages (6 October 2026 email).
   'event-registration-core.mjs':'9994d6057a2dd8c987dd3d56897088afce199915297f34673bf60c7b0c9a1a3f',
-  // Re-pinned for the venue in Roberto's 20 September email and the dates in his 6 October one.
-  'event-registration-config.mjs':'6f2d89dd9786f22dc224bae2d862531774df7e5e6ae737f390e359e196e97e50',
+  // Re-pinned after master commit 3e29f46 moved the final event to 25 November.
+  'event-registration-config.mjs':'86d8b47182bd26e404fada44f8f4c7760600df2315620aa11a9acd2e364fbd8d',
   // Re-pinned for the styles.css tokens the shared cookie banner needs.
   'event-registration.css':'e504d60a2ef0a185ab00433509faa896c0511d8172c241d609f0e1b1acf87b9a'
  };
