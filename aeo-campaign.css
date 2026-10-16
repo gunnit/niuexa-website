@@ -1,0 +1,84 @@
+/* The Italian paid AEO page uses the site's existing tokens and form styles. */
+.aeo-campaign-page .aeo-hero-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: clamp(2rem, 4vw, 4rem);
+    align-items: center;
+}
+.aeo-campaign-page .rt-hero .hero-title {
+    max-width: 24ch;
+    font-size: clamp(2.1rem, 3.6vw, 3.25rem);
+}
+.aeo-campaign-page .aeo-eyebrow,
+.aeo-campaign-page .aeo-step-label {
+    margin: 0 0 1rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.aeo-campaign-page .aeo-eyebrow { color: var(--signal-on-dark); }
+.aeo-campaign-page .rt-feature-card .aeo-step-label { color: var(--primary-blue); }
+.aeo-campaign-page .aeo-hero-visual { margin: 0; min-width: 0; }
+.aeo-campaign-page .aeo-hero-visual img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--rt-radius);
+}
+.aeo-campaign-page .aeo-hero-visual figcaption {
+    margin-top: 0.7rem;
+    color: var(--white);
+    font-size: 0.75rem;
+    line-height: 1.5;
+}
+.aeo-campaign-page .rt-report { background: var(--light-gray); }
+.aeo-campaign-page .aeo-report-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+}
+.aeo-campaign-page .aeo-report-layout p { line-height: 1.65; }
+.aeo-campaign-page .aeo-measurement-note {
+    border-left: 3px solid var(--primary-blue);
+    padding-left: 1rem;
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+}
+.aeo-campaign-page .aeo-report-example {
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--rt-radius);
+    overflow: hidden;
+}
+.aeo-campaign-page .aeo-report-example header { padding: 1.5rem; }
+.aeo-campaign-page .aeo-report-example h3 { margin: 0 0 0.5rem; }
+.aeo-campaign-page .aeo-report-example header p { margin: 0; font-size: 0.85rem; }
+.aeo-campaign-page .aeo-report-example dl { margin: 0; padding: 0 1.5rem 1.5rem; }
+.aeo-campaign-page .aeo-report-example dl > div {
+    border-top: 1px solid var(--border-light);
+    padding: 1rem 0;
+}
+.aeo-campaign-page .aeo-report-example dt { font-weight: 700; margin-bottom: 0.4rem; }
+.aeo-campaign-page .aeo-report-example dd { margin: 0; line-height: 1.6; }
+.aeo-campaign-page .rt-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.aeo-campaign-page .aeo-plan-scope,
+.aeo-campaign-page .aeo-plan-details { margin-top: 1.25rem; font-size: 0.92rem; line-height: 1.6; }
+.aeo-campaign-page .aeo-plan-details summary { cursor: pointer; font-weight: 600; padding: 0.6rem 0; }
+.aeo-campaign-page .aeo-plan-details p { margin: 0.5rem 0; }
+.aeo-campaign-page .aeo-optional,
+.aeo-campaign-page .rt-field small { color: var(--medium-gray); font-size: 0.8rem; }
+.aeo-campaign-page .rt-faq { background: var(--white); }
+.aeo-campaign-page .rt-faq-intro .btn { margin-top: 1rem; }
+@media (max-width: 900px) {
+    .aeo-campaign-page .aeo-hero-layout,
+    .aeo-campaign-page .aeo-report-layout { grid-template-columns: 1fr; }
+    .aeo-campaign-page .aeo-hero-visual { max-width: 640px; }
+}
+@media (max-width: 640px) {
+    .aeo-campaign-page .rt-steps { grid-template-columns: 1fr; }
+    .aeo-campaign-page .rt-hero { padding-top: 112px; }
+    .aeo-campaign-page .rt-hero .rt-actions .btn { width: 100%; justify-content: center; }
+}
