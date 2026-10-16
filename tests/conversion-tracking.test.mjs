@@ -69,7 +69,7 @@ function storage(values = new Map(), blocked = false) {
   };
 }
 
-function browser({ path = '/contatti.html', forms = [], session = new Map(), blocked = false, fetchImpl } = {}) {
+function browser({ path = '/contatti.html', forms = [], session = new Map(), local = new Map(), blocked = false, fetchImpl, completeTag = true } = {}) {
   const callbacks = [];
   const doc = {
     readyState: 'loading', referrer: '', documentElement: { lang: 'it' }, head: element(), body: element(),
@@ -87,6 +87,8 @@ function browser({ path = '/contatti.html', forms = [], session = new Map(), blo
     getElementById() { return null; },
   };
   const calls = [];
+  const timers = new Map();
+  let timerId = 0;
   let currentUrl = new URL(path, 'https://niuexa.ai');
   const location = {
     get href() { return currentUrl.href; },
@@ -97,9 +99,10 @@ function browser({ path = '/contatti.html', forms = [], session = new Map(), blo
   };
   const ctx = vm.createContext({
     document: doc, location,
-    localStorage: storage(new Map(), blocked), sessionStorage: storage(session, blocked),
+    localStorage: storage(local, blocked), sessionStorage: storage(session, blocked),
     URL, URLSearchParams, crypto: { randomUUID }, console: { error() {}, log() {} },
-    setTimeout() {}, addEventListener() {},
+    setTimeout(fn, delay) { timers.set(++timerId, { fn, delay }); return timerId; },
+    clearTimeout(id) { timers.delete(id); }, addEventListener() {},
     IntersectionObserver: class { observe() {} },
     FormData: class {
       constructor(f) { this.fields = new Map(f.children.map(el => [el.name, el.value])); }
@@ -111,12 +114,15 @@ function browser({ path = '/contatti.html', forms = [], session = new Map(), blo
     dataLayer: [],
   });
   ctx.window = ctx;
-  ctx.gtag = (...args) => ctx.dataLayer.push(args);
+  ctx.gtag = (...args) => {
+    ctx.dataLayer.push(args);
+    if (completeTag && typeof args[2]?.event_callback === 'function') args[2].event_callback();
+  };
   ctx.history = { replaceState(_state, _title, url) { ctx.location.href = url; } };
   const run = name => vm.runInContext(read(name), ctx, { filename: name });
   run('conversion-tracking.js');
   ctx.NiuexaTracking.init();
-  return { ctx, run, calls, callbacks, events: name => ctx.dataLayer.filter(item => item.event === name) };
+  return { ctx, run, calls, callbacks, timers, events: name => ctx.dataLayer.filter(item => item.event === name) };
 }
 
 test('direct thank-you visits and stale legacy attribution do not become leads', () => {
@@ -248,4 +254,178 @@ for (const kind of ['simple-signup-form', 'contact-form', 'ai-readiness-form', '
       assert.equal(page.ctx.dataLayer.some(item => item[0] === 'consent'), false, 'tracking does not override consent');
     });
   }
+}
+
+
+const acceptedAnalytics = JSON.stringify({ necessary: true, analytics: true, marketing: false });
+function aeoPage({ consent = acceptedAnalytics, fetchImpl, ...options } = {}) {
+  const f = form('ai-readiness-form', 'https://niuexa.ai/thank-you-ai-readiness.html');
+  f.dataset.formLabel = 'AEO Analyzer';
+  const local = new Map();
+  if (consent !== null) local.set('niuexa_cookie_consent', consent);
+  const page = browser({
+    path: '/consulenza-aeo-geo.html?utm_source=google&utm_campaign=aeo_qa#contact',
+    forms: [f], local,
+    fetchImpl: fetchImpl || (async () => ({ ok: true, json: async () => ({ success: true }) })),
+    ...options,
+  });
+  page.run('ai-readiness-tool.js');
+  page.ctx.initAIReadinessForm();
+  return { ...page, f, leadCalls: () => page.ctx.dataLayer.filter(x => x[0] === 'event' && x[1] === 'generate_lead') };
+}
+const settleTasks = async () => { for (let i = 0; i < 8; i++) await Promise.resolve(); };
+
+test('AEO confirmed enquiry routes once to its GA4 property with original landing metadata', async () => {
+  const page = aeoPage();
+  await page.f.fire('submit');
+  assert.equal(page.leadCalls().length, 1);
+  const props = page.leadCalls()[0][2];
+  assert.equal(props.send_to, 'G-8JW0S3PJKM');
+  assert.equal(props.page_location, 'https://niuexa.ai/consulenza-aeo-geo.html?utm_source=google&utm_campaign=aeo_qa#contact');
+  assert.equal(props.form_name, 'AEO Analyzer');
+  assert.equal(props.submission_status, 'success');
+  assert.equal(props.confirmation_method, 'provider_response');
+  assert.match(props.submission_id, /^[a-f0-9-]{36}$/);
+  assert.equal(page.events('generate_lead').length, 0, 'no parallel GTM custom event owner');
+  assert.equal(page.events('form_submit').length, 0, 'no second success event for this scoped route');
+  assert.equal(page.ctx.location.pathname, '/thank-you-ai-readiness.html');
+  assert.equal(page.ctx.dataLayer.some(x => x[0] === 'config' || x[0] === 'consent'), false);
+  for (const key of ['name', 'firstName', 'lastName', 'email', 'company', 'message', 'privacy']) assert.equal(key in props, false);
+  await page.ctx.NiuexaTracking.confirmSubmission(page.f);
+  assert.equal(page.leadCalls().length, 1);
+});
+
+for (const consent of [null, '{bad', 'null', 'true', '{}', '{"analytics":"true","marketing":false}', '{"analytics":true}', '{"analytics":false,"marketing":true}']) {
+  test(`AEO consent ${consent}: successful form is delivered without analytics or later replay`, async () => {
+    const page = aeoPage({ consent });
+    await page.f.fire('submit');
+    assert.equal(page.calls.length, 1);
+    assert.equal(page.ctx.location.pathname, '/thank-you-ai-readiness.html');
+    assert.equal(page.leadCalls().length, 0);
+    assert.equal(page.events('generate_lead').length, 0);
+    page.ctx.localStorage.setItem('niuexa_cookie_consent', acceptedAnalytics);
+    await page.ctx.NiuexaTracking.confirmSubmission(page.f);
+    assert.equal(page.leadCalls().length, 0, 'later consent never replays an earlier denied lead');
+  });
+}
+
+test('AEO blocked consent storage keeps the successful form usable without a lead event', async () => {
+  const page = aeoPage({ blocked: true });
+  await page.f.fire('submit');
+  assert.equal(page.ctx.location.pathname, '/thank-you-ai-readiness.html');
+  assert.equal(page.leadCalls().length, 0);
+});
+
+for (const failure of ['http', 'provider-false', 'provider-string', 'json', 'network']) {
+  test(`AEO ${failure} failure does not send a lead and permits a retry`, async () => {
+    let succeed = false;
+    const page = aeoPage({ fetchImpl: async () => {
+      if (succeed) return { ok: true, json: async () => ({ success: true }) };
+      if (failure === 'network') throw Error('offline');
+      return { ok: failure !== 'http', json: async () => {
+        if (failure === 'json') throw Error('invalid JSON');
+        return { success: failure === 'provider-string' ? 'true' : failure === 'http' };
+      } };
+    } });
+    await page.f.fire('submit');
+    assert.equal(page.leadCalls().length, 0);
+    assert.equal(page.ctx.location.pathname, '/consulenza-aeo-geo.html');
+    assert.equal(page.f.button.disabled, false);
+    succeed = true;
+    await page.f.fire('submit');
+    assert.equal(page.calls.length, 2);
+    assert.equal(page.leadCalls().length, 1);
+  });
+}
+
+test('AEO request lock prevents concurrent provider requests and keeps the original submission token', async () => {
+  let finish;
+  const page = aeoPage({ fetchImpl: () => new Promise(resolve => { finish = resolve; }) });
+  const first = page.f.fire('submit');
+  const originalId = page.events('form_submit_attempt')[0].submission_id;
+  assert.equal(page.f.button.disabled, true);
+  const duplicate = page.f.fire('submit');
+  assert.equal(page.calls.length, 1);
+  assert.equal(page.events('form_submit_attempt').length, 1);
+  finish({ ok: true, json: async () => ({ success: true }) });
+  await Promise.all([first, duplicate]);
+  assert.equal(page.leadCalls().length, 1);
+  assert.equal(page.leadCalls()[0][2].submission_id, originalId);
+});
+
+test('AEO waits for the Google event callback before navigating and repeated callbacks are harmless', async () => {
+  const page = aeoPage({ completeTag: false });
+  const submitted = page.f.fire('submit');
+  await settleTasks();
+  assert.equal(page.ctx.location.pathname, '/consulenza-aeo-geo.html');
+  const props = page.leadCalls()[0][2];
+  assert.equal(typeof props.event_callback, 'function');
+  assert.ok(props.event_timeout > 0 && props.event_timeout <= 2000);
+  props.event_callback(); props.event_callback();
+  await submitted;
+  assert.equal(page.ctx.location.pathname, '/thank-you-ai-readiness.html');
+  assert.equal(page.leadCalls().length, 1);
+});
+
+test('AEO navigates after a bounded independent timeout if the Google callback never arrives', async () => {
+  const page = aeoPage({ completeTag: false });
+  const submitted = page.f.fire('submit');
+  await settleTasks();
+  assert.equal(page.ctx.location.pathname, '/consulenza-aeo-geo.html');
+  const deadline = [...page.timers.values()].find(timer => timer.delay > 0 && timer.delay <= 2000);
+  assert.ok(deadline, 'independent navigation deadline exists');
+  deadline.fn();
+  await submitted;
+  assert.equal(page.ctx.location.pathname, '/thank-you-ai-readiness.html');
+});
+
+for (const mode of ['absent-gtag', 'throwing-gtag', 'old-api', 'throwing-api', 'absent-api']) {
+  test(`AEO ${mode} does not turn provider success into a form error`, async () => {
+    const page = aeoPage();
+    if (mode === 'absent-gtag') delete page.ctx.gtag;
+    if (mode === 'throwing-gtag') page.ctx.gtag = () => { throw Error('blocked'); };
+    if (mode === 'old-api') page.ctx.NiuexaTracking.confirmSubmission = () => undefined;
+    if (mode === 'throwing-api') page.ctx.NiuexaTracking.confirmSubmission = () => { throw Error('tracking failed'); };
+    if (mode === 'absent-api') delete page.ctx.NiuexaTracking;
+    await page.f.fire('submit');
+    assert.equal(page.ctx.location.pathname, '/thank-you-ai-readiness.html');
+    assert.equal(page.f.children.some(el => el.className === 'form-message form-message--error'), false);
+  });
+}
+
+test('AEO invalid required field produces neither provider request nor success event', async () => {
+  const page = aeoPage();
+  const missing = element('website', ''); missing.type = 'url';
+  const originalQuery = page.f.querySelectorAll;
+  page.f.querySelectorAll = selector => selector === '[required]' ? [missing] : originalQuery(selector);
+  await page.f.fire('submit');
+  assert.equal(page.calls.length, 0);
+  assert.equal(page.leadCalls().length, 0);
+  assert.equal(page.ctx.location.pathname, '/consulenza-aeo-geo.html');
+});
+
+test('native AEO fallback records do not gain landing URLs from the scoped AJAX repair', async () => {
+  const f = form();
+  f.dataset.formLabel = 'AEO Analyzer';
+  const session = new Map();
+  const page = browser({ forms: [f], session, path: '/consulenza-aeo-geo.html?gclid=private-click' });
+  await f.fire('submit');
+  const pending = JSON.parse(session.get('niuexa_pending_lead_v1'));
+  assert.equal('page_location' in pending, false);
+  assert.equal('page_path' in pending, false);
+});
+
+for (const marketing of [false, true]) {
+  test(`AEO marketing consent ${marketing}: explicit GA4 route preserves the source without leaking denied click IDs`, async () => {
+    const page = aeoPage({
+      consent: JSON.stringify({ necessary: true, analytics: true, marketing }),
+      path: '/consulenza-aeo-geo.html?utm_source=google&gclid=click-a&gbraid=click-b&wbraid=click-c#contact',
+    });
+    await page.f.fire('submit');
+    const location = new URL(page.leadCalls()[0][2].page_location);
+    assert.equal(location.pathname, '/consulenza-aeo-geo.html');
+    assert.equal(location.searchParams.get('utm_source'), 'google');
+    for (const key of ['gclid', 'gbraid', 'wbraid']) assert.equal(location.searchParams.has(key), marketing);
+    assert.equal(page.ctx.dataLayer.some(x => x[0] === 'config' || x[0] === 'consent'), false);
+  });
 }
