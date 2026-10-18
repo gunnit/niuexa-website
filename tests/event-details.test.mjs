@@ -6,7 +6,7 @@ import {resolve} from 'node:path';
 const root=resolve(import.meta.dirname,'..');
 const read=p=>readFileSync(resolve(root,p),'utf8');
 // All three dates fall after the 25 Oct 2026 switch to CET, hence +01:00.
-const cases=[['seo-in-pensione-aeo-geo','2026-11-03','La SEO va in pensione, benvenuta AEO/GEO','+01:00'],['ai-agent-processi-aziendali','2026-11-17','AI Agent – Come rendere efficienti i processi aziendali','+01:00'],['ai-marketing-agent','2026-11-25','AI Marketing Agent – Come semplificare ed efficientare i processi di marketing','+01:00']];
+const cases=[['seo-in-pensione-aeo-geo','2026-11-09','La SEO va in pensione, benvenuta AEO/GEO','+01:00'],['ai-agent-processi-aziendali','2026-11-17','AI Agent – Come rendere efficienti i processi aziendali','+01:00'],['ai-marketing-agent','2026-11-25','AI Marketing Agent – Come semplificare ed efficientare i processi di marketing','+01:00']];
 const moved=[['farsi-trovare-era-ai','seo-in-pensione-aeo-geo'],['dall-ai-ai-risultati','ai-agent-processi-aziendali'],['agenti-ai-in-azienda','ai-marketing-agent']];
 test('three crawlable topic pages lead to the sole signup with correct event metadata',()=>{
  const titles=new Set(), descriptions=new Set(), hub=read('eventi-ai-aziende/index.html');
@@ -30,7 +30,7 @@ test('three crawlable topic pages lead to the sole signup with correct event met
   assert.ok(!/<form\b/.test(html));
   const graph=JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
   const event=graph.find(n=>n['@type']==='Event');
-  assert.equal(event.name,title); assert.equal(event.startDate,`${date}T18:30:00${offset}`);
+  assert.equal(event.name,title); assert.equal(event.startDate,`${date}T17:30:00${offset}`);
   assert.equal(event.location.name,'Ufficio Libera'); assert.equal(event.location.address.streetAddress,'Via Rutilia 10/8');
   assert.ok(!/Bebit/.test(html),`${slug}: stale venue`);
   assert.equal(event.organizer.name,'NIUEXA');
@@ -68,8 +68,9 @@ test('existing registration transport, config, styling and five-field form remai
   'event-registration.mjs':'c80d707a562dd3d9810f60be3d3cc2fb86f6385ae77314e68d6b8e78fa165753',
   // Re-pinned for the tu validation messages (6 October 2026 email).
   'event-registration-core.mjs':'9994d6057a2dd8c987dd3d56897088afce199915297f34673bf60c7b0c9a1a3f',
-  // Re-pinned after master commit 3e29f46 moved the final event to 25 November.
-  'event-registration-config.mjs':'86d8b47182bd26e404fada44f8f4c7760600df2315620aa11a9acd2e364fbd8d',
+  // Re-pinned after master commit 3e29f46 moved the final event to 25 November, and again when
+  // Roberto's 18 October 2026 email moved the first event to 9 November and the start to 17:30.
+  'event-registration-config.mjs':'cc8de534386051053d2129ddc6a15a725b4509a7c116af2f648cd3220de80705',
   // Re-pinned for the styles.css tokens the shared cookie banner needs.
   'event-registration.css':'e504d60a2ef0a185ab00433509faa896c0511d8172c241d609f0e1b1acf87b9a'
  };

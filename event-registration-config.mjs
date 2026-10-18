@@ -1,14 +1,15 @@
 // Required fields confirmed by Roberto's 16 September email; dates and venue by his
-// 20 September email; dates moved by his 6 October email (3, 17 and 25 November).
+// 20 September email; dates moved by his 6 October email (3, 17 and 25 November); first date
+// (3 to 9 November) and start time (17:30) by his 18 October email.
 // Null means NOT CONFIRMED. Historic event data must not fill these fields.
 export const EVENTS = Object.freeze([
-  ['2026-11-03', '3 novembre 2026'],
+  ['2026-11-09', '9 novembre 2026'],
   ['2026-11-17', '17 novembre 2026'],
   ['2026-11-25', '25 novembre 2026'],
 ].map(([date, label]) => Object.freeze({
   id: date, date, label, timezone: 'Europe/Rome',
   // Time supplied by the owner; venue is Libera's Milan office (address from Roberto's signature).
-  title: null, agenda: null, time: '18:30',
+  title: null, agenda: null, time: '17:30',
   venue: 'Ufficio Libera, Via Rutilia 10/8, 20141 Milano',
   speakers: null, format: 'in-person', price: null,
 })));
