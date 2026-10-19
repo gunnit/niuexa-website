@@ -85,7 +85,7 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/styles.css?v=20260807">
-    <link rel="stylesheet" href="/home.css?v=20261010">
+    <link rel="stylesheet" href="/home.css?v=20261019">
 
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
@@ -461,6 +461,81 @@
                     <figcaption>AUSED</figcaption>
                 </figure>
             </div>
+        </div>
+    </section>
+
+    <!-- Fiere e conferenze -->
+    <section class="partners-section events-strip" aria-labelledby="fiere-title">
+        <div class="container">
+            <h2 class="section-title" id="fiere-title">Trade fairs and conferences</h2>
+            <p class="events-strip__intro">Where we have presented Niuexa, and the next dates to meet us in person.</p>
+            <ul class="events-strip__list">
+                <li>
+                    <a class="event-card" href="https://www.aifestival.it/" target="_blank" rel="noopener" data-until="2026-01-22">
+                        <span class="event-card__logo">
+                            <img src="/img/eventi/fiere/ai-festival.png" alt="AI Festival" loading="lazy" width="720" height="243" decoding="async">
+                            <span class="event-card__status">Upcoming</span>
+                        </span>
+                        <span class="event-card__name">AI Festival 2026</span>
+                        <span class="event-card__where">Bocconi University, Milan · 21-22 January 2026</span>
+                        <span class="event-card__role">Speaker: Gregor Maric</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="event-card" href="https://www.aetexpo.it/en/vicenza" target="_blank" rel="noopener" data-until="2026-10-29">
+                        <span class="event-card__logo">
+                            <img src="/img/eventi/fiere/aet-automation-testing.svg" alt="A&amp;T Automation &amp; Testing" loading="lazy" width="1103" height="218" decoding="async">
+                            <span class="event-card__status">Upcoming</span>
+                        </span>
+                        <span class="event-card__name">A&amp;T Vicenza 2026</span>
+                        <span class="event-card__where">Vicenza Expo Centre · 27-29 October 2026</span>
+                        <span class="event-card__role">Stand Next 23 · talk on 28 October</span>
+                    </a>
+                </li>
+                <!-- Italy-Canada Forum: disabled because participation was withdrawn on 6 October 2026. Re-enable only if attending.
+                <li>
+                    <a class="event-card" href="https://www.ice.it/it/area-clienti/eventi/dettaglio-evento/2026/@@/270" target="_blank" rel="noopener" data-until="2026-10-29">
+                        <span class="event-card__logo">
+                            <img src="/img/eventi/fiere/ice-agenzia.png" alt="ICE-Agenzia" loading="lazy" width="300" height="169" decoding="async">
+                            <span class="event-card__status">Upcoming</span>
+                        </span>
+                        <span class="event-card__name">Italy-Canada Business Forum 2026</span>
+                        <span class="event-card__where">Toronto · 29 October 2026</span>
+                        <span class="event-card__role">Admitted by ICE-Agenzia (ITA)</span>
+                    </a>
+                </li>
+                -->
+                <li>
+                    <a class="event-card" href="https://websummit.com/" target="_blank" rel="noopener" data-until="2026-11-12">
+                        <span class="event-card__logo">
+                            <img src="/img/eventi/fiere/web-summit.svg" alt="Web Summit" loading="lazy" width="156" height="77" decoding="async">
+                            <span class="event-card__status">Upcoming</span>
+                        </span>
+                        <span class="event-card__name">Web Summit 2026</span>
+                        <span class="event-card__where">Lisbon · 9-12 November 2026</span>
+                        <span class="event-card__role">Attending</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="event-card" href="https://www.ces.tech/" target="_blank" rel="noopener" data-until="2027-01-09">
+                        <span class="event-card__logo">
+                            <img src="/img/eventi/fiere/ces.svg" alt="CES" loading="lazy" width="131" height="32" decoding="async">
+                            <span class="event-card__status">Upcoming</span>
+                        </span>
+                        <span class="event-card__name">CES 2027</span>
+                        <span class="event-card__where">Las Vegas · 6-9 January 2027</span>
+                        <span class="event-card__role">Eureka Park · Italy Pavilion (ITA)</span>
+                    </a>
+                </li>
+            </ul>
+            <script>
+                (function () {
+                    var today = new Date().toISOString().slice(0, 10);
+                    document.querySelectorAll('.event-card[data-until]').forEach(function (card) {
+                        if (card.getAttribute('data-until') >= today) { card.classList.add('is-upcoming'); }
+                    });
+                })();
+            </script>
         </div>
     </section>
 
