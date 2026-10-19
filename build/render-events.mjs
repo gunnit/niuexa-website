@@ -7,6 +7,7 @@
 // --today=YYYY-MM-DD renders as of another day; EVENTS_ROOT renders into another
 // directory (tests use both, so they never touch the committed pages).
 import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
+import {createHash} from 'node:crypto';
 import {resolve} from 'node:path';
 import {EVENTS,MOVED} from './event-content.mjs';
 // Venue per Roberto's 20 September 2026 email. His 6 October email dropped the SIGNALS name
@@ -143,6 +144,11 @@ let html=read('eventi-ai-aziende/index.html');
 if(!html.includes('href="/event-details.css"')) html=html.replace('<link rel="stylesheet" href="/event-registration.css">','<link rel="stylesheet" href="/event-registration.css">\n  <link rel="stylesheet" href="/event-details.css">');
 // After the last date the block names the closing date instead of a next one.
 const shown=next??EVENTS.at(-1);
+// Browsers may reuse a cached .mjs for up to a day (ASSET_CACHE_CONTROL in package-cloudflare.mjs),
+// which paired a fresh hub with the old dates and dropped a moved date from the form. The form
+// modules load from URLs stamped with their content, so any change to them is fetched fresh.
+const stamp=createHash('sha256').update(['event-registration.mjs','event-registration-core.mjs','event-registration-config.mjs'].map(f=>readFileSync(resolve(import.meta.dirname,'..',f),'utf8')).join('\0')).digest('hex').slice(0,12);
+html=patch(html,/(?:<script type="importmap">[^<]*<\/script>\s*)?<script type="module" src="\/event-registration\.mjs[^"]*"><\/script>/,`<script type="importmap">{"imports":{"/event-registration-config.mjs":"/event-registration-config.mjs?v=${stamp}","/event-registration-core.mjs":"/event-registration-core.mjs?v=${stamp}"}}</script>\n  <script type="module" src="/event-registration.mjs?v=${stamp}"></script>`);
 html=patch(html,/<p class="event-logistics"><strong>Ore [0-9:]+ · /,`<p class="event-logistics"><strong>Ore ${time} · `);
 html=patch(html,/<div class="next-date">[\s\S]*?<\/div>/,`<div class="next-date"><span>${next?'PROSSIMO APPUNTAMENTO':'ULTIMO INCONTRO DEL CICLO'}</span><time datetime="${shown.date}T${time}:00${shown.offset}">${shown.label}</time><a href="#calendar" aria-label="Scopri tutte le date">Tutte le date <span aria-hidden="true">↓</span></a></div>`);
 // Dates in the hub's text come from EVENTS, so a moved date cannot leave the old one behind:

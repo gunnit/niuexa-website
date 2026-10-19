@@ -158,7 +158,7 @@ try {
  await nojs.goto(base+'/eventi-ai-aziende/');
  assert.equal(await nojs.locator('#submit-registration').isDisabled(),true);
  // Registered after the guard, so it runs first for the module (Playwright runs the latest route first).
- const broken=await at('2026-09-29T10:00:00+02:00'); await broken.route('**/event-registration.mjs',r=>r.abort());
+ const broken=await at('2026-09-29T10:00:00+02:00'); await broken.route('**/event-registration.mjs?v=*',r=>r.abort());
  await broken.goto(base+'/eventi-ai-aziende/');
  assert.equal(await broken.locator('#submit-registration').isDisabled(),true);
  assert.deepEqual(errors,[]); assert.deepEqual(external,[]);
