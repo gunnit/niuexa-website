@@ -12,8 +12,8 @@ test('canonical, title, indexability, clean URL and static direct answers are co
  assert.match(html,/<link rel="canonical" href="https:\/\/niuexa.ai\/eventi-ai-aziende\/">/);
  assert.match(html,/<meta property="og:url" content="https:\/\/niuexa.ai\/eventi-ai-aziende\/">/);
  assert.ok(!/noindex|demo|anteprima locale|iscrizioni non ancora aperte/i.test(html));
- for(const date of ['2026-11-03','2026-11-17','2026-11-25']) assert.ok(html.includes(date));
- for(const date of ['2026-12-02','2026-10-06','2026-10-27']) assert.ok(!html.includes(date),`retired date ${date}`);
+ for(const date of ['2026-11-09','2026-11-17','2026-11-25']) assert.ok(html.includes(date));
+ for(const date of ['2026-12-02','2026-10-06','2026-10-27','2026-11-03']) assert.ok(!html.includes(date),`retired date ${date}`);
  const schema=JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
  assert.ok(!schema['@graph'].some(n=>n['@type']==='Event'));
  assert.deepEqual(schema['@graph'].map(n=>n['@type']),['Organization','WebPage','FAQPage']);
@@ -38,7 +38,7 @@ test('approved logistics and chosen series topics are visible for all dates',()=
  const rows=[...html.matchAll(/class="calendar-date">([\s\S]*?)<\/a>/g)];
  assert.equal(rows.length,3);
  for(const [,row] of rows) {
-  assert.match(row,/18:30/);
+  assert.match(row,/17:30/);
   assert.match(row,/Libera · Milano/);
  }
  assert.match(html,/Dalla visibilità<br>al lavoro quotidiano/);

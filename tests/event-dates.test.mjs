@@ -25,9 +25,9 @@ const faqParity=html=>{
 };
 // [today, dates still open]: an event stays open for the whole of its day in Milan.
 const states=[
- ['2026-09-29',['2026-11-03','2026-11-17','2026-11-25']],
- ['2026-11-03',['2026-11-03','2026-11-17','2026-11-25']],
- ['2026-11-04',['2026-11-17','2026-11-25']],
+ ['2026-09-29',['2026-11-09','2026-11-17','2026-11-25']],
+ ['2026-11-09',['2026-11-09','2026-11-17','2026-11-25']],
+ ['2026-11-10',['2026-11-17','2026-11-25']],
  ['2026-11-18',['2026-11-25']],
  ['2026-11-26',[]],
 ];
@@ -38,7 +38,7 @@ for(const [today,openDates] of states) test(`as of ${today} the pages offer exac
   assert.deepEqual(options,openDates);
   const next=EVENTS.find(e=>e.date===openDates[0]);
   const shown=next??EVENTS.at(-1);
-  assert.ok(r.hub.includes(`<div class="next-date"><span>${next?'PROSSIMO APPUNTAMENTO':'ULTIMO INCONTRO DEL CICLO'}</span><time datetime="${shown.date}T18:30:00${shown.offset}">${shown.label}</time>`));
+  assert.ok(r.hub.includes(`<div class="next-date"><span>${next?'PROSSIMO APPUNTAMENTO':'ULTIMO INCONTRO DEL CICLO'}</span><time datetime="${shown.date}T17:30:00${shown.offset}">${shown.label}</time>`));
   assert.ok(r.hub.includes(`<span id="selected-date">${next?next.label:'Richieste chiuse'}</span>`));
   assert.equal(r.hub.includes('Gli incontri d’autunno<br>si sono conclusi.'),!next);
   // Once no date is open, nothing on the hub or in llms.txt may still invite a request.
@@ -60,12 +60,12 @@ for(const [today,openDates] of states) test(`as of ${today} the pages offer exac
    assert.equal(html.includes(`href="/eventi-ai-aziende/?event=${e.date}#registration"`),open,`${e.slug} signup`);
    assert.equal(r.hub.includes(`href="/eventi-ai-aziende/?event=${e.date}#registration"`),open,`${e.slug} hub signup`);
    assert.equal(html.includes('Incontro concluso: le richieste di partecipazione sono chiuse.'),!open,`${e.slug} past note`);
-   assert.ok(r.hub.includes(`<time datetime="${e.date}">${e.label}</time> · 18:30 · Libera · Milano${open?'':' · concluso'}</small>`),`${e.slug} calendar row`);
+   assert.ok(r.hub.includes(`<time datetime="${e.date}">${e.label}</time> · 17:30 · Libera · Milano${open?'':' · concluso'}</small>`),`${e.slug} calendar row`);
    assert.ok(r.read('llms.txt').includes(`: ${e.label}${open?'':', incontro concluso'}. `),`${e.slug} llms.txt`);
    if(!open) assert.ok(html.includes(next?`<a class="event-cta" href="/eventi-ai-aziende/${next.slug}/">Il prossimo incontro: ${next.label}`:'<a class="event-cta" href="/eventi-ai-aziende/">Tutti gli incontri'),`${e.slug} onward link`);
    // The event itself and its date never change: only the invitation to join does.
    const event=JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'].find(n=>n['@type']==='Event');
-   assert.equal(event.startDate,`${e.date}T18:30:00${e.offset}`);
+   assert.equal(event.startDate,`${e.date}T17:30:00${e.offset}`);
    faqParity(html);
   }
   assert.equal(r.read('llm.txt'),r.read('llms.txt'));

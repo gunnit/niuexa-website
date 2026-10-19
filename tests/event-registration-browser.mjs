@@ -45,7 +45,7 @@ const fill=async(p=page)=>{for(const [k,v] of Object.entries(data)) await p.loca
 try {
  await page.goto(base+'/eventi-ai-aziende/');
  await page.locator('#registration-fields:not([disabled])').waitFor();
- assert.deepEqual(await options(page),['2026-11-03','2026-11-17','2026-11-25']);
+ assert.deepEqual(await options(page),['2026-11-09','2026-11-17','2026-11-25']);
  assert.match(await page.title(),/Eventi AI per aziende/);
  assert.equal(await page.locator('link[rel=canonical]').getAttribute('href'),'https://niuexa.ai/eventi-ai-aziende/');
  await page.locator('#submit-registration').click();
@@ -56,8 +56,8 @@ try {
  assert.equal(await page.locator('#event-date').isDisabled(),true);
  assert.equal(await page.locator('#registration-form').getAttribute('aria-busy'),'true');
  await page.waitForFunction(()=>document.querySelector('#form-status').textContent.includes('Richiesta ricevuta'));
- assert.equal(sent.length,1); assert.equal(sent[0].event_date,'2026-11-03');
- assert.deepEqual(await registrations(page),['2026-11-03']);
+ assert.equal(sent.length,1); assert.equal(sent[0].event_date,'2026-11-09');
+ assert.deepEqual(await registrations(page),['2026-11-09']);
  assert.equal(await page.locator('#firstName').inputValue(),'');
  assert.match(await page.locator('#form-status').innerText(),/non conferma/);
  assert.equal(await page.locator('#submit-registration').isDisabled(),true);
@@ -68,12 +68,12 @@ try {
  await page.waitForFunction(()=>document.querySelector('#form-status').classList.contains('error'));
  assert.equal(await page.locator('#firstName').inputValue(),'Ada');
  assert.equal(await page.locator('#submit-registration').isDisabled(),false);
- assert.deepEqual(await registrations(page),['2026-11-03'],'an unverified request is not reported');
+ assert.deepEqual(await registrations(page),['2026-11-09'],'an unverified request is not reported');
  response={success:true};
  await page.locator('#submit-registration').click();
  await page.waitForFunction(()=>document.querySelector('#form-status').classList.contains('success'));
  assert.equal(sent.at(-1).event_date,'2026-11-25');
- assert.deepEqual(await registrations(page),['2026-11-03','2026-11-25']);
+ assert.deepEqual(await registrations(page),['2026-11-09','2026-11-25']);
  await page.goto(base+'/eventi-ai-aziende/?event=2026-11-17');
  assert.equal(await page.locator('#event-date').inputValue(),'2026-11-17');
  await fill(); await page.locator('#botcheck').evaluate(el=>el.value='spam');
@@ -87,17 +87,17 @@ try {
  await page.locator('#event-date').selectOption('2026-11-17');
  assert.equal(await page.locator('#submit-registration').isDisabled(),false);
  // The served page may predate today's render: the form must still drop dates that have passed.
- const eve=await at('2026-11-03T22:30:00Z'); // 23:30 in Milan: the 3 November date is still open
+ const eve=await at('2026-11-09T22:30:00Z'); // 23:30 in Milan: the 9 November date is still open
  await eve.goto(base+'/eventi-ai-aziende/');
- assert.deepEqual(await options(eve),['2026-11-03','2026-11-17','2026-11-25']);
- const after=await at('2026-11-03T23:30:00Z'); // 00:30 on 4 November in Milan, still 3 November in UTC
+ assert.deepEqual(await options(eve),['2026-11-09','2026-11-17','2026-11-25']);
+ const after=await at('2026-11-09T23:30:00Z'); // 00:30 on 10 November in Milan, still 9 November in UTC
  await after.goto(base+'/eventi-ai-aziende/');
  assert.deepEqual(await options(after),['2026-11-17','2026-11-25']);
  assert.equal(await after.locator('#event-date').inputValue(),'2026-11-17');
  assert.equal(await after.locator('#selected-date').innerText(),'17 novembre 2026');
  assert.equal(await after.locator('#submit-registration').isDisabled(),false);
- await after.goto(base+'/eventi-ai-aziende/?event=2026-11-03');
- assert.match(await after.locator('#form-status').innerText(),/3 novembre 2026 si è già svolto/);
+ await after.goto(base+'/eventi-ai-aziende/?event=2026-11-09');
+ assert.match(await after.locator('#form-status').innerText(),/9 novembre 2026 si è già svolto/);
  assert.equal(await after.locator('#submit-registration').isDisabled(),true);
  await after.locator('#event-date').selectOption('2026-11-17');
  assert.equal(await after.locator('#submit-registration').isDisabled(),false);
@@ -108,24 +108,24 @@ try {
  assert.equal(await closed.locator('#submit-registration').isDisabled(),true);
  assert.match(await closed.locator('#form-status').innerText(),/si sono conclusi/);
  // A device clock running late must not reopen a date that the served page has already closed.
- const late=await at('2026-11-03T22:00:00Z',hubAsOf('2026-11-04')); // 23:00 on 3 November in Milan
+ const late=await at('2026-11-09T22:00:00Z',hubAsOf('2026-11-10')); // 23:00 on 9 November in Milan
  await late.goto(base+'/eventi-ai-aziende/');
  assert.deepEqual(await options(late),['2026-11-17','2026-11-25']);
  assert.equal(await late.locator('#event-date').inputValue(),'2026-11-17');
- await late.goto(base+'/eventi-ai-aziende/?event=2026-11-03');
+ await late.goto(base+'/eventi-ai-aziende/?event=2026-11-09');
  assert.deepEqual(await options(late),['','2026-11-17','2026-11-25']);
  assert.match(await late.locator('#form-status').innerText(),/La data richiesta non è disponibile/);
  assert.equal(await late.locator('#submit-registration').isDisabled(),true);
  // A tab left open past midnight must not send the date that has just closed.
- const overnight=await at('2026-11-03T22:50:00Z'); // 23:50 on 3 November in Milan
- await overnight.goto(base+'/eventi-ai-aziende/?event=2026-11-03');
+ const overnight=await at('2026-11-09T22:50:00Z'); // 23:50 on 9 November in Milan
+ await overnight.goto(base+'/eventi-ai-aziende/?event=2026-11-09');
  await fill(overnight);
- await overnight.clock.setFixedTime(new Date('2026-11-03T23:05:00Z')); // 00:05 on 4 November
+ await overnight.clock.setFixedTime(new Date('2026-11-09T23:05:00Z')); // 00:05 on 10 November
  let count=sent.length;
  await overnight.locator('#submit-registration').click();
  // Wait for the outcome before counting, so a request sent late would still be caught.
  await overnight.waitForFunction(()=>/si è già svolto|Richiesta ricevuta|Non possiamo verificare/.test(document.querySelector('#form-status').textContent));
- assert.match(await overnight.locator('#form-status').innerText(),/3 novembre 2026 si è già svolto\. Scegli/);
+ assert.match(await overnight.locator('#form-status').innerText(),/9 novembre 2026 si è già svolto\. Scegli/);
  assert.equal(sent.length,count);
  assert.deepEqual(await options(overnight),['','2026-11-17','2026-11-25']);
  assert.equal(await overnight.locator('#selected-date').innerText(),'Scegli una data');
