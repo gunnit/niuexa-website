@@ -31,7 +31,7 @@ FORBIDDEN = [
     (re.compile(r"via Andreis 18/16/M", re.I), "Via Vittorio Andreis 18"),
     (re.compile(r'"foundingDate":\s*"2026-\d{2}-\d{2}"'), '"foundingDate": "2026"'),
     (re.compile(r"risponde in oltre 50 lingue|more than 50 languages", re.I), "answers in the languages of the uploaded content"),
-    (re.compile(r"(vendite|supporto)@niuexa\.ai"), "info@niuexa.ai"),
+    (re.compile(r"(vendite|supporto|info)@niuexa\.ai"), "ai@niuexa.ai"),
     (re.compile(r"1\.000 executive"), "no unsourced training-volume claim"),
     (re.compile(r'<meta name="robots" content="index[^"]*">'), "noindex on /books/ and nocode-toolkit"),
 ]

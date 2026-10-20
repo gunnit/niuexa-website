@@ -543,7 +543,7 @@ const ROICalculator = {
     <div class="footer">
         <p><strong>${roiT.reportFooter1}</strong></p>
         <p>${roiT.reportFooter2}</p>
-        <p>Web: niuexa.ai | Email: info@niuexa.ai</p>
+        <p>Web: niuexa.ai | Email: ai@niuexa.ai</p>
     </div>
 </body>
 </html>`;
