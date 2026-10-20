@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {REGISTRATION} from '../event-registration-config.mjs';
+import {EVENTS} from '../build/event-content.mjs';
 const root=resolve(import.meta.dirname,'..');
 const read=p=>readFileSync(resolve(root,p),'utf8');
 const html=read('eventi-ai-aziende/index.html');
@@ -63,8 +64,8 @@ test('same existing public key, CSP blocks native submission and every local ass
  }
  assert.ok(!/google-analytics|googletagmanager|localStorage|sessionStorage/.test(read('event-registration.mjs')));
 });
-test('hub and topic pages load GTM after the consent defaults, with the cookie banner',()=>{
- const pages=['eventi-ai-aziende/index.html',...['seo-in-pensione-aeo-geo','ai-agent-processi-aziendali','ai-marketing-agent'].map(slug=>`eventi-ai-aziende/${slug}/index.html`)];
+test('hub, topic and thank-you pages load GTM after the consent defaults, with the cookie banner',()=>{
+ const pages=['eventi-ai-aziende/index.html','eventi-ai-aziende/grazie/index.html',...['seo-in-pensione-aeo-geo','ai-agent-processi-aziendali','ai-marketing-agent'].map(slug=>`eventi-ai-aziende/${slug}/index.html`)];
  for(const page of pages){
   const text=read(page);
   const consent=text.search(/gtag\('consent', 'default'/), loader=text.indexOf("'https://www.googletagmanager.com/gtm.js?id='");
@@ -73,6 +74,19 @@ test('hub and topic pages load GTM after the consent defaults, with the cookie b
   assert.match(text,/<body[^>]*>\n<!-- Google Tag Manager \(noscript\) -->\n<noscript><iframe src="https:\/\/www.googletagmanager.com\/ns.html\?id=GTM-KG9S42S4"/,page);
   assert.match(text,/<script src="\/cookie-banner.js\?v=\d+"><\/script>\n<\/body>/,page);
  }
- // The request is reported only once the provider has accepted it.
- assert.match(read('event-registration.mjs'),/if \(receipt.status !== 'received'\) throw new Error\('PROVIDER'\);\s*completed.add\(event.id\);\s*trackRequest\(event\);/);
+ // The request is reported, and the visitor sent to the thank-you page, only once the provider has accepted it.
+ assert.match(read('event-registration.mjs'),/if \(receipt.status !== 'received'\) throw new Error\('PROVIDER'\);\s*completed.add\(event.id\);\s*trackRequest\(event, thankYou\(event\)\);/);
+});
+test('the thank-you page says the organisers confirm participation, names the requested date and stays out of search',()=>{
+ const html=read('eventi-ai-aziende/grazie/index.html');
+ assert.match(html,/<meta name="robots" content="noindex, follow">/);
+ assert.match(html,/<link rel="canonical" href="https:\/\/niuexa.ai\/eventi-ai-aziende\/grazie\/">/);
+ assert.match(html,/<h1 id="thanks-title" tabindex="-1">Grazie, abbiamo ricevuto la tua richiesta.<\/h1>/);
+ assert.match(html,/La partecipazione verrà confermata dall’organizzazione./);
+ // One block per date, all hidden until the inline script matches ?event=.
+ for(const e of EVENTS) assert.match(html,new RegExp(`<aside class="event-facts" data-event="${e.date}" aria-label="L’incontro richiesto" hidden>.*?${e.label}.*?Ore 17:30.*?</aside>`));
+ assert.match(html,/el\.hidden=el\.dataset\.event!==id/);
+ assert.match(read('event-registration.mjs'),/location\.assign\('\/eventi-ai-aziende\/grazie\/\?event=' \+ encodeURIComponent\(item\.id\)\)/);
+ assert.ok(!read('sitemap.xml').includes('/eventi-ai-aziende/grazie/'));
+ assert.ok(!read('llms.txt').includes('/eventi-ai-aziende/grazie/'));
 });

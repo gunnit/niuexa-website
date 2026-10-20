@@ -24,10 +24,11 @@ let event = open.find(item => item.id === (params.get('event') || open[0]?.id));
 let busy = false;
 const completed = new Set();
 
-// Event requests have no thank-you page, so the success state reports the request to
-// Google Tag Manager the way conversion-tracking.js reports the site's other forms:
-// a dataLayer event for GTM triggers and a gtag event for GA4. No personal data is sent.
-function trackRequest(item) {
+// A received request is reported to Google Tag Manager the way conversion-tracking.js
+// reports the site's other forms: a dataLayer event for GTM triggers and a gtag event for
+// GA4. No personal data is sent. GTM calls `done` (eventCallback) once its tags have run,
+// so leaving for the thank-you page does not cut the event short.
+function trackRequest(item, done) {
   try {
     const data = {
       event: 'event_registration',
@@ -38,7 +39,7 @@ function trackRequest(item) {
       page_location: location.href,
     };
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push(data);
+    window.dataLayer.push({ ...data, eventCallback: done, eventTimeout: 1500 });
     if (typeof window.gtag === 'function') {
       const { event: name, ...props } = data;
       window.gtag('event', name, props);
@@ -46,6 +47,18 @@ function trackRequest(item) {
   } catch {
     // Tracking must never turn a received request into an error message.
   }
+}
+// A received request ends on the thank-you page (Roberto's 20 October 2026 email). The move
+// waits for GTM to handle event_registration; the timer covers GTM blocked or not loaded.
+function thankYou(item) {
+  let left = false;
+  const leave = () => {
+    if (left) return;
+    left = true;
+    location.assign('/eventi-ai-aziende/grazie/?event=' + encodeURIComponent(item.id));
+  };
+  setTimeout(leave, 2000);
+  return leave;
 }
 function showStatus(message, kind = '') {
   status.textContent = message;
@@ -124,9 +137,9 @@ async function submit() {
     const receipt = await flow.submit(event.id, input);
     if (receipt.status !== 'received') throw new Error('PROVIDER');
     completed.add(event.id);
-    trackRequest(event);
+    trackRequest(event, thankYou(event));
     form.reset();
-    showStatus('Richiesta ricevuta per il ' + event.label + '. Questo messaggio non conferma il posto né la consegna di un’email.', 'success');
+    showStatus('Richiesta ricevuta per il ' + event.label + '. La partecipazione verrà confermata dall’organizzazione.', 'success');
     status.focus();
   } catch {
     // Timeout/network failure can occur AFTER acceptance: never claim nothing was sent.

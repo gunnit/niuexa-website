@@ -140,6 +140,43 @@ for(const [from,to] of MOVED){
  mkdirSync(resolve(root,'eventi-ai-aziende',from),{recursive:true});
  write(`eventi-ai-aziende/${from}/index.html`,`<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="robots" content="noindex, follow"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(e.title)} | NIUEXA</title><link rel="canonical" href="https://niuexa.ai${path(e)}"><meta http-equiv="refresh" content="0;url=${path(e)}"></head><body><a href="${path(e)}">${e.title}</a></body></html>\n`);
 }
+// Where the form sends a request once the provider has accepted it (Roberto's 20 October 2026
+// email). Not indexed. The requested date comes from ?event= through an inline script, so the
+// page never depends on a cached module; without a match it shows only the message.
+mkdirSync(resolve(root,'eventi-ai-aziende','grazie'),{recursive:true});
+write('eventi-ai-aziende/grazie/index.html',`<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+${csp}
+${gtmHead}
+<meta name="robots" content="noindex, follow">
+<title>Richiesta ricevuta | Eventi AI per aziende | NIUEXA</title>
+<meta name="description" content="Abbiamo ricevuto la tua richiesta di partecipazione agli incontri NIUEXA. La partecipazione verrà confermata dall’organizzazione.">
+<link rel="canonical" href="https://niuexa.ai${hub}grazie/">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/niuexa-icon-192.png">
+<link rel="stylesheet" href="/event-registration.css">
+<link rel="stylesheet" href="/event-details.css">
+</head>
+<body class="event-detail">
+${gtmBody}
+<a class="skip" href="#thanks-title">Vai al contenuto</a>
+<header class="header"><a href="/" aria-label="NIUEXA, consulenza AI">${logo}</a><span class="header-edition">${series}</span><a class="header-link" href="${hub}">Tutti gli incontri <span aria-hidden="true">↗</span></a></header>
+<main>
+<section class="detail-hero" aria-labelledby="thanks-title"><div class="detail-hero-inner">
+<nav class="event-breadcrumb" aria-label="Percorso"><a href="${hub}">Eventi AI per aziende</a><span aria-hidden="true"> / </span><span>Richiesta ricevuta</span></nav>
+<div class="detail-heading"><div><p class="eyebrow">RICHIESTA RICEVUTA</p><h1 id="thanks-title" tabindex="-1">Grazie, abbiamo ricevuto la tua richiesta.</h1><p class="detail-subtitle">La partecipazione verrà confermata dall’organizzazione.</p></div>
+${EVENTS.map(e=>`<aside class="event-facts" data-event="${e.date}" aria-label="L’incontro richiesto" hidden><p class="eyebrow">L’INCONTRO RICHIESTO</p><time datetime="${e.date}T${time}:00${e.offset}">${e.label}</time><p class="event-time">Ore ${time} <span>Europe/Rome</span></p><p><strong>${e.title}</strong></p><p>${venue.name}<br>${venueLine}</p><a class="event-cta" href="${path(e)}">Scopri l’incontro <span aria-hidden="true">↗</span></a></aside>`).join('\n')}
+</div>
+</div></section>
+</main>
+<footer>${logo}<p>Intelligenza artificiale.<br>Con un punto di vista umano.</p><span>NIUEXA S.R.L. · P.IVA 13489560014<br><a href="${hub}">Tutti gli incontri</a> · <a href="${hub}#dati-personali">Dati e privacy</a></span></footer>
+<script>(()=>{const id=new URLSearchParams(location.search).get('event');for(const el of document.querySelectorAll('[data-event]'))el.hidden=el.dataset.event!==id;})();</script>
+${cookieBanner}
+</body>
+</html>
+`);
 let html=read('eventi-ai-aziende/index.html');
 if(!html.includes('href="/event-details.css"')) html=html.replace('<link rel="stylesheet" href="/event-registration.css">','<link rel="stylesheet" href="/event-registration.css">\n  <link rel="stylesheet" href="/event-details.css">');
 // After the last date the block names the closing date instead of a next one.
@@ -199,4 +236,4 @@ write('sitemap.xml',sitemap);
 let llms=read('llms.txt');
 llms=llms.replace(/## Eventi AI per aziende\n[\s\S]*?\n## Core Services/,`## Eventi AI per aziende\n- [Decifrare il futuro: incontri NIUEXA, autunno 2026](https://niuexa.ai/eventi-ai-aziende/): ${next?'modulo unico per richiedere la partecipazione, non conferma del posto':'ciclo concluso, richieste di partecipazione chiuse'}. Tutte le date alle ${time} (Europe/Rome), ${venue.name}, ${venueLine}.\n${EVENTS.map(e=>`- [${e.title}](https://niuexa.ai${path(e)}): ${e.label}${isPast(e)?', incontro concluso':''}. ${e.excerpt}`).join('\n')}\n\n## Core Services`);
 write('llms.txt',llms);write('llm.txt',llms);
-console.log(`Rendered ${EVENTS.length} event pages (${open.length} open as of ${today}), ${MOVED.length} redirects, hub topics and sitemap.`);
+console.log(`Rendered ${EVENTS.length} event pages (${open.length} open as of ${today}), ${MOVED.length} redirects, the thank-you page, hub topics and sitemap.`);

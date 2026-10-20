@@ -89,5 +89,6 @@ test('the committed pages are exactly what the renderer produces for the state t
   assert.equal(r.hub,committed('eventi-ai-aziende/index.html'));
   assert.equal(r.read('llms.txt'),committed('llms.txt'));
   assert.equal(r.read('sitemap.xml'),committed('sitemap.xml'));
+  assert.equal(r.read('eventi-ai-aziende/grazie/index.html'),committed('eventi-ai-aziende/grazie/index.html'));
  } finally {rmSync(r.dir,{recursive:true,force:true});}
 });

@@ -35,9 +35,14 @@ const guard=hub=>async route=>{
  external.push(req.url()); return route.abort();
 };
 const registrations=p=>p.evaluate(()=>(window.dataLayer||[]).filter(x=>x&&x.event==='event_registration').map(x=>x.event_date));
+// event_registration pushes from every page, kept across the move to the thank-you page.
+const tracked=[];
 const browser=await chromium.launch({headless:true});
 // Which dates are open also depends on today's date in Milan, so every page pins its clock.
-const at=async(when,hub=fullCalendar,options={})=>{const p=await browser.newPage(options);p.on('pageerror',e=>errors.push(e.message));await p.clock.setFixedTime(new Date(when));await p.route('**/*',guard(hub));return p;};
+const at=async(when,hub=fullCalendar,options={})=>{const p=await browser.newPage(options);p.on('pageerror',e=>errors.push(e.message));await p.clock.setFixedTime(new Date(when));await p.route('**/*',guard(hub));
+ await p.exposeBinding('__tracked',(source,date)=>tracked.push(date));
+ await p.addInitScript(()=>{const dl=window.dataLayer=window.dataLayer||[];const push=dl.push.bind(dl);dl.push=(...items)=>{for(const x of items)if(x&&x.event==='event_registration')window.__tracked(x.event_date);return push(...items);};});
+ return p;};
 const page=await at('2026-09-29T10:00:00+02:00',fullCalendar,{viewport:{width:1440,height:1050}});
 const options=p=>p.locator('#event-date option').evaluateAll(o=>o.map(x=>x.value));
 const data={firstName:'Ada',lastName:'Esempio',company:'TEST NON ISCRIZIONE',email:'qa@example.com',mobile:'+39 000 000 0000'};
@@ -55,25 +60,34 @@ try {
  await page.locator('#submit-registration').click();
  assert.equal(await page.locator('#event-date').isDisabled(),true);
  assert.equal(await page.locator('#registration-form').getAttribute('aria-busy'),'true');
- await page.waitForFunction(()=>document.querySelector('#form-status').textContent.includes('Richiesta ricevuta'));
- assert.equal(sent.length,1); assert.equal(sent[0].event_date,'2026-11-09');
- assert.deepEqual(await registrations(page),['2026-11-09']);
- assert.equal(await page.locator('#firstName').inputValue(),'');
- assert.match(await page.locator('#form-status').innerText(),/non conferma/);
+ // A received request is reported once, then the visitor lands on the thank-you page for that date.
+ // The page waits up to 2 s for GTM (an empty script here) before leaving: no second send meanwhile.
+ await page.waitForFunction(()=>document.querySelector('#form-status').classList.contains('success'));
+ assert.match(await page.locator('#form-status').innerText(),/La partecipazione verrà confermata dall’organizzazione/);
  assert.equal(await page.locator('#submit-registration').isDisabled(),true);
- await page.locator('#event-date').selectOption('2026-11-25');
- assert.equal(await page.locator('#submit-registration').isDisabled(),false);
+ await page.waitForURL(base+'/eventi-ai-aziende/grazie/?event=2026-11-09');
+ assert.equal(sent.length,1); assert.equal(sent[0].event_date,'2026-11-09');
+ assert.deepEqual(tracked,['2026-11-09']);
+ assert.match(await page.locator('h1').innerText(),/abbiamo ricevuto la tua richiesta/);
+ assert.match(await page.locator('main').innerText(),/La partecipazione verrà confermata dall’organizzazione/);
+ const shown=p=>p.locator('aside[data-event]:visible').evaluateAll(a=>a.map(x=>x.dataset.event));
+ assert.deepEqual(await shown(page),['2026-11-09']);
+ await page.goto(base+'/eventi-ai-aziende/grazie/');
+ assert.deepEqual(await shown(page),[],'without ?event= the page shows only the message');
+ await page.goto(base+'/eventi-ai-aziende/?event=2026-11-25');
  await fill(); response={success:'true'}; delay=0;
  await page.locator('#submit-registration').click();
  await page.waitForFunction(()=>document.querySelector('#form-status').classList.contains('error'));
  assert.equal(await page.locator('#firstName').inputValue(),'Ada');
  assert.equal(await page.locator('#submit-registration').isDisabled(),false);
- assert.deepEqual(await registrations(page),['2026-11-09'],'an unverified request is not reported');
+ assert.deepEqual(tracked,['2026-11-09'],'an unverified request is not reported');
+ assert.equal(page.url(),base+'/eventi-ai-aziende/?event=2026-11-25','an unverified request stays on the form');
  response={success:true};
  await page.locator('#submit-registration').click();
- await page.waitForFunction(()=>document.querySelector('#form-status').classList.contains('success'));
+ await page.waitForURL(base+'/eventi-ai-aziende/grazie/?event=2026-11-25');
  assert.equal(sent.at(-1).event_date,'2026-11-25');
- assert.deepEqual(await registrations(page),['2026-11-09','2026-11-25']);
+ assert.deepEqual(tracked,['2026-11-09','2026-11-25']);
+ assert.deepEqual(await shown(page),['2026-11-25']);
  await page.goto(base+'/eventi-ai-aziende/?event=2026-11-17');
  assert.equal(await page.locator('#event-date').inputValue(),'2026-11-17');
  await fill(); await page.locator('#botcheck').evaluate(el=>el.value='spam');
@@ -132,7 +146,7 @@ try {
  assert.equal(await overnight.locator('#submit-registration').isDisabled(),true);
  await overnight.locator('#event-date').selectOption('2026-11-17');
  await overnight.locator('#submit-registration').click();
- await overnight.waitForFunction(()=>document.querySelector('#form-status').classList.contains('success'));
+ await overnight.waitForURL(base+'/eventi-ai-aziende/grazie/?event=2026-11-17');
  assert.equal(sent.at(-1).event_date,'2026-11-17');
  const lastNight=await at('2026-11-25T22:50:00Z'); // 23:50 on 25 November in Milan
  await lastNight.goto(base+'/eventi-ai-aziende/');
@@ -163,5 +177,5 @@ try {
  assert.equal(await broken.locator('#submit-registration').isDisabled(),true);
  assert.deepEqual(errors,[]); assert.deepEqual(external,[]);
  assert.ok(tags.some(url=>url.startsWith('https://www.googletagmanager.com/gtm.js?id=GTM-KG9S42S4')),'GTM loads');
- console.log('PASS mocked production form: validation, loading, strict success, duplicate guard, false-success retry, honeypot, event_registration only for received requests, GTM requested, date payload/deep links, invalid date, past dates dropped at Milan midnight, late device clock, tab left open past midnight, closed series, 4 widths, no-JS/module safety; no external network, 0 page errors.');
+ console.log('PASS mocked production form: validation, loading, strict success, duplicate guard, false-success retry, honeypot, event_registration only for received requests, thank-you page per date, GTM requested, date payload/deep links, invalid date, past dates dropped at Milan midnight, late device clock, tab left open past midnight, closed series, 4 widths, no-JS/module safety; no external network, 0 page errors.');
 } finally {await browser.close();}
