@@ -7,7 +7,7 @@ import { resolve } from 'node:path';
 const root=resolve(import.meta.dirname,'..');
 test('Pages builds the actual allowlisted release artifact without asserting legal approval',()=>{
  execFileSync(process.execPath,['build/package-pages.mjs'],{cwd:root});
- const included=['index.html','eventi-ai-aziende/index.html','event-registration.mjs','assets/event-fonts/hanken-regular.ttf','assets/event-fonts/Hanken-OFL.txt','sitemap.xml','CNAME','en/llms.txt','en/sitemap.xml','en/robots.txt','img/ufficibebitmilano.2jpg','ai-metric-contract.html','img/landing/niuexa-session-milano-800.webp','landing-niuexa-v1.html'];
+ const included=['index.html','eventi-ai-aziende/index.html','eventi-ai-aziende/grazie/index.html','event-registration.mjs','assets/event-fonts/hanken-regular.ttf','assets/event-fonts/Hanken-OFL.txt','sitemap.xml','CNAME','en/llms.txt','en/sitemap.xml','en/robots.txt','img/ufficibebitmilano.2jpg','ai-metric-contract.html','img/landing/niuexa-session-milano-800.webp','landing-niuexa-v1.html'];
  const excluded=['qa','tests','build','content','.git','.github','.claude','EVENT-QA.md','EVENT-IMPLEMENTATION-BRIEF.md','linkedin-posts.csv','event-registration.html','roberto-draft.json'];
  for(const output of ['_site','_site-review']) {
   if(output==='_site-review') execFileSync(process.execPath,['build/package-pages.mjs','--review'],{cwd:root});
