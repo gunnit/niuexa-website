@@ -89,6 +89,7 @@ const footerHTML = `
                     <h3>Company</h3>
                     <ul>
                         <li><a href="/en/about-us.html">About Us</a></li>
+                        <li><a href="/en/recognition.html">Recognition</a></li>
                         <li><a href="/en/contact.html">Contact</a></li>
                         <li><a href="/en/#contact">Show us a process</a></li>
                     </ul>
@@ -114,7 +115,7 @@ const footerHTML = `
         <div class="footer-bottom">
             <div class="footer-bottom-content">
                 <p class="footer-copyright">&copy; 2024-2026 Niuexa. All rights reserved.</p>
-                <p class="footer-company">NIUEXA S.R.L. · VAT and tax ID 13489560014 · REA TO-1366737<br>Registered office: Via Vittorio Andreis 18, 10152 Turin · Office: Via Rutilia 10, 20141 Milan</p>
+                <p class="footer-company">NIUEXA S.R.L. · VAT and tax ID 13489560014 · REA TO-1366737 · Innovative start-up since 4 September 2026<br>Registered office: Via Vittorio Andreis 18, 10152 Turin · Office: Via Rutilia 10, 20141 Milan</p>
             </div>
         </div>
     </div>

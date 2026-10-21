@@ -86,6 +86,7 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/styles.css?v=20260807">
     <link rel="stylesheet" href="/home.css?v=20261020">
+    <link rel="stylesheet" href="/event-cards.css?v=20261021">
 
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
@@ -214,11 +215,19 @@
             ],
             "knowsLanguage": ["it", "en"],
             "memberOf": [
-                {
-                    "@type": "Organization",
-                    "name": "AUSED"
-                }
+                {"@type": "Organization", "name": "AUSED", "url": "https://www.aused.org/"},
+                {"@type": "Organization", "name": "Apply AI Alliance", "url": "https://futurium.ec.europa.eu/en/apply-ai-alliance"},
+                {"@type": "Organization", "name": "AI Pact community (Pillar I)", "url": "https://digital-strategy.ec.europa.eu/en/policies/ai-pact"},
+                {"@type": "Organization", "name": "European Digital Education Hub", "url": "https://education.ec.europa.eu/focus-topics/digital-education/action-plan/european-digital-education-hub"},
+                {"@type": "Organization", "name": "European DIGITAL SME Alliance, Focus Group Artificial Intelligence", "url": "https://www.digitalsme.eu/groups/focus-group-artificial-intelligence/"},
+                {"@type": "Organization", "name": "Digital Skills and Jobs Platform", "url": "https://digital-skills-jobs.europa.eu/en/community/organisations/niuexa"}
             ],
+            "hasCredential": {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Innovative start-up, special section of the Italian Business Register",
+                "dateCreated": "2026-09-04",
+                "recognizedBy": {"@type": "Organization", "name": "Registro delle Imprese, Camera di Commercio di Torino"}
+            },
             "publishingPrinciples": "https://niuexa.ai/en/about-us"
         },
         {
@@ -468,7 +477,7 @@
     <section class="partners-section events-strip" aria-labelledby="fiere-title">
         <div class="container">
             <h2 class="section-title" id="fiere-title">Trade fairs and conferences</h2>
-            <p class="events-strip__intro">Where we have presented Niuexa, and the next dates to meet us in person.</p>
+            <p class="events-strip__intro">Where we have presented Niuexa, and the next dates to meet us in person. <a href="/en/recognition.html">All memberships and events</a>.</p>
             <ul class="events-strip__list">
                 <li>
                     <a class="event-card" href="https://www.aifestival.it/" target="_blank" rel="noopener" data-until="2026-01-22">
@@ -541,7 +550,7 @@
     <section class="partners-section events-strip" aria-labelledby="ue-title">
         <div class="container">
             <h2 class="section-title" id="ue-title">European initiatives</h2>
-            <p class="events-strip__intro">The European AI communities and consultations Niuexa takes part in.</p>
+            <p class="events-strip__intro">The European AI communities and consultations Niuexa takes part in. <a href="/en/recognition.html">All memberships and events</a>.</p>
             <ul class="events-strip__list">
                 <li>
                     <a class="event-card" href="https://futurium.ec.europa.eu/en/apply-ai-alliance" target="_blank" rel="noopener">
@@ -571,6 +580,37 @@
                         <span class="event-card__name">European Digital Education Hub</span>
                         <span class="event-card__where">European Commission · Erasmus+</span>
                         <span class="event-card__role">Members since October 2026</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="event-card" href="https://www.digitalsme.eu/groups/focus-group-artificial-intelligence/" target="_blank" rel="noopener">
+                        <span class="event-card__logo">
+                            <img src="/img/iniziative-ue/european-digital-sme-alliance.svg" alt="European DIGITAL SME Alliance" loading="lazy" width="951" height="475" decoding="async">
+                        </span>
+                        <span class="event-card__name">European DIGITAL SME Alliance</span>
+                        <span class="event-card__where">Focus Group Artificial Intelligence</span>
+                        <span class="event-card__role">Focus group members since October 2026</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="event-card" href="https://digital-skills-jobs.europa.eu/en/community/organisations/niuexa" target="_blank" rel="noopener">
+                        <span class="event-card__logo">
+                            <img src="/img/iniziative-ue/digital-skills-jobs-platform.png" alt="Digital Skills and Jobs Platform" loading="lazy" width="600" height="211" decoding="async">
+                        </span>
+                        <span class="event-card__name">Digital Skills and Jobs Platform</span>
+                        <span class="event-card__where">European Commission</span>
+                        <span class="event-card__role">Registered organisation, profile published October 2026</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="event-card" href="https://codeweek.eu/view/1522563/dalla-risposta-ai-allazione-costruisci-un-flusso-che-puoi-controllare" target="_blank" rel="noopener" data-until="2026-10-22">
+                        <span class="event-card__logo">
+                            <img src="/img/iniziative-ue/eu-code-week.svg" alt="EU Code Week" loading="lazy" width="329" height="78" decoding="async">
+                            <span class="event-card__status">Upcoming</span>
+                        </span>
+                        <span class="event-card__name">EU Code Week 2026</span>
+                        <span class="event-card__where">Official activity · online · 22 October 2026, 17:00</span>
+                        <span class="event-card__role">Free workshop in Italian: from the AI answer to action</span>
                     </a>
                 </li>
                 <li>

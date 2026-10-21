@@ -93,6 +93,7 @@ const footerHTML = `
                     <h3>Azienda</h3>
                     <ul>
                         <li><a href="/chi-siamo.html">Chi Siamo</a></li>
+                        <li><a href="/riconoscimenti.html">Riconoscimenti</a></li>
                         <li><a href="/contatti.html">Contatti</a></li>
                         <li><a href="/#contact">Ci mostri un processo</a></li>
                     </ul>
@@ -118,7 +119,7 @@ const footerHTML = `
         <div class="footer-bottom">
             <div class="footer-bottom-content">
                 <p class="footer-copyright">&copy; 2024-2026 Niuexa. Tutti i diritti riservati.</p>
-                <p class="footer-company">NIUEXA S.R.L. · P.IVA e C.F. 13489560014 · REA TO-1366737<br>Sede legale: Via Vittorio Andreis 18, 10152 Torino · Ufficio: Via Rutilia 10, 20141 Milano</p>
+                <p class="footer-company">NIUEXA S.R.L. · P.IVA e C.F. 13489560014 · REA TO-1366737 · Startup innovativa dal 4 settembre 2026<br>Sede legale: Via Vittorio Andreis 18, 10152 Torino · Ufficio: Via Rutilia 10, 20141 Milano</p>
             </div>
         </div>
     </div>
