@@ -429,3 +429,27 @@ for (const marketing of [false, true]) {
     assert.equal(page.ctx.dataLayer.some(x => x[0] === 'config' || x[0] === 'consent'), false);
   });
 }
+
+for (const marketing of [false, true]) {
+  test(`marketing consent ${marketing}: attribution storage and click-ID form fields follow the choice`, () => {
+    const local = new Map([['niuexa_cookie_consent', JSON.stringify({ necessary: true, analytics: true, marketing })]]);
+    if (!marketing) local.set('niuexa_attribution_v1', JSON.stringify({ gclid: 'old', updated_at: new Date().toISOString() }));
+    const f = form();
+    browser({ forms: [f], local, path: '/contatti.html?utm_source=google&gclid=click-a' });
+    assert.equal(local.has('niuexa_attribution_v1'), marketing, 'stored only with marketing consent; earlier records deleted');
+    assert.equal(f.querySelector('[name="gclid"]')?.value, marketing ? 'click-a' : undefined);
+    assert.equal(f.querySelector('[name="utm_source"]').value, 'google', 'UTMs still reach the form for this page');
+    assert.equal(new URL(f.querySelector('[name="current_page"]').value).searchParams.has('gclid'), marketing);
+  });
+}
+
+test('stored attribution older than 90 days is dropped', () => {
+  const old = new Date(Date.now() - 91 * 24 * 60 * 60 * 1000).toISOString();
+  const local = new Map([
+    ['niuexa_cookie_consent', JSON.stringify({ necessary: true, analytics: true, marketing: true })],
+    ['niuexa_attribution_v1', JSON.stringify({ utm_source: 'stale', updated_at: old })],
+  ]);
+  const page = browser({ local });
+  assert.equal(page.ctx.NiuexaTracking.attribution().utm_source, undefined);
+  assert.equal(JSON.parse(local.get('niuexa_attribution_v1')).utm_source, undefined, 'the stale record is replaced, not merged');
+});
