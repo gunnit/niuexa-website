@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="it" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>Permesso? (look test)</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Space Grotesk";
+        src: url("assets/fonts/space-medium.ttf") format("truetype");
+        font-weight: 500;
+      }
+      @font-face {
+        font-family: "Space Grotesk";
+        src: url("assets/fonts/space-semibold.ttf") format("truetype");
+        font-weight: 600;
+      }
+      @font-face {
+        font-family: "Hanken Grotesk";
+        src: url("assets/fonts/hanken-regular.ttf") format("truetype");
+        font-weight: 400;
+      }
+      @font-face {
+        font-family: "Hanken Grotesk";
+        src: url("assets/fonts/hanken-semibold.ttf") format("truetype");
+        font-weight: 600;
+      }
+      :root {
+        --ink: #0a1a26;
+        --navy: #14324a;
+        --white: #ffffff;
+        --signal-on-dark: #4fd1c5;
+        --muted-on-dark: #adb5bd;
+        --gradient-primary: linear-gradient(115deg, #237da6 0%, #0e9c9a 50%, #43ae68 100%);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #000;
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #000;
+      }
+      .clip {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+      .plate {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .plate img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      /* Colour flood: the colour plate is revealed by a radial mask that grows from the doorway. */
+      #flood-mask {
+        --r: 0;
+        -webkit-mask-image: radial-gradient(
+          circle at 16% 88%,
+          #000 calc(var(--r) * 1% - 14%),
+          transparent calc(var(--r) * 1%)
+        );
+        mask-image: radial-gradient(
+          circle at 16% 88%,
+          #000 calc(var(--r) * 1% - 14%),
+          transparent calc(var(--r) * 1%)
+        );
+      }
+      .subtitle {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 96px;
+        text-align: center;
+        font-family: "Hanken Grotesk", system-ui, sans-serif;
+        font-weight: 400;
+        font-style: italic;
+        font-size: 44px;
+        letter-spacing: 0.01em;
+        color: var(--white);
+        text-shadow: 0 2px 18px rgba(0, 0, 0, 0.85);
+      }
+      #supers {
+        background: var(--ink);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .super {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        margin-top: -40px;
+        text-align: center;
+        font-family: "Space Grotesk", system-ui, sans-serif;
+        font-weight: 500;
+        font-size: 68px;
+        line-height: 80px;
+        letter-spacing: -0.02em;
+        color: var(--white);
+      }
+      #endcard {
+        background: var(--ink);
+      }
+      .end-stack {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      #end-mark {
+        width: 168px;
+        height: 168px;
+        display: block;
+      }
+      #end-product {
+        margin-top: 36px;
+        font-family: "Space Grotesk", system-ui, sans-serif;
+        font-weight: 600;
+        font-size: 64px;
+        letter-spacing: -0.02em;
+        color: var(--white);
+      }
+      #end-product span {
+        font-weight: 500;
+        color: var(--muted-on-dark);
+      }
+      #end-rule {
+        margin-top: 28px;
+        width: 220px;
+        height: 4px;
+        border-radius: 2px;
+        background: var(--gradient-primary);
+      }
+      #end-line {
+        margin-top: 28px;
+        font-family: "Hanken Grotesk", system-ui, sans-serif;
+        font-weight: 400;
+        font-size: 36px;
+        color: var(--white);
+      }
+      #end-url {
+        margin-top: 20px;
+        font-family: "Space Grotesk", system-ui, sans-serif;
+        font-weight: 500;
+        font-size: 34px;
+        letter-spacing: 0.02em;
+        color: var(--signal-on-dark);
+      }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-dr1f" id="root" data-composition-id="main" data-start="0" data-duration="16" data-width="1920" data-height="1080">
+      <!-- Scene 1: the Reader at the PRIVATO door, black and white -->
+      <section data-hf-id="hf-3hpc" id="scene-door" class="clip" data-start="0" data-duration="5.2" data-track-index="0">
+        <div data-hf-id="hf-6drw" id="door-move" class="plate">
+          <div data-hf-id="hf-69d8" class="plate">
+            <img data-color-grading="{&quot;preset&quot;:null,&quot;intensity&quot;:1,&quot;adjust&quot;:{&quot;exposure&quot;:0,&quot;contrast&quot;:0.35,&quot;highlights&quot;:-0.1,&quot;shadows&quot;:0,&quot;whites&quot;:0,&quot;blacks&quot;:-0.12,&quot;temperature&quot;:0,&quot;tint&quot;:0,&quot;vibrance&quot;:0,&quot;saturation&quot;:-1},&quot;details&quot;:{&quot;vignette&quot;:0.35,&quot;vignetteMidpoint&quot;:0.5,&quot;vignetteRoundness&quot;:0,&quot;vignetteFeather&quot;:0.65,&quot;grain&quot;:0.35,&quot;grainSize&quot;:0.3,&quot;grainRoughness&quot;:0.5},&quot;effects&quot;:{&quot;blur&quot;:0,&quot;pixelate&quot;:0,&quot;chromaBleed&quot;:0,&quot;tapeDamage&quot;:0,&quot;tapeTracking&quot;:0,&quot;tapeNoise&quot;:1,&quot;tapeSpeed&quot;:0.5,&quot;filmArtifacts&quot;:0,&quot;halftone&quot;:0,&quot;halftoneSize&quot;:0,&quot;twoInkPrint&quot;:0,&quot;twoInkPrintSize&quot;:0,&quot;ascii&quot;:0,&quot;asciiSize&quot;:0.06578947368421052,&quot;asciiInvert&quot;:0,&quot;asciiStyle&quot;:0,&quot;asciiColor&quot;:1,&quot;asciiRotation&quot;:0,&quot;dither&quot;:0,&quot;ditherSize&quot;:0,&quot;bloom&quot;:0,&quot;bloomRadius&quot;:8,&quot;monoScreen&quot;:0,&quot;monoScreenSize&quot;:0,&quot;monoScreenAngle&quot;:0,&quot;monoScreenSpread&quot;:0,&quot;monoScreenShape&quot;:0,&quot;monoScreenInvert&quot;:0,&quot;scanlines&quot;:0,&quot;scanlineCount&quot;:0,&quot;scanlineSoftness&quot;:0,&quot;chromaticAberration&quot;:0,&quot;chromaticAngle&quot;:0,&quot;crtCurvature&quot;:0,&quot;digitalGlitch&quot;:0,&quot;digitalGlitchColorSplit&quot;:0,&quot;digitalGlitchLineTear&quot;:0,&quot;digitalGlitchPixelate&quot;:0,&quot;digitalGlitchBlockAmount&quot;:0,&quot;digitalGlitchBlockDisplacement&quot;:0,&quot;digitalGlitchBlockOpacity&quot;:0,&quot;digitalGlitchSpeed&quot;:0,&quot;engraving&quot;:0,&quot;engravingSpacing&quot;:0.4117647058823529,&quot;engravingMinThickness&quot;:0.2,&quot;engravingMaxThickness&quot;:0.4571428571428572,&quot;engravingAngle&quot;:0.25,&quot;engravingContrast&quot;:0.4666666666666667,&quot;engravingSharpness&quot;:0.59,&quot;engravingWave&quot;:0.2,&quot;engravingWaveFrequency&quot;:0.2222222222222222,&quot;crosshatch&quot;:0,&quot;crosshatchSpacing&quot;:0.28,&quot;crosshatchThickness&quot;:0.25,&quot;crosshatchAngle&quot;:0.25,&quot;crosshatchContrast&quot;:0.3333333333333333,&quot;crosshatchEdges&quot;:0.5,&quot;crosshatchLineWeight&quot;:0,&quot;crosshatchWave&quot;:0.33,&quot;crosshatchWaveFrequency&quot;:0.2222222222222222,&quot;kuwahara&quot;:0,&quot;kuwaharaRadius&quot;:0.14285714285714285,&quot;kuwaharaSharpness&quot;:0.3125,&quot;kuwaharaSaturation&quot;:0.5},&quot;lut&quot;:null,&quot;colorSpace&quot;:&quot;rec709&quot;}" data-hf-id="hf-ffcl" id="door-img" src="assets/images/hero-door.jpg" alt="">
+          </div>
+        </div>
+        <p data-hf-id="hf-0x33" id="sub-door" class="subtitle">Permesso?</p>
+      </section>
+
+      <!-- Scene 2: inside the shop, colour floods out from the doorway -->
+      <section data-hf-id="hf-428i" id="scene-flood" class="clip" data-start="5.2" data-duration="5" data-track-index="1">
+        <div data-hf-id="hf-106s" id="flood-move" class="plate">
+          <div data-hf-id="hf-lk78" class="plate">
+            <img data-hf-id="hf-3isc" id="int-bw" src="assets/images/loc-hatshop-int-bw.jpg" alt="">
+          </div>
+          <div data-hf-id="hf-rcsz" id="flood-mask" class="plate">
+            <img data-hf-id="hf-senu" id="int-color" src="assets/images/loc-hatshop-int-color.jpg" alt="">
+          </div>
+        </div>
+        <p data-hf-id="hf-byin" id="sub-flood" class="subtitle">Permesso?</p>
+      </section>
+
+      <!-- Scene 3: the two lines -->
+      <section data-hf-id="hf-4m0r" id="supers" class="clip" data-start="10.2" data-duration="2.8" data-track-index="2">
+        <p data-hf-id="hf-yid3" id="super-1" class="super">Chiede sempre permesso.</p>
+        <p data-hf-id="hf-8y46" id="super-2" class="super">Il tuo sito le sta dicendo di no?</p>
+      </section>
+
+      <!-- Scene 4: end card -->
+      <section data-hf-id="hf-qofv" id="endcard" class="clip" data-start="13" data-duration="3" data-track-index="3">
+        <div data-hf-id="hf-pweo" class="end-stack">
+          <img data-hf-id="hf-xge0" id="end-mark" src="assets/brand/niuexa-mark.png" alt="NIUEXA">
+          <p data-hf-id="hf-otra" id="end-product">AEO Analyzer <span data-hf-id="hf-664w">by NIUEXA</span></p>
+          <div data-hf-id="hf-i7zz" id="end-rule"></div>
+          <p data-hf-id="hf-ysuk" id="end-line">Scopri cosa dice il tuo sito all'AI, e cosa cambiare.</p>
+          <p data-hf-id="hf-30r0" id="end-url">aeo.niuexa.ai</p>
+        </div>
+      </section>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+
+      // Scene 1: slow push-in, whispered subtitle
+      tl.fromTo("#door-move", { scale: 1.0 }, { scale: 1.07, duration: 5.2, ease: "none" }, 0);
+      tl.fromTo("#sub-door", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power1.out" }, 1.6);
+      tl.to("#sub-door", { opacity: 0, duration: 0.5, ease: "power1.in" }, 4.2);
+
+      // Scene 2: push-in, then the colour flood from the doorway
+      tl.fromTo("#flood-move", { scale: 1.06 }, { scale: 1.0, duration: 5, ease: "none" }, 5.2);
+      tl.fromTo("#sub-flood", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power1.out" }, 5.5);
+      tl.to("#sub-flood", { opacity: 0, duration: 0.5, ease: "power1.in" }, 7.0);
+      tl.fromTo("#flood-mask", { "--r": 0 }, { "--r": 150, duration: 3.2, ease: "power2.inOut" }, 6.3);
+
+      // Scene 3: the two lines, one after the other
+      tl.fromTo("#super-1", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, 10.4);
+      tl.to("#super-1", { opacity: 0, duration: 0.4, ease: "power1.in" }, 11.5);
+      tl.fromTo("#super-2", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, 11.75);
+
+      // Scene 4: end card
+      tl.fromTo("#end-mark", { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.7, ease: "power2.out" }, 13.15);
+      tl.fromTo("#end-product", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, 13.45);
+      tl.fromTo("#end-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power2.out" }, 13.7);
+      tl.fromTo("#end-line", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power1.out" }, 13.9);
+      tl.fromTo("#end-url", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power1.out" }, 14.15);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
