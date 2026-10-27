@@ -65,8 +65,9 @@ test('existing registration transport, config, styling and five-field form remai
   // it stopped offering dates the served page has closed and re-checked the date on submit,
   // and again when Roberto's 6 October 2026 email moved its messages from Lei to tu,
   // and again when a received request started reporting event_registration to GTM,
-  // and again when a received request started ending on the thank-you page (20 October 2026 email).
-  'event-registration.mjs':'02c2aa22e2d0a5ebf1d582edcd2df1d1e31c4e286080f50ceef17eec49caf1c7',
+  // and again when a received request started ending on the thank-you page (20 October 2026 email),
+  // and for the privacy fix removing URL queries/fragments from that event (PR #305).
+  'event-registration.mjs':'137d779a9bedad5ed1ea3d314e95a58db20e3a2789d53581037c028d1579f535',
   // Re-pinned for the tu validation messages (6 October 2026 email).
   'event-registration-core.mjs':'9994d6057a2dd8c987dd3d56897088afce199915297f34673bf60c7b0c9a1a3f',
   // Re-pinned after master commit 3e29f46 moved the final event to 25 November, and again when

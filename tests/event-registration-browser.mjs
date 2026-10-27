@@ -32,16 +32,20 @@ const guard=hub=>async route=>{
  }
  // GTM is expected: it is recorded and answered with an empty script, so no tag fires.
  if(new URL(req.url()).hostname==='www.googletagmanager.com') {tags.push(req.url()); return route.fulfill({contentType:'text/javascript',body:''});}
+ // Stored marketing consent can request LinkedIn; never execute its remote script.
+ if(req.url()==='https://snap.licdn.com/li.lms-analytics/insight.min.js') {tags.push(req.url()); return route.abort();}
  external.push(req.url()); return route.abort();
 };
 const registrations=p=>p.evaluate(()=>(window.dataLayer||[]).filter(x=>x&&x.event==='event_registration').map(x=>x.event_date));
 // event_registration pushes from every page, kept across the move to the thank-you page.
-const tracked=[];
+// payloads keeps each push whole, from both interfaces: the GTM object and the gtag() call.
+const tracked=[], payloads=[];
 const browser=await chromium.launch({headless:true});
 // Which dates are open also depends on today's date in Milan, so every page pins its clock.
 const at=async(when,hub=fullCalendar,options={})=>{const p=await browser.newPage(options);p.on('pageerror',e=>errors.push(e.message));await p.clock.setFixedTime(new Date(when));await p.route('**/*',guard(hub));
  await p.exposeBinding('__tracked',(source,date)=>tracked.push(date));
- await p.addInitScript(()=>{const dl=window.dataLayer=window.dataLayer||[];const push=dl.push.bind(dl);dl.push=(...items)=>{for(const x of items)if(x&&x.event==='event_registration')window.__tracked(x.event_date);return push(...items);};});
+ await p.exposeBinding('__payload',(source,kind,json)=>payloads.push({kind,payload:JSON.parse(json)}));
+ await p.addInitScript(()=>{const dl=window.dataLayer=window.dataLayer||[];const push=dl.push.bind(dl);dl.push=(...items)=>{for(const x of items){if(x&&x.event==='event_registration'){window.__tracked(x.event_date);const {eventCallback,...rest}=x;window.__payload('layer',JSON.stringify(rest));}if(x&&x[0]==='event'&&x[1]==='event_registration')window.__payload('google',JSON.stringify(x[2]));}return push(...items);};});
  return p;};
 const page=await at('2026-09-29T10:00:00+02:00',fullCalendar,{viewport:{width:1440,height:1050}});
 const options=p=>p.locator('#event-date option').evaluateAll(o=>o.map(x=>x.value));
@@ -100,6 +104,33 @@ try {
  assert.equal(await page.locator('#submit-registration').isDisabled(),true);
  await page.locator('#event-date').selectOption('2026-11-17');
  assert.equal(await page.locator('#submit-registration').isDisabled(),false);
+ // Query parameters and fragments may contain contact data or secrets. Marketing consent
+ // never authorizes forwarding arbitrary URL contents in either analytics interface.
+ for (const [choice, consent] of [
+  ['no choice', null], ['necessary only', {analytics:false,marketing:false}],
+  ['analytics only', {analytics:true,marketing:false}], ['marketing', {analytics:true,marketing:true}],
+ ]) {
+  const scoped=await at('2026-09-29T10:00:00+02:00');
+  if(consent) await scoped.addInitScript(value=>localStorage.setItem('niuexa_cookie_consent',JSON.stringify(value)),consent);
+  const query='?event=2026-11-17&utm_campaign=events_october&gclid=ad_click_probe&gbraid=braid_probe&wbraid=web_probe&email=url-probe%40example.test&token=query_secret#fragment_secret';
+  payloads.length=0;
+  await scoped.goto(base+'/eventi-ai-aziende/'+query);
+  assert.equal(await scoped.locator('#event-date').inputValue(),'2026-11-17');
+  await fill(scoped);
+  await scoped.locator('#submit-registration').click();
+  await scoped.waitForURL(base+'/eventi-ai-aziende/grazie/?event=2026-11-17');
+  for(const interfaceName of ['layer','google']) {
+   const emitted=payloads.filter(x=>x.kind===interfaceName);
+   assert.equal(emitted.length,1,choice+': one acknowledged registration via '+interfaceName);
+   const payload=emitted[0].payload;
+   assert.equal(payload.page_location,base+'/eventi-ai-aziende/',choice+': sanitized '+interfaceName);
+   assert.equal(payload.page_path,'/eventi-ai-aziende/');
+   assert.equal(payload.event_date,'2026-11-17');
+   assert.equal(payload.campaign,'events_october');
+   assert.doesNotMatch(JSON.stringify(payload),/url-probe|query_secret|fragment_secret|ad_click_probe|braid_probe|web_probe/);
+  }
+  await scoped.close();
+ }
  // The served page may predate today's render: the form must still drop dates that have passed.
  const eve=await at('2026-11-09T22:30:00Z'); // 23:30 in Milan: the 9 November date is still open
  await eve.goto(base+'/eventi-ai-aziende/');
@@ -177,5 +208,5 @@ try {
  assert.equal(await broken.locator('#submit-registration').isDisabled(),true);
  assert.deepEqual(errors,[]); assert.deepEqual(external,[]);
  assert.ok(tags.some(url=>url.startsWith('https://www.googletagmanager.com/gtm.js?id=GTM-KG9S42S4')),'GTM loads');
- console.log('PASS mocked production form: validation, loading, strict success, duplicate guard, false-success retry, honeypot, event_registration only for received requests, thank-you page per date, GTM requested, date payload/deep links, invalid date, past dates dropped at Milan midnight, late device clock, tab left open past midnight, closed series, 4 widths, no-JS/module safety; no external network, 0 page errors.');
+ console.log('PASS mocked production form: validation, loading, strict success, duplicate guard, false-success retry, honeypot, event_registration only for received requests, minimized analytics URLs across 4 consent states, thank-you page per date, GTM requested, date payload/deep links, invalid date, past dates dropped at Milan midnight, late device clock, tab left open past midnight, closed series, 4 widths, no-JS/module safety; no external network, 0 page errors.');
 } finally {await browser.close();}

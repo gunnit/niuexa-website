@@ -125,6 +125,9 @@ function browser({ path = '/contatti.html', forms = [], session = new Map(), loc
   return { ctx, run, calls, callbacks, timers, events: name => ctx.dataLayer.filter(item => item.event === name) };
 }
 
+// The native thank-you correlation record is measurement storage: it needs analytics consent.
+const analyticsConsent = () => new Map([['niuexa_cookie_consent', JSON.stringify({ necessary: true, analytics: true, marketing: false })]]);
+
 test('direct thank-you visits and stale legacy attribution do not become leads', () => {
   for (const path of ['/thank-you-page.html', '/thank-you-ai-readiness.html', '/en/thank-you-page.html']) {
     const page = browser({ path });
@@ -147,34 +150,53 @@ test('submission starts an attempt, never a successful submission or lead', asyn
 
 test('native provider callback requires its own recent token and path; reloads cannot recount it', async () => {
   const session = new Map();
+  const local = analyticsConsent();
   const f = form();
-  const page = browser({ forms: [f], session });
+  const page = browser({ forms: [f], session, local });
   await f.fire('submit');
   const redirect = f.querySelector('[name="redirect"]').value;
   assert.ok(new URL(redirect).searchParams.get('niuexa_submission'));
   const wrongPath = new URL(redirect); wrongPath.pathname = '/thank-you-ai-readiness.html';
-  assert.equal(browser({ path: wrongPath.href, session }).events('generate_lead').length, 0);
-  assert.equal(browser({ path: '/thank-you-page.html?niuexa_submission=wrong', session }).events('generate_lead').length, 0);
-  const success = browser({ path: redirect, session });
+  assert.equal(browser({ path: wrongPath.href, session, local }).events('generate_lead').length, 0);
+  assert.equal(browser({ path: '/thank-you-page.html?niuexa_submission=wrong', session, local }).events('generate_lead').length, 0);
+  const success = browser({ path: redirect, session, local });
   assert.equal(success.events('form_submit').length, 1);
   assert.equal(success.events('generate_lead').length, 1);
   assert.equal(success.events('generate_lead')[0].confirmation_method, 'provider_redirect');
   assert.equal(success.ctx.location.search, '', 'one-use callback token is removed from the address');
   success.ctx.NiuexaTracking.init();
   assert.equal(success.events('generate_lead').length, 1);
-  assert.equal(browser({ path: redirect, session }).events('generate_lead').length, 0);
+  assert.equal(browser({ path: redirect, session, local }).events('generate_lead').length, 0);
+});
+
+test('without analytics consent no correlation record is stored and the redirect carries no token', async () => {
+  const session = new Map();
+  const f = form();
+  browser({ forms: [f], session });
+  assert.equal((await f.fire('submit')).defaultPrevented, false, 'native POST must remain native');
+  assert.equal(session.has('niuexa_pending_lead_v1'), false);
+  assert.equal(new URL(f.querySelector('[name="redirect"]').value).searchParams.has('niuexa_submission'), false);
+});
+
+test('a correlation record left from an earlier consent is removed once analytics consent is gone', () => {
+  const session = new Map([['niuexa_pending_lead_v1', JSON.stringify({ submission_id: 'x', created_at: Date.now() })]]);
+  browser({ session, path: '/thank-you-page.html?niuexa_submission=x' });
+  assert.equal(session.has('niuexa_pending_lead_v1'), false);
 });
 
 test('expired native callback fails closed and storage denial never prevents form submission', async () => {
   const session = new Map();
+  const local = analyticsConsent();
   const f = form();
-  const page = browser({ forms: [f], session });
+  const page = browser({ forms: [f], session, local });
   await f.fire('submit');
+  assert.equal(session.size, 1, 'the record exists before it is aged');
   for (const [key, value] of session) {
     const entry = JSON.parse(value); entry.created_at = Date.now() - 31 * 60 * 1000;
     session.set(key, JSON.stringify(entry));
   }
-  assert.equal(browser({ path: f.querySelector('[name="redirect"]').value, session }).events('generate_lead').length, 0);
+  assert.equal(browser({ path: f.querySelector('[name="redirect"]').value, session, local }).events('generate_lead').length, 0);
+  assert.equal(session.size, 0, 'an expired record is deleted when read');
   const deniedForm = form();
   const denied = browser({ forms: [deniedForm], blocked: true });
   assert.equal((await deniedForm.fire('submit')).defaultPrevented, false);
@@ -408,7 +430,7 @@ test('native AEO fallback records do not gain landing URLs from the scoped AJAX 
   const f = form();
   f.dataset.formLabel = 'AEO Analyzer';
   const session = new Map();
-  const page = browser({ forms: [f], session, path: '/consulenza-aeo-geo.html?gclid=private-click' });
+  const page = browser({ forms: [f], session, local: analyticsConsent(), path: '/consulenza-aeo-geo.html?gclid=private-click' });
   await f.fire('submit');
   const pending = JSON.parse(session.get('niuexa_pending_lead_v1'));
   assert.equal('page_location' in pending, false);
@@ -429,3 +451,27 @@ for (const marketing of [false, true]) {
     assert.equal(page.ctx.dataLayer.some(x => x[0] === 'config' || x[0] === 'consent'), false);
   });
 }
+
+for (const marketing of [false, true]) {
+  test(`marketing consent ${marketing}: attribution storage and click-ID form fields follow the choice`, () => {
+    const local = new Map([['niuexa_cookie_consent', JSON.stringify({ necessary: true, analytics: true, marketing })]]);
+    if (!marketing) local.set('niuexa_attribution_v1', JSON.stringify({ gclid: 'old', updated_at: new Date().toISOString() }));
+    const f = form();
+    browser({ forms: [f], local, path: '/contatti.html?utm_source=google&gclid=click-a' });
+    assert.equal(local.has('niuexa_attribution_v1'), marketing, 'stored only with marketing consent; earlier records deleted');
+    assert.equal(f.querySelector('[name="gclid"]')?.value, marketing ? 'click-a' : undefined);
+    assert.equal(f.querySelector('[name="utm_source"]').value, 'google', 'UTMs still reach the form for this page');
+    assert.equal(new URL(f.querySelector('[name="current_page"]').value).searchParams.has('gclid'), marketing);
+  });
+}
+
+test('stored attribution older than 90 days is dropped', () => {
+  const old = new Date(Date.now() - 91 * 24 * 60 * 60 * 1000).toISOString();
+  const local = new Map([
+    ['niuexa_cookie_consent', JSON.stringify({ necessary: true, analytics: true, marketing: true })],
+    ['niuexa_attribution_v1', JSON.stringify({ utm_source: 'stale', updated_at: old })],
+  ]);
+  const page = browser({ local });
+  assert.equal(page.ctx.NiuexaTracking.attribution().utm_source, undefined);
+  assert.equal(JSON.parse(local.get('niuexa_attribution_v1')).utm_source, undefined, 'the stale record is replaced, not merged');
+});
