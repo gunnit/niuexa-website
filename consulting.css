@@ -391,13 +391,9 @@
     color: var(--medium-gray);
 }
 
-/* ---------- Checklist sections (quote to order, KPI, outcome budget) ---------- */
+/* ---------- Checklist sections (quote to order, KPI) ---------- */
 .consulting-page .quote-order-section {
     background: var(--light-gray);
-}
-
-.consulting-page .quote-order-section--white {
-    background: var(--white);
 }
 
 .consulting-page .quote-order-layout,
