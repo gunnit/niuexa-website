@@ -1,7 +1,7 @@
 /* Additive landing: styles are limited to this page. Shared site files stay unchanged. */
-@font-face{font-family:NiuexaLandingBody;src:url('assets/event-fonts/hanken-regular.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
-@font-face{font-family:NiuexaLandingBody;src:url('assets/event-fonts/hanken-semibold.ttf') format('truetype');font-style:normal;font-weight:600 800;font-display:swap}
-@font-face{font-family:NiuexaLandingDisplay;src:url('assets/event-fonts/space-semibold.ttf') format('truetype');font-style:normal;font-weight:500 800;font-display:swap}
+@font-face{font-family:NiuexaLandingBody;src:url('assets/event-fonts/hanken-regular.woff2') format('woff2'),url('assets/event-fonts/hanken-regular.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:NiuexaLandingBody;src:url('assets/event-fonts/hanken-semibold.woff2') format('woff2'),url('assets/event-fonts/hanken-semibold.ttf') format('truetype');font-style:normal;font-weight:600 800;font-display:swap}
+@font-face{font-family:NiuexaLandingDisplay;src:url('assets/event-fonts/space-semibold.woff2') format('woff2'),url('assets/event-fonts/space-semibold.ttf') format('truetype');font-style:normal;font-weight:500 800;font-display:swap}
 .process-landing{--font-primary:NiuexaLandingDisplay,system-ui,sans-serif;--font-secondary:NiuexaLandingBody,system-ui,sans-serif;--pl-dark-border:color-mix(in srgb,var(--white) 19%,transparent);--pl-dark-body:color-mix(in srgb,var(--white) 83%,var(--black));font-family:var(--font-secondary);background:var(--white);color:var(--dark-gray);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
 .process-landing :where(h1,h2,h3){font-family:var(--font-primary);font-weight:600;line-height:1.14;letter-spacing:-.04em;margin:0}
 .process-landing h2{font-size:clamp(2rem,3.4vw,3rem)}

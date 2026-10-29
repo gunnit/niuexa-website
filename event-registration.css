@@ -1,7 +1,7 @@
-@font-face{font-family:Hanken;src:url('assets/event-fonts/hanken-regular.ttf') format('truetype');font-weight:400;font-display:swap}
-@font-face{font-family:Hanken;src:url('assets/event-fonts/hanken-semibold.ttf') format('truetype');font-weight:600;font-display:swap}
-@font-face{font-family:Space;src:url('assets/event-fonts/space-medium.ttf') format('truetype');font-weight:500;font-display:swap}
-@font-face{font-family:Space;src:url('assets/event-fonts/space-semibold.ttf') format('truetype');font-weight:600;font-display:swap}
+@font-face{font-family:Hanken;src:url('assets/event-fonts/hanken-regular.woff2') format('woff2'),url('assets/event-fonts/hanken-regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:Hanken;src:url('assets/event-fonts/hanken-semibold.woff2') format('woff2'),url('assets/event-fonts/hanken-semibold.ttf') format('truetype');font-weight:600;font-display:swap}
+@font-face{font-family:Space;src:url('assets/event-fonts/space-medium.woff2') format('woff2'),url('assets/event-fonts/space-medium.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:Space;src:url('assets/event-fonts/space-semibold.woff2') format('woff2'),url('assets/event-fonts/space-semibold.ttf') format('truetype');font-weight:600;font-display:swap}
 /* Isolated page tokens derived from styles.css. No global overrides or remote dependencies. */
 :root{--ink:#14324A;--navy:#0A1A26;--blue:#237DA6;--teal:#0E7A78;--mint:#4FD1C5;--muted:#54697A;--paper:#F1F5F8;--line:#CBD5E0;--error:#B02A37;--font-body:Hanken,Arial,sans-serif;--font-title:Space,Arial,sans-serif}
 /* cookie-banner.js styles itself with these styles.css tokens; same values as styles.css. */

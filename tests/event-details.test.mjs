@@ -73,8 +73,9 @@ test('existing registration transport, config, styling and five-field form remai
   // Re-pinned after master commit 3e29f46 moved the final event to 25 November, and again when
   // Roberto's 18 October 2026 email moved the first event to 9 November and the start to 17:30.
   'event-registration-config.mjs':'cc8de534386051053d2129ddc6a15a725b4509a7c116af2f648cd3220de80705',
-  // Re-pinned for the styles.css tokens the shared cookie banner needs.
-  'event-registration.css':'e504d60a2ef0a185ab00433509faa896c0511d8172c241d609f0e1b1acf87b9a'
+  // Re-pinned for the styles.css tokens the shared cookie banner needs, and again when the
+  // event fonts started loading as WOFF2 (TTF kept as fallback, 29 October 2026).
+  'event-registration.css':'e95dfeef2bbcb86041551751eed831c81928859349a141f6bcbe2a59f80c67bf'
  };
  const hash=s=>createHash('sha256').update(s).digest('hex');
  for(const [file,expected] of Object.entries(hashes)) assert.equal(hash(read(file)),expected,file);
