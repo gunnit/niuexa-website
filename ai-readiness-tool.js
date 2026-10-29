@@ -71,7 +71,7 @@ function initAIReadinessForm() {
             }
         } catch (error) {
             // Show error message
-            showMessage('error', 'Invio non riuscito. Riprovi tra qualche istante oppure ci scriva dalla pagina contatti.');
+            showMessage('error', 'Invio non riuscito. Riprova tra qualche istante oppure scrivici dalla pagina contatti.');
             console.error('Form submission error:', error);
 
             // Reset button state
@@ -125,7 +125,7 @@ function validateForm(form) {
     });
 
     if (!isValid) {
-        showMessage('error', 'Controlli i campi evidenziati: sono obbligatori o non nel formato corretto.');
+        showMessage('error', 'Controlla i campi evidenziati: sono obbligatori o non nel formato corretto.');
     }
 
     return isValid;

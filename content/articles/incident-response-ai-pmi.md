@@ -102,9 +102,9 @@ related:
     title: Valutare la readiness AI
 
 cta:
-  heading: I Suoi sistemi AI hanno un piano di incidente e ripristino?
-  body: "Ci mostri un processo: nella prima chiamata di 30 minuti, gratuita, guardiamo che cosa succede se l’AI sbaglia, chi la ferma e quale percorso manuale resta disponibile."
-  primary_label: Ci mostri un processo
+  heading: I tuoi sistemi AI hanno un piano di incidente e ripristino?
+  body: "Mostraci un processo: nella prima chiamata di 30 minuti, gratuita, guardiamo che cosa succede se l’AI sbaglia, chi la ferma e quale percorso manuale resta disponibile."
+  primary_label: Mostraci un processo
   primary_href: /#contact
   secondary_label: Come lavoriamo
   secondary_href: consulting.html
@@ -151,35 +151,35 @@ Contenimento e preservazione devono procedere insieme: bloccare il rischio senza
 
 ### 1. Rilevare e aprire un evento
 
-Accetti segnali da utenti, controlli automatici, monitoraggio qualità, sicurezza e fornitori. Registri subito timestamp, sistema, segnalante, comportamento osservato e azione già avvenuta. Eviti diagnosi premature.
+Accetta segnali da utenti, controlli automatici, monitoraggio qualità, sicurezza e fornitori. Registra subito timestamp, sistema, segnalante, comportamento osservato e azione già avvenuta. Evita diagnosi premature.
 
 ### 2. Classificare impatto e perimetro
 
-Chieda quali persone, dati, processi e canali sono coinvolti; se l'azione è reversibile; se il comportamento continua; se altri sistemi condividono modello, credenziali o knowledge base. Assegni una severità provvisoria, che può aumentare.
+Chiedi quali persone, dati, processi e canali sono coinvolti; se l'azione è reversibile; se il comportamento continua; se altri sistemi condividono modello, credenziali o knowledge base. Assegna una severità provvisoria, che può aumentare.
 
 ### 3. Contenere con il minimo raggio d'azione
 
-Sospenda la funzione rischiosa, revochi token o permessi compromessi, disabiliti un tool, congeli una versione o devii sul fallback. Non applichi modifiche non tracciate "per vedere se passa": possono alterare le evidenze e introdurre nuove variabili.
+Sospendi la funzione rischiosa, revoca token o permessi compromessi, disabilita un tool, congela una versione o devia sul fallback. Non applicare modifiche non tracciate "per vedere se passa": possono alterare le evidenze e introdurre nuove variabili.
 
 ### 4. Preservare le evidenze
 
-Conservi input e output pertinenti, prompt di sistema, versione del modello, parametri, documenti recuperati, log delle chiamate, identità, autorizzazioni, configurazioni e decisioni umane. Protegga accesso, integrità e tempi di conservazione; non raccolga dati oltre il necessario.
+Conserva input e output pertinenti, prompt di sistema, versione del modello, parametri, documenti recuperati, log delle chiamate, identità, autorizzazioni, configurazioni e decisioni umane. Proteggi accesso, integrità e tempi di conservazione; non raccogliere dati oltre il necessario.
 
 ### 5. Correggere e ripristinare per gradi
 
-La correzione può riguardare dati, istruzioni, accessi, validazioni, soglie, interfaccia o processo. La verifichi su casi normali, edge case e caso dell'incidente. Riapra prima in ambiente controllato o su traffico limitato, mantenendo fallback e monitoraggio rafforzato.
+La correzione può riguardare dati, istruzioni, accessi, validazioni, soglie, interfaccia o processo. Verificala su casi normali, edge case e caso dell'incidente. Riapri prima in ambiente controllato o su traffico limitato, mantenendo fallback e monitoraggio rafforzato.
 
 ### 6. Comunicare con una fonte unica
 
-Definisca un incident lead e un log decisionale. Aggiornamenti interni, assistenza clienti, fornitori e valutazioni normative devono partire dallo stesso stato verificato. Distingua fatti, ipotesi e azioni in corso. Eviti messaggi rassicuranti prima di conoscere perimetro e impatto.
+Definisci un incident lead e un log decisionale. Aggiornamenti interni, assistenza clienti, fornitori e valutazioni normative devono partire dallo stesso stato verificato. Distingui fatti, ipotesi e azioni in corso. Evita messaggi rassicuranti prima di conoscere perimetro e impatto.
 
 ### 7. Chiudere con un post-mortem
 
-Documenti sequenza, causa, controlli mancanti, tempo di rilevazione, tempo di contenimento e impatto. Ogni azione correttiva deve avere owner e scadenza. Il post-mortem non cerca un colpevole: cerca la condizione che ha permesso all'errore di raggiungere il processo reale.
+Documenta sequenza, causa, controlli mancanti, tempo di rilevazione, tempo di contenimento e impatto. Ogni azione correttiva deve avere owner e scadenza. Il post-mortem non cerca un colpevole: cerca la condizione che ha permesso all'errore di raggiungere il processo reale.
 
 ## Il gate di riapertura
 
-Un sistema non torna in produzione solo perché "sembra funzionare". Prima della riapertura verifichi:
+Un sistema non torna in produzione solo perché "sembra funzionare". Prima della riapertura verifica:
 
 - la causa è compresa abbastanza da evitare una replica immediata;
 - il controllo correttivo è stato testato sul caso dell'incidente e su casi adiacenti;
@@ -200,4 +200,4 @@ Per S3 e S4 è utile una decisione nominativa di go/no-go. Per S1 e S2 può bast
 - **Copertura delle evidenze:** eventi per cui versione, fonti, azioni e identità sono ricostruibili.
 - **Tempo in fallback:** durata e capacità del percorso alternativo.
 
-Non usi il numero assoluto di incidenti come unico KPI: un sistema con segnalazioni aperte e tracciate può essere più maturo di uno che non rileva nulla.
+Non usare il numero assoluto di incidenti come unico KPI: un sistema con segnalazioni aperte e tracciate può essere più maturo di uno che non rileva nulla.

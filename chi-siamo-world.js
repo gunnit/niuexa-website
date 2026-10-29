@@ -53,8 +53,8 @@
       trim: 1.083,
       scroll: 1.4, linger: 0.35,
       eyebrow: 'La formazione',
-      title: 'Ve la lasciamo in mano.',
-      body: 'Formiamo i vostri team perché l’AI resti in azienda e continui a produrre valore anche quando noi non ci siamo più.',
+      title: 'Te la lasciamo in mano.',
+      body: 'Formiamo i tuoi team perché l’AI resti in azienda e continui a produrre valore anche quando noi non ci siamo più.',
       tags: ['Workshop', 'Team', 'In presenza o online']
     },
     {
@@ -67,8 +67,8 @@
       body: 'Ogni progetto si misura su obiettivi concordati prima di iniziare: tempo restituito ai team, qualità e costi, confrontati con il punto di partenza.',
       tags: ['Obiettivi', 'Indicatori', 'Misura'],
       cta: {
-        primary: { label: 'Ci mostri un processo', href: 'contatti.html' },
-        secondary: { label: 'Verifichi la visibilità AI', href: 'consulenza-aeo-geo.html' }
+        primary: { label: 'Mostraci un processo', href: 'contatti.html' },
+        secondary: { label: 'Verifica la visibilità AI', href: 'consulenza-aeo-geo.html' }
       }
     }
   ];

@@ -72,7 +72,7 @@ function page({ lang = 'it', query = '', restored = {}, marked = true, markup } 
   const fields = Object.fromEntries(Object.entries(defaults).map(([name, value]) => [name, element({ name, value, defaultValue: value, disabled: markup ? 'disabled' in markup.fields.find(field => field.attrs.name === name).attrs : trainingNames.includes(name) })]));
   for (const [name, value] of Object.entries(restored)) fields[name].value = value;
   fields.message.placeholder = markup ? markup.fields.find(field => field.attrs.name === 'message').attrs.placeholder : lang === 'it' ? 'Il processo attuale' : 'Your current process';
-  const originals = { ...(markup ? markup.copy : { title: lang === 'it' ? 'Ci mostri un processo' : 'Show us a process', subtitle: lang === 'it' ? 'Il testo originale' : 'Original description', label: lang === 'it' ? 'Quale processo?' : 'Which process?' }), placeholder: fields.message.placeholder };
+  const originals = { ...(markup ? markup.copy : { title: lang === 'it' ? 'Mostraci un processo' : 'Show us a process', subtitle: lang === 'it' ? 'Il testo originale' : 'Original description', label: lang === 'it' ? 'Quale processo?' : 'Which process?' }), placeholder: fields.message.placeholder };
   const title = element({ textContent: originals.title });
   const subtitle = element({ textContent: originals.subtitle });
   const label = element({ textContent: originals.label });

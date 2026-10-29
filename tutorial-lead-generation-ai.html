@@ -128,8 +128,8 @@
                     <h2>1. Il costo nascosto della lead generation manuale</h2>
                     <p>La lead generation tiene in vita le vendite, ma ha un costo che raramente si misura: il tempo del team. Oltre agli abbonamenti software ci sono le ore spese a cercare contatti, copiare dati nel CRM e scrivere email una per una.</p>
                     <div class="case-study-intro">
-                        <p><strong>Prima di automatizzare, misuri il processo com’è:</strong> quante ore a settimana il team dedica a ricerca contatti, inserimento nel CRM e prime email; quanti contatti entrano al mese; quanti diventano opportunità. Moltiplichi le ore per il costo orario delle persone coinvolte: è il termine di confronto con cui valutare qualsiasi strumento.</p>
-                        <p><strong>Dopo, misuri di nuovo con gli stessi criteri:</strong> ore residue di supervisione, costo degli strumenti, qualità dei contatti che arrivano ai commerciali. Se il confronto non regge, il workflow si corregge o si ferma.</p>
+                        <p><strong>Prima di automatizzare, misura il processo com’è:</strong> quante ore a settimana il team dedica a ricerca contatti, inserimento nel CRM e prime email; quanti contatti entrano al mese; quanti diventano opportunità. Moltiplica le ore per il costo orario delle persone coinvolte: è il termine di confronto con cui valutare qualsiasi strumento.</p>
+                        <p><strong>Dopo, misura di nuovo con gli stessi criteri:</strong> ore residue di supervisione, costo degli strumenti, qualità dei contatti che arrivano ai commerciali. Se il confronto non regge, il workflow si corregge o si ferma.</p>
                     </div>
                     <p>L’AI non sostituisce il commerciale: toglie lavoro ripetitivo e prepara materiale da rivedere. I punti in cui aiuta di più sono tre:</p>
                     <ul>
@@ -164,7 +164,7 @@
                             <p><strong>Adatto a:</strong> aziende grandi con team di vendita strutturati.</p>
                         </div>
                     </div>
-                    <p>Funzioni e piani di questi strumenti cambiano spesso: li verifichi sul sito del fornitore prima di scegliere.</p>
+                    <p>Funzioni e piani di questi strumenti cambiano spesso: verificali sul sito del fornitore prima di scegliere.</p>
 
                     <h3>Progettare una conversazione utile</h3>
                     <p>Un buon assistente non è un modulo travestito: è una conversazione breve. Un esempio di flusso:</p>
@@ -199,8 +199,8 @@
                     <p>Ecco come si costruisce il workflow con Make.com, una piattaforma di automazione senza codice:</p>
                     <ol>
                         <li><strong>Trigger, nuovo contatto dall’assistente:</strong> il workflow parte ogni volta che l’assistente salva un contatto in un foglio Google o nel CRM.</li>
-                        <li><strong>Arricchimento facoltativo e mappatura:</strong> l’endpoint Combined Enrichment di Hunter può restituire dati sulla persona e sull’azienda a partire dall’email professionale. Nella risposta documentata, il ruolo è in <code>data.person.employment.title</code>, il numero di dipendenti in <code>data.company.metrics.employeesCount</code> e il settore in <code>data.company.category.industry</code>. Il campo <code>employees</code> è invece una fascia, come <code>11-50</code>: non lo confronti direttamente con un numero. Verifichi i campi effettivamente ricevuti e l’uso previsto nell’informativa privacy; se mancano dati necessari, passi il contatto a revisione senza inventarli.</li>
-                        <li><strong>Calcolo del punteggio, prima del Router:</strong> normalizzi i dati in tre condizioni vere o false e usi un modulo <code>Tools &gt; Set variable</code> per calcolare <code>total_score</code>. In questo esempio:
+                        <li><strong>Arricchimento facoltativo e mappatura:</strong> l’endpoint Combined Enrichment di Hunter può restituire dati sulla persona e sull’azienda a partire dall’email professionale. Nella risposta documentata, il ruolo è in <code>data.person.employment.title</code>, il numero di dipendenti in <code>data.company.metrics.employeesCount</code> e il settore in <code>data.company.category.industry</code>. Il campo <code>employees</code> è invece una fascia, come <code>11-50</code>: non confrontarlo direttamente con un numero. Verifica i campi effettivamente ricevuti e l’uso previsto nell’informativa privacy; se mancano dati necessari, passa il contatto a revisione senza inventarli.</li>
+                        <li><strong>Calcolo del punteggio, prima del Router:</strong> normalizza i dati in tre condizioni vere o false e usa un modulo <code>Tools &gt; Set variable</code> per calcolare <code>total_score</code>. In questo esempio:
                             <ul>
                                 <li><code>size_match</code>: numero di dipendenti verificato maggiore di 50, +20 punti.</li>
                                 <li><code>role_match</code>: ruolo appartenente all’elenco concordato con i commerciali, +30 punti.</li>
@@ -217,7 +217,7 @@
                             </ul>
                         </li>
                     </ol>
-                    <p>Pesi e soglie sono un esempio: vanno tarati sui contatti che negli ultimi mesi sono diventati davvero clienti. Con tutte e tre le condizioni vere il totale è 65; con le prime due è 50 e il filtro <code>&gt; 50</code> non passa. Preveda un percorso distinto per i contatti sotto soglia e per quelli da verificare.</p>
+                    <p>Pesi e soglie sono un esempio: vanno tarati sui contatti che negli ultimi mesi sono diventati davvero clienti. Con tutte e tre le condizioni vere il totale è 65; con le prime due è 50 e il filtro <code>&gt; 50</code> non passa. Prevedi un percorso distinto per i contatti sotto soglia e per quelli da verificare.</p>
                     <p>Riferimenti tecnici: <a href="https://hunter.io/api-documentation/v2#combined-enrichment" target="_blank" rel="noopener noreferrer">Hunter Combined Enrichment</a>, <a href="https://help.make.com/router" target="_blank" rel="noopener noreferrer">Router di Make</a>, <a href="https://help.make.com/general-functions" target="_blank" rel="noopener noreferrer">funzione if</a> e <a href="https://help.make.com/math-functions" target="_blank" rel="noopener noreferrer">funzione sum</a>. Verificati il 10 ottobre 2026.</p>
                     <div class="pro-tips">
                         <h4>Consigli per il lead scoring</h4>
@@ -269,7 +269,7 @@ Non usare frasi come "Spero che questa email la trovi bene". Sii diretto e rispe
                         <ul>
                             <li><strong>L’AI propone, la persona decide:</strong> ogni bozza passa da un commerciale, che la corregge, la personalizza e decide se inviarla. Per i contatti con il punteggio più alto conviene una revisione ancora più attenta.</li>
                             <li><strong>Test A/B dei prompt:</strong> provare versioni diverse, una più formale e una più diretta, e misurare quale ottiene più risposte.</li>
-                            <li><strong>Privacy e consenso:</strong> prima di scrivere a un contatto verifichi la base giuridica del trattamento e le regole sull’email commerciale con il Suo consulente privacy; ogni messaggio deve permettere di opporsi a contatti futuri.</li>
+                            <li><strong>Privacy e consenso:</strong> prima di scrivere a un contatto verifica la base giuridica del trattamento e le regole sull’email commerciale con il tuo consulente privacy; ogni messaggio deve permettere di opporsi a contatti futuri.</li>
                         </ul>
                     </div>
                 </section>
@@ -287,8 +287,8 @@ Non usare frasi come "Spero che questa email la trovi bene". Sii diretto e rispe
                         <li><strong>Durata del ciclo di vendita:</strong> il tempo tra la creazione del contatto e la firma. Il workflow dovrebbe accorciarlo; se non succede, va rivisto.</li>
                     </ul>
 
-                    <h3>Come calcolare il ritorno sul Suo caso</h3>
-                    <p>Confronti lo stesso periodo e un volume di contatti comparabile, verificando anche la qualità. Questa scheda confronta i costi operativi; non attribuisce all’AI ricavi o margini non misurati:</p>
+                    <h3>Come calcolare il ritorno sul tuo caso</h3>
+                    <p>Confronta lo stesso periodo e un volume di contatti comparabile, verificando anche la qualità. Questa scheda confronta i costi operativi; non attribuisce all’AI ricavi o margini non misurati:</p>
                     <table class="data-table">
                         <thead>
                             <tr>
@@ -319,19 +319,19 @@ Non usare frasi come "Spero che questa email la trovi bene". Sii diretto e rispe
                             </tr>
                         </tbody>
                     </table>
-                    <p>Se A − B è zero o negativo, non c’è un tempo di rientro basato su questi risparmi. Se B si avvicina ad A, o se la qualità dei contatti peggiora, il workflow va rivalutato. Per impostare il calcolo può usare anche l’<a href="ai-outcome-budget.html">AI Outcome Budget</a>, una scheda gratuita.</p>
+                    <p>Se A − B è zero o negativo, non c’è un tempo di rientro basato su questi risparmi. Se B si avvicina ad A, o se la qualità dei contatti peggiora, il workflow va rivalutato. Per impostare il calcolo puoi usare anche l’<a href="ai-outcome-budget.html">AI Outcome Budget</a>, una scheda gratuita.</p>
                 </section>
 
                 <section class="content-section conclusion">
                     <h2>Da dove partire</h2>
-                    <p>Ha visto come un processo manuale e lento può diventare un flusso automatizzato, con le persone che decidono nei punti che contano. Non serve costruire tutto subito.</p>
+                    <p>Hai visto come un processo manuale e lento può diventare un flusso automatizzato, con le persone che decidono nei punti che contano. Non serve costruire tutto subito.</p>
                     <h3>Un piano in tre passi</h3>
                     <ol>
-                        <li><strong>Prima l’assistente sul sito:</strong> scelga uno strumento, provi il piano gratuito se c’è e crei il primo flusso di conversazione.</li>
-                        <li><strong>Poi il workflow di scoring:</strong> colleghi l’assistente a un foglio Google con Make.com e costruisca la qualificazione.</li>
-                        <li><strong>Infine le bozze di email:</strong> aggiunga OpenAI al workflow e provi i prompt, con ogni bozza approvata da un commerciale.</li>
+                        <li><strong>Prima l’assistente sul sito:</strong> scegli uno strumento, prova il piano gratuito se c’è e crea il primo flusso di conversazione.</li>
+                        <li><strong>Poi il workflow di scoring:</strong> collega l’assistente a un foglio Google con Make.com e costruisci la qualificazione.</li>
+                        <li><strong>Infine le bozze di email:</strong> aggiungi OpenAI al workflow e prova i prompt, con ogni bozza approvata da un commerciale.</li>
                     </ol>
-                    <p>Prima di ogni passo, misuri il punto di partenza: è l’unico modo per sapere, dopo, se ne è valsa la pena.</p>
+                    <p>Prima di ogni passo, misura il punto di partenza: è l’unico modo per sapere, dopo, se ne è valsa la pena.</p>
                 </section>
 
             </div>
@@ -345,12 +345,12 @@ Non usare frasi come "Spero che questa email la trovi bene". Sii diretto e rispe
                 <div class="related-card">
                     <h3>Automazione dei workflow aziendali con l’AI</h3>
                     <p>Come automatizzare processi aziendali con Zapier, Make, n8n e LangChain.</p>
-                    <a href="/articolo-automazione-processi-manuali.html" class="related-link">Apra il tutorial</a>
+                    <a href="/articolo-automazione-processi-manuali.html" class="related-link">Apri il tutorial</a>
                 </div>
                 <div class="related-card">
                     <h3>Strumenti per agenti AI</h3>
                     <p>Quando basta un workflow e quali controlli servono per usare strumenti e dati aziendali.</p>
-                    <a href="/articolo-tool-agenti-ai.html" class="related-link">Legga la guida</a>
+                    <a href="/articolo-tool-agenti-ai.html" class="related-link">Leggi la guida</a>
                 </div>
             </div>
         </div>
@@ -361,9 +361,9 @@ Non usare frasi come "Spero che questa email la trovi bene". Sii diretto e rispe
         <div class="container">
             <div class="cta-content">
                 <h2>Un processo commerciale, misurato prima e dopo</h2>
-                <p>La prima chiamata di 30 minuti è gratuita e senza impegno: ci mostra come oggi la Sua azienda raccoglie e qualifica i contatti e Le diciamo se e dove l’AI può alleggerire il lavoro. Se non serve, glielo diciamo.</p>
+                <p>La prima chiamata di 30 minuti è gratuita e senza impegno: ci mostri come oggi la tua azienda raccoglie e qualifica i contatti e ti diciamo se e dove l’AI può alleggerire il lavoro. Se non serve, te lo diciamo.</p>
                 <div class="cta-buttons">
-                    <a href="/#contact" class="btn btn-primary">Ci mostri un processo</a>
+                    <a href="/#contact" class="btn btn-primary">Mostraci un processo</a>
                     <a href="contatti.html" class="btn btn-secondary">Contatti</a>
                 </div>
             </div>

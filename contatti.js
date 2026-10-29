@@ -3,7 +3,7 @@
 // don't collide with the globals defined in script.js.
 (function() {
 
-// Copy follows the page language: contatti.html (it, formal "Lei") and en/contact.html share this file
+// Copy follows the page language: contatti.html (it, informal "tu") and en/contact.html share this file
 const isEnglish = (document.documentElement.lang || 'it').toLowerCase().startsWith('en');
 const CONTACT_STRINGS = isEnglish ? {
     sending: 'Sending...',
@@ -11,8 +11,8 @@ const CONTACT_STRINGS = isEnglish ? {
     invalid: 'Please fill in all required fields correctly.'
 } : {
     sending: 'Invio in corso...',
-    sendError: 'Si è verificato un errore. Riprovi o ci scriva direttamente.',
-    invalid: 'Compili correttamente tutti i campi obbligatori.'
+    sendError: 'Si è verificato un errore. Riprova o scrivici direttamente.',
+    invalid: 'Compila correttamente tutti i campi obbligatori.'
 };
 
 document.addEventListener('DOMContentLoaded', function() {

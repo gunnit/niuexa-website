@@ -102,9 +102,9 @@ related:
     title: Valutare la readiness AI
 
 cta:
-  heading: Le modifiche ai Suoi sistemi AI sono tracciabili e reversibili?
-  body: "Ci mostri un processo: nella prima chiamata di 30 minuti, gratuita, guardiamo come cambiano oggi prompt, dati e permessi e chi approva il rilascio. Prima misuriamo, poi automatizziamo."
-  primary_label: Ci mostri un processo
+  heading: Le modifiche ai tuoi sistemi AI sono tracciabili e reversibili?
+  body: "Mostraci un processo: nella prima chiamata di 30 minuti, gratuita, guardiamo come cambiano oggi prompt, dati e permessi e chi approva il rilascio. Prima misuriamo, poi automatizziamo."
+  primary_label: Mostraci un processo
   primary_href: /#contact
   secondary_label: Come lavoriamo
   secondary_href: consulting.html
@@ -152,15 +152,15 @@ Ogni gate produce un'evidenza. Se manca la prova richiesta, la modifica non avan
 
 ### 1. Richiesta e baseline
 
-Descriva il problema, non solo la soluzione proposta. Salvi la versione corrente e una baseline di qualità, errori, costo, latenza e interventi umani. Senza baseline non è possibile dimostrare se il cambiamento ha migliorato il processo.
+Descrivi il problema, non solo la soluzione proposta. Salva la versione corrente e una baseline di qualità, errori, costo, latenza e interventi umani. Senza baseline non è possibile dimostrare se il cambiamento ha migliorato il processo.
 
 ### 2. Analisi d'impatto
 
-Mappi utenti, dati, decisioni, azioni, integrazioni e obblighi coinvolti. Verifichi se cambiano lo scopo d'uso, l'autonomia, il fornitore o il perimetro dei dati. Assegni la classe (da C1 a C4) e l'elenco degli approvatori.
+Mappa utenti, dati, decisioni, azioni, integrazioni e obblighi coinvolti. Verifica se cambiano lo scopo d'uso, l'autonomia, il fornitore o il perimetro dei dati. Assegna la classe (da C1 a C4) e l'elenco degli approvatori.
 
 ### 3. Piano e prove di test
 
-Prepari casi normali, edge case, input vietati e regressioni storiche. Per un agente verifichi anche tool selection, autorizzazioni, idempotenza, timeout e fallback. I criteri di accettazione vanno scritti prima del test: per esempio accuratezza minima, zero azioni non autorizzate e costo entro soglia.
+Prepara casi normali, edge case, input vietati e regressioni storiche. Per un agente verifica anche tool selection, autorizzazioni, idempotenza, timeout e fallback. I criteri di accettazione vanno scritti prima del test: per esempio accuratezza minima, zero azioni non autorizzate e costo entro soglia.
 
 ### 4. Approvazione proporzionata
 
@@ -168,11 +168,11 @@ Il responsabile tecnico conferma la qualità dell'implementazione; il process ow
 
 ### 5. Rilascio controllato
 
-Distribuisca prima su un gruppo limitato, in modalità shadow o con approvazione umana rafforzata. Mantenga disponibile la versione precedente. Registri orario, owner, configurazione e percentuale di traffico: "rilasciato in produzione" non è un piano di deployment.
+Distribuisci prima su un gruppo limitato, in modalità shadow o con approvazione umana rafforzata. Mantieni disponibile la versione precedente. Registra orario, owner, configurazione e percentuale di traffico: "rilasciato in produzione" non è un piano di deployment.
 
 ### 6. Osservazione e chiusura
 
-Confronti i risultati con baseline e criteri di accettazione per una finestra definita. Se la modifica supera le soglie, la chiuda con evidenze; se degrada il processo, esegua il rollback; se l'esito è ambiguo, non estendere il traffico. Le lezioni aggiornano test e policy successive.
+Confronta i risultati con baseline e criteri di accettazione per una finestra definita. Se la modifica supera le soglie, chiudila con evidenze; se degrada il processo, esegui il rollback; se l'esito è ambiguo, non estendere il traffico. Le lezioni aggiornano test e policy successive.
 
 ## Checklist prima del go-live
 
