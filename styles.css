@@ -571,7 +571,6 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.9rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
-    animation: fadeInUp 1s ease;
 }
 
 .badge-icon {
@@ -585,7 +584,6 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.2;
     letter-spacing: -0.02em;
     text-wrap: balance;
-    animation: fadeInUp 1s ease 0.2s both;
 }
 
 .hero-title .highlight {
@@ -613,7 +611,6 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--white);
     margin-bottom: 2rem;
     line-height: 1.65;
-    animation: fadeInUp 1s ease 0.4s both;
 }
 
 .hero .hero-subtitle {
@@ -626,7 +623,6 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     gap: 2rem;
     margin-bottom: 2.5rem;
-    animation: fadeInUp 1s ease 0.6s both;
     justify-content: center;
 }
 
@@ -658,7 +654,6 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     gap: 1rem;
     margin-bottom: 2rem;
-    animation: fadeInUp 1s ease 0.8s both;
     justify-content: center;
 }
 
@@ -698,7 +693,6 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .hero-trust {
-    animation: fadeInUp 1s ease 1s both;
 }
 
 .hero-trust p {
@@ -728,7 +722,6 @@ h1, h2, h3, h4, h5, h6 {
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: center;
-    animation: fadeInUp 1s ease 1.2s both;
 }
 
 .guarantee-badge {
@@ -752,7 +745,6 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: fadeIn 1s ease 1.2s both;
 }
 
 .ai-visualization {
@@ -5758,7 +5750,6 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
     line-height: 1.1;
     font-family: var(--font-primary);
     font-weight: 900;
-    animation: fadeInUp 1s ease 0.2s both;
 }
 
 .consulting-hero .hero-title .highlight {
@@ -5776,7 +5767,6 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    animation: fadeInUp 1s ease 0.4s both;
 }
 
 .consulting-hero .hero-stats {
@@ -5784,7 +5774,6 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
     justify-content: center;
     gap: 3rem;
     margin-bottom: 2.5rem;
-    animation: fadeInUp 1s ease 0.6s both;
 }
 
 .consulting-hero .stat-item {
@@ -5814,7 +5803,6 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
     display: flex;
     justify-content: center;
     gap: 1.5rem;
-    animation: fadeInUp 1s ease 0.8s both;
 }
 
 /* Responsive Styles for Unified Hero */
@@ -6167,13 +6155,14 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
+/* Slide only, no fade: a card caught mid-fade fails text contrast (and Lighthouse
+   audits it mid-transition), so the text stays fully opaque while it moves. */
 @media (prefers-reduced-motion: no-preference) {
     html.js-animations .service-card:not(.animate-in),
     html.js-animations .program-card:not(.animate-in),
     html.js-animations .product-card:not(.animate-in),
     html.js-animations .use-case:not(.animate-in),
     html.js-animations .stat:not(.animate-in):not(.tutorial-stats .stat) {
-        opacity: 0;
         transform: translateY(30px);
     }
 }
@@ -6203,8 +6192,8 @@ elevenlabs-convai [class*="whitespace-nowrap"] {
 /* Hero copy used to stay at opacity 0 until script.js added body.loaded, so
    every page without script.js (most articles, the product and worksheet
    pages, the English pages that load only navigation-en.js) could show an
-   empty hero. The hero elements already run their own CSS entrance, which
-   needs no script. */
+   empty hero. The hero has no entrance animation either: it is the largest
+   paint above the fold, and a delayed fade-in pushed LCP past first paint. */
 
 /* Reduced motion: show content immediately, stop decorative loops */
 @media (prefers-reduced-motion: reduce) {

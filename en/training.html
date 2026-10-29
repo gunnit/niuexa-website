@@ -19,6 +19,7 @@
       });
     </script>
     <!-- Google Tag Manager -->
+    <script data-consent-guard>(function (w) {var held = [];var granted = false;var hosts = /(^|\.)(hs-scripts\.com|hs-analytics\.net|hs-banner\.com|hscollectedforms\.net|hsforms\.(com|net)|hubspot\.com|apollo\.io|aplo-evnt\.com)$/i;var proto = w.Node && w.Node.prototype;if (!proto) return;var append = proto.appendChild;var insert = proto.insertBefore;try {var saved = JSON.parse(w.localStorage.getItem('niuexa_cookie_consent'));granted = !!(saved && saved.marketing === true);} catch (e) { /* no saved choice */ }function hold(node) {if (granted || !node || node.nodeName !== 'SCRIPT' || !node.src) return false;try { return hosts.test(new URL(node.src, w.location.href).hostname); } catch (e) { return false; }}proto.appendChild = function (node) {if (hold(node)) { held.push([this, node, null]); return node; }return append.call(this, node);};proto.insertBefore = function (node, ref) {if (hold(node)) { held.push([this, node, ref]); return node; }return insert.call(this, node, ref);};w.addEventListener('niuexa:consent', function (event) {if (!event.detail || event.detail.marketing !== true) return;granted = true;held.splice(0).forEach(function (item) {if (item[2] && item[2].parentNode === item[0]) insert.call(item[0], item[1], item[2]);else append.call(item[0], item[1]);});});})(window);</script>
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -307,7 +308,7 @@
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="/styles.css?v=20260807">
+    <link rel="stylesheet" href="/styles.css?v=20261029">
     <link rel="stylesheet" href="/polish.css?v=20261005">
     <link rel="stylesheet" href="/training.css?v=20261006">
 </head>

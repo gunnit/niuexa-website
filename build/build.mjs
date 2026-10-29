@@ -23,6 +23,7 @@ import { fileURLToPath } from 'node:url';
 
 import { parse as parseYaml, parseFrontMatter } from './yaml.mjs';
 import { renderBody, renderInline, escapeHtml, smartQuotes } from './markdown.mjs';
+import { withConsentGuard } from './inline-consent-guard.mjs';
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CONTENT = join(ROOT, 'content');
@@ -607,7 +608,7 @@ export function build({ slugs = null, check = false } = {}) {
 
   const changed = [];
   for (const article of targets) {
-    const html = renderArticle(article, { site, authors, allArticles });
+    const html = withConsentGuard(renderArticle(article, { site, authors, allArticles }));
     const out = join(ROOT, `articolo-${article.slug}.html`);
     const existing = existsSync(out) ? readFileSync(out, 'utf8') : null;
     if (existing === html) continue;

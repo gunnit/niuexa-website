@@ -7,6 +7,7 @@
 // --today=YYYY-MM-DD renders as of another day; EVENTS_ROOT renders into another
 // directory (tests use both, so they never touch the committed pages).
 import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
+import {consentGuardScript} from './inline-consent-guard.mjs';
 import {createHash} from 'node:crypto';
 import {resolve} from 'node:path';
 import {EVENTS,MOVED} from './event-content.mjs';
@@ -57,6 +58,7 @@ gtag('consent', 'default', {
 });
 </script>
 <!-- Google Tag Manager -->
+${consentGuardScript()}
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
