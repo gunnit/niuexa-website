@@ -96,8 +96,8 @@ related:
 
 cta:
   heading: Quale report assorbe più ore ogni settimana?
-  body: "Mostraci quel report: nella prima chiamata di 30 minuti, gratuita, guardiamo da quali fonti nasce, quanto tempo assorbe e quale decisione dovrebbe preparare. Prima misuriamo, poi automatizziamo."
-  primary_label: Mostraci un processo
+  body: "Raccontaci di quel report: nella prima chiamata di 30 minuti, gratuita, guardiamo da quali fonti nasce, quanto tempo assorbe e quale decisione dovrebbe preparare. Prima misuriamo, poi automatizziamo."
+  primary_label: Raccontaci la tua esigenza
   primary_href: /#contact
   secondary_label: Come lavoriamo
   secondary_href: consulting.html

@@ -98,8 +98,8 @@ related:
     title: Valutare la readiness AI
 cta:
   heading: Le fonti del tuo assistente AI hanno un owner?
-  body: "Mostraci un processo: nella prima chiamata di 30 minuti, gratuita, guardiamo quali documenti guidano le risposte, chi li approva e quando scadono. Prima misuriamo, poi automatizziamo."
-  primary_label: Mostraci un processo
+  body: "Raccontaci la tua esigenza: nella prima chiamata di 30 minuti, gratuita, guardiamo quali documenti guidano le risposte, chi li approva e quando scadono. Prima misuriamo, poi automatizziamo."
+  primary_label: Raccontaci la tua esigenza
   primary_href: /#contact
   secondary_label: Come lavoriamo
   secondary_href: consulting.html

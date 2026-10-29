@@ -103,8 +103,8 @@ related:
 
 cta:
   heading: I tuoi sistemi AI hanno un piano di incidente e ripristino?
-  body: "Mostraci un processo: nella prima chiamata di 30 minuti, gratuita, guardiamo che cosa succede se l’AI sbaglia, chi la ferma e quale percorso manuale resta disponibile."
-  primary_label: Mostraci un processo
+  body: "Raccontaci la tua esigenza: nella prima chiamata di 30 minuti, gratuita, guardiamo che cosa succede se l’AI sbaglia, chi la ferma e quale percorso manuale resta disponibile."
+  primary_label: Raccontaci la tua esigenza
   primary_href: /#contact
   secondary_label: Come lavoriamo
   secondary_href: consulting.html

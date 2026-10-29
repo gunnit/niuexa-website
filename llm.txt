@@ -57,7 +57,7 @@
 - [About Us / Chi Siamo](https://niuexa.ai/chi-siamo.html): Team, founders, mission
 - [About Us (English)](https://niuexa.ai/en/about-us.html): English version
 - [Gregor Maric](https://niuexa.ai/gregor-maric.html) / [English](https://niuexa.ai/en/gregor-maric.html): CEO and co-founder, in business process automation since 2012; author of The AI Operator Series
-- [Contact](https://niuexa.ai/contatti.html): Book the free 30-minute first call ("Mostraci un processo") or write to Niuexa
+- [Contact](https://niuexa.ai/contatti.html): Book the free 30-minute first call ("Raccontaci la tua esigenza") or write to Niuexa
 - [Contact (English)](https://niuexa.ai/en/contact.html): English contact page
 - [Events (English)](https://niuexa.ai/en/events.html): The Milan meeting series described in English (talks are in Italian) and the archive of past events
 - [Free online lab, 22 October 2026](https://niuexa.ai/code-week-ai-2026.html): "AI e controllo umano", one hour online with Gregor Maric on sources, permissions and human control in AI flows

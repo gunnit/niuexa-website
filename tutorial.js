@@ -8,7 +8,7 @@ const TUTORIAL_STRINGS = {
         copyError: 'Copia non riuscita',
         copyLabel: 'Copia il codice',
         print: 'Stampa',
-        shareTitle: 'Condivida questa guida',
+        shareTitle: 'Condividi questa guida',
         copyLink: 'Copia link',
         linkCopied: 'Link copiato',
         backToTop: 'Torna all\'inizio'

@@ -67,7 +67,7 @@
       body: 'Ogni progetto si misura su obiettivi concordati prima di iniziare: tempo restituito ai team, qualità e costi, confrontati con il punto di partenza.',
       tags: ['Obiettivi', 'Indicatori', 'Misura'],
       cta: {
-        primary: { label: 'Mostraci un processo', href: 'contatti.html' },
+        primary: { label: 'Raccontaci la tua esigenza', href: 'contatti.html' },
         secondary: { label: 'Verifica la visibilità AI', href: 'consulenza-aeo-geo.html' }
       }
     }

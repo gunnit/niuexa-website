@@ -37,8 +37,8 @@ defaults:
   reading_time_wpm: 180   # Italian technical prose; articles may override reading_time
   robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
   cta:
-    heading: Mostraci un processo
-    body: In 30 minuti, gratuiti e senza impegno, guardiamo insieme un processo della tua azienda e ti diciamo se l'AI può alleggerirlo. Prima misuriamo, poi automatizziamo.
+    heading: Raccontaci la tua esigenza
+    body: In 30 minuti, gratuiti e senza impegno, ne parliamo insieme e ti diciamo se l'AI può aiutarti. Prima misuriamo, poi automatizziamo.
     primary_label: Prenota la prima chiamata
     primary_href: /#contact
     secondary_label: Come lavoriamo

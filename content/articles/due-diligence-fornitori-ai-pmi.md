@@ -91,8 +91,8 @@ related:
     title: Valutare la readiness AI
 cta:
   heading: Devi valutare una soluzione o un fornitore AI?
-  body: "Mostraci il processo che la soluzione dovrebbe alleggerire: nella prima chiamata di 30 minuti, gratuita, guardiamo dati, rischi e metriche da chiedere prima di firmare. Se l’AI non serve, te lo diciamo."
-  primary_label: Mostraci un processo
+  body: "Raccontaci che cosa dovrebbe alleggerire la soluzione: nella prima chiamata di 30 minuti, gratuita, guardiamo dati, rischi e metriche da chiedere prima di firmare. Se l’AI non serve, te lo diciamo."
+  primary_label: Raccontaci la tua esigenza
   primary_href: /#contact
   secondary_label: Come lavoriamo
   secondary_href: consulting.html
