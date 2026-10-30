@@ -67,12 +67,14 @@ function initContactForm() {
 
             const result = await response.json();
             if (response.ok && result && result.success === true) {
-                if (window.NiuexaTracking && typeof window.NiuexaTracking.confirmSubmission === 'function') {
-                    window.NiuexaTracking.confirmSubmission(form, {
-                        event_category: 'Contact',
-                        event_label: 'Contact Form'
-                    });
-                }
+                try {
+                    if (window.NiuexaTracking && typeof window.NiuexaTracking.confirmSubmission === 'function') {
+                        await window.NiuexaTracking.confirmSubmission(form, {
+                            event_category: 'Contact',
+                            event_label: 'Contact Form'
+                        });
+                    }
+                } catch (trackingError) { /* The provider already accepted this enquiry. */ }
 
                 // Redirect to thank you page
                 window.location.href = '/thank-you-page.html';
