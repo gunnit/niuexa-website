@@ -27,7 +27,7 @@
   var PENDING_LEAD_KEY = 'niuexa_pending_lead_v1';
   var CALLBACK_PARAM = 'niuexa_submission';
   var CALLBACK_MAX_AGE = 30 * 60 * 1000;
-  var AEO_MEASUREMENT_ID = 'G-8JW0S3PJKM';
+  var NIUEXA_MEASUREMENT_ID = 'G-8JW0S3PJKM';
   var GTM_CONTAINER_ID = 'GTM-KG9S42S4';
   var LEAD_DELIVERY_TIMEOUT = 1500;
   var submissions = new WeakMap();
@@ -245,7 +245,9 @@
       }
       window.dataLayer.push(layerData);
       if (typeof window.gtag === 'function') {
-        var gtagProps = Object.assign({}, data);
+        // GTM's Google tag may not join gtag's default group. Route these site
+        // analytics events explicitly, independently of the native Ads tag.
+        var gtagProps = Object.assign({}, data, { send_to: NIUEXA_MEASUREMENT_ID });
         delete gtagProps.event;
         if (callbacks.google) {
           gtagProps.event_callback = callbacks.google;
@@ -315,7 +317,7 @@
       timer = window.setTimeout(finish, LEAD_DELIVERY_TIMEOUT);
       try {
         window.gtag('event', 'generate_lead', Object.assign({}, props, {
-          send_to: AEO_MEASUREMENT_ID,
+          send_to: NIUEXA_MEASUREMENT_ID,
           event_callback: finish,
           event_timeout: LEAD_DELIVERY_TIMEOUT
         }));

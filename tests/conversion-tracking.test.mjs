@@ -322,6 +322,36 @@ function contactPage(kind, options = {}) {
 }
 
 for (const kind of ['contact-form', 'contact-page']) {
+  for (const defaultDestinations of [[], ['G-OTHERBRAND']]) {
+    test(`${kind}: confirmed lead explicitly reaches only NIUEXA with default destinations ${JSON.stringify(defaultDestinations)}`, async () => {
+      const page = contactPage(kind);
+      const received = [];
+      // The GTM generate_lead forwarding tag is paused. A dataLayer object only
+      // completes GTM processing; gtag must select the intended GA4 destination.
+      page.ctx.gtag = (...args) => {
+        page.ctx.dataLayer.push(args);
+        const [command, name, props] = args;
+        if (command !== 'event') return;
+        const destinations = props.send_to ? [props.send_to] : defaultDestinations;
+        for (const destination of destinations) received.push({ destination, name, props });
+        if (destinations.length && typeof props.event_callback === 'function') props.event_callback();
+      };
+      const submitted = page.f.fire('submit');
+      await settleTasks();
+      const leads = received.filter(event => event.destination === 'G-8JW0S3PJKM' && event.name === 'generate_lead');
+      assert.equal(leads.length, 1, 'confirmed lead cannot depend on a default gtag group or GTM forwarding');
+      assert.ok(received.every(event => event.destination === 'G-8JW0S3PJKM'), 'no event goes to another brand');
+      assert.equal(leads[0].props.submission_id, page.events('form_submit')[0].submission_id);
+      assert.equal(leads[0].props.submission_status, 'success');
+      assert.equal(leads[0].props.confirmation_method, 'provider_response');
+      assert.equal(page.events('form_submit')[0].send_to, undefined, 'native Ads dataLayer payload keeps its own routing');
+      await submitted;
+      assert.equal(page.ctx.location.pathname, '/thank-you-page.html');
+      await page.ctx.NiuexaTracking.confirmSubmission(page.f);
+      assert.equal(received.filter(event => event.name === 'generate_lead').length, 1);
+    });
+  }
+
   test(`${kind}: received enquiry waits for native Ads and GA4 delivery before redirect`, async () => {
     const page = contactPage(kind, { completeTag: false, completeLayer: false });
     const submitted = page.f.fire('submit');
