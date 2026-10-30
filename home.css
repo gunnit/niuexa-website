@@ -59,6 +59,7 @@
 /* Inline links in body copy: the browser default blue read as unstyled */
 .home-page .company-section p a,
 .home-page .testimonials-section p a,
+.home-page .events-strip__intro a,
 .home-page .faq-section p a,
 .home-page .talk-with-us-section p a,
 .home-page .checkbox-label a {
@@ -71,6 +72,7 @@
 
 .home-page .company-section p a:hover,
 .home-page .testimonials-section p a:hover,
+.home-page .events-strip__intro a:hover,
 .home-page .faq-section p a:hover,
 .home-page .talk-with-us-section p a:hover,
 .home-page .checkbox-label a:hover {
@@ -120,7 +122,7 @@
     color: var(--dark-blue);
 }
 
-/* ---------- Partner and technology strips ---------- */
+/* ---------- Partner and initiative strips ---------- */
 .home-page .partners-section {
     padding: var(--home-section) 0 2.5rem;
 }
@@ -171,6 +173,84 @@
 /* ---------- Fiere e conferenze ---------- */
 .home-page .partners-section:has(+ .partners-section) {
     padding-bottom: 2.5rem;
+}
+
+/* ---------- Iniziative europee: scrolling strip ----------
+   The inline script adds .is-moving and a hidden copy of the list unless the
+   visitor prefers reduced motion; without it the list stays the static grid
+   from event-cards.css. Both lists move by one list width plus the gap, so the
+   copy lands exactly where the original started and the loop has no seam. */
+.home-page .initiatives-marquee {
+    --marquee-gap: 0.75rem;
+}
+
+.home-page .initiatives-marquee.is-moving {
+    display: flex;
+    gap: var(--marquee-gap);
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, var(--black) 3rem, var(--black) calc(100% - 3rem), transparent);
+    mask-image: linear-gradient(90deg, transparent, var(--black) 3rem, var(--black) calc(100% - 3rem), transparent);
+}
+
+.home-page .initiatives-marquee.is-moving .events-strip__list {
+    display: flex;
+    flex: none;
+    gap: var(--marquee-gap);
+    animation: initiatives-scroll 60s linear infinite;
+}
+
+.home-page .initiatives-marquee.is-moving .events-strip__list > li {
+    flex: 0 0 clamp(220px, 70vw, 260px);
+}
+
+.home-page .initiatives-marquee.is-moving:hover .events-strip__list,
+.home-page .initiatives-marquee.is-paused .events-strip__list {
+    animation-play-state: paused;
+}
+
+/* Keyboard focus stops the loop and puts the list back at its start, so the
+   browser can scroll the focused card into view. */
+.home-page .initiatives-marquee.is-moving:focus-within .events-strip__list {
+    animation: none;
+}
+
+.home-page .initiatives-marquee .events-strip__list[hidden],
+.home-page .initiatives-marquee__toggle[hidden] {
+    display: none;
+}
+
+@keyframes initiatives-scroll {
+    to {
+        transform: translateX(calc(-100% - var(--marquee-gap)));
+    }
+}
+
+/* Pause control: moving content needs a way to stop it (WCAG 2.2.2) */
+.home-page .initiatives-marquee__toggle {
+    display: inline-flex;
+    align-items: center;
+    margin: -0.5rem 0 1rem;
+    padding: 0.35rem 0.85rem;
+    border: 1px solid var(--border-medium);
+    border-radius: 999px;
+    background: var(--white);
+    color: var(--blue-text);
+    font-family: var(--font-primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.4;
+    cursor: pointer;
+    transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.home-page .initiatives-marquee__toggle:hover {
+    border-color: var(--primary-blue);
+    color: var(--dark-blue);
+}
+
+.home-page .initiatives-marquee__toggle:focus-visible {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 3px;
 }
 
 /* ---------- Cards: data, services, courses ---------- */

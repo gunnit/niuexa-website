@@ -103,8 +103,8 @@ related:
 
 cta:
   heading: Le modifiche ai tuoi sistemi AI sono tracciabili e reversibili?
-  body: "Mostraci un processo: nella prima chiamata di 30 minuti, gratuita, guardiamo come cambiano oggi prompt, dati e permessi e chi approva il rilascio. Prima misuriamo, poi automatizziamo."
-  primary_label: Mostraci un processo
+  body: "Raccontaci la tua esigenza: nella prima chiamata di 30 minuti, gratuita, guardiamo come cambiano oggi prompt, dati e permessi e chi approva il rilascio. Prima misuriamo, poi automatizziamo."
+  primary_label: Raccontaci la tua esigenza
   primary_href: /#contact
   secondary_label: Come lavoriamo
   secondary_href: consulting.html
