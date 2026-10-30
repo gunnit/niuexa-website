@@ -28,7 +28,8 @@
   var CALLBACK_PARAM = 'niuexa_submission';
   var CALLBACK_MAX_AGE = 30 * 60 * 1000;
   var AEO_MEASUREMENT_ID = 'G-8JW0S3PJKM';
-  var AEO_DELIVERY_TIMEOUT = 1500;
+  var GTM_CONTAINER_ID = 'GTM-KG9S42S4';
+  var LEAD_DELIVERY_TIMEOUT = 1500;
   var submissions = new WeakMap();
 
   function nowIso() {
@@ -218,8 +219,9 @@
     if (redirect) ensureHidden(form, 'redirect', redirect);
   }
 
-  function track(eventName, props) {
+  function track(eventName, props, callbacks) {
     props = props || {};
+    callbacks = callbacks || {};
     var data = Object.assign({
       event: eventName,
       campaign: props.campaign || attribution().utm_campaign || DEFAULT_CAMPAIGN,
@@ -236,11 +238,22 @@
       // Preserve both existing interfaces: the deployed GTM container decides which
       // tags consume each. Consent defaults/updates remain owned by the consent code.
       window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push(data);
+      var layerData = Object.assign({}, data);
+      if (callbacks.gtm) {
+        layerData.eventCallback = callbacks.gtm;
+        layerData.eventTimeout = LEAD_DELIVERY_TIMEOUT;
+      }
+      window.dataLayer.push(layerData);
       if (typeof window.gtag === 'function') {
         var gtagProps = Object.assign({}, data);
         delete gtagProps.event;
+        if (callbacks.google) {
+          gtagProps.event_callback = callbacks.google;
+          gtagProps.event_timeout = LEAD_DELIVERY_TIMEOUT;
+        }
         window.gtag('event', eventName, gtagProps);
+      } else if (callbacks.google) {
+        callbacks.google();
       }
     } catch (e) {
       // An analytics failure must never turn a received request into a form error.
@@ -299,16 +312,46 @@
       }
       // Independent of Google's event_timeout, so blocked analytics never traps a
       // visitor after their enquiry has already been accepted by the provider.
-      timer = window.setTimeout(finish, AEO_DELIVERY_TIMEOUT);
+      timer = window.setTimeout(finish, LEAD_DELIVERY_TIMEOUT);
       try {
         window.gtag('event', 'generate_lead', Object.assign({}, props, {
           send_to: AEO_MEASUREMENT_ID,
           event_callback: finish,
-          event_timeout: AEO_DELIVERY_TIMEOUT
+          event_timeout: LEAD_DELIVERY_TIMEOUT
         }));
       } catch (e) {
         finish();
       }
+    });
+  }
+
+  function deliverGenericLead(props) {
+    return new Promise(function (resolve) {
+      var finished = false;
+      var gtmComplete = false;
+      var googleComplete = false;
+      var timer;
+      function finish() {
+        if (finished) return;
+        finished = true;
+        window.clearTimeout(timer);
+        resolve();
+      }
+      function checkComplete() {
+        if (gtmComplete && googleComplete) finish();
+      }
+      // The Ads tag consumes form_submit in GTM; GA4 owns generate_lead through
+      // gtag. Give both time to process before AJAX handlers leave this page.
+      timer = window.setTimeout(finish, LEAD_DELIVERY_TIMEOUT);
+      track('form_submit', props, { gtm: function (containerId) {
+        if (containerId !== GTM_CONTAINER_ID) return;
+        gtmComplete = true;
+        checkComplete();
+      } });
+      track('generate_lead', props, { google: function () {
+        googleComplete = true;
+        checkComplete();
+      } });
     });
   }
 
@@ -335,8 +378,8 @@
       props.event_category = details.event_category;
       props.event_label = details.event_label;
     }
-    track('form_submit', props);
-    track('generate_lead', props);
+    submission.delivery = deliverGenericLead(props);
+    return submission.delivery;
   }
 
   // Call only after the form handler has checked HTTP success and JSON success:true.

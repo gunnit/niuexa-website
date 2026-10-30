@@ -371,12 +371,14 @@ function initContactForm() {
 
                     const result = await response.json();
                     if (response.ok && result && result.success === true) {
-                        if (window.NiuexaTracking && typeof window.NiuexaTracking.confirmSubmission === 'function') {
-                            window.NiuexaTracking.confirmSubmission(this, {
-                                event_category: 'Contact',
-                                event_label: 'Contact form ' + window.location.pathname
-                            });
-                        }
+                        try {
+                            if (window.NiuexaTracking && typeof window.NiuexaTracking.confirmSubmission === 'function') {
+                                await window.NiuexaTracking.confirmSubmission(this, {
+                                    event_category: 'Contact',
+                                    event_label: 'Contact form ' + window.location.pathname
+                                });
+                            }
+                        } catch (trackingError) { /* The provider already accepted this enquiry. */ }
 
                         // Redirect to thank you page
                         window.location.href = formT.thankYou;

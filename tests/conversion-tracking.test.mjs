@@ -69,7 +69,7 @@ function storage(values = new Map(), blocked = false) {
   };
 }
 
-function browser({ path = '/contatti.html', forms = [], session = new Map(), local = new Map(), blocked = false, fetchImpl, completeTag = true } = {}) {
+function browser({ path = '/contatti.html', forms = [], session = new Map(), local = new Map(), blocked = false, fetchImpl, completeTag = true, completeLayer = true } = {}) {
   const callbacks = [];
   const doc = {
     readyState: 'loading', referrer: '', documentElement: { lang: 'it' }, head: element(), body: element(),
@@ -87,6 +87,14 @@ function browser({ path = '/contatti.html', forms = [], session = new Map(), loc
     getElementById() { return null; },
   };
   const calls = [];
+  const dataLayer = [];
+  dataLayer.push = (...items) => {
+    const length = Array.prototype.push.apply(dataLayer, items);
+    for (const item of items) {
+      if (completeLayer && typeof item.eventCallback === 'function') item.eventCallback('GTM-KG9S42S4');
+    }
+    return length;
+  };
   const timers = new Map();
   let timerId = 0;
   let currentUrl = new URL(path, 'https://niuexa.ai');
@@ -111,7 +119,7 @@ function browser({ path = '/contatti.html', forms = [], session = new Map(), loc
       forEach(fn) { this.fields.forEach(fn); }
     },
     fetch: async (...args) => { calls.push(args); return fetchImpl(...args); },
-    dataLayer: [],
+    dataLayer,
   });
   ctx.window = ctx;
   ctx.gtag = (...args) => {
@@ -296,6 +304,78 @@ function aeoPage({ consent = acceptedAnalytics, fetchImpl, ...options } = {}) {
   return { ...page, f, leadCalls: () => page.ctx.dataLayer.filter(x => x[0] === 'event' && x[1] === 'generate_lead') };
 }
 const settleTasks = async () => { for (let i = 0; i < 8; i++) await Promise.resolve(); };
+
+function contactPage(kind, options = {}) {
+  const f = form('contact-form');
+  const page = browser({ forms: [f],
+    fetchImpl: async () => ({ ok: true, json: async () => ({ success: true }) }),
+    ...options,
+  });
+  if (kind === 'contact-page') {
+    page.run('contatti.js');
+    page.callbacks.at(-1)();
+  } else {
+    page.run('script.js');
+    page.ctx.initContactForm();
+  }
+  return { ...page, f };
+}
+
+for (const kind of ['contact-form', 'contact-page']) {
+  test(`${kind}: received enquiry waits for native Ads and GA4 delivery before redirect`, async () => {
+    const page = contactPage(kind, { completeTag: false, completeLayer: false });
+    const submitted = page.f.fire('submit');
+    await settleTasks();
+    assert.equal(page.calls.length, 1);
+    assert.equal(page.ctx.location.pathname, '/contatti.html', 'provider success alone must not cut tracking short');
+    const nativeEvent = page.events('form_submit')[0];
+    const googleEvent = page.ctx.dataLayer.find(item => item[0] === 'event' && item[1] === 'generate_lead')[2];
+    assert.equal(nativeEvent.submission_id, googleEvent.submission_id);
+    assert.equal(nativeEvent.submission_status, 'success');
+    assert.equal(nativeEvent.confirmation_method, 'provider_response');
+    googleEvent.event_callback();
+    await settleTasks();
+    assert.equal(page.ctx.location.pathname, '/contatti.html', 'GA4 completion must not bypass the pending Ads tag');
+    nativeEvent.eventCallback('GTM-ANOTHER-CONTAINER');
+    await settleTasks();
+    assert.equal(page.ctx.location.pathname, '/contatti.html', 'another container cannot finish the NIUEXA Ads wait');
+    nativeEvent.eventCallback('GTM-KG9S42S4');
+    nativeEvent.eventCallback('GTM-KG9S42S4');
+    await submitted;
+    assert.equal(page.ctx.location.pathname, '/thank-you-page.html');
+    assert.equal(page.events('form_submit').length, 1);
+    assert.equal(page.events('generate_lead').length, 1);
+    await page.ctx.NiuexaTracking.confirmSubmission(page.f);
+    assert.equal(page.events('generate_lead').length, 1, 'repeated success does not resend the lead');
+  });
+
+  for (const pending of ['both', 'google', 'tag-manager']) {
+    test(`${kind}: a missing ${pending} callback cannot trap a received enquiry`, async () => {
+      const page = contactPage(kind, { completeTag: pending === 'tag-manager', completeLayer: pending === 'google' });
+      const previousTimers = new Set(page.timers.keys());
+      const submitted = page.f.fire('submit');
+      await settleTasks();
+      assert.equal(page.ctx.location.pathname, '/contatti.html');
+      const deadline = [...page.timers].find(([id, timer]) => !previousTimers.has(id) && timer.delay > 0 && timer.delay <= 1500)?.[1];
+      assert.ok(deadline, 'delivery must have an independent bounded deadline');
+      deadline.fn();
+      await submitted;
+      assert.equal(page.ctx.location.pathname, '/thank-you-page.html');
+    });
+  }
+
+  for (const mode of ['old-api', 'throwing-api', 'rejecting-api']) {
+    test(`${kind}: ${mode} does not turn provider success into a form error`, async () => {
+      const page = contactPage(kind);
+      page.ctx.NiuexaTracking.confirmSubmission = mode === 'old-api' ? () => undefined
+        : mode === 'throwing-api' ? () => { throw Error('tracking failed'); }
+          : () => Promise.reject(Error('tracking failed'));
+      await page.f.fire('submit');
+      assert.equal(page.calls.length, 1);
+      assert.equal(page.ctx.location.pathname, '/thank-you-page.html');
+    });
+  }
+}
 
 test('AEO confirmed enquiry routes once to its GA4 property with original landing metadata', async () => {
   const page = aeoPage();
