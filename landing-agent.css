@@ -99,16 +99,6 @@ body.agent-landing {
     overflow-y: visible;
 }
 
-/* styles.css parks the skip link at -40px, but its 44px min-height left a
-   4px sliver showing at the top of the page. */
-.agent-landing .skip-link {
-    top: -80px;
-}
-
-.agent-landing .skip-link:focus {
-    top: 6px;
-}
-
 html:has(body.agent-landing) {
     scroll-padding-top: 88px;
 }

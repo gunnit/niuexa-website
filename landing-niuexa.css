@@ -13,14 +13,6 @@ body.lp-page {
     color: var(--dark-gray);
 }
 
-.lp-page .skip-link {
-    top: -80px;
-}
-
-.lp-page .skip-link:focus {
-    top: 6px;
-}
-
 .lp-container {
     max-width: 1180px;
     margin: 0 auto;

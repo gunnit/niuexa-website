@@ -201,7 +201,9 @@ body {
 /* Skip Navigation for Accessibility */
 .skip-link {
     position: absolute;
-    top: -40px;
+    /* The 44px floor plus the body line-height make the link ~46px tall, so
+       -40px left a 6px sliver showing at the top of every page. */
+    top: -80px;
     left: 6px;
     background: var(--dark-blue);
     color: var(--white);
