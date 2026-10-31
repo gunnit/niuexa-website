@@ -300,6 +300,7 @@
 .aeo-campaign-page .faq-item { margin: 0; padding: 0; border: 0; border-bottom: 1px solid var(--aeo-line); border-radius: 0; background: transparent; box-shadow: none; }
 .aeo-campaign-page .faq-item:first-child { border-top: 1px solid var(--aeo-line); }
 .aeo-campaign-page .faq-item summary { padding: 18px 4px; color: var(--aeo-ink); cursor: pointer; }
+.aeo-campaign-page main details.faq-item summary::after { flex-basis: 20px; width: 20px; height: 20px; background: url("img/aeo-campaign/icons/plus.svg") center / 20px 20px no-repeat; }
 .aeo-campaign-page .faq-item summary h3 { display: inline; font-size: 1.05rem; line-height: 1.5; font-weight: 600; }
 .aeo-campaign-page .faq-item p { margin: 0; padding: 0 4px 20px; color: var(--aeo-copy); font-size: 0.95rem; line-height: 1.65; }
 @media (min-width: 901px) and (max-height: 800px) {
