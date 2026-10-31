@@ -23,6 +23,11 @@ from xml.etree import ElementTree
 ROOT = Path(__file__).resolve().parents[1]
 SITE = "https://niuexa.ai"
 
+# HTML in these folders is not the shipped site: nested worktrees, and the stale
+# copies build/package-pages.mjs leaves in the git-ignored build folders. Matched
+# on paths relative to ROOT, so a worktree under .claude/ still sees its pages.
+SKIPPED_DIRS = {".git", "node_modules", ".claude", "_site", "_site-review"}
+
 # Sections whose articles make factual claims that an answer engine may repeat,
 # so they must cite their sources visibly (AEO-04).
 CITED_SECTIONS = ("ricerca", "research", "governance", "ai governance")
@@ -376,7 +381,7 @@ def hub_linked_slugs() -> set[str]:
     for page in ROOT.rglob("*.html"):
         if page.name.startswith("articolo-"):
             continue
-        if any(part in {".git", "node_modules", ".claude"} for part in page.parts):
+        if any(part in SKIPPED_DIRS for part in page.relative_to(ROOT).parts):
             continue
         text = page.read_text(encoding="utf-8", errors="ignore")
         linked.update(href.findall(text))
@@ -442,7 +447,7 @@ def current_asset_versions() -> dict[str, str]:
     counts: dict[str, dict[str, int]] = {}
     pattern = re.compile(r'href="([a-z0-9-]+\.css)\?v=(\d{8})"')
     for page in ROOT.rglob("*.html"):
-        if any(part in {".git", "node_modules", ".claude"} for part in page.parts):
+        if any(part in SKIPPED_DIRS for part in page.relative_to(ROOT).parts):
             continue
         for name, version in pattern.findall(page.read_text(encoding="utf-8", errors="ignore")):
             counts.setdefault(name, {})[version] = counts.setdefault(name, {}).get(version, 0) + 1
