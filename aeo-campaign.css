@@ -292,6 +292,50 @@
     cursor: pointer;
 }
 .aeo-campaign-page .aeo-video-transcript p { max-width: 76ch; margin: 0 0 12px; line-height: 1.7; }
+.aeo-campaign-page .aeo-clients { padding: 56px 0 64px; border-top: 1px solid var(--aeo-line); background: #fff; }
+.aeo-campaign-page .aeo-clients .section-title { max-width: none; }
+.aeo-campaign-page .aeo-clients-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.aeo-campaign-page .aeo-clients-grid > li { flex: 0 1 calc((100% - 64px) / 5); min-width: 0; }
+.aeo-campaign-page .aeo-client {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    height: 100%;
+    min-height: 152px;
+    margin: 0;
+    padding: 20px 16px;
+    border: 1px solid var(--aeo-line);
+    border-radius: var(--aeo-radius);
+    background: #fff;
+}
+.aeo-campaign-page .aeo-client img { display: block; width: 100%; max-width: 176px; height: 64px; object-fit: contain; }
+.aeo-campaign-page .aeo-client figcaption { min-height: 2.7em; color: var(--aeo-copy); font-size: 0.85rem; line-height: 1.35; text-align: center; }
+.aeo-campaign-page .aeo-client--dark { border-color: #102c39; background: #102c39; }
+.aeo-campaign-page .aeo-client--dark figcaption { color: #fff; }
+@media (max-width: 1100px) {
+    .aeo-campaign-page .aeo-clients-grid > li { flex-basis: calc((100% - 48px) / 4); }
+}
+@media (max-width: 800px) {
+    .aeo-campaign-page .aeo-clients-grid > li { flex-basis: calc((100% - 32px) / 3); }
+}
+@media (max-width: 600px) {
+    .aeo-campaign-page .aeo-clients { padding-block: 42px; }
+    .aeo-campaign-page .aeo-clients-grid { gap: 12px; }
+    .aeo-campaign-page .aeo-clients-grid > li { flex-basis: calc((100% - 12px) / 2); }
+    .aeo-campaign-page .aeo-client { min-height: 132px; gap: 10px; padding: 16px 10px; }
+    .aeo-campaign-page .aeo-client img { max-width: 132px; height: 54px; }
+    .aeo-campaign-page .aeo-client figcaption { font-size: 0.78rem; }
+}
 .aeo-campaign-page .rt-report { padding: 54px 0 64px; border-top: 1px solid var(--aeo-line); background: #fff; }
 .aeo-campaign-page .aeo-report-layout { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); align-items: center; gap: clamp(32px, 5vw, 72px); }
 .aeo-campaign-page main .section-title { max-width: 24ch; margin: 0 0 18px; color: var(--aeo-ink); font-size: clamp(1.8rem, 3vw, 2.45rem); line-height: 1.15; text-align: left; }
