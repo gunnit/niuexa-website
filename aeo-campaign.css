@@ -318,7 +318,9 @@
     margin: 0;
     padding: 12px 8px;
 }
-.aeo-campaign-page .aeo-client img { display: block; width: 100%; max-width: 176px; height: 72px; object-fit: contain; }
+.aeo-campaign-page .aeo-client-colour-filter { position: absolute; pointer-events: none; }
+.aeo-campaign-page .aeo-client img { display: block; width: 100%; max-width: 176px; height: 72px; object-fit: contain; filter: url(#aeo-client-blue); }
+.aeo-campaign-page .aeo-client--gyala img { filter: url(#aeo-client-gyala-cutout) url(#aeo-client-blue); }
 .aeo-campaign-page .aeo-client--compact img { max-width: 116px; }
 .aeo-campaign-page .aeo-client figcaption { min-height: 2.7em; color: var(--aeo-copy); font-size: 0.85rem; line-height: 1.35; text-align: center; }
 .aeo-campaign-page .aeo-clients-controls { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 16px; }
