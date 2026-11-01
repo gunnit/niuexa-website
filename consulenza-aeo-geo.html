@@ -170,7 +170,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css?v=20261029">
     <link rel="stylesheet" href="polish.css?v=20261005">
-    <link rel="stylesheet" href="aeo-campaign.css?v=20261101-logo-slider">
+    <link rel="stylesheet" href="aeo-campaign.css?v=20261101-blue-logos">
 </head>
 <body class="polished readiness-tool-page aeo-campaign-page">
     <!-- Google Tag Manager (noscript) -->
@@ -280,6 +280,34 @@
     </section>
 
     <section id="clienti" class="aeo-clients" aria-labelledby="aeo-clients-title">
+        <svg class="aeo-client-colour-filter" width="0" height="0" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <filter id="aeo-client-blue" color-interpolation-filters="sRGB">
+                    <!-- NIUEXA logo blue #1F64AE; retain white lettering and negative spaces. -->
+                    <feColorMatrix type="saturate" values="0"/>
+                    <feComponentTransfer>
+                        <feFuncR type="linear" slope="5" intercept="-4"/>
+                        <feFuncG type="linear" slope="5" intercept="-4"/>
+                        <feFuncB type="linear" slope="5" intercept="-4"/>
+                    </feComponentTransfer>
+                    <feColorMatrix type="matrix" values="0.878431373 0 0 0 0.121568627  0 0.607843137 0 0 0.392156863  0 0 0.317647059 0 0.682352941  0 0 0 1 0"/>
+                </filter>
+                <filter id="aeo-client-gyala-cutout" color-interpolation-filters="sRGB">
+                    <!-- Reverse the dark symbol inside Gyala's shield before tinting. -->
+                    <feColorMatrix in="SourceGraphic" type="luminanceToAlpha"/>
+                    <feComponentTransfer>
+                        <feFuncA type="linear" slope="-8" intercept="2"/>
+                    </feComponentTransfer>
+                    <feComposite in2="SourceAlpha" operator="in" x="0%" y="0%" width="20%" height="100%" result="shield-cutout"/>
+                    <feFlood flood-color="#fff"/>
+                    <feComposite in2="shield-cutout" operator="in"/>
+                    <feMerge>
+                        <feMergeNode in="SourceGraphic"/>
+                        <feMergeNode/>
+                    </feMerge>
+                </filter>
+            </defs>
+        </svg>
         <div class="container">
             <p class="aeo-step-label">Clienti NIUEXA</p>
             <h2 id="aeo-clients-title" class="section-title">Aziende che ci hanno scelto.</h2>
@@ -288,7 +316,7 @@
             <ul id="aeo-clients-track" class="aeo-clients-track" tabindex="0" aria-label="Loghi dei clienti NIUEXA" aria-describedby="aeo-clients-help">
                 <li><figure class="aeo-client aeo-client--compact"><img src="img/clienti/irca.svg" alt="IRCA Group" loading="lazy" decoding="async" width="276" height="283"><figcaption>IRCA Group</figcaption></figure></li>
                 <li><figure class="aeo-client aeo-client--compact"><img src="img/clienti/arredo3.svg" alt="Arredo3" loading="lazy" decoding="async" width="169" height="129"><figcaption>Arredo3</figcaption></figure></li>
-                <li><figure class="aeo-client"><img src="img/clienti/gyala.webp" alt="Gyala" loading="lazy" decoding="async" width="432" height="96"><figcaption>Gyala</figcaption></figure></li>
+                <li><figure class="aeo-client aeo-client--gyala"><img src="img/clienti/gyala.webp" alt="Gyala" loading="lazy" decoding="async" width="432" height="96"><figcaption>Gyala</figcaption></figure></li>
                 <li><figure class="aeo-client"><img src="img/clienti/framont.webp" alt="Framont &amp; Partners Management" loading="lazy" decoding="async" width="440" height="91"><figcaption>Framont &amp; Partners Management</figcaption></figure></li>
                 <li><figure class="aeo-client"><img src="img/clienti/dialcos.webp" alt="Dialcos" loading="lazy" decoding="async" width="258" height="112"><figcaption>Dialcos</figcaption></figure></li>
                 <li><figure class="aeo-client"><img src="img/clienti/galdabini.svg" alt="Galdabini" loading="lazy" decoding="async" width="200" height="50"><figcaption>Galdabini</figcaption></figure></li>
