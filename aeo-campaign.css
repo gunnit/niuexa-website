@@ -294,46 +294,55 @@
 .aeo-campaign-page .aeo-video-transcript p { max-width: 76ch; margin: 0 0 12px; line-height: 1.7; }
 .aeo-campaign-page .aeo-clients { padding: 56px 0 64px; border-top: 1px solid var(--aeo-line); background: #fff; }
 .aeo-campaign-page .aeo-clients .section-title { max-width: none; }
-.aeo-campaign-page .aeo-clients-grid {
+.aeo-campaign-page .aeo-clients-track {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 16px;
+    gap: 24px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: #9aafbf transparent;
     margin: 0;
-    padding: 0;
+    padding: 12px 0 20px;
     list-style: none;
 }
-.aeo-campaign-page .aeo-clients-grid > li { flex: 0 1 calc((100% - 64px) / 5); min-width: 0; }
+.aeo-campaign-page .aeo-clients-track:focus-visible { outline: 3px solid var(--aeo-teal); outline-offset: 4px; }
+.aeo-campaign-page .aeo-clients-track > li { flex: 0 0 calc((100% - 96px) / 5); min-width: 0; scroll-snap-align: start; }
 .aeo-campaign-page .aeo-client {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 12px;
-    height: 100%;
-    min-height: 152px;
+    height: 152px;
     margin: 0;
-    padding: 20px 16px;
-    border: 1px solid var(--aeo-line);
-    border-radius: var(--aeo-radius);
-    background: #fff;
+    padding: 12px 8px;
 }
-.aeo-campaign-page .aeo-client img { display: block; width: 100%; max-width: 176px; height: 64px; object-fit: contain; }
+.aeo-campaign-page .aeo-client img { display: block; width: 100%; max-width: 176px; height: 72px; object-fit: contain; }
+.aeo-campaign-page .aeo-client--compact img { max-width: 116px; }
 .aeo-campaign-page .aeo-client figcaption { min-height: 2.7em; color: var(--aeo-copy); font-size: 0.85rem; line-height: 1.35; text-align: center; }
-.aeo-campaign-page .aeo-client--dark { border-color: #102c39; background: #102c39; }
-.aeo-campaign-page .aeo-client--dark figcaption { color: #fff; }
+.aeo-campaign-page .aeo-clients-controls { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 16px; }
+.aeo-campaign-page .aeo-clients-controls[hidden] { display: none; }
+.aeo-campaign-page .aeo-clients-position { margin: 0; color: var(--aeo-muted); font-size: 0.85rem; line-height: 1.5; font-variant-numeric: tabular-nums; }
+.aeo-campaign-page .aeo-clients-buttons { display: flex; gap: 10px; }
+.aeo-campaign-page .aeo-clients-buttons button { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0; border: 1px solid var(--aeo-line); border-radius: 50%; background: #fff; cursor: pointer; }
+.aeo-campaign-page .aeo-clients-buttons button:not(:disabled):hover { border-color: var(--aeo-ink); background: #f1f7fa; }
+.aeo-campaign-page .aeo-clients-buttons button:disabled { cursor: default; opacity: 0.35; }
+.aeo-campaign-page .aeo-clients-buttons img { display: block; }
+.aeo-campaign-page .aeo-clients-previous img { transform: rotate(180deg); }
 @media (max-width: 1100px) {
-    .aeo-campaign-page .aeo-clients-grid > li { flex-basis: calc((100% - 48px) / 4); }
+    .aeo-campaign-page .aeo-clients-track > li { flex-basis: calc((100% - 72px) / 4); }
 }
 @media (max-width: 800px) {
-    .aeo-campaign-page .aeo-clients-grid > li { flex-basis: calc((100% - 32px) / 3); }
+    .aeo-campaign-page .aeo-clients-track > li { flex-basis: calc((100% - 48px) / 3); }
 }
 @media (max-width: 600px) {
     .aeo-campaign-page .aeo-clients { padding-block: 42px; }
-    .aeo-campaign-page .aeo-clients-grid { gap: 12px; }
-    .aeo-campaign-page .aeo-clients-grid > li { flex-basis: calc((100% - 12px) / 2); }
-    .aeo-campaign-page .aeo-client { min-height: 132px; gap: 10px; padding: 16px 10px; }
-    .aeo-campaign-page .aeo-client img { max-width: 132px; height: 54px; }
+    .aeo-campaign-page .aeo-clients-track { gap: 16px; }
+    .aeo-campaign-page .aeo-clients-track > li { flex-basis: 160px; }
+    .aeo-campaign-page .aeo-client { height: 128px; gap: 10px; padding: 8px; }
+    .aeo-campaign-page .aeo-client img { max-width: 144px; height: 64px; }
+    .aeo-campaign-page .aeo-client--compact img { max-width: 106px; }
     .aeo-campaign-page .aeo-client figcaption { font-size: 0.78rem; }
 }
 .aeo-campaign-page .rt-report { padding: 54px 0 64px; border-top: 1px solid var(--aeo-line); background: #fff; }
