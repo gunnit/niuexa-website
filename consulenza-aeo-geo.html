@@ -170,7 +170,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css?v=20261029">
     <link rel="stylesheet" href="polish.css?v=20261005">
-    <link rel="stylesheet" href="aeo-campaign.css?v=20261101-clients">
+    <link rel="stylesheet" href="aeo-campaign.css?v=20261101-logo-slider">
 </head>
 <body class="polished readiness-tool-page aeo-campaign-page">
     <!-- Google Tag Manager (noscript) -->
@@ -284,22 +284,88 @@
             <p class="aeo-step-label">Clienti NIUEXA</p>
             <h2 id="aeo-clients-title" class="section-title">Aziende che ci hanno scelto.</h2>
             <p class="section-subtitle">Consulenza, formazione e progetti digitali per realtà di settori diversi.</p>
-            <ul class="aeo-clients-grid">
-                <li><figure class="aeo-client"><img src="img/clienti/irca.svg" alt="IRCA Group" loading="lazy" decoding="async" width="276" height="283"><figcaption>IRCA Group</figcaption></figure></li>
-                <li><figure class="aeo-client"><img src="img/clienti/arredo3.svg" alt="Arredo3" loading="lazy" decoding="async" width="169" height="129"><figcaption>Arredo3</figcaption></figure></li>
+            <p id="aeo-clients-help" class="aeo-visually-hidden">Scorri i loghi oppure usa le frecce sinistra e destra. I tasti Inizio e Fine portano al primo e all'ultimo cliente.</p>
+            <ul id="aeo-clients-track" class="aeo-clients-track" tabindex="0" aria-label="Loghi dei clienti NIUEXA" aria-describedby="aeo-clients-help">
+                <li><figure class="aeo-client aeo-client--compact"><img src="img/clienti/irca.svg" alt="IRCA Group" loading="lazy" decoding="async" width="276" height="283"><figcaption>IRCA Group</figcaption></figure></li>
+                <li><figure class="aeo-client aeo-client--compact"><img src="img/clienti/arredo3.svg" alt="Arredo3" loading="lazy" decoding="async" width="169" height="129"><figcaption>Arredo3</figcaption></figure></li>
                 <li><figure class="aeo-client"><img src="img/clienti/gyala.webp" alt="Gyala" loading="lazy" decoding="async" width="432" height="96"><figcaption>Gyala</figcaption></figure></li>
                 <li><figure class="aeo-client"><img src="img/clienti/framont.webp" alt="Framont &amp; Partners Management" loading="lazy" decoding="async" width="440" height="91"><figcaption>Framont &amp; Partners Management</figcaption></figure></li>
                 <li><figure class="aeo-client"><img src="img/clienti/dialcos.webp" alt="Dialcos" loading="lazy" decoding="async" width="258" height="112"><figcaption>Dialcos</figcaption></figure></li>
                 <li><figure class="aeo-client"><img src="img/clienti/galdabini.svg" alt="Galdabini" loading="lazy" decoding="async" width="200" height="50"><figcaption>Galdabini</figcaption></figure></li>
                 <li><figure class="aeo-client"><img src="img/clienti/anastasia.webp" alt="Amministrazioni Anastasia" loading="lazy" decoding="async" width="877" height="281"><figcaption>Amministrazioni Anastasia</figcaption></figure></li>
                 <li><figure class="aeo-client"><img src="img/clienti/maxlube.webp" alt="Maxlube" loading="lazy" decoding="async" width="1674" height="643"><figcaption>Maxlube</figcaption></figure></li>
-                <li><figure class="aeo-client aeo-client--dark"><img src="img/clienti/inthezon.svg" alt="Inthezon" loading="lazy" decoding="async" width="191" height="43"><figcaption>Inthezon</figcaption></figure></li>
+                <li><figure class="aeo-client"><img src="img/clienti/inthezon-light.svg" alt="Inthezon" loading="lazy" decoding="async" width="191" height="43"><figcaption>Inthezon</figcaption></figure></li>
                 <li><figure class="aeo-client"><img src="img/clienti/segnifica.svg" alt="Segnifica" loading="lazy" decoding="async" width="1478" height="185"><figcaption>Segnifica</figcaption></figure></li>
-                <li><figure class="aeo-client aeo-client--dark"><img src="img/clienti/n2o.webp" alt="N2O Sicurezza" loading="lazy" decoding="async" width="961" height="319"><figcaption>N2O Sicurezza</figcaption></figure></li>
-                <li><figure class="aeo-client aeo-client--dark"><img src="img/clienti/barbieri-rubber.webp" alt="Barbieri Rubber" loading="lazy" decoding="async" width="1059" height="335"><figcaption>Barbieri Rubber</figcaption></figure></li>
-                <li><figure class="aeo-client aeo-client--dark"><img src="img/clienti/aidopters.webp" alt="Aidopters" loading="lazy" decoding="async" width="1714" height="348"><figcaption>Aidopters</figcaption></figure></li>
+                <li><figure class="aeo-client"><img src="img/clienti/n2o-light.webp" alt="N2O Sicurezza" loading="lazy" decoding="async" width="961" height="319"><figcaption>N2O Sicurezza</figcaption></figure></li>
+                <li><figure class="aeo-client"><img src="img/clienti/barbieri-rubber-light.webp" alt="Barbieri Rubber" loading="lazy" decoding="async" width="170" height="53"><figcaption>Barbieri Rubber</figcaption></figure></li>
+                <li><figure class="aeo-client"><img src="img/clienti/aidopters-light.webp" alt="Aidopters" loading="lazy" decoding="async" width="1714" height="348"><figcaption>Aidopters</figcaption></figure></li>
             </ul>
+            <div class="aeo-clients-controls" hidden>
+                <p class="aeo-clients-position" aria-live="polite" aria-atomic="true"><span class="aeo-visually-hidden">Clienti visibili: </span><span id="aeo-clients-range"></span></p>
+                <div class="aeo-clients-buttons">
+                    <button type="button" class="aeo-clients-previous" aria-label="Mostra i clienti precedenti" aria-controls="aeo-clients-track"><img src="img/aeo-campaign/icons/arrow-right.svg" width="22" height="22" alt="" aria-hidden="true"></button>
+                    <button type="button" class="aeo-clients-next" aria-label="Mostra i clienti successivi" aria-controls="aeo-clients-track"><img src="img/aeo-campaign/icons/arrow-right.svg" width="22" height="22" alt="" aria-hidden="true"></button>
+                </div>
+            </div>
         </div>
+        <script>
+            (() => {
+                const section = document.getElementById('clienti');
+                const track = section.querySelector('.aeo-clients-track');
+                const controls = section.querySelector('.aeo-clients-controls');
+                const previous = section.querySelector('.aeo-clients-previous');
+                const next = section.querySelector('.aeo-clients-next');
+                const range = section.querySelector('#aeo-clients-range');
+                const items = Array.from(track.children);
+                const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+                let frame;
+
+                function update() {
+                    const bounds = track.getBoundingClientRect();
+                    const visible = items.map((item, index) => {
+                        const box = item.getBoundingClientRect();
+                        const overlap = Math.min(box.right, bounds.right) - Math.max(box.left, bounds.left);
+                        return overlap >= box.width / 2 ? index + 1 : null;
+                    }).filter(Boolean);
+                    if (visible.length) {
+                        const label = `${visible[0]}–${visible[visible.length - 1]} di ${items.length}`;
+                        if (range.textContent !== label) range.textContent = label;
+                    }
+                    previous.disabled = track.scrollLeft <= 1;
+                    next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 1;
+                }
+
+                function scheduleUpdate() {
+                    cancelAnimationFrame(frame);
+                    frame = requestAnimationFrame(update);
+                }
+
+                function move(direction, page) {
+                    const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+                    const step = items[0].getBoundingClientRect().width + gap;
+                    const count = page ? Math.max(1, Math.floor((track.clientWidth + gap) / step)) : 1;
+                    track.scrollBy({ left: direction * step * count, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+                }
+
+                previous.addEventListener('click', () => move(-1, true));
+                next.addEventListener('click', () => move(1, true));
+                track.addEventListener('scroll', scheduleUpdate, { passive: true });
+                track.addEventListener('keydown', event => {
+                    if (event.target !== track || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+                    if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+                        event.preventDefault();
+                        move(event.key === 'ArrowLeft' ? -1 : 1, false);
+                    } else if (event.key === 'Home' || event.key === 'End') {
+                        event.preventDefault();
+                        track.scrollTo({ left: event.key === 'Home' ? 0 : track.scrollWidth, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+                    }
+                });
+                if ('ResizeObserver' in window) new ResizeObserver(scheduleUpdate).observe(track);
+                else window.addEventListener('resize', scheduleUpdate);
+                controls.hidden = false;
+                update();
+            })();
+        </script>
     </section>
 
     <section id="report" class="rt-report" aria-labelledby="rt-report-title">
