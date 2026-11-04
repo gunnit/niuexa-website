@@ -1,6 +1,7 @@
 // AI Readiness Tool Form Handler
 
 document.addEventListener('DOMContentLoaded', function() {
+    initWebsiteNormalization();
     initAIReadinessForm();
     initFormValidation();
 });
@@ -84,6 +85,58 @@ function initAIReadinessForm() {
     });
 }
 
+// Accept complete HTTP(S) website addresses, keeping the visitor's path/query intact.
+function isValidWebsiteUrl(value) {
+    if (!/^https?:\/\//i.test(value) || /\s/.test(value)) return false;
+    try {
+        const url = new URL(value);
+        const labels = url.hostname.replace(/\.$/, '').split('.');
+        return labels.length > 1 && labels.every(label => /^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i.test(label));
+    } catch (error) {
+        return false;
+    }
+}
+
+function normalizeWebsiteField(field) {
+    const value = field.value.trim();
+    // A bare domain may include a port, path, query or fragment. Unsupported
+    // protocols and malformed hosts must not be turned into plausible websites.
+    if (!value || /^https?:\/\//i.test(value) || /^[/?#]/.test(value)) return;
+    const candidate = 'https://' + value;
+    if (!isValidWebsiteUrl(candidate)) return;
+    const url = new URL(candidate);
+    if (url.username || url.password) return;
+    field.value = candidate;
+}
+
+function initWebsiteNormalization() {
+    const form = document.querySelector('.ai-readiness-form');
+    if (!form) return;
+    const fields = Array.from(form.querySelectorAll('input')).filter(field => field.type === 'url');
+    if (!fields.length) return;
+    const normalizeAll = () => fields.forEach(normalizeWebsiteField);
+    fields.forEach(field => {
+        field.addEventListener('change', () => normalizeWebsiteField(field));
+        field.addEventListener('input', event => {
+            // Do not rewrite ordinary typing: setting a URL input's value can
+            // move its cursor. Pasted/replacement values are already complete.
+            if (event.inputType === 'insertFromPaste' || event.inputType === 'insertReplacementText') {
+                normalizeWebsiteField(field);
+            }
+        });
+    });
+    // Native type=url validation happens before submit. Cover clicks and Enter
+    // here, including browser autofill that did not emit change or blur.
+    form.addEventListener('click', event => {
+        if (event.target.closest('button[type="submit"], input[type="submit"]')) normalizeAll();
+    }, true);
+    form.addEventListener('keydown', event => {
+        if (event.key === 'Enter' && !event.isComposing) normalizeAll();
+    }, true);
+    window.addEventListener('pageshow', normalizeAll);
+    normalizeAll();
+}
+
 // Form validation
 function validateForm(form) {
     const requiredFields = form.querySelectorAll('[required]');
@@ -95,6 +148,7 @@ function validateForm(form) {
     });
 
     requiredFields.forEach(field => {
+        if (field.type === 'url') normalizeWebsiteField(field);
         if (field.type === 'checkbox') {
             if (!field.checked) {
                 field.parentElement.classList.add('error');
@@ -116,8 +170,7 @@ function validateForm(form) {
 
         // URL validation (optional field)
         if (field.type === 'url' && field.value) {
-            const urlPattern = /^https?:\/\/.+\..+/;
-            if (!urlPattern.test(field.value)) {
+            if (!isValidWebsiteUrl(field.value)) {
                 field.classList.add('error');
                 isValid = false;
             }
@@ -163,6 +216,7 @@ function initFormValidation() {
 
 // Validate individual field
 function validateField(field) {
+    if (field.type === 'url') normalizeWebsiteField(field);
     // Required field validation
     if (field.hasAttribute('required') && !field.value.trim() && field.type !== 'checkbox') {
         field.classList.add('error');
@@ -180,8 +234,7 @@ function validateField(field) {
 
     // URL validation
     if (field.type === 'url' && field.value) {
-        const urlPattern = /^https?:\/\/.+\..+/;
-        if (!urlPattern.test(field.value)) {
+        if (!isValidWebsiteUrl(field.value)) {
             field.classList.add('error');
             return false;
         }
