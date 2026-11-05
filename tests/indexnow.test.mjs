@@ -13,12 +13,14 @@ const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8'
 const html = title => `<html><head><title>${title}</title></head><body>${title.repeat(100)}</body></html>`;
 for (const file of ['build/indexnow.mjs', 'build/package-pages.mjs', 'build/package-cloudflare.mjs']) {
   let text = readFileSync(join(source, file), 'utf8');
-  if (file.endsWith('package-cloudflare.mjs')) text = text.replace(/export const RENAMED = .*;/, 'export const RENAMED = [];');
+  if (file.endsWith('package-cloudflare.mjs')) text = text
+    .replace(/export const RENAMED = .*;/, 'export const RENAMED = [];')
+    .replace(/export const MANUAL_REDIRECTS = \[[\s\S]*?\];/, 'export const MANUAL_REDIRECTS = [];');
   put(file, text);
 }
 put('59d901b42caac9fceecf85148888c406.txt', '59d901b42caac9fceecf85148888c406\n');
 put('build/event-content.mjs', "export const EVENTS = [{slug:'old-event'}];\nexport const MOVED = [];\nthrow new Error('Historical modules must never execute');\n");
-for (const file of ['index.html', 'edited.html', 'deleted.html', 'renamed-old.html', 'becomes-noindex.html', 'becomes-redirect.html', 'private/deleted.html', 'tests/deleted.html', 'event-registration.html', 'books/.draft/deleted.html', 'eventi-ai-aziende/old-event/index.html', 'eventi-ai-aziende/draft/index.html']) put(file, html(file));
+for (const file of ['index.html', 'edited.html', 'deleted.html', 'renamed-old.html', 'becomes-noindex.html', 'becomes-redirect.html', 'private/deleted.html', 'tests/deleted.html', 'event-registration.html', 'books/.draft/deleted.html', 'eventi-ai-aziende/grazie/index.html', 'eventi-ai-aziende/old-event/index.html', 'eventi-ai-aziende/draft/index.html']) put(file, html(file));
 put('already-noindex.html', '<meta name="robots" content="noindex">old public page');
 symlinkSync('private/deleted.html', join(root, 'symlink.html'));
 git('init', '-q'); git('config', 'user.name', 'IndexNow test'); git('config', 'user.email', 'indexnow-test@example.invalid');
@@ -36,7 +38,7 @@ put('build/event-content.mjs', "export const EVENTS = [{slug:'new-event'}];\nexp
 put('eventi-ai-aziende/new-event/index.html', html('new event'));
 git('add', '-A'); git('commit', '-qm', 'after');
 const afterRef = git('rev-parse', 'HEAD');
-const current = ['index.html', 'edited.html', 'added.html', 'renamed-new.html', 'becomes-noindex.html', 'becomes-redirect.html', 'en/index.html', 'eventi-ai-aziende/new-event/index.html'];
+const current = ['index.html', 'edited.html', 'added.html', 'renamed-new.html', 'becomes-noindex.html', 'becomes-redirect.html', 'en/index.html', 'eventi-ai-aziende/grazie/index.html', 'eventi-ai-aziende/new-event/index.html'];
 for (const file of current) put('_site/' + file, readFileSync(join(root, file), 'utf8'));
 put('_site/404.html', html('not found'));
 
@@ -88,8 +90,15 @@ test('explicit full backfill includes all packaged public HTML, including retire
   assert.deepEqual(urlsFrom(r.stdout), [
     'https://niuexa.ai/', 'https://niuexa.ai/added.html', 'https://niuexa.ai/becomes-noindex.html',
     'https://niuexa.ai/becomes-redirect.html', 'https://niuexa.ai/edited.html', 'https://niuexa.ai/en/',
-    'https://niuexa.ai/eventi-ai-aziende/new-event/', 'https://niuexa.ai/renamed-new.html',
+    'https://niuexa.ai/eventi-ai-aziende/grazie/', 'https://niuexa.ai/eventi-ai-aziende/new-event/', 'https://niuexa.ai/renamed-new.html',
   ].sort());
+  assert.deepEqual(r.requests, []);
+});
+
+test('an unchanged checkout does not repeatedly notify the published event thank-you page', () => {
+  const r = run([afterRef, afterRef, '--dry-run']);
+  assert.equal(r.status, 0, r.stderr);
+  assert.deepEqual(urlsFrom(r.stdout), []);
   assert.deepEqual(r.requests, []);
 });
 
@@ -132,4 +141,26 @@ test('missing arguments fail rather than silently pretending a submission occurr
   const r = run([]);
   assert.notEqual(r.status, 0);
   assert.deepEqual(r.requests, []);
+});
+
+test('manual redirect additions, removals and target changes notify their source URLs', () => {
+  const file = 'build/package-cloudflare.mjs';
+  const original = readFileSync(join(root, file), 'utf8');
+  const replace = rules => original.replace(/export const MANUAL_REDIRECTS = \[[\s\S]*?\];/, `export const MANUAL_REDIRECTS = ${JSON.stringify(rules)};`);
+  put(file, replace([['/retargeted/', '/edited.html'], ['/removed-redirect.html', '/edited.html']]));
+  git('add', file); git('commit', '-qm', 'previous redirect policy');
+  const previous = git('rev-parse', 'HEAD');
+  put(file, replace([['/retargeted/', '/added.html'], ['/new-redirect/', '/added.html']]));
+  git('add', file); git('commit', '-qm', 'updated redirect policy');
+  const currentRef = git('rev-parse', 'HEAD');
+  const changed = run([previous, currentRef, '--dry-run']);
+  assert.equal(changed.status, 0, changed.stderr);
+  assert.deepEqual(urlsFrom(changed.stdout), [
+    'https://niuexa.ai/new-redirect/', 'https://niuexa.ai/removed-redirect.html', 'https://niuexa.ai/retargeted/',
+  ]);
+  const all = run(['--all', '--dry-run']);
+  assert.equal(all.status, 0, all.stderr);
+  assert.ok(urlsFrom(all.stdout).includes('https://niuexa.ai/new-redirect/'));
+  assert.ok(urlsFrom(all.stdout).includes('https://niuexa.ai/retargeted/'));
+  assert.ok(!urlsFrom(all.stdout).includes('https://niuexa.ai/removed-redirect.html'));
 });

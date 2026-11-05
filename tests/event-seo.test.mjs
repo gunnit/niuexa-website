@@ -7,6 +7,21 @@ import {EVENTS} from '../build/event-content.mjs';
 const root=resolve(import.meta.dirname,'..');
 const read=p=>readFileSync(resolve(root,p),'utf8');
 const html=read('eventi-ai-aziende/index.html');
+test('topic metadata fits the search title while retaining the approved event name on the page',()=>{
+ const titles=new Set();
+ for(const e of EVENTS){
+  const page=read(`eventi-ai-aziende/${e.slug}/index.html`);
+  const title=page.match(/<title>([^<]+)<\/title>/)[1];
+  assert.ok(title.length<70,`${e.slug}: ${title.length} characters`);
+  assert.ok(title.includes(e.label),`${e.slug}: event date`);
+  assert.match(title,/Milano \| NIUEXA$/);
+  assert.ok(page.includes(`<h1 id="event-title">${e.title}</h1>`));
+  assert.ok(page.includes(`property="og:title" content="${title}"`));
+  assert.ok(page.includes(`name="twitter:title" content="${title}"`));
+  titles.add(title);
+ }
+ assert.equal(titles.size,EVENTS.length);
+});
 test('canonical, title, indexability, clean URL and static direct answers are consistent',()=>{
  assert.equal((html.match(/<h1\b/g)||[]).length,1);
  assert.match(html,/<title>Eventi AI per aziende: incontri 2026 \| NIUEXA<\/title>/);

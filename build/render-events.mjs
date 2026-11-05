@@ -73,7 +73,9 @@ const cookieBanner='<script src="/cookie-banner.js?v=2026102701"></script>';
 for(const [i,e] of EVENTS.entries()){
  const past=isPast(e);
  const url='https://niuexa.ai'+path(e);
- const title=`${e.title} | ${e.label} Milano | NIUEXA`;
+ // Keep the approved full event name in the H1 and Event schema; the metadata
+ // also includes date, city and brand, so it uses the shorter editorial label.
+ const title=`${e.seoTitle??e.title} | ${e.label} Milano | NIUEXA`;
  const faqs=past?[
   ['Dove e quando si è svolto l’incontro?',`L’incontro si è svolto il ${e.label} alle ${time}, ora locale di Milano (Europe/Rome), presso l’${venue.name}, ${venueLine}.`],
   ['È ancora possibile partecipare?',next?`No, l’incontro si è concluso. Il prossimo incontro NIUEXA è il ${next.label}: la partecipazione si richiede dal modulo unico degli incontri.`:'No. L’incontro si è concluso, come l’intero ciclo di incontri dell’autunno 2026.']
