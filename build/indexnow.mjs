@@ -5,7 +5,7 @@
 import { execFileSync } from 'node:child_process';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join, resolve } from 'node:path';
-import { urlFor } from './package-cloudflare.mjs';
+import { MANUAL_REDIRECTS, urlFor } from './package-cloudflare.mjs';
 
 const HOST = 'niuexa.ai';
 const KEY = '59d901b42caac9fceecf85148888c406';
@@ -62,7 +62,7 @@ function priorPages(ref) {
   const publicDirs = new Set(stringList(arrayTokens(packager, 'publicDirs', true)));
   if (!stringList(arrayTokens(packager, 'rootExtensions', true)).includes('.html')) throw new Error('Historical packager does not publish HTML');
   const eventSource = read('build/event-content.mjs');
-  const eventPages = new Set(['eventi-ai-aziende/index.html']);
+  const eventPages = new Set(['eventi-ai-aziende/index.html', 'eventi-ai-aziende/grazie/index.html']);
   const events = arrayTokens(eventSource, 'EVENTS');
   let depth = 0;
   for (let i = 0; i < events.length; i++) {
@@ -82,9 +82,10 @@ function priorPages(ref) {
     const [info, file] = line.split('\t');
     return /^100(644|755) blob /.test(info) && allowed(file) ? [file] : [];
   }));
-  const renamed = pairs(arrayTokens(read('build/package-cloudflare.mjs'), 'RENAMED'));
+  const cloudflare = read('build/package-cloudflare.mjs');
+  const renamed = pairs(arrayTokens(cloudflare, 'RENAMED'));
   for (const [from] of renamed) if (allowed(from)) files.add(from);
-  return { files, renamed };
+  return { files, renamed, manualRedirects: pairs(arrayTokens(cloudflare, 'MANUAL_REDIRECTS')) };
 }
 function commit(ref) {
   return git('rev-parse', '--verify', '--end-of-options', `${ref}^{commit}`).trim();
@@ -116,7 +117,9 @@ async function main() {
   const current = new Set(currentPages());
   if (!all && commit(refs[1]) !== commit('HEAD')) throw new Error('The packaged checkout must match the after commit');
   let selected;
-  if (all || /^0+$/.test(refs[0])) {
+  const backfill = all || /^0+$/.test(refs[0]);
+  const redirectUrls = new Set(backfill ? MANUAL_REDIRECTS.map(([from]) => from) : []);
+  if (backfill) {
     selected = current;
   } else {
     const before = commit(refs[0]), after = commit(refs[1]);
@@ -131,9 +134,15 @@ async function main() {
     if (changed.has('build/package-cloudflare.mjs')) {
       for (const [from] of previous.renamed) if (previous.files.has(from)) selected.add(from);
       for (const [from] of pairs(arrayTokens(readFileSync(join(root, 'build/package-cloudflare.mjs'), 'utf8'), 'RENAMED'))) if (current.has(from)) selected.add(from);
+      // Manual rules can add, remove or retarget a public URL without touching HTML.
+      const oldRules = new Map(previous.manualRedirects), newRules = new Map(MANUAL_REDIRECTS);
+      for (const from of new Set([...oldRules.keys(), ...newRules.keys()])) {
+        if (oldRules.get(from) !== newRules.get(from)) redirectUrls.add(from);
+      }
     }
   }
-  const urls = [...selected].map(file => `https://${HOST}${urlFor(file).split('/').map(encodeURIComponent).join('/')}`).sort();
+  const paths = new Set([...selected].map(urlFor).concat([...redirectUrls]));
+  const urls = [...paths].map(path => `https://${HOST}${path.split('/').map(encodeURIComponent).join('/')}`).sort();
   if (!urls.length) { console.log('No public page changes to notify.'); return; }
   console.log(`${dryRun ? 'Would submit' : 'Submitting'} ${urls.length} public URL change(s):\n  ${urls.join('\n  ')}`);
   if (dryRun) return;

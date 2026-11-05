@@ -6,6 +6,7 @@ export const EVENTS = [
  {
   slug:'seo-in-pensione-aeo-geo', date:'2026-11-09', label:'9 novembre 2026', month:'NOV', day:'09', offset:'+01:00',
   title:'La SEO va in pensione, benvenuta AEO/GEO', category:'VISIBILITÀ · SEO / AEO / GEO',
+  seoTitle:'SEO, AEO e GEO',
   subtitle:'Dai motori di ricerca alle risposte AI: come rendere riconoscibile la tua azienda.',
   description:'SEO, AEO e GEO per la visibilità aziendale: incontro NIUEXA il 9 novembre 2026 alle 17:30, Ufficio Libera, Milano.',
   excerpt:'Come cambia la ricerca quando i clienti chiedono risposte all’AI. Contenuti, fonti e misurazione per una presenza aziendale riconoscibile.',
@@ -20,6 +21,7 @@ export const EVENTS = [
  {
   slug:'ai-agent-processi-aziendali', date:'2026-11-17', label:'17 novembre 2026', month:'NOV', day:'17', offset:'+01:00',
   title:'AI Agent – Come rendere efficienti i processi aziendali', category:'AGENTI AI · PROCESSI · VALORE',
+  seoTitle:'AI Agent e processi aziendali',
   subtitle:'Scegliere cosa affidare a un agente, prima di scegliere lo strumento.',
   description:'Agenti AI per processi aziendali più efficienti: incontro NIUEXA il 17 novembre 2026 alle 17:30, Ufficio Libera, Milano.',
   excerpt:'Da quale processo conviene partire? Priorità, dati, permessi e indicatori per affidare a un agente AI un primo compito circoscritto e misurarne il valore.',
@@ -34,6 +36,7 @@ export const EVENTS = [
  {
   slug:'ai-marketing-agent', date:'2026-11-25', label:'25 novembre 2026', month:'NOV', day:'25', offset:'+01:00',
   title:'AI Marketing Agent – Come semplificare ed efficientare i processi di marketing', category:'MARKETING · AGENTI AI · CONTROLLO',
+  seoTitle:'AI Marketing Agent',
   subtitle:'Dal brief ai contenuti e ai contatti: dove un agente può alleggerire il lavoro del team.',
   description:'Agenti AI per semplificare i processi di marketing: incontro NIUEXA il 25 novembre 2026 alle 17:30, Ufficio Libera, Milano.',
   excerpt:'Brief, contenuti per più canali, contatti da seguire: quali attività di marketing affidare a un agente AI mantenendo il controllo su messaggi, dati e approvazioni.',

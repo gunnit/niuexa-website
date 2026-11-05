@@ -1,7 +1,8 @@
-# robots.txt for Niuexa - AI Consulting Services
-# Last Updated: 2026-08-12
+# robots.txt for NIUEXA
+# Last updated: 2026-11-05
 
-# Default: allow all crawlers
+# Search and AI crawlers can read public pages. Keep the same private-path
+# exclusions in both groups: specific user-agent groups do not inherit * rules.
 User-agent: *
 Disallow: /admin/
 Disallow: /private/
@@ -9,46 +10,24 @@ Disallow: /.git/
 Disallow: /node_modules/
 Disallow: /quiz-data/
 
-# AI Search Engine Crawlers - Explicitly Welcomed
-#
-# OpenAI runs three separate crawlers and each answers to its own group.
-# Grouping them under * only allows them implicitly; naming them is safer and
-# self-documenting, and OAI-SearchBot is the one that decides whether Niuexa
-# can be cited in ChatGPT search results at all.
+# Preserve the existing AI crawler permissions, with the same exclusions.
 User-agent: OAI-SearchBot
-Allow: /
-
 User-agent: GPTBot
-Allow: /
-
 User-agent: ChatGPT-User
-Allow: /
-
 User-agent: Google-Extended
-Allow: /
-
 User-agent: PerplexityBot
-Allow: /
-
 User-agent: ClaudeBot
-Allow: /
-
 User-agent: anthropic-ai
-Allow: /
-
 User-agent: Bytespider
-Allow: /
-
 User-agent: CCBot
-Allow: /
-
 User-agent: cohere-ai
-Allow: /
-
 User-agent: Meta-ExternalAgent
-Allow: /
-
 User-agent: YouBot
 Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /quiz-data/
 
 Sitemap: https://niuexa.ai/sitemap.xml
