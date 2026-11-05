@@ -91,6 +91,29 @@ function commit(ref) {
   return git('rev-parse', '--verify', '--end-of-options', `${ref}^{commit}`).trim();
 }
 
+// These two scripts carry the shared navigation/footer copy. The packager may
+// inline that copy while retaining the script for interactions and cache stamps.
+const SHARED_INCLUDES = new Set(['includes/includes.js', 'en/includes/navigation-en.js']);
+const HTML_TRANSFORMERS = new Set(['build/package-pages.mjs', 'build/render-includes.mjs']);
+function referencesChangedContent(file, includes, captions) {
+  const html = readFileSync(join(site, file), 'utf8');
+  // Ignore comments and inert/raw-text blocks; look only at actual script/track
+  // tags. Resolving the URL handles nested pages, absolute paths and query stamps.
+  const tokens = /<!--[\s\S]*?-->|<(script|style|noscript|textarea|title|template)\b[^>]*>[\s\S]*?<\/\1\s*>|<track\b[^>]*>/gi;
+  for (const token of html.matchAll(tokens)) {
+    const tag = /^<(script|track)\b[^>]*>/i.exec(token[0]);
+    if (!tag) continue;
+    const src = /\bsrc\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'<>`=]+))/i.exec(tag[0]);
+    if (!src) continue;
+    let url;
+    try { url = new URL((src[1] ?? src[2] ?? src[3]).replace(/&amp;/gi, '&'), `https://${HOST}${urlFor(file)}`); } catch { continue; }
+    if (url.origin !== `https://${HOST}`) continue;
+    const path = url.pathname.slice(1);
+    if ((tag[1].toLowerCase() === 'script' ? includes : captions).has(path)) return true;
+  }
+  return false;
+}
+
 async function request(url, options = {}) {
   for (let attempt = 0; attempt < 3; attempt++) {
     try {
@@ -130,6 +153,18 @@ async function main() {
     // Publication-policy changes can remove a page without deleting its source.
     for (const file of previous.files) if (!current.has(file)) selected.add(file);
     for (const file of current) if (!previous.files.has(file)) selected.add(file);
+    // Output can change without an HTML source diff: packaging algorithms affect
+    // the whole artifact, while shared copy/captions affect their parent pages.
+    if ([...HTML_TRANSFORMERS].some(file => changed.has(file))) {
+      for (const file of new Set([...current, ...previous.files])) selected.add(file);
+      for (const [from] of [...MANUAL_REDIRECTS, ...previous.manualRedirects]) redirectUrls.add(from);
+    } else {
+      const includes = new Set([...changed].filter(file => SHARED_INCLUDES.has(file)));
+      const captions = new Set([...changed].filter(file => file.endsWith('.vtt')));
+      if (includes.size || captions.size) {
+        for (const file of current) if (referencesChangedContent(file, includes, captions)) selected.add(file);
+      }
+    }
     // A generated rename redirect can change without its own tracked HTML file.
     if (changed.has('build/package-cloudflare.mjs')) {
       for (const [from] of previous.renamed) if (previous.files.has(from)) selected.add(from);

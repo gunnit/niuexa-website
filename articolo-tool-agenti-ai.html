@@ -107,7 +107,7 @@
         },
         "datePublished": "2026-03-16",
         "image": ["https://niuexa.ai/img/og-default.png"],
-        "dateModified": "2026-10-10",
+        "dateModified": "2026-11-05",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://niuexa.ai/articolo-tool-agenti-ai.html"
@@ -253,9 +253,9 @@
                 <h1>Tool e pratiche per creare agenti AI: come progettarli, testarli e metterli in produzione</h1>
                 <p class="tutorial-description">Quali tool servono e quali pratiche rendono affidabile un agente AI: stack tecnologico, un percorso in 10 passi, test, guardrail e tre architetture di riferimento per la produzione.</p>
                 <div class="tutorial-stats">
-                    <span class="stat">25 minuti di lettura</span>
+                    <span class="stat">28 minuti di lettura</span>
                     <span class="stat">Per CTO, AI engineer e tech lead</span>
-                    <span class="stat">Aggiornato il <time datetime="2026-10-10">10 ottobre 2026</time></span>
+                    <span class="stat">Aggiornato il <time datetime="2026-11-05">5 novembre 2026</time></span>
                 </div>
             </div>
         </div>
@@ -268,7 +268,7 @@
                 <!-- Quick Answer for AI Engines -->
                 <section class="content-section quick-answer">
                     <h2>Risposta rapida: cosa serve per creare agenti AI affidabili?</h2>
-                    <p>Per creare un agente AI servono un modello, istruzioni e tool autorizzati per il processo. Il controllo dell’esecuzione può essere semplice o affidato a un framework; RAG e database vettoriali si aggiungono solo quando servono a recuperare le informazioni richieste. In produzione occorrono test, validazione, permessi, osservabilità e un modo per interrompere le azioni. Il percorso in 10 passi descritto qui parte dai failure modes e arriva al rilascio controllato, con il controllo dei costi.</p>
+                    <p>Per creare un agente AI servono un modello, istruzioni e tool autorizzati per il processo. Il controllo dell’esecuzione può essere semplice o affidato a un framework; RAG e database vettoriali si aggiungono solo quando servono a recuperare le informazioni richieste. In produzione occorrono test, validazione, permessi, osservabilità e un modo per interrompere le azioni. Il percorso in 10 passi descritto qui parte dai failure modes e arriva al rilascio controllato, con il controllo dei costi. Prima di scegliere il framework, chiedi una prova sul tuo processo: accessi autorizzati, traccia dei passaggi, gestione dei tentativi ripetuti e conferma del sistema che riceve la scrittura.</p>
                 </section>
 
                 <!-- Section 1: Introduzione -->
@@ -345,7 +345,7 @@
                                 <td><strong>Punti di forza</strong></td>
                                 <td>Ecosistema vasto, LangGraph per grafi stateful, LangSmith per osservabilit&agrave;</td>
                                 <td>API semplice per RAG, ottima gestione degli indici, integrazione nativa con vector DB</td>
-                                <td>Controllo totale, zero dipendenze, ottimizzazione specifica per il caso d'uso</td>
+                                <td>Controllo delle scelte tecniche, dipendenze selezionate dal team, ottimizzazione specifica per il caso d'uso</td>
                             </tr>
                             <tr>
                                 <td><strong>Quando evitare</strong></td>
@@ -407,7 +407,21 @@
                         <li><strong>MCP (Model Context Protocol):</strong> introdotto da Anthropic a fine 2024, standardizza il modo in cui un agente si collega a tool e fonti di dati. Un connettore MCP scritto una volta, per esempio verso il gestionale, può essere usato da modelli e client diversi</li>
                         <li><strong>A2A (Agent2Agent):</strong> proposto da Google nel 2025 e oggi gestito dalla Linux Foundation, definisce come agenti di fornitori diversi si scambiano compiti e risultati</li>
                     </ul>
-                    <p>La conseguenza pratica è una: chiedere che le integrazioni siano costruite su standard aperti, così da poter cambiare modello o fornitore senza riscriverle. Un server MCP resta comunque un tool come gli altri: va registrato nel tool registry, limitato con allowlist e permessi minimi, e testato.</p>
+                    <p>Gli standard aperti possono rendere riutilizzabile una parte delle integrazioni, ma la compatibilità va verificata su client, capacità esposte e autorizzazioni effettive. Il server MCP espone un’interfaccia a tool e dati: non sostituisce il controllo del workflow o i permessi del gestionale.</p>
+
+                    <h3 id="ruoli-mcp">Che ruolo ha un server MCP in un agente aziendale?</h3>
+                    <p>Secondo l'<a href="https://modelcontextprotocol.io/docs/learn/architecture" target="_blank" rel="noopener noreferrer">architettura ufficiale di MCP</a>, l'applicazione <em>host</em> coordina i client, il client scambia contesto con un server e il server espone capacità come tool, risorse e prompt. Il protocollo riguarda questo scambio: non decide come il modello pianifica il lavoro.</p>
+                    <table class="comparison-table">
+                        <caption>Ruoli MCP e verifiche da chiedere sul proprio processo</caption>
+                        <thead><tr><th scope="col">Componente</th><th scope="col">Ruolo</th><th scope="col">Esempio da verificare</th></tr></thead>
+                        <tbody>
+                            <tr><th scope="row">Host e client</th><td>L'applicazione gestisce la connessione e usa le capacità disponibili</td><td>Il client riconosce il server previsto e permette soltanto i tool selezionati per il compito?</td></tr>
+                            <tr><th scope="row">Tool</th><td>Operazione invocabile con parametri definiti</td><td>Leggere un ordine e modificarlo sono azioni distinte, con permessi e controlli separati?</td></tr>
+                            <tr><th scope="row">Risorsa</th><td>Contenuto che il client può recuperare</td><td>Il listino consultato ha una versione e l'utente può leggere proprio quel documento?</td></tr>
+                            <tr><th scope="row">Prompt</th><td>Modello di interazione reso disponibile dal server</td><td>Le istruzioni proposte rispettano il processo e non ampliano i permessi dell'utente?</td></tr>
+                        </tbody>
+                    </table>
+                    <p>Per un pilot di lettura email e preparazione ordini, separa l'accesso ai documenti dalla scrittura nel CRM, limita gli oggetti accessibili e richiedi l'approvazione prevista dal processo prima della modifica. Le <a href="https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices" target="_blank" rel="noopener noreferrer">pratiche di sicurezza MCP</a> richiamano permessi minimi, consenso e validazione dei token per il servizio corretto. Collegare un server non rende autorizzata ogni azione che esso espone.</p>
 
                     <h3>Memoria, contesto e pipeline RAG</h3>
                     <p>Un agente senza memoria &egrave; stateless e riparte da zero a ogni interazione. Un agente con troppa memoria consuma token inutilmente e introduce rumore. Il design della memoria richiede tre decisioni:</p>
@@ -423,11 +437,37 @@
                     <p>Un agente in produzione senza osservabilit&agrave; &egrave; una scatola nera. I tool di produzione essenziali sono:</p>
                     <ul>
                         <li><strong>Tracing:</strong> LangSmith, Arize Phoenix o Helicone, per tracciare ogni step dell’agente con latenza, token consumati e output</li>
-                        <li><strong>Logging strutturato:</strong> ogni decisione dell'agente, ogni tool call e ogni errore devono essere loggati in formato JSON queryable</li>
+                        <li><strong>Logging strutturato:</strong> registra passaggi, decisioni di autorizzazione, tentativi ed esiti in forma interrogabile, selezionando i dati necessari e proteggendo contenuti e credenziali</li>
                         <li><strong>Rate limiting:</strong> limiti per utente, per sessione e per finestra temporale per prevenire abusi e costi fuori controllo</li>
                         <li><strong>Cost tracking:</strong> monitoraggio in tempo reale della spesa per token, per agente e per cliente</li>
                         <li><strong>Alerting:</strong> notifiche automatiche quando le metriche escono dai range accettabili (tasso di errore, latenza, costo)</li>
                     </ul>
+                </section>
+
+                <section id="registro-workflow" class="content-section">
+                    <h2>Un registro che distingua proposta, tentativo ed esito</h2>
+                    <p>Per capire se un agente ha completato il lavoro serve seguire la singola pratica fino al sistema di destinazione. Una risposta del modello può essere corretta mentre la scrittura nel CRM fallisce; un timeout può arrivare dopo che il CRM ha già registrato l'operazione. Il registro deve rendere visibili questi stati.</p>
+                    <table class="comparison-table">
+                        <caption>Traccia illustrativa per un'email trasformata in bozza d'ordine; non è un caso cliente</caption>
+                        <thead><tr><th scope="col">Passaggio</th><th scope="col">Che cosa conservare</th><th scope="col">Quando avanzare</th></tr></thead>
+                        <tbody>
+                            <tr><th scope="row">Richiesta ricevuta</th><td>Identificativo della pratica, fonte, data e versione del workflow</td><td>La richiesta è riconoscibile anche se arriva di nuovo</td></tr>
+                            <tr><th scope="row">Dati letti e controllati</th><td>Riferimenti ai documenti e alle versioni, esito delle validazioni</td><td>Campi richiesti e autorizzazione alla lettura sono verificati</td></tr>
+                            <tr><th scope="row">Bozza preparata</th><td>Identificativo della bozza, campi proposti, controlli superati o sospesi</td><td>La bozza è distinta da un ordine registrato</td></tr>
+                            <tr><th scope="row">Azione approvata</th><td>Identificativo della decisione e perimetro esatto approvato</td><td>La scrittura richiesta corrisponde alla versione approvata</td></tr>
+                            <tr><th scope="row">Scrittura tentata</th><td>Operazione stabile, numero di tentativo, servizio chiamato e stato della risposta</td><td>L'assenza di risposta resta un esito da verificare, non un fallimento certo</td></tr>
+                            <tr><th scope="row">Esito verificato</th><td>Identificativo restituito dal CRM o verifica successiva dello stato</td><td>Solo ora si dichiara la registrazione; altrimenti riconcilia o passa a una persona</td></tr>
+                        </tbody>
+                    </table>
+                    <p>Questa è una proposta di registro operativo, non un elenco di campi obbligatori di un protocollo. Associa gli eventi allo stesso identificativo di pratica e collega ogni chiamata al passaggio che l'ha generata. Per le scritture usa una chiave di idempotenza stabile soltanto se l'API la supporta; se la conferma manca, leggi lo stato prima di ripetere. La <a href="https://docs.langchain.com/oss/python/langgraph/fault-tolerance" target="_blank" rel="noopener noreferrer">documentazione di LangGraph su tentativi e idempotenza</a> distingue esplicitamente la ripetizione del nodo dall'esecuzione una sola volta dell'effetto esterno.</p>
+                    <p>Conserva durata, esito, categoria dell'errore e consumo misurato; limita accesso e durata di conservazione. Evita di copiare automaticamente email, documenti, prompt e risposte integrali nei log: le <a href="https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-spans.md" target="_blank" rel="noopener noreferrer">convenzioni GenAI di OpenTelemetry</a> trattano questi contenuti come potenzialmente sensibili e distinguono la loro raccolta esplicita dalla telemetria ordinaria. Il registro non deve contenere password o token di accesso.</p>
+                    <h3>Tre prove da inserire nel collaudo</h3>
+                    <ol>
+                        <li>Invia due volte la stessa richiesta: deve riaprire la stessa pratica o segnalare il duplicato, secondo la regola concordata.</li>
+                        <li>Simula una risposta persa dopo una scrittura riuscita: l'agente deve verificare lo stato, senza creare alla cieca un secondo ordine.</li>
+                        <li>Prova una scrittura senza permesso o dopo una modifica della bozza approvata: il passaggio deve fermarsi e lasciare una motivazione verificabile.</li>
+                    </ol>
+                    <p>Queste prove completano il <a href="articolo-contratto-qualita-workflow-ai.html">contratto di qualità del workflow</a>. Le soglie di errori, tempi e costi si fissano sul processo e sui suoi rischi, prima di confrontare il pilot con il lavoro attuale.</p>
                 </section>
 
                 <!-- Section 3: Practice fondamentali -->

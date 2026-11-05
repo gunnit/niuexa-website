@@ -32,7 +32,7 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://niuexa.ai/articolo-visibilita-chatgpt-perplexity-claude.html">
     <meta property="og:title" content="Come apparire su ChatGPT, Perplexity e Claude: cosa fare per la visibilità AI">
-    <meta property="og:description" content="Le visite dalle piattaforme AI ai siti web sono più che raddoppiate in un anno (Similarweb). Cosa fare perché ChatGPT, Perplexity e Claude citino il tuo sito.">
+    <meta property="og:description" content="Come verificare accesso dei crawler, stato di indicizzazione e fonti nelle risposte di ChatGPT, Perplexity e Claude, senza confondere permessi e citazioni.">
     <meta property="og:image" content="https://niuexa.ai/img/og-default.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -42,14 +42,14 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="language" content="Italian">
     <meta property="article:published_time" content="2025-01-15T00:00:00+01:00">
-    <meta property="article:modified_time" content="2026-10-10T00:00:00+02:00">
+    <meta property="article:modified_time" content="2026-11-05T00:00:00+01:00">
     <meta property="article:author" content="Roberto Botto">
     <meta property="article:section" content="AI SEO">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://niuexa.ai/articolo-visibilita-chatgpt-perplexity-claude.html">
     <meta name="twitter:title" content="Come apparire su ChatGPT, Perplexity e Claude: cosa fare per la visibilità AI">
-    <meta name="twitter:description" content="Le visite dalle piattaforme AI ai siti web sono più che raddoppiate in un anno (Similarweb). Cosa fare perché ChatGPT, Perplexity e Claude citino il tuo sito.">
+    <meta name="twitter:description" content="Come verificare accesso dei crawler, stato di indicizzazione e fonti nelle risposte di ChatGPT, Perplexity e Claude, senza confondere permessi e citazioni.">
     <meta name="twitter:image" content="https://niuexa.ai/img/og-default.png">
     <meta name="twitter:site" content="@niuexa">
 
@@ -96,7 +96,7 @@
         },
         "datePublished": "2025-01-15",
         "image": ["https://niuexa.ai/img/og-default.png"],
-        "dateModified": "2026-10-10",
+        "dateModified": "2026-11-05",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://niuexa.ai/articolo-visibilita-chatgpt-perplexity-claude.html"
@@ -270,7 +270,7 @@
                     <address class="author-info">
                         Di <a rel="author" href="chi-siamo.html">Roberto Botto</a>, co-fondatore di <a href="https://niuexa.ai">Niuexa</a>
                     </address>
-                    <time datetime="2025-01-15">15 gennaio 2025</time> · Aggiornato: <time datetime="2026-10-10">10 ottobre 2026</time>
+                    <time datetime="2025-01-15">15 gennaio 2025</time> · Aggiornato: <time datetime="2026-11-05">5 novembre 2026</time>
                 </div>
             </div>
         </div>
@@ -283,6 +283,7 @@
                 <nav class="article-toc" aria-labelledby="article-toc-heading">
                     <h2 id="article-toc-heading">Indice</h2>
                     <ul>
+                        <li><a href="#diagnosi">Il sito è online, ma l’AI non lo cita: da dove partire</a></li>
                         <li><a href="#intro">Un canale che molti brand stanno ancora ignorando</a></li>
                         <li><a href="#platforms">Come funziona ogni piattaforma AI</a></li>
                         <li><a href="#robots">Non bloccare i crawler di ricerca AI</a></li>
@@ -299,7 +300,23 @@
                 <!-- Quick Summary for AI -->
                 <section class="content-section quick-answer">
                     <h2>Sintesi: come apparire sulle piattaforme AI</h2>
-                    <p>Nessuno può garantire una citazione, ma cinque cose aumentano la probabilità di essere citati da ChatGPT, Perplexity e Claude: (1) non bloccare i crawler di ricerca AI nel robots.txt, (2) dati strutturati coerenti con il testo (Article, Organization), (3) contenuti con una risposta concisa in apertura e heading formulati come domande, (4) dati verificabili con la loro fonte, (5) aggiornamenti regolari con la data visibile. Conta anche ciò che altri scrivono dell’azienda: le informazioni devono coincidere su sito, profili ufficiali e fonti esterne. Secondo Semrush, un visitatore da ricerca AI vale in media 4,4 volte uno da ricerca organica tradizionale, in base al tasso di conversione.</p>
+                    <p>Per rendere un sito consultabile nella ricerca AI, verifica prima l’accesso del crawler, poi l’eventuale stato di indicizzazione del servizio e infine le fonti nelle risposte. Sono controlli diversi. Una pagina accessibile può non essere indicizzata, e una pagina indicizzata può non essere citata. Le impostazioni per ricerca e addestramento vanno valutate separatamente per ciascun provider.</p>
+                </section>
+
+                <section id="diagnosi" class="content-section">
+                    <h2>Il sito è online, ma l’AI non lo cita: quale prova cercare?</h2>
+                    <p>Una risposta HTTP 200 nel tuo browser dimostra che hai ricevuto una pagina. Non dimostra che un crawler verificato abbia ricevuto lo stesso testo, né che un motore lo abbia indicizzato. Prima di cambiare i contenuti, individua il passaggio da verificare.</p>
+                    <table class="comparison-table">
+                        <thead><tr><th>Segnale osservato</th><th>Che cosa controllare</th><th>Prossimo intervento</th></tr></thead>
+                        <tbody>
+                            <tr><td>Google ha scoperto l’URL, ma non risulta una scansione</td><td>Link interni da pagine note, sitemap, accesso al contenuto e data dell’ispezione</td><td>Rendere il percorso riconoscibile dai contenuti pertinenti e chiedere una scansione dopo le correzioni</td></tr>
+                            <tr><td>Google ha scansionato la pagina, ma non la indicizza</td><td>Contenuto effettivamente recuperato, canonical e utilità distinta rispetto alle altre pagine</td><td>Risolvere errori riproducibili e migliorare il compito coperto dalla pagina; la richiesta non garantisce l’inclusione</td></tr>
+                            <tr><td>Una ricerca AI non cita la pagina</td><td>Provider, modalità web attiva, domanda, lingua, data e fonti effettive della risposta</td><td>Valutare la pertinenza rispetto alla domanda e confrontare osservazioni ripetute, senza interpretare un singolo esito come una penalizzazione</td></tr>
+                            <tr><td>Una risposta cita un vecchio URL</td><td>Destinazione finale del redirect e corrispondenza con il contenuto richiesto</td><td>Mantenere un passaggio verso la risorsa equivalente e aggiornare i collegamenti interni alla destinazione corretta</td></tr>
+                        </tbody>
+                    </table>
+                    <p>Gli stati «scoperta, attualmente non indicizzata» e «scansionata, attualmente non indicizzata» riguardano Google e non descrivono automaticamente l’indice di Bing o di un assistente AI. L’ispezione riporta uno stato memorizzato: confrontalo con l’ultimo recupero e con la pagina pubblicata. <a href="https://support.google.com/webmasters/answer/7440203" target="_blank" rel="noopener noreferrer">Significato degli stati di indicizzazione in Search Console</a>.</p>
+                    <p>Per una misurazione ripetibile passa alla <a href="articolo-monitoraggio-visibilita-ai.html">guida al monitoraggio</a>; per valutare un prodotto usa i <a href="articolo-migliori-strumenti-ai-seo.html">criteri di selezione degli strumenti AI SEO</a>. Questa pagina resta dedicata ai controlli di accesso e alle differenze fra provider.</p>
                 </section>
 
                 <section id="intro" class="content-section">
@@ -439,6 +456,8 @@
                 <section id="robots" class="content-section">
                     <h2>3. L’errore più facile da correggere: bloccare i crawler di ricerca AI</h2>
                     <p>Un blocco nel robots.txt o nel firewall può limitare l’accesso dei crawler di ricerca AI. Vanno distinti dai crawler di addestramento e dagli agenti che visitano una pagina su richiesta di un utente: hanno ruoli e controlli diversi. Il permesso di scansione va verificato insieme alla risposta effettiva del server e non garantisce indicizzazione o citazioni.</p>
+
+                    <p><strong>Controlli per provider.</strong> Per ChatGPT, OAI-SearchBot riguarda la ricerca e GPTBot l’addestramento; ChatGPT-User serve richieste dell’utente e non decide l’inclusione nella ricerca. Anthropic distingue Claude-SearchBot, ClaudeBot e Claude-User. PerplexityBot riguarda i risultati di ricerca, mentre Perplexity-User recupera pagine richieste dall’utente. Non trasferire le regole di un agente a tutti gli altri: alcune visite su richiesta hanno controlli diversi dai crawler automatici. Fonti: <a href="https://developers.openai.com/api/docs/bots" target="_blank" rel="noopener noreferrer">OpenAI</a>, <a href="https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler" target="_blank" rel="noopener noreferrer">Anthropic</a>, <a href="https://docs.perplexity.ai/docs/resources/perplexity-crawlers" target="_blank" rel="noopener noreferrer">Perplexity</a>.</p>
 
                     <h3>I principali crawler AI e a cosa servono</h3>
                     <table class="comparison-table">
@@ -1101,7 +1120,7 @@ compone di tre pilastri principali...&lt;/p&gt;</code></pre>
     <div class="page-meta author-bio" itemscope itemtype="https://schema.org/Person">
         <h3>Autore</h3>
         <p><strong itemprop="name">Roberto Botto</strong>, <span itemprop="jobTitle">co-fondatore</span> di <a href="https://niuexa.ai" itemprop="worksFor">Niuexa</a>, fondatore e CEO di Libera Brand Building Group. Lavora da oltre 25 anni nella comunicazione digitale e nel marketing. <a href="chi-siamo.html" rel="author">Profilo completo</a> · <a href="https://www.linkedin.com/company/niuexa" rel="noopener" target="_blank">LinkedIn</a></p>
-        <p>Ultimo aggiornamento: <time datetime="2026-10-10">10 ottobre 2026</time></p>
+        <p>Ultimo aggiornamento: <time datetime="2026-11-05">5 novembre 2026</time></p>
     </div>
 
     <!-- CTA Section -->

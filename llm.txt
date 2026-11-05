@@ -49,7 +49,7 @@
 ### AI visibility (AEO/GEO)
 - [AEO/GEO consulting and free homepage audit](https://niuexa.ai/consulenza-aeo-geo.html): Free audit of the homepage's technical and editorial readiness for AI assistants, with fixes in order of impact. Whether ChatGPT, Claude or Perplexity actually cite the company is a separate check of their answers, with documented questions, platforms and dates; it is not part of the free audit
 - [AEO/GEO consulting (English)](https://niuexa.ai/en/ai-readiness-tool.html): English version of the audit page
-- [AEO Analyzer Platform](https://aeo.niuexa.ai): Niuexa's tool for the AEO/GEO site audit (scores on five dimensions, corrections by priority); the Business plan adds a monthly audit of up to 25 agreed pages
+- [AEO Analyzer Platform](https://aeo.niuexa.ai): Niuexa's tool for the AEO/GEO site audit (six analysis dimensions, corrections by priority); further page coverage and implementation are defined in the written service quote
 - [AI Readiness Assessment](https://niuexa.ai/ai-readiness-assessment.html): Assessment of processes, data, skills and governance that ranks the AI use cases worth starting from
 
 ## Company Information
