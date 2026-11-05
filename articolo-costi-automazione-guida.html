@@ -96,7 +96,7 @@
             }
         },
         "datePublished": "2026-03-24",
-        "dateModified": "2026-10-10",
+        "dateModified": "2026-11-05",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://niuexa.ai/articolo-costi-automazione-guida.html"
@@ -226,10 +226,10 @@
                 <h1>Quanto costa automatizzare un processo con l’AI? Le voci di costo e come leggere un preventivo</h1>
                 <p class="tutorial-description">Due progetti chiamati “agente AI” possono avere costi molto diversi. Le 10 voci che compongono un preventivo per automatizzare un processo d’ufficio con l’AI, i fattori che lo spostano, i costi ricorrenti e nascosti e come costruire un business case sui propri numeri.</p>
                 <div class="tutorial-stats">
-                    <span class="stat">20 minuti di lettura</span>
+                    <span class="stat">23 minuti di lettura</span>
                     <span class="stat">Per direzione, operations e IT</span>
                     <span class="stat">Guide pratiche</span>
-                <span class="stat">Aggiornato il <time datetime="2026-10-10">10 ottobre 2026</time></span></div>
+                <span class="stat">Aggiornato il <time datetime="2026-11-05">5 novembre 2026</time></span></div>
             </div>
         </div>
     </section>
@@ -245,6 +245,7 @@
                         <li><a href="#un-modello-non-un-numero">Il costo giusto non è un numero, ma un modello</a></li>
                         <li><a href="#cosa-include-ogni-scenario">Che cosa include ogni scenario</a></li>
                         <li><a href="#le-10-voci-di-costo">Le 10 voci di costo di un preventivo</a></li>
+                        <li><a href="#confrontare-piattaforme">Confrontare piattaforme e misurare un pilot</a></li>
                         <li><a href="#fattori-che-spostano-il-prezzo">I fattori che spostano il prezzo</a></li>
                         <li><a href="#costi-nascosti">Costi ricorrenti, nascosti e rischi</a></li>
                         <li><a href="#business-case">Business case: ritorno e tempo di rientro</a></li>
@@ -256,7 +257,7 @@
                 <!-- Quick Answer for AI Engines -->
                 <section class="content-section quick-answer">
                     <h2 id="risposta-rapida">Risposta rapida: quanto costa automatizzare un processo con l’AI?</h2>
-                    <p>Non esiste un costo medio per automatizzare un processo con l’AI: un assistente che riassume email e un agente che scrive nel gestionale sono progetti diversi. Il costo dipende dal processo, dai sistemi da integrare, dai dati e da quanto decide l’agente da solo. Confronta i preventivi sulle stesse 10 voci e calcola il rientro sui tuoi dati.</p>
+                    <p>Non esiste un costo medio per automatizzare un processo con l’AI: un assistente che riassume email e un agente che scrive nel gestionale sono progetti diversi. Il costo dipende dal processo, dai sistemi da integrare, dai dati e da quanto decide l’agente da solo. Confronta i preventivi sulle stesse 10 voci e calcola il rientro sui tuoi dati. Per scegliere una piattaforma no-code, misura lo stesso processo completo: task, crediti, esecuzioni e token sono unità diverse; conta anche gli esiti validi, i tentativi ripetuti e il tempo di revisione.</p>
                 </section>
 
                 <!-- Section 1 -->
@@ -401,6 +402,36 @@
                 </section>
 
                 <!-- Section 4 -->
+                <section id="confrontare-piattaforme" class="content-section">
+                    <h2>Make, Zapier o n8n: confronta il costo dello stesso lavoro</h2>
+                    <p>Il canone con più unità incluse non è automaticamente il più conveniente. Per leggere un'offerta devi sapere che cosa consuma un'unità, che cosa è incluso nell'AI e quali requisiti operativi impongono un piano diverso. Le definizioni sotto sono state verificate sulle fonti ufficiali il 5 novembre 2026; prezzi e condizioni vanno confermati prima dell'acquisto.</p>
+                    <table class="comparison-table">
+                        <caption>Unità di fatturazione e domande da usare nel confronto dei piani</caption>
+                        <thead><tr><th scope="col">Piattaforma</th><th scope="col">Unità da misurare</th><th scope="col">Che cosa verificare nel pilot</th></tr></thead>
+                        <tbody>
+                            <tr><th scope="row"><a href="https://help.make.com/credits" target="_blank" rel="noopener noreferrer">Make</a></th><td>Crediti; il consumo può essere fisso o dinamico in base al modulo e alla connessione AI</td><td>Crediti del processo completo, cicli e tentativi; se i token del modello sono compresi o fatturati dal proprio fornitore</td></tr>
+                            <tr><th scope="row"><a href="https://help.zapier.com/hc/en-us/articles/8496196837261-How-is-task-usage-measured-in-Zapier" target="_blank" rel="noopener noreferrer">Zapier, Classic Zaps</a></th><td>Task per azioni riuscite; trigger e alcune funzioni interne non consumano task</td><td>Azioni effettivamente fatturabili e ripetizioni. Agents e altri prodotti possono usare quote o regole diverse: controlla il prodotto scelto</td></tr>
+                            <tr><th scope="row"><a href="https://n8n.io/pricing/" target="_blank" rel="noopener noreferrer">n8n</a></th><td>Esecuzioni del workflow completo, non una quota per ogni singolo nodo</td><td>Quante volte parte il flusso, limiti di concorrenza e conservazione degli esiti; eventuali crediti AI o API separati e costi dell'hosting scelto</td></tr>
+                        </tbody>
+                    </table>
+                    <p>Usa le unità della piattaforma per stimare il piano e le misure del processo per valutare la convenienza. Un'esecuzione può trattare più documenti oppure una singola conversazione può avviare più esecuzioni: il rapporto va misurato. Un abbonamento chat, l'accesso API al modello e il canone della piattaforma sono voci da verificare separatamente, senza sommare due volte ciò che è già incluso.</p>
+                    <h3>La scheda di un pilot confrontabile</h3>
+                    <table class="comparison-table">
+                        <caption>Dati da raccogliere sullo stesso campione rappresentativo, con dati autorizzati</caption>
+                        <thead><tr><th scope="col">Dato</th><th scope="col">Che cosa registrare</th><th scope="col">A cosa serve</th></tr></thead>
+                        <tbody>
+                            <tr><th scope="row">Lavoro in ingresso</th><td>Documenti o richieste, lunghezza, formati, picchi ed eccezioni</td><td>Mantenere lo stesso perimetro tra piattaforme</td></tr>
+                            <tr><th scope="row">Esiti validi</th><td>Pratiche concluse e accettate secondo i criteri del processo</td><td>Distinguere un'azione tecnica riuscita dal risultato aziendale</td></tr>
+                            <tr><th scope="row">Consumo tecnico</th><td>Task, crediti o esecuzioni; token e altri consumi fatturati separatamente</td><td>Applicare le tariffe del piano e del modello effettivamente scelti</td></tr>
+                            <tr><th scope="row">Eccezioni e ripetizioni</th><td>Rilanci, tentativi falliti, duplicati evitati e casi da verificare</td><td>Vedere costi e carichi che la sola prova riuscita nasconde</td></tr>
+                            <tr><th scope="row">Intervento umano</th><td>Minuti di revisione e correzione, con costo orario aziendale</td><td>Stimare il costo del lavoro che rimane dopo l'automazione</td></tr>
+                        </tbody>
+                    </table>
+                    <p><strong>Costo operativo per esito valido = (piattaforma + consumo AI separato + hosting e manutenzione + revisione e correzioni) ÷ esiti validi nello stesso periodo.</strong> Tieni a parte il costo iniziale del progetto, da includere nel calcolo del rientro. Se non ci sono esiti validi, non esiste un costo per esito calcolabile: il pilot va riesaminato.</p>
+                    <p><strong>Esempio illustrativo, non un listino o un caso cliente:</strong> un mese con 1.000 documenti in ingresso produce 950 esiti validi. I costi ricorrenti considerati sono 200 euro tra piattaforma e consumi, più 100 euro di revisione; nell'esempio non ci sono altre voci ricorrenti. Il costo è 300 ÷ 950 = circa 0,32 euro per esito valido, non 300 ÷ 1.000. Se emergono altri costi, vanno aggiunti al numeratore; se più passaggi appartengono alla stessa pratica, non contarli come esiti diversi.</p>
+                    <p>Prima di impegnarti annualmente, chiedi che cosa succede quando superi la quota, quali funzioni servono per permessi e log, come si esportano configurazioni e risultati e chi gestisce gli incidenti. Collega il preventivo al <a href="articolo-tool-agenti-ai.html#registro-workflow">registro dei passaggi e degli esiti del workflow</a>: serve a confrontare il consumo preventivato con il lavoro realmente concluso.</p>
+                </section>
+
                 <section class="content-section">
                     <h2 id="fattori-che-spostano-il-prezzo">I fattori che spostano il prezzo</h2>
                     <p>Due processi che sembrano simili possono avere costi molto diversi. Queste checklist aiutano a capire, prima del preventivo, quanto il tuo progetto è complesso.</p>

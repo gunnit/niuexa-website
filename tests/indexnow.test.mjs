@@ -164,3 +164,58 @@ test('manual redirect additions, removals and target changes notify their source
   assert.ok(urlsFrom(all.stdout).includes('https://niuexa.ai/retargeted/'));
   assert.ok(!urlsFrom(all.stdout).includes('https://niuexa.ai/removed-redirect.html'));
 });
+
+test('shared navigation updates notify matching parent pages despite unchanged HTML source', () => {
+  const pages = {
+    'italian-nav.html': '<script src="/includes/includes.js?v=old"></script><main>Italian page</main>',
+    'books/nav/index.html': "<script defer src='../../includes/includes.js?v=hashstamp'></script><main>Nested Italian page</main>",
+    'en/nav.html': '<script src="/en/includes/navigation-en.js?v=old"></script><main>English page</main>',
+  };
+  for (const [file, content] of Object.entries(pages)) { put(file, content); put('_site/' + file, content); }
+  put('includes/includes.js', 'const navigationHTML = `old Italian navigation`;');
+  put('en/includes/navigation-en.js', 'const navigationHTML = `old English navigation`;');
+  git('add', 'italian-nav.html', 'books/nav/index.html', 'en/nav.html', 'includes/includes.js', 'en/includes/navigation-en.js');
+  git('commit', '-qm', 'shared navigation baseline');
+  let previous = git('rev-parse', 'HEAD');
+  put('includes/includes.js', 'const navigationHTML = `updated Italian navigation`;');
+  git('add', 'includes/includes.js'); git('commit', '-qm', 'Italian navigation only');
+  const italian = run([previous, git('rev-parse', 'HEAD'), '--dry-run']);
+  assert.equal(italian.status, 0, italian.stderr);
+  assert.deepEqual(urlsFrom(italian.stdout), ['https://niuexa.ai/books/nav/', 'https://niuexa.ai/italian-nav.html']);
+  previous = git('rev-parse', 'HEAD');
+  put('en/includes/navigation-en.js', 'const navigationHTML = `updated English navigation`;');
+  git('add', 'en/includes/navigation-en.js'); git('commit', '-qm', 'English navigation only');
+  const english = run([previous, git('rev-parse', 'HEAD'), '--dry-run']);
+  assert.equal(english.status, 0, english.stderr);
+  assert.deepEqual(urlsFrom(english.stdout), ['https://niuexa.ai/en/nav.html']);
+});
+
+test('packaging algorithm changes notify all public pages and redirect sources without publishing private URLs', () => {
+  for (const file of ['build/render-includes.mjs', 'build/package-pages.mjs']) {
+    const previous = git('rev-parse', 'HEAD');
+    const old = file === 'build/package-pages.mjs' ? readFileSync(join(root, file), 'utf8') : '';
+    put(file, old + '\n// Updated public HTML transformation\n');
+    git('add', file); git('commit', '-qm', 'change packaging transformation');
+    const r = run([previous, git('rev-parse', 'HEAD'), '--dry-run']);
+    assert.equal(r.status, 0, r.stderr);
+    const urls = urlsFrom(r.stdout);
+    assert.ok(urls.includes('https://niuexa.ai/'), file);
+    assert.ok(urls.includes('https://niuexa.ai/edited.html'), file);
+    assert.ok(urls.includes('https://niuexa.ai/en/nav.html'), file);
+    assert.ok(urls.includes('https://niuexa.ai/new-redirect/'), file);
+    assert.ok(!urls.some(url => /private\/|tests\/|\.draft\//.test(url)), file);
+  }
+});
+
+test('caption-only updates notify the page that directly references the changed VTT track', () => {
+  const page = '<video><track kind="captions" src="/assets/captions/intro.vtt?v=one" srclang="it"></video>';
+  put('caption-parent.html', page); put('_site/caption-parent.html', page);
+  put('assets/captions/intro.vtt', 'WEBVTT\n\n00:00.000 --> 00:01.000\nOld caption\n');
+  git('add', 'caption-parent.html', 'assets/captions/intro.vtt'); git('commit', '-qm', 'caption baseline');
+  const previous = git('rev-parse', 'HEAD');
+  put('assets/captions/intro.vtt', 'WEBVTT\n\n00:00.000 --> 00:01.000\nUpdated caption\n');
+  git('add', 'assets/captions/intro.vtt'); git('commit', '-qm', 'caption text only');
+  const r = run([previous, git('rev-parse', 'HEAD'), '--dry-run']);
+  assert.equal(r.status, 0, r.stderr);
+  assert.deepEqual(urlsFrom(r.stdout), ['https://niuexa.ai/caption-parent.html']);
+});

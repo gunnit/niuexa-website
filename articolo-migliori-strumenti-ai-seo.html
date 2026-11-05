@@ -79,7 +79,7 @@
         },
         "datePublished": "2025-01-08",
         "image": ["https://niuexa.ai/img/og-default.png"],
-        "dateModified": "2026-10-10",
+        "dateModified": "2026-11-05",
         "inLanguage": "it-IT",
         "mainEntityOfPage": {
             "@type": "WebPage",
@@ -93,7 +93,7 @@
     {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        "dateModified": "2026-10-10",
+        "dateModified": "2026-11-05",
         "mainEntity": [
             {
                 "@type": "Question",
@@ -170,7 +170,7 @@
                 <div class="tutorial-stats">
                     <span class="stat">15 minuti di lettura</span>
                     <span class="stat">Per marketing e SEO</span>
-                    <span class="stat">Aggiornato il 10 ottobre 2026</span>
+                    <span class="stat">Aggiornato il <time datetime="2026-11-05">5 novembre 2026</time></span>
                 </div>
             </div>
         </div>
@@ -184,6 +184,7 @@
                 <section class="content-section quick-answer">
                     <h2>Sintesi: gli strumenti per l'AI SEO</h2>
                     <p>Gli strumenti per l'AI SEO si dividono in tre gruppi: <strong>controlli iniziali</strong> (audit tecnico ed editoriale con AEO Analyzer di Niuexa; fotografia delle risposte sul marchio con HubSpot AI Search Grader), <strong>suite SEO con funzioni AI</strong> (Semrush AI Visibility Toolkit, Surfer SEO, SE Ranking) e <strong>strumenti di monitoraggio delle citazioni</strong> (Otterly.ai, Peec AI, Frase). Per una PMI italiana ha senso partire da un'analisi gratuita del sito e da test manuali, e aggiungere uno strumento di monitoraggio solo quando serve misurare con regolarità. A questi si affiancano gli strumenti per scrivere i contenuti (Clearscope, MarketMuse, Keyword Insights, AirOps), che aiutano a coprire un tema ma non misurano le citazioni. AEO Analyzer è uno strumento di Niuexa: lo diciamo perché il lettore possa tenerne conto.</p>
+                    <p>Per scegliere, chiedi una prova del dato che ti serve: un controllo sul sito, una risposta AI con le sue fonti o una visita registrata sono evidenze diverse. La <a href="#metodo-valutazione">griglia di valutazione</a> aiuta a confrontare gli strumenti prima dell'abbonamento.</p>
                 </section>
 
                 <section id="intro" class="content-section">
@@ -228,7 +229,7 @@
                         <h3>Cosa fa</h3>
                         <ul>
                             <li><strong>Analisi in italiano:</strong> pensato per siti e contenuti in lingua italiana</li>
-                            <li><strong>Controlli tecnici su cinque dimensioni:</strong> tecnica, struttura, contenuto, prestazioni, media</li>
+                            <li><strong>Sei dimensioni di analisi:</strong> tecnica, struttura, contenuto, prestazioni, media e accessibilità, controlli specifici AI; il <a href="https://aeo.niuexa.ai/documentation/scoring" target="_blank" rel="noopener noreferrer">metodo di calcolo ufficiale</a> distingue anche controlli non misurati e segnali non provati</li>
                             <li><strong>Raccomandazioni in ordine di priorità:</strong> non solo punteggi, ma cosa correggere per primo</li>
                             <li><strong>Versione gratuita:</strong> analisi della homepage con report</li>
                         </ul>
@@ -498,14 +499,60 @@
                 <section id="come-scegliere" class="content-section">
                     <h2>9. Come scegliere lo strumento giusto</h2>
 
+                    <h3 id="metodo-valutazione">Quale evidenza chiedere, e che cosa non dimostra</h3>
+                    <p>Prima di confrontare i punteggi, scrivi la decisione che il report deve aiutarti a prendere. Un audit tecnico controlla una pagina; un test di risposte osserva un campione di domande; l'analytics registra le visite riconoscibili. Nessuna di queste misure sostituisce le altre.</p>
+                    <table class="comparison-table">
+                        <caption>Griglia per valutare una prova di strumenti AEO e GEO</caption>
+                        <thead>
+                            <tr><th scope="col">Decisione</th><th scope="col">Evidenza da chiedere</th><th scope="col">Che cosa non dimostra</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Quale problema tecnico correggere?</th>
+                                <td>URL esatto, data del controllo, risposta HTTP, HTML esaminato, regola applicata e distinzione tra esito negativo e verifica non eseguita.</td>
+                                <td>Un punteggio di preparazione non prova che un motore abbia indicizzato o citato la pagina. Un test con uno user-agent dichiarato non verifica da solo la consegna al crawler autentico.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Il marchio viene menzionato o la pagina citata?</th>
+                                <td>Domanda completa, servizio e modalità di ricerca, lingua, data, risposta conservata e URL delle fonti. Chiedi come vengono distinte menzione, citazione e risposta errata.</td>
+                                <td>Una risposta isolata non rappresenta tutte le domande né tutti gli utenti. Una menzione senza fonte non è una citazione del sito; una citazione non è un clic.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">La visibilità sta cambiando?</th>
+                                <td>Stesso insieme di domande e concorrenti, condizioni documentate, osservazioni ripetute, numero di risposte valide e tentativi falliti. Per una percentuale, chiedi sempre il denominatore.</td>
+                                <td>Due percentuali calcolate su campioni diversi non descrivono lo stesso confronto. Una crescita successiva a una modifica non ne dimostra da sola la causa.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Qual è lo stato nei motori di ricerca?</th>
+                                <td>Proprietà verificata, URL, data dell'ultima scansione e canonical riportati dal motore. Tieni distinto il dato conservato nell'indice da una verifica della pagina attuale.</td>
+                                <td>Accesso consentito e HTTP 200 non equivalgono a indicizzazione. Lo stato in Google non descrive l'indice di Bing né la selezione di fonti di ogni assistente.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Arrivano visite o opportunità?</th>
+                                <td>Sessioni con provenienza riconoscibile, pagine di ingresso, azioni misurate e contatti qualificati deduplicati. Documenta periodo, filtri e regole di attribuzione.</td>
+                                <td>Le citazioni non consentono di calcolare il traffico. Un clic su un pulsante non prova un contatto qualificato; le sole visite attribuibili non misurano tutta l'influenza del canale.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>I report nativi hanno perimetri propri: <a href="https://blogs.bing.com/webmaster/2026/2/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview/" target="_blank" rel="noopener noreferrer">Bing AI Performance</a> osserva citazioni nelle esperienze supportate e campiona le grounding query; non è un censimento di tutti gli assistenti. Google include AI Overviews e AI Mode nel traffico complessivo del tipo Web in <a href="https://developers.google.com/search/docs/appearance/ai-features" target="_blank" rel="noopener noreferrer">Search Console</a>. L'<a href="https://developers.google.com/webmaster-tools/v1/urlInspection.index/inspect" target="_blank" rel="noopener noreferrer">API di controllo URL di Google</a> restituisce lo stato conservato nell'indice, non un test dal vivo.</p>
+
+                    <h3>Una prova sul tuo caso d'uso prima dell'acquisto</h3>
+                    <ol>
+                        <li><strong>Definisci il compito.</strong> Parti da domande reali di clienti e commerciali. Separa le richieste sul marchio da quelle sul problema o sulla categoria e scegli le pagine da verificare.</li>
+                        <li><strong>Conserva un punto di partenza.</strong> Registra domande, condizioni, risposte, fonti e controlli tecnici. Ripeti le osservazioni in più momenti e registra anche errori e dati mancanti; non scegliere solo gli esempi favorevoli.</li>
+                        <li><strong>Metti alla prova il report.</strong> Apri alcune risposte e fonti originali, verifica un problema tecnico segnalato e prova a esportare dati con date e URL. Valuta se una seconda persona riesce a ricostruire come è stato ottenuto il risultato.</li>
+                        <li><strong>Valuta il lavoro necessario.</strong> Conta anche il tempo per rivedere risposte, correggere contenuti e mantenere le domande. Prima di scegliere, conferma nel piano ufficiale quote, piattaforme, frequenza, esportazioni, accessi e gestione dei dati aziendali.</li>
+                    </ol>
+                    <p>Questo è un metodo di valutazione proposto da Niuexa, non un test comparativo eseguito su tutti i fornitori citati. Non esiste qui una soglia di punteggio che garantisca citazioni. Le schede restano una panoramica: l'aggiornamento del 5 novembre 2026 aggiunge criteri e limiti di lettura, senza attestare una nuova verifica completa di funzioni e listini di terze parti.</p>
+
                     <h3>Per le PMI italiane</h3>
                     <p>Puoi partire da due controlli distinti: AEO Analyzer (sapendo che è nostro) per l’audit del sito in italiano e HubSpot AI Search Grader per una fotografia di come i modelli descrivono il marchio. Poi qualche test manuale sulle domande chiave del settore. Solo se serve misurare con regolarità, aggiungi uno strumento di monitoraggio come Otterly.ai.</p>
 
                     <h3>Per le agenzie SEO</h3>
-                    <p><strong>Semrush AI Visibility Toolkit</strong> è la scelta più naturale se l'agenzia usa già Semrush. In alternativa, Surfer SEO unisce l'ottimizzazione dei contenuti al monitoraggio con l'AI Tracker.</p>
+                    <p>Se usi già una suite SEO, confronta il modulo AI incluso o aggiuntivo con uno strumento separato sulla stessa prova. Per gestire più clienti conta poter distinguere progetti, domande, accessi ed esportazioni senza ricostruire ogni report a mano.</p>
 
                     <h3>Per le aziende strutturate</h3>
-                    <p>Una combinazione di analisi iniziale del sito, una suite come Semrush AI Visibility Toolkit per il monitoraggio continuo e, se serve un fornitore europeo per ragioni di GDPR, uno strumento come Peec AI.</p>
+                    <p>Collega controlli del sito, osservazione delle risposte e risultati commerciali mantenendone separati i dati. Fai valutare da chi segue acquisti, sicurezza e privacy le condizioni contrattuali, i permessi, la conservazione e la cancellazione dei dati richiesti per l'uso aziendale.</p>
 
                     <div class="pro-tips">
                         <h4>Checklist per la scelta</h4>

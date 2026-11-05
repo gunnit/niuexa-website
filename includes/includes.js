@@ -133,11 +133,14 @@ function loadIncludes() {
     // Both markup blocks are static strings in this file, so there is nothing
     // to wait for. The old setTimeout(100)/setTimeout(50) only delayed paint
     // and made the swap from the loading box visible as a layout jump.
-    if (navPlaceholder) {
+    if (navPlaceholder && navPlaceholder.getAttribute('data-niuexa-include-ready') !== 'navigation') {
         try {
-            navPlaceholder.innerHTML = navigationHTML;
+            // The published package already contains these same template literals.
+            // Keep those nodes; only local source previews need the fallback injection.
+            if (navPlaceholder.getAttribute('data-niuexa-static-include') !== 'navigation') navPlaceholder.innerHTML = navigationHTML;
             setActiveNavItem();
             initNavigationFunctionality();
+            navPlaceholder.setAttribute('data-niuexa-include-ready', 'navigation');
         } catch (error) {
             console.error('Failed to load navigation:', error);
             navPlaceholder.innerHTML = '<div class="error-placeholder">Navigation failed to load. <button onclick="loadIncludes()">Retry</button></div>';
@@ -145,9 +148,10 @@ function loadIncludes() {
     }
 
     const footerPlaceholder = document.getElementById('footer-placeholder');
-    if (footerPlaceholder) {
+    if (footerPlaceholder && footerPlaceholder.getAttribute('data-niuexa-include-ready') !== 'footer') {
         try {
-            footerPlaceholder.innerHTML = footerHTML;
+            if (footerPlaceholder.getAttribute('data-niuexa-static-include') !== 'footer') footerPlaceholder.innerHTML = footerHTML;
+            footerPlaceholder.setAttribute('data-niuexa-include-ready', 'footer');
         } catch (error) {
             console.error('Failed to load footer:', error);
             footerPlaceholder.innerHTML = '<div class="error-placeholder">Footer failed to load.</div>';

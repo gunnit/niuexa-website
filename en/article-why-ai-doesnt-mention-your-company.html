@@ -33,7 +33,7 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="language" content="English">
     <meta property="article:published_time" content="2026-03-28T00:00:00+01:00">
-    <meta property="article:modified_time" content="2026-10-10T00:00:00+02:00">
+    <meta property="article:modified_time" content="2026-11-05T00:00:00+01:00">
     <meta property="article:author" content="Gregor Maric">
     <meta property="article:section" content="AI SEO">
 
@@ -103,7 +103,7 @@
         },
         "datePublished": "2026-03-28",
         "image": ["https://niuexa.ai/img/og-default.png"],
-        "dateModified": "2026-10-10",
+        "dateModified": "2026-11-05",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://niuexa.ai/en/article-why-ai-doesnt-mention-your-company.html"
@@ -147,8 +147,8 @@
             {
                 "@type": "HowToStep",
                 "position": 3,
-                "name": "Create an llms.txt File",
-                "text": "Publish an llms.txt file at your domain root with a concise company description, your key products and services, links to your most important pages and your areas of expertise. Use markdown formatting and keep it short and current."
+                "name": "Keep a Public Reference File Only If It Is Useful",
+                "text": "An llms.txt file can serve as an optional public reference with a concise company description and important links. Keep it consistent if you publish one. It is not a prerequisite for Google’s AI search features and does not replace accessible pages, internal links or provider-specific access checks. Google’s requirements do not call for special AI text files."
             },
             {
                 "@type": "HowToStep",
@@ -160,7 +160,7 @@
                 "@type": "HowToStep",
                 "position": 5,
                 "name": "Add Article Schema to Key Content",
-                "text": "Give every article, blog post and resource page Article schema with headline, description, author (with credentials), datePublished, dateModified and publisher. Add Speakable markup to indicate the sections best suited to voice and AI extraction."
+                "text": "Use structured data that describes the visible page and fits its content type. Article can describe an article, its author and dates; Organization can identify the publisher. Google does not require special structured data for AI Overviews or AI Mode. Markup does not guarantee an AI citation."
             },
             {
                 "@type": "HowToStep",
@@ -239,7 +239,7 @@
                 "name": "How does the Niuexa AI visibility check work?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "You enter your site and the check runs more than 30 technical checks on your homepage across five dimensions: technical, structural, content, performance and media, from robots.txt rules to Core Web Vitals to Schema.org completeness. Each check is marked as passed, failed or warning, and the report lists the fixes sorted by impact. You can try it at niuexa.ai/en/ai-readiness-tool.html."
+                    "text": "The check analyses your homepage across six dimensions: technical, structural, content, performance, media and accessibility, and AI-specific checks. It reports measured checks as passed or failed and prioritises supported fixes. PageSpeed results are lab measurements; unavailable or inapplicable checks are left out of the score, and unproven signals are shown separately without affecting it. The report does not establish an AI citation. You can try it at niuexa.ai/en/ai-readiness-tool.html."
                 }
             },
             {
@@ -278,7 +278,7 @@
                     <span class="stat">Actionable 10-step checklist</span>
                 </div>
                 <div class="article-meta">
-                    <p class="author-attribution">By <a href="/en/gregor-maric.html">Gregor Maric</a>, CEO &amp; Co-Founder of Niuexa, working in business process automation since 2012 (<a href="https://www.linkedin.com/in/maricgregor/" target="_blank" rel="noopener">LinkedIn profile</a>). Reviewed by Roberto Botto, Co-Founder. Last updated: <time datetime="2026-10-10">October 10, 2026</time>.</p>
+                    <p class="author-attribution">By <a href="/en/gregor-maric.html">Gregor Maric</a>, CEO &amp; Co-Founder of Niuexa, working in business process automation since 2012 (<a href="https://www.linkedin.com/in/maricgregor/" target="_blank" rel="noopener">LinkedIn profile</a>). Original editorial review by Roberto Botto, Co-Founder. Last updated: <time datetime="2026-11-05">November 5, 2026</time>.</p>
                     <time datetime="2026-03-28">March 28, 2026</time>
                 </div>
             </div>
@@ -600,7 +600,7 @@ has three core pillars...&lt;/p&gt;</code></pre>
                     <p>Niuexa built the <a href="/en/ai-readiness-tool.html"><strong>AI visibility check</strong></a> because companies were guessing at why AI platforms ignored them. It replaces guesswork with a structured report on how AI assistants can find, understand and cite a site.</p>
 
                     <h3>What the AI Visibility Check Looks At</h3>
-                    <p>The free version analyses your homepage with more than 30 technical checks across five dimensions and produces a report with scores and prioritised recommendations:</p>
+                    <p>The free version analyses your homepage with more than 30 technical checks across six dimensions and produces a report with scores and prioritised recommendations:</p>
 
                     <div class="tool-comparison">
                         <div class="tool-card">
@@ -617,16 +617,22 @@ has three core pillars...&lt;/p&gt;</code></pre>
                         </div>
                         <div class="tool-card">
                             <h4>Performance</h4>
-                            <p>Core Web Vitals, page load speed and mobile responsiveness.</p>
+                            <p>Measured PageSpeed lab results. Missing performance data is reported as unmeasured; a lab run does not establish real-user Core Web Vitals.</p>
                         </div>
                         <div class="tool-card">
                             <h4>Media</h4>
                             <p>Image alt text, image optimisation, Open Graph tags and social metadata.</p>
                         </div>
+                        <div class="tool-card">
+                            <h4>AI-specific checks</h4>
+                            <p>Search, user-fetch and training access considered separately, clear summaries, attributed claims and content dates. Unproven signals are shown separately and do not affect the score.</p>
+                        </div>
                     </div>
 
+                    <p>The <a href="https://aeo.niuexa.ai/documentation/scoring" target="_blank" rel="noopener noreferrer">current scoring documentation</a> explains all six dimensions, unmeasured results and unproven signals. Scores describe diagnostic checks, not observed citations.</p>
+
                     <h3>How to Read the Report</h3>
-                    <p>Each check is marked as passed, failed or warning, and the failed checks come with recommendations sorted by impact. A score is a diagnosis, not a promise: it tells you what AI crawlers can and cannot read, not whether a model will cite you. Run the check again after each round of changes, and test your target questions on the AI platforms themselves to see what changed.</p>
+                    <p>Applicable checks are marked passed or failed. Checks that could not be measured or do not apply are left out of the score; unproven signals are shown separately and do not affect it. The score describes diagnostic observations and their limits, not a verified crawler visit or a promise of an AI citation. Run the check again after changes, and test documented questions on the relevant AI platforms separately.</p>
 
                     <div class="pro-tips">
                         <h4>Try It Now</h4>
@@ -644,14 +650,14 @@ has three core pillars...&lt;/p&gt;</code></pre>
                     <h3>Step 2: Review Search-Crawler Access</h3>
                     <p>Check the complete robots.txt rules for the relevant search crawler and retain intentional path exclusions. Review CDN or firewall blocks and verify delivery to legitimate provider requests. Decide training permissions and user-requested access separately. An allowed crawl does not prove indexing or citation.</p>
 
-                    <h3>Step 3: Create an llms.txt File</h3>
-                    <p>Publish an llms.txt file at your domain root with a concise company description, your key products and services, links to your most important pages and your areas of expertise. Use markdown formatting and keep it short and current.</p>
+                    <h3>Step 3: Keep a Public Reference File Only If It Is Useful</h3>
+                    <p>An llms.txt file can serve as an optional public reference with a concise company description and important links. Keep it consistent if you publish one. It is not a prerequisite for Google’s AI search features and does not replace accessible pages, internal links or provider-specific access checks. <a href="https://developers.google.com/search/docs/appearance/ai-features" target="_blank" rel="noopener noreferrer">Google’s requirements</a> do not call for special AI text files.</p>
 
                     <h3>Step 4: Implement Organization Schema</h3>
                     <p>Add a complete Organization schema to your homepage: company name, URL, logo, founding date, description, social profiles (sameAs), contact information and area served. This is the structured data AI uses when someone asks "What does [your company] do?"</p>
 
                     <h3>Step 5: Add Article Schema to Key Content</h3>
-                    <p>Give every article, blog post and resource page Article schema with headline, description, author (with credentials), datePublished, dateModified and publisher. Add Speakable markup to indicate the sections best suited to voice and AI extraction.</p>
+                    <p>Use structured data that describes the visible page and fits its content type. Article can describe an article, its author and dates; Organization can identify the publisher. Google does not require special structured data for AI Overviews or AI Mode. Markup does not guarantee an AI citation.</p>
 
                     <h3>Step 6: Restructure Content with Answer-First Format</h3>
                     <p>Go through your top 10 to 20 pages. Rewrite headings as natural-language questions. Add a concise answer of 40 to 80 words as the first paragraph under each heading, followed by detail, data and examples. This is the content change with the best return for AI visibility.</p>
@@ -749,7 +755,7 @@ has three core pillars...&lt;/p&gt;</code></pre>
 
                     <div class="faq-item">
                         <h3>How does the Niuexa AI visibility check work?</h3>
-                        <p>You enter your site and the check runs more than 30 technical checks on your homepage across five dimensions: technical, structural, content, performance and media, from robots.txt rules to Core Web Vitals to Schema.org completeness. Each check is marked as passed, failed or warning, and the report lists the fixes sorted by impact. You can try it at <a href="/en/ai-readiness-tool.html">niuexa.ai/en/ai-readiness-tool.html</a>.</p>
+                        <p>The check analyses your homepage across six dimensions: technical, structural, content, performance, media and accessibility, and AI-specific checks. It reports measured checks as passed or failed and prioritises supported fixes. PageSpeed results are lab measurements; unavailable or inapplicable checks are left out of the score, and unproven signals are shown separately without affecting it. The report does not establish an AI citation. You can try it at <a href="/en/ai-readiness-tool.html">niuexa.ai/en/ai-readiness-tool.html</a>.</p>
                     </div>
 
                     <div class="faq-item">
@@ -804,7 +810,7 @@ has three core pillars...&lt;/p&gt;</code></pre>
     <div class="page-meta author-bio" itemscope itemtype="https://schema.org/Person">
         <h3>Author</h3>
         <p><strong itemprop="name">Gregor Maric</strong>, <span itemprop="jobTitle">CEO and Co-Founder</span> of <a href="https://niuexa.ai" itemprop="worksFor">Niuexa</a>, has worked in business process automation since 2012. <a href="/en/gregor-maric.html" rel="author">Full profile</a> · <a href="https://www.linkedin.com/company/niuexa" rel="noopener" target="_blank">LinkedIn</a></p>
-        <p>Published: <time datetime="2026-03-28">March 28, 2026</time>. Last updated: <time datetime="2026-10-10">October 10, 2026</time>.</p>
+        <p>Published: <time datetime="2026-03-28">March 28, 2026</time>. Last updated: <time datetime="2026-11-05">November 5, 2026</time>.</p>
     </div>
 
     <!-- CTA Section -->
