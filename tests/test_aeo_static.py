@@ -20,7 +20,7 @@ import unittest
 
 from aeo_rules import ROOT, evaluate, load_articles, scoreboard
 
-EXPECTED_ARTICLE_COUNT = 32
+EXPECTED_ARTICLE_COUNT = 34
 
 
 class AeoStaticTests(unittest.TestCase):
