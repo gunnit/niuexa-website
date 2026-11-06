@@ -122,7 +122,7 @@
   </url>
   <url>
     <loc>https://niuexa.ai/articolo-monitoraggio-visibilita-ai.html</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -302,7 +302,7 @@
   </url>
   <url>
     <loc>https://niuexa.ai/research.html</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -369,5 +369,20 @@
   <url>
     <loc>https://niuexa.ai/code-week-ai-2026.html</loc>
     <lastmod>2026-10-10</lastmod>
+  </url>
+  <url>
+    <loc>https://niuexa.ai/articolo-ordini-email-pdf-erp.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://niuexa.ai/articolo-mcp-api-webhook-integrazione-aziendale.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://niuexa.ai/articolo-valutare-preventivo-aeo-geo.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <priority>0.7</priority>
   </url>
 </urlset>

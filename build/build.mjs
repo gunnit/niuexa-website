@@ -233,7 +233,9 @@ function renderSchema(article, ctx) {
     '@type': article.type ?? 'Article',
     headline: article.h1 ?? article.title,
     description: article.description,
-    author: personSchema(ctx.author),
+    author: ctx.author.type === 'Organization'
+      ? { '@type': 'Organization', name: ctx.author.name, url: ctx.author.url }
+      : personSchema(ctx.author),
     publisher: {
       '@type': 'Organization',
       name: site.publisher.name,
@@ -258,10 +260,10 @@ function renderSchema(article, ctx) {
           })),
         }
       : {}),
-    speakable: {
+    ...(article.speakable === false ? {} : { speakable: {
       '@type': 'SpeakableSpecification',
       cssSelector: ['h1', '.tutorial-description', '.quick-answer'],
-    },
+    } }),
   };
 
   const blocks = [jsonld(articleSchema)];
@@ -332,6 +334,9 @@ function renderHeader(article, ctx) {
     `${pad}${INDENT}<div class="tutorial-badge">${escapeHtml(article.badge ?? article.section)}</div>`,
     `${pad}${INDENT}<h1>${renderInline(article.h1 ?? article.title)}</h1>`,
     `${pad}${INDENT}<p class="tutorial-description">${renderInline(article.standfirst ?? article.description)}</p>`,
+    ...(ctx.author.type === 'Organization' ? [
+      `${pad}${INDENT}<p class="article-meta">A cura di <a href="${attr(ctx.author.url)}">${escapeHtml(ctx.author.name)}</a></p>`,
+    ] : []),
     `${pad}${INDENT}<div class="tutorial-stats">${stats}${dateStat}</div>`,
     `${pad}</div></div></section>`,
   ].join('\n');

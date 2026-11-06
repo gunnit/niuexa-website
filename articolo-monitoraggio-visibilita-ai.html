@@ -79,7 +79,7 @@
         },
         "datePublished": "2025-01-08",
         "image": ["https://niuexa.ai/img/og-default.png"],
-        "dateModified": "2026-11-05",
+        "dateModified": "2026-11-06",
         "inLanguage": "it-IT",
         "mainEntityOfPage": {
             "@type": "WebPage",
@@ -93,7 +93,7 @@
     {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        "dateModified": "2026-11-05",
+        "dateModified": "2026-11-06",
         "mainEntity": [
             {
                 "@type": "Question",
@@ -178,7 +178,7 @@
                 <div class="tutorial-stats">
                     <span class="stat">18 minuti di lettura</span>
                     <span class="stat">Per marketing manager</span>
-                    <span class="stat">Aggiornato il <time datetime="2026-11-05">5 novembre 2026</time></span>
+                    <span class="stat">Aggiornato il <time datetime="2026-11-06">6 novembre 2026</time></span>
                 </div>
             </div>
         </div>
@@ -196,11 +196,12 @@
 
                 <section id="fonti-e-misure" class="content-section">
                     <h2>Quale misura ti serve prima di scegliere uno strumento?</h2>
-                    <p>Un responsabile marketing può vedere più citazioni e meno visite nello stesso periodo: i due dati rispondono a domande diverse. Costruisci un report con quattro righe distinte, ciascuna con fonte, periodo, perimetro e unità di misura.</p>
+                    <p>Un responsabile marketing può vedere più citazioni e meno visite nello stesso periodo: i due dati rispondono a domande diverse. Costruisci un report che distingua l'esposizione nei servizi Google, le citazioni Bing, le risposte del campione, le sessioni e i contatti; per ogni riga conserva fonte, periodo, perimetro e unità di misura.</p>
                     <table class="comparison-table">
-                        <caption>Quattro misure da leggere insieme, mantenendo le rispettive definizioni</caption>
+                        <caption>Esposizione, citazioni, risposte, visite e contatti: misure con definizioni diverse</caption>
                         <thead><tr><th scope="col">Domanda</th><th scope="col">Fonte</th><th scope="col">Dato utile</th><th scope="col">Limite da conservare</th></tr></thead>
                         <tbody>
+                            <tr><th scope="row">I link compaiono nelle funzioni AI di Google Search?</th><td>Search Console, report Rendimento dell'AI generativa (Ricerca)</td><td>Impressioni per pagine, paesi, dispositivi e date, secondo i filtri selezionati</td><td>Riguarda AI Overviews e AI Mode supportati; le impressioni sono già comprese nel rendimento complessivo e non sono sessioni o contatti</td></tr>
                             <tr><th scope="row">Il sito è usato come fonte?</th><td>Bing Webmaster Tools, AI Performance</td><td>Citazioni visibili, URL e media giornaliera delle pagine citate</td><td>Copilot, sintesi AI di Bing e partner supportati; non tutti gli assistenti. Le citazioni non sono clic</td></tr>
                             <tr><th scope="row">Il marchio compare sulle domande dei clienti?</th><td>Test manuali o piattaforma di monitoraggio</td><td>Presenza del marchio, fonte citata e correttezza su un insieme dichiarato di prove</td><td>Il risultato dipende da domande, piattaforma, lingua, modalità e ripetizioni; vale per il campione osservato</td></tr>
                             <tr><th scope="row">Arrivano visite al sito?</th><td>GA4, acquisizione traffico</td><td>Sessioni per origine/mezzo della sessione e pagina di arrivo</td><td>Non tutte le visite conservano un referral riconoscibile; una sessione non è una citazione</td></tr>
@@ -208,6 +209,7 @@
                         </tbody>
                     </table>
                     <p>Le <a href="https://www.bing.com/webmasters/help/ai-performance-9f8e7d6c" target="_blank" rel="noopener noreferrer">definizioni ufficiali di Bing AI Performance</a> precisano che i dati sono aggregati e campionati: le somme delle tabelle di pagine e frasi possono differire dalla serie temporale. La media delle pagine citate è giornaliera, non il numero di URL unici dell'intero periodo. Le <em>grounding query</em> sono frasi usate nel recupero delle fonti, non i prompt completi degli utenti. La <a href="https://blogs.bing.com/search/2026/6/New-AI-Visibility-Insights-in-Bing-Webmaster-Tools-Intents-Topics-Citation-Share-Compare/" target="_blank" rel="noopener noreferrer">Citation Share di Bing</a> riguarda il bacino di citazioni di una specifica frase: non è quota di traffico e non va mediata tra frasi diverse.</p>
+                    <p>Il <a href="https://support.google.com/webmasters/answer/16984139" target="_blank" rel="noopener noreferrer">report Google sull'AI generativa in Ricerca</a> misura impressioni: non attribuirgli clic, prompt completi o conversioni che non documenta. Può non comparire quando le impressioni sono insufficienti. Le date giornaliere sono in Pacific Time e grafico per proprietà e tabella per pagina possono differire per aggregazione. Conserva anche la vista originale: nell'export i simboli di dato non disponibile possono diventare zero. Google precisa che questi dati sono già nel rendimento complessivo, quindi non sommarli una seconda volta.</p>
                     <p>In <a href="https://support.google.com/analytics/answer/12923437" target="_blank" rel="noopener noreferrer">GA4 usa le dimensioni dell'acquisizione della sessione</a>, come <em>Origine/mezzo della sessione</em>, quando confronti visite e risultati della stessa coorte. Non sostituirle con l'origine del primo utente. Per un tasso di sessioni con un evento chiave, conta le sessioni che lo contengono e dividile per le sessioni della stessa coorte; il numero di eventi ripetuti è un'altra misura.</p>
 
                     <h3>Un esempio per evitare percentuali fuorvianti</h3>
@@ -220,7 +222,7 @@
                         <li>Segna i giorni assenti come mancanti, non come zero. Se le somme di due viste non coincidono, mantienile separate e verifica campionamento e perimetro.</li>
                         <li>Controlla gli URL storici fino alla destinazione canonica. Un calo dopo una modifica è un'osservazione da indagare, non una prova della sua causa.</li>
                     </ol>
-                    <p>Questa scheda è anche una richiesta concreta da inviare a un fornitore: quali piattaforme copre il piano, quante domande e ripetizioni comprende, quali risposte e URL puoi esportare e come segnala dati mancanti o campionati. Prezzo e frequenza, da soli, non rendono due strumenti equivalenti.</p>
+                    <p>Questa scheda è anche una richiesta concreta da inviare a un fornitore: quali piattaforme copre il piano, quante domande e ripetizioni comprende, quali risposte e URL puoi esportare e come segnala dati mancanti o campionati. Prezzo e frequenza, da soli, non rendono due strumenti equivalenti. Per trasformare queste verifiche in un incarico confrontabile, usa la <a href="articolo-valutare-preventivo-aeo-geo.html">scheda per valutare un preventivo AEO/GEO</a>.</p>
                     <p>Per decidere quale intervento valutare, collega le misure alla <a href="articolo-seo-aeo-geo-guida-completa.html">distinzione tra SEO, AEO e GEO</a>. Se una fonte non compare, verifica anche la <a href="articolo-visibilita-chatgpt-perplexity-claude.html">disponibilità del sito per i diversi assistenti</a>: accesso tecnico e presenza nelle risposte richiedono verifiche distinte.</p>
                 </section>
 
