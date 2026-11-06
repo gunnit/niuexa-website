@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
+    <!-- Google Tag Manager -->
+    <script data-consent-guard>(function (w) {var held = [];var granted = false;var hosts = /(^|\.)(hs-scripts\.com|hs-analytics\.net|hs-banner\.com|hscollectedforms\.net|hsforms\.(com|net)|hubspot\.com|apollo\.io|aplo-evnt\.com)$/i;var proto = w.Node && w.Node.prototype;if (!proto) return;var append = proto.appendChild;var insert = proto.insertBefore;try {var saved = JSON.parse(w.localStorage.getItem('niuexa_cookie_consent'));granted = !!(saved && saved.marketing === true);} catch (e) { /* no saved choice */ }function hold(node) {if (granted || !node || node.nodeName !== 'SCRIPT' || !node.src) return false;try { return hosts.test(new URL(node.src, w.location.href).hostname); } catch (e) { return false; }}proto.appendChild = function (node) {if (hold(node)) { held.push([this, node, null]); return node; }return append.call(this, node);};proto.insertBefore = function (node, ref) {if (hold(node)) { held.push([this, node, ref]); return node; }return insert.call(this, node, ref);};w.addEventListener('niuexa:consent', function (event) {if (!event.detail || event.detail.marketing !== true) return;granted = true;held.splice(0).forEach(function (item) {if (item[2] && item[2].parentNode === item[0]) insert.call(item[0], item[1], item[2]);else append.call(item[0], item[1]);});});})(window);</script>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KG9S42S4');</script>
+
+    <title>Audit crawler AI: accesso, HTML e canonical | NIUEXA</title>
+    <meta name="description" content="Una scheda tecnica per controllare accesso dei crawler AI, robots, HTML ricevuto, rendering e canonical, con prove e priorità di correzione verificabili.">
+    <meta name="keywords" content="audit accesso crawler AI, verificare robots crawler AI, HTML canonical indicizzazione AI, sito accessibile ChatGPT ricerca, verificare Googlebot Bingbot">
+    <meta name="author" content="Niuexa">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://niuexa.ai/articolo-audit-accesso-crawler-ai.html">
+    <meta property="og:title" content="Il crawler riceve davvero la pagina che vuoi pubblicare?">
+    <meta property="og:description" content="Una scheda per collegare richiesta, robots, corpo HTML, rendering, canonical e prova del motore, con quattro casi diagnostici fittizi.">
+    <meta property="og:image" content="https://niuexa.ai/img/articles/audit-accesso-crawler-ai/crawler-access-og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Audit dei crawler AI: richiesta, contenuto ricevuto e prove distinte">
+    <meta property="og:locale" content="it_IT">
+    <meta property="article:published_time" content="2026-11-06">
+    <meta property="article:modified_time" content="2026-11-06">
+    <meta property="article:author" content="Niuexa">
+    <meta property="article:section" content="AEO e GEO">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Il crawler riceve davvero la pagina che vuoi pubblicare?">
+    <meta name="twitter:description" content="Una scheda per collegare richiesta, robots, corpo HTML, rendering, canonical e prova del motore, con quattro casi diagnostici fittizi.">
+    <meta name="twitter:image" content="https://niuexa.ai/img/articles/audit-accesso-crawler-ai/crawler-access-og.png">
+    <meta name="twitter:image:alt" content="Audit dei crawler AI: richiesta, contenuto ricevuto e prove distinte">
+
+    <link rel="canonical" href="https://niuexa.ai/articolo-audit-accesso-crawler-ai.html">
+    <link rel="alternate" hreflang="it" href="https://niuexa.ai/articolo-audit-accesso-crawler-ai.html">
+    <link rel="alternate" hreflang="it-it" href="https://niuexa.ai/articolo-audit-accesso-crawler-ai.html">
+    <link rel="alternate" hreflang="x-default" href="https://niuexa.ai/articolo-audit-accesso-crawler-ai.html">
+    <link rel="icon" type="image/png" sizes="192x192" href="/img/niuexa-icon-192.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+    <link rel="stylesheet" href="styles.css?v=20261029">
+    <link rel="stylesheet" href="tutorial.css?v=20260812">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Audit di accesso dei crawler AI: quali prove controllare prima di cambiare il sito",
+      "description": "Una scheda tecnica per controllare accesso dei crawler AI, robots, HTML ricevuto, rendering e canonical, con prove e priorità di correzione verificabili.",
+      "author": {
+        "@type": "Organization",
+        "name": "Niuexa",
+        "url": "https://niuexa.ai/chi-siamo.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Niuexa",
+        "url": "https://niuexa.ai",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://niuexa.ai/img/niuexalogo.png"
+        }
+      },
+      "datePublished": "2026-11-06",
+      "dateModified": "2026-11-06",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://niuexa.ai/articolo-audit-accesso-crawler-ai.html"
+      },
+      "image": [
+        "https://niuexa.ai/img/articles/audit-accesso-crawler-ai/crawler-access-og.png"
+      ],
+      "articleSection": "AEO e GEO",
+      "keywords": [
+        "audit accesso crawler AI",
+        "verificare robots crawler AI",
+        "HTML canonical indicizzazione AI",
+        "sito accessibile ChatGPT ricerca",
+        "verificare Googlebot Bingbot"
+      ],
+      "inLanguage": "it-IT",
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "OpenAI, Overview of OpenAI Crawlers",
+          "url": "https://developers.openai.com/api/docs/bots"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Google, How Google interprets the robots.txt specification",
+          "url": "https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Google, Block Search indexing with noindex",
+          "url": "https://developers.google.com/search/docs/crawling-indexing/block-indexing"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Google, Specify a canonical URL",
+          "url": "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Google, JavaScript SEO basics",
+          "url": "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Google, Verify requests from Google crawlers and fetchers",
+          "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/verify-google-requests"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Bing, How to Verify Bingbot",
+          "url": "https://www.bing.com/webmasters/help/how-to-verify-bingbot-3905dc26"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Google, Common crawlers and Google-Extended",
+          "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers#google-extended"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Anthropic, Crawlers and site-owner controls",
+          "url": "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Perplexity, Perplexity Crawlers",
+          "url": "https://docs.perplexity.ai/docs/resources/perplexity-crawlers"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Google, URL Inspection tool",
+          "url": "https://support.google.com/webmasters/answer/9012289"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "IndexNow, Documentation",
+          "url": "https://www.indexnow.org/documentation"
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Un HTTP 200 dimostra che il crawler ha letto la pagina?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Descrive la risposta alla richiesta controllata. Va verificato anche il corpo ricevuto: potrebbe essere una verifica anti-bot, un contenitore senza testo o una pagina diversa. Per attribuire la visita a un crawler occorre inoltre verificarne l’identità con il metodo del provider."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Basta cambiare lo user-agent per provare l’accesso di un bot?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Quel valore è dichiarato dal client e può essere imitato. Una richiesta simulata può aiutare a riprodurre una differenza, ma non prova il trattamento di un crawler autentico proveniente dalla sua infrastruttura."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Il gruppo con User-agent asterisco vale anche quando esiste un gruppo specifico?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non presumere che i gruppi si sommino. Per Google, il gruppo specifico applicabile non viene combinato con quello globale; gruppi specifici equivalenti possono essere uniti. Per ciascun provider controlla la sua documentazione e l’intero file, sul corretto host e protocollo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Devo permettere l’addestramento per comparire nella ricerca AI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non trattare le due scelte come equivalenti. OpenAI distingue OAI-SearchBot e GPTBot; Anthropic distingue Claude-SearchBot e ClaudeBot. Google-Extended riguarda gli usi Gemini documentati e non determina l’inclusione in Google Search. Valuta agente, prodotto e scopo separatamente."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Dopo la correzione, una sitemap o IndexNow confermano l’indicizzazione?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Una notifica ricevuta non è una conferma di scansione o indicizzazione. Verifica prima la pagina pubblica corretta, poi conserva il riscontro del servizio con data e tipo di controllo. La citazione in una risposta AI richiede un’ulteriore osservazione."
+          }
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://niuexa.ai/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ricerca",
+          "item": "https://niuexa.ai/research.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Audit di accesso dei crawler AI",
+          "item": "https://niuexa.ai/articolo-audit-accesso-crawler-ai.html"
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9S42S4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <div id="navigation-placeholder"></div>
+    <main id="main-content">
+        <section class="tutorial-header"><div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="research.html">Ricerca</a> / <span>Audit di accesso dei crawler AI</span></nav><div class="tutorial-intro">
+            <div class="tutorial-badge">AEO e GEO · Accesso tecnico</div>
+            <h1>Audit di accesso dei crawler AI: quali prove controllare prima di cambiare il sito</h1>
+            <p class="tutorial-description">La pagina si apre nel browser, ma questo non dice quale contenuto abbia ricevuto un motore. Un audit utile collega richiesta, regole applicabili, corpo restituito e destinazione canonica, poi distingue le verifiche mancanti dai difetti riproducibili.</p>
+            <p class="article-meta">A cura di <a href="https://niuexa.ai/chi-siamo.html">Niuexa</a></p>
+            <div class="tutorial-stats"><span class="stat">11 minuti di lettura</span><span class="stat">Per responsabili web, SEO, IT e agenzie</span><span class="stat">Registro di audit e casi diagnostici</span><span class="stat">Aggiornato il <time datetime="2026-11-06">6 novembre 2026</time></span></div>
+        </div></div></section>
+
+        <article class="tutorial-content"><div class="container"><div class="content-wrapper">
+            <nav class="article-toc" aria-labelledby="article-toc-heading">
+                <h2 id="article-toc-heading">Indice</h2>
+                <ul>
+                    <li><a href="#risposta-rapida">Risposta rapida</a></li>
+                    <li><a href="#definisci-quale-contenuto-deve-arrivare-e-a-quale-servizio">Definisci quale contenuto deve arrivare e a quale servizio</a></li>
+                    <li><a href="#tieni-uniti-richiesta-risposta-e-corpo-effettivamente-ricevu">Tieni uniti richiesta, risposta e corpo effettivamente ricevuto</a></li>
+                    <li><a href="#leggi-il-gruppo-robots-applicabile-non-soltanto-un-allow">Leggi il gruppo robots applicabile, non soltanto un Allow</a></li>
+                    <li><a href="#associa-ogni-agente-al-suo-prodotto-e-scopo">Associa ogni agente al suo prodotto e scopo</a></li>
+                    <li><a href="#risolvi-il-canonical-e-confronta-html-iniziale-e-rendering">Risolvi il canonical e confronta HTML iniziale e rendering</a></li>
+                    <li><a href="#usa-un-registro-copiabile-per-distinguere-quattro-diagnosi">Usa un registro copiabile per distinguere quattro diagnosi</a></li>
+                    <li><a href="#verifica-lidentita-del-crawler-prima-di-attribuirgli-una-vis">Verifica l'identità del crawler prima di attribuirgli una visita</a></li>
+                    <li><a href="#chiudi-il-difetto-tecnico-e-registra-separatamente-gli-esiti">Chiudi il difetto tecnico e registra separatamente gli esiti del motore</a></li>
+                    <li><a href="#faq">Domande sull’audit di accesso dei crawler AI</a></li>
+                </ul>
+            </nav>
+
+            <section class="content-section quick-answer">
+                <h2 id="risposta-rapida">Come verificare l’accesso dei crawler AI?</h2>
+                <p>Per ogni URL registra <strong>richiesta, regole applicabili e contenuto ricevuto</strong>. Controlla redirect, direttive, HTML iniziale, rendering e destinazione canonica. Una prova con user-agent dichiarato è una simulazione: per attribuire una visita al crawler servono evidenze di identità e log. Conserva separatamente stato nell’indice, notifiche inviate e citazioni effettivamente osservate.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="definisci-quale-contenuto-deve-arrivare-e-a-quale-servizio">Definisci quale contenuto deve arrivare e a quale servizio</h2>
+                <p>Un audit non comincia con «l’AI non vede il sito». Comincia con un URL, un fatto che dovrebbe essere leggibile e un contesto di richiesta. Scegli una pagina pubblica e indica titolo, informazione principale e versione attesa. Se il sito ha più lingue, host o sottodomini, trattali come destinazioni distinte. Una prova sulla home non descrive automaticamente schede, articoli o PDF.</p>
+                <p>La <a href="articolo-visibilita-chatgpt-perplexity-claude.html">guida alla visibilità su ChatGPT, Perplexity e Claude</a> presenta il quadro dei servizi. Qui il risultato è più operativo: un registro che permetta all’agenzia o al responsabile web di <strong>riprodurre il problema, correggere il livello giusto e verificarne la chiusura</strong>.</p>
+                <p><strong>Nota editoriale.</strong> Metodo della Redazione Niuexa realizzato con assistenza AI. Fonti consultate il 6 novembre 2026. Gli esempi seguenti sono inventati; non attribuiscono errori a questo sito e non includono visite autentiche di motori.</p>
+                <p>Scegli un campione per template e condizioni: pagina informativa, pagina di servizio, variante linguistica e contenuto con script rilevanti. Scrivi perché ogni caso entra nel campione. Aggiungi pagine segnalate da errori riproducibili, senza chiamare l’intero sito «verificato» dopo pochi URL.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="tieni-uniti-richiesta-risposta-e-corpo-effettivamente-ricevu">Tieni uniti richiesta, risposta e corpo effettivamente ricevuto</h2>
+                <p>Per ogni tentativo conserva data e ora con fuso, URL iniziale, metodo, contesto di sessione, user-agent dichiarato, catena dei redirect, URL finale e stato HTTP. Aggiungi header pertinenti, riferimento al corpo ricevuto e confronto con il fatto atteso. Se conservi un’impronta del file, mantieni anche una prova leggibile: l’impronta rileva differenze, ma non spiega quale contenuto manca.</p>
+                <table class="comparison-table">
+                    <thead><tr><th>Parte del controllo</th><th>Evidenza da conservare</th><th>Conclusione che resta separata</th></tr></thead>
+                    <tbody>
+                        <tr><td>Richiesta pubblica</td><td>Parametri osservabili, redirect, header e corpo</td><td>Identità di un crawler autentico</td></tr>
+                        <tr><td>Contenuto</td><td>Passaggio atteso e passaggio ricevuto</td><td>Inclusione nell’indice</td></tr>
+                        <tr><td>Regole</td><td>File e direttive applicabili con data</td><td>Ricezione effettiva da parte del motore</td></tr>
+                        <tr><td>Destinazione</td><td>Canonical dichiarato, risolto e controllato</td><td>Canonical scelto dal motore</td></tr>
+                        <tr><td>Motore</td><td>Servizio, tipo di controllo, data e risultato</td><td>Citazione in una risposta AI</td></tr>
+                    </tbody>
+                </table>
+                <p>Un <code>200</code> con una schermata di verifica, un modulo di login o il solo contenitore dell’applicazione non consegna necessariamente l’articolo atteso. Non basta cercare una parola: confronta il fatto che deve arrivare. Un test <code>HEAD</code> può essere utile per alcuni header, ma non restituisce il corpo da confrontare; per quella prova occorre una richiesta che lo riceva.</p>
+                <p>Ripeti le condizioni che sembrano influire, una alla volta. Browser autenticato e sessione anonima possono seguire percorsi diversi. La differenza va registrata, senza attribuirla subito al firewall: potrebbero intervenire cache, template, personalizzazione o autorizzazioni previste.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="leggi-il-gruppo-robots-applicabile-non-soltanto-un-allow">Leggi il gruppo robots applicabile, non soltanto un Allow</h2>
+                <p>Acquisisci il <code>robots.txt</code> relativo a host, protocollo e porta controllati. La <a href="https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec" target="_blank" rel="noopener">documentazione Google</a> spiega che il gruppo specifico viene selezionato senza combinarlo con quello globale; gruppi specifici equivalenti possono essere uniti. Per gli altri provider verifica le regole documentate. Non dedurre che un’esclusione sotto <code>User-agent: *</code> resti attiva in ogni gruppo dedicato.</p>
+                <p>Registra agente valutato, gruppi rilevanti, percorso e regola che motiva l’esito. Un <code>Allow: /</code> isolato non descrive l’intero file. Conserva le esclusioni intenzionali e controlla anche il percorso di eventuali risorse necessarie alla pagina. Il registro deve consentire di spiegare quale regola abbia prodotto la valutazione, non soltanto mostrare un bollino verde.</p>
+                <p>Controlla poi le direttive ricevute nella pagina e negli header. Per Google, <a href="https://developers.google.com/search/docs/crawling-indexing/block-indexing" target="_blank" rel="noopener">noindex può comparire in HTML o in X-Robots-Tag</a>, e il crawler deve poterlo leggere. Bloccare la scansione e impedire l’indicizzazione sono controlli diversi. Prima di rimuovere una direttiva, verifica che la pagina debba davvero essere pubblica nell’indice: una sezione intenzionalmente esclusa non è un difetto da correggere.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="associa-ogni-agente-al-suo-prodotto-e-scopo">Associa ogni agente al suo prodotto e scopo</h2>
+                <p>Il nome del fornitore è troppo generico per decidere una regola. Le <a href="https://developers.openai.com/api/docs/bots" target="_blank" rel="noopener">impostazioni OpenAI</a> distinguono OAI-SearchBot per la ricerca e GPTBot per l’addestramento; ChatGPT-User recupera contenuti in contesti richiesti dall’utente e non determina l’inclusione nella ricerca. Registrare questi ruoli separatamente evita di trasformare una scelta editoriale in un permesso diverso da quello desiderato.</p>
+                <p><a href="https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler" target="_blank" rel="noopener">Anthropic</a> distingue Claude-SearchBot, ClaudeBot e Claude-User. <a href="https://docs.perplexity.ai/docs/resources/perplexity-crawlers" target="_blank" rel="noopener">Perplexity</a> descrive PerplexityBot per i risultati di ricerca e Perplexity-User per visite richieste dall’utente; per quest’ultimo documenta un comportamento generalmente diverso rispetto al robots.txt. Non estendere automaticamente il controllo di un agente agli altri.</p>
+                <p>Per Google Search, esamina Googlebot e le indicazioni del servizio. Il token <a href="https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers#google-extended" target="_blank" rel="noopener">Google-Extended</a> controlla gli usi Gemini documentati, compresi addestramento e grounding, senza incidere sull’inclusione o sul ranking di Google Search. La scheda dell’audit deve quindi nominare il prodotto interessato, non una categoria indistinta «tutti i bot AI».</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="risolvi-il-canonical-e-confronta-html-iniziale-e-rendering">Risolvi il canonical e confronta HTML iniziale e rendering</h2>
+                <p>Registra il valore del canonical esattamente come viene ricevuto e la sua destinazione assoluta risolta nel contesto della pagina. Poi visita quella destinazione: stato finale, eventuali redirect, lingua e contenuto devono essere coerenti con lo scopo. Una pagina accessibile che dichiara un’altra destinazione inesistente richiede una verifica diversa da una pagina che non risponde affatto.</p>
+                <p>Google considera <a href="https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls" target="_blank" rel="noopener">redirect, annotazioni canonical e sitemap come segnali</a>, con peso diverso. Il canonical dichiarato non prova la scelta del motore. Confrontalo con link interni e sitemap e, quando disponibile, con il canonical riportato nell’ispezione del servizio. Non fondere in un solo campo dichiarazione e selezione osservata.</p>
+                <p>Per i fatti essenziali confronta risposta HTML iniziale e pagina renderizzata. La <a href="https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics" target="_blank" rel="noopener">guida JavaScript di Google</a> descrive il proprio processo di rendering; questo non dimostra la capacità di ogni altro crawler. Se un’informazione appare soltanto dopo uno script, annota quale informazione, risorse richieste e risultato osservato. Una schermata corretta nel tuo browser rimane una prova di quel browser.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="usa-un-registro-copiabile-per-distinguere-quattro-diagnosi">Usa un registro copiabile per distinguere quattro diagnosi</h2>
+                <p>Questo <strong>caso è interamente fittizio</strong>. Il dominio <code>azienda.example</code> non rappresenta un cliente. Il fatto dimostrativo <code>F-DEMO-v2</code> corrisponde alla frase «La procedura prevede un controllo prima dell’invio». Il corpo <code>TESTO-DEMO-v2</code> contiene quella frase; <code>CHALLENGE-DEMO</code> contiene soltanto una verifica anti-bot. I riferimenti <code>DEMO/E01</code> e simili sono etichette inventate, non file scaricabili.</p>
+                <p>Nel caso C02, la pagina iniziale dichiara il canonical relativo <code>/guida</code>: risolto sull’host dimostrativo diventa <code>https://azienda.example/guida</code>, che nell’esempio restituisce <code>404</code>. C03 contiene un <code>noindex</code> ricevuto nel controllo anonimo; la sua intenzionalità resta da confermare. C04 consegna il testo atteso nella prova pubblica, ma non possiede log di un bot identificato.</p>
+                <p>Copia il CSV con separatore punto e virgola. Ogni riga descrive una prova, non una pagina certificata per tutti i crawler. <code>NON-VALUTATO</code> e <code>NON-VERIFICATO</code> mantengono esplicite le informazioni mancanti.</p>
+                <pre><code>test_id;url_testato;contesto;metodo;status_finale;fatto_atteso;corpo_osservato;noindex;canonico_risolto;status_canonico;bot_verificato;prova;diagnosi;prossimo_passaggio&#10;C01;https://azienda.example/guida;anonimo;GET;200;F-DEMO-v2;CHALLENGE-DEMO;NON-VALUTATO;NON-VALUTATO;NON-VALUTATO;NON-VERIFICATO;DEMO/E01;testo_atteso_non_consegnato;correlare_regola_e_corpo&#10;C02;https://azienda.example/it/guida;anonimo;GET;200;F-DEMO-v2;TESTO-DEMO-v2;NO;https://azienda.example/guida;404;NON-VERIFICATO;DEMO/E02;destinazione_canonica_inesistente;verificare_canonico_previsto&#10;C03;https://azienda.example/documento;anonimo;GET;200;F-DEMO-v2;TESTO-DEMO-v2;SI;https://azienda.example/documento;200;NON-VERIFICATO;DEMO/E03;direttiva_da_confermare;confermare_intenzione_editoriale&#10;C04;https://azienda.example/scheda;anonimo;GET;200;F-DEMO-v2;TESTO-DEMO-v2;NO;https://azienda.example/scheda;200;NON-VERIFICATO;DEMO/E04;accesso_crawler_non_dimostrato;ottenere_prova_identificata</code></pre>
+                <p>Il CSV è una sintesi: collega ogni riga alla scheda completa della richiesta e ai documenti autorizzati. Non include deliberatamente credenziali, cookie, dati di visitatori o contenuti riservati. La conclusione di C01 riguarda il corpo ricevuto in quella prova; non prova da sola che ogni crawler abbia incontrato la stessa verifica.</p>
+                <p>Stabilisci anche quale evidenza chiude ciascun caso. Questi criteri appartengono all’esempio, non a una certificazione del motore.</p>
+                <table class="comparison-table">
+                    <thead><tr><th>Caso</th><th>Criterio proposto per la chiusura</th></tr></thead>
+                    <tbody>
+                        <tr><td>C01</td><td>La stessa prova riceve il fatto atteso nella versione corretta; eventuale consegna al crawler viene verificata a parte</td></tr>
+                        <tr><td>C02</td><td>Il canonical previsto viene confermato e la sua destinazione pubblica è accessibile e coerente; la scelta del motore rimane un’altra osservazione</td></tr>
+                        <tr><td>C03</td><td>Il responsabile conferma se l’esclusione sia voluta; la direttiva pubblica corrisponde alla decisione, anche se viene mantenuta</td></tr>
+                        <tr><td>C04</td><td>Una richiesta identificata viene collegata a URL, risposta e contenuto, oppure la lacuna resta esplicitamente aperta</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="content-section">
+                <h2 id="verifica-lidentita-del-crawler-prima-di-attribuirgli-una-vis">Verifica l’identità del crawler prima di attribuirgli una visita</h2>
+                <p>Cambiare lo user-agent dichiarato può aiutare a riprodurre una differenza, ma la richiesta resta una simulazione. Nei log cerca richieste pertinenti e verificane la provenienza con il metodo ufficiale applicabile. <a href="https://developers.google.com/crawling/docs/crawlers-fetchers/verify-google-requests" target="_blank" rel="noopener">Google</a> distingue categorie di crawler e fetcher; <a href="https://www.bing.com/webmasters/help/how-to-verify-bingbot-3905dc26" target="_blank" rel="noopener">Bing</a> documenta verifica DNS inversa e diretta e riferimenti IP aggiornati. OpenAI e Perplexity pubblicano riferimenti di rete per i propri agenti.</p>
+                <p>Conserva metodo di verifica, data, URL e riferimento all’evento. Collega il risultato alla risposta effettiva, quando la telemetria lo consente. Un evento di accesso senza corpo dimostra meno di una richiesta identificata con evidenza del contenuto; una visita non presente nel periodo controllato non dimostra un blocco permanente.</p>
+                <p>Se la prova indica un’interferenza, fai identificare regola e perimetro al responsabile dell’infrastruttura. Evita eccezioni generali fondate soltanto sul nome del bot. La chiusura deve dimostrare che l’intervento autorizzato risolve il caso riprodotto e conserva i controlli intenzionali. Senza log o strumenti del provider, mantieni «consegna al crawler non verificata».</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="chiudi-il-difetto-tecnico-e-registra-separatamente-gli-esiti">Chiudi il difetto tecnico e registra separatamente gli esiti del motore</h2>
+                <p>Una segnalazione utile contiene URL, atteso, osservato, evidenza datata, causa confermata o ancora ipotetica, responsabile e prova di accettazione. Dai precedenza all’impedimento riproducibile sul contenuto pubblico previsto. Una difformità intenzionale richiede una decisione editoriale; un controllo mancante richiede raccolta di prove. Non assegnare a entrambi la stessa etichetta «errore SEO».</p>
+                <p>Dopo la correzione ripeti le condizioni rilevanti e verifica la pagina pubblica. Il <a href="articolo-workflow-contenuti-ai-pubblicazione.html">workflow di pubblicazione</a> aiuta a legare il rilascio alla revisione attesa. Conserva poi gli esiti esterni con il loro tipo e data: la <a href="https://support.google.com/webmasters/answer/9012289" target="_blank" rel="noopener">URL Inspection di Google</a> separa dati indicizzati e test live; <a href="https://www.indexnow.org/documentation" target="_blank" rel="noopener">IndexNow</a> specifica che HTTP 200 conferma la ricezione degli URL.</p>
+                <p>L’audit tecnico si chiude quando il difetto nel suo perimetro è corretto e verificato, anche se un motore non ha ancora aggiornato il proprio stato. Per osservare menzioni e citazioni usa invece un <a href="articolo-benchmark-visibilita-ai-template.html">benchmark con risposte conservate</a>. Accesso, indicizzazione, scelta del canonical e citazione hanno prove proprie: mantenerle collegate, senza confonderle, rende il prossimo intervento concreto.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="fonti">Fonti e trasparenza editoriale</h2>
+                <p>Fonti primarie consultate il 6 novembre 2026. Registro, priorità e casi DEMO sono una proposta della Redazione Niuexa preparata con assistenza AI. I casi sono interamente fittizi: non descrivono difetti del sito Niuexa, richieste autentiche di crawler o risultati di clienti.</p>
+                <ul>
+                    <li><a href="https://developers.openai.com/api/docs/bots" target="_blank" rel="noopener">OpenAI, Overview of OpenAI Crawlers</a>, per la separazione fra ricerca, addestramento e visite richieste dagli utenti e i riferimenti IP pubblicati.</li>
+                    <li><a href="https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec" target="_blank" rel="noopener">Google, How Google interprets the robots.txt specification</a>, per ambito di host e protocollo, selezione e combinazione dei gruppi.</li>
+                    <li><a href="https://developers.google.com/search/docs/crawling-indexing/block-indexing" target="_blank" rel="noopener">Google, Block Search indexing with noindex</a>, per direttive HTML o HTTP e necessità che Google possa leggerle.</li>
+                    <li><a href="https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls" target="_blank" rel="noopener">Google, Specify a canonical URL</a>, per segnali di canonicalizzazione e coerenza fra annotazioni e sitemap.</li>
+                    <li><a href="https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics" target="_blank" rel="noopener">Google, JavaScript SEO basics</a>, per HTML iniziale, risorse e rendering di Google Search.</li>
+                    <li><a href="https://developers.google.com/crawling/docs/crawlers-fetchers/verify-google-requests" target="_blank" rel="noopener">Google, Verify requests from Google crawlers and fetchers</a>, per i metodi di verifica e le distinte categorie di richieste Google.</li>
+                    <li><a href="https://www.bing.com/webmasters/help/how-to-verify-bingbot-3905dc26" target="_blank" rel="noopener">Bing, How to Verify Bingbot</a>, per verifica DNS inversa e diretta o riferimenti IP ufficiali aggiornati.</li>
+                    <li><a href="https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers#google-extended" target="_blank" rel="noopener">Google, Common crawlers and Google-Extended</a>, per il controllo degli usi Gemini e la separazione da Google Search.</li>
+                    <li><a href="https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler" target="_blank" rel="noopener">Anthropic, Crawlers and site-owner controls</a>, per i diversi ruoli di ClaudeBot, Claude-SearchBot e Claude-User.</li>
+                    <li><a href="https://docs.perplexity.ai/docs/resources/perplexity-crawlers" target="_blank" rel="noopener">Perplexity, Perplexity Crawlers</a>, per PerplexityBot, visite richieste dagli utenti e riferimenti ufficiali di rete.</li>
+                    <li><a href="https://support.google.com/webmasters/answer/9012289" target="_blank" rel="noopener">Google, URL Inspection tool</a>, per la differenza fra dati conservati nell’indice e test live.</li>
+                    <li><a href="https://www.indexnow.org/documentation" target="_blank" rel="noopener">IndexNow, Documentation</a>, per il significato di ricezione degli URL della risposta HTTP 200.</li>
+                </ul>
+                <p>Ruoli dei bot e controlli dei provider possono cambiare. Adatta le prove all’infrastruttura autorizzata e conserva le esclusioni intenzionali; l’accessibilità non garantisce indicizzazione o citazioni.</p>
+            </section>
+
+            <section class="content-section faq-section">
+                <h2 id="faq">Domande sull’audit di accesso dei crawler AI</h2>
+                <div class="faq-item"><h3>Un HTTP 200 dimostra che il crawler ha letto la pagina?</h3><p>No. Descrive la risposta alla richiesta controllata. Va verificato anche il corpo ricevuto: potrebbe essere una verifica anti-bot, un contenitore senza testo o una pagina diversa. Per attribuire la visita a un crawler occorre inoltre verificarne l’identità con il metodo del provider.</p></div>
+                <div class="faq-item"><h3>Basta cambiare lo user-agent per provare l’accesso di un bot?</h3><p>No. Quel valore è dichiarato dal client e può essere imitato. Una richiesta simulata può aiutare a riprodurre una differenza, ma non prova il trattamento di un crawler autentico proveniente dalla sua infrastruttura.</p></div>
+                <div class="faq-item"><h3>Il gruppo con User-agent asterisco vale anche quando esiste un gruppo specifico?</h3><p>Non presumere che i gruppi si sommino. Per Google, il gruppo specifico applicabile non viene combinato con quello globale; gruppi specifici equivalenti possono essere uniti. Per ciascun provider controlla la sua documentazione e l’intero file, sul corretto host e protocollo.</p></div>
+                <div class="faq-item"><h3>Devo permettere l’addestramento per comparire nella ricerca AI?</h3><p>Non trattare le due scelte come equivalenti. OpenAI distingue OAI-SearchBot e GPTBot; Anthropic distingue Claude-SearchBot e ClaudeBot. Google-Extended riguarda gli usi Gemini documentati e non determina l’inclusione in Google Search. Valuta agente, prodotto e scopo separatamente.</p></div>
+                <div class="faq-item"><h3>Dopo la correzione, una sitemap o IndexNow confermano l’indicizzazione?</h3><p>No. Una notifica ricevuta non è una conferma di scansione o indicizzazione. Verifica prima la pagina pubblica corretta, poi conserva il riscontro del servizio con data e tipo di controllo. La citazione in una risposta AI richiede un’ulteriore osservazione.</p></div>
+            </section>
+
+            <section class="content-section"><h2 id="approfondimenti">Approfondimenti correlati</h2><div class="related-articles">
+                <a href="articolo-visibilita-chatgpt-perplexity-claude.html" class="related-card"><span class="related-category">Quadro generale</span><h3>Capire accesso e visibilità nelle piattaforme AI</h3></a>
+                <a href="articolo-workflow-contenuti-ai-pubblicazione.html" class="related-card"><span class="related-category">Pubblicazione</span><h3>Collegare fonti, revisione e pagina pubblica</h3></a>
+                <a href="articolo-benchmark-visibilita-ai-template.html" class="related-card"><span class="related-category">Misurazione</span><h3>Conservare risposte, tentativi e denominatori</h3></a>
+                <a href="articolo-audit-accuratezza-brand-ai.html" class="related-card"><span class="related-category">Accuratezza</span><h3>Verificare i fatti del brand nelle risposte</h3></a>
+            </div></section>
+        </div></div></article>
+
+        <section class="cta-section"><div class="container"><h2 id="cta">Quale passaggio dell’accesso devi verificare?</h2><p>Porta un URL pubblico, il contenuto atteso e la prova che non coincide con l’atteso. Nella prima chiamata gratuita di 30 minuti possiamo chiarire il controllo successivo; eventuali attività successive si concordano nel preventivo.</p><a href="/#contact" class="btn btn-primary">Parliamo della verifica</a><a href="consulenza-aeo-geo.html" class="btn btn-secondary" style="margin-left:15px;">Consulenza AEO e GEO</a></div></section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="includes/includes.js?v=2026102902"></script>
+    <script src="tutorial.js"></script>
+    <script src="cookie-banner.js?v=2026102701"></script>
+</body>
+</html>
