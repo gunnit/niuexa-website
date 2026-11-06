@@ -66,10 +66,12 @@ test('existing registration transport, config, styling and five-field form remai
   // and again when Roberto's 6 October 2026 email moved its messages from Lei to tu,
   // and again when a received request started reporting event_registration to GTM,
   // and again when a received request started ending on the thank-you page (20 October 2026 email),
-  // and for the privacy fix removing URL queries/fragments from that event (PR #305).
-  'event-registration.mjs':'137d779a9bedad5ed1ea3d314e95a58db20e3a2789d53581037c028d1579f535',
-  // Re-pinned for the tu validation messages (6 October 2026 email).
-  'event-registration-core.mjs':'9994d6057a2dd8c987dd3d56897088afce199915297f34673bf60c7b0c9a1a3f',
+  // and for the privacy fix removing URL queries/fragments from that event (PR #305),
+  // then for controlled NIUEXA scope and event-registration classification (6 November 2026).
+  'event-registration.mjs':'191fc9cf2e0520a2af68073bf097bfb6a5d26a0271d7d6357731907c56458ce0',
+  // Re-pinned for the tu validation messages (6 October 2026 email),
+  // then for the fixed event-registration classification in the private provider payload.
+  'event-registration-core.mjs':'9fa2885ffd8fd00252b6e2f5b77a60ca760e3b1c1eb839ea49f6da25ee103655',
   // Re-pinned after master commit 3e29f46 moved the final event to 25 November, and again when
   // Roberto's 18 October 2026 email moved the first event to 9 November and the start to 17:30.
   'event-registration-config.mjs':'cc8de534386051053d2129ddc6a15a725b4509a7c116af2f648cd3220de80705',

@@ -32,6 +32,8 @@ function trackRequest(item, done) {
   try {
     const data = {
       event: 'event_registration',
+      site_scope: 'niuexa',
+      enquiry_type: 'event_registration',
       form_name: 'Eventi AI per aziende',
       event_date: item.date,
       campaign: params.get('utm_campaign') || 'eventi_ai_aziende_2026',
@@ -44,7 +46,7 @@ function trackRequest(item, done) {
     window.dataLayer.push({ ...data, eventCallback: done, eventTimeout: 1500 });
     if (typeof window.gtag === 'function') {
       const { event: name, ...props } = data;
-      window.gtag('event', name, props);
+      window.gtag('event', name, { ...props, send_to: 'G-8JW0S3PJKM' });
     }
   } catch {
     // Tracking must never turn a received request into an error message.

@@ -26,6 +26,7 @@ export function createRegistration({ fetchImpl = globalThis.fetch, timeoutMs = 1
             subject: `Richiesta partecipazione NIUEXA | ${event.label}`,
             from_name: 'NIUEXA incontri', replyto: data.email,
             ...data, event_id: event.id, event_date: event.date,
+            site_scope: 'niuexa', enquiry_type: 'event_registration',
             event_label: event.label, source: REGISTRATION.source, botcheck: '',
           }),
         });

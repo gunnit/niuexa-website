@@ -3,8 +3,34 @@
 document.addEventListener('DOMContentLoaded', function() {
     initWebsiteNormalization();
     initAIReadinessForm();
+    initAeoEnquiryChoice();
     initFormValidation();
 });
+
+// Keep one short form while making the chosen offer visible and measurable.
+function initAeoEnquiryChoice() {
+    const form = document.querySelector('.ai-readiness-form');
+    if (!form || !window.location || window.location.pathname !== '/consulenza-aeo-geo.html') return;
+    document.querySelectorAll('a[data-aeo-plan]').forEach(link => {
+        link.addEventListener('click', function() {
+            const plan = link.dataset.aeoPlan;
+            if (!['free', 'business', 'enterprise'].includes(plan)) return;
+            const free = plan === 'free';
+            form.dataset.enquiryType = free ? 'free_audit' : 'project_enquiry';
+            form.dataset.serviceInterest = 'aeo_geo';
+            form.dataset.selectedPlan = plan;
+            const title = document.getElementById('rt-contact-title');
+            const note = document.getElementById('aeo-followup-note');
+            if (title) title.textContent = free ? 'Analisi e consulenza gratuite.' : 'Parliamo del tuo progetto ' + (plan === 'business' ? 'Business.' : 'Enterprise.');
+            if (note) note.textContent = free
+                ? "Ti ricontattiamo per concordare l'analisi della homepage e la prima chiamata gratuita di 30 minuti."
+                : 'Ti ricontattiamo per definire attività, tempi e preventivo del progetto ' + (plan === 'business' ? 'Business.' : 'Enterprise.');
+            const button = form.querySelector('.btn-submit');
+            if (button) button.innerHTML = (free ? "Richiedi l'analisi gratuita" : 'Parliamo del progetto') + ' <img src="img/aeo-campaign/icons/arrow-right.svg" width="20" height="20" alt="" aria-hidden="true">';
+            if (window.NiuexaTracking) window.NiuexaTracking.populateForm(form);
+        });
+    });
+}
 
 // Initialize AI Readiness form
 function initAIReadinessForm() {
