@@ -31,6 +31,12 @@
   var GTM_CONTAINER_ID = 'GTM-KG9S42S4';
   var LEAD_DELIVERY_TIMEOUT = 1500;
   var submissions = new WeakMap();
+  var analyticsIds = {};
+  var analyticsIdsRequest = 0;
+  var analyticsIdsRequestedAt = 0;
+  var ENQUIRY_TYPES = ['free_audit', 'project_enquiry', 'event_registration', 'newsletter', 'resource', 'general_enquiry'];
+  var SERVICE_INTERESTS = ['aeo_geo', 'ai_consulting', 'ai_training', 'custom_ai', 'process_automation', 'chatbot', 'marketing_agent', 'sales_agent', 'voice_agent', 'ai_readiness', 'other', 'unspecified'];
+  var SELECTED_PLANS = ['free', 'business', 'enterprise', 'unspecified'];
 
   function nowIso() {
     return new Date().toISOString();
@@ -194,6 +200,75 @@
     return offer ? offer.thankYou : 'https://niuexa.ai/thank-you-page.html';
   }
 
+  function leadContext(form) {
+    var name = formName(form).toLowerCase();
+    var offer = offerFor(name);
+    var campaign = inferCampaign(form);
+    var type = form.dataset.enquiryType;
+    if (ENQUIRY_TYPES.indexOf(type) === -1) {
+      type = campaign === 'newsletter_growth_2026' ? 'newsletter'
+        : campaign === 'book_lead_magnet_2026' ? 'resource'
+          : offer && offer.campaign === 'aeo_analyzer_2026' ? 'free_audit'
+            : offer ? 'project_enquiry' : 'general_enquiry';
+    }
+    var service = form.dataset.serviceInterest;
+    var field = form.querySelector('[name="service"]');
+    var services = { consulenza: 'ai_consulting', consulting: 'ai_consulting', development: 'custom_ai', automation: 'process_automation', analysis: 'other', analytics: 'other', other: 'other', 'aeo-enterprise': 'aeo_geo', formazione: 'ai_training', training: 'ai_training', sviluppo: 'custom_ai', automazione: 'process_automation', chatbot: 'chatbot', aeo: 'aeo_geo', analisi: 'other', altro: 'other', 'agente-vendite': 'sales_agent', 'agente-marketing': 'marketing_agent', 'agente-vocale': 'voice_agent', 'sales-agent': 'sales_agent', 'marketing-agent': 'marketing_agent', 'voice-agent': 'voice_agent' };
+    // The visitor's explicit choice takes precedence over the landing-page topic.
+    if (field && field.value) service = services[field.value] || 'unspecified';
+    if (SERVICE_INTERESTS.indexOf(service) === -1) service = offer
+      ? (offer.campaign === 'aeo_analyzer_2026' ? 'aeo_geo' : 'ai_readiness') : 'unspecified';
+    var plan = form.dataset.selectedPlan;
+    if (SELECTED_PLANS.indexOf(plan) === -1) plan = type === 'free_audit' ? 'free' : 'unspecified';
+    return { enquiry_type: type, service_interest: service, selected_plan: plan };
+  }
+
+  function isWeb3Form(form) {
+    try {
+      var provider = new URL(form.action, window.location.href);
+      return provider.origin === 'https://api.web3forms.com' && provider.pathname === '/submit';
+    } catch (e) { return false; }
+  }
+
+  // Anonymous identifiers belong only to the private provider/CRM transport.
+  // No cookies are parsed and no form submission ever waits for these callbacks.
+  function populatePrivateMeasurement(form, submittedAt) {
+    if (!isWeb3Form(form)) return;
+    var granted = hasConsent('analytics');
+    ensureHidden(form, 'analytics_consent').value = granted ? 'granted' : 'denied';
+    ensureHidden(form, 'ga_client_id').value = granted ? (analyticsIds.client_id || '') : '';
+    ensureHidden(form, 'ga_session_id').value = granted ? (analyticsIds.session_id || '') : '';
+    if (submittedAt) ensureHidden(form, 'consent_at').value = submittedAt;
+  }
+
+  function requestAnalyticsIds() {
+    if (!hasConsent('analytics')) {
+      analyticsIds = {};
+      analyticsIdsRequest++;
+      analyticsIdsRequestedAt = 0;
+      return;
+    }
+    if (typeof window.gtag !== 'function') return;
+    if (analyticsIdsRequestedAt && Date.now() - analyticsIdsRequestedAt < 1500) return;
+    if (analyticsIds.client_id && analyticsIds.session_id) return;
+    var request = ++analyticsIdsRequest;
+    var requestedAt = analyticsIdsRequestedAt = Date.now();
+    ['client_id', 'session_id'].forEach(function (field) {
+      try {
+        window.gtag('get', NIUEXA_MEASUREMENT_ID, field, function (value) {
+          if (request !== analyticsIdsRequest || !hasConsent('analytics') || Date.now() - requestedAt > 1500) return;
+          value = String(value || '');
+          if (!(field === 'client_id' ? /^\d+\.\d+$/ : /^\d+$/).test(value) || value.length > 128) return;
+          analyticsIds[field] = value;
+          document.querySelectorAll('form[data-niuexa-tracking-bound="1"]').forEach(function (form) {
+            // Do not change an already-sent payload or its consent snapshot.
+            if (form.dataset.niuexaSubmitting !== '1') populatePrivateMeasurement(form);
+          });
+        });
+      } catch (e) { /* blocked Google tag must never disable a provider submission */ }
+    });
+  }
+
   function populateForm(form) {
     var data = attribution();
     var marketing = hasConsent('marketing');
@@ -213,6 +288,12 @@
     ensureHidden(form, 'referrer', data.referrer || '');
     ensureHidden(form, 'campaign', data.utm_campaign || inferCampaign(form));
     ensureHidden(form, 'form_name', formName(form));
+    var context = leadContext(form);
+    Object.keys(context).forEach(function (key) { ensureHidden(form, key, context[key]); });
+    if (isWeb3Form(form)) {
+      requestAnalyticsIds();
+      populatePrivateMeasurement(form);
+    }
     if (!form.querySelector('[name="from_name"]')) ensureHidden(form, 'from_name', 'Niuexa Website');
     if (!form.querySelector('[name="subject"]')) ensureHidden(form, 'subject', 'Nuova richiesta dal sito Niuexa');
     var redirect = inferRedirect(form);
@@ -264,15 +345,18 @@
 
   function newSubmission(form) {
     var data = attribution();
-    var submission = {
+    var submission = Object.assign({
       submission_id: window.crypto && typeof window.crypto.randomUUID === 'function'
-        ? window.crypto.randomUUID() : Date.now().toString(36) + '-' + Math.random().toString(36).slice(2),
+        ? window.crypto.randomUUID() : 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (letter) {
+          var random = Math.floor(Math.random() * 16);
+          return (letter === 'x' ? random : (random & 3) | 8).toString(16);
+        }),
       created_at: Date.now(),
       form_name: formName(form),
       campaign: data.utm_campaign || inferCampaign(form),
       lead_source: data.utm_source || 'website',
       lead_medium: data.utm_medium || 'organic'
-    };
+    }, leadContext(form));
     // Only this AJAX offer needs the original address for its GA4 rule. Do not add
     // page URLs to the native forms' persisted callback-correlation records.
     if (form.dataset.niuexaAsyncForm === '1' && submission.form_name === 'AEO Analyzer' &&
@@ -367,8 +451,13 @@
       lead_source: submission.lead_source,
       lead_medium: submission.lead_medium,
       submission_status: 'success',
+      site_scope: 'niuexa',
       confirmation_method: method
     };
+    // Only the controlled, non-identifying context joins confirmed GA4 events.
+    ['enquiry_type', 'service_interest', 'selected_plan'].forEach(function (key) {
+      if (submission[key]) props[key] = submission[key];
+    });
     if (method === 'provider_response' && submission.form_name === 'AEO Analyzer' &&
         submission.page_path === '/consulenza-aeo-geo.html') {
       props.page_location = submission.page_location;
@@ -438,6 +527,10 @@
       populateForm(form);
       var submission = newSubmission(form);
       submissions.set(form, submission);
+      if (isWeb3Form(form)) {
+        ensureHidden(form, 'submission_id', submission.submission_id);
+        populatePrivateMeasurement(form, nowIso());
+      }
       track('form_submit_attempt', {
         form_name: submission.form_name,
         campaign: submission.campaign,
@@ -520,6 +613,9 @@
   // A choice made in the banner applies at once: consent stores what this page captured and
   // adds the click IDs to the forms; a refusal deletes stored attribution and removes them.
   window.addEventListener('niuexa:consent', function () {
+    analyticsIds = {};
+    analyticsIdsRequestedAt = 0;
+    analyticsIdsRequest++;
     clearUnconsentedMeasurement();
     captureAttribution();
     document.querySelectorAll('form[data-niuexa-tracking-bound="1"]').forEach(populateForm);

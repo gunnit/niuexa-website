@@ -190,7 +190,7 @@
                 <p class="hero-subtitle">Una prima chiamata gratuita di 30 minuti e un report PDF o HTML con le priorità per la tua homepage.</p>
                 <p class="rt-hero-note">Solo homepage · Nessun accesso al sito richiesto</p>
                 <div class="rt-actions">
-                    <a href="#contact" class="btn btn-primary">Richiedi l'analisi gratuita <img src="img/aeo-campaign/icons/arrow-right.svg" width="20" height="20" alt="" aria-hidden="true"></a>
+                    <a href="#contact" class="btn btn-primary" data-aeo-plan="free">Richiedi l'analisi gratuita <img src="img/aeo-campaign/icons/arrow-right.svg" width="20" height="20" alt="" aria-hidden="true"></a>
                     <a href="#report" class="aeo-text-link">Vedi un esempio di priorità</a>
                 </div>
             </div>
@@ -198,7 +198,7 @@
             <section id="contact" class="aeo-enquiry-card" aria-labelledby="rt-contact-title">
                 <h2 id="rt-contact-title">Analisi e consulenza gratuite.</h2>
                 <p id="aeo-required-note" class="aeo-required-note aeo-visually-hidden">I campi con * sono obbligatori.</p>
-                <form action="https://api.web3forms.com/submit" method="POST" class="ai-readiness-form" data-form-label="AEO Analyzer" accept-charset="UTF-8" aria-labelledby="rt-contact-title" aria-describedby="aeo-required-note aeo-followup-note">
+                <form action="https://api.web3forms.com/submit" method="POST" class="ai-readiness-form" data-form-label="AEO Analyzer" data-enquiry-type="free_audit" data-service-interest="aeo_geo" data-selected-plan="free" accept-charset="UTF-8" aria-labelledby="rt-contact-title" aria-describedby="aeo-required-note aeo-followup-note">
                     <input type="hidden" name="access_key" value="bfacbe48-94e9-4411-94a0-6017dc9791b6">
                     <input type="hidden" name="botcheck" class="hidden" style="display: none;">
                     <input type="hidden" name="formSource" value="AEO Analyzer">
@@ -271,7 +271,7 @@
                 <figcaption id="aeo-video-caption">Presentatore virtuale · Sottotitoli impressi nel video; traccia italiana CC opzionale dal lettore</figcaption>
             </figure>
             <div class="aeo-video-actions">
-                <a href="#contact" class="btn btn-primary">Richiedi la consulenza gratuita <img src="img/aeo-campaign/icons/arrow-right.svg" width="20" height="20" alt="" aria-hidden="true"></a>
+                <a href="#contact" class="btn btn-primary" data-aeo-plan="free">Richiedi la consulenza gratuita <img src="img/aeo-campaign/icons/arrow-right.svg" width="20" height="20" alt="" aria-hidden="true"></a>
             </div>
             <details class="aeo-video-transcript">
                 <summary>Leggi il testo del video</summary>
@@ -442,17 +442,17 @@
                 <article class="rt-mode-card">
                     <header class="rt-mode-head"><h3>Analisi gratuita</h3><p class="rt-mode-for">Per capire da dove partire.</p><p class="rt-mode-cost rt-mode-cost--free">Gratuita</p></header>
                     <div class="rt-mode-body"><ul class="rt-ticks"><li>Analisi della sola homepage</li><li>Prima chiamata gratuita di 30 minuti</li><li>Controlli su sei dimensioni</li><li>Report PDF o HTML e raccomandazioni</li></ul><p class="aeo-plan-scope">Non comprende l'analisi dell'intero sito, la consulenza continuativa o l'implementazione.</p></div>
-                    <div class="rt-mode-actions"><a href="#contact" class="btn btn-primary">Richiedi l'analisi gratuita</a></div>
+                    <div class="rt-mode-actions"><a href="#contact" class="btn btn-primary" data-aeo-plan="free">Richiedi l'analisi gratuita</a></div>
                 </article>
                 <article class="rt-mode-card">
                     <header class="rt-mode-head"><h3>Business</h3><p class="rt-mode-for">Per un team che realizza gli interventi.</p><p class="rt-mode-cost">Su preventivo</p></header>
                     <div class="rt-mode-body"><ul class="rt-ticks"><li>Analisi mensile fino a 20 pagine</li><li>Piano d'azione e chiamata iniziale di un'ora</li><li>Supporto via email e report mensile</li><li>Confronto trimestrale con tre concorrenti</li></ul><details class="aeo-plan-details"><summary>Responsabilità e perimetro</summary><p>NIUEXA definisce le priorità e affianca il team; il cliente realizza gli interventi. Attività, costo e durata minima sono indicati nel preventivo scritto.</p></details></div>
-                    <div class="rt-mode-actions"><a href="#contact" class="btn btn-primary">Parliamo del tuo progetto</a></div>
+                    <div class="rt-mode-actions"><a href="#contact" class="btn btn-primary" data-aeo-plan="business">Parliamo del tuo progetto</a></div>
                 </article>
                 <article class="rt-mode-card">
                     <header class="rt-mode-head"><h3>Enterprise</h3><p class="rt-mode-for">Per affidare a NIUEXA anche l'implementazione.</p><p class="rt-mode-cost">Su preventivo</p></header>
                     <div class="rt-mode-body"><ul class="rt-ticks"><li>Analisi mensile fino a 25 pagine concordate</li><li>Interventi tecnici ed editoriali concordati</li><li>Due ore di confronto al mese e supporto via email</li><li>Report, confronto mensile con tre concorrenti e monitoraggio delle citazioni AI</li></ul><details class="aeo-plan-details"><summary>Responsabilità e perimetro</summary><p>Ogni modifica va online dopo la tua approvazione. Il campione di 25 pagine non equivale all'analisi completa di un sito più grande. Eventuali estensioni e tempi di risposta del supporto sono definiti nel preventivo.</p></details></div>
-                    <div class="rt-mode-actions"><a href="#contact" class="btn btn-primary">Parliamo del tuo progetto</a></div>
+                    <div class="rt-mode-actions"><a href="#contact" class="btn btn-primary" data-aeo-plan="enterprise">Parliamo del tuo progetto</a></div>
                 </article>
             </div>
         </div>
@@ -460,7 +460,7 @@
 
     <section id="faq" class="rt-faq" aria-labelledby="rt-faq-title">
         <div class="container rt-faq-layout">
-            <div class="rt-faq-intro"><h2 id="rt-faq-title" class="section-title">Prima di iniziare.</h2><p>Che cosa include l'analisi e come si definiscono le attività successive.</p><a href="#contact" class="btn btn-primary">Richiedi l'analisi gratuita</a></div>
+            <div class="rt-faq-intro"><h2 id="rt-faq-title" class="section-title">Prima di iniziare.</h2><p>Che cosa include l'analisi e come si definiscono le attività successive.</p><a href="#contact" class="btn btn-primary" data-aeo-plan="free">Richiedi l'analisi gratuita</a></div>
             <div class="faq-container rt-faq-list">
                 <details class="faq-item"><summary><h3>Che cosa sono AEO e GEO?</h3></summary><p>AEO e GEO riguardano il lavoro su contenuti e struttura delle informazioni per i sistemi di risposta e ricerca generativa. NIUEXA parte dall&#x27;analisi del sito, definisce gli interventi e, nel perimetro concordato, misura anche come il marchio compare nelle risposte AI.</p></details>
                 <details class="faq-item"><summary><h3>Che cosa ricevo gratuitamente?</h3></summary><p>Un&#x27;analisi della homepage, un report PDF o HTML con punteggi diagnostici e raccomandazioni e una prima chiamata gratuita di 30 minuti. L&#x27;offerta gratuita non include tutte le pagine del sito o la realizzazione delle modifiche.</p></details>
@@ -477,7 +477,7 @@
 
     <!-- Scripts -->
     <script src="includes/includes.js?v=2026102902"></script>
-    <script src="ai-readiness-tool.js?v=2026110401"></script>
+    <script src="ai-readiness-tool.js?v=2026110601"></script>
     <script>
         // FAQ Toggle Functionality
         function toggleFAQ(button) {
@@ -528,6 +528,6 @@
     </script>
 
     <script src="/cookie-banner.js?v=2026102701"></script>
-    <script src="conversion-tracking.js?v=2026103002"></script>
+    <script src="conversion-tracking.js?v=2026110601"></script>
 </body>
 </html>

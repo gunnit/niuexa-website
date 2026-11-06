@@ -69,13 +69,16 @@ function storage(values = new Map(), blocked = false) {
   };
 }
 
-function browser({ path = '/contatti.html', forms = [], session = new Map(), local = new Map(), blocked = false, fetchImpl, completeTag = true, completeLayer = true } = {}) {
+function browser({ path = '/contatti.html', forms = [], session = new Map(), local = new Map(), blocked = false, fetchImpl, completeTag = true, completeLayer = true, getIds, ctas = [] } = {}) {
   const callbacks = [];
+  const windowListeners = [];
   const doc = {
     readyState: 'loading', referrer: '', documentElement: { lang: 'it' }, head: element(), body: element(),
     addEventListener(type, callback) { if (type === 'DOMContentLoaded') callbacks.push(callback); },
     createElement() { return element(); },
     querySelectorAll(selector) {
+      if (selector === 'a[data-aeo-plan]') return ctas;
+      if (selector === 'form[data-niuexa-tracking-bound="1"]') return forms.filter(f => f.dataset.niuexaTrackingBound === '1');
       if (selector.startsWith('form[action')) return forms;
       if (selector === 'form.simple-signup-form') return forms.filter(f => f.className === 'simple-signup-form');
       return [];
@@ -110,7 +113,7 @@ function browser({ path = '/contatti.html', forms = [], session = new Map(), loc
     localStorage: storage(local, blocked), sessionStorage: storage(session, blocked),
     URL, URLSearchParams, crypto: { randomUUID }, console: { error() {}, log() {} },
     setTimeout(fn, delay) { timers.set(++timerId, { fn, delay }); return timerId; },
-    clearTimeout(id) { timers.delete(id); }, addEventListener() {},
+    clearTimeout(id) { timers.delete(id); }, addEventListener(type, fn) { windowListeners.push({ type, fn }); },
     IntersectionObserver: class { observe() {} },
     FormData: class {
       constructor(f) { this.fields = new Map(f.children.map(el => [el.name, el.value])); }
@@ -124,13 +127,14 @@ function browser({ path = '/contatti.html', forms = [], session = new Map(), loc
   ctx.window = ctx;
   ctx.gtag = (...args) => {
     ctx.dataLayer.push(args);
+    if (args[0] === 'get' && getIds) getIds(args[1], args[2], args[3]);
     if (completeTag && typeof args[2]?.event_callback === 'function') args[2].event_callback();
   };
   ctx.history = { replaceState(_state, _title, url) { ctx.location.href = url; } };
   const run = name => vm.runInContext(read(name), ctx, { filename: name });
   run('conversion-tracking.js');
   ctx.NiuexaTracking.init();
-  return { ctx, run, calls, callbacks, timers, events: name => ctx.dataLayer.filter(item => item.event === name) };
+  return { ctx, run, calls, callbacks, timers, consentChanged: () => windowListeners.filter(x => x.type === 'niuexa:consent').forEach(x => x.fn()), events: name => ctx.dataLayer.filter(item => item.event === name) };
 }
 
 // The native thank-you correlation record is measurement storage: it needs analytics consent.
@@ -291,6 +295,7 @@ const acceptedAnalytics = JSON.stringify({ necessary: true, analytics: true, mar
 function aeoPage({ consent = acceptedAnalytics, fetchImpl, ...options } = {}) {
   const f = form('ai-readiness-form', 'https://niuexa.ai/thank-you-ai-readiness.html');
   f.dataset.formLabel = 'AEO Analyzer';
+  f.children = f.children.filter(field => field.name !== 'service');
   const local = new Map();
   if (consent !== null) local.set('niuexa_cookie_consent', consent);
   const page = browser({
@@ -301,9 +306,147 @@ function aeoPage({ consent = acceptedAnalytics, fetchImpl, ...options } = {}) {
   });
   page.run('ai-readiness-tool.js');
   page.ctx.initAIReadinessForm();
+  page.ctx.initAeoEnquiryChoice?.();
   return { ...page, f, leadCalls: () => page.ctx.dataLayer.filter(x => x[0] === 'event' && x[1] === 'generate_lead') };
 }
 const settleTasks = async () => { for (let i = 0; i < 8; i++) await Promise.resolve(); };
+
+test('AEO provider receipt and one confirmed event share the audit context and original UUID', async () => {
+  const page = aeoPage();
+  await page.f.fire('submit');
+  const payload = page.calls[0][1].body;
+  const props = page.leadCalls()[0][2];
+  assert.equal(props.site_scope, 'niuexa');
+  assert.match(payload.get('submission_id'), /^[a-f0-9-]{36}$/);
+  assert.equal(payload.get('submission_id'), props.submission_id);
+  for (const [key, value] of Object.entries({ enquiry_type: 'free_audit', service_interest: 'aeo_geo', selected_plan: 'free' })) {
+    assert.equal(payload.get(key), value);
+    assert.equal(props[key], value);
+  }
+  assert.equal(page.leadCalls().length, 1);
+});
+
+test('Business and Enterprise choices submit project intent and can reset to the free audit', async () => {
+  for (const plan of ['business', 'enterprise', 'free']) {
+    const cta = element(); cta.dataset.aeoPlan = plan;
+    const page = aeoPage({ ctas: [cta] });
+    await cta.fire('click');
+    assert.match(page.f.button.innerHTML, plan === 'free' ? /analisi gratuita/ : /progetto/);
+    await page.f.fire('submit');
+    const payload = page.calls[0][1].body;
+    assert.equal(payload.get('selected_plan'), plan);
+    assert.equal(payload.get('enquiry_type'), plan === 'free' ? 'free_audit' : 'project_enquiry');
+    assert.equal(page.leadCalls()[0][2].selected_plan, plan);
+  }
+});
+
+test('contact service values are allowlisted and agent discovery is a project rather than a free audit', async () => {
+  const f = form(); f.dataset.enquiryType = 'project_enquiry';
+  f.querySelector('[name="service"]').value = 'aeo';
+  const page = browser({ forms: [f] });
+  await f.fire('submit');
+  await page.ctx.NiuexaTracking.confirmSubmission(f);
+  assert.equal(page.events('generate_lead')[0].service_interest, 'aeo_geo');
+  f.querySelector('[name="service"]').value = 'private free text@example.com';
+  await f.fire('submit');
+  await page.ctx.NiuexaTracking.confirmSubmission(f);
+  assert.equal(page.events('generate_lead')[1].service_interest, 'unspecified');
+  const agent = form(); agent.dataset.enquiryType = 'project_enquiry'; agent.dataset.serviceInterest = 'sales_agent';
+  agent.querySelector('[name="service"]').value = 'agente-vendite';
+  const agentPage = browser({ forms: [agent], path: '/landing-sales-agent.html' });
+  await agent.fire('submit');
+  await agentPage.ctx.NiuexaTracking.confirmSubmission(agent);
+  assert.equal(agentPage.events('generate_lead')[0].enquiry_type, 'project_enquiry');
+  assert.equal(agentPage.events('generate_lead')[0].service_interest, 'sales_agent');
+  agent.querySelector('[name="service"]').value = 'formazione';
+  await agent.fire('submit');
+  await agentPage.ctx.NiuexaTracking.confirmSubmission(agent);
+  assert.equal(agentPage.events('generate_lead')[1].service_interest, 'ai_training');
+});
+
+test('browsers without randomUUID still correlate provider and events with an RFC4122 UUID', async () => {
+  const page = aeoPage();
+  page.ctx.crypto = {};
+  await page.f.fire('submit');
+  const id = page.calls[0][1].body.get('submission_id');
+  assert.match(id, /^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/);
+  assert.equal(page.leadCalls()[0][2].submission_id, id);
+});
+
+test('real commercial form service options preserve the selected interest across languages', async () => {
+  const expected = {
+    'aeo-enterprise': 'aeo_geo', consulenza: 'ai_consulting', consulting: 'ai_consulting',
+    formazione: 'ai_training', training: 'ai_training', sviluppo: 'custom_ai', development: 'custom_ai',
+    automazione: 'process_automation', automation: 'process_automation', chatbot: 'chatbot',
+    analisi: 'other', analysis: 'other', analytics: 'other', altro: 'other', other: 'other',
+    'agente-vendite': 'sales_agent', 'sales-agent': 'sales_agent',
+    'agente-marketing': 'marketing_agent', 'marketing-agent': 'marketing_agent',
+    'agente-vocale': 'voice_agent', 'voice-agent': 'voice_agent',
+  };
+  for (const file of ['landing-aeo-geo-enterprise.html', 'landing-sales-agent.html', 'landing-marketing-agent.html', 'landing-voice-agent.html', 'en/landing-sales-agent.html', 'en/landing-marketing-agent.html', 'en/landing-voice-agent.html']) {
+    const select = /<select\b[^>]*name="service"[^>]*>([\s\S]*?)<\/select>/.exec(read(file));
+    assert.ok(select, 'service selector exists in ' + file);
+    for (const match of select[1].matchAll(/<option\b[^>]*value="([^"]+)"/g)) {
+      const value = match[1];
+      assert.ok(expected[value], 'explicit expected category for ' + file + ' ' + value);
+      const f = form(); f.dataset.serviceInterest = 'sales_agent';
+      f.querySelector('[name="service"]').value = value;
+      const page = browser({ forms: [f] });
+      await f.fire('submit');
+      await page.ctx.NiuexaTracking.confirmSubmission(f);
+      assert.equal(page.events('generate_lead')[0].service_interest, expected[value], file + ' ' + value);
+    }
+  }
+});
+
+test('native callback preserves context but never stores CRM-only analytics identifiers', async () => {
+  const f = form(); f.dataset.enquiryType = 'project_enquiry'; f.dataset.serviceInterest = 'voice_agent';
+  f.querySelector('[name="service"]').value = 'agente-vocale';
+  const session = new Map(); const local = analyticsConsent();
+  const page = browser({ forms: [f], session, local, getIds: (_id, field, done) => done(field === 'client_id' ? '123.456' : '789') });
+  await f.fire('submit');
+  const pending = JSON.parse(session.get('niuexa_pending_lead_v1'));
+  assert.equal(pending.enquiry_type, 'project_enquiry');
+  for (const key of ['ga_client_id', 'ga_session_id', 'analytics_consent', 'consent_at']) assert.equal(key in pending, false);
+  const success = browser({ path: f.querySelector('[name="redirect"]').value, session, local });
+  assert.equal(success.events('generate_lead')[0].service_interest, 'voice_agent');
+});
+
+test('granted analytics identifiers reach only private provider fields and consent is resampled on submission', async () => {
+  const page = aeoPage({ getIds: (id, field, done) => {
+    assert.equal(id, 'G-8JW0S3PJKM');
+    done(field === 'client_id' ? '123.456' : '789');
+  } });
+  await page.f.fire('submit');
+  const payload = page.calls[0][1].body;
+  assert.equal(payload.get('analytics_consent'), 'granted');
+  assert.equal(payload.get('ga_client_id'), '123.456');
+  assert.equal(payload.get('ga_session_id'), '789');
+  assert.ok(Date.now() - Date.parse(payload.get('consent_at')) < 1000);
+  const props = page.leadCalls()[0][2];
+  for (const key of ['ga_client_id', 'ga_session_id', 'analytics_consent', 'consent_at']) assert.equal(key in props, false);
+  page.ctx.localStorage.setItem('niuexa_cookie_consent', JSON.stringify({ analytics: false, marketing: false }));
+  page.consentChanged();
+  assert.equal(page.f.querySelector('[name="ga_client_id"]').value, '');
+  assert.equal(page.f.querySelector('[name="ga_session_id"]').value, '');
+});
+
+test('denied or missing consent never requests GA identifiers and an unavailable callback cannot delay submission', async () => {
+  for (const consent of [null, '{bad', '{"analytics":false,"marketing":true}']) {
+    const page = aeoPage({ consent, getIds: () => assert.fail('no identifier request without consent') });
+    await page.f.fire('submit');
+    const payload = page.calls[0][1].body;
+    assert.equal(payload.get('analytics_consent'), 'denied');
+    assert.equal(payload.get('ga_client_id'), '');
+    assert.equal(payload.get('ga_session_id'), '');
+    assert.equal(page.calls.length, 1);
+  }
+  const blocked = aeoPage({ getIds: () => {} });
+  await blocked.f.fire('submit');
+  assert.equal(blocked.calls.length, 1);
+  assert.equal(blocked.calls[0][1].body.get('ga_client_id'), '');
+  assert.equal(blocked.ctx.location.pathname, '/thank-you-ai-readiness.html');
+});
 
 function contactPage(kind, options = {}) {
   const f = form('contact-form');

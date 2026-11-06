@@ -1,5 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import vm from 'node:vm';
 import { createRegistration, validate } from '../event-registration-core.mjs';
 import { EVENTS, REGISTRATION } from '../event-registration-config.mjs';
 const valid = { firstName: ' Ada ', lastName: 'Esempio', company: 'TEST NON ISCRIZIONE', email: 'qa@example.com', mobile: '+39 000 000 0000' };
@@ -82,6 +84,27 @@ test('production transport sends approved date, trimmed fields and existing prov
  assert.equal(payload.subject,'Richiesta partecipazione NIUEXA | 17 novembre 2026');
  assert.equal(payload.replyto,valid.email);
  assert.equal(payload.source,'https://niuexa.ai/eventi-ai-aziende/');
+ assert.equal(payload.enquiry_type,'event_registration');
+ assert.equal(payload.site_scope,'niuexa');
  assert.ok(!('redirect' in payload));
  await assert.rejects(flow.submit('2026-11-17',valid),/DUPLICATE/);
+});
+
+test('confirmed event reporting stays separate from commercial enquiries without private form data', () => {
+ const source=readFileSync(new URL('../event-registration.mjs',import.meta.url),'utf8');
+ const boundary=source.slice(source.indexOf('function trackRequest('),source.indexOf('// A received request ends'));
+ const layer=[],google=[];
+ const context=vm.createContext({window:{dataLayer:layer,gtag:(...args)=>google.push(args)},location:{origin:'https://niuexa.ai',pathname:'/eventi-ai-aziende/'},params:new URLSearchParams('email=private@example.com&ga_client_id=123.456')});
+ vm.runInContext(boundary+';trackRequest({date:"2026-11-09"},function(){});',context);
+ assert.equal(layer.length,1);
+ assert.equal(google.length,1);
+ for(const payload of [layer[0],google[0][2]]) {
+  assert.equal(payload.site_scope,'niuexa');
+  assert.equal(payload.enquiry_type,'event_registration');
+  assert.equal(payload.page_location,'https://niuexa.ai/eventi-ai-aziende/');
+  assert.ok(!JSON.stringify(payload).includes('private@example.com'));
+  for(const key of ['email','firstName','lastName','company','mobile','ga_client_id','ga_session_id','consent_at']) assert.ok(!(key in payload));
+ }
+ assert.equal(google[0][1],'event_registration');
+ assert.equal(google[0][2].send_to,'G-8JW0S3PJKM');
 });
