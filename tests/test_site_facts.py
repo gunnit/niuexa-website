@@ -36,6 +36,10 @@ FORBIDDEN = [
     (re.compile(r'<meta name="robots" content="index[^"]*">'), "noindex on /books/ and nocode-toolkit"),
 ]
 
+# This sourced comparison was reviewed and reopened for indexing on 6 November.
+# The remaining book pages and the toolkit retain the October exclusion policy.
+INDEXABLE_BOOK_GUIDES = {"books/ai-agents-field-guide/frameworks.html"}
+
 # Every page that states the legal identity must state it the same way.
 LEGAL_NAME = "NIUEXA S.R.L."
 VAT = "13489560014"
@@ -47,11 +51,23 @@ class SiteFactsTests(unittest.TestCase):
         problems = []
         for page, text in published_pages():
             for pattern, canonical in FORBIDDEN:
-                if pattern.pattern.startswith('<meta name="robots"') and not (page.startswith("books/") or page == "nocode-toolkit.html"):
+                if pattern.pattern.startswith('<meta name="robots"') and (page in INDEXABLE_BOOK_GUIDES or not (page.startswith("books/") or page == "nocode-toolkit.html")):
                     continue
                 if pattern.search(text):
                     problems.append(f"{page}: {pattern.pattern!r} (use {canonical})")
         self.assertEqual([], problems)
+
+    def test_reviewed_book_guides_are_indexable_and_discoverable(self):
+        sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
+        hub = (ROOT / "en/learn.html").read_text(encoding="utf-8")
+        for page in INDEXABLE_BOOK_GUIDES:
+            text = (ROOT / page).read_text(encoding="utf-8")
+            robots = re.search(r'<meta name="robots" content="([^"]*)">', text)
+            self.assertIsNotNone(robots, f"{page}: missing robots directive")
+            self.assertTrue(robots.group(1).startswith("index, follow"), f"{page}: indexing must be enabled")
+            self.assertNotIn("noindex", robots.group(1))
+            self.assertIn(f"<loc>https://niuexa.ai/{page}</loc>", sitemap)
+            self.assertIn(f'href="/{page}"', hub)
 
     def test_legal_identity_is_spelled_consistently(self):
         problems = []

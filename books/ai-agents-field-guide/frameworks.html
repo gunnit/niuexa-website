@@ -23,24 +23,24 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-KG9S42S4');</script>
 
-    <title>AI Agent Framework Comparison 2026 | AI Agents Field Guide</title>
-    <meta name="description" content="Updated comparison of the top AI agent frameworks for production: LangChain, CrewAI, AutoGen, Semantic Kernel, OpenAI Agents SDK, Claude Agent SDK, and more.">
-    <meta name="keywords" content="AI agent framework comparison, LangChain vs CrewAI, AutoGen vs LangGraph, Semantic Kernel, OpenAI Agents SDK, Claude Agent SDK, Haystack, DSPy, agent framework 2026, best AI agent framework">
-    <meta name="robots" content="noindex, follow">
+    <title>AI Agent Framework Comparison 2026: DSPy vs LangGraph</title>
+    <meta name="description" content="Compare LangGraph, DSPy, CrewAI and agent SDKs by workflow, model support and evaluation needs. Includes Microsoft AutoGen, AG2 and migration considerations.">
+    <meta name="keywords" content="AI agent framework comparison, DSPy vs LangGraph, LangChain vs CrewAI, Microsoft Agent Framework, Microsoft AutoGen, AG2, Semantic Kernel, OpenAI Agents SDK, Claude Agent SDK, Haystack">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="author" content="Gregor Maric">
     <link rel="canonical" href="https://niuexa.ai/books/ai-agents-field-guide/frameworks.html">
 
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="AI Agent Framework Comparison (March 2026) | The AI Agents Field Guide">
-    <meta property="og:description" content="Updated comparison of the top AI agent frameworks: LangChain, CrewAI, AutoGen, Semantic Kernel, OpenAI Agents SDK, Claude Agent SDK, Haystack, and DSPy.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="AI Agent Framework Comparison 2026: DSPy vs LangGraph">
+    <meta property="og:description" content="Compare LangGraph, DSPy, CrewAI and agent SDKs by workflow, model support and evaluation needs. Includes Microsoft AutoGen, AG2 and migration considerations.">
     <meta property="og:image" content="https://niuexa.ai/img/niuexalogo.png">
     <meta property="og:url" content="https://niuexa.ai/books/ai-agents-field-guide/frameworks.html">
     <meta property="og:site_name" content="Niuexa">
     <meta property="og:locale" content="en_US">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AI Agent Framework Comparison (March 2026) | The AI Agents Field Guide">
-    <meta name="twitter:description" content="Updated comparison of the top AI agent frameworks for production use. Side-by-side with recommendations by use case.">
+    <meta name="twitter:title" content="AI Agent Framework Comparison 2026: DSPy vs LangGraph">
+    <meta name="twitter:description" content="Compare LangGraph, DSPy, CrewAI and agent SDKs by workflow, model support and evaluation needs. Includes Microsoft AutoGen, AG2 and migration considerations.">
     <meta name="twitter:image" content="https://niuexa.ai/img/niuexalogo.png">
 
     <link rel="alternate" hreflang="en" href="https://niuexa.ai/books/ai-agents-field-guide/frameworks.html">
@@ -63,6 +63,31 @@
     }
     </script>
 
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "AI Agent Framework Comparison 2026: DSPy vs LangGraph",
+    "description": "Compare LangGraph, DSPy, CrewAI and agent SDKs by workflow, model support and evaluation needs. Includes Microsoft AutoGen, AG2 and migration considerations.",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://niuexa.ai/books/ai-agents-field-guide/frameworks.html"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Gregor Maric"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "NIUEXA",
+        "url": "https://niuexa.ai/"
+    },
+    "dateModified": "2026-11-06",
+    "inLanguage": "en",
+    "image": "https://niuexa.ai/img/niuexalogo.png"
+}
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
@@ -70,6 +95,11 @@
 
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="../../books.css">
+    <style>
+        .comparison-table caption { padding: 0 0 14px; text-align: left; color: var(--dark-gray); line-height: 1.5; }
+        .comparison-table tbody th { color: var(--dark-gray); font-size: 0.9rem; text-transform: none; letter-spacing: normal; padding: 12px 16px; border-bottom: 1px solid #eee; }
+        .comparison-table-wrapper:focus-visible { outline: 2px solid var(--primary-blue); outline-offset: 4px; }
+    </style>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9S42S4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -88,13 +118,61 @@
                         <li><span class="current">Framework Comparison</span></li>
                     </ol>
                 </nav>
-                <span class="hero-badge">UPDATED MARCH 2026</span>
+                <span class="hero-badge">UPDATED <time datetime="2026-11-06">6 NOVEMBER 2026</time></span>
                 <h1 class="hero-title">AI Agent Framework <span class="highlight">Comparison</span></h1>
-                <p class="hero-subtitle">Updated comparison of the top agent frameworks for production use. Eight frameworks compared side by side across language support, learning curve, production readiness, and community size — with opinionated recommendations based on your use case.</p>
+                <p class="hero-subtitle">Choose LangGraph for explicit workflow state, routing and recovery. Choose DSPy to optimize a model-driven task against examples and a metric. Compare these approaches with LangChain, CrewAI, Microsoft frameworks, agent SDKs and Haystack below.</p>
+                <p>By Gregor Maric. Maintainer documentation checked on <time datetime="2026-11-06">6 November 2026</time>.</p>
                 <div class="hero-buttons">
-                    <a href="#comparison" class="btn btn-primary">View Comparison</a>
+                    <a href="#dspy-vs-langgraph" class="btn btn-primary">DSPy vs LangGraph</a>
+                    <a href="#comparison" class="btn btn-secondary">Compare All Frameworks</a>
                     <a href="resources.html" class="btn btn-secondary">All Book Resources</a>
                 </div>
+            </div>
+        </section>
+
+        <!-- DSPy and LangGraph address different engineering decisions. -->
+        <section class="resources-section" id="dspy-vs-langgraph">
+            <div class="container">
+                <div class="section-header">
+                    <h2>DSPy vs LangGraph: Which Problem Are You Solving?</h2>
+                    <p>DSPy focuses on modular model programs and optimization. LangGraph focuses on orchestration and execution state. They overlap in agent building, but the first decision is whether your bottleneck is answer quality or workflow control.</p>
+                </div>
+                <div class="comparison-table-wrapper" role="region" aria-label="DSPy and LangGraph decision table" tabindex="0">
+                    <table class="comparison-table">
+                        <caption>Practical selection guidance; these are design recommendations, not benchmark results.</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Your requirement</th>
+                                <th scope="col">Start with DSPy when…</th>
+                                <th scope="col">Start with LangGraph when…</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Main task</th>
+                                <td>You need to improve extraction, classification, retrieval or tool-use behavior against a defined scoring function.</td>
+                                <td>You need to route work across steps, preserve state, pause for approval or resume a long-running process.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">What you define</th>
+                                <td>Input/output signatures, modules, representative examples and a metric; then evaluate an optimizer.</td>
+                                <td>Shared state, nodes, edges, persistence and interruption points; then test execution and recovery.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Evidence of success</th>
+                                <td>Better task scores on held-out examples within your inference and optimization budget.</td>
+                                <td>Correct task completion, preserved approvals and safe recovery after timeouts, failures or restarts.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Example</th>
+                                <td>Extract order details from varied customer emails and compare field accuracy against a baseline.</td>
+                                <td>Validate an order, request human approval, call a business system and recover without duplicating the order.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong>Can you use both?</strong> Yes, as an application design: a LangGraph node can call a DSPy program. For example, optimize the extraction step with DSPy and orchestrate validation and approval with LangGraph. This composition still needs integration tests; it does not transfer optimization gains or recovery guarantees automatically.</p>
+                <p>Capability references: <a href="https://dspy.ai/">DSPy overview</a>, <a href="https://dspy.ai/current/diving-deeper/metrics-and-evaluation/">DSPy metrics and evaluation</a>, <a href="https://dspy.ai/current/diving-deeper/choosing-an-optimizer/">DSPy optimizer selection</a> and <a href="https://docs.langchain.com/oss/python/langgraph/overview">LangGraph overview</a>.</p>
             </div>
         </section>
 
@@ -102,85 +180,98 @@
         <section class="resources-section" id="comparison">
             <div class="container">
                 <div class="section-header">
-                    <h2>Framework Comparison Table</h2>
-                    <p>Eight frameworks evaluated across six dimensions. "Production Ready" means the framework has been used in production by multiple companies with stable APIs and reasonable documentation. "Experimental" means it's promising but APIs change frequently.</p>
+                    <h2>AI Agent Framework Comparison Table</h2>
+                    <p>Use this table to shortlist a framework by its documented role. The selection guidance is editorial judgment. Production suitability depends on your application, pinned package versions and deployment tests; a framework name does not establish an SLA, compliance or reliability.</p>
                 </div>
-                <div class="comparison-table-wrapper">
+                <div class="comparison-table-wrapper" role="region" aria-label="AI agent framework comparison table" tabindex="0">
                     <table class="comparison-table">
+                        <caption>Main SDK languages reviewed and documented capabilities as checked on 6 November 2026. Language listings do not imply feature parity.</caption>
                         <thead>
                             <tr>
-                                <th>Framework</th>
-                                <th>Language</th>
-                                <th>Best For</th>
-                                <th>Learning Curve</th>
-                                <th>Production Ready</th>
-                                <th>Community</th>
+                                <th scope="col">Framework or SDK</th>
+                                <th scope="col">Languages reviewed</th>
+                                <th scope="col">Documented role</th>
+                                <th scope="col">Consider it for</th>
+                                <th scope="col">Check before choosing</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>LangChain / LangGraph</strong></td>
-                                <td>Python, JS</td>
-                                <td>Complex chains &amp; stateful workflows</td>
-                                <td>Medium</td>
-                                <td><span class="rating">Yes</span></td>
-                                <td>Large</td>
+                                <th scope="row"><a href="https://docs.langchain.com/oss/python/langchain/overview">LangChain</a></th>
+                                <td>Python, TypeScript</td>
+                                <td>Configurable agent loop, model and tool integrations</td>
+                                <td>A higher-level starting point for a tool-using agent</td>
+                                <td>Provider behavior, middleware and required custom workflow control</td>
                             </tr>
                             <tr>
-                                <td><strong>CrewAI</strong></td>
+                                <th scope="row"><a href="https://docs.langchain.com/oss/python/langgraph/overview">LangGraph</a></th>
+                                <td>Python, TypeScript</td>
+                                <td>Stateful orchestration with persistence, streaming and interrupts</td>
+                                <td>Explicit routing, long-running work and human approval</td>
+                                <td>Checkpoint storage, replay behavior and external side effects</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="https://dspy.ai/">DSPy</a></th>
                                 <td>Python</td>
-                                <td>Multi-agent teams &amp; role-based collaboration</td>
-                                <td>Low</td>
-                                <td><span class="rating">Yes</span></td>
-                                <td>Growing</td>
+                                <td>Signatures, modules and metric-driven optimizers</td>
+                                <td>Systematic improvement of a measurable model task</td>
+                                <td>Representative data, metric quality and held-out results</td>
                             </tr>
                             <tr>
-                                <td><strong>AutoGen (AG2)</strong></td>
+                                <th scope="row"><a href="https://docs.crewai.com/">CrewAI</a></th>
                                 <td>Python</td>
-                                <td>Research &amp; autonomous multi-agent systems</td>
-                                <td>High</td>
-                                <td>Experimental</td>
-                                <td>Microsoft-backed</td>
+                                <td>Role-based Crews and event-driven Flows</td>
+                                <td>Tasks with clear role boundaries and coordinated work</td>
+                                <td>Whether multiple agents justify extra calls and coordination</td>
                             </tr>
                             <tr>
-                                <td><strong>Semantic Kernel</strong></td>
-                                <td>C# / .NET</td>
-                                <td>Enterprise &amp; .NET shops</td>
-                                <td>Medium</td>
-                                <td><span class="rating">Yes</span></td>
-                                <td>Microsoft-backed</td>
+                                <th scope="row"><a href="https://learn.microsoft.com/en-us/agent-framework/overview/">Microsoft Agent Framework</a></th>
+                                <td>Python, .NET</td>
+                                <td>Agents, model clients and explicit workflows</td>
+                                <td>New agent projects evaluating the Microsoft stack</td>
+                                <td>Release status and capabilities of the specific language package</td>
                             </tr>
                             <tr>
-                                <td><strong>OpenAI Agents SDK</strong></td>
+                                <th scope="row"><a href="https://learn.microsoft.com/en-us/semantic-kernel/overview/">Semantic Kernel</a></th>
+                                <td>C#, Python, Java</td>
+                                <td>Model connectors and plugins for existing application functions</td>
+                                <td>Extending an application already using Semantic Kernel</td>
+                                <td>Existing API dependencies and the Agent Framework migration path</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="https://github.com/microsoft/autogen">Microsoft AutoGen</a></th>
+                                <td>Python; .NET Core API</td>
+                                <td>Layered agent messaging and multi-agent conversations</td>
+                                <td>Reviewing an existing AutoGen implementation</td>
+                                <td>README now describes it as archived; Microsoft recommends Agent Framework for new projects</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="https://github.com/ag2ai/ag2">AG2</a></th>
                                 <td>Python</td>
-                                <td>OpenAI ecosystem &amp; rapid prototyping</td>
-                                <td>Low</td>
-                                <td><span class="rating">Yes</span></td>
-                                <td>Large</td>
+                                <td>Cooperating agents, tools and conversation patterns</td>
+                                <td>Evaluating the independently maintained AG2 project</td>
+                                <td>Current AG2 versus AG2 Classic packages and import names</td>
                             </tr>
                             <tr>
-                                <td><strong>Claude Agent SDK</strong></td>
-                                <td>Python</td>
-                                <td>Anthropic ecosystem &amp; safety-first agents</td>
-                                <td>Low</td>
-                                <td><span class="rating">Yes</span></td>
-                                <td>Growing</td>
+                                <th scope="row"><a href="https://openai.github.io/openai-agents-python/">OpenAI Agents SDK</a></th>
+                                <td>Python, TypeScript</td>
+                                <td>Agent loops, tools, handoffs, guardrails and tracing</td>
+                                <td>An SDK-based application with explicit tool and handoff behavior</td>
+                                <td>Provider and SDK differences; non-OpenAI support does not imply identical features</td>
                             </tr>
                             <tr>
-                                <td><strong>Haystack</strong></td>
-                                <td>Python</td>
-                                <td>RAG pipelines &amp; search-augmented agents</td>
-                                <td>Medium</td>
-                                <td><span class="rating">Yes</span></td>
-                                <td>Medium</td>
+                                <th scope="row"><a href="https://code.claude.com/docs/en/agent-sdk/overview">Claude Agent SDK</a></th>
+                                <td>Python, TypeScript</td>
+                                <td>Claude Code's agent loop, context management and built-in tools</td>
+                                <td>Embedding a Claude agent that works with files, commands and tools</td>
+                                <td>Runtime hosting, tool permissions and sandbox boundaries</td>
                             </tr>
                             <tr>
-                                <td><strong>DSPy</strong></td>
+                                <th scope="row"><a href="https://docs.haystack.deepset.ai/docs/intro">Haystack</a></th>
                                 <td>Python</td>
-                                <td>Prompt optimization &amp; systematic improvement</td>
-                                <td>High</td>
-                                <td>Experimental</td>
-                                <td>Academic</td>
+                                <td>Reusable pipelines, document stores, agents and tools</td>
+                                <td>Retrieval, document question answering and search workflows</td>
+                                <td>Retrieval quality, document freshness and end-to-end answer quality</td>
                             </tr>
                         </tbody>
                     </table>
@@ -192,78 +283,94 @@
         <section class="preview-section">
             <div class="container">
                 <div class="section-header">
-                    <h2>Our Recommendations</h2>
-                    <p>There's no single "best" framework — the right choice depends on your team's language preference, use case complexity, and production requirements. Here's our opinionated guidance based on three common scenarios.</p>
+                    <h2>Shortlist by Your Team's Next Task</h2>
+                    <p>These are starting points for a proof of concept. Compare the same representative task before committing to an architecture.</p>
                 </div>
                 <div class="preview-grid">
                     <div class="preview-card">
-                        <div class="preview-icon">&#128640;</div>
-                        <h3>For Startups</h3>
-                        <p><strong>CrewAI</strong> or <strong>OpenAI Agents SDK</strong>. Both have the lowest learning curves, the fastest time-to-first-agent, and enough production maturity to ship real products. CrewAI is better if you need multi-agent collaboration. OpenAI Agents SDK is simpler for single-agent use cases and pairs naturally with GPT models. Either one lets a small team go from idea to deployed agent in days, not weeks.</p>
+                        <div class="preview-icon" aria-hidden="true">&#128640;</div>
+                        <h3>Ship a Bounded Agent</h3>
+                        <p>Start with <strong>LangChain</strong> or <strong>OpenAI Agents SDK</strong> for a model-and-tools loop. Evaluate <strong>Claude Agent SDK</strong> if you need its built-in workspace tools and runtime. Add <strong>CrewAI</strong> when the task benefits from distinct agent roles. Establish a single-agent baseline first so you can measure the value of coordination.</p>
                     </div>
                     <div class="preview-card">
-                        <div class="preview-icon">&#127970;</div>
-                        <h3>For Enterprise</h3>
-                        <p><strong>LangGraph</strong> or <strong>Semantic Kernel</strong>. LangGraph is the best choice for Python-first teams who need complex, stateful workflows with built-in persistence and human-in-the-loop patterns. Semantic Kernel is the clear winner for .NET/C# shops — it integrates naturally with Azure services and has Microsoft's enterprise support behind it. Both handle the compliance, auditing, and scale requirements that enterprise demands.</p>
+                        <div class="preview-icon" aria-hidden="true">&#127970;</div>
+                        <h3>Control a Business Workflow</h3>
+                        <p>Evaluate <strong>LangGraph</strong> for explicit state and approval steps, or <strong>Microsoft Agent Framework</strong> alongside your Python or .NET stack. For an existing Semantic Kernel or AutoGen application, inventory integrations and test the migration path before replacing working components.</p>
                     </div>
                     <div class="preview-card">
-                        <div class="preview-icon">&#128300;</div>
-                        <h3>For Research</h3>
-                        <p><strong>AutoGen (AG2)</strong> or <strong>DSPy</strong>. AutoGen excels at autonomous multi-agent systems where agents negotiate, debate, and collaborate without human intervention — perfect for exploring what's possible. DSPy is the choice when you want to systematically optimize your prompts and agent behavior using training data rather than manual prompt engineering. Both are experimental but pushing the boundaries of what agents can do.</p>
+                        <div class="preview-icon" aria-hidden="true">&#128300;</div>
+                        <h3>Improve Answers or Retrieval</h3>
+                        <p>Evaluate <strong>DSPy</strong> when you can define examples and a meaningful task metric. Evaluate <strong>Haystack</strong> when document ingestion, retrieval and pipeline composition dominate the work. Use <strong>AG2</strong> as a separate candidate for agent cooperation experiments, with a pinned package and explicit stopping conditions.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Detailed Framework Notes -->
-        <section class="checklist-section">
+        <section class="checklist-section" id="framework-notes">
             <div class="container">
                 <div class="section-header">
-                    <h2>Framework Deep Dives</h2>
-                    <p>Key details and trade-offs for each framework that don't fit in a comparison table. Use these notes alongside the table above to make your final decision.</p>
+                    <h2>Framework Details That Change the Decision</h2>
+                    <p>Check the project, package and runtime you will actually deploy. Similar names and shared ancestry do not guarantee compatible APIs.</p>
                 </div>
                 <div class="checklist-categories">
                     <div class="checklist-category">
-                        <h3>LangChain / LangGraph</h3>
+                        <h3>LangChain and LangGraph Are Different Layers</h3>
                         <ul class="checklist-items">
-                            <li>LangGraph (the stateful orchestration layer) has largely superseded LangChain's original chain abstraction for agent workflows — use LangGraph for new projects</li>
-                            <li>Excellent built-in persistence with checkpointing — agents can resume conversations across sessions without custom state management</li>
-                            <li>Human-in-the-loop patterns are first-class citizens with built-in approval workflows and intervention points</li>
-                            <li>The ecosystem is massive: LangSmith for observability, LangServe for deployment, and hundreds of community integrations</li>
-                            <li>Trade-off: The abstraction layers can add complexity. Simple agents may be over-engineered in LangGraph compared to a direct SDK approach</li>
+                            <li>LangChain provides a configurable agent harness and integrations. LangGraph provides lower-level state and control-flow primitives; it does not require LangChain.</li>
+                            <li>LangGraph supports checkpointing and interrupts. Your deployment still needs a suitable persistence backend and tested handling of repeated or partially completed external actions.</li>
+                            <li>Use the abstraction level your task needs. A short model-and-tools loop may not need a custom graph.</li>
                         </ul>
+                        <p>Sources: <a href="https://docs.langchain.com/oss/python/langchain/overview">LangChain</a>, <a href="https://docs.langchain.com/oss/python/langgraph/overview">LangGraph Python</a> and <a href="https://docs.langchain.com/oss/javascript/langgraph/overview">LangGraph TypeScript</a>.</p>
                     </div>
                     <div class="checklist-category">
-                        <h3>CrewAI</h3>
+                        <h3>Microsoft AutoGen, AG2 and Agent Framework</h3>
                         <ul class="checklist-items">
-                            <li>The role-based mental model (agents have roles, goals, and backstories) makes multi-agent systems intuitive to design and explain to non-technical stakeholders</li>
-                            <li>Built-in task delegation and collaboration patterns mean agents can hand off work to each other without custom orchestration code</li>
-                            <li>Supports sequential, parallel, and hierarchical crew configurations out of the box</li>
-                            <li>Rapidly growing community with active template library and plug-and-play crew configurations</li>
-                            <li>Trade-off: Less granular control over individual agent behavior compared to LangGraph. The abstraction trades flexibility for simplicity</li>
+                            <li>Microsoft AutoGen and AG2 are separate projects. The Microsoft AutoGen README describes AutoGen as archived and no longer maintained by Microsoft, and recommends Microsoft Agent Framework for new projects.</li>
+                            <li>AG2's current README distinguishes the top-level <code>ag2</code> package from AG2 Classic, which retains the legacy <code>autogen</code> namespace. Match code examples to the correct repository and version.</li>
+                            <li>Semantic Kernel supports C#, Python and Java; it is not limited to .NET. Existing users should assess the documented Agent Framework migration guidance against their actual features and language.</li>
                         </ul>
+                        <p>Sources: <a href="https://github.com/microsoft/autogen">Microsoft AutoGen README</a>, <a href="https://github.com/ag2ai/ag2">AG2 README</a>, <a href="https://learn.microsoft.com/en-us/semantic-kernel/overview/">Semantic Kernel overview</a> and <a href="https://learn.microsoft.com/en-us/agent-framework/migration-guide/">Microsoft migration guides</a>.</p>
                     </div>
                     <div class="checklist-category">
-                        <h3>OpenAI Agents SDK &amp; Claude Agent SDK</h3>
+                        <h3>OpenAI Agents SDK and Claude Agent SDK</h3>
                         <ul class="checklist-items">
-                            <li>Both vendor SDKs offer the tightest integration with their respective model families — built-in tool calling, structured outputs, and model-specific optimizations</li>
-                            <li>Lowest learning curve of any framework option — if you can call an API, you can build an agent in an hour</li>
-                            <li>OpenAI's SDK benefits from the largest developer community and most third-party examples. Claude's SDK benefits from Anthropic's safety-first design</li>
-                            <li>Both are production-ready with enterprise support options and SLA guarantees</li>
-                            <li>Trade-off: Vendor lock-in. Your agent code is tightly coupled to one model provider. Switching models later requires significant refactoring</li>
+                            <li>OpenAI Agents SDK has Python and TypeScript implementations. Its Python documentation describes non-OpenAI provider support through compatible endpoints and adapters, including LiteLLM; it is not restricted to OpenAI models.</li>
+                            <li>Provider portability needs testing. Tool calling, structured outputs, hosted tools and tracing behavior can differ by provider and SDK language.</li>
+                            <li>Claude Agent SDK exposes Claude Code's agent loop, context management, permissions, sessions and tools in Python and TypeScript. Plan hosting and access controls for file and command execution.</li>
+                            <li>Evaluate SDKs and hosted services separately. Confirm any support contract or SLA for the specific service you buy.</li>
                         </ul>
+                        <p>Sources: <a href="https://openai.github.io/openai-agents-python/models/">OpenAI model providers</a>, <a href="https://openai.github.io/openai-agents-js/">OpenAI TypeScript SDK</a> and <a href="https://code.claude.com/docs/en/agent-sdk/overview">Claude Agent SDK overview</a>.</p>
                     </div>
                     <div class="checklist-category">
-                        <h3>Haystack &amp; DSPy</h3>
+                        <h3>CrewAI, Haystack and DSPy: Test the Fit</h3>
                         <ul class="checklist-items">
-                            <li>Haystack is the best choice when your agent's primary capability is retrieval — search, document Q&A, knowledge base queries. The RAG pipeline primitives are unmatched</li>
-                            <li>DSPy takes a fundamentally different approach: instead of writing prompts, you define input/output signatures and let the framework optimize the prompts using training examples</li>
-                            <li>Haystack has a visual pipeline editor that makes complex retrieval flows accessible to less technical team members</li>
-                            <li>DSPy produces measurably better results when you have evaluation data — the compiler-based approach outperforms manual prompt engineering in benchmarks</li>
-                            <li>Trade-off: Haystack is specialized for retrieval — general-purpose agent tasks require more custom code. DSPy has a steep learning curve and requires evaluation datasets to unlock its potential</li>
+                            <li>CrewAI separates role-based Crews from event-driven Flows. Prototype delegation and failure handling with your real task boundaries.</li>
+                            <li>Haystack provides pipelines and agents as well as retrieval components. Evaluate document retrieval separately from generated answers to locate the cause of errors.</li>
+                            <li>DSPy optimizers search for improvements against your chosen metric. A higher optimization score is not proof of better performance on unseen cases; reserve held-out data and inspect failure examples.</li>
+                            <li>Budget optimization calls separately from inference. Changing the model, tools or task distribution calls for a new evaluation.</li>
                         </ul>
+                        <p>Sources: <a href="https://docs.crewai.com/">CrewAI documentation</a>, <a href="https://docs.haystack.deepset.ai/docs/intro">Haystack introduction</a> and <a href="https://dspy.ai/current/diving-deeper/choosing-an-optimizer/">DSPy optimizer guide</a>.</p>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section class="checklist-section" id="evaluation">
+            <div class="container">
+                <div class="section-header">
+                    <h2>How to Evaluate Your Shortlist</h2>
+                    <p>This is a proposed evaluation protocol, not a test we have run across these frameworks. Set acceptance thresholds before you see the results.</p>
+                </div>
+                <ol>
+                    <li><strong>Fix the task and baseline.</strong> Use representative normal, edge and failure cases. Keep model version, tool access, dataset and inference budget comparable; record any differences.</li>
+                    <li><strong>Measure useful completion.</strong> Score whether the task was completed correctly, required fields were valid and answers were supported by the supplied evidence. Review failed cases, not just an average.</li>
+                    <li><strong>Measure operating cost and delay.</strong> Record model/tool calls, tokens, billed usage and end-to-end latency, including slow cases. Track optimization cost separately.</li>
+                    <li><strong>Test control and recovery.</strong> Interrupt a run, fail a tool, restart a worker and deny an approval. Verify state recovery, stopping limits and that retries do not repeat an external write.</li>
+                    <li><strong>Review deployment constraints.</strong> Check permissions, sensitive data in traces, storage and model-provider locations, package licenses, maintenance status and the service support terms you need.</li>
+                    <li><strong>Keep a reproducible decision record.</strong> Save versions, configuration, prompts or compiled program, examples and results. Re-run relevant cases after dependency or model changes.</li>
+                </ol>
+                <p><strong>Scope of this comparison:</strong> This page summarizes the linked maintainer documentation and provides selection guidance. It does not report a cross-framework benchmark, rank community size or promise faster delivery, lower cost, compliance or production reliability. Validate the selected package and deployment with the <a href="checklist.html">production checklist</a>.</p>
             </div>
         </section>
 
@@ -271,7 +378,7 @@
         <section class="book-cta">
             <div class="container">
                 <h2>Ready to Deploy Your Agent?</h2>
-                <p>You've picked your framework. Now make sure your agent is production-ready with the checklist, and prepare for incidents with the runbook.</p>
+                <p>Use your shortlist to build a representative proof of concept, record the results, and work through deployment and incident checks before release.</p>
                 <div class="hero-buttons" style="justify-content: center;">
                     <a href="checklist.html" class="btn btn-primary">Production Checklist</a>
                     <a href="resources.html" class="btn btn-secondary">All Book Resources</a>

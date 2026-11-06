@@ -115,6 +115,8 @@ cta:
 
 Scegli un contenuto concreto: una guida di assistenza, una scheda di servizio o un articolo tecnico. Definisci chi lo userà, quale domanda deve risolvere e chi può autorizzarne la pubblicazione. Il primo risultato del pilot è una pagina utile e controllata, non una quantità di testi generati.
 
+Per un flusso che parte da un brief e produce bozze per blog, social ed email, vedi l'[Agente Marketing AI per i contenuti multicanale](landing-marketing-agent.html). Il team mantiene l'approvazione della pubblicazione e del budget.
+
 Il [confronto degli strumenti AI SEO](articolo-migliori-strumenti-ai-seo.html) presenta già il flusso generale dalla ricerca al monitoraggio. Qui il lavoro è più specifico: rendere verificabile **quale affermazione deriva da quale fonte e quale versione è stata approvata e pubblicata**. Prima di scegliere un nuovo modello o un connettore, prova a ricostruire questi legami su una pagina esistente.
 
 Nella [guida Google sui contenuti generati con AI](https://developers.google.com/search/docs/fundamentals/using-gen-ai-content), il controllo di accuratezza riguarda anche title, description, dati strutturati e testi alternativi. Una revisione del solo corpo lascia fuori promesse che il lettore può incontrare già nei risultati di ricerca.
