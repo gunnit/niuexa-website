@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
+    <!-- Google Tag Manager -->
+    <script data-consent-guard>(function (w) {var held = [];var granted = false;var hosts = /(^|\.)(hs-scripts\.com|hs-analytics\.net|hs-banner\.com|hscollectedforms\.net|hsforms\.(com|net)|hubspot\.com|apollo\.io|aplo-evnt\.com)$/i;var proto = w.Node && w.Node.prototype;if (!proto) return;var append = proto.appendChild;var insert = proto.insertBefore;try {var saved = JSON.parse(w.localStorage.getItem('niuexa_cookie_consent'));granted = !!(saved && saved.marketing === true);} catch (e) { /* no saved choice */ }function hold(node) {if (granted || !node || node.nodeName !== 'SCRIPT' || !node.src) return false;try { return hosts.test(new URL(node.src, w.location.href).hostname); } catch (e) { return false; }}proto.appendChild = function (node) {if (hold(node)) { held.push([this, node, null]); return node; }return append.call(this, node);};proto.insertBefore = function (node, ref) {if (hold(node)) { held.push([this, node, ref]); return node; }return insert.call(this, node, ref);};w.addEventListener('niuexa:consent', function (event) {if (!event.detail || event.detail.marketing !== true) return;granted = true;held.splice(0).forEach(function (item) {if (item[2] && item[2].parentNode === item[0]) insert.call(item[0], item[1], item[2]);else append.call(item[0], item[1]);});});})(window);</script>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KG9S42S4');</script>
+
+    <title>Ordini da email e PDF a ERP: runbook AI | Niuexa</title>
+    <meta name="description" content="Come portare ordini da email e PDF al gestionale: campi, righe, controlli, approvazioni, duplicati e ricevute incerte. Esempio e test di collaudo.">
+    <meta name="keywords" content="ordini email PDF gestionale, estrazione dati ordini AI, integrazione ERP AI, validazione righe ordine, duplicati ordini API, riconciliazione workflow AI">
+    <meta name="author" content="Niuexa">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://niuexa.ai/articolo-ordini-email-pdf-erp.html">
+    <meta property="og:title" content="Dall’email all’ordine ERP: controlli, approvazioni ed esiti">
+    <meta property="og:description" content="Un runbook per validare righe d’ordine, evitare duplicati e verificare le scritture nel gestionale. Esempio sintetico e scheda di collaudo.">
+    <meta property="og:image" content="https://niuexa.ai/img/articles/ordini-email-pdf-erp/ordini-email-pdf-erp-og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Ordini da email e PDF al gestionale: validare i dati prima di scrivere">
+    <meta property="og:locale" content="it_IT">
+    <meta property="article:published_time" content="2026-11-06">
+    <meta property="article:modified_time" content="2026-11-06">
+    <meta property="article:author" content="Niuexa">
+    <meta property="article:section" content="AI Engineering e Processi">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dall’email all’ordine ERP: controlli, approvazioni ed esiti">
+    <meta name="twitter:description" content="Email e PDF non sono ancora ordini ERP: un metodo per verificare dati, approvazioni, duplicati e ricevute incerte.">
+    <meta name="twitter:image" content="https://niuexa.ai/img/articles/ordini-email-pdf-erp/ordini-email-pdf-erp-og.png">
+    <meta name="twitter:image:alt" content="Ordini da email e PDF al gestionale: validare i dati prima di scrivere">
+
+    <link rel="canonical" href="https://niuexa.ai/articolo-ordini-email-pdf-erp.html">
+    <link rel="alternate" hreflang="it" href="https://niuexa.ai/articolo-ordini-email-pdf-erp.html">
+    <link rel="alternate" hreflang="it-it" href="https://niuexa.ai/articolo-ordini-email-pdf-erp.html">
+    <link rel="alternate" hreflang="x-default" href="https://niuexa.ai/articolo-ordini-email-pdf-erp.html">
+    <link rel="icon" type="image/png" sizes="192x192" href="/img/niuexa-icon-192.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+    <link rel="stylesheet" href="styles.css?v=20261029">
+    <link rel="stylesheet" href="tutorial.css?v=20260812">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Ordini da email e PDF al gestionale: validare i dati prima di scrivere",
+      "description": "Come portare ordini da email e PDF al gestionale: campi, righe, controlli, approvazioni, duplicati e ricevute incerte. Esempio e test di collaudo.",
+      "author": {
+        "@type": "Organization",
+        "name": "Niuexa",
+        "url": "https://niuexa.ai/chi-siamo.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Niuexa",
+        "url": "https://niuexa.ai",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://niuexa.ai/img/niuexalogo.png"
+        }
+      },
+      "datePublished": "2026-11-06",
+      "dateModified": "2026-11-06",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://niuexa.ai/articolo-ordini-email-pdf-erp.html"
+      },
+      "image": [
+        "https://niuexa.ai/img/articles/ordini-email-pdf-erp/ordini-email-pdf-erp-og.png"
+      ],
+      "articleSection": "AI Engineering e Processi",
+      "keywords": [
+        "ordini email PDF gestionale",
+        "estrazione dati ordini AI",
+        "integrazione ERP AI",
+        "validazione righe ordine",
+        "duplicati ordini API",
+        "riconciliazione workflow AI"
+      ],
+      "inLanguage": "it-IT",
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "Microsoft Document Intelligence — Accuracy e confidence",
+          "url": "https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/concept/accuracy-confidence?view=doc-intel-4.0.0",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Microsoft"
+          }
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "LangGraph — Fault tolerance, retry e idempotenza",
+          "url": "https://docs.langchain.com/oss/python/langgraph/fault-tolerance",
+          "publisher": {
+            "@type": "Organization",
+            "name": "LangChain"
+          }
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Microsoft Dataverse — Upsert e chiavi alternative",
+          "url": "https://learn.microsoft.com/en-us/power-apps/developer/data-platform/use-upsert-insert-update-record",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Microsoft"
+          }
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "OWASP — LLM Prompt Injection Prevention",
+          "url": "https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html",
+          "publisher": {
+            "@type": "Organization",
+            "name": "OWASP"
+          }
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Un valore di confidence alto basta per creare l’ordine?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. È un segnale stimato del sistema di estrazione. Correttezza dei campi, coerenza commerciale, permessi e condizioni di approvazione richiedono controlli distinti. Le soglie vanno valutate sui documenti del processo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Il controllo dell’hash del PDF elimina tutti i duplicati?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. L’hash aiuta a riconoscere lo stesso file; due file diversi possono rappresentare lo stesso ordine. Serve anche un’identità commerciale concordata e una gestione delle revisioni."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Un timeout significa che l’ERP non ha creato l’ordine?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. L’ERP può aver eseguito la scrittura prima che la risposta vada persa. Mantieni l’esito incerto e verifica lo stato esterno; non ripetere alla cieca una creazione."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "MCP impedisce le scritture duplicate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Il protocollo di collegamento non sostituisce identità dell’operazione, autorizzazioni, controlli di concorrenza e semantica dell’API del gestionale."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quanti documenti servono per un pilot?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non esiste un numero universale. Il campione deve coprire formati, clienti, righe, eccezioni e casi di errore rilevanti; criteri e soglie si concordano prima delle prove."
+          }
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://niuexa.ai/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ricerca",
+          "item": "https://niuexa.ai/research.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Ordini da email e PDF a ERP",
+          "item": "https://niuexa.ai/articolo-ordini-email-pdf-erp.html"
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9S42S4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <div id="navigation-placeholder"></div>
+    <main id="main-content">
+        <section class="tutorial-header"><div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="research.html">Ricerca</a> / <span>Ordini da email e PDF a ERP</span></nav><div class="tutorial-intro">
+            <div class="tutorial-badge">Automazione documentale</div>
+            <h1>Ordini da email e PDF al gestionale: validare i dati prima di scrivere</h1>
+            <p class="tutorial-description">Estrarre una quantità da un PDF e creare un ordine nel gestionale sono due risultati diversi. Questo runbook separa lettura, validazione, approvazione e conferma, con un ordine di esempio e prove sugli errori che una demo riuscita non mostra.</p>
+            <p class="article-meta">A cura di <a href="https://niuexa.ai/chi-siamo.html">Niuexa</a></p>
+            <div class="tutorial-stats"><span class="stat">12 minuti di lettura</span><span class="stat">Per responsabili operations, amministrazione e IT</span><span class="stat">Runbook con esempio e prove di accettazione</span><span class="stat">Aggiornato il <time datetime="2026-11-06">6 novembre 2026</time></span></div>
+        </div></div></section>
+
+        <article class="tutorial-content"><div class="container"><div class="content-wrapper">
+            <nav class="article-toc" aria-labelledby="article-toc-heading">
+                <h2 id="article-toc-heading">Indice</h2>
+                <ul>
+                    <li><a href="#risposta-rapida">Risposta rapida</a></li>
+                    <li><a href="#il-perimetro-dallallegato-a-una-proposta-verificabile">Il perimetro: dall'allegato a una proposta verificabile</a></li>
+                    <li><a href="#un-contratto-dei-dati-per-testata-e-righe">Un contratto dei dati per testata e righe</a></li>
+                    <li><a href="#un-ordine-sintetico-dal-documento-alla-bozza">Un ordine sintetico, dal documento alla bozza</a></li>
+                    <li><a href="#stati-che-impediscono-di-confondere-avanzamento-e-successo">Stati che impediscono di confondere avanzamento e successo</a></li>
+                    <li><a href="#duplicati-e-tentativi-tre-identita-da-separare">Duplicati e tentativi: tre identità da separare</a></li>
+                    <li><a href="#input-non-fidati-permessi-e-controllo-proporzionato">Input non fidati, permessi e controllo proporzionato</a></li>
+                    <li><a href="#prove-rappresentative-prima-del-rilascio">Prove rappresentative prima del rilascio</a></li>
+                    <li><a href="#la-scheda-di-accettazione-da-copiare">La scheda di accettazione da copiare</a></li>
+                    <li><a href="#faq">Domande frequenti sugli ordini da email e PDF</a></li>
+                </ul>
+            </nav>
+
+            <section class="content-section quick-answer">
+                <h2 id="risposta-rapida">Come automatizzare gli ordini da email e PDF senza perdere il controllo?</h2>
+                <p>Trasforma email e PDF in una <strong>proposta d’ordine</strong>, conserva i riferimenti alle fonti e verifica campi, righe e condizioni contro anagrafiche e regole autorizzate. Prima della scrittura, applica l’approvazione prevista dal processo. Identifica duplicati e tentativi con chiavi distinte; se manca la conferma del gestionale, verifica lo stato esterno prima di ripetere. Una bozza corretta non prova che l’ordine sia stato registrato.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="il-perimetro-dallallegato-a-una-proposta-verificabile">Il perimetro: dall’allegato a una proposta verificabile</h2>
+                <p><strong>Nota editoriale:</strong> contenuto preparato con assistenza AI; fonti ufficiali verificate il 6 novembre 2026. Esempi e prove sono costruiti per spiegare il metodo, senza attribuire una revisione personale o risultati a clienti.</p>
+                <p>Il primo pilot dovrebbe avere un confine riconoscibile: una casella autorizzata, alcuni tipi di ordine, un insieme di clienti e una destinazione ERP. Definisci chi decide quando email e allegato si contraddicono, quali eccezioni passano a una persona e che cosa significa «ordine registrato» nel sistema di destinazione.</p>
+                <p>Questo runbook riguarda l’inserimento degli ordini, non l’accettazione automatica di qualsiasi condizione proposta dal cliente. Disponibilità, prezzi, sconti, indirizzi e date richieste non diventano autorizzati solo perché compaiono nel PDF. Il responsabile commerciale stabilisce quali fonti prevalgono; l’IT verifica che le API consentano le operazioni previste.</p>
+                <p>Prima di automatizzare tutta la pratica, puoi fermarti alla bozza. Misura separatamente tempo di estrazione, revisione e registrazione. Il valore del pilot emerge dagli ordini corretti e conclusi, non dal numero di PDF letti.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="un-contratto-dei-dati-per-testata-e-righe">Un contratto dei dati per testata e righe</h2>
+                <p>Per ciascun campo servono valore originale, eventuale valore normalizzato, riferimento alla fonte e risultato dei controlli. Conserva i documenti in un archivio autorizzato: il registro operativo può contenere riferimenti e identificativi, senza duplicare inutilmente email e allegati.</p>
+                <table class="comparison-table">
+                    <thead><tr><th>Dato</th><th>Controllo prima della bozza</th><th>Se il controllo non passa</th></tr></thead>
+                    <tbody>
+                        <tr><td>Cliente e società destinataria</td><td>Corrispondenza con l’anagrafica e con il perimetro autorizzato</td><td>Richiedere identificazione; non scegliere il cliente «più simile»</td></tr>
+                        <tr><td>Numero ordine e revisione</td><td>Presenza, formato e identità commerciale concordata</td><td>Sospendere o assegnare una pratica provvisoria da risolvere</td></tr>
+                        <tr><td>Codice articolo</td><td>Esistenza e corrispondenza nel catalogo valido</td><td>Chiarimento sulla riga; nessuna sostituzione inventata</td></tr>
+                        <tr><td>Quantità e unità</td><td>Segno, separatori, unità e conversioni approvate</td><td>Evidenziare l’ambiguità senza correggerla silenziosamente</td></tr>
+                        <tr><td>Prezzo e valuta</td><td>Confronto con listino o accordo autorizzato</td><td>Revisione commerciale della differenza</td></tr>
+                        <tr><td>Importi di riga e totale</td><td>Ricalcolo con regole documentate di arrotondamento</td><td>Segnalare scostamento e regola applicata</td></tr>
+                        <tr><td>Consegna e condizioni</td><td>Campi richiesti e compatibilità con il processo</td><td>Registrare la richiesta del cliente come tale, senza promettere l’esito</td></tr>
+                    </tbody>
+                </table>
+                <p>Le righe sono importanti quanto la testata: estrarre correttamente il cliente non compensa una quantità moltiplicata per dieci. Evita medie che nascondano errori nei campi critici. Verifica anche righe spezzate su più pagine, note che valgono solo per un articolo e totali che includono voci estranee al perimetro scelto.</p>
+
+                <h3>Confidence e correttezza sono misure diverse</h3>
+                <p>La <a href="https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/concept/accuracy-confidence?view=doc-intel-4.0.0" target="_blank" rel="noopener">documentazione Microsoft Document Intelligence</a> descrive la confidence come stima dell’estrazione e avverte che non tutti i campi la restituiscono. Non trasformare una confidence di 0,99 nell’affermazione «il nostro processo è corretto al 99%»: la seconda richiede una misura sui casi con esito noto.</p>
+                <p>Una quantità può essere letta con sicurezza ma non essere ammessa dal contratto commerciale. Usa la confidence per indirizzare la revisione insieme a completezza, regole e criticità del campo. La soglia scelta per una descrizione non deve essere automaticamente quella di quantità, prezzo o codice cliente.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="un-ordine-sintetico-dal-documento-alla-bozza">Un ordine sintetico, dal documento alla bozza</h2>
+                <p><strong>Esempio inventato:</strong> il PDF <code>DOC-DEMO-104</code> riporta l’ordine <code>ORD-DEMO-104</code> del cliente <code>CLIENTE-DEMO-01</code>, in euro. Il catalogo e il listino dimostrativi confermano due righe:</p>
+                <table class="comparison-table">
+                    <thead><tr><th>Articolo dimostrativo</th><th>Quantità</th><th>Unità</th><th>Prezzo netto unitario</th><th>Netto di riga</th></tr></thead>
+                    <tbody>
+                        <tr><td>DEMO-A</td><td>12</td><td>pezzi</td><td>8,50 euro</td><td>102,00 euro</td></tr>
+                        <tr><td>DEMO-B</td><td>3</td><td>pezzi</td><td>24,00 euro</td><td>72,00 euro</td></tr>
+                    </tbody>
+                </table>
+                <p>Il netto delle due righe è 174,00 euro. Imposte, trasporto e altre condizioni sono fuori da questo esempio e vanno gestiti separatamente nel processo reale. Questi importi non sono un listino di Niuexa o di un fornitore.</p>
+                <p>Una proposta schematica può conservare:</p>
+                <pre><code class="language-json">{&#10;  &quot;request_id&quot;: &quot;PRATICA-DEMO-104&quot;,&#10;  &quot;customer_id&quot;: &quot;CLIENTE-DEMO-01&quot;,&#10;  &quot;customer_order_ref&quot;: &quot;ORD-DEMO-104&quot;,&#10;  &quot;source_ref&quot;: &quot;DOC-DEMO-104:pagina-1&quot;,&#10;  &quot;price_record_version&quot;: &quot;LISTINO-DEMO-v3&quot;,&#10;  &quot;currency&quot;: &quot;EUR&quot;,&#10;  &quot;net_total_minor_units&quot;: 17400,&#10;  &quot;validation_status&quot;: &quot;passed&quot;,&#10;  &quot;approval_status&quot;: &quot;awaiting_review&quot;,&#10;  &quot;erp_record_id&quot;: null&#10;}</code></pre>
+                <p>È un esempio di dati, non il formato di una specifica API. Il totale è espresso in centesimi per rendere esplicita l’unità. La bozza deve mantenere anche righe e provenienza dei singoli campi; qui il record è abbreviato per evidenziare gli stati.</p>
+                <p>Se il PDF indica 8,50 ma il listino valido indica 9,00, l’agente segnala il conflitto. Non modifica il prezzo per far tornare il totale. Una persona autorizzata risolve la differenza e approva una versione precisa della bozza; una successiva correzione della quantità richiede di riesaminare quell’approvazione.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="stati-che-impediscono-di-confondere-avanzamento-e-successo">Stati che impediscono di confondere avanzamento e successo</h2>
+                <p>Il processo deve poter ripartire senza perdere la distinzione fra dati elaborati e azioni esterne. Una possibile macchina a stati è questa:</p>
+                <table class="comparison-table">
+                    <thead><tr><th>Stato</th><th>Evidenza conservata</th><th>Condizione per avanzare</th></tr></thead>
+                    <tbody>
+                        <tr><td>Ricevuto</td><td>Pratica, documento e data di acquisizione</td><td>Input previsto e accesso consentito</td></tr>
+                        <tr><td>Estratto</td><td>Valori, riferimenti alle fonti e versione dell’estrattore</td><td>Contratto dei dati verificato</td></tr>
+                        <tr><td>Sospeso</td><td>Errori o ambiguità per campo e riga</td><td>Correzione o decisione tracciata</td></tr>
+                        <tr><td>Da approvare</td><td>Versione completa della proposta</td><td>Decisione del ruolo previsto</td></tr>
+                        <tr><td>Approvato</td><td>Identità della decisione e versione approvata</td><td>Permesso di scrittura e contenuto ancora coerenti</td></tr>
+                        <tr><td>Scrittura in corso</td><td>Identità dell’operazione e tentativo</td><td>Conferma secondo le regole dell’API</td></tr>
+                        <tr><td>Esito incerto</td><td>Chiamata tentata senza conferma conclusiva</td><td>Verifica dello stato nel gestionale</td></tr>
+                        <tr><td>Registrato</td><td>Identificativo ERP e controllo del risultato</td><td>Chiusura della pratica</td></tr>
+                    </tbody>
+                </table>
+                <p>Un rifiuto o un annullamento devono avere una propria chiusura motivata. Non trasformare automaticamente uno stato sospeso in approvato dopo un’attesa. Chi approva deve vedere fonte, differenze, controlli falliti ed effetto previsto della scrittura, non soltanto un pulsante verde.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="duplicati-e-tentativi-tre-identita-da-separare">Duplicati e tentativi: tre identità da separare</h2>
+                <p><strong>Documento:</strong> un identificativo e un’impronta del file aiutano a riconoscere un allegato identico. Non bastano se il cliente genera due PDF diversi per lo stesso ordine.</p>
+                <p><strong>Ordine commerciale:</strong> una chiave concordata può comprendere società, cliente e riferimento ordine. La revisione va gestita esplicitamente: un ordine corretto non deve diventare un secondo ordine, né sovrascrivere automaticamente quello già approvato. La chiave deve rispettare le convenzioni reali, senza presumere che il numero sia unico fra tutti i clienti.</p>
+                <p><strong>Operazione di scrittura:</strong> un’identità stabile collega richiesta, contenuto approvato e tentativi verso l’ERP. Due lavoratori concorrenti non devono limitarsi a controllare «non esiste» e poi creare entrambi: servono un coordinamento persistente e i vincoli supportati dalla destinazione.</p>
+                <p>Microsoft documenta, per <a href="https://learn.microsoft.com/en-us/power-apps/developer/data-platform/use-upsert-insert-update-record" target="_blank" rel="noopener">Dataverse, l’uso di Upsert e chiavi alternative</a>. È un esempio di capacità da verificare, non una funzione garantita da ogni ERP: aggiornare un record esistente può avere effetti commerciali propri. La scelta fra creazione, aggiornamento e revisione resta una regola del processo.</p>
+
+                <h3>Che cosa fare quando manca la ricevuta</h3>
+                <p>La <a href="https://docs.langchain.com/oss/python/langgraph/fault-tolerance" target="_blank" rel="noopener">guida LangGraph su retry e idempotenza</a> distingue la ripetizione del lavoro dall’esecuzione una sola volta di un effetto esterno. Nel tuo connettore verifica se la destinazione accetta una chiave stabile, per quanto la conserva e che cosa restituisce quando cambia il contenuto della richiesta.</p>
+                <p>Se la risposta manca dopo l’invio, mantieni «esito incerto». Cerca l’operazione o l’ordine nella destinazione e confronta identificativo, versione e campi approvati. Se trovi la registrazione prevista, collega la conferma alla pratica; se non puoi stabilire l’esito, passa alla riconciliazione operativa. Un messaggio locale di errore non autorizza da solo una nuova creazione o un annullamento.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="input-non-fidati-permessi-e-controllo-proporzionato">Input non fidati, permessi e controllo proporzionato</h2>
+                <p>L’allegato è una fonte di dati, non una policy aziendale. Un’istruzione nel PDF che chieda di cambiare destinatario, saltare l’approvazione o inviare credenziali non può ampliare i permessi. Le <a href="https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html" target="_blank" rel="noopener">indicazioni OWASP sul prompt injection</a> descrivono anche il rischio dei contenuti esterni e raccomandano controlli oltre il solo filtraggio.</p>
+                <p>Separa lettura dei documenti, consultazione di cataloghi e scrittura degli ordini. Limita l’accesso a società e clienti autorizzati; conserva nei log solo ciò che serve a ricostruire l’operazione, con accessi e durata definiti. Documenti e dati personali non devono diventare automaticamente copie integrali in ogni sistema di monitoraggio.</p>
+                <p>Nel pilot puoi richiedere approvazione prima di ogni scrittura. Un eventuale automatismo successivo richiede casi a basso impatto, criteri verificati e possibilità di fermarsi. Definisci responsabilità e soglie con il <a href="articolo-human-in-the-loop-ai-pmi.html">metodo human-in-the-loop</a>. Che il collegamento usi <a href="articolo-mcp-api-webhook-integrazione-aziendale.html">API, webhook o MCP</a> non cambia il requisito di autorizzare l’azione concreta.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="prove-rappresentative-prima-del-rilascio">Prove rappresentative prima del rilascio</h2>
+                <p>Questi casi sono un punto di partenza, non una certificazione. Prepara input e risultati attesi prima del test; amplia il campione quando emergono nuovi formati o errori.</p>
+                <table class="comparison-table">
+                    <thead><tr><th>Caso</th><th>Comportamento atteso</th><th>Evidenza da controllare</th></tr></thead>
+                    <tbody>
+                        <tr><td>Ordine completo come nell’esempio</td><td>Bozza corretta, poi scrittura solo dopo approvazione</td><td>Righe, totale, decisione e ID ERP</td></tr>
+                        <tr><td>Cliente mancante o ambiguo</td><td>Sospensione senza scelta inventata</td><td>Campo irrisolto e richiesta di chiarimento</td></tr>
+                        <tr><td>Codice articolo sconosciuto</td><td>Blocco della riga</td><td>Nessun prodotto sostitutivo selezionato</td></tr>
+                        <tr><td>Quantità con separatore ambiguo</td><td>Revisione prima del calcolo</td><td>Valore originale e decisione sulla normalizzazione</td></tr>
+                        <tr><td>Prezzo diverso dalla fonte valida</td><td>Eccezione commerciale</td><td>Differenza e riferimento al listino</td></tr>
+                        <tr><td>Totale incoerente o riga su due pagine</td><td>Ricalcolo e verifica della completezza</td><td>Regola applicata e righe recuperate</td></tr>
+                        <tr><td>Stesso allegato ricevuto due volte</td><td>Collegamento alla pratica esistente</td><td>Identità del documento e assenza di doppia creazione</td></tr>
+                        <tr><td>PDF diverso per lo stesso ordine</td><td>Controllo dell’identità commerciale</td><td>Decisione fra duplicato e revisione</td></tr>
+                        <tr><td>Bozza modificata dopo l’approvazione</td><td>Nuova verifica, senza riuso della vecchia decisione</td><td>Versioni e approvazione coerenti</td></tr>
+                        <tr><td>ERP registra ma la risposta va persa</td><td>Esito incerto, poi verifica esterna</td><td>Un solo ordine e collegamento alla conferma</td></tr>
+                        <tr><td>Due lavoratori sulla stessa pratica</td><td>Concorrenza gestita senza doppia creazione</td><td>Operazione assegnata e un solo ordine esterno</td></tr>
+                        <tr><td>Permesso di scrittura negato</td><td>Operazione bloccata senza cambiare identità</td><td>Errore registrato e nessuna scrittura</td></tr>
+                        <tr><td>Allegato con istruzioni estranee</td><td>Nessuna estensione delle azioni consentite</td><td>Permessi invariati e contenuto segnalato</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="content-section">
+                <h2 id="la-scheda-di-accettazione-da-copiare">La scheda di accettazione da copiare</h2>
+                <p>Completa una scheda per il pilot e una riga per ogni prova. Soglie e criteri vanno concordati prima, non scelti dopo per rendere positivo il risultato.</p>
+                <pre><code class="language-text">Processo e responsabile:&#10;Casella, tipi di documento, clienti e società inclusi:&#10;Operazioni escluse:&#10;Campi e righe critici, fonte autorevole per ciascuno:&#10;Formati ed eccezioni coperti dal campione:&#10;Versioni di estrattore, regole e connettore:&#10;Condizioni di approvazione e ruolo autorizzato:&#10;Identità documento / ordine / operazione:&#10;Metodo per verificare una ricevuta incerta:&#10;Soglie concordate: errori critici, esiti corretti, tempo di revisione:&#10;&#10;Per ogni prova:&#10;ID caso | input/versione | risultato atteso | risultato osservato&#10;controlli | decisione | operazione tentata | conferma ERP&#10;differenza | responsabile della correzione | esito della riprova</code></pre>
+                <p>Misura campi corretti su campi verificati, ordini conclusi correttamente su ordini valutati e tempo umano residuo. Riporta a parte errori critici, duplicati ed esiti incerti; non nasconderli nella media. Per stimare i costi usa gli <a href="articolo-costi-automazione-guida.html">esiti validi del processo</a>, mantenendo separati consumo tecnico e lavoro concluso.</p>
+                <p>La <a href="articolo-coda-lavoro-ai-agent.html">coda di lavoro 4C</a> aiuta a organizzare incarichi e responsabilità. Questo runbook aggiunge il contratto specifico dell’ordine: quali dati possono avanzare, quale versione è approvata e quale prova chiude davvero la scrittura nel gestionale.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="fonti">Fonti e perimetro del runbook</h2>
+                <p>Fonti ufficiali controllate il 6 novembre 2026. Il flusso, l’ordine dimostrativo e la scheda di collaudo sono una proposta editoriale Niuexa: non descrivono un cliente né una configurazione già verificata sul tuo gestionale.</p>
+                <ul>
+                    <li><a href="https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/concept/accuracy-confidence?view=doc-intel-4.0.0" target="_blank" rel="noopener">Microsoft Document Intelligence — Accuracy e confidence</a>, distingue stime di estrazione e accuratezza; segnala che non tutti i campi hanno un valore di confidence.</li>
+                    <li><a href="https://docs.langchain.com/oss/python/langgraph/fault-tolerance" target="_blank" rel="noopener">LangGraph — Fault tolerance, retry e idempotenza</a>, chiarisce gli effetti dei tentativi ripetuti e la verifica di esiti senza conferma.</li>
+                    <li><a href="https://learn.microsoft.com/en-us/power-apps/developer/data-platform/use-upsert-insert-update-record" target="_blank" rel="noopener">Microsoft Dataverse — Upsert e chiavi alternative</a>, esempio concreto di API che distingue creazione e aggiornamento tramite identità del record; non è una funzione universale degli ERP.</li>
+                    <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html" target="_blank" rel="noopener">OWASP — LLM Prompt Injection Prevention</a>, tratta contenuti esterni non fidati, controlli sugli output e privilegi minimi.</li>
+                </ul>
+                <p>Campi obbligatori, tolleranze, approvazioni, accessi e tempi di conservazione vanno definiti sul processo reale prima dell’uso operativo.</p>
+            </section>
+
+            <section class="content-section faq-section">
+                <h2 id="faq">Domande frequenti sugli ordini da email e PDF</h2>
+                <div class="faq-item"><h3>Un valore di confidence alto basta per creare l’ordine?</h3><p>No. È un segnale stimato del sistema di estrazione. Correttezza dei campi, coerenza commerciale, permessi e condizioni di approvazione richiedono controlli distinti. Le soglie vanno valutate sui documenti del processo.</p></div>
+                <div class="faq-item"><h3>Il controllo dell’hash del PDF elimina tutti i duplicati?</h3><p>No. L’hash aiuta a riconoscere lo stesso file; due file diversi possono rappresentare lo stesso ordine. Serve anche un’identità commerciale concordata e una gestione delle revisioni.</p></div>
+                <div class="faq-item"><h3>Un timeout significa che l’ERP non ha creato l’ordine?</h3><p>No. L’ERP può aver eseguito la scrittura prima che la risposta vada persa. Mantieni l’esito incerto e verifica lo stato esterno; non ripetere alla cieca una creazione.</p></div>
+                <div class="faq-item"><h3>MCP impedisce le scritture duplicate?</h3><p>No. Il protocollo di collegamento non sostituisce identità dell’operazione, autorizzazioni, controlli di concorrenza e semantica dell’API del gestionale.</p></div>
+                <div class="faq-item"><h3>Quanti documenti servono per un pilot?</h3><p>Non esiste un numero universale. Il campione deve coprire formati, clienti, righe, eccezioni e casi di errore rilevanti; criteri e soglie si concordano prima delle prove.</p></div>
+            </section>
+
+            <section class="content-section"><h2 id="approfondimenti">Approfondimenti correlati</h2><div class="related-articles">
+                <a href="articolo-mcp-api-webhook-integrazione-aziendale.html" class="related-card"><span class="related-category">Integrazioni</span><h3>MCP, API o webhook per collegare i sistemi aziendali</h3></a>
+                <a href="articolo-costi-automazione-guida.html" class="related-card"><span class="related-category">Costi</span><h3>Stimare il costo completo di un pilot di automazione</h3></a>
+                <a href="articolo-coda-lavoro-ai-agent.html" class="related-card"><span class="related-category">Operations</span><h3>Organizzare il lavoro dell’agente con il framework 4C</h3></a>
+                <a href="articolo-human-in-the-loop-ai-pmi.html" class="related-card"><span class="related-category">Controllo umano</span><h3>Definire approvazioni ed escalation proporzionate</h3></a>
+            </div></section>
+        </div></div></article>
+
+        <section class="cta-section"><div class="container"><h2 id="cta">Quale passaggio degli ordini vuoi verificare per primo?</h2><p>Raccontaci come arrivano gli ordini e dove vengono registrati. Nella prima chiamata gratuita di 30 minuti definiamo il processo da approfondire e le evidenze necessarie per valutarlo.</p><a href="/#contact" class="btn btn-primary">Raccontaci il processo</a><a href="consulting.html" class="btn btn-secondary" style="margin-left:15px;">Come lavoriamo</a></div></section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="includes/includes.js?v=2026102902"></script>
+    <script src="tutorial.js"></script>
+    <script src="cookie-banner.js?v=2026102701"></script>
+</body>
+</html>
