@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
+    <!-- Google Tag Manager -->
+    <script data-consent-guard>(function (w) {var held = [];var granted = false;var hosts = /(^|\.)(hs-scripts\.com|hs-analytics\.net|hs-banner\.com|hscollectedforms\.net|hsforms\.(com|net)|hubspot\.com|apollo\.io|aplo-evnt\.com)$/i;var proto = w.Node && w.Node.prototype;if (!proto) return;var append = proto.appendChild;var insert = proto.insertBefore;try {var saved = JSON.parse(w.localStorage.getItem('niuexa_cookie_consent'));granted = !!(saved && saved.marketing === true);} catch (e) { /* no saved choice */ }function hold(node) {if (granted || !node || node.nodeName !== 'SCRIPT' || !node.src) return false;try { return hosts.test(new URL(node.src, w.location.href).hostname); } catch (e) { return false; }}proto.appendChild = function (node) {if (hold(node)) { held.push([this, node, null]); return node; }return append.call(this, node);};proto.insertBefore = function (node, ref) {if (hold(node)) { held.push([this, node, ref]); return node; }return insert.call(this, node, ref);};w.addEventListener('niuexa:consent', function (event) {if (!event.detail || event.detail.marketing !== true) return;granted = true;held.splice(0).forEach(function (item) {if (item[2] && item[2].parentNode === item[0]) insert.call(item[0], item[1], item[2]);else append.call(item[0], item[1]);});});})(window);</script>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KG9S42S4');</script>
+
+    <title>Framework agenti AI: confronto e prove | NIUEXA</title>
+    <meta name="description" content="Confronta tre framework agentici su stato, approvazioni e ripresa: versioni Python documentate, matrice dei requisiti e prove da eseguire prima della scelta.">
+    <meta name="keywords" content="confronto framework agenti AI, LangGraph OpenAI Agents SDK Microsoft Agent Framework, scegliere framework agentico, test accettazione agenti AI, checkpoint approvazioni agenti AI">
+    <meta name="author" content="Niuexa">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://niuexa.ai/articolo-framework-agentici-confronto.html">
+    <meta property="og:title" content="Scegli il framework con una prova del tuo processo">
+    <meta property="og:description" content="Tre opzioni Python, versioni esplicite e un protocollo per confrontare stato, approvazioni, ripresa ed evidenze senza classifiche inventate.">
+    <meta property="og:image" content="https://niuexa.ai/img/articles/framework-agentici-confronto/framework-agentici-og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Framework agentici: requisiti, stato, approvazioni e prova di accettazione">
+    <meta property="og:locale" content="it_IT">
+    <meta property="article:published_time" content="2026-11-06">
+    <meta property="article:modified_time" content="2026-11-06">
+    <meta property="article:author" content="Niuexa">
+    <meta property="article:section" content="Agenti AI">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Scegli il framework con una prova del tuo processo">
+    <meta name="twitter:description" content="Tre opzioni Python, versioni esplicite e un protocollo per confrontare stato, approvazioni, ripresa ed evidenze senza classifiche inventate.">
+    <meta name="twitter:image" content="https://niuexa.ai/img/articles/framework-agentici-confronto/framework-agentici-og.png">
+    <meta name="twitter:image:alt" content="Framework agentici: requisiti, stato, approvazioni e prova di accettazione">
+
+    <link rel="canonical" href="https://niuexa.ai/articolo-framework-agentici-confronto.html">
+    <link rel="alternate" hreflang="it" href="https://niuexa.ai/articolo-framework-agentici-confronto.html">
+    <link rel="alternate" hreflang="it-it" href="https://niuexa.ai/articolo-framework-agentici-confronto.html">
+    <link rel="alternate" hreflang="x-default" href="https://niuexa.ai/articolo-framework-agentici-confronto.html">
+    <link rel="icon" type="image/png" sizes="192x192" href="/img/niuexa-icon-192.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+    <link rel="stylesheet" href="styles.css?v=20261029">
+    <link rel="stylesheet" href="tutorial.css?v=20260812">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "LangGraph, OpenAI Agents SDK e Microsoft Agent Framework: come scegliere sul proprio processo",
+      "description": "Confronta tre framework agentici su stato, approvazioni e ripresa: versioni Python documentate, matrice dei requisiti e prove da eseguire prima della scelta.",
+      "author": {
+        "@type": "Organization",
+        "name": "Niuexa",
+        "url": "https://niuexa.ai/chi-siamo.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Niuexa",
+        "url": "https://niuexa.ai",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://niuexa.ai/img/niuexalogo.png"
+        }
+      },
+      "datePublished": "2026-11-06",
+      "dateModified": "2026-11-06",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://niuexa.ai/articolo-framework-agentici-confronto.html"
+      },
+      "image": [
+        "https://niuexa.ai/img/articles/framework-agentici-confronto/framework-agentici-og.png"
+      ],
+      "articleSection": "Agenti AI",
+      "keywords": [
+        "confronto framework agenti AI",
+        "LangGraph OpenAI Agents SDK Microsoft Agent Framework",
+        "scegliere framework agentico",
+        "test accettazione agenti AI",
+        "checkpoint approvazioni agenti AI"
+      ],
+      "inLanguage": "it-IT",
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "LangGraph, manifest Python al tag 1.2.20",
+          "url": "https://github.com/langchain-ai/langgraph/blob/1.2.20/libs/langgraph/pyproject.toml"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "LangGraph, overview e controllo dello stato",
+          "url": "https://docs.langchain.com/oss/python/langgraph/overview"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "LangGraph, persistence",
+          "url": "https://docs.langchain.com/oss/python/langgraph/persistence"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "LangGraph, interrupts",
+          "url": "https://docs.langchain.com/oss/python/langgraph/interrupts"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "LangGraph, fault tolerance",
+          "url": "https://docs.langchain.com/oss/python/langgraph/fault-tolerance"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "OpenAI Agents SDK, approvazioni al tag v0.24.0",
+          "url": "https://github.com/openai/openai-agents-python/blob/v0.24.0/docs/human_in_the_loop.md"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "OpenAI Agents SDK, sessions al tag v0.24.0",
+          "url": "https://github.com/openai/openai-agents-python/blob/v0.24.0/docs/sessions/index.md"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "OpenAI Agents SDK, tracing al tag v0.24.0",
+          "url": "https://github.com/openai/openai-agents-python/blob/v0.24.0/docs/tracing.md"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Microsoft Agent Framework, manifest core Python al tag python-1.24.0",
+          "url": "https://github.com/microsoft/agent-framework/blob/python-1.24.0/python/packages/core/pyproject.toml"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Microsoft Agent Framework, workflow checkpoints",
+          "url": "https://learn.microsoft.com/en-us/agent-framework/workflows/checkpoints"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Microsoft Agent Framework, human-in-the-loop nei workflow",
+          "url": "https://learn.microsoft.com/en-us/agent-framework/workflows/human-in-the-loop"
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Questa guida stabilisce quale framework sia il migliore?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Confronta capacità documentate di tre opzioni Python e propone un metodo di prova. Non sono stati eseguiti benchmark: il candidato adatto dipende da processo, integrazioni, competenze, criteri obbligatori e risultati della valutazione nel proprio ambiente."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Una sessione persistente basta per riprendere un lavoro interrotto?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non necessariamente. La cronologia della conversazione, lo stato di esecuzione e la registrazione dell’effetto nel sistema destinatario sono informazioni diverse. Verifica quali vengono salvate, dove, con quali permessi e come il flusso riparte dopo il riavvio del processo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Un checkpoint impedisce di creare due volte lo stesso ordine?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Da solo non dimostra questa proprietà. Serve verificare il comportamento dell’integrazione quando la scrittura riesce ma la conferma non arriva. Usa i meccanismi di idempotenza supportati dal destinatario o una riconciliazione adeguata; se l’esito resta incerto non registrarlo come fallimento certo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Posso confrontare framework che usano modelli diversi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sì, se dichiari di confrontare soluzioni complete. Se vuoi isolare l’orchestrazione, mantieni uguali modello, parametri, dati e strumenti dove possibile. Quando un’integrazione lo impedisce, registra la differenza e limita la conclusione: non attribuire al framework tutto il risultato."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Devo migrare subito dal framework che già uso?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Inserisci l’implementazione attuale fra i candidati e misura quali requisiti non soddisfa. Valuta costo di migrazione, casi sospesi, aggiornamenti e competenze disponibili. Una funzione documentata in un altro progetto è un motivo per provare, non una prova che la migrazione convenga."
+          }
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://niuexa.ai/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ricerca",
+          "item": "https://niuexa.ai/research.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Confrontare framework agentici",
+          "item": "https://niuexa.ai/articolo-framework-agentici-confronto.html"
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9S42S4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <div id="navigation-placeholder"></div>
+    <main id="main-content">
+        <section class="tutorial-header"><div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="research.html">Ricerca</a> / <span>Confrontare framework agentici</span></nav><div class="tutorial-intro">
+            <div class="tutorial-badge">Agenti AI · Scelta del framework</div>
+            <h1>LangGraph, OpenAI Agents SDK e Microsoft Agent Framework: come scegliere sul proprio processo</h1>
+            <p class="tutorial-description">La domanda utile non è quale framework vinca in generale, ma quale permetta al team di controllare il proprio processo. Questa guida confronta tre opzioni Python documentate e propone una prova ripetibile con criteri fissati prima del risultato.</p>
+            <p class="article-meta">A cura di <a href="https://niuexa.ai/chi-siamo.html">Niuexa</a></p>
+            <div class="tutorial-stats"><span class="stat">12 minuti di lettura</span><span class="stat">Per responsabili IT, sviluppo e acquisti di soluzioni AI</span><span class="stat">Matrice documentale e protocollo di valutazione</span><span class="stat">Aggiornato il <time datetime="2026-11-06">6 novembre 2026</time></span></div>
+        </div></div></section>
+
+        <article class="tutorial-content"><div class="container"><div class="content-wrapper">
+            <nav class="article-toc" aria-labelledby="article-toc-heading">
+                <h2 id="article-toc-heading">Indice</h2>
+                <ul>
+                    <li><a href="#risposta-rapida">Risposta rapida</a></li>
+                    <li><a href="#parti-dal-requisito-che-potrebbe-escludere-un-candidato">Parti dal requisito che potrebbe escludere un candidato</a></li>
+                    <li><a href="#fissa-versioni-e-confini-prima-di-leggere-la-matrice">Fissa versioni e confini prima di leggere la matrice</a></li>
+                    <li><a href="#confronta-capacita-documentate-senza-trasformarle-in-un-voto">Confronta capacità documentate senza trasformarle in un voto</a></li>
+                    <li><a href="#prova-separatamente-conversazione-ripresa-ed-effetto-azienda">Prova separatamente conversazione, ripresa ed effetto aziendale</a></li>
+                    <li><a href="#prepara-un-caso-sintetico-uguale-per-tutti-i-candidati">Prepara un caso sintetico uguale per tutti i candidati</a></li>
+                    <li><a href="#compila-un-registro-comparabile-e-conserva-anche-i-casi-aper">Compila un registro comparabile e conserva anche i casi aperti</a></li>
+                    <li><a href="#misura-il-lavoro-necessario-per-mantenere-il-controllo">Misura il lavoro necessario per mantenere il controllo</a></li>
+                    <li><a href="#chiudi-la-scelta-con-una-decisione-e-un-motivo-per-riaprirla">Chiudi la scelta con una decisione e un motivo per riaprirla</a></li>
+                    <li><a href="#faq">Domande sulla scelta di un framework agentico</a></li>
+                </ul>
+            </nav>
+
+            <section class="content-section quick-answer">
+                <h2 id="risposta-rapida">Come scegliere un framework per agenti AI?</h2>
+                <p>Definisci prima <strong>flusso, stato, azioni autorizzate e criteri di accettazione</strong>. Confronta le capacità documentate della versione candidata, poi esegui lo stesso campione e gli stessi guasti controllati. Distingui memoria della conversazione, ripresa dell’esecuzione e conferma dell’effetto nel gestionale. Scegli solo dopo aver verificato anche manutenzione, costi operativi e responsabilità del team.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="parti-dal-requisito-che-potrebbe-escludere-un-candidato">Parti dal requisito che potrebbe escludere un candidato</h2>
+                <p>Una demo che risponde bene non spiega che cosa succede quando il processo resta sospeso per una notte, cambia il revisore o il gestionale registra una scrittura senza restituire la conferma. Per scegliere un framework descrivi prima quelle situazioni. Poi chiedi quale componente le gestisce, quale codice occorre aggiungere e quale evidenza dimostrerà il risultato.</p>
+                <p>La <a href="articolo-tool-agenti-ai.html">guida generale agli agenti AI</a> affronta architettura, strumenti e rilascio. Qui il compito è più circoscritto: costruire una <strong>decisione confrontabile fra implementazioni candidate</strong>, con riferimenti documentali e prove ancora da eseguire. Il linguaggio considerato è Python. Le omonime librerie JavaScript, .NET o Go richiedono una valutazione separata.</p>
+                <p><strong>Nota editoriale:</strong> articolo della Redazione Niuexa realizzato con assistenza AI. Fonti verificate il 6 novembre 2026. Gli esempi sono sintetici e il protocollo è proposto: non presentiamo risultati di laboratorio o di clienti.</p>
+                <p>Dividi i requisiti in obbligatori e preferenze. Un controllo di accesso indispensabile non può essere compensato da una demo più rapida. Per ogni requisito scrivi l’effetto atteso, chi lo accetta e quale prova conserverai. “Supporta la memoria” è troppo generico; “dopo il riavvio recupera la pratica sospesa e mostra al revisore gli stessi dati” è verificabile.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="fissa-versioni-e-confini-prima-di-leggere-la-matrice">Fissa versioni e confini prima di leggere la matrice</h2>
+                <p>La tabella seguente identifica gli snapshot Python controllati nella documentazione e nel repository ufficiale. Non indica pacchetti installati o testati da Niuexa, né garantisce che una guida online descriva soltanto quel tag. Nel proprio pilot occorre fissare anche dipendenze, adattatori e backend di salvataggio effettivamente usati.</p>
+                <table class="comparison-table">
+                    <thead><tr><th>Candidato</th><th>Riferimento controllato</th><th>Confine da mantenere</th></tr></thead>
+                    <tbody>
+                        <tr><td>LangGraph core</td><td><a href="https://github.com/langchain-ai/langgraph/blob/1.2.20/libs/langgraph/pyproject.toml" target="_blank" rel="noopener">langgraph 1.2.20</a></td><td>Il core non è il separato LangGraph SDK; backend e servizi di hosting hanno una propria configurazione</td></tr>
+                        <tr><td>OpenAI Agents SDK per Python</td><td><a href="https://github.com/openai/openai-agents-python/blob/v0.24.0/pyproject.toml" target="_blank" rel="noopener">openai-agents 0.24.0</a></td><td>Non equivale a ogni funzione disponibile nei servizi OpenAI o nelle altre implementazioni linguistiche</td></tr>
+                        <tr><td>Microsoft Agent Framework per Python</td><td><a href="https://github.com/microsoft/agent-framework/blob/python-1.24.0/python/packages/core/pyproject.toml" target="_blank" rel="noopener">agent-framework-core 1.24.0</a></td><td>Pacchetti di integrazione, linguaggi e servizi gestiti vanno registrati separatamente</td></tr>
+                    </tbody>
+                </table>
+                <p>Conserva file delle dipendenze risolte, versione dell’applicazione, schema dei dati, istruzioni e definizioni dei tool. Annota modello e parametri esposti dal provider; se un identificativo è aggiornabile dal fornitore, non descriverlo come immutabile. Questa scheda permette di ricostruire il confronto quando cambia una libreria.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="confronta-capacita-documentate-senza-trasformarle-in-un-voto">Confronta capacità documentate senza trasformarle in un voto</h2>
+                <p>La matrice riassume <strong>meccanismi documentati</strong>, non qualità misurate. Una voce presente significa che esiste un punto da implementare e provare. Non stabilisce che le tre soluzioni offrano la stessa semantica o che ogni applicazione costruita con esse soddisfi il requisito.</p>
+                <table class="comparison-table">
+                    <thead><tr><th>Criterio</th><th>LangGraph</th><th>OpenAI Agents SDK</th><th>Microsoft Agent Framework</th></tr></thead>
+                    <tbody>
+                        <tr><td>Organizzazione del flusso</td><td>Grafo con stato condiviso, nodi e archi</td><td>Esecuzioni di agenti con tool e passaggi fra agenti</td><td>Workflow che collegano esecutori e gestiscono messaggi</td></tr>
+                        <tr><td>Stato da distinguere</td><td>Checkpointer per stato del thread; store per dati tra thread</td><td>Session per cronologia; RunState per esecuzione sospesa e decisioni</td><td>Checkpoint per stato del workflow, messaggi e richieste pendenti</td></tr>
+                        <tr><td>Intervento esterno</td><td>Interrupt e ripresa con un valore fornito dall’esterno</td><td>Tool configurati per approvazione e interruzioni da risolvere</td><td>Richieste verso l’esterno e gestione delle risposte nel workflow</td></tr>
+                        <tr><td>Verifica da aggiungere nel proprio ambiente</td><td>Backend persistente, identificazione del thread e comportamento del nodo ripreso</td><td>Conservazione affidabile di sessione e stato; autorizzazione delle decisioni</td><td>Backend dei checkpoint, confine del salvataggio e compatibilità del workflow</td></tr>
+                    </tbody>
+                </table>
+                <p>Le fonti di lettura sono <a href="https://docs.langchain.com/oss/python/langgraph/overview" target="_blank" rel="noopener">overview</a>, <a href="https://docs.langchain.com/oss/python/langgraph/persistence" target="_blank" rel="noopener">persistence</a> e <a href="https://docs.langchain.com/oss/python/langgraph/interrupts" target="_blank" rel="noopener">interrupts di LangGraph</a>; <a href="https://github.com/openai/openai-agents-python/blob/v0.24.0/docs/human_in_the_loop.md" target="_blank" rel="noopener">approvazioni</a> e <a href="https://github.com/openai/openai-agents-python/blob/v0.24.0/docs/sessions/index.md" target="_blank" rel="noopener">sessioni OpenAI</a>; <a href="https://learn.microsoft.com/en-us/agent-framework/workflows/checkpoints" target="_blank" rel="noopener">checkpoint</a> e <a href="https://learn.microsoft.com/en-us/agent-framework/workflows/human-in-the-loop" target="_blank" rel="noopener">interazioni esterne Microsoft</a>.</p>
+                <p>LangGraph non richiede LangChain: la sua documentazione lo presenta come livello di orchestrazione per controllare stato e flusso. Questa distinzione aiuta a non acquistare o progettare automaticamente un insieme di componenti solo perché compaiono negli esempi. Per ciascun candidato disegna che cosa resta nell’applicazione, che cosa viene salvato e quali servizi esterni sono necessari.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="prova-separatamente-conversazione-ripresa-ed-effetto-azienda">Prova separatamente conversazione, ripresa ed effetto aziendale</h2>
+                <p>Tre domande sembrano simili ma chiedono prove differenti. Il sistema ricorda che cosa è stato detto? Può continuare il lavoro dal punto previsto dopo un’interruzione? L’azione nel sistema destinatario è avvenuta una sola volta, con i dati autorizzati? Un esito positivo sulla prima domanda non chiude le altre due.</p>
+                <p>Nel modello documentato da LangGraph, riprendere dopo un interrupt comporta la riesecuzione del nodo dall’inizio. Collocare una scrittura prima della pausa richiede quindi particolare attenzione al suo comportamento durante la ripresa. Il <a href="https://docs.langchain.com/oss/python/langgraph/fault-tolerance" target="_blank" rel="noopener">confine fra retry e idempotenza</a> distingue la ripetizione del nodo dalla protezione dell’effetto esterno; la conferma mancante va trattata come esito sconosciuto finché non viene riconciliata.</p>
+                <p>Nell’Agents SDK, la cronologia della Session e il RunState sospeso hanno ruoli distinti. La guida alle approvazioni documenta la serializzazione e la ripresa, ma precisa anche che il caricamento non autentica lo snapshot o chi lo presenta. La verifica dell’identità, della proprietà del lavoro e dell’integrità dello stato resta un compito dell’applicazione. Conservare dati non significa aver autorizzato chi li usa.</p>
+                <p>I checkpoint dei workflow Microsoft vengono descritti in relazione ai superstep, con stato degli esecutori, messaggi e richieste. Nel pilot verifica il punto di salvataggio realmente raggiunto prima dell’arresto, non soltanto la presenza di un file. Verifica inoltre come una nuova versione del workflow tratta i lavori precedenti: un riavvio con lo stesso codice e un aggiornamento applicativo sono prove diverse.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="prepara-un-caso-sintetico-uguale-per-tutti-i-candidati">Prepara un caso sintetico uguale per tutti i candidati</h2>
+                <p>Considera il seguente <strong>scenario interamente inventato</strong>: una richiesta DEMO-17 chiede di aggiornare un recapito in un gestionale di prova. Il valore originale è <code>SEDE-A</code>, quello proposto è <code>SEDE-B</code>. Un operatore può leggere la proposta; soltanto il ruolo previsto può approvarla. Il tool di scrittura è un simulatore isolato, senza dati personali né collegamenti alla produzione.</p>
+                <p>La fixture comprende richiesta originale, dati iniziali, risposta attesa del simulatore, regola di approvazione e modalità di lettura successiva. La stessa fixture viene consegnata a ogni implementazione. Non è un test di comprensione di un indirizzo reale: serve a osservare flusso e controlli. Eventuali prove con modello vanno aggiunte come un livello separato.</p>
+                <table class="comparison-table">
+                    <thead><tr><th>Prova proposta</th><th>Evento introdotto</th><th>Evidenza richiesta prima di assegnare l’esito</th></tr></thead>
+                    <tbody>
+                        <tr><td>P01 · Attesa</td><td>La proposta è pronta, nessuno ha deciso</td><td>Nessuna scrittura; proposta e stato pendente recuperabili</td></tr>
+                        <tr><td>P02 · Riavvio</td><td>Il processo viene fermato mentre attende</td><td>La stessa pratica riappare con dati e decisione ancora coerenti</td></tr>
+                        <tr><td>P03 · Rifiuto</td><td>Il revisore autorizzato respinge la proposta</td><td>Nessuna modifica al simulatore e rifiuto collegato alla pratica</td></tr>
+                        <tr><td>P04 · Proposta cambiata</td><td>Dopo la decisione <code>SEDE-B</code> viene sostituita con <code>SEDE-C</code></td><td>La decisione precedente non autorizza silenziosamente il nuovo contenuto</td></tr>
+                        <tr><td>P05 · Conferma persa</td><td>Il simulatore applica la modifica ma la risposta manca</td><td>Stato incerto e lettura di riconciliazione; nessuna duplicazione non controllata</td></tr>
+                        <tr><td>P06 · Accesso diverso</td><td>Un altro utente tenta di recuperare o decidere sul lavoro</td><td>Accesso rifiutato secondo la regola prevista e prova dell’esito</td></tr>
+                        <tr><td>P07 · Aggiornamento</td><td>Cambiano codice o schema mentre esiste lavoro pendente</td><td>Ripresa compatibile dimostrata oppure percorso esplicito di migrazione o sospensione</td></tr>
+                    </tbody>
+                </table>
+                <p>Questi sono casi di accettazione proposti, <strong>non sette prove superate</strong>. Le proprietà dipendono dall’implementazione completa. Se un simulatore non può riprodurre il comportamento del gestionale reale, descrivi il limite e prepara una successiva verifica autorizzata nell’ambiente adeguato. Non sostituire l’incertezza con una spunta verde.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="compila-un-registro-comparabile-e-conserva-anche-i-casi-aper">Compila un registro comparabile e conserva anche i casi aperti</h2>
+                <p>La seguente intestazione separa versione, caso e risultato. Le due righe dimostrative non contengono misure: indicano esplicitamente una prova non eseguita. Copia il registro, sostituisci i segnaposto e conserva a parte le evidenze autorizzate. È una proposta operativa, non un formato imposto dai framework.</p>
+                <pre><code>candidato;versione_e_lock;app_version;caso;fixture_version;modello_e_parametri;backend_stato;tentativo;esito;effetto_osservato;evidenza;limite&#10;CANDIDATO-DEMO;DA-FISSARE;APP-DEMO;P02;FIXTURE-DEMO-1;DA-FISSARE;DA-FISSARE;NON-ESEGUITO;NON-ESEGUITO;NON-OSSERVATO;NESSUNA;scenario sintetico&#10;CANDIDATO-DEMO;DA-FISSARE;APP-DEMO;P05;FIXTURE-DEMO-1;DA-FISSARE;DA-FISSARE;NON-ESEGUITO;NON-ESEGUITO;NON-OSSERVATO;NESSUNA;scenario sintetico</code></pre>
+                <p>Definisci prima cosa significa “superato”, “fallito”, “non eseguito” e “inconcludente”. Un arresto prima del punto da osservare può rendere la prova inconcludente, non dimostrare che il controllo funziona. Registra quanti tentativi erano previsti, quanti sono stati eseguiti e quali sono rimasti aperti. Evita una percentuale che nasconde i casi non ottenuti.</p>
+                <p>Per isolare l’orchestrazione puoi iniziare con risposte del modello e tool simulati. Successivamente introduci il modello reale, lo stesso campione autorizzato, gli stessi strumenti e i parametri confrontabili. Se cambiano più componenti, il confronto riguarda le soluzioni complete. Mantieni le tracce sufficienti a ricostruire la decisione senza riversare credenziali o interi documenti nei log.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="misura-il-lavoro-necessario-per-mantenere-il-controllo">Misura il lavoro necessario per mantenere il controllo</h2>
+                <p>L’esito tecnico va affiancato all’onere di gestione. Registra tempo di implementazione e diagnosi, componenti aggiunti, conoscenze richieste, consumi, storage e attività manuali. Fissa prima l’inizio e la fine delle misure. Non confrontare un prototipo costruito dal team esperto con una prima prova di chi sta imparando senza dichiarare la differenza.</p>
+                <p>Per le tracce decidi destinazione, accessi e dati ammessi prima di usare informazioni aziendali. La <a href="https://github.com/openai/openai-agents-python/blob/v0.24.0/docs/tracing.md" target="_blank" rel="noopener">documentazione del tracing OpenAI al tag considerato</a> segnala che input e output possono contenere dati sensibili e descrive le opzioni di raccolta ed esportazione. Per ogni candidato verifica la configurazione effettiva: avere un pannello di osservabilità non dimostra né completezza delle prove né correttezza delle autorizzazioni.</p>
+                <p>Il <a href="articolo-costi-automazione-guida.html#scheda-costo-pilota">modello di costo per il pilot</a> aiuta a collegare consumi e lavoro agli esiti accettati. Per la scelta del framework aggiungi il costo di gestire casi sospesi, aggiornamenti e incidenti. Un minor numero di righe di codice non misura automaticamente queste attività, così come il prezzo del solo pacchetto non rappresenta il costo della soluzione.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="chiudi-la-scelta-con-una-decisione-e-un-motivo-per-riaprirla">Chiudi la scelta con una decisione e un motivo per riaprirla</h2>
+                <p>Prepara una scheda finale con requisiti obbligatori, stato delle prove, limiti, costi osservati e responsabili. Scarta o correggi i candidati che non soddisfano un requisito necessario; confronta le preferenze soltanto tra le opzioni rimaste. Se un fatto è documentato ma non provato nel proprio ambiente, mantieni entrambe le informazioni.</p>
+                <p>È legittimo scegliere una soluzione più semplice quando il flusso non richiede l’orchestrazione aggiuntiva. È altrettanto legittimo accettare più componenti se una prova dimostra che rendono gestibile un requisito reale. Scrivi il motivo concreto: la decisione deve essere comprensibile anche a chi manterrà il sistema fra sei mesi.</p>
+                <p>Conserva infine la condizione che riapre la valutazione: nuovo requisito, modifica del gestionale, aggiornamento incompatibile, costo oltre la soglia concordata o incidente non coperto. Per collegare i sistemi usa la <a href="articolo-mcp-api-webhook-integrazione-aziendale.html">guida a MCP, API e webhook</a>; per il processo completo, il <a href="articolo-ordini-email-pdf-erp.html">runbook email/PDF verso il gestionale</a>. Il framework è una parte della soluzione: la decisione resta verificabile quando ogni confine ha un responsabile e una prova pertinente.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="fonti">Fonti, versioni e trasparenza editoriale</h2>
+                <p>Fonti primarie consultate il 6 novembre 2026. I tag Python riportati identificano gli snapshot controllati; le guide online possono evolvere indipendentemente. Matrice dei requisiti, fixture e criteri di prova sono proposte della Redazione Niuexa: nessun benchmark dei tre framework è stato eseguito per questo articolo.</p>
+                <ul>
+                    <li><a href="https://github.com/langchain-ai/langgraph/blob/1.2.20/libs/langgraph/pyproject.toml" target="_blank" rel="noopener">LangGraph, manifest Python al tag 1.2.20</a>, per distinguere il pacchetto core LangGraph dagli SDK e fissare il riferimento di versione.</li>
+                    <li><a href="https://docs.langchain.com/oss/python/langgraph/overview" target="_blank" rel="noopener">LangGraph, overview e controllo dello stato</a>, per il modello a grafo e la distinzione da LangChain.</li>
+                    <li><a href="https://docs.langchain.com/oss/python/langgraph/persistence" target="_blank" rel="noopener">LangGraph, persistence</a>, per checkpointer del thread e store tra thread.</li>
+                    <li><a href="https://docs.langchain.com/oss/python/langgraph/interrupts" target="_blank" rel="noopener">LangGraph, interrupts</a>, per sospensione, ripresa e riesecuzione del nodo.</li>
+                    <li><a href="https://docs.langchain.com/oss/python/langgraph/fault-tolerance" target="_blank" rel="noopener">LangGraph, fault tolerance</a>, per confine tra retry ed effetti esterni e conferme mancanti.</li>
+                    <li><a href="https://github.com/openai/openai-agents-python/blob/v0.24.0/docs/human_in_the_loop.md" target="_blank" rel="noopener">OpenAI Agents SDK, approvazioni al tag v0.24.0</a>, per richieste di approvazione, RunState, ripresa e versionamento del lavoro sospeso.</li>
+                    <li><a href="https://github.com/openai/openai-agents-python/blob/v0.24.0/docs/sessions/index.md" target="_blank" rel="noopener">OpenAI Agents SDK, sessions al tag v0.24.0</a>, per cronologia conversazionale e autorizzazione dell’accesso alle sessioni.</li>
+                    <li><a href="https://github.com/openai/openai-agents-python/blob/v0.24.0/docs/tracing.md" target="_blank" rel="noopener">OpenAI Agents SDK, tracing al tag v0.24.0</a>, per tracce, destinazioni di esportazione e contenuti potenzialmente sensibili.</li>
+                    <li><a href="https://github.com/microsoft/agent-framework/blob/python-1.24.0/python/packages/core/pyproject.toml" target="_blank" rel="noopener">Microsoft Agent Framework, manifest core Python al tag python-1.24.0</a>, per il riferimento del pacchetto agent-framework-core 1.24.0.</li>
+                    <li><a href="https://learn.microsoft.com/en-us/agent-framework/workflows/checkpoints" target="_blank" rel="noopener">Microsoft Agent Framework, workflow checkpoints</a>, per stato, confini di checkpoint e compatibilità della ripresa.</li>
+                    <li><a href="https://learn.microsoft.com/en-us/agent-framework/workflows/human-in-the-loop" target="_blank" rel="noopener">Microsoft Agent Framework, human-in-the-loop nei workflow</a>, per richieste verso l’esterno e risposte che consentono al workflow di proseguire.</li>
+                </ul>
+                <p>Non estendere le conclusioni ad altri linguaggi, versioni, servizi gestiti o configurazioni senza verifica. La disponibilità di una funzione non dimostra il comportamento della propria integrazione.</p>
+            </section>
+
+            <section class="content-section faq-section">
+                <h2 id="faq">Domande sulla scelta di un framework agentico</h2>
+                <div class="faq-item"><h3>Questa guida stabilisce quale framework sia il migliore?</h3><p>No. Confronta capacità documentate di tre opzioni Python e propone un metodo di prova. Non sono stati eseguiti benchmark: il candidato adatto dipende da processo, integrazioni, competenze, criteri obbligatori e risultati della valutazione nel proprio ambiente.</p></div>
+                <div class="faq-item"><h3>Una sessione persistente basta per riprendere un lavoro interrotto?</h3><p>Non necessariamente. La cronologia della conversazione, lo stato di esecuzione e la registrazione dell’effetto nel sistema destinatario sono informazioni diverse. Verifica quali vengono salvate, dove, con quali permessi e come il flusso riparte dopo il riavvio del processo.</p></div>
+                <div class="faq-item"><h3>Un checkpoint impedisce di creare due volte lo stesso ordine?</h3><p>Da solo non dimostra questa proprietà. Serve verificare il comportamento dell’integrazione quando la scrittura riesce ma la conferma non arriva. Usa i meccanismi di idempotenza supportati dal destinatario o una riconciliazione adeguata; se l’esito resta incerto non registrarlo come fallimento certo.</p></div>
+                <div class="faq-item"><h3>Posso confrontare framework che usano modelli diversi?</h3><p>Sì, se dichiari di confrontare soluzioni complete. Se vuoi isolare l’orchestrazione, mantieni uguali modello, parametri, dati e strumenti dove possibile. Quando un’integrazione lo impedisce, registra la differenza e limita la conclusione: non attribuire al framework tutto il risultato.</p></div>
+                <div class="faq-item"><h3>Devo migrare subito dal framework che già uso?</h3><p>No. Inserisci l’implementazione attuale fra i candidati e misura quali requisiti non soddisfa. Valuta costo di migrazione, casi sospesi, aggiornamenti e competenze disponibili. Una funzione documentata in un altro progetto è un motivo per provare, non una prova che la migrazione convenga.</p></div>
+            </section>
+
+            <section class="content-section"><h2 id="approfondimenti">Approfondimenti correlati</h2><div class="related-articles">
+                <a href="articolo-tool-agenti-ai.html" class="related-card"><span class="related-category">Architettura</span><h3>Dalla scelta del processo al rilascio di un agente AI</h3></a>
+                <a href="articolo-mcp-api-webhook-integrazione-aziendale.html" class="related-card"><span class="related-category">Integrazioni</span><h3>Confrontare MCP, API dirette e webhook</h3></a>
+                <a href="articolo-ordini-email-pdf-erp.html" class="related-card"><span class="related-category">Processo operativo</span><h3>Controllare ordini da email e PDF fino al gestionale</h3></a>
+                <a href="articolo-costi-automazione-guida.html#scheda-costo-pilota" class="related-card"><span class="related-category">Budget</span><h3>Collegare consumi e costi alle pratiche accettate</h3></a>
+            </div></section>
+        </div></div></article>
+
+        <section class="cta-section"><div class="container"><h2 id="cta">Quale requisito deve dimostrare il tuo agente?</h2><p>Porta un processo, i sistemi coinvolti e un’eccezione concreta. Nella prima chiamata gratuita di 30 minuti possiamo mettere a fuoco la prova da progettare; eventuali attività successive si concordano nel preventivo.</p><a href="/#contact" class="btn btn-primary">Parliamo della valutazione</a><a href="consulting.html" class="btn btn-secondary" style="margin-left:15px;">Consulenza AI per le aziende</a></div></section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="includes/includes.js?v=2026102902"></script>
+    <script src="tutorial.js"></script>
+    <script src="cookie-banner.js?v=2026102701"></script>
+</body>
+</html>
