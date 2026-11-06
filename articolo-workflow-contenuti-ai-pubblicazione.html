@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
+    <!-- Google Tag Manager -->
+    <script data-consent-guard>(function (w) {var held = [];var granted = false;var hosts = /(^|\.)(hs-scripts\.com|hs-analytics\.net|hs-banner\.com|hscollectedforms\.net|hsforms\.(com|net)|hubspot\.com|apollo\.io|aplo-evnt\.com)$/i;var proto = w.Node && w.Node.prototype;if (!proto) return;var append = proto.appendChild;var insert = proto.insertBefore;try {var saved = JSON.parse(w.localStorage.getItem('niuexa_cookie_consent'));granted = !!(saved && saved.marketing === true);} catch (e) { /* no saved choice */ }function hold(node) {if (granted || !node || node.nodeName !== 'SCRIPT' || !node.src) return false;try { return hosts.test(new URL(node.src, w.location.href).hostname); } catch (e) { return false; }}proto.appendChild = function (node) {if (hold(node)) { held.push([this, node, null]); return node; }return append.call(this, node);};proto.insertBefore = function (node, ref) {if (hold(node)) { held.push([this, node, ref]); return node; }return insert.call(this, node, ref);};w.addEventListener('niuexa:consent', function (event) {if (!event.detail || event.detail.marketing !== true) return;granted = true;held.splice(0).forEach(function (item) {if (item[2] && item[2].parentNode === item[0]) insert.call(item[0], item[1], item[2]);else append.call(item[0], item[1]);});});})(window);</script>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KG9S42S4');</script>
+
+    <title>Workflow contenuti AI: fonti e pubblicazione | NIUEXA</title>
+    <meta name="description" content="Un runbook per collegare affermazioni, fonti, revisioni e approvazioni: registro copiabile, esempio fittizio e prove prima e dopo la pubblicazione.">
+    <meta name="keywords" content="workflow contenuti AI, pubblicazione contenuti AI, verifica fonti contenuti AI, approvazione contenuti metadata, registro affermazioni fonti, verifica pubblicazione CMS">
+    <meta name="author" content="Niuexa">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://niuexa.ai/articolo-workflow-contenuti-ai-pubblicazione.html">
+    <meta property="og:title" content="Contenuti AI: quale versione stai pubblicando?">
+    <meta property="og:description" content="Fonti, affermazioni e approvazione della stessa revisione, con un esempio fittizio e prove sull’URL pubblico.">
+    <meta property="og:image" content="https://niuexa.ai/img/articles/workflow-contenuti-ai-pubblicazione/workflow-contenuti-ai-pubblicazione-og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Workflow dei contenuti AI: dalle fonti alla pubblicazione verificata">
+    <meta property="og:locale" content="it_IT">
+    <meta property="article:published_time" content="2026-11-06">
+    <meta property="article:modified_time" content="2026-11-06">
+    <meta property="article:author" content="Niuexa">
+    <meta property="article:section" content="Content Operations e AI">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contenuti AI: quale versione stai pubblicando?">
+    <meta name="twitter:description" content="Un runbook per verificare fonti, revisioni, metadata e pubblicazione dei contenuti preparati con AI.">
+    <meta name="twitter:image" content="https://niuexa.ai/img/articles/workflow-contenuti-ai-pubblicazione/workflow-contenuti-ai-pubblicazione-og.png">
+    <meta name="twitter:image:alt" content="Workflow dei contenuti AI: dalle fonti alla pubblicazione verificata">
+
+    <link rel="canonical" href="https://niuexa.ai/articolo-workflow-contenuti-ai-pubblicazione.html">
+    <link rel="alternate" hreflang="it" href="https://niuexa.ai/articolo-workflow-contenuti-ai-pubblicazione.html">
+    <link rel="alternate" hreflang="it-it" href="https://niuexa.ai/articolo-workflow-contenuti-ai-pubblicazione.html">
+    <link rel="alternate" hreflang="x-default" href="https://niuexa.ai/articolo-workflow-contenuti-ai-pubblicazione.html">
+    <link rel="icon" type="image/png" sizes="192x192" href="/img/niuexa-icon-192.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+    <link rel="stylesheet" href="styles.css?v=20261029">
+    <link rel="stylesheet" href="tutorial.css?v=20260812">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Workflow dei contenuti AI: dalle fonti alla pubblicazione verificata",
+      "description": "Un runbook per collegare affermazioni, fonti, revisioni e approvazioni: registro copiabile, esempio fittizio e prove prima e dopo la pubblicazione.",
+      "author": {
+        "@type": "Organization",
+        "name": "Niuexa",
+        "url": "https://niuexa.ai/chi-siamo.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Niuexa",
+        "url": "https://niuexa.ai",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://niuexa.ai/img/niuexalogo.png"
+        }
+      },
+      "datePublished": "2026-11-06",
+      "dateModified": "2026-11-06",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://niuexa.ai/articolo-workflow-contenuti-ai-pubblicazione.html"
+      },
+      "image": [
+        "https://niuexa.ai/img/articles/workflow-contenuti-ai-pubblicazione/workflow-contenuti-ai-pubblicazione-og.png"
+      ],
+      "articleSection": "Content Operations e AI",
+      "keywords": [
+        "workflow contenuti AI",
+        "pubblicazione contenuti AI",
+        "verifica fonti contenuti AI",
+        "approvazione contenuti metadata",
+        "registro affermazioni fonti",
+        "verifica pubblicazione CMS"
+      ],
+      "inLanguage": "it-IT",
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "Google Search Central — Uso dei contenuti generati con AI",
+          "url": "https://developers.google.com/search/docs/fundamentals/using-gen-ai-content"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Google Search Central — Contenuti utili e affidabili",
+          "url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Google Search Central — Regole generali dei dati strutturati",
+          "url": "https://developers.google.com/search/docs/appearance/structured-data/sd-policies"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Google Search Central — Article e autore",
+          "url": "https://developers.google.com/search/docs/appearance/structured-data/article"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Google Search Central — Date di pubblicazione e aggiornamento",
+          "url": "https://developers.google.com/search/docs/appearance/publication-dates"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "WordPress REST API — Posts",
+          "url": "https://developer.wordpress.org/rest-api/reference/posts/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "WordPress REST API — Post Revisions",
+          "url": "https://developer.wordpress.org/rest-api/reference/post-revisions/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Google Search Console — URL Inspection",
+          "url": "https://support.google.com/webmasters/answer/9012289"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Google Search Central — Funzionalità AI generative",
+          "url": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide"
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Basta inserire un link per verificare un’affermazione?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. La fonte deve sostenere quella specifica affermazione, nello stesso ambito, versione e periodo. Un link esistente può rimandare a una pagina che non prova il fatto o che è cambiata."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Una modifica al titolo richiede una nuova approvazione?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Se cambia il significato, la promessa o il perimetro, sì: la nuova versione deve essere riesaminata. Le correzioni puramente formali possono seguire una regola più leggera, definita e registrata prima."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Il CMS indica publish: la pagina è verificata?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "È una conferma dello stato nel CMS. Verifica anche l’URL pubblico, il contenuto effettivamente restituito e i metadata: cache, template e configurazioni possono produrre un risultato diverso."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Un test live positivo di Search Console prova l’indicizzazione?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Il test live verifica l’accessibilità e alcune condizioni della pagina corrente; non garantisce l’inclusione nell’indice. Anche una pagina indicizzata non ha citazioni AI garantite."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "I dati strutturati validi bastano per rendere affidabile il testo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. La validazione sintattica non dimostra la verità delle affermazioni. Il markup deve rappresentare il contenuto visibile e rispettare le regole applicabili alla funzionalità."
+          }
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://niuexa.ai/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ricerca",
+          "item": "https://niuexa.ai/research.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Workflow contenuti AI e pubblicazione",
+          "item": "https://niuexa.ai/articolo-workflow-contenuti-ai-pubblicazione.html"
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9S42S4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <div id="navigation-placeholder"></div>
+    <main id="main-content">
+        <section class="tutorial-header"><div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="research.html">Ricerca</a> / <span>Workflow contenuti AI e pubblicazione</span></nav><div class="tutorial-intro">
+            <div class="tutorial-badge">Content Operations · Runbook</div>
+            <h1>Workflow dei contenuti AI: dalle fonti alla pubblicazione verificata</h1>
+            <p class="tutorial-description">Una bozza corretta può diventare una pagina sbagliata se il titolo promette altro, il CMS riprende una versione precedente o l’approvazione riguarda un testo diverso. Il controllo utile segue la stessa revisione dalle fonti fino all’URL pubblico.</p>
+            <p class="article-meta">A cura di <a href="https://niuexa.ai/chi-siamo.html">Niuexa</a></p>
+            <div class="tutorial-stats"><span class="stat">11 minuti di lettura</span><span class="stat">Per responsabili contenuti, marketing operations e team web</span><span class="stat">Runbook con registri e prove di accettazione</span><span class="stat">Aggiornato il <time datetime="2026-11-06">6 novembre 2026</time></span></div>
+        </div></div></section>
+
+        <article class="tutorial-content"><div class="container"><div class="content-wrapper">
+            <nav class="article-toc" aria-labelledby="article-toc-heading">
+                <h2 id="article-toc-heading">Indice</h2>
+                <ul>
+                    <li><a href="#risposta-rapida">Risposta rapida</a></li>
+                    <li><a href="#parti-da-una-pagina-e-da-una-decisione-verificabile">Parti da una pagina e da una decisione verificabile</a></li>
+                    <li><a href="#prepara-un-registro-delle-affermazioni-non-soltanto-una-bibl">Prepara un registro delle affermazioni, non soltanto una bibliografia</a></li>
+                    <li><a href="#approva-un-pacchetto-preciso-di-testo-e-metadata">Approva un pacchetto preciso di testo e metadata</a></li>
+                    <li><a href="#esempio-fittizio-correggere-la-promessa-anche-fuori-dal-corp">Esempio fittizio: correggere la promessa anche fuori dal corpo</a></li>
+                    <li><a href="#tieni-separati-stato-editoriale-consegna-e-osservazioni-este">Tieni separati stato editoriale, consegna e osservazioni esterne</a></li>
+                    <li><a href="#verifica-il-rilascio-sulla-pagina-che-il-lettore-riceve">Verifica il rilascio sulla pagina che il lettore riceve</a></li>
+                    <li><a href="#prove-di-accettazione-da-eseguire-prima-di-ampliare-il-fluss">Prove di accettazione da eseguire prima di ampliare il flusso</a></li>
+                    <li><a href="#misura-pagine-accettate-e-fatti-corretti-poi-osserva-la-dist">Misura pagine accettate e fatti corretti, poi osserva la distribuzione</a></li>
+                    <li><a href="#faq">Domande sul workflow di pubblicazione AI</a></li>
+                </ul>
+            </nav>
+
+            <section class="content-section quick-answer">
+                <h2 id="risposta-rapida">Come controllare un workflow di pubblicazione con AI?</h2>
+                <p>Prepara un <strong>pacchetto di pubblicazione identificabile</strong>: testo, metadata, immagini, registro delle affermazioni e versioni delle fonti. Collega l’approvazione a quella revisione precisa; una modifica rilevante richiede una nuova decisione. Dopo l’invio al CMS o al sistema di rilascio, verifica l’URL pubblico e conserva le prove. Pubblicazione, indicizzazione e citazione sono osservazioni distinte: nessuna conferma automaticamente la successiva.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="parti-da-una-pagina-e-da-una-decisione-verificabile">Parti da una pagina e da una decisione verificabile</h2>
+                <p><strong>Nota editoriale:</strong> contenuto preparato con assistenza AI; fonti ufficiali consultate il 6 novembre 2026. L’esempio e i registri sono dimostrativi, senza attribuire revisioni personali o risultati a clienti.</p>
+                <p>Scegli un contenuto concreto: una guida di assistenza, una scheda di servizio o un articolo tecnico. Definisci chi lo userà, quale domanda deve risolvere e chi può autorizzarne la pubblicazione. Il primo risultato del pilot è una pagina utile e controllata, non una quantità di testi generati.</p>
+                <p>Il <a href="articolo-migliori-strumenti-ai-seo.html">confronto degli strumenti AI SEO</a> presenta già il flusso generale dalla ricerca al monitoraggio. Qui il lavoro è più specifico: rendere verificabile <strong>quale affermazione deriva da quale fonte e quale versione è stata approvata e pubblicata</strong>. Prima di scegliere un nuovo modello o un connettore, prova a ricostruire questi legami su una pagina esistente.</p>
+                <p>Nella <a href="https://developers.google.com/search/docs/fundamentals/using-gen-ai-content" target="_blank" rel="noopener">guida Google sui contenuti generati con AI</a>, il controllo di accuratezza riguarda anche title, description, dati strutturati e testi alternativi. Una revisione del solo corpo lascia fuori promesse che il lettore può incontrare già nei risultati di ricerca.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="prepara-un-registro-delle-affermazioni-non-soltanto-una-bibl">Prepara un registro delle affermazioni, non soltanto una bibliografia</h2>
+                <p>Una bibliografia dice quali pagine hai consultato. Il registro aggiunge quale fatto sostengono, con quali limiti e dove quel fatto compare. Per un’affermazione materiale conserva riferimento preciso, versione o data disponibile, data di consultazione, ambito e decisione. Se non puoi verificare il supporto, correggi, qualifica o sospendi il passaggio.</p>
+                <p>Separa fatti esterni, analisi della redazione ed esempi inventati. Una deduzione può essere utile, ma va presentata come tale. Una fonte relativa a un piano software non prova una funzione su tutti i piani; una procedura interna non è automaticamente un documento pubblicabile. Gestione dell’autorevolezza e permessi delle fonti sono approfonditi nella <a href="articolo-fonte-unica-assistenti-ai.html">guida alla fonte unica</a>.</p>
+                <p>Questa intestazione, copiabile in un foglio, è una proposta di lavoro. Non è uno standard imposto da un motore di ricerca. Una riga può rinviare a più posizioni della pagina; aggiungi righe quando cambia il perimetro del fatto.</p>
+                <pre style="overflow-x: auto; max-width: 100%;"><code>claim_id;affermazione;posizioni;fonte_e_passaggio;versione_o_data;consultata_il;ambito_e_limiti;decisione;responsabile&#10;C-DEMO-01;Esporta CSV;corpo e description;DOC-DEMO paragrafo 2;v2;DATA-DEMO;solo esportazione;supportata nel caso fittizio;RUOLO-DEMO&#10;C-DEMO-02;Integra ogni ERP;titolo proposto;nessuna fonte;non disponibile;DATA-DEMO;generalizzazione;da rimuovere;RUOLO-DEMO</code></pre>
+                <p>Un link funzionante non dimostra supporto semantico. Il controllo deve aprire il passaggio e confrontarlo con la frase, incluse quantità, eccezioni e periodo. Il modello può aiutare a cercare incongruenze; la sua risposta non sostituisce la verifica della fonte.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="approva-un-pacchetto-preciso-di-testo-e-metadata">Approva un pacchetto preciso di testo e metadata</h2>
+                <p>Il pacchetto comprende corpo, title, description, FAQ se presenti, markup, immagini con relativi testi, link, lingua e URL previsto. Collega questi elementi alla versione delle fonti utilizzate. Conserva il riferimento alla revisione del CMS o al materiale di rilascio e un confronto leggibile con la versione precedente.</p>
+                <p>La decisione deve identificare revisione, approvatore effettivo, data, perimetro ed eventuali condizioni. Una dicitura generica «approvato» nel documento non autorizza tutte le modifiche successive. Un’impronta dei file può aiutare a rilevare cambiamenti; non dimostra che il contenuto sia corretto né che una persona abbia deciso.</p>
+                <p>Definisci quali modifiche riaprono la revisione: nuove promesse, numeri, fonti, condizioni, autore, destinatario o significato del titolo. Per refusi senza variazione di significato puoi concordare un percorso più leggero, comunque tracciato. Se il corpo cambia dopo l’approvazione, il sistema non deve riutilizzare silenziosamente la decisione precedente.</p>
+                <p>Rappresenta l’autore reale. La <a href="https://developers.google.com/search/docs/appearance/structured-data/article" target="_blank" rel="noopener">documentazione Google per Article</a> contempla persone e organizzazioni: il tipo deve corrispondere all’identità. Una redazione non deve diventare un esperto inventato; l’assistenza AI non prova una revisione umana. Se un controllo personale è ancora necessario, registra il ruolo richiesto e lo stato pendente.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="esempio-fittizio-correggere-la-promessa-anche-fuori-dal-corp">Esempio fittizio: correggere la promessa anche fuori dal corpo</h2>
+                <p><strong>Tutto ciò che segue è inventato.</strong> Un team prepara la pagina DEMO-07 per spiegare una funzione di esportazione. Il documento dimostrativo DOC-DEMO, versione 2, sostiene soltanto l’esportazione CSV. Non esiste un prodotto reale associato a questi identificativi.</p>
+                <table class="comparison-table">
+                    <thead><tr><th>Elemento</th><th>Bozza iniziale</th><th>Correzione richiesta</th></tr></thead>
+                    <tbody>
+                        <tr><td>Corpo</td><td>«Esporta i dati in CSV»</td><td>Mantenerlo nel perimetro della fonte</td></tr>
+                        <tr><td>Title</td><td>«Sincronizza in tempo reale con ogni ERP»</td><td>Sostituire la promessa non documentata</td></tr>
+                        <tr><td>Description</td><td>«Elimina il lavoro manuale»</td><td>Descrivere la funzione senza un risultato misurato</td></tr>
+                        <tr><td>FAQ e relativo markup</td><td>«Funziona con qualsiasi gestionale»</td><td>Rimuovere la generalizzazione da entrambi</td></tr>
+                        <tr><td>Registro</td><td>Fonte indicata soltanto nel corpo</td><td>Collegare fonte, claim e tutte le posizioni interessate</td></tr>
+                    </tbody>
+                </table>
+                <p>Il pacchetto R2 contiene le correzioni e DOC-DEMO v2. Il responsabile decide su R2. Prima del rilascio, qualcuno ripristina il vecchio titolo: nasce R3, che non corrisponde alla versione approvata. Il controllo deve fermarla, anche se l’articolo continua a essere grammaticalmente corretto.</p>
+                <p>Se poi cambia la fonte, individua le affermazioni dipendenti prima di aggiornare la pagina. Non rigenerare tutto automaticamente: conserva quanto resta valido, correggi il fatto cambiato e riesamina gli elementi collegati. La cronologia serve a capire perché la nuova versione è diversa.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="tieni-separati-stato-editoriale-consegna-e-osservazioni-este">Tieni separati stato editoriale, consegna e osservazioni esterne</h2>
+                <p>Non usare un unico campo «completato». Una pagina può essere approvata ma non inviata, presente nel CMS ma non accessibile al pubblico, indicizzata in una versione precedente oppure mai osservata in una risposta AI.</p>
+                <table class="comparison-table">
+                    <thead><tr><th>Registro</th><th>Stati illustrativi</th><th>Prova per dichiarare l’avanzamento</th></tr></thead>
+                    <tbody>
+                        <tr><td>Editoriale</td><td>In verifica, da correggere, approvato, superato</td><td>Decisione collegata al pacchetto esatto</td></tr>
+                        <tr><td>Consegna</td><td>Non inviato, programmato, invio tentato, confermato dal sistema, verificato pubblico</td><td>Identificativo della destinazione e controllo dell’URL</td></tr>
+                        <tr><td>Eccezioni di consegna</td><td>Fallito, esito incerto</td><td>Errore verificato oppure verifica ancora aperta</td></tr>
+                        <tr><td>Ricerca</td><td>Non verificato, stato osservato nell’indice</td><td>Servizio, URL, tipo di controllo e data</td></tr>
+                        <tr><td>Risposte AI</td><td>Non osservato, menzione o citazione osservata</td><td>Domanda o report, servizio, data e fonte conservata</td></tr>
+                    </tbody>
+                </table>
+                <p>Questi stati sono una proposta organizzativa. Non sono valori identici disponibili in ogni CMS. Il <a href="articolo-tool-agenti-ai.html#registro-workflow">registro generale degli agenti</a> approfondisce tentativi ed esiti; qui la prova deve riferirsi alla specifica revisione editoriale.</p>
+                <p>Per esempio, l’<a href="https://developer.wordpress.org/rest-api/reference/posts/" target="_blank" rel="noopener">API Posts di WordPress</a> distingue <code>draft</code>, <code>pending</code>, <code>future</code>, <code>private</code> e <code>publish</code>, ed espone identificativo, link e date di modifica. Lo stato <code>publish</code> è un dato del CMS. Verifica anche la pagina pubblica, senza sessione amministrativa. La <a href="https://developer.wordpress.org/rest-api/reference/post-revisions/" target="_blank" rel="noopener">risorsa delle revisioni</a> aiuta a ricostruire contenuti precedenti; non presumere che includa tutti i metadata aggiunti da plugin o sistemi esterni.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="verifica-il-rilascio-sulla-pagina-che-il-lettore-riceve">Verifica il rilascio sulla pagina che il lettore riceve</h2>
+                <p>Prima dell’invio controlla perimetro approvato, destinazione e credenziali autorizzate. Tieni separati il permesso di preparare bozze e quello di pubblicare. Se una risposta manca, verifica lo stato nella destinazione prima di creare un altro contenuto: l’operazione potrebbe essere già riuscita. Le possibilità di riconciliazione dipendono dall’integrazione concreta.</p>
+                <p>Dopo la conferma del sistema, apri l’URL pubblico e confrontalo con il pacchetto. Un codice HTTP positivo da solo non prova che siano presenti testo, tabella, immagine e versione attesi. Controlla title, description, link canonico previsto, date, autore e markup effettivamente restituiti; verifica anche la resa dei blocchi copiabili e dei collegamenti.</p>
+                <p>I <a href="https://developers.google.com/search/docs/appearance/structured-data/sd-policies" target="_blank" rel="noopener">dati strutturati devono rappresentare il contenuto visibile</a>. La sintassi valida non rileva tutte le violazioni di qualità. Le <a href="https://developers.google.com/search/docs/appearance/publication-dates" target="_blank" rel="noopener">date visibili e strutturate</a> devono essere coerenti e riferirsi alla pagina: conserva una vera data di prima pubblicazione e aggiorna quella di modifica quando il cambiamento lo giustifica.</p>
+                <p>Conserva URL, data del controllo, versione attesa, risultato e riferimenti alle prove. Screenshot e HTML rispondono a domande diverse; seleziona ciò che permette di ricostruire l’esito senza copiare credenziali, documenti riservati o interi dati di lavoro nei log. Se la verifica fallisce, assegna correzione e responsabile; un ritorno alla versione precedente va anch’esso verificato.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="prove-di-accettazione-da-eseguire-prima-di-ampliare-il-fluss">Prove di accettazione da eseguire prima di ampliare il flusso</h2>
+                <p>Prepara risultati attesi prima del test. Questa tabella è un punto di partenza: aggiungi formati, lingue e vincoli che contano nel processo reale.</p>
+                <table class="comparison-table">
+                    <thead><tr><th>Prova</th><th>Esito atteso</th><th>Evidenza</th></tr></thead>
+                    <tbody>
+                        <tr><td>Fonte esistente che non sostiene il claim</td><td>Correzione o sospensione</td><td>Passaggio confrontato e decisione</td></tr>
+                        <tr><td>Fonte superata dopo la bozza</td><td>Revisione dei claim dipendenti</td><td>Versioni e posizioni coinvolte</td></tr>
+                        <tr><td>Corpo corretto, promessa errata nella description</td><td>Rilascio fermato</td><td>Differenza individuata nei metadata</td></tr>
+                        <tr><td>Autore o revisore non confermato</td><td>Nessuna attribuzione inventata</td><td>Identità e stato effettivi</td></tr>
+                        <tr><td>Modifica significativa dopo approvazione</td><td>Nuova decisione richiesta</td><td>R2 approvata distinta da R3</td></tr>
+                        <tr><td>Utente abilitato solo alle bozze</td><td>Nessuna pubblicazione consentita</td><td>Permesso e operazione bloccata</td></tr>
+                        <tr><td>Programmazione futura</td><td>Nessuna dichiarazione di pagina già pubblica</td><td>Stato e orario della destinazione</td></tr>
+                        <tr><td>Risposta persa dopo l’invio</td><td>Riconciliazione prima di ripetere</td><td>Identificativo recuperato o esito incerto</td></tr>
+                        <tr><td>CMS aggiornato, pagina pubblica precedente</td><td>Consegna ancora non verificata</td><td>Confronto con revisione attesa</td></tr>
+                        <tr><td>FAQ visibile diversa dal markup</td><td>Allineamento prima della chiusura</td><td>Entrambe le versioni controllate</td></tr>
+                        <tr><td>Tabella o registro copiabile danneggiato</td><td>Correzione della resa</td><td>Contenuto e copia verificati</td></tr>
+                        <tr><td>Test live positivo, indice non verificato</td><td>Stati mantenuti distinti</td><td>Tipo e data di ogni controllo</td></tr>
+                    </tbody>
+                </table>
+                <p>Per ogni prova registra atteso, osservato, differenza, responsabile e riprova. L’approvazione del pilot richiede anche di sapere chi interviene quando il flusso si ferma, senza attribuire all’AI l’autorità di pubblicare oltre i permessi assegnati.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="misura-pagine-accettate-e-fatti-corretti-poi-osserva-la-dist">Misura pagine accettate e fatti corretti, poi osserva la distribuzione</h2>
+                <p>Misura pagine accettate su pagine valutate, tempo di revisione, correzioni dopo il rilascio ed errori materiali. Specifica campione, periodo e criteri: «zero errori» su una prova facile non descrive tutto il processo. Per includere lavoro umano, tentativi ed esiti scartati usa la <a href="articolo-costi-automazione-guida.html#scheda-costo-pilota">scheda del costo pilota</a>.</p>
+                <p>Assegna anche la manutenzione: chi riceve la segnalazione quando una fonte cambia, viene ritirata o non è più accessibile? Il registro deve permettere di trovare le pagine e le affermazioni coinvolte. Un collegamento rotto richiede una verifica, non la sostituzione automatica con il primo risultato simile. Registra la decisione e l’eventuale nuova revisione.</p>
+                <p>La <a href="https://support.google.com/webmasters/answer/9012289" target="_blank" rel="noopener">URL Inspection di Google</a> separa dati della versione indicizzata e test live. Il secondo non garantisce l’indicizzazione, e una richiesta di scansione non la conferma. Le <a href="https://developers.google.com/search/docs/fundamentals/ai-optimization-guide" target="_blank" rel="noopener">linee guida Google sulle funzionalità AI</a> chiariscono inoltre che l’idoneità non garantisce scansione, indicizzazione o visualizzazione.</p>
+                <p>Per valutare ciò che un assistente dice del brand, usa l’<a href="articolo-audit-accuratezza-brand-ai.html">audit di accuratezza delle risposte AI</a>; per frequenze, piattaforme e report, il <a href="articolo-monitoraggio-visibilita-ai.html">monitoraggio della visibilità</a>. Conserva queste osservazioni con le loro date. Il pacchetto pubblicato dimostra ciò che hai rilasciato; una citazione richiede una prova ulteriore nel servizio osservato.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 id="fonti">Fonti e trasparenza editoriale</h2>
+                <p>Contenuto preparato con assistenza AI e attribuito alla Redazione Niuexa. Fonti primarie consultate il 6 novembre 2026. Registri, stati e prove sono una proposta editoriale; l’esempio DEMO è interamente fittizio e non descrive un cliente o una pubblicazione realmente collaudata.</p>
+                <ul>
+                    <li><a href="https://developers.google.com/search/docs/fundamentals/using-gen-ai-content" target="_blank" rel="noopener">Google Search Central — Uso dei contenuti generati con AI</a>, revisione dei fatti e dei metadata, qualità e valore per il lettore.</li>
+                    <li><a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content" target="_blank" rel="noopener">Google Search Central — Contenuti utili e affidabili</a>, originalità, attribuzione e aggiornamenti sostanziali, senza lunghezze prestabilite.</li>
+                    <li><a href="https://developers.google.com/search/docs/appearance/structured-data/sd-policies" target="_blank" rel="noopener">Google Search Central — Regole generali dei dati strutturati</a>, corrispondenza con il contenuto visibile e limiti dei controlli automatici.</li>
+                    <li><a href="https://developers.google.com/search/docs/appearance/structured-data/article" target="_blank" rel="noopener">Google Search Central — Article e autore</a>, autore persona o organizzazione e rappresentazione corretta dell’identità.</li>
+                    <li><a href="https://developers.google.com/search/docs/appearance/publication-dates" target="_blank" rel="noopener">Google Search Central — Date di pubblicazione e aggiornamento</a>, coerenza delle date visibili e strutturate riferite alla pagina.</li>
+                    <li><a href="https://developer.wordpress.org/rest-api/reference/posts/" target="_blank" rel="noopener">WordPress REST API — Posts</a>, esempio di campi e stati del CMS; non definisce un’approvazione editoriale completa.</li>
+                    <li><a href="https://developer.wordpress.org/rest-api/reference/post-revisions/" target="_blank" rel="noopener">WordPress REST API — Post Revisions</a>, recupero delle revisioni; verificare separatamente i campi gestiti da plugin e integrazioni.</li>
+                    <li><a href="https://support.google.com/webmasters/answer/9012289" target="_blank" rel="noopener">Google Search Console — URL Inspection</a>, differenza fra dati indicizzati, test live e richiesta di indicizzazione.</li>
+                    <li><a href="https://developers.google.com/search/docs/fundamentals/ai-optimization-guide" target="_blank" rel="noopener">Google Search Central — Funzionalità AI generative</a>, valore originale, requisiti del servizio e assenza di garanzie di indicizzazione o visualizzazione.</li>
+                </ul>
+                <p>Adatta ruoli, permessi, criteri di revisione e integrazione al tuo CMS e al contenuto. I controlli proposti non garantiscono indicizzazione, citazioni o risultati commerciali.</p>
+            </section>
+
+            <section class="content-section faq-section">
+                <h2 id="faq">Domande sul workflow di pubblicazione AI</h2>
+                <div class="faq-item"><h3>Basta inserire un link per verificare un’affermazione?</h3><p>No. La fonte deve sostenere quella specifica affermazione, nello stesso ambito, versione e periodo. Un link esistente può rimandare a una pagina che non prova il fatto o che è cambiata.</p></div>
+                <div class="faq-item"><h3>Una modifica al titolo richiede una nuova approvazione?</h3><p>Se cambia il significato, la promessa o il perimetro, sì: la nuova versione deve essere riesaminata. Le correzioni puramente formali possono seguire una regola più leggera, definita e registrata prima.</p></div>
+                <div class="faq-item"><h3>Il CMS indica publish: la pagina è verificata?</h3><p>È una conferma dello stato nel CMS. Verifica anche l’URL pubblico, il contenuto effettivamente restituito e i metadata: cache, template e configurazioni possono produrre un risultato diverso.</p></div>
+                <div class="faq-item"><h3>Un test live positivo di Search Console prova l’indicizzazione?</h3><p>No. Il test live verifica l’accessibilità e alcune condizioni della pagina corrente; non garantisce l’inclusione nell’indice. Anche una pagina indicizzata non ha citazioni AI garantite.</p></div>
+                <div class="faq-item"><h3>I dati strutturati validi bastano per rendere affidabile il testo?</h3><p>No. La validazione sintattica non dimostra la verità delle affermazioni. Il markup deve rappresentare il contenuto visibile e rispettare le regole applicabili alla funzionalità.</p></div>
+            </section>
+
+            <section class="content-section"><h2 id="approfondimenti">Approfondimenti correlati</h2><div class="related-articles">
+                <a href="articolo-migliori-strumenti-ai-seo.html" class="related-card"><span class="related-category">Strumenti</span><h3>Scegliere gli strumenti per il processo editoriale</h3></a>
+                <a href="articolo-fonte-unica-assistenti-ai.html" class="related-card"><span class="related-category">Fonti</span><h3>Identificare documenti autorevoli e responsabilità</h3></a>
+                <a href="articolo-tool-agenti-ai.html#registro-workflow" class="related-card"><span class="related-category">Agenti AI</span><h3>Tracciare proposta, tentativo ed esito</h3></a>
+                <a href="articolo-audit-accuratezza-brand-ai.html" class="related-card"><span class="related-category">Accuratezza</span><h3>Verificare i fatti sul brand nelle risposte AI</h3></a>
+                <a href="articolo-costi-automazione-guida.html#scheda-costo-pilota" class="related-card"><span class="related-category">Costi</span><h3>Misurare il costo per esito accettato del pilot</h3></a>
+            </div></section>
+        </div></div></article>
+
+        <section class="cta-section"><div class="container"><h2 id="cta">Dove si perde il controllo della tua pubblicazione?</h2><p>Porta un esempio di contenuto e il percorso che segue fino al sito. Nella prima chiamata gratuita di 30 minuti definiamo il passaggio da approfondire e le prove necessarie per valutarlo.</p><a href="/#contact" class="btn btn-primary">Raccontaci il processo</a><a href="consulting.html" class="btn btn-secondary" style="margin-left:15px;">Come lavoriamo</a></div></section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="includes/includes.js?v=2026102902"></script>
+    <script src="tutorial.js"></script>
+    <script src="cookie-banner.js?v=2026102701"></script>
+</body>
+</html>
