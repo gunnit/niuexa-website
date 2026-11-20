@@ -1,0 +1,9 @@
+claim,scope,source,checked_at,status,limits
+"Via Rutilia 10, 20141 Milano",ufficio-milano,https://niuexa.ai/contatti.html + owner confirmation in task,2026-11-20,approved,"No invented directions, parking, transit or walk-in availability"
+"Via Vittorio Andreis 18, 10152 Torino",sede-torino,https://niuexa.ai/contatti.html + owner confirmation in task,2026-11-20,approved,"No invented directions, parking, transit or walk-in availability"
++39 351 643 6038; Monday-Friday 09:00-18:00,Both offices,Owner-approved Google Business facts supplied in task; saved profiles rechecked 2026-11-19,2026-11-20,approved,Existing website had no conflicting business phone; customer phone placeholders are form examples
+Free initial 30-minute call; response within 24 working hours,Consultation CTA,https://niuexa.ai/contatti.html,2026-11-20,public verified,Request schedules a later call; no instant booking promise
+Public office photographs,Both offices,Existing contatti.html assets: img/ufficio-milano-1600.jpg and img/ufficio-torino-1600.jpg,2026-11-20,public verified,No claim that photographed people are NIUEXA staff
+"AI Executive Mastery, Prompt Engineering, AI Agent Developer",Milano training,https://niuexa.ai/training.html,2026-11-20,public verified,Dates and scope agreed with company; no new outcomes or client claims
+"AEO Analyzer, ChatAziendale, Keel",Public product overview,https://niuexa.ai/products.html + existing product pages,2026-11-20,public verified,"Demo preparation only; no guaranteed ranking, ROI or customer results"
+"CTA, provider-confirmed form submission, consent-aware UTM attribution",Measurement,conversion-tracking.js + existing tests on origin/master b0ed08a,2026-11-20,existing behavior reused,GA collection and qualified lead CRM status require account/backend verification; browser cannot qualify a lead
