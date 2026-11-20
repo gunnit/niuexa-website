@@ -95,6 +95,8 @@ const footerHTML = `
                         <li><a href="/chi-siamo.html">Chi Siamo</a></li>
                         <li><a href="/riconoscimenti.html">Riconoscimenti</a></li>
                         <li><a href="/contatti.html">Contatti</a></li>
+                        <li><a href="/ufficio-milano.html">Ufficio di Milano</a></li>
+                        <li><a href="/sede-torino.html">Sede di Torino</a></li>
                         <li><a href="/#contact">Raccontaci la tua esigenza</a></li>
                     </ul>
                 </div>
