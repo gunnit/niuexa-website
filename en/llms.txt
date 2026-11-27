@@ -18,6 +18,7 @@
   marketing and customer service, with human approval on critical steps.
 
 ## Resources
+- [Italian video courses on Copilot, Gemini and Claude](https://niuexa.ai/corsi-ai-in-pratica.html) by Gregor Maric, with chapter links, slides and exercises.
 - [Learn](https://niuexa.ai/en/learn.html): Practical tutorials and guides
 - [Events](https://niuexa.ai/en/events.html): Niuexa evenings on AI in business in Milan (in Italian)
 - [AI-readiness analysis](https://niuexa.ai/en/ai-readiness-tool.html): Free check of whether AI assistants can find and cite your site

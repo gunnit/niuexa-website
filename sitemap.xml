@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://niuexa.ai/</loc>
     <lastmod>2026-10-28</lastmod>
@@ -448,11 +448,32 @@
   </url>
   <url>
     <loc>https://niuexa.ai/corso-claude-in-pratica.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://niuexa.ai/assets/corsi-in-pratica/claude-video.jpg</video:thumbnail_loc>
+      <video:title>Claude al lavoro | Scrivi una mail difficile e crea il tuo primo progetto</video:title>
+      <video:description>Scrivi una mail di ritardo con Claude, confronta le bozze e conserva le istruzioni in un progetto. Corso video in italiano con esempi e 36 slide.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/lUNumvHEwOw</video:player_loc>
+      <video:publication_date>2026-11-27T04:03:58-08:00</video:publication_date>
+    </video:video>
   </url>
   <url>
     <loc>https://niuexa.ai/corso-gemini-in-pratica.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://niuexa.ai/assets/corsi-in-pratica/gemini-video.jpg</video:thumbnail_loc>
+      <video:title>Google Gemini al lavoro | Crea un Gem per i preventivi e verifica le fonti</video:title>
+      <video:description>Impara a preparare un preventivo con un Gem, verificare le fonti in un notebook e scrivere un prompt in quattro parti. Video in italiano e 37 slide.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/8iURM74cl-0</video:player_loc>
+      <video:publication_date>2026-11-27T04:50:32-08:00</video:publication_date>
+    </video:video>
   </url>
   <url>
     <loc>https://niuexa.ai/corso-copilot-in-pratica.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://niuexa.ai/assets/corsi-in-pratica/copilot-video.jpg</video:thumbnail_loc>
+      <video:title>Microsoft Copilot al lavoro | Dal report del lunedì all’automazione</video:title>
+      <video:description>Prova un report settimanale con Microsoft Copilot, verifica i dati e scopri quando usare una skill o un agente. Corso in italiano con 38 slide.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/xoIk1w_VtcY</video:player_loc>
+      <video:publication_date>2026-11-27T04:07:10-08:00</video:publication_date>
+    </video:video>
   </url>
 </urlset>

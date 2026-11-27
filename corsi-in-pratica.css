@@ -135,8 +135,8 @@ p { margin: 0; }
 .video-links { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; }
 
 .youtube-course { margin-block: 16px; }
-.youtube-course button { display: block; position: relative; width: 100%; padding: 0; overflow: hidden; color: #fff; background: var(--night); border: 0; border-radius: 8px; cursor: pointer; font: inherit; }
-.youtube-course button[hidden] { display: none; }
-.youtube-course img { display: block; width: 100%; height: auto; }
-.youtube-course span { display: block; padding: 10px 15px; background: var(--night); font-weight: 650; }
-.youtube-course iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 8px; }
+.youtube-course iframe { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border: 0; border-radius: 8px; }
+.course-preview { display: grid; position: absolute; inset: 0; place-items: end center; overflow: hidden; background: var(--night); color: white; text-decoration: none; }
+.course-preview img { position: absolute; width: 100%; height: 100%; object-fit: contain; }
+.course-preview span { position: relative; margin: .6rem; padding: .35rem 1rem; border-radius: 4px; background: var(--night); font-weight: 650; }
+.course-preview:focus-visible { outline-offset: -4px; }

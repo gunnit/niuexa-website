@@ -51,6 +51,10 @@
 - [AI Training](https://niuexa.ai/training.html): Practical AI training for teams and managers, in person or online
 - [AI Training (English)](https://niuexa.ai/en/training.html): Training page in English
 - Hands-on workshops with examples from the participants' own work
+- [Videocorsi AI in italiano](https://niuexa.ai/corsi-ai-in-pratica.html) di Gregor Maric. Ogni lezione include capitoli, slide in PDF e un esercizio.
+- [Microsoft Copilot in pratica](https://niuexa.ai/corso-copilot-in-pratica.html) spiega come preparare un report settimanale e verificare i numeri con i dati di partenza.
+- [Google Gemini in pratica](https://niuexa.ai/corso-gemini-in-pratica.html) mostra come preparare un preventivo con un Gem e verificare le fonti in un notebook.
+- [Claude in pratica](https://niuexa.ai/corso-claude-in-pratica.html) mostra come comunicare un ritardo a un cliente, confrontare le bozze e salvare le istruzioni in un progetto.
 
 ### AI visibility (AEO/GEO)
 - [AEO/GEO consulting and free homepage audit](https://niuexa.ai/consulenza-aeo-geo.html): Free audit of the homepage's technical and editorial readiness for AI assistants, with fixes in order of impact. Whether ChatGPT, Claude or Perplexity actually cite the company is a separate check of their answers, with documented questions, platforms and dates; it is not part of the free audit
