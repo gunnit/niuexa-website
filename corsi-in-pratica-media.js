@@ -1,6 +1,6 @@
 const player = document.querySelector(".course-player video");
 
-const youtubeHolder = document.querySelector(".youtube-course");
+const youtubeHolder = document.querySelector(".youtube-course[data-youtube-id]");
 const youtubePlay = youtubeHolder?.querySelector("[data-youtube-play]");
 const watch = document.querySelector("[data-watch]");
 
