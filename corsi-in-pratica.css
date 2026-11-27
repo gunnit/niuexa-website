@@ -131,3 +131,12 @@ p { margin: 0; }
 .course-article p + p { margin-top: .9em; }
 .course-article header p:last-child { color: var(--secondary); font-size: .93rem; }
 .course-article blockquote { margin: 1.2em 0; padding: 12px 20px; border-left: 3px solid #1f7479; background: #eff6f7; }
+
+.video-links { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; }
+
+.youtube-course { margin-block: 16px; }
+.youtube-course button { display: block; position: relative; width: 100%; padding: 0; overflow: hidden; color: #fff; background: var(--night); border: 0; border-radius: 8px; cursor: pointer; font: inherit; }
+.youtube-course button[hidden] { display: none; }
+.youtube-course img { display: block; width: 100%; height: auto; }
+.youtube-course span { display: block; padding: 10px 15px; background: var(--night); font-weight: 650; }
+.youtube-course iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 8px; }
