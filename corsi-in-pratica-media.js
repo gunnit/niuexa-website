@@ -46,7 +46,7 @@ function seekToChapter(url, shouldPlay) {
 
 document.querySelector(".course-chapters")?.addEventListener("click", event => {
   const link = event.target.closest("a");
-  if (!link || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  if ((!player && !youtubeHolder) || !link || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
   event.preventDefault();
   const url = new URL(link.dataset.videoTime ? location.href : link.href);
   if (link.dataset.videoTime) {
